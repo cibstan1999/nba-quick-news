@@ -9,7 +9,12 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-01T08:18:23.900Z",
+  "updatedAt": "2026-07-01T08:25:31.261Z",
+  "lastFetchStatus": {
+    "status": "rebuilt-from-cache",
+    "checkedAt": "2026-07-01T08:25:46.710Z",
+    "message": "Rebuilt derived news fields from the existing local JSON cache."
+  },
   "highlights": [
     {
       "id": "https://sports.yahoo.com/articles/76ers-agree-39-million-4-031913581.html",
@@ -1148,11 +1153,5 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约"
     }
-  ],
-  "lastFetchStatus": {
-    "status": "error",
-    "checkedAt": "2026-07-01T08:18:23.900Z",
-    "message": "RSS fetch failed. Kept existing news items and updated fetch status.",
-    "error": "No RSS items were fetched from any source."
-  }
+  ]
 }

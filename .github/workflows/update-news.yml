@@ -33,6 +33,10 @@ jobs:
       - name: Fetch NBA RSS feeds
         run: npm run fetch
 
+      - name: Print fetch status
+        run: |
+          node -e "const data = require('./public/data/news.json'); console.log(JSON.stringify({ updatedAt: data.updatedAt, lastFetchStatus: data.lastFetchStatus, count: data.items?.length, top: data.items?.slice(0, 5).map((item) => ({ source: item.source, title: item.title, pubDate: item.pubDate })) }, null, 2));"
+
       - name: Commit updated news
         run: |
           if git diff --quiet -- public/data/news.json; then

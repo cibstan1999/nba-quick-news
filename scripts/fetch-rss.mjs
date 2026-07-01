@@ -21,6 +21,15 @@ const parser = new XMLParser({
   trimValues: true
 });
 
+const FETCH_HEADERS = {
+  Accept: 'application/rss+xml, application/xml, text/xml, */*',
+  'Accept-Language': 'en-US,en;q=0.9',
+  'Cache-Control': 'no-cache',
+  Pragma: 'no-cache',
+  'User-Agent':
+    'Mozilla/5.0 (compatible; NBAQuickNews/0.1; +https://github.com/cibstan1999/nba-quick-news)'
+};
+
 const teamNames = new Map([
   ['Atlanta Hawks', '亚特兰大老鹰'],
   ['Hawks', '老鹰'],
@@ -755,11 +764,35 @@ async function rebuildFromExistingFeed() {
   console.log(`Rebuilt ${items.length} cached stories in ${path.relative(rootDir, outputPath)}`);
 }
 
-async function fetchFeed(feedUrl) {
-  const response = await fetch(feedUrl, {
-    headers: {
-      'User-Agent': 'nba-quick-news/0.1 (+https://github.com/)'
+async function fetchWithRetry(url, options = {}, retries = 3) {
+  let lastError;
+
+  for (let attempt = 1; attempt <= retries; attempt += 1) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 20000);
+
+    try {
+      const response = await fetch(url, {
+        ...options,
+        signal: controller.signal
+      });
+      clearTimeout(timeout);
+      return response;
+    } catch (error) {
+      clearTimeout(timeout);
+      lastError = error;
+      if (attempt < retries) {
+        await new Promise((resolve) => setTimeout(resolve, attempt * 1000));
+      }
     }
+  }
+
+  throw lastError;
+}
+
+async function fetchFeed(feedUrl) {
+  const response = await fetchWithRetry(feedUrl, {
+    headers: FETCH_HEADERS
   });
 
   if (!response.ok) {
@@ -953,7 +986,33 @@ async function main() {
     const items = dedupeAndSort(feedResults.flatMap((result) => result.items));
 
     if (!items.length) {
-      throw new Error('No RSS items were fetched from any source.');
+      const existingPayload = parseExistingPayload(existingFeed);
+      if (existingPayload === null) {
+        throw new Error('No RSS items were fetched from any source.');
+      }
+
+      const checkedAt = new Date().toISOString();
+      const failedFeedDetails = failedFeeds.map((result) => ({
+        source: result.feedConfig.source,
+        feed: result.feedConfig.feed,
+        error: result.error instanceof Error ? result.error.message : String(result.error),
+        cause: result.error?.cause ? String(result.error.cause) : undefined
+      }));
+      const payload = {
+        ...existingPayload,
+        updatedAt: checkedAt,
+        lastFetchStatus: {
+          status: 'error',
+          checkedAt,
+          message: 'All RSS feeds failed or returned no usable items. Kept existing news items.',
+          fetchedItems: 0,
+          failedFeeds: failedFeedDetails
+        }
+      };
+
+      await writePayload(payload);
+      console.error('No RSS items were fetched. Kept existing news items and wrote per-feed failure details.');
+      return;
     }
 
     const payload = {
