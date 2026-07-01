@@ -42,7 +42,8 @@ function getFilteredItems() {
 
   return state.items.filter((item) => {
     const matchesCategory = state.category === '最新' || item.category === state.category;
-    const haystack = `${item.title} ${item.titleZh} ${item.summary} ${item.summaryZh} ${item.category}`.toLowerCase();
+    const haystack =
+      `${item.originalTitle} ${item.headlineZh} ${item.dekZh} ${item.summaryZh} ${item.oneLineZh} ${item.category}`.toLowerCase();
     const matchesQuery = !query || haystack.includes(query);
     return matchesCategory && matchesQuery;
   });
@@ -145,36 +146,44 @@ function renderHighlights() {
 }
 
 function renderCard(item) {
-  const titleZh = item.titleZh || item.title;
+  const headlineZh = item.headlineZh || item.titleZh || item.title;
+  const dekZh = item.dekZh || '';
   const summaryZh = item.summaryZh || item.summary || '暂无摘要。';
+  const goldenQuoteZh = item.goldenQuoteZh || '';
+  const originalTitle = item.originalTitle || item.title || '';
   const source = item.source || 'Original source';
+  const url = item.url || item.link;
+  const publishedAt = item.publishedAt || item.pubDate;
 
   return `
     <article class="news-card ${item.imageUrl ? 'has-image' : ''}">
       ${
         item.imageUrl
-          ? `<a class="thumb" href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer" aria-label="Open original image source">
+          ? `<a class="thumb" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" aria-label="Open original image source">
               <img src="${escapeHtml(item.imageUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer" />
             </a>`
           : ''
       }
       <div class="card-body">
         <div class="card-topline">
-          <time datetime="${escapeHtml(item.pubDate || '')}">${escapeHtml(formatDate(item.pubDate))}</time>
+          <time datetime="${escapeHtml(publishedAt || '')}">${escapeHtml(formatDate(publishedAt))}</time>
         </div>
-        <h2><a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(titleZh)}</a></h2>
+        <h2><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(headlineZh)}</a></h2>
+        ${dekZh ? `<p class="dek">${escapeHtml(dekZh)}</p>` : ''}
         <p class="summary">${escapeHtml(summaryZh)}</p>
+        ${goldenQuoteZh ? `<blockquote class="golden-quote">${escapeHtml(goldenQuoteZh)}</blockquote>` : ''}
         <div class="card-tags">
           <span class="pill">${escapeHtml(item.category || '其他')}</span>
           ${item.isMerged ? '<span class="merged-note">多源报道</span>' : ''}
+          ${item.importance ? `<span class="importance">重要度 ${escapeHtml(item.importance)}</span>` : ''}
         </div>
         <details class="original-title">
           <summary>英文原题</summary>
-          <p>${escapeHtml(item.title)}</p>
+          <p>${escapeHtml(originalTitle)}</p>
         </details>
         <div class="card-footer">
           <span>${escapeHtml(source)} 原文${item.imageUrl ? ' / 图片预览来自原站元数据' : ''}</span>
-          <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">查看原文</a>
+          <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">查看原文</a>
         </div>
       </div>
     </article>

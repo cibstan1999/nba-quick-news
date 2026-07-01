@@ -156,6 +156,40 @@ function safeTitle(titleZh, originalTitle) {
   return hasMachineEnglish(cleaned) ? stripSourcePhrases(originalTitle) : cleaned;
 }
 
+function normalizeComparableText(value = '') {
+  return String(value)
+    .toLowerCase()
+    .replace(/https?:\/\/\S+/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, '')
+    .trim();
+}
+
+function isHighlySimilarText(a = '', b = '') {
+  const left = normalizeComparableText(a);
+  const right = normalizeComparableText(b);
+  if (!left || !right) return false;
+  if (left === right) return true;
+
+  const shorter = left.length < right.length ? left : right;
+  const longer = left.length < right.length ? right : left;
+  return shorter.length >= 12 && longer.includes(shorter);
+}
+
+function stripLeadingAttribution(value = '') {
+  return String(value).replace(/^据\s+.+?\s+报道，/, '').trim();
+}
+
+function stripTrailingPunctuation(value = '') {
+  return String(value).replace(/[。.!?！？]+$/g, '').trim();
+}
+
+function cleanDek(headlineZh = '', candidate = '') {
+  const cleaned = normalizeSpacing(stripTrailingPunctuation(candidate));
+  if (!cleaned) return '';
+  if (isHighlySimilarText(cleaned, headlineZh)) return '';
+  return cleaned;
+}
+
 function localizeCommonTerms(value = '') {
   let text = value;
 
@@ -642,6 +676,120 @@ function getRssImageUrl(item = {}, link = '') {
   }
 }
 
+async function extractArticleText(url) {
+  if (process.env.JINA_READER_ENABLED !== 'true' || !url) {
+    return '';
+  }
+
+  try {
+    const targetUrl = `https://r.jina.ai/http://${url.replace(/^https?:\/\//i, '')}`;
+    const response = await fetchWithRetry(targetUrl, {
+      headers: {
+        ...FETCH_HEADERS,
+        Accept: 'text/plain, text/markdown, */*'
+      }
+    }, 2);
+
+    if (!response.ok) {
+      console.warn(`Jina Reader failed for ${url}: ${response.status} ${response.statusText}`);
+      return '';
+    }
+
+    const text = stripHtml(await response.text()).slice(0, 6000);
+    return text;
+  } catch (error) {
+    console.warn(`Jina Reader warning for ${url}: ${error instanceof Error ? error.message : error}`);
+    return '';
+  }
+}
+
+function getSummarizePrompt({ title, description, url, articleText }) {
+  return `
+你是一名中文 NBA 新闻编辑。请基于英文标题、RSS 描述和可选正文，生成适合中文用户快速阅读的结构化内容。
+
+要求：
+- headlineZh 不要逐词翻译，要像中文体育新闻标题。
+- dekZh 是副标题，一句话补充 headlineZh，不能重复 headlineZh。
+- summaryZh 用 1 到 2 句说明真实信息量，包括谁、球队、合同、伤病、影响等。
+- oneLineZh 是一句话快讯。
+- goldenQuoteZh 可为空；如果写，必须基于原文事实，不要编造。
+- 球员名可以保留英文；球队名可中文化。
+- 不要出现 considered / expected / with / to 等夹生英文动词介词。
+- 原文信息不足时保守处理，不要瞎编。
+
+输出严格 JSON：
+{
+  "headlineZh": "",
+  "dekZh": "",
+  "summaryZh": "",
+  "oneLineZh": "",
+  "goldenQuoteZh": "",
+  "category": "",
+  "importance": 1
+}
+
+英文标题：${title}
+RSS 描述：${description}
+原文 URL：${url}
+正文摘录：${articleText || ''}
+`.trim();
+}
+
+function scoreImportance({ title = '', summary = '', category = '其他', isMerged = false }) {
+  const text = `${title} ${summary}`.toLowerCase();
+  let score = 1;
+  if (['签约', '交易', '伤病', '选秀'].includes(category)) score += 1;
+  if (/(lebron|durant|curry|harden|kawhi|doncic|giannis|brown|lakers|warriors|celtics|suns|knicks|nets|sixers)/i.test(text)) score += 1;
+  if (/(trade|sign|deal|contract|extension|injury|draft|target|free agency|acquire|waive)/i.test(text)) score += 1;
+  if (/\$\d/.test(text)) score += 1;
+  if (isMerged) score += 1;
+  return Math.max(1, Math.min(5, score));
+}
+
+function fallbackSummarizeArticle({ title, description, url, articleText, source }) {
+  const category = classify(title, `${description} ${articleText}`);
+  const headlineZh = translateTitle(title, category);
+  const rawSummary = stripHtml(description || articleText || '');
+  const sentences = rawSummary
+    .split(/(?<=[.!?])\s+/)
+    .map((sentence) => sentence.trim())
+    .filter(Boolean)
+    .filter((sentence) => !/represented by/i.test(sentence));
+  const coreSentences = sentences
+    .slice(0, 5)
+    .map(summarizeSentence)
+    .filter(isUsefulChineseSentence)
+    .filter((sentence) => !isDuplicateOfTitle(sentence, headlineZh))
+    .slice(0, 2);
+  const leadSummary = hasMachineEnglish(headlineZh) ? `这是一条关于 ${stripSourcePhrases(title)} 的NBA动态。` : `${headlineZh}。`;
+  const summaryZh = normalizeSpacing(`据 ${source} 报道，${leadSummary}${coreSentences.join('')}`);
+  const dekCandidate = coreSentences[0] || '';
+  const dekZh = cleanDek(headlineZh, dekCandidate);
+  const oneLineZh = normalizeSpacing(headlineZh.replace(/^NBA动态：/, '').replace(/^签约动态：/, '').replace(/^交易动态：/, ''));
+
+  return {
+    headlineZh,
+    dekZh,
+    summaryZh,
+    oneLineZh,
+    goldenQuoteZh: '',
+    category,
+    importance: scoreImportance({ title, summary: rawSummary, category })
+  };
+}
+
+async function summarizeArticle(input) {
+  const prompt = getSummarizePrompt(input);
+
+  if (!process.env.OPENAI_API_KEY && !process.env.OPENROUTER_API_KEY && !process.env.GEMINI_API_KEY) {
+    return fallbackSummarizeArticle(input);
+  }
+
+  console.warn('AI summarization API key detected, but no provider integration is enabled yet. Falling back to local rules.');
+  void prompt;
+  return fallbackSummarizeArticle(input);
+}
+
 async function mapWithConcurrency(items, limit, mapper) {
   const results = new Array(items.length);
   let nextIndex = 0;
@@ -667,23 +815,38 @@ async function normalizeItem(item, index, feedConfig) {
   const link = String(item.link || '').trim();
   const pubDate = item.pubDate ? new Date(item.pubDate).toISOString() : new Date().toISOString();
   const summary = stripHtml(item.description);
-  const category = classify(title, summary);
-  const chinese = buildChineseSummary(title, summary, category, feedConfig.source);
+  const articleText = await extractArticleText(link);
+  const structured = await summarizeArticle({
+    title,
+    description: summary,
+    url: link,
+    articleText,
+    source: feedConfig.source
+  });
+  const category = structured.category || classify(title, `${summary} ${articleText}`);
   const rssImageUrl = getRssImageUrl(item, link);
 
   return {
     id: link || `${title}-${index}`,
     title,
-    titleZh: chinese.titleZh,
+    originalTitle: title,
+    headlineZh: structured.headlineZh,
+    titleZh: structured.headlineZh,
     link,
+    url: link,
     pubDate,
+    publishedAt: pubDate,
     summary,
-    summaryZh: chinese.summaryZh,
-    keyPoints: chinese.keyPoints,
+    dekZh: structured.dekZh,
+    summaryZh: structured.summaryZh,
+    oneLineZh: structured.oneLineZh || structured.headlineZh,
+    goldenQuoteZh: structured.goldenQuoteZh || '',
+    keyPoints: structured.dekZh ? [structured.dekZh] : [],
     imageUrl: rssImageUrl || (await fetchArticleImage(link)),
     source: feedConfig.source,
     feed: feedConfig.feed,
-    category
+    category,
+    importance: structured.importance || scoreImportance({ title, summary, category })
   };
 }
 
@@ -718,35 +881,50 @@ async function rebuildFromExistingFeed() {
 
   const existing = JSON.parse(existingFeed);
   const sourceConfigs = Array.isArray(existing.sources) ? existing.sources : FEEDS;
-  const items = dedupeAndSort(
-    toArray(existing.items)
-      .map((item, index) => {
+  const rebuiltItems = await mapWithConcurrency(
+    toArray(existing.items),
+    6,
+    async (item, index) => {
         const title = stripHtml(item.title);
         if (!title) return null;
 
         const source = item.source?.split(' / ')[0] || 'Unknown';
         const feedConfig = sourceConfigs.find((config) => config.source === source) || { source, feed: item.feed || '' };
         const summary = stripHtml(item.summary);
-        const category = classify(title, summary);
-        const chinese = buildChineseSummary(title, summary, category, feedConfig.source);
+        const structured = await summarizeArticle({
+          title,
+          description: summary,
+          url: item.link || item.url || '',
+          articleText: '',
+          source: feedConfig.source
+        });
+        const category = structured.category || classify(title, summary);
 
         return {
           ...item,
-          id: item.link || `${title}-${index}`,
+          id: item.link || item.url || `${title}-${index}`,
           title,
-          titleZh: chinese.titleZh,
+          originalTitle: title,
+          headlineZh: structured.headlineZh,
+          titleZh: structured.headlineZh,
+          url: item.link || item.url || '',
+          publishedAt: item.pubDate || item.publishedAt || new Date().toISOString(),
           summary,
-          summaryZh: chinese.summaryZh,
-          keyPoints: chinese.keyPoints,
+          dekZh: structured.dekZh,
+          summaryZh: structured.summaryZh,
+          oneLineZh: structured.oneLineZh || structured.headlineZh,
+          goldenQuoteZh: structured.goldenQuoteZh || '',
+          keyPoints: structured.dekZh ? [structured.dekZh] : [],
           source: Array.isArray(item.sources) && item.sources.length ? item.sources.join(' / ') : item.source || feedConfig.source,
           sources: item.sources,
           feed: feedConfig.feed,
           category,
+          importance: structured.importance || scoreImportance({ title, summary, category }),
           imageUrl: item.imageUrl || ''
         };
-      })
-      .filter(Boolean)
+      }
   );
+  const items = dedupeAndSort(rebuiltItems.filter(Boolean));
 
   const payload = {
     sources: sourceConfigs,
@@ -881,9 +1059,10 @@ function mergeDuplicateGroup(group) {
 
   primary.source = sources.join(' / ');
   primary.sources = sources;
-  primary.sourceLinks = sorted.map((item) => ({ source: item.source, link: item.link }));
-  primary.originalTitles = sorted.map((item) => item.title);
+  primary.sourceLinks = sorted.map((item) => ({ source: item.source, link: item.url || item.link }));
+  primary.originalTitles = sorted.map((item) => item.originalTitle || item.title);
   primary.isMerged = true;
+  primary.importance = Math.max(...sorted.map((item) => item.importance || 1), scoreImportance(primary));
 
   const detailItem = sorted
     .filter((item) => item.summaryZh)
@@ -891,6 +1070,8 @@ function mergeDuplicateGroup(group) {
   if (detailItem && detailItem.summaryZh.length > primary.summaryZh.length) {
     primary.summaryZh = detailItem.summaryZh;
     primary.keyPoints = detailItem.keyPoints;
+    primary.dekZh = detailItem.dekZh;
+    primary.goldenQuoteZh = detailItem.goldenQuoteZh;
   }
 
   return primary;
@@ -923,7 +1104,7 @@ function dedupeAndSort(items) {
 
 function scoreHighlight(item) {
   const text = `${item.title} ${item.titleZh} ${item.summary}`.toLowerCase();
-  let score = 0;
+  let score = item.importance || 0;
   if (['签约', '交易', '伤病', '选秀'].includes(item.category)) score += 5;
   if (/(lebron|kawhi|harden|doncic|brown|lakers|warriors|celtics|suns|nets|sixers|bucks|heat|cavaliers)/i.test(text)) score += 3;
   if (/(free agency|trade|sign|deal|contract|extension|injury|draft|target|rumor|pursuit|acquire)/i.test(text)) score += 3;
@@ -933,7 +1114,7 @@ function scoreHighlight(item) {
 }
 
 function toHighlightText(item) {
-  return normalizeSpacing((item.titleZh || item.title).replace(/^NBA动态：/, '').replace(/^签约动态：/, '').replace(/^交易动态：/, ''));
+  return normalizeSpacing((item.oneLineZh || item.headlineZh || item.titleZh || item.title).replace(/^NBA动态：/, '').replace(/^签约动态：/, '').replace(/^交易动态：/, ''));
 }
 
 function buildHighlights(items) {

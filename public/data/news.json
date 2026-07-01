@@ -12,17 +12,10 @@
   "updatedAt": "2026-07-01T08:25:31.261Z",
   "lastFetchStatus": {
     "status": "rebuilt-from-cache",
-    "checkedAt": "2026-07-01T08:25:46.710Z",
+    "checkedAt": "2026-07-01T08:36:26.936Z",
     "message": "Rebuilt derived news fields from the existing local JSON cache."
   },
   "highlights": [
-    {
-      "id": "https://sports.yahoo.com/articles/76ers-agree-39-million-4-031913581.html",
-      "text": "76人与Dean Wade达成4年、3900万美元合同",
-      "category": "签约",
-      "source": "Yahoo Sports",
-      "link": "https://sports.yahoo.com/articles/76ers-agree-39-million-4-031913581.html"
-    },
     {
       "id": "https://sports.yahoo.com/articles/nets-signing-keon-ellis-two-022651042.html",
       "text": "篮网将签下Keon Ellis，合同为两年，1800万美元",
@@ -43,6 +36,13 @@
       "category": "交易",
       "source": "RealGM / Yahoo Sports",
       "link": "https://basketball.realgm.com/wiretap/286437/Ousmane-Dieng-Bucks-Agree-To-Three-Year-$175M-Deal"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/76ers-agree-39-million-4-031913581.html",
+      "text": "76人与Dean Wade达成4年、3900万美元合同",
+      "category": "签约",
+      "source": "Yahoo Sports",
+      "link": "https://sports.yahoo.com/articles/76ers-agree-39-million-4-031913581.html"
     },
     {
       "id": "https://sports.yahoo.com/articles/luke-kennard-leaves-lakers-two-025428892.html",
@@ -84,7 +84,15 @@
         "Zach Collins Agrees to Contract Extension With Chicago Bulls",
         "Zach Collins, Bulls Agree To Two-Year, $17M Deal"
       ],
-      "isMerged": true
+      "isMerged": true,
+      "originalTitle": "Zach Collins Agrees to Contract Extension With Chicago Bulls",
+      "headlineZh": "Zach Collins与芝加哥公牛达成续约合同",
+      "url": "https://sports.yahoo.com/articles/zach-collins-agrees-contract-extension-033632207.html",
+      "publishedAt": "2026-07-01T03:36:32.000Z",
+      "dekZh": "",
+      "oneLineZh": "Zach Collins与芝加哥公牛达成续约合同",
+      "goldenQuoteZh": "",
+      "importance": 3
     },
     {
       "id": "https://sports.yahoo.com/articles/cavs-fail-retain-starting-small-031938512.html",
@@ -98,7 +106,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/v7Pwn5iDBfsQaSfL5ctvhw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/395f421e54e8d77a00b6f22c8466e761",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Cavs fail to retain starting small forward in free agency",
+      "headlineZh": "骑士在自由市场未能留住首发小前锋",
+      "url": "https://sports.yahoo.com/articles/cavs-fail-retain-starting-small-031938512.html",
+      "publishedAt": "2026-07-01T03:19:38.000Z",
+      "dekZh": "",
+      "oneLineZh": "骑士在自由市场未能留住首发小前锋",
+      "goldenQuoteZh": "",
+      "importance": 3
     },
     {
       "id": "https://sports.yahoo.com/articles/76ers-agree-39-million-4-031913581.html",
@@ -130,7 +146,15 @@
         "76ers agree to a $39 million, 4-year deal with Dean Wade, AP source says",
         "Sixers agree to deal with forward Dean Wade at start of free agency"
       ],
-      "isMerged": true
+      "isMerged": true,
+      "originalTitle": "76ers agree to a $39 million, 4-year deal with Dean Wade, AP source says",
+      "headlineZh": "76人与Dean Wade达成4年、3900万美元合同",
+      "url": "https://sports.yahoo.com/articles/76ers-agree-39-million-4-031913581.html",
+      "publishedAt": "2026-07-01T03:19:13.000Z",
+      "dekZh": "",
+      "oneLineZh": "76人与Dean Wade达成4年、3900万美元合同",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://sports.yahoo.com/articles/whats-next-clippers-kawhi-leonard-031511053.html",
@@ -144,7 +168,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/zc5rU5kuASEe7EmJnZ0qRA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/b3982a16f1084d4968b0ada1e8ea6ff7",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "What's next for Clippers? What Kawhi Leonard trade means for roster",
+      "headlineZh": "快船下一步怎么走：Kawhi Leonard交易对阵容的影响",
+      "url": "https://sports.yahoo.com/articles/whats-next-clippers-kawhi-leonard-031511053.html",
+      "publishedAt": "2026-07-01T03:15:11.000Z",
+      "dekZh": "",
+      "oneLineZh": "快船下一步怎么走：Kawhi Leonard交易对阵容的影响",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286449/Lakers-Expected-To-Sign-Sandro-Mamukelashvili-Quentin-Grimes;-Continue-Pursuit-Of-Walker-Kessler",
@@ -158,7 +190,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Mamukelashvili_Sandro_tor_260116.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "Lakers Expected To Sign Sandro Mamukelashvili, Quentin Grimes; Continue Pursuit Of Walker Kessler",
+      "headlineZh": "湖人预计签下Sandro Mamukelashvili，Quentin Grimes，并继续追求Walker Kessler",
+      "url": "https://basketball.realgm.com/wiretap/286449/Lakers-Expected-To-Sign-Sandro-Mamukelashvili-Quentin-Grimes;-Continue-Pursuit-Of-Walker-Kessler",
+      "publishedAt": "2026-07-01T03:08:41.000Z",
+      "dekZh": "",
+      "oneLineZh": "湖人预计签下Sandro Mamukelashvili，Quentin Grimes，并继续追求Walker Kessler",
+      "goldenQuoteZh": "",
+      "importance": 5
     },
     {
       "id": "https://sports.yahoo.com/articles/luke-kennard-leaves-lakers-two-025428892.html",
@@ -196,7 +236,15 @@
         "Suns agree to $13 million, 2-year deal with veteran guard Luke Kennard, AP source says",
         "Luke Kennard, Suns Agree To Two-Year, $13M Deal"
       ],
-      "isMerged": true
+      "isMerged": true,
+      "originalTitle": "Luke Kennard leaves Lakers for two-year deal with Phoenix Suns",
+      "headlineZh": "Luke Kennard离开湖人，与菲尼克斯太阳签下两年合同",
+      "url": "https://sports.yahoo.com/articles/luke-kennard-leaves-lakers-two-025428892.html",
+      "publishedAt": "2026-07-01T02:54:28.000Z",
+      "dekZh": "",
+      "oneLineZh": "Luke Kennard离开湖人，与菲尼克斯太阳签下两年合同",
+      "goldenQuoteZh": "",
+      "importance": 5
     },
     {
       "id": "https://sports.yahoo.com/articles/walker-kessler-considered-lakers-top-024049197.html",
@@ -210,7 +258,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/x8cNOHQ_tJFSZAQQ4vK0rQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/0d2e4ac162c43eadc91f0cc0b74741df",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Walker Kessler considered Lakers top target in free agency",
+      "headlineZh": "湖人将Walker Kessler视为自由市场重点目标",
+      "url": "https://sports.yahoo.com/articles/walker-kessler-considered-lakers-top-024049197.html",
+      "publishedAt": "2026-07-01T02:40:49.000Z",
+      "dekZh": "",
+      "oneLineZh": "湖人将Walker Kessler视为自由市场重点目标",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://sports.yahoo.com/articles/ace-bailey-cody-williams-impart-023120234.html",
@@ -224,7 +280,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/qKWIN8DYk7YqSyoABeAWjQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/f126b0ccf344256ac5501fab38912c5d",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Ace Bailey and Cody Williams impart wisdom on the Jazz’s new Summer League star",
+      "headlineZh": "签约动态：Ace Bailey和Cody Williams impart wisdom on 爵士’s new Summer League star",
+      "url": "https://sports.yahoo.com/articles/ace-bailey-cody-williams-impart-023120234.html",
+      "publishedAt": "2026-07-01T02:31:20.000Z",
+      "dekZh": "",
+      "oneLineZh": "Ace Bailey和Cody Williams impart wisdom on 爵士’s new Summer League star",
+      "goldenQuoteZh": "",
+      "importance": 3
     },
     {
       "id": "https://sports.yahoo.com/articles/nets-signing-keon-ellis-two-022651042.html",
@@ -257,7 +321,15 @@
         "Nets signing Keon Ellis to two year, $18 million deal",
         "Keon Ellis, Nets Agree To Two-Year, $18M Deal"
       ],
-      "isMerged": true
+      "isMerged": true,
+      "originalTitle": "Nets signing Keon Ellis to two year, $18 million deal",
+      "headlineZh": "篮网将签下Keon Ellis，合同为两年，1800万美元",
+      "url": "https://sports.yahoo.com/articles/nets-signing-keon-ellis-two-022651042.html",
+      "publishedAt": "2026-07-01T02:26:51.000Z",
+      "dekZh": "",
+      "oneLineZh": "篮网将签下Keon Ellis，合同为两年，1800万美元",
+      "goldenQuoteZh": "",
+      "importance": 5
     },
     {
       "id": "https://sports.yahoo.com/articles/wizards-not-interested-trading-anthony-020516927.html",
@@ -271,7 +343,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/2XjCTTQZxXVs6O94AiJa7Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTM7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/78fc4599bf01cd9fce06b44c575235c8",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "The Wizards are not interested in trading Anthony Davis, according to report",
+      "headlineZh": "奇才无意交易Anthony Davis",
+      "url": "https://sports.yahoo.com/articles/wizards-not-interested-trading-anthony-020516927.html",
+      "publishedAt": "2026-07-01T02:05:16.000Z",
+      "dekZh": "",
+      "oneLineZh": "奇才无意交易Anthony Davis",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://sports.yahoo.com/articles/lakers-believed-likely-secure-deals-020456902.html",
@@ -285,7 +365,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/E1GvU3f6TX.A4CVBcAGzUQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/93cc7216513d7d5dc2109ad3d29160a5",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Lakers believed to likely secure deals with Quentin Grimes, Sandro Mamukelashvili",
+      "headlineZh": "湖人有望签下Quentin Grimes，Sandro Mamukelashvili",
+      "url": "https://sports.yahoo.com/articles/lakers-believed-likely-secure-deals-020456902.html",
+      "publishedAt": "2026-07-01T02:04:56.000Z",
+      "dekZh": "",
+      "oneLineZh": "湖人有望签下Quentin Grimes，Sandro Mamukelashvili",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://sports.yahoo.com/articles/wizards-named-east-group-c-020345477.html",
@@ -296,12 +384,20 @@
       "summary": "The Washington Wizards are in East Group C for next season’s NBA Cup, the NBA announced Tuesday. They’ll play the following opponents during group play: @ Atlanta Hawks@ Chicago Bullsvs. Boston Celticsvs. Charlotte Hornets Washington is 1-11 across the first three seasons of the NBA Cup. Their lone win came last November in a 132-113 […]",
       "summaryZh": "据 Yahoo Sports 报道，奇才被分入2026-27NBA杯East Group C。波士顿凯尔特人vs.",
       "keyPoints": [
-        "波士顿凯尔特人vs."
+        "波士顿凯尔特人vs"
       ],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/9zkAbkxWyyk_4T0qx0P2bg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/a8ffa6bc4c751ac95a2470b931685edd",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他"
+      "category": "其他",
+      "originalTitle": "Wizards named to East Group C for 2026-27 NBA Cup",
+      "headlineZh": "奇才被分入2026-27NBA杯East Group C",
+      "url": "https://sports.yahoo.com/articles/wizards-named-east-group-c-020345477.html",
+      "publishedAt": "2026-07-01T02:03:45.000Z",
+      "dekZh": "波士顿凯尔特人vs",
+      "oneLineZh": "奇才被分入2026-27NBA杯East Group C",
+      "goldenQuoteZh": "",
+      "importance": 2
     },
     {
       "id": "https://sports.yahoo.com/articles/cavs-lose-defensive-guard-brooklyn-015626915.html",
@@ -315,7 +411,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/DiEJIq7oKqbYLRpbAIzseA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/8cf926ff89075aeae37a9794008759a0",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "The Cavs lose defensive guard to the Brooklyn Nets",
+      "headlineZh": "骑士失去防守型后卫，球员转投布鲁克林篮网",
+      "url": "https://sports.yahoo.com/articles/cavs-lose-defensive-guard-brooklyn-015626915.html",
+      "publishedAt": "2026-07-01T01:56:26.000Z",
+      "dekZh": "",
+      "oneLineZh": "骑士失去防守型后卫，球员转投布鲁克林篮网",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://sports.yahoo.com/articles/suns-add-elite-shooting-luke-015230901.html",
@@ -329,7 +433,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/UwOG9SeBdbrFIqE9VWElgQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/177a8687c2178af777e4b85d0e7ac506",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Suns add elite shooting with Luke Kennard signing",
+      "headlineZh": "太阳签下Luke Kennard，补强外线投射",
+      "url": "https://sports.yahoo.com/articles/suns-add-elite-shooting-luke-015230901.html",
+      "publishedAt": "2026-07-01T01:52:30.000Z",
+      "dekZh": "",
+      "oneLineZh": "太阳签下Luke Kennard，补强外线投射",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://sports.yahoo.com/articles/basketball-superstar-james-leave-la-181522336.html",
@@ -343,7 +455,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/K.GjkALLy60jfMT8FOCXCA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/bbc_us_articles_995/39e0935f4e50f1b30bada35b0f8cd2b2",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他"
+      "category": "其他",
+      "originalTitle": "Basketball superstar James to leave LA Lakers",
+      "headlineZh": "James将离开洛杉矶湖人",
+      "url": "https://sports.yahoo.com/articles/basketball-superstar-james-leave-la-181522336.html",
+      "publishedAt": "2026-07-01T01:34:54.000Z",
+      "dekZh": "",
+      "oneLineZh": "James将离开洛杉矶湖人",
+      "goldenQuoteZh": "",
+      "importance": 3
     },
     {
       "id": "https://sports.yahoo.com/articles/jalen-brunson-nba-champion-013300366.html",
@@ -357,7 +477,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/lrSyRi9aAUR_042H904MLw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDE7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/8e57c2230d158ba18bf908cb6d4cd0e3",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他"
+      "category": "其他",
+      "originalTitle": "Jalen Brunson, NBA Champion",
+      "headlineZh": "NBA动态：Jalen Brunson，NBA Champion",
+      "url": "https://sports.yahoo.com/articles/jalen-brunson-nba-champion-013300366.html",
+      "publishedAt": "2026-07-01T01:33:00.000Z",
+      "dekZh": "",
+      "oneLineZh": "Jalen Brunson，NBA Champion",
+      "goldenQuoteZh": "",
+      "importance": 1
     },
     {
       "id": "https://sports.yahoo.com/articles/warriors-rival-clippers-continue-teardown-011704759.html",
@@ -371,7 +499,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/T0IgvwnpGLDTLpvdLRO61A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MTA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/a4576533b703a1e3de43665109296208",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "Warriors rival Clippers continue teardown with Kawhi Leonard trade",
+      "headlineZh": "快船交易Kawhi Leonard后继续调整阵容",
+      "url": "https://sports.yahoo.com/articles/warriors-rival-clippers-continue-teardown-011704759.html",
+      "publishedAt": "2026-07-01T01:17:04.000Z",
+      "dekZh": "",
+      "oneLineZh": "快船交易Kawhi Leonard后继续调整阵容",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://sports.yahoo.com/articles/warriors-know-exactly-lebron-meant-005623922.html",
@@ -385,7 +521,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/K2GLbkhp4EWIwnMfFOsccg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTE7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/e257a678086f26b7a7f679cc3e0f3dd7",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他"
+      "category": "其他",
+      "originalTitle": "The Warriors know exactly what LeBron meant to the Lakers",
+      "headlineZh": "勇士清楚勒布朗对湖人的意义",
+      "url": "https://sports.yahoo.com/articles/warriors-know-exactly-lebron-meant-005623922.html",
+      "publishedAt": "2026-07-01T00:56:23.000Z",
+      "dekZh": "",
+      "oneLineZh": "勇士清楚勒布朗对湖人的意义",
+      "goldenQuoteZh": "",
+      "importance": 2
     },
     {
       "id": "https://sports.yahoo.com/articles/podcast-prophecy-steph-lebron-next-004649282.html",
@@ -399,7 +543,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/cuhvBT8h7p8JcK2_bdr1Pw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05NjA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/9d10ea96c6f40bb5c643afc1283a9c72",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他"
+      "category": "其他",
+      "originalTitle": "A Podcast Prophecy? Steph, LeBron, and the Next NBA Duo",
+      "headlineZh": "NBA动态：Podcast Prophecy? Steph，LeBron，和 Next NBA Duo",
+      "url": "https://sports.yahoo.com/articles/podcast-prophecy-steph-lebron-next-004649282.html",
+      "publishedAt": "2026-07-01T00:46:49.000Z",
+      "dekZh": "",
+      "oneLineZh": "Podcast Prophecy? Steph，LeBron，和 Next NBA Duo",
+      "goldenQuoteZh": "",
+      "importance": 2
     },
     {
       "id": "https://sports.yahoo.com/articles/walker-kessler-high-price-tag-003750211.html",
@@ -413,7 +565,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Z2NrQlNtIx49WeDzJYAqjQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03Njg7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/b17ddd09a91df147901a1c74d7b7503d",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Walker Kessler’s High Price Tag Revealed – Should Jazz Match?",
+      "headlineZh": "签约动态：Walker Kessler’s High Price Tag Revealed – Should 爵士 Match?",
+      "url": "https://sports.yahoo.com/articles/walker-kessler-high-price-tag-003750211.html",
+      "publishedAt": "2026-07-01T00:37:50.000Z",
+      "dekZh": "",
+      "oneLineZh": "Walker Kessler’s High Price Tag Revealed – Should 爵士 Match?",
+      "goldenQuoteZh": "",
+      "importance": 3
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286444/Jaylen-Brown-To-Cavaliers-With-LeBron-James-Following-Concept-Floated-By-Brian-Windhorst",
@@ -427,7 +587,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Brown_Jaylen_bos_260620.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "Jaylen Brown To Cavaliers With LeBron James Following Concept Floated By Brian Windhorst",
+      "headlineZh": "Brian Windhorst提出设想：Jaylen Brown和LeBron James前往骑士",
+      "url": "https://basketball.realgm.com/wiretap/286444/Jaylen-Brown-To-Cavaliers-With-LeBron-James-Following-Concept-Floated-By-Brian-Windhorst",
+      "publishedAt": "2026-07-01T00:29:49.000Z",
+      "dekZh": "",
+      "oneLineZh": "Brian Windhorst提出设想：Jaylen Brown和LeBron James前往骑士",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://sports.yahoo.com/articles/raptors-gave-kawhi-why-doesn-002748016.html",
@@ -441,7 +609,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/5WtlicM7O90U1rxXHsyTLA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04NDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/ddde9605a22ee0e076ebea2d73b5b7c9",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "This is what the Raptors gave up for Kawhi (and why it doesn’t matter)",
+      "headlineZh": "交易动态：This is what 猛龙 gave up for Kawhi (和 why it doesn’t matter)",
+      "url": "https://sports.yahoo.com/articles/raptors-gave-kawhi-why-doesn-002748016.html",
+      "publishedAt": "2026-07-01T00:27:48.000Z",
+      "dekZh": "",
+      "oneLineZh": "This is what 猛龙 gave up for Kawhi (和 why it doesn’t matter)",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286443/NBA-Projects-Salary-Cap-Growth-To-Slow-To-55-Percent-In-2027-28-At-$174M",
@@ -455,7 +631,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Silver_Adam_nba_240331.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "其他"
+      "category": "其他",
+      "originalTitle": "NBA Projects Salary Cap Growth To Slow To 5.5 Percent In 2027-28 At $174M",
+      "headlineZh": "NBA预计2027-28赛季工资帽增速放缓至5.5%，工资帽约为17400万美元",
+      "url": "https://basketball.realgm.com/wiretap/286443/NBA-Projects-Salary-Cap-Growth-To-Slow-To-55-Percent-In-2027-28-At-$174M",
+      "publishedAt": "2026-07-01T00:20:43.000Z",
+      "dekZh": "",
+      "oneLineZh": "NBA预计2027-28赛季工资帽增速放缓至5.5%，工资帽约为17400万美元",
+      "goldenQuoteZh": "",
+      "importance": 3
     },
     {
       "id": "https://sports.yahoo.com/articles/lebron-james-latest-rumors-where-001324651.html",
@@ -469,7 +653,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/CiLEfpMfKtGpj_ygocTsWw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDQ7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/a775a4c9fe7c3c14c7ac20e6c8580f49",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "LeBron James latest rumors: Where will superstar play next season?",
+      "headlineZh": "LeBron James latest rumors: Where will superstar play next season?",
+      "url": "https://sports.yahoo.com/articles/lebron-james-latest-rumors-where-001324651.html",
+      "publishedAt": "2026-07-01T00:13:24.000Z",
+      "dekZh": "",
+      "oneLineZh": "LeBron James latest rumors: Where will superstar play next season?",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://sports.yahoo.com/articles/kelly-oubre-plans-meet-lakers-000726297.html",
@@ -483,7 +675,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/dyReJWYtawDCVF62vTCiPg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/a6c4a93d0ff4de24cad05a429644f20e",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Kelly Oubre plans to meet with Lakers in free agency",
+      "headlineZh": "Kelly Oubre计划在自由市场与湖人会面",
+      "url": "https://sports.yahoo.com/articles/kelly-oubre-plans-meet-lakers-000726297.html",
+      "publishedAt": "2026-07-01T00:07:26.000Z",
+      "dekZh": "",
+      "oneLineZh": "Kelly Oubre计划在自由市场与湖人会面",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://sports.yahoo.com/articles/tobias-harris-among-free-agents-235657827.html",
@@ -497,7 +697,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Du817fcKaEsW0W_2glK8ZQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/e9aaa4615feed44cecc29743f9aec839",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Tobias Harris among free agents Lakers have ‘mulled over internally’",
+      "headlineZh": "Tobias Harris among free agents Lakers have ‘mulled over internally’",
+      "url": "https://sports.yahoo.com/articles/tobias-harris-among-free-agents-235657827.html",
+      "publishedAt": "2026-06-30T23:56:57.000Z",
+      "dekZh": "",
+      "oneLineZh": "Tobias Harris among free agents Lakers have ‘mulled over internally’",
+      "goldenQuoteZh": "",
+      "importance": 3
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286442/Kobe-Sanders-Clippers-Agree-To-Four-Year-$112M-Deal",
@@ -508,12 +716,20 @@
       "summary": "Kobe Sanders and the Los Angeles Clippers have agreed to a four-year, $11.2 million deal in restricted free agency. The first two seasons are guaranteed and the third and fourth are non-guaranteed. Sanders is represented by Ramon Sessions . Sanders averaged 7.3 points, 2.2 rebounds and 1.6 assists in 19.9 minutes across 68 games. The Clippers converted Sanders from a two-way contract to a standard NBA contract in February.",
       "summaryZh": "据 RealGM 报道，Kobe Sanders与快船达成四年，1120万美元合同。Sanders场均7.3分，2.2篮板和1.6助攻 在19.9分钟 across 68场。",
       "keyPoints": [
-        "Sanders场均7.3分，2.2篮板和1.6助攻 在19.9分钟 across 68场。"
+        "Sanders场均7.3分，2.2篮板和1.6助攻 在19.9分钟 across 68场"
       ],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_losangelesclippers.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Kobe Sanders, Clippers Agree To Four-Year, $11.2M Deal",
+      "headlineZh": "Kobe Sanders与快船达成四年，1120万美元合同",
+      "url": "https://basketball.realgm.com/wiretap/286442/Kobe-Sanders-Clippers-Agree-To-Four-Year-$112M-Deal",
+      "publishedAt": "2026-06-30T23:45:14.000Z",
+      "dekZh": "Sanders场均7.3分，2.2篮板和1.6助攻 在19.9分钟 across 68场",
+      "oneLineZh": "Kobe Sanders与快船达成四年，1120万美元合同",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286441/Branden-Carlson-Blazers-Agree-To-One-Year-$25M-Deal",
@@ -524,12 +740,20 @@
       "summary": "Branden Carlson and the Portland Trail Blazers have agreed to a one-year, $2.5 million deal. Carlson spent the past season on a two-way contract with the Oklahoma City Thunder. In 42 games, Carlson averaged 5.8 points and 3.0 rebounds in 11.6 minutes. Carlson, 7'0, went undrafted out of Utah in 2024.",
       "summaryZh": "据 RealGM 报道，Branden Carlson与开拓者达成一年，250万美元合同。在42场，Carlson场均5.8分和3.0篮板，出场11.6分钟。",
       "keyPoints": [
-        "在42场，Carlson场均5.8分和3.0篮板，出场11.6分钟。"
+        "在42场，Carlson场均5.8分和3.0篮板，出场11.6分钟"
       ],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Carlson_Branden_okc_250123.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Branden Carlson, Blazers Agree To One-Year, $2.5M Deal",
+      "headlineZh": "Branden Carlson与开拓者达成一年，250万美元合同",
+      "url": "https://basketball.realgm.com/wiretap/286441/Branden-Carlson-Blazers-Agree-To-One-Year-$25M-Deal",
+      "publishedAt": "2026-06-30T23:37:57.000Z",
+      "dekZh": "在42场，Carlson场均5.8分和3.0篮板，出场11.6分钟",
+      "oneLineZh": "Branden Carlson与开拓者达成一年，250万美元合同",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://sports.yahoo.com/articles/tim-hardaway-jr-joining-heat-233029788.html",
@@ -562,7 +786,15 @@
         "Tim Hardaway Jr. joining Heat on $6.5 million contract as team beefs up around Giannis",
         "Tim Hardaway Jr., Heat Agree To One-Year, $6.5M Deal"
       ],
-      "isMerged": true
+      "isMerged": true,
+      "originalTitle": "Tim Hardaway Jr. joining Heat on $6.5 million contract as team beefs up around Giannis",
+      "headlineZh": "Tim Hardaway Jr.将加盟热火，合同为650万美元",
+      "url": "https://sports.yahoo.com/articles/tim-hardaway-jr-joining-heat-233029788.html",
+      "publishedAt": "2026-06-30T23:30:29.000Z",
+      "dekZh": "",
+      "oneLineZh": "Tim Hardaway Jr.将加盟热火，合同为650万美元",
+      "goldenQuoteZh": "",
+      "importance": 5
     },
     {
       "id": "https://sports.yahoo.com/articles/celtics-reacts-survey-looking-forward-232703073.html",
@@ -576,7 +808,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/tJ_Ofa4RcEjE72gwgSZnww--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xMTM5O2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/e20d8e57b2903a2103d3c83d3eb57560",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他"
+      "category": "其他",
+      "originalTitle": "Celtics Reacts Survey: who are you looking forward to seeing at Summer League?",
+      "headlineZh": "凯尔特人球迷调查：夏季联赛最期待谁的表现",
+      "url": "https://sports.yahoo.com/articles/celtics-reacts-survey-looking-forward-232703073.html",
+      "publishedAt": "2026-06-30T23:27:03.000Z",
+      "dekZh": "",
+      "oneLineZh": "凯尔特人球迷调查：夏季联赛最期待谁的表现",
+      "goldenQuoteZh": "",
+      "importance": 2
     },
     {
       "id": "https://sports.yahoo.com/articles/timberwolves-sign-bones-hyland-232242512.html",
@@ -590,7 +830,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/XsqLtixENnTzzKaw6mMViA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD01ODk7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/5cb81b9a1880dfcf9611743e8522f043",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Timberwolves Re-Sign Bones Hyland",
+      "headlineZh": "Timberwolves Re-Sign Bones Hyland",
+      "url": "https://sports.yahoo.com/articles/timberwolves-sign-bones-hyland-232242512.html",
+      "publishedAt": "2026-06-30T23:22:42.000Z",
+      "dekZh": "",
+      "oneLineZh": "Timberwolves Re-Sign Bones Hyland",
+      "goldenQuoteZh": "",
+      "importance": 3
     },
     {
       "id": "https://sports.yahoo.com/articles/kawhi-leonard-going-back-toronto-231912517.html",
@@ -604,7 +852,15 @@
       "imageUrl": "https://s.yimg.com/cv/apiv2/sports/share/PD_010626-Social_Share_GENRIC_YAHOO_SPORTS-1200x630.jpg",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "Kawhi Leonard going back to Toronto after Raptors make deal with Clippers, AP source says",
+      "headlineZh": "Kawhi Leonard将重返多伦多，猛龙与快船达成交易",
+      "url": "https://sports.yahoo.com/articles/kawhi-leonard-going-back-toronto-231912517.html",
+      "publishedAt": "2026-06-30T23:19:12.000Z",
+      "dekZh": "",
+      "oneLineZh": "Kawhi Leonard将重返多伦多，猛龙与快船达成交易",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286440/NBA-Cup-Championship-Game-Set-For-Hinkle-Fieldhouse-In-Indianapolis-On-December-11",
@@ -618,7 +874,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Logo_Butler.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "NBA Cup Championship Game Set For Hinkle Fieldhouse In Indianapolis On December 11",
+      "headlineZh": "签约动态：NBA Cup Championship Game Set For Hinkle Fieldhouse 在 Indianapolis On December 11",
+      "url": "https://basketball.realgm.com/wiretap/286440/NBA-Cup-Championship-Game-Set-For-Hinkle-Fieldhouse-In-Indianapolis-On-December-11",
+      "publishedAt": "2026-06-30T23:09:40.000Z",
+      "dekZh": "",
+      "oneLineZh": "NBA Cup Championship Game Set For Hinkle Fieldhouse 在 Indianapolis On December 11",
+      "goldenQuoteZh": "",
+      "importance": 3
     },
     {
       "id": "https://sports.yahoo.com/articles/sixers-free-agency-tracker-oubre-204115340.html",
@@ -629,12 +893,20 @@
       "summary": "Free agency is upon us! Stay up to date with all the reports and rumors surrounding the Philadelphia 76ers here.",
       "summaryZh": "据 Yahoo Sports 报道，76人自由市场追踪：Oubre、Grimes、Drummond等人成为自由球员。自由市场 is upon us!",
       "keyPoints": [
-        "自由市场 is upon us!"
+        "自由市场 is upon us"
       ],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/CCh3S5U2Z6YiBrdYX52C3w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04Mjk7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/d3dc3901ae2317cf9057489f08dbdcd5",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Sixers free agency tracker: Oubre, Grimes, Drummond set to become free agents and more",
+      "headlineZh": "76人自由市场追踪：Oubre、Grimes、Drummond等人成为自由球员",
+      "url": "https://sports.yahoo.com/articles/sixers-free-agency-tracker-oubre-204115340.html",
+      "publishedAt": "2026-06-30T23:08:30.000Z",
+      "dekZh": "自由市场 is upon us",
+      "oneLineZh": "76人自由市场追踪：Oubre、Grimes、Drummond等人成为自由球员",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://sports.yahoo.com/nba/article/kawhi-leonard-traded-to-toronto-raptors-230534252.html",
@@ -666,7 +938,15 @@
         "Kawhi Leonard traded to Toronto Raptors",
         "Kawhi Leonard trade: The Raptors are taking a risk that paid off once before. Why not again?"
       ],
-      "isMerged": true
+      "isMerged": true,
+      "originalTitle": "Kawhi Leonard traded to Toronto Raptors",
+      "headlineZh": "Kawhi Leonard被交易至多伦多猛龙",
+      "url": "https://sports.yahoo.com/nba/article/kawhi-leonard-traded-to-toronto-raptors-230534252.html",
+      "publishedAt": "2026-06-30T23:05:34.000Z",
+      "dekZh": "",
+      "oneLineZh": "Kawhi Leonard被交易至多伦多猛龙",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://sports.yahoo.com/nba/breaking-news/article/nba-cup-final-leaving-las-vegas-for-butlers-hinkle-fieldhouse-230511701.html",
@@ -680,7 +960,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/D5UetFs4SbTEx22AiB73iA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTU7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-06/ef662d27-89c6-4ab3-a47f-7ea959a06cd7",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他"
+      "category": "其他",
+      "originalTitle": "NBA Cup final leaving Las Vegas for Butler's Hinkle Fieldhouse",
+      "headlineZh": "NBA动态：NBA Cup final leaving Las Vegas for Butler's Hinkle Fieldhouse",
+      "url": "https://sports.yahoo.com/nba/breaking-news/article/nba-cup-final-leaving-las-vegas-for-butlers-hinkle-fieldhouse-230511701.html",
+      "publishedAt": "2026-06-30T23:05:11.000Z",
+      "dekZh": "",
+      "oneLineZh": "NBA Cup final leaving Las Vegas for Butler's Hinkle Fieldhouse",
+      "goldenQuoteZh": "",
+      "importance": 1
     },
     {
       "id": "https://sports.yahoo.com/articles/draymond-green-calls-warriors-rookie-230033968.html",
@@ -694,7 +982,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/AZdfpm5GhJmj9GM7iD6Wtg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/883bc6e4abd95dd9843de430cb3d2311",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀"
+      "category": "选秀",
+      "originalTitle": "Draymond Green calls out Warriors rookie Yaxel Lendeborg: ‘F— liar’",
+      "headlineZh": "选秀动态：Draymond Green calls out 勇士 rookie Yaxel Lendeborg: ‘F— liar’",
+      "url": "https://sports.yahoo.com/articles/draymond-green-calls-warriors-rookie-230033968.html",
+      "publishedAt": "2026-06-30T23:00:33.000Z",
+      "dekZh": "",
+      "oneLineZh": "选秀动态：Draymond Green calls out 勇士 rookie Yaxel Lendeborg: ‘F— liar’",
+      "goldenQuoteZh": "",
+      "importance": 3
     },
     {
       "id": "https://sports.yahoo.com/articles/robert-williams-iii-agrees-contract-225800993.html",
@@ -708,7 +1004,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/HNjA1L3U81SVeB3NNDvruw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ap.org/bf4d49128b6e6e25ac91d89b99e47457",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Robert Williams III agrees to a contract extension with the Trail Blazers",
+      "headlineZh": "Robert Williams III与开拓者达成续约合同",
+      "url": "https://sports.yahoo.com/articles/robert-williams-iii-agrees-contract-225800993.html",
+      "publishedAt": "2026-06-30T22:58:00.000Z",
+      "dekZh": "",
+      "oneLineZh": "Robert Williams III与开拓者达成续约合同",
+      "goldenQuoteZh": "",
+      "importance": 3
     },
     {
       "id": "https://sports.yahoo.com/articles/butler-iconic-hinkle-fieldhouse-play-225737585.html",
@@ -722,7 +1026,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/3XvOlOFcKRCu.bsOKhX1GQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/bbdd7aedcf5bfa1bd1fa3f4e9fa86157",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他"
+      "category": "其他",
+      "originalTitle": "Butler’s iconic Hinkle Fieldhouse will play host to the next NBA Cup final in December",
+      "headlineZh": "巴特勒大学Hinkle Fieldhouse将在12月承办下一届NBA杯决赛",
+      "url": "https://sports.yahoo.com/articles/butler-iconic-hinkle-fieldhouse-play-225737585.html",
+      "publishedAt": "2026-06-30T22:57:37.000Z",
+      "dekZh": "",
+      "oneLineZh": "巴特勒大学Hinkle Fieldhouse将在12月承办下一届NBA杯决赛",
+      "goldenQuoteZh": "",
+      "importance": 1
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286439/Bones-Hyland-Wolves-Agree-To-One-Year-Deal",
@@ -736,7 +1048,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Hyland_Bones_min_251103.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Bones Hyland, Wolves Agree To One-Year Deal",
+      "headlineZh": "Bones Hyland与Wolves达成一年合同",
+      "url": "https://basketball.realgm.com/wiretap/286439/Bones-Hyland-Wolves-Agree-To-One-Year-Deal",
+      "publishedAt": "2026-06-30T22:56:50.000Z",
+      "dekZh": "",
+      "oneLineZh": "Bones Hyland与Wolves达成一年合同",
+      "goldenQuoteZh": "",
+      "importance": 3
     },
     {
       "id": "https://sports.yahoo.com/articles/warriors-anthony-davis-trade-rumors-225403803.html",
@@ -750,7 +1070,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/JzP9YLiOW1BqKDdO1enYNg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/3478d3d258ebe1138110346a80f85e62",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "Warriors’ Anthony Davis trade rumors shut down by latest Wizards report",
+      "headlineZh": "Warriors’ Anthony Davis trade rumors shut down by latest Wizards report",
+      "url": "https://sports.yahoo.com/articles/warriors-anthony-davis-trade-rumors-225403803.html",
+      "publishedAt": "2026-06-30T22:54:03.000Z",
+      "dekZh": "",
+      "oneLineZh": "Warriors’ Anthony Davis trade rumors shut down by latest Wizards report",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286438/DeAndre-Jordan-Pelicans-Agree-To-One-Year-Deal",
@@ -764,7 +1092,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Jordan_Deandre_nop_260225.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "DeAndre Jordan, Pelicans Agree To One-Year Deal",
+      "headlineZh": "DeAndre Jordan与鹈鹕达成一年合同",
+      "url": "https://basketball.realgm.com/wiretap/286438/DeAndre-Jordan-Pelicans-Agree-To-One-Year-Deal",
+      "publishedAt": "2026-06-30T22:52:56.000Z",
+      "dekZh": "",
+      "oneLineZh": "DeAndre Jordan与鹈鹕达成一年合同",
+      "goldenQuoteZh": "",
+      "importance": 3
     },
     {
       "id": "https://sports.yahoo.com/articles/jalen-duren-likely-resign-pistons-225254651.html",
@@ -778,7 +1114,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/CTYPnSS9lPyNXGg6jWjYTg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/5c7b0af947e9a272615ee6c5c0bf1bb7",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Jalen Duren likely to resign with Pistons, leave Lakers still searching for star center",
+      "headlineZh": "Jalen Duren可能与活塞续约，湖人仍在寻找明星中锋",
+      "url": "https://sports.yahoo.com/articles/jalen-duren-likely-resign-pistons-225254651.html",
+      "publishedAt": "2026-06-30T22:52:54.000Z",
+      "dekZh": "",
+      "oneLineZh": "Jalen Duren可能与活塞续约，湖人仍在寻找明星中锋",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286437/Ousmane-Dieng-Bucks-Agree-To-Three-Year-$175M-Deal",
@@ -789,7 +1133,7 @@
       "summary": "Ousmane Dieng and the Milwaukee Bucks have agreed to a three-year, $17.5 million deal. The Bucks acquired Dieng from the Oklahoma City Thunder at the trade deadline. Dieng, who was the No. 11 overall pick in the 2022 NBA draft, averaged 11.0 points, 4.6 rebounds and 3.6 assists in 26.8 minutes across 30 games for the Bucks. Dieng figures to continue to have a big role with the Bucks as they rebuild out of the Giannis Antetokounmpo era. Dieng is represented by Michael Tellem and Marius Rutkauskas .",
       "summaryZh": "据 RealGM 报道，Ousmane Dieng与雄鹿达成三年，1750万美元合同。Dieng，who was No.",
       "keyPoints": [
-        "Dieng，who was No."
+        "Dieng，who was No"
       ],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Dieng_Ousmane_mil_260225.jpg",
       "source": "RealGM / Yahoo Sports",
@@ -813,7 +1157,15 @@
         "Ousmane Dieng, Bucks Agree To Three-Year, $17.5M Deal",
         "Bucks sign Ousmane Dieng to three-year deal as free agency begins"
       ],
-      "isMerged": true
+      "isMerged": true,
+      "originalTitle": "Ousmane Dieng, Bucks Agree To Three-Year, $17.5M Deal",
+      "headlineZh": "Ousmane Dieng与雄鹿达成三年，1750万美元合同",
+      "url": "https://basketball.realgm.com/wiretap/286437/Ousmane-Dieng-Bucks-Agree-To-Three-Year-$175M-Deal",
+      "publishedAt": "2026-06-30T22:46:58.000Z",
+      "dekZh": "Dieng，who was No",
+      "oneLineZh": "Ousmane Dieng与雄鹿达成三年，1750万美元合同",
+      "goldenQuoteZh": "",
+      "importance": 5
     },
     {
       "id": "https://sports.yahoo.com/articles/potential-wizards-roadblock-possible-lebron-224540587.html",
@@ -827,7 +1179,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Ygg3wctrAonIZGU8IQ9Gdw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/aace0ff23cf13018649371be35bd0277",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "The potential Wizards roadblock in a possible LeBron James-Anthony Davis reunion",
+      "headlineZh": "交易动态：potential 奇才 roadblock 在 possible LeBron James-Anthony Davis reunion",
+      "url": "https://sports.yahoo.com/articles/potential-wizards-roadblock-possible-lebron-224540587.html",
+      "publishedAt": "2026-06-30T22:45:40.000Z",
+      "dekZh": "",
+      "oneLineZh": "potential 奇才 roadblock 在 possible LeBron James-Anthony Davis reunion",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://sports.yahoo.com/articles/butlers-iconic-hinkle-fieldhouse-play-223602729.html",
@@ -841,7 +1201,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/QU4c4AouFPjZ25vDVlAnNA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ap.org/761f156bb7216bce3c8cbc2764ab6a21",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "季后赛"
+      "category": "季后赛",
+      "originalTitle": "Butler's iconic Hinkle Fieldhouse will play host to the next NBA Cup final in December",
+      "headlineZh": "巴特勒大学Hinkle Fieldhouse将在12月承办下一届NBA杯决赛",
+      "url": "https://sports.yahoo.com/articles/butlers-iconic-hinkle-fieldhouse-play-223602729.html",
+      "publishedAt": "2026-06-30T22:36:02.000Z",
+      "dekZh": "",
+      "oneLineZh": "巴特勒大学Hinkle Fieldhouse将在12月承办下一届NBA杯决赛",
+      "goldenQuoteZh": "",
+      "importance": 1
     },
     {
       "id": "https://sports.yahoo.com/articles/lebron-james-incredibly-sneaky-tactic-223525604.html",
@@ -855,7 +1223,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/4spcQWzu3tKvwwqcZgIL_A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/45a64b4dedd5bb0de5df903efbd6c82f",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他"
+      "category": "其他",
+      "originalTitle": "LeBron James’ incredibly sneaky tactic to protect Bronny’s future before blockbuster Lakers decision",
+      "headlineZh": "LeBron James在湖人重大决定前保护Bronny未来的策略",
+      "url": "https://sports.yahoo.com/articles/lebron-james-incredibly-sneaky-tactic-223525604.html",
+      "publishedAt": "2026-06-30T22:35:25.000Z",
+      "dekZh": "",
+      "oneLineZh": "LeBron James在湖人重大决定前保护Bronny未来的策略",
+      "goldenQuoteZh": "",
+      "importance": 2
     },
     {
       "id": "https://sports.yahoo.com/articles/lefree-agency-nba-free-agency-223102528.html",
@@ -869,7 +1245,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/jy68ICRIIqOeHMQaDMyVYg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/aac4128e5eacd15f14ac907c8d16ccfe",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "LeFree Agency: NBA Free Agency Open Thread",
+      "headlineZh": "交易动态：LeFree Agency: NBA 自由市场 Open Thread",
+      "url": "https://sports.yahoo.com/articles/lefree-agency-nba-free-agency-223102528.html",
+      "publishedAt": "2026-06-30T22:31:02.000Z",
+      "dekZh": "",
+      "oneLineZh": "LeFree Agency: NBA 自由市场 Open Thread",
+      "goldenQuoteZh": "",
+      "importance": 3
     },
     {
       "id": "https://sports.yahoo.com/articles/lebron-james-longest-nba-marriage-223049919.html",
@@ -883,7 +1267,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/FXCPaU5Vq1dO__LdR8w6DQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/0d7bc950633ab52198582b9017849faa",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "季后赛"
+      "category": "季后赛",
+      "originalTitle": "How LeBron James’ longest NBA marriage resulted in divorce",
+      "headlineZh": "季后赛动态：How LeBron James’ longest NBA marriage resulted 在 divorce",
+      "url": "https://sports.yahoo.com/articles/lebron-james-longest-nba-marriage-223049919.html",
+      "publishedAt": "2026-06-30T22:30:49.000Z",
+      "dekZh": "",
+      "oneLineZh": "季后赛动态：How LeBron James’ longest NBA marriage resulted 在 divorce",
+      "goldenQuoteZh": "",
+      "importance": 2
     },
     {
       "id": "https://sports.yahoo.com/articles/report-wizards-not-interested-trading-223022869.html",
@@ -897,7 +1289,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/rYXqzFIFDbMXQj533IEHJg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xNTAwO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/4af82d5b5aa6f2efe1ea56a1947f5d90",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "Report: Wizards ‘not interested’ in trading Anthony Davis",
+      "headlineZh": "Report: Wizards ‘not interested’ in trading Anthony Davis",
+      "url": "https://sports.yahoo.com/articles/report-wizards-not-interested-trading-223022869.html",
+      "publishedAt": "2026-06-30T22:30:22.000Z",
+      "dekZh": "",
+      "oneLineZh": "Report: Wizards ‘not interested’ in trading Anthony Davis",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://sports.yahoo.com/articles/lebron-james-next-team-2026-222651783.html",
@@ -911,7 +1311,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/PRdeewQyObchbCBWUDzq7g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/c4b19a7338b46f87404d39ae66c3c9de",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他"
+      "category": "其他",
+      "originalTitle": "LeBron James next team 2026: Will LeBron join Stephen Curry, Draymond Green on Warriors? Reunion with Heat?",
+      "headlineZh": "LeBron James下一站猜想：是否联手Stephen Curry、Draymond Green或重返热火",
+      "url": "https://sports.yahoo.com/articles/lebron-james-next-team-2026-222651783.html",
+      "publishedAt": "2026-06-30T22:26:51.000Z",
+      "dekZh": "",
+      "oneLineZh": "LeBron James下一站猜想：是否联手Stephen Curry、Draymond Green或重返热火",
+      "goldenQuoteZh": "",
+      "importance": 2
     },
     {
       "id": "https://sports.yahoo.com/articles/dusty-may-addresses-role-nil-221336891.html",
@@ -925,7 +1333,15 @@
       "imageUrl": "https://s.yimg.com/os/en/on3_nil_articles_944/406da425e469f762a72d59f7faf93184",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他"
+      "category": "其他",
+      "originalTitle": "Dusty May addresses role of NIL era in Michigan departure, how it can be ‘segue’ to NBA",
+      "headlineZh": "Dusty May谈NIL时代对离开密歇根的影响，以及它如何成为通往NBA的过渡",
+      "url": "https://sports.yahoo.com/articles/dusty-may-addresses-role-nil-221336891.html",
+      "publishedAt": "2026-06-30T22:13:36.000Z",
+      "dekZh": "",
+      "oneLineZh": "Dusty May谈NIL时代对离开密歇根的影响，以及它如何成为通往NBA的过渡",
+      "goldenQuoteZh": "",
+      "importance": 1
     },
     {
       "id": "https://sports.yahoo.com/articles/sixers-2026-27-salary-cap-140024241.html",
@@ -939,7 +1355,15 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/FI6zPvEBf4LQ5RJMaCKgkw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xNTAwO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/ca3b0ac70ece09a92b30e578d22687e7",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "The Sixers’ 2026-27 salary-cap outlook heading into free agency",
+      "headlineZh": "The Sixers’ 2026-27 salary-cap outlook heading into free agency",
+      "url": "https://sports.yahoo.com/articles/sixers-2026-27-salary-cap-140024241.html",
+      "publishedAt": "2026-06-30T22:13:06.000Z",
+      "dekZh": "",
+      "oneLineZh": "The Sixers’ 2026-27 salary-cap outlook heading into free agency",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286435/Pistons-Increase-Offer-To-Jalen-Duren-Have-No-Interest-In-Sign-And-Trade",
@@ -953,7 +1377,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Duren_Jalen_det_251210.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "Pistons Increase Offer To Jalen Duren, Have No Interest In Sign-And-Trade",
+      "headlineZh": "活塞提高对Jalen Duren的报价，无意进行先签后换",
+      "url": "https://basketball.realgm.com/wiretap/286435/Pistons-Increase-Offer-To-Jalen-Duren-Have-No-Interest-In-Sign-And-Trade",
+      "publishedAt": "2026-06-30T22:00:49.000Z",
+      "dekZh": "",
+      "oneLineZh": "活塞提高对Jalen Duren的报价，无意进行先签后换",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286434/NBA-Sets-Salary-Cap-For-2026-27-Season-At-$164961M",
@@ -962,12 +1394,22 @@
       "link": "https://basketball.realgm.com/wiretap/286434/NBA-Sets-Salary-Cap-For-2026-27-Season-At-$164961M",
       "pubDate": "2026-06-30T21:57:47.000Z",
       "summary": "The NBA has announced that the salary cap for the 2026-27 season at $164.961 million. The NBA had most recently projected the salary cap at $165 million , which was lowered by $1 million from $166 million. The Tax Level for the 2026-27 season is $200.428 million. The Salary Cap and Tax Level go into effect at 12:01 a.m. ET on Wednesday, July 1. The moratorium period ends at noon ET on Monday, July 6. For the 2026-27 season: The Minimum Team Salary is $148.465 million; The First Apron Level is $209.015 million; and The Second Apron Level is $221.686 million. The Collective Bargaining Agreement provides for three different Mid-Level Exceptions depending on a team's salary level. The Non-Taxpayer Mid-Level for the 2026-27 season is $15.044 million, the Taxpayer Mid-Level is $6.064 million, and the Mid-Level for a team with room under the Salary Cap is $9.366 million.",
-      "summaryZh": "据 RealGM 报道，NBA动态：NBA Sets Salary Cap For 2026-27 Season At 16496.100000000002万美元。",
-      "keyPoints": [],
+      "summaryZh": "据 RealGM 报道，NBA动态：NBA Sets Salary Cap For 2026-27 Season At 16496.100000000002万美元。ET on Wednesday，July 1.",
+      "keyPoints": [
+        "ET on Wednesday，July 1"
+      ],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_realgm.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "其他"
+      "category": "其他",
+      "originalTitle": "NBA Sets Salary Cap For 2026-27 Season At $164.961M",
+      "headlineZh": "NBA动态：NBA Sets Salary Cap For 2026-27 Season At 16496.100000000002万美元",
+      "url": "https://basketball.realgm.com/wiretap/286434/NBA-Sets-Salary-Cap-For-2026-27-Season-At-$164961M",
+      "publishedAt": "2026-06-30T21:57:47.000Z",
+      "dekZh": "ET on Wednesday，July 1",
+      "oneLineZh": "NBA Sets Salary Cap For 2026-27 Season At 16496.100000000002万美元",
+      "goldenQuoteZh": "",
+      "importance": 2
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286433/Kawhi-Leonard-Envisions-Retiring-With-Raptors;-Familiarity-With-Front-Office-City-Of-Toronto-Drove-Return",
@@ -981,7 +1423,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Leonard_Kawhi_lac_250423.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "Kawhi Leonard Envisions Retiring With Raptors; Familiarity With Front Office, City Of Toronto Drove Return",
+      "headlineZh": "Kawhi Leonard希望在猛龙退役，对管理层和多伦多的熟悉推动他回归",
+      "url": "https://basketball.realgm.com/wiretap/286433/Kawhi-Leonard-Envisions-Retiring-With-Raptors;-Familiarity-With-Front-Office-City-Of-Toronto-Drove-Return",
+      "publishedAt": "2026-06-30T21:49:42.000Z",
+      "dekZh": "",
+      "oneLineZh": "Kawhi Leonard希望在猛龙退役，对管理层和多伦多的熟悉推动他回归",
+      "goldenQuoteZh": "",
+      "importance": 5
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286432/Wizards-Not-Interested-In-Exploring-Anthony-Davis-Trade",
@@ -992,12 +1442,20 @@
       "summary": "The Washington Wizards are not interested in engaging with teams on a potential trade of Anthony Davis, a source tells Marc J. Spears of ESPN's Andscape. The Golden State Warriors were linked with trade interest in Davis this week, while the Portland Trail Blazers also were rumored to be lining up potential discussions over the weekend before they moved on to a Ja Morant deal. Rich Paul met with the Wizards on Sunday to discuss the future of Davis with the franchise ahead of a potential extension decision in August. Davis is eligible this offseason for a four-year extension worth up to $275 million. The Wizards acquired Davis from the Dallas Mavericks in February for expiring contracts and two first round picks. Davis has yet to play in a game for the Wizards, who signed Trae Young to a new four-year, $212 million deal. The Wizards also selected AJ Dybantsa with the first overall pick in the draft.",
       "summaryZh": "据 RealGM 报道，这是一条关于 Wizards Not Interested In Exploring Anthony Davis Trade 的NBA动态。Spears of ESPN's Andscape.",
       "keyPoints": [
-        "Spears of ESPN's Andscape."
+        "Spears of ESPN's Andscape"
       ],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Davis_Anthony_was_260610.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "Wizards Not Interested In Exploring Anthony Davis Trade",
+      "headlineZh": "Wizards Not Interested In Exploring Anthony Davis Trade",
+      "url": "https://basketball.realgm.com/wiretap/286432/Wizards-Not-Interested-In-Exploring-Anthony-Davis-Trade",
+      "publishedAt": "2026-06-30T21:03:37.000Z",
+      "dekZh": "Spears of ESPN's Andscape",
+      "oneLineZh": "Wizards Not Interested In Exploring Anthony Davis Trade",
+      "goldenQuoteZh": "",
+      "importance": 5
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286431/LeBron-James-Undecided-On-Whether-This-Will-Be-His-Final-NBA-Season",
@@ -1011,7 +1469,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_240531.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "LeBron James Undecided On Whether This Will Be His Final NBA Season",
+      "headlineZh": "签约动态：LeBron James Undecided On Whether This Will Be His Final NBA Season",
+      "url": "https://basketball.realgm.com/wiretap/286431/LeBron-James-Undecided-On-Whether-This-Will-Be-His-Final-NBA-Season",
+      "publishedAt": "2026-06-30T20:37:10.000Z",
+      "dekZh": "",
+      "oneLineZh": "LeBron James Undecided On Whether This Will Be His Final NBA Season",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286430/James-Harden-Delaying-Signing-Cavaliers-Pursuing-Max-Strus-Trade-To-Open-LeBron-James-MLE-Path",
@@ -1025,7 +1491,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Harden_James_cle_260420.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "James Harden Delaying Signing, Cavaliers Pursuing Max Strus Trade To Open LeBron James MLE Path",
+      "headlineZh": "James Harden推迟签约，骑士追求Max Strus交易以打开LeBron James中产路径",
+      "url": "https://basketball.realgm.com/wiretap/286430/James-Harden-Delaying-Signing-Cavaliers-Pursuing-Max-Strus-Trade-To-Open-LeBron-James-MLE-Path",
+      "publishedAt": "2026-06-30T20:20:35.000Z",
+      "dekZh": "",
+      "oneLineZh": "James Harden推迟签约，骑士追求Max Strus交易以打开LeBron James中产路径",
+      "goldenQuoteZh": "",
+      "importance": 5
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286429/Nets-Blazers-Nuggets-Not-Heavily-Engaged-With-Celtics-On-Jaylen-Brown-Trade",
@@ -1039,7 +1513,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Brown_Jaylen_bos_260415.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "Nets, Blazers, Nuggets Not Heavily Engaged With Celtics On Jaylen Brown Trade",
+      "headlineZh": "篮网、开拓者和掘金并未积极与凯尔特人谈Jaylen Brown交易",
+      "url": "https://basketball.realgm.com/wiretap/286429/Nets-Blazers-Nuggets-Not-Heavily-Engaged-With-Celtics-On-Jaylen-Brown-Trade",
+      "publishedAt": "2026-06-30T20:05:38.000Z",
+      "dekZh": "",
+      "oneLineZh": "篮网、开拓者和掘金并未积极与凯尔特人谈Jaylen Brown交易",
+      "goldenQuoteZh": "",
+      "importance": 5
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286428/Precious-Achiuwa-Kings-Agree-To-Two-Year-$115M-Deal",
@@ -1053,7 +1535,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Achiuwa_Precious_sac_260116.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Precious Achiuwa, Kings Agree To Two-Year, $11.5M Deal",
+      "headlineZh": "Precious Achiuwa与国王达成两年，1150万美元合同",
+      "url": "https://basketball.realgm.com/wiretap/286428/Precious-Achiuwa-Kings-Agree-To-Two-Year-$115M-Deal",
+      "publishedAt": "2026-06-30T19:54:07.000Z",
+      "dekZh": "",
+      "oneLineZh": "Precious Achiuwa与国王达成两年，1150万美元合同",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286427/Raptors-Acquire-Kawhi-Leonard-From-Clippers-For-Brandon-Ingram-Two-First-Rounders-One-Swap",
@@ -1067,7 +1557,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Leonard_Kawhi_lac_260625.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "Raptors Acquire Kawhi Leonard From Clippers For Brandon Ingram, Two First Rounders, One Swap",
+      "headlineZh": "猛龙从快船 For Brandon Ingram，Two First Rounders，One Swap得到Kawhi Leonard",
+      "url": "https://basketball.realgm.com/wiretap/286427/Raptors-Acquire-Kawhi-Leonard-From-Clippers-For-Brandon-Ingram-Two-First-Rounders-One-Swap",
+      "publishedAt": "2026-06-30T19:45:57.000Z",
+      "dekZh": "",
+      "oneLineZh": "猛龙从快船 For Brandon Ingram，Two First Rounders，One Swap得到Kawhi Leonard",
+      "goldenQuoteZh": "",
+      "importance": 5
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286426/Cavaliers-Holding-Trade-Talks-Involving-Max-Strus-Dennis-Schroder",
@@ -1081,7 +1579,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Strus_Max_cle_260505.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "Cavaliers Holding Trade Talks Involving Max Strus, Dennis Schroder",
+      "headlineZh": "Cavaliers Holding Trade Talks Involving Max Strus, Dennis Schroder",
+      "url": "https://basketball.realgm.com/wiretap/286426/Cavaliers-Holding-Trade-Talks-Involving-Max-Strus-Dennis-Schroder",
+      "publishedAt": "2026-06-30T19:26:23.000Z",
+      "dekZh": "",
+      "oneLineZh": "Cavaliers Holding Trade Talks Involving Max Strus, Dennis Schroder",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286424/Luka-Doncic-LeBron-James-Had-No-Personal-Issues-During-Time-With-Lakers",
@@ -1095,7 +1601,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Doncic_Luka_lal_260225.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "Luka Doncic, LeBron James Had No Personal Issues During Time With Lakers",
+      "headlineZh": "Luka Doncic和LeBron James在湖人共事期间没有私人矛盾",
+      "url": "https://basketball.realgm.com/wiretap/286424/Luka-Doncic-LeBron-James-Had-No-Personal-Issues-During-Time-With-Lakers",
+      "publishedAt": "2026-06-30T17:47:21.000Z",
+      "dekZh": "",
+      "oneLineZh": "Luka Doncic和LeBron James在湖人共事期间没有私人矛盾",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286423/Warriors-Cavaliers-Heat-Considered-Leading-Candidates-To-Sign-LeBron-James",
@@ -1109,7 +1623,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_251210.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "Warriors, Cavaliers, Heat Considered Leading Candidates To Sign LeBron James",
+      "headlineZh": "勇士、骑士和热火被视为签下LeBron James的热门候选",
+      "url": "https://basketball.realgm.com/wiretap/286423/Warriors-Cavaliers-Heat-Considered-Leading-Candidates-To-Sign-LeBron-James",
+      "publishedAt": "2026-06-30T17:15:17.000Z",
+      "dekZh": "",
+      "oneLineZh": "勇士、骑士和热火被视为签下LeBron James的热门候选",
+      "goldenQuoteZh": "",
+      "importance": 5
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286422/Jock-Landale-Hawks-Agree-To-One-Year-$14M-Deal",
@@ -1123,7 +1645,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Landale_Jock_atl_260628.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Jock Landale, Hawks Agree To One-Year, $14M Deal",
+      "headlineZh": "Jock Landale与老鹰达成一年，1400万美元合同",
+      "url": "https://basketball.realgm.com/wiretap/286422/Jock-Landale-Hawks-Agree-To-One-Year-$14M-Deal",
+      "publishedAt": "2026-06-30T17:09:25.000Z",
+      "dekZh": "",
+      "oneLineZh": "Jock Landale与老鹰达成一年，1400万美元合同",
+      "goldenQuoteZh": "",
+      "importance": 4
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286421/LeBron-James-Tells-Lakers-Hell-Sign-Elsewhere-In-Free-Agency",
@@ -1137,7 +1667,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_260419.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易"
+      "category": "交易",
+      "originalTitle": "LeBron James Tells Lakers He'll Sign Elsewhere In Free Agency",
+      "headlineZh": "LeBron James Tells Lakers He'll Sign Elsewhere In Free Agency",
+      "url": "https://basketball.realgm.com/wiretap/286421/LeBron-James-Tells-Lakers-Hell-Sign-Elsewhere-In-Free-Agency",
+      "publishedAt": "2026-06-30T16:13:26.000Z",
+      "dekZh": "",
+      "oneLineZh": "LeBron James Tells Lakers He'll Sign Elsewhere In Free Agency",
+      "goldenQuoteZh": "",
+      "importance": 5
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286420/Robert-Williams-III-Blazers-Agree-To-Three-Year-$44M-Deal",
@@ -1151,7 +1689,15 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Williams_Robert_por_241202.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约"
+      "category": "签约",
+      "originalTitle": "Robert Williams III, Blazers Agree To Three-Year, $44M Deal",
+      "headlineZh": "Robert Williams III与开拓者达成三年，4400万美元合同",
+      "url": "https://basketball.realgm.com/wiretap/286420/Robert-Williams-III-Blazers-Agree-To-Three-Year-$44M-Deal",
+      "publishedAt": "2026-06-30T15:43:15.000Z",
+      "dekZh": "",
+      "oneLineZh": "Robert Williams III与开拓者达成三年，4400万美元合同",
+      "goldenQuoteZh": "",
+      "importance": 5
     }
   ]
 }
