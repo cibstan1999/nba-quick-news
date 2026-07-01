@@ -74,6 +74,7 @@ const teamNames = new Map([
   ['Suns', '太阳'],
   ['Portland Trail Blazers', '波特兰开拓者'],
   ['Trail Blazers', '开拓者'],
+  ['Blazers', '开拓者'],
   ['Sacramento Kings', '萨克拉门托国王'],
   ['Kings', '国王'],
   ['San Antonio Spurs', '圣安东尼奥马刺'],
@@ -132,14 +133,19 @@ function localizeCommonTerms(value = '') {
     .replace(/\ba\s+(?=[\u4e00-\u9fa5])/gi, '')
     .replace(/\bOne-Year\b/gi, '一年')
     .replace(/\bone-year\b/gi, '一年')
+    .replace(/\bone year\b/gi, '一年')
     .replace(/\bTwo-Year\b/gi, '两年')
     .replace(/\btwo-year\b/gi, '两年')
+    .replace(/\btwo year\b/gi, '两年')
     .replace(/\bThree-Year\b/gi, '三年')
     .replace(/\bthree-year\b/gi, '三年')
+    .replace(/\bthree year\b/gi, '三年')
     .replace(/\bFour-Year\b/gi, '四年')
     .replace(/\bfour-year\b/gi, '四年')
+    .replace(/\bfour year\b/gi, '四年')
     .replace(/\bFive-Year\b/gi, '五年')
     .replace(/\bfive-year\b/gi, '五年')
+    .replace(/\bfive year\b/gi, '五年')
     .replace(/\b(\d+)-year\b/gi, (_, years) => `${years}年`)
     .replace(/\$(\d+(?:\.\d+)?)M\b/g, (_, amount) => `${Number(amount) * 100}万美元`)
     .replace(/\$(\d+(?:\.\d+)?) million\b/gi, (_, amount) => `${Number(amount) * 100}万美元`)
@@ -157,6 +163,8 @@ function localizeCommonTerms(value = '') {
     .replace(/\bplayoff games\b/gi, '季后赛')
     .replace(/\bregular season games\b/gi, '常规赛')
     .replace(/\bfree agency\b/gi, '自由市场')
+    .replace(/\bveteran guard\b/gi, '老将后卫')
+    .replace(/\bguard\b/gi, '后卫')
     .replace(/\bstarting small forward\b/gi, '首发小前锋')
     .replace(/\bfail to retain\b/gi, '未能留住')
     .replace(/\bcontract extension\b/gi, '续约合同')
@@ -183,6 +191,171 @@ function localizeCommonTerms(value = '') {
 }
 
 function translateTitle(title = '', category = '其他') {
+  const kawhiBackTorontoMatch = title.match(/^(.+?) going back to Toronto after Raptors make deal with Clippers(?:,.*)?$/i);
+  if (kawhiBackTorontoMatch) {
+    return `${localizeCommonTerms(kawhiBackTorontoMatch[1])}将重返多伦多，猛龙与快船达成交易`;
+  }
+
+  const kawhiTradedMatch = title.match(/^(.+?) traded to Toronto Raptors$/i);
+  if (kawhiTradedMatch) {
+    return `${localizeCommonTerms(kawhiTradedMatch[1])}被交易至多伦多猛龙`;
+  }
+
+  const sixersTrackerMatch = title.match(/^Sixers free agency tracker: Oubre, Grimes, Drummond set to become free agents and more$/i);
+  if (sixersTrackerMatch) {
+    return '76人自由市场追踪：Oubre、Grimes、Drummond等人成为自由球员';
+  }
+
+  const agreesExtensionMatch = title.match(/^(.+?) agrees to a contract extension with (?:the )?(.+)$/i);
+  if (agreesExtensionMatch) {
+    return `${localizeCommonTerms(agreesExtensionMatch[1])}与${localizeCommonTerms(agreesExtensionMatch[2])}达成续约合同`;
+  }
+
+  const nbaCupFinalMatch = title.match(/^Butler[’']s iconic Hinkle Fieldhouse will play host to the next NBA Cup final in December$/i);
+  if (nbaCupFinalMatch) {
+    return '巴特勒大学Hinkle Fieldhouse将在12月承办下一届NBA杯决赛';
+  }
+
+  const nilEraMatch = title.match(/^Dusty May addresses role of NIL era in Michigan departure, how it can be ‘segue’ to NBA$/i);
+  if (nilEraMatch) {
+    return 'Dusty May谈NIL时代对离开密歇根的影响，以及它如何成为通往NBA的过渡';
+  }
+
+  const jaylenBrownTradeTalksMatch = title.match(/^(.+?), (.+?), (.+?) Not Heavily Engaged With Celtics On Jaylen Brown Trade$/i);
+  if (jaylenBrownTradeTalksMatch) {
+    return `${localizeCommonTerms(jaylenBrownTradeTalksMatch[1])}、${localizeCommonTerms(jaylenBrownTradeTalksMatch[2])}和${localizeCommonTerms(jaylenBrownTradeTalksMatch[3])}并未积极与凯尔特人谈Jaylen Brown交易`;
+  }
+
+  const noPersonalIssuesMatch = title.match(/^(.+?), (.+?) Had No Personal Issues During Time With Lakers$/i);
+  if (noPersonalIssuesMatch) {
+    return `${localizeCommonTerms(noPersonalIssuesMatch[1])}和${localizeCommonTerms(noPersonalIssuesMatch[2])}在湖人共事期间没有私人矛盾`;
+  }
+
+  const lebronCandidatesMatch = title.match(/^(.+?), (.+?), (.+?) Considered Leading Candidates To Sign LeBron James$/i);
+  if (lebronCandidatesMatch) {
+    return `${localizeCommonTerms(lebronCandidatesMatch[1])}、${localizeCommonTerms(lebronCandidatesMatch[2])}和${localizeCommonTerms(lebronCandidatesMatch[3])}被视为签下LeBron James的热门候选`;
+  }
+
+  const durenResignMatch = title.match(/^(.+?) likely to resign with (.+?), leave (.+?) still searching for star center$/i);
+  if (durenResignMatch) {
+    return `${localizeCommonTerms(durenResignMatch[1])}可能与${localizeCommonTerms(durenResignMatch[2])}续约，${localizeCommonTerms(durenResignMatch[3])}仍在寻找明星中锋`;
+  }
+
+  const sixersDeanWadeMatch = title.match(/^Sixers agree to deal with forward (.+?) at start of free agency$/i);
+  if (sixersDeanWadeMatch) {
+    return `76人在自由市场开启时与前锋${localizeCommonTerms(sixersDeanWadeMatch[1])}达成合同`;
+  }
+
+  const bucksSignMatch = title.match(/^Bucks sign (.+?) to (.+?) deal as free agency begins$/i);
+  if (bucksSignMatch) {
+    return `雄鹿在自由市场开启后签下${localizeCommonTerms(bucksSignMatch[1])}，合同为${localizeCommonTerms(bucksSignMatch[2])}`;
+  }
+
+  const lebronNextTeamMatch = title.match(/^LeBron James next team 2026: Will LeBron join (.+?), (.+?) on Warriors\? Reunion with Heat\?$/i);
+  if (lebronNextTeamMatch) {
+    return `LeBron James下一站猜想：是否联手${localizeCommonTerms(lebronNextTeamMatch[1])}、${localizeCommonTerms(lebronNextTeamMatch[2])}或重返热火`;
+  }
+
+  const pistonsOfferMatch = title.match(/^Pistons Increase Offer To (.+?), Have No Interest In Sign-And-Trade$/i);
+  if (pistonsOfferMatch) {
+    return `${localizeCommonTerms('Pistons')}提高对${localizeCommonTerms(pistonsOfferMatch[1])}的报价，无意进行先签后换`;
+  }
+
+  const kawhiRetireMatch = title.match(/^Kawhi Leonard Envisions Retiring With Raptors; Familiarity With Front Office, City Of Toronto Drove Return$/i);
+  if (kawhiRetireMatch) {
+    return 'Kawhi Leonard希望在猛龙退役，对管理层和多伦多的熟悉推动他回归';
+  }
+
+  const hardenDelayMatch = title.match(/^James Harden Delaying Signing, Cavaliers Pursuing Max Strus Trade To Open LeBron James MLE Path$/i);
+  if (hardenDelayMatch) {
+    return 'James Harden推迟签约，骑士追求Max Strus交易以打开LeBron James中产路径';
+  }
+
+  const lebronTacticMatch = title.match(/^LeBron James’ incredibly sneaky tactic to protect Bronny’s future before blockbuster Lakers decision$/i);
+  if (lebronTacticMatch) {
+    return 'LeBron James在湖人重大决定前保护Bronny未来的策略';
+  }
+
+  const expectedDealsMatch = title.match(/^(.+?) believed to likely secure deals with (.+)$/i);
+  if (expectedDealsMatch) {
+    return `${localizeCommonTerms(expectedDealsMatch[1])}有望签下${localizeCommonTerms(expectedDealsMatch[2])}`;
+  }
+
+  const groupCupMatch = title.match(/^(.+?) named to (.+?) for (.+?) NBA Cup$/i);
+  if (groupCupMatch) {
+    return `${localizeCommonTerms(groupCupMatch[1])}被分入${localizeCommonTerms(groupCupMatch[3])}NBA杯${localizeCommonTerms(groupCupMatch[2])}`;
+  }
+
+  const loseGuardMatch = title.match(/^The (.+?) lose defensive guard to (?:the )?(.+)$/i);
+  if (loseGuardMatch) {
+    return `${localizeCommonTerms(loseGuardMatch[1])}失去防守型后卫，球员转投${localizeCommonTerms(loseGuardMatch[2])}`;
+  }
+
+  const superstarLeaveMatch = title.match(/^Basketball superstar (.+?) to leave LA Lakers$/i);
+  if (superstarLeaveMatch) {
+    return `${localizeCommonTerms(superstarLeaveMatch[1])}将离开洛杉矶湖人`;
+  }
+
+  const teardownTradeMatch = title.match(/^Warriors rival (.+?) continue teardown with (.+?) trade$/i);
+  if (teardownTradeMatch) {
+    return `${localizeCommonTerms(teardownTradeMatch[1])}交易${localizeCommonTerms(teardownTradeMatch[2])}后继续调整阵容`;
+  }
+
+  const lebronMeaningMatch = title.match(/^The Warriors know exactly what LeBron meant to the Lakers$/i);
+  if (lebronMeaningMatch) {
+    return '勇士清楚勒布朗对湖人的意义';
+  }
+
+  const jaylenConceptMatch = title.match(/^(.+?) To (.+?) With (.+?) Following Concept Floated By (.+)$/i);
+  if (jaylenConceptMatch) {
+    return `${localizeCommonTerms(jaylenConceptMatch[4])}提出设想：${localizeCommonTerms(jaylenConceptMatch[1])}和${localizeCommonTerms(jaylenConceptMatch[3])}前往${localizeCommonTerms(jaylenConceptMatch[2])}`;
+  }
+
+  const salaryCapProjectionMatch = title.match(/^NBA Projects Salary Cap Growth To Slow To (.+?) Percent In (.+?) At (.+)$/i);
+  if (salaryCapProjectionMatch) {
+    return `NBA预计${salaryCapProjectionMatch[2]}赛季工资帽增速放缓至${salaryCapProjectionMatch[1]}%，工资帽约为${localizeCommonTerms(salaryCapProjectionMatch[3])}`;
+  }
+
+  const meetInFreeAgencyMatch = title.match(/^(.+?) plans to meet with (.+?) in free agency$/i);
+  if (meetInFreeAgencyMatch) {
+    return `${localizeCommonTerms(meetInFreeAgencyMatch[1])}计划在自由市场与${localizeCommonTerms(meetInFreeAgencyMatch[2])}会面`;
+  }
+
+  const reactsSurveyMatch = title.match(/^(.+?) Reacts Survey: who are you looking forward to seeing at Summer League\?$/i);
+  if (reactsSurveyMatch) {
+    return `${localizeCommonTerms(reactsSurveyMatch[1])}球迷调查：夏季联赛最期待谁的表现`;
+  }
+
+  const teamSigningDealMatch = title.match(/^(.+?) signing (.+?) to (.+?) deal$/i);
+  if (teamSigningDealMatch) {
+    return `${localizeCommonTerms(teamSigningDealMatch[1])}将签下${localizeCommonTerms(teamSigningDealMatch[2])}，合同为${localizeCommonTerms(teamSigningDealMatch[3])}`;
+  }
+
+  const teamSignPositionContractMatch = title.match(/^(.+?) sign (?:guard\s+)?(.+?) to (.+?) contract$/i);
+  if (teamSignPositionContractMatch) {
+    return `${localizeCommonTerms(teamSignPositionContractMatch[1])}签下${localizeCommonTerms(teamSignPositionContractMatch[2])}，合同为${localizeCommonTerms(teamSignPositionContractMatch[3])}`;
+  }
+
+  const playerSignsDealWithTeamMatch = title.match(/^(.+?) signs (.+?) deal with (.+)$/i);
+  if (playerSignsDealWithTeamMatch) {
+    return `${localizeCommonTerms(playerSignsDealWithTeamMatch[1])}与${localizeCommonTerms(playerSignsDealWithTeamMatch[3])}签下${localizeCommonTerms(playerSignsDealWithTeamMatch[2])}合同`;
+  }
+
+  const teamAddsShootingMatch = title.match(/^(.+?) add elite shooting with (.+?) signing$/i);
+  if (teamAddsShootingMatch) {
+    return `${localizeCommonTerms(teamAddsShootingMatch[1])}签下${localizeCommonTerms(teamAddsShootingMatch[2])}，补强外线投射`;
+  }
+
+  const notInterestedTradeMatch = title.match(/^The (.+?) are not interested in trading (.+?), according to report$/i);
+  if (notInterestedTradeMatch) {
+    return `${localizeCommonTerms(notInterestedTradeMatch[1])}无意交易${localizeCommonTerms(notInterestedTradeMatch[2])}`;
+  }
+
+  const expectedToSignMatch = title.match(/^(.+?) Expected To Sign (.+?); Continue Pursuit Of (.+)$/i);
+  if (expectedToSignMatch) {
+    return `${localizeCommonTerms(expectedToSignMatch[1])}预计签下${localizeCommonTerms(expectedToSignMatch[2])}，并继续追求${localizeCommonTerms(expectedToSignMatch[3])}`;
+  }
+
   const leavesForDealMatch = title.match(/^(.+?) leaves (.+?) for (.+?) deal with (.+)$/i);
   if (leavesForDealMatch) {
     return `${localizeCommonTerms(leavesForDealMatch[1])}离开${localizeCommonTerms(leavesForDealMatch[2])}，与${localizeCommonTerms(leavesForDealMatch[4])}签下${localizeCommonTerms(leavesForDealMatch[3])}合同`;
@@ -203,7 +376,7 @@ function translateTitle(title = '', category = '其他') {
     return `${localizeCommonTerms(extensionMatch[1])}与${localizeCommonTerms(extensionMatch[2])}达成续约合同`;
   }
 
-  const sourceSaysDealMatch = title.match(/^(.+?) agree to an? (.+?),\s*(\d+)-year deal with (.+?)(?:,.*)?$/i);
+  const sourceSaysDealMatch = title.match(/^(.+?) agree to (?:an? )?(.+?),\s*(\d+)-year deal with (.+?)(?:,.*)?$/i);
   if (sourceSaysDealMatch) {
     return `${localizeCommonTerms(sourceSaysDealMatch[1])}与${localizeCommonTerms(sourceSaysDealMatch[4])}达成${localizeCommonTerms(`${sourceSaysDealMatch[3]}-year`)}、${localizeCommonTerms(sourceSaysDealMatch[2])}合同`;
   }
@@ -261,6 +434,15 @@ function summarizeSentence(sentence = '') {
   const statsMatch = original.match(/^In (.+?) with (?:the )?(.+?), (.+?) averaged (.+?) while shooting (.+?) percent on three-pointers\.$/i);
   if (statsMatch) {
     return `${localizeCommonTerms(statsMatch[3])}在效力${localizeCommonTerms(statsMatch[2])}期间，${localizeCommonTerms(statsMatch[1])}场均${localizeCommonTerms(statsMatch[4])}，三分命中率${statsMatch[5]}%。`;
+  }
+
+  const lastSeasonStatsMatch = original.match(/^In (.+?) with (?:the )?(.+?) last season, (.+?) averaged (.+?)\.$/i);
+  if (lastSeasonStatsMatch) {
+    const minutesMatch = lastSeasonStatsMatch[4].match(/^(.+?) in ([\d.]+) minutes$/i);
+    const stats = minutesMatch
+      ? `${localizeCommonTerms(minutesMatch[1])}，出场${minutesMatch[2]}分钟`
+      : localizeCommonTerms(lastSeasonStatsMatch[4]);
+    return `${localizeCommonTerms(lastSeasonStatsMatch[3])}上赛季为${localizeCommonTerms(lastSeasonStatsMatch[2])}出战${localizeCommonTerms(lastSeasonStatsMatch[1])}，场均${stats}。`;
   }
 
   const midlevelMatch = original.match(/^(?:The )?(.+?) are using (?:the )?non-taxpayer midlevel exception to sign (.+?) and will be hard capped at (?:the )?first apron\.$/i);
@@ -350,7 +532,7 @@ function buildChineseSummary(title, summary, category, source) {
     .slice(0, 2);
   const summaryZh = coreSentences.length
     ? `据 ${source} 报道，${coreSentences.join(' ')}`
-    : `据 ${source} 报道，${titleZh}。原文暂未提供更多可提炼细节。`;
+    : `据 ${source} 报道，${titleZh}。详情请点击查看原文。`;
 
   const keyPoints = coreSentences.filter((sentence) => sentence.length <= 160).slice(0, 3);
 
@@ -426,6 +608,10 @@ async function mapWithConcurrency(items, limit, mapper) {
 
 async function normalizeItem(item, index, feedConfig) {
   const title = stripHtml(item.title);
+  if (/Get Your Latest NBA News From RealGM|^RealGM Radio:/i.test(title)) {
+    return null;
+  }
+
   const link = String(item.link || '').trim();
   const pubDate = item.pubDate ? new Date(item.pubDate).toISOString() : new Date().toISOString();
   const summary = stripHtml(item.description);
@@ -510,7 +696,7 @@ async function main() {
           }
 
           const items = await mapWithConcurrency(rawItems, 4, (item, index) => normalizeItem(item, index, feedConfig));
-          return { feedConfig, items: items.filter((item) => item.title && item.link), error: null };
+          return { feedConfig, items: items.filter((item) => item?.title && item?.link), error: null };
         } catch (error) {
           return { feedConfig, items: [], error };
         }

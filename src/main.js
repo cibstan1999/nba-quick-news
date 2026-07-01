@@ -140,7 +140,7 @@ function renderCard(item) {
         <p class="summary">${escapeHtml(summaryZh)}</p>
         <div class="card-footer">
           <span>${escapeHtml(source)} 原文${item.imageUrl ? ' / 图片预览来自原站元数据' : ''}</span>
-          <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">Open Original</a>
+          <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">查看原文</a>
         </div>
       </div>
     </article>
