@@ -686,6 +686,21 @@ async function readExistingFeed() {
   }
 }
 
+function parseExistingPayload(existingFeed) {
+  if (!existingFeed) return null;
+
+  try {
+    return JSON.parse(existingFeed);
+  } catch {
+    return null;
+  }
+}
+
+async function writePayload(payload) {
+  await mkdir(path.dirname(outputPath), { recursive: true });
+  await writeFile(outputPath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+}
+
 async function rebuildFromExistingFeed() {
   const existingFeed = await readExistingFeed();
   if (!existingFeed) {
@@ -727,12 +742,16 @@ async function rebuildFromExistingFeed() {
   const payload = {
     sources: sourceConfigs,
     updatedAt: existing.updatedAt || new Date().toISOString(),
+    lastFetchStatus: {
+      status: 'rebuilt-from-cache',
+      checkedAt: new Date().toISOString(),
+      message: 'Rebuilt derived news fields from the existing local JSON cache.'
+    },
     highlights: buildHighlights(items),
     items
   };
 
-  await mkdir(path.dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+  await writePayload(payload);
   console.log(`Rebuilt ${items.length} cached stories in ${path.relative(rootDir, outputPath)}`);
 }
 
@@ -940,22 +959,44 @@ async function main() {
     const payload = {
       sources: FEEDS,
       updatedAt: new Date().toISOString(),
+      lastFetchStatus: {
+        status: failedFeeds.length ? 'partial-success' : 'success',
+        checkedAt: new Date().toISOString(),
+        fetchedItems: items.length,
+        failedFeeds: failedFeeds.map((result) => ({
+          source: result.feedConfig.source,
+          feed: result.feedConfig.feed,
+          error: result.error instanceof Error ? result.error.message : String(result.error)
+        }))
+      },
       highlights: buildHighlights(items),
       items
     };
 
-    await mkdir(path.dirname(outputPath), { recursive: true });
-    await writeFile(outputPath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+    await writePayload(payload);
     console.log(`Wrote ${items.length} stories to ${path.relative(rootDir, outputPath)}`);
   } catch (error) {
     console.error(error instanceof Error ? error.message : error);
-    if (existingFeed === null) {
+    const existingPayload = parseExistingPayload(existingFeed);
+    if (existingPayload === null) {
       process.exitCode = 1;
       return;
     }
 
-    console.error('Fetch failed. Keeping the existing public/data/news.json file unchanged.');
-    process.exitCode = 1;
+    const checkedAt = new Date().toISOString();
+    const payload = {
+      ...existingPayload,
+      updatedAt: checkedAt,
+      lastFetchStatus: {
+        status: 'error',
+        checkedAt,
+        message: 'RSS fetch failed. Kept existing news items and updated fetch status.',
+        error: error instanceof Error ? error.message : String(error)
+      }
+    };
+
+    await writePayload(payload);
+    console.error('Fetch failed. Kept existing news items and wrote lastFetchStatus to public/data/news.json.');
   }
 }
 
