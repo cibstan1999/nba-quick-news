@@ -138,7 +138,11 @@ function localizeCommonTerms(value = '') {
     .replace(/\bassists\b/gi, '助攻')
     .replace(/\bsteals\b/gi, '抢断')
     .replace(/\bblocks\b/gi, '盖帽')
+    .replace(/\bgames\b/gi, '场')
     .replace(/\bminutes\b/gi, '分钟')
+    .replace(/\blast season\b/gi, '上赛季')
+    .replace(/\bleft wrist fracture\b/gi, '左手腕骨折')
+    .replace(/\bsprained toe\b/gi, '脚趾扭伤')
     .replace(/\bthree-pointers\b/gi, '三分球')
     .replace(/\bplayoff games\b/gi, '季后赛')
     .replace(/\bregular season games\b/gi, '常规赛')
@@ -149,11 +153,16 @@ function localizeCommonTerms(value = '') {
     .replace(/\breached agreement on\b/gi, '达成')
     .replace(/\bwith a mutual option for Year 2\b/gi, '，第二年为双方选项')
     .replace(/\bat the tax midlevel exception\b/gi, '，使用税中产特例')
+    .replace(/\band\b/gi, '和')
+    .replace(/\bin\b/gi, '在')
     .replace(/\bthe\s+/gi, '')
     .replace(/\ba\s+/gi, '')
     .replace(/\s+,/g, '，')
     .replace(/,\s*/g, '，')
     .replace(/\s+\./g, '。')
+    .replace(/\s+和\s+/g, '和')
+    .replace(/在\s+(\d)/g, '在$1')
+    .replace(/(\d(?:\.\d+)?)\s+(分|篮板|助攻|抢断|盖帽|分钟|场)/g, '$1$2')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -189,12 +198,12 @@ function translateTitle(title = '', category = '其他') {
 function summarizeSentence(sentence = '') {
   const original = sentence.trim();
 
-  const agreementMatch = original.match(/^(.+?) and (?:the )?(.+?) (?:have|has) agreed to an? (.+?) deal(.*)\.$/i);
+  const agreementMatch = original.match(/^(.+?) and (?:the )?(.+?) (?:have|has) agreed to an? (.+?) (?:deal|contract)(.*)\.$/i);
   if (agreementMatch) {
     return `${localizeCommonTerms(agreementMatch[1])}与${localizeCommonTerms(agreementMatch[2])}达成${localizeCommonTerms(agreementMatch[3])}合同${localizeCommonTerms(agreementMatch[4])}。`;
   }
 
-  const reachedMatch = original.match(/^(.+?) and (?:the )?(.+?) have reached agreement on an? (.+?) deal(.*)\.$/i);
+  const reachedMatch = original.match(/^(.+?) and (?:the )?(.+?) have reached agreement on an? (.+?) (?:deal|contract)(.*)\.$/i);
   if (reachedMatch) {
     return `${localizeCommonTerms(reachedMatch[1])}与${localizeCommonTerms(reachedMatch[2])}达成${localizeCommonTerms(reachedMatch[3])}合同${localizeCommonTerms(reachedMatch[4])}。`;
   }
@@ -219,6 +228,21 @@ function summarizeSentence(sentence = '') {
     return `${localizeCommonTerms(midlevelMatch[1])}将使用非纳税人中产特例签下${localizeCommonTerms(midlevelMatch[2])}，并受到第一土豪线硬工资帽限制。`;
   }
 
+  const appearedMatch = original.match(/^(.+?) appeared in just (.+?) games last season due to (.+?)\.$/i);
+  if (appearedMatch) {
+    return `${localizeCommonTerms(appearedMatch[1])}上赛季因${localizeCommonTerms(appearedMatch[3])}只出战${appearedMatch[2]}场。`;
+  }
+
+  const simpleStatsMatch = original.match(/^(.+?) averaged (.+?)\.$/i);
+  if (simpleStatsMatch) {
+    const minutesMatch = simpleStatsMatch[2].match(/^(.+?) in ([\d.]+) minutes$/i);
+    if (minutesMatch) {
+      return `${localizeCommonTerms(simpleStatsMatch[1])}场均${localizeCommonTerms(minutesMatch[1])}，出场${minutesMatch[2]}分钟。`;
+    }
+
+    return `${localizeCommonTerms(simpleStatsMatch[1])}场均${localizeCommonTerms(simpleStatsMatch[2])}。`;
+  }
+
   return localizeCommonTerms(original)
     .replace(/\band\b/gi, '和')
     .replace(/\bwith\b/gi, '为')
@@ -235,25 +259,55 @@ function isUsefulChineseSentence(sentence = '') {
   return englishWords.length - knownNameWords.length <= 4;
 }
 
+function getMoneyTokens(value = '') {
+  return value.match(/\d+(?:\.\d+)?万美元/g) || [];
+}
+
+function getDurationTokens(value = '') {
+  return value.match(/[一二三四五六七八九十两]+年/g) || [];
+}
+
+function getLeadName(value = '') {
+  return value.match(/^[A-Z][A-Za-z.'-]+(?:\s+[A-Z][A-Za-z.'-]+)*/)?.[0] || '';
+}
+
+function isDuplicateOfTitle(sentence = '', titleZh = '') {
+  const leadName = getLeadName(titleZh);
+  const titleMoney = getMoneyTokens(titleZh);
+  const sentenceMoney = getMoneyTokens(sentence);
+  const titleDuration = getDurationTokens(titleZh);
+  const sentenceDuration = getDurationTokens(sentence);
+  const sameMoney = titleMoney.length && titleMoney.some((token) => sentenceMoney.includes(token));
+  const sameDuration = titleDuration.length && titleDuration.some((token) => sentenceDuration.includes(token));
+
+  return Boolean(
+    leadName &&
+      sentence.includes(leadName) &&
+      sentence.includes('达成') &&
+      sentence.includes('合同') &&
+      sameMoney &&
+      sameDuration
+  );
+}
+
 function buildChineseSummary(title, summary, category) {
   const titleZh = translateTitle(title, category);
   const sentences = summary
     .split(/(?<=[.!?])\s+/)
     .map((sentence) => sentence.trim())
-    .filter(Boolean);
+    .filter(Boolean)
+    .filter((sentence) => !/represented by/i.test(sentence));
   const coreSentences = sentences
     .slice(0, 4)
     .map(summarizeSentence)
     .filter(isUsefulChineseSentence)
+    .filter((sentence) => !isDuplicateOfTitle(sentence, titleZh))
     .slice(0, 2);
   const summaryZh = coreSentences.length
     ? `据 RealGM 报道，${coreSentences.join(' ')}`
-    : `据 RealGM 报道，${titleZh}`;
+    : `据 RealGM 报道，暂无更多细节，详情请查看 RealGM 原文。`;
 
-  const keyPoints = [
-    titleZh,
-    ...coreSentences.filter((sentence) => sentence.length <= 160)
-  ].slice(0, 3);
+  const keyPoints = coreSentences.filter((sentence) => sentence.length <= 160).slice(0, 3);
 
   return { titleZh, summaryZh, keyPoints };
 }
