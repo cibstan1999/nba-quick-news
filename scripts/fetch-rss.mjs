@@ -148,12 +148,12 @@ function stripSourcePhrases(value = '') {
 
 function hasMachineEnglish(value = '') {
   const text = String(value);
-  return /\b(?:considered|expected|agree|agrees|signing|signed|sign|named|with|from|into|onto|upon|under|over|after|before|during|likely|believed|pursuing|delaying|leading|target|source says|free agency|contract|deal|traded|trade|rumors|tracker|reacts|survey|continue|continued|host|play host|interested|according)\b/i.test(text);
+  return /\b(?:considered|expected|agree|agrees|signing|signed|sign|named|with|from|into|onto|upon|under|over|after|before|during|likely|believed|pursuing|delaying|leading|target|source says|free agency|contract|deal|traded|trade|rumors|tracker|reacts|survey|continue|continued|host|play host|interested|according|not|for|vs|versus|about|ready|fill|reveal|reveals|calls|moving|latest|play)\b/i.test(text);
 }
 
 function safeTitle(titleZh, originalTitle) {
   const cleaned = normalizeSpacing(titleZh);
-  return hasMachineEnglish(cleaned) ? stripSourcePhrases(originalTitle) : cleaned;
+  return hasMachineEnglish(cleaned) ? buildConservativeHeadline(originalTitle, classify(originalTitle, '')) : cleaned;
 }
 
 function normalizeComparableText(value = '') {
@@ -184,10 +184,181 @@ function stripTrailingPunctuation(value = '') {
 }
 
 function cleanDek(headlineZh = '', candidate = '') {
-  const cleaned = normalizeSpacing(stripTrailingPunctuation(candidate));
+  const cleaned = normalizeSpacing(candidate);
   if (!cleaned) return '';
-  if (isHighlySimilarText(cleaned, headlineZh)) return '';
+  if (isHighlySimilarText(stripTrailingPunctuation(cleaned), headlineZh)) return '';
+  if (isBadDek(cleaned)) return '';
   return cleaned;
+}
+
+function hasChinese(value = '') {
+  return /[\u4e00-\u9fa5]/.test(value);
+}
+
+function getEnglishWordCount(value = '') {
+  return (String(value).match(/[A-Za-z]{3,}/g) || []).length;
+}
+
+function getKnownTeamMentions(value = '') {
+  const mentions = [];
+  for (const [english, chinese] of teamNames) {
+    const pattern = new RegExp(`\\b${english.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+    if (pattern.test(value) && !mentions.includes(chinese)) {
+      mentions.push(chinese);
+    }
+  }
+  return mentions;
+}
+
+function getFeaturedPerson(value = '') {
+  const candidate =
+    String(value)
+      .replace(/\b(?:NBA|NIL|MLE)\b/g, '')
+      .match(/\b[A-Z][A-Za-z.'-]+(?:\s+[A-Z][A-Za-z.'-]+){1,2}\b/)?.[0] || '';
+  if (/^(?:Multiple Bids|Podcast Prophecy|Cup Championship|Sets Salary|Las Vegas|Los Angeles|LA Sports)$/i.test(candidate)) {
+    return '';
+  }
+  return candidate;
+}
+
+function buildConservativeHeadline(title = '', category = '其他') {
+  const cleanTitle = stripSourcePhrases(title);
+
+  const nbaEuropeBidsMatch = cleanTitle.match(/^Multiple Bids For NBA Europe Franchises Top \$(.+?) Billion$/i);
+  if (nbaEuropeBidsMatch) {
+    return `NBA欧洲联赛多个球队竞标价超过${Number(nbaEuropeBidsMatch[1]) * 10}亿美元`;
+  }
+
+  const nbaCupSetMatch = cleanTitle.match(/^NBA Cup Championship Game Set For (.+?) In (.+?) On (.+)$/i);
+  if (nbaCupSetMatch) {
+    return `NBA杯冠军赛将于${nbaCupSetMatch[3]}在${localizeCommonTerms(nbaCupSetMatch[2])}${localizeCommonTerms(nbaCupSetMatch[1])}举行`;
+  }
+
+  const nbaCupLeavingMatch = cleanTitle.match(/^NBA Cup final leaving (.+?) for Butler's Hinkle Fieldhouse; groups, key dates revealed$/i);
+  if (nbaCupLeavingMatch) {
+    return `NBA杯决赛将离开${localizeCommonTerms(nbaCupLeavingMatch[1])}，改到巴特勒大学Hinkle Fieldhouse举行`;
+  }
+
+  const salaryCapSetMatch = cleanTitle.match(/^NBA Sets Salary Cap For (.+?) Season At (.+)$/i);
+  if (salaryCapSetMatch) {
+    return `NBA将${salaryCapSetMatch[1]}赛季工资帽定为${localizeCommonTerms(salaryCapSetMatch[2])}`;
+  }
+
+  const podcastProphecyMatch = cleanTitle.match(/^A Podcast Prophecy\? Steph, LeBron, and the Next NBA Duo$/i);
+  if (podcastProphecyMatch) {
+    return 'Steph与LeBron联手话题再起，外界讨论下一组NBA双星组合';
+  }
+
+  const radioHostLebronMatch = cleanTitle.match(/^LA sports radio host torches Le?bron in blistering reaction: [‘']Wasn[’']t a Laker[’']$/i);
+  if (radioHostLebronMatch) {
+    return '洛杉矶电台主持人批评LeBron，称他不算真正的湖人';
+  }
+
+  const acquireForPackageMatch = cleanTitle.match(/^(.+?) Acquire (.+?) From (.+?) For (.+?), (.+?), (.+)$/i);
+  if (acquireForPackageMatch) {
+    const packageText = `${acquireForPackageMatch[4]}、${acquireForPackageMatch[5]}和${acquireForPackageMatch[6]}`
+      .replace(/\bTwo First Rounders\b/i, '两个首轮签')
+      .replace(/\bOne Swap\b/i, '一次选秀权互换');
+    return `${localizeCommonTerms(acquireForPackageMatch[1])}从${localizeCommonTerms(acquireForPackageMatch[3])}得到${localizeCommonTerms(acquireForPackageMatch[2])}，送出${localizeCommonTerms(packageText)}`;
+  }
+
+  const relyingExperienceMatch = cleanTitle.match(/^(.+?) relying on experience vs (?:the )?(West(?:ern Conference)?)[’']s youth movement$/i);
+  if (relyingExperienceMatch) {
+    return `${localizeCommonTerms(relyingExperienceMatch[1])}继续倚重经验阵容，应对西部年轻化浪潮`;
+  }
+
+  const endedPlayerTeamEraMatch = cleanTitle.match(
+    /^How (?:the )?(.+?) ended (?:the )?(.+?) (Hawks|Celtics|Nets|Hornets|Bulls|Cavaliers|Cavs|Mavericks|Nuggets|Pistons|Warriors|Rockets|Pacers|Clippers|Lakers|Grizzlies|Heat|Bucks|Timberwolves|Pelicans|Knicks|Thunder|Magic|76ers|Sixers|Suns|Trail Blazers|Blazers|Kings|Spurs|Raptors|Jazz|Wizards) era$/i
+  );
+  if (endedPlayerTeamEraMatch) {
+    return `${localizeCommonTerms(endedPlayerTeamEraMatch[1])}如何终结${localizeCommonTerms(endedPlayerTeamEraMatch[2])}的${localizeCommonTerms(endedPlayerTeamEraMatch[3])}时代`;
+  }
+
+  const endedEraMatch = cleanTitle.match(/^How (.+?) ended (?:the )?(.+?) (.+?) era$/i);
+  if (endedEraMatch) {
+    return `${localizeCommonTerms(endedEraMatch[1])}如何终结${localizeCommonTerms(endedEraMatch[2])}的${localizeCommonTerms(endedEraMatch[3])}时代`;
+  }
+
+  const fillVoidMatch = cleanTitle.match(/^(.+?) ready for his shot to fill (.+?)['’]s? (.+?) void$/i);
+  if (fillVoidMatch) {
+    return `${localizeCommonTerms(fillVoidMatch[1])}有望填补${localizeCommonTerms(fillVoidMatch[2])}留下的${localizeCommonTerms(fillVoidMatch[3])}空缺`;
+  }
+
+  const championshipGameMovingMatch = cleanTitle.match(/^NBA Cup championship game moving to (.+?) for (.+)$/i);
+  if (championshipGameMovingMatch) {
+    return `NBA杯冠军赛将在${championshipGameMovingMatch[2]}年移师知名大学篮球场馆`;
+  }
+
+  const undecidedFinalSeasonMatch = cleanTitle.match(/^(.+?) Undecided On Whether This Will Be His Final NBA Season$/i);
+  if (undecidedFinalSeasonMatch) {
+    return `${localizeCommonTerms(undecidedFinalSeasonMatch[1])}尚未决定这是否是自己的最后一个NBA赛季`;
+  }
+
+  const holdingTradeTalksMatch = cleanTitle.match(/^(.+?) Holding Trade Talks Involving (.+)$/i);
+  if (holdingTradeTalksMatch) {
+    return `${localizeCommonTerms(holdingTradeTalksMatch[1])}围绕${localizeCommonTerms(holdingTradeTalksMatch[2])}展开交易讨论`;
+  }
+
+  const whatGaveUpMatch = cleanTitle.match(/^This is what (.+?) gave up for (.+?)(?: \(and why it doesn’t matter\))?$/i);
+  if (whatGaveUpMatch) {
+    return `${localizeCommonTerms(whatGaveUpMatch[1])}为得到${localizeCommonTerms(whatGaveUpMatch[2])}付出了哪些筹码`;
+  }
+  const teams = getKnownTeamMentions(cleanTitle);
+  const person = getFeaturedPerson(cleanTitle);
+  const subject = teams[0] || person || 'NBA';
+  const text = cleanTitle.toLowerCase();
+
+  if (/(free agency|free agent|sign|contract|deal|extension)/i.test(text)) {
+    return `${subject}相关动态：自由市场与合同情况继续更新`;
+  }
+
+  if (/(trade|traded|acquire|swap)/i.test(text)) {
+    return `${subject}相关动态：球队继续评估交易与阵容调整`;
+  }
+
+  if (/(injury|injured|surgery|ankle|knee|wrist|toe)/i.test(text)) {
+    return `${subject}相关动态：伤病与复出情况继续更新`;
+  }
+
+  if (/(draft|rookie|summer league|prospect)/i.test(text)) {
+    return `${subject}相关动态：年轻球员与选秀话题继续发酵`;
+  }
+
+  if (/(playoff|finals|championship|cup)/i.test(text) || category === '季后赛') {
+    return `${subject}相关动态：赛事安排与争冠话题继续更新`;
+  }
+
+  if (/warriors/i.test(text) && /(experience|youth movement)/i.test(text)) {
+    return '勇士相关动态：球队继续围绕经验阵容调整';
+  }
+
+  return `${subject}相关动态：球队后续动向值得关注`;
+}
+
+function isUnnaturalHeadline(value = '') {
+  const text = String(value);
+  if (!text) return true;
+  if (!hasChinese(text)) return true;
+  if (hasMachineEnglish(text)) return true;
+  return getEnglishWordCount(text) >= 5;
+}
+
+function finalizeHeadline(title = '', category = '其他') {
+  const translated = translateTitle(title, category);
+  if (isUnnaturalHeadline(translated)) {
+    return buildConservativeHeadline(title, category);
+  }
+  return translated;
+}
+
+function isBadDek(value = '') {
+  const text = String(value).trim();
+  if (text.length < 14) return true;
+  if (/[［\[]?…|\.{3}|\[[^\]]*\]/.test(text)) return true;
+  if (/^(?:not|no|for|with|in|at|on|to|from|and|but)\b/i.test(text)) return true;
+  if (hasMachineEnglish(text)) return true;
+  if (!/[。！？]$/.test(text)) return true;
+  return false;
 }
 
 function localizeCommonTerms(value = '') {
@@ -200,6 +371,7 @@ function localizeCommonTerms(value = '') {
   return text
     .replace(/\bthe\s+(?=[\u4e00-\u9fa5])/gi, '')
     .replace(/\ba\s+(?=[\u4e00-\u9fa5])/gi, '')
+    .replace(/\bLas Vegas\b/gi, '拉斯维加斯')
     .replace(/\bOne-Year\b/gi, '一年')
     .replace(/\bone-year\b/gi, '一年')
     .replace(/\bone year\b/gi, '一年')
@@ -567,6 +739,7 @@ function summarizeSentence(sentence = '') {
 }
 
 function isUsefulChineseSentence(sentence = '') {
+  if (isBadDek(sentence)) return false;
   const englishWords = sentence.match(/[A-Za-z]{3,}/g) || [];
   const knownNameWords = sentence.match(/\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\b/g) || [];
   return englishWords.length - knownNameWords.length <= 1;
@@ -748,7 +921,7 @@ function scoreImportance({ title = '', summary = '', category = '其他', isMerg
 
 function fallbackSummarizeArticle({ title, description, url, articleText, source }) {
   const category = classify(title, `${description} ${articleText}`);
-  const headlineZh = translateTitle(title, category);
+  const headlineZh = finalizeHeadline(title, category);
   const rawSummary = stripHtml(description || articleText || '');
   const sentences = rawSummary
     .split(/(?<=[.!?])\s+/)
@@ -761,8 +934,8 @@ function fallbackSummarizeArticle({ title, description, url, articleText, source
     .filter(isUsefulChineseSentence)
     .filter((sentence) => !isDuplicateOfTitle(sentence, headlineZh))
     .slice(0, 2);
-  const leadSummary = hasMachineEnglish(headlineZh) ? `这是一条关于 ${stripSourcePhrases(title)} 的NBA动态。` : `${headlineZh}。`;
-  const summaryZh = normalizeSpacing(`据 ${source} 报道，${leadSummary}${coreSentences.join('')}`);
+  const detailSummary = coreSentences.join('');
+  const summaryZh = normalizeSpacing(`据 ${source} 报道，${detailSummary || `${headlineZh}。`}`);
   const dekCandidate = coreSentences[0] || '';
   const dekZh = cleanDek(headlineZh, dekCandidate);
   const oneLineZh = normalizeSpacing(headlineZh.replace(/^NBA动态：/, '').replace(/^签约动态：/, '').replace(/^交易动态：/, ''));
