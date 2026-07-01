@@ -112,13 +112,39 @@ function classify(title = '', summary = '') {
   const text = `${title} ${summary}`.toLowerCase();
   const rules = [
     ['交易', ['trade', 'traded', 'trading', 'acquire', 'acquired', 'swap']],
-    ['签约', ['sign', 'signed', 'signing', 'contract', 'extension', 'free agent', 'waive', 'waived', 'deal']],
+    ['签约', ['sign', 'signed', 'signing', 'contract', 'extension', 'free agent', 'free agency', 'waive', 'waived', 'deal']],
     ['伤病', ['injury', 'injured', 'surgery', 'ankle', 'knee', 'hamstring', 'out indefinitely', 'rehab']],
     ['选秀', ['draft', 'pick', 'prospect', 'lottery', 'combine', 'rookie']],
     ['季后赛', ['playoff', 'finals', 'semifinals', 'postseason', 'championship']]
   ];
 
   return rules.find(([, keywords]) => keywords.some((keyword) => text.includes(keyword)))?.[0] || '其他';
+}
+
+function normalizeSpacing(value = '') {
+  return String(value)
+    .replace(/\s+([，。！？：；、])/g, '$1')
+    .replace(/([，。！？：；、])\s+/g, '$1')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function stripSourcePhrases(value = '') {
+  return String(value)
+    .replace(/,\s*(?:AP )?source says$/i, '')
+    .replace(/,\s*according to report$/i, '')
+    .replace(/,\s*according to .+$/i, '')
+    .trim();
+}
+
+function hasMachineEnglish(value = '') {
+  const text = String(value);
+  return /\b(?:considered|expected|agree|agrees|signing|signed|sign|named|with|from|into|onto|upon|under|over|after|before|during|likely|believed|pursuing|delaying|leading|target|source says|free agency|contract|deal|traded|trade|rumors|tracker|reacts|survey|continue|continued|host|play host|interested|according)\b/i.test(text);
+}
+
+function safeTitle(titleZh, originalTitle) {
+  const cleaned = normalizeSpacing(titleZh);
+  return hasMachineEnglish(cleaned) ? stripSourcePhrases(originalTitle) : cleaned;
 }
 
 function localizeCommonTerms(value = '') {
@@ -191,6 +217,23 @@ function localizeCommonTerms(value = '') {
 }
 
 function translateTitle(title = '', category = '其他') {
+  const joiningContractMatch = title.match(/^(.+?) joining (.+?) on (.+?) contract(?: as .+)?$/i);
+  if (joiningContractMatch) {
+    return `${localizeCommonTerms(joiningContractMatch[1])}将加盟${localizeCommonTerms(joiningContractMatch[2])}，合同为${localizeCommonTerms(joiningContractMatch[3])}`;
+  }
+
+  const cleanTitle = stripSourcePhrases(title);
+
+  const kesslerTargetMatch = cleanTitle.match(/^(.+?) considered (.+?) top target in free agency$/i);
+  if (kesslerTargetMatch) {
+    return `${localizeCommonTerms(kesslerTargetMatch[2])}将${localizeCommonTerms(kesslerTargetMatch[1])}视为自由市场重点目标`;
+  }
+
+  const teamTopTargetMatch = cleanTitle.match(/^(.+?) considered (.+?) top target$/i);
+  if (teamTopTargetMatch) {
+    return `${localizeCommonTerms(teamTopTargetMatch[2])}将${localizeCommonTerms(teamTopTargetMatch[1])}视为重点目标`;
+  }
+
   const kawhiBackTorontoMatch = title.match(/^(.+?) going back to Toronto after Raptors make deal with Clippers(?:,.*)?$/i);
   if (kawhiBackTorontoMatch) {
     return `${localizeCommonTerms(kawhiBackTorontoMatch[1])}将重返多伦多，猛龙与快船达成交易`;
@@ -405,7 +448,7 @@ function translateTitle(title = '', category = '其他') {
     其他: 'NBA动态'
   }[category];
 
-  return `${categoryPrefix}：${localizeCommonTerms(title)}`;
+  return safeTitle(`${categoryPrefix}：${localizeCommonTerms(cleanTitle)}`, title);
 }
 
 function summarizeSentence(sentence = '') {
@@ -491,7 +534,7 @@ function getMoneyTokens(value = '') {
 }
 
 function getDurationTokens(value = '') {
-  return value.match(/[一二三四五六七八九十两]+年/g) || [];
+  return value.match(/(?:\d+|[一二三四五六七八九十两]+)年/g) || [];
 }
 
 function getLeadName(value = '') {
@@ -530,9 +573,9 @@ function buildChineseSummary(title, summary, category, source) {
     .filter(isUsefulChineseSentence)
     .filter((sentence) => !isDuplicateOfTitle(sentence, titleZh))
     .slice(0, 2);
-  const summaryZh = coreSentences.length
-    ? `据 ${source} 报道，${coreSentences.join(' ')}`
-    : `据 ${source} 报道，${titleZh}。详情请点击查看原文。`;
+  const leadSummary = hasMachineEnglish(titleZh) ? `这是一条关于 ${stripSourcePhrases(title)} 的NBA动态。` : `${titleZh}。`;
+  const detailSummary = coreSentences.length ? coreSentences.join(' ') : '';
+  const summaryZh = `据 ${source} 报道，${leadSummary}${detailSummary}`;
 
   const keyPoints = coreSentences.filter((sentence) => sentence.length <= 160).slice(0, 3);
 
@@ -643,6 +686,56 @@ async function readExistingFeed() {
   }
 }
 
+async function rebuildFromExistingFeed() {
+  const existingFeed = await readExistingFeed();
+  if (!existingFeed) {
+    throw new Error('No existing public/data/news.json file found.');
+  }
+
+  const existing = JSON.parse(existingFeed);
+  const sourceConfigs = Array.isArray(existing.sources) ? existing.sources : FEEDS;
+  const items = dedupeAndSort(
+    toArray(existing.items)
+      .map((item, index) => {
+        const title = stripHtml(item.title);
+        if (!title) return null;
+
+        const source = item.source?.split(' / ')[0] || 'Unknown';
+        const feedConfig = sourceConfigs.find((config) => config.source === source) || { source, feed: item.feed || '' };
+        const summary = stripHtml(item.summary);
+        const category = classify(title, summary);
+        const chinese = buildChineseSummary(title, summary, category, feedConfig.source);
+
+        return {
+          ...item,
+          id: item.link || `${title}-${index}`,
+          title,
+          titleZh: chinese.titleZh,
+          summary,
+          summaryZh: chinese.summaryZh,
+          keyPoints: chinese.keyPoints,
+          source: Array.isArray(item.sources) && item.sources.length ? item.sources.join(' / ') : item.source || feedConfig.source,
+          sources: item.sources,
+          feed: feedConfig.feed,
+          category,
+          imageUrl: item.imageUrl || ''
+        };
+      })
+      .filter(Boolean)
+  );
+
+  const payload = {
+    sources: sourceConfigs,
+    updatedAt: existing.updatedAt || new Date().toISOString(),
+    highlights: buildHighlights(items),
+    items
+  };
+
+  await mkdir(path.dirname(outputPath), { recursive: true });
+  await writeFile(outputPath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+  console.log(`Rebuilt ${items.length} cached stories in ${path.relative(rootDir, outputPath)}`);
+}
+
 async function fetchFeed(feedUrl) {
   const response = await fetch(feedUrl, {
     headers: {
@@ -666,21 +759,151 @@ function getTimestamp(item) {
   return Number.isNaN(date.getTime()) ? 0 : date.getTime();
 }
 
-function dedupeAndSort(items) {
-  const seen = new Set();
+function getPrimaryPerson(title = '') {
+  const patterns = [
+    /^(.+?),\s*.+? Agree To/i,
+    /^(.+?) leaves .+? for/i,
+    /^.+? signing (.+?) to/i,
+    /^.+? sign (?:guard\s+)?(.+?) to/i,
+    /^(.+?) signs .+? deal with/i,
+    /^(.+?) Agrees to Contract Extension/i,
+    /^.+? with (?:forward\s+|veteran guard\s+|guard\s+)?(.+?)(?:,| at |$)/i,
+    /^(.+?) traded to/i
+  ];
 
-  return items
-    .filter((item) => {
-      const key = item.link || `${item.source}:${item.title.toLowerCase()}`;
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    })
+  for (const pattern of patterns) {
+    const match = title.match(pattern);
+    if (match?.[1]) return stripSourcePhrases(match[1]).trim();
+  }
+
+  return title.match(/[A-Z][A-Za-z.'-]+(?:\s+[A-Z][A-Za-z.'-]+){0,2}/)?.[0] || '';
+}
+
+function getTeamTokens(value = '') {
+  const text = localizeCommonTerms(value);
+  return Array.from(teamNames.values()).filter((team) => text.includes(team));
+}
+
+function getEventTeam(value = '') {
+  const text = localizeCommonTerms(value);
+  const matches = Array.from(teamNames.values())
+    .map((team) => ({ team, index: text.lastIndexOf(team) }))
+    .filter((entry) => entry.index >= 0)
+    .sort((a, b) => b.index - a.index);
+  return matches[0]?.team || '';
+}
+
+function getDuplicateKey(item) {
+  const person = getPrimaryPerson(item.title).toLowerCase();
+  const money = getMoneyTokens(item.titleZh || item.summaryZh || item.title)[0] || '';
+  const eventTeam = getEventTeam(`${item.title} ${item.titleZh}`);
+
+  if (person && eventTeam && ['签约', '交易'].includes(item.category)) {
+    return [person, eventTeam].join('|');
+  }
+
+  if (person && money) {
+    return [person, money].join('|');
+  }
+
+  return '';
+}
+
+function mergeDuplicateGroup(group) {
+  if (group.length === 1) return group[0];
+
+  const sorted = [...group].sort((a, b) => {
+    const imageDelta = Number(Boolean(b.imageUrl)) - Number(Boolean(a.imageUrl));
+    if (imageDelta) return imageDelta;
+    return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
+  });
+  const primary = { ...sorted[0] };
+  const sources = [
+    ...new Set(
+      sorted
+        .flatMap((item) => item.sources || String(item.source || '').split(' / '))
+        .map((source) => source.trim())
+        .filter(Boolean)
+    )
+  ];
+
+  primary.source = sources.join(' / ');
+  primary.sources = sources;
+  primary.sourceLinks = sorted.map((item) => ({ source: item.source, link: item.link }));
+  primary.originalTitles = sorted.map((item) => item.title);
+  primary.isMerged = true;
+
+  const detailItem = sorted
+    .filter((item) => item.summaryZh)
+    .sort((a, b) => b.summaryZh.length - a.summaryZh.length)[0];
+  if (detailItem && detailItem.summaryZh.length > primary.summaryZh.length) {
+    primary.summaryZh = detailItem.summaryZh;
+    primary.keyPoints = detailItem.keyPoints;
+  }
+
+  return primary;
+}
+
+function dedupeAndSort(items) {
+  const exactSeen = new Set();
+  const groups = new Map();
+  const singles = [];
+
+  for (const item of items) {
+    const exactKey = item.link || `${item.source}:${item.title.toLowerCase()}`;
+    if (exactSeen.has(exactKey)) continue;
+    exactSeen.add(exactKey);
+
+    const duplicateKey = getDuplicateKey(item);
+    if (!duplicateKey) {
+      singles.push(item);
+      continue;
+    }
+
+    if (!groups.has(duplicateKey)) groups.set(duplicateKey, []);
+    groups.get(duplicateKey).push(item);
+  }
+
+  return [...singles, ...Array.from(groups.values()).map(mergeDuplicateGroup)]
     .sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
     .slice(0, 120);
 }
 
+function scoreHighlight(item) {
+  const text = `${item.title} ${item.titleZh} ${item.summary}`.toLowerCase();
+  let score = 0;
+  if (['签约', '交易', '伤病', '选秀'].includes(item.category)) score += 5;
+  if (/(lebron|kawhi|harden|doncic|brown|lakers|warriors|celtics|suns|nets|sixers|bucks|heat|cavaliers)/i.test(text)) score += 3;
+  if (/(free agency|trade|sign|deal|contract|extension|injury|draft|target|rumor|pursuit|acquire)/i.test(text)) score += 3;
+  if (getMoneyTokens(`${item.titleZh} ${item.summaryZh}`).length) score += 2;
+  if (item.isMerged) score += 2;
+  return score;
+}
+
+function toHighlightText(item) {
+  return normalizeSpacing((item.titleZh || item.title).replace(/^NBA动态：/, '').replace(/^签约动态：/, '').replace(/^交易动态：/, ''));
+}
+
+function buildHighlights(items) {
+  return [...items]
+    .map((item) => ({ item, score: scoreHighlight(item) }))
+    .sort((a, b) => b.score - a.score || new Date(b.item.pubDate).getTime() - new Date(a.item.pubDate).getTime())
+    .slice(0, 5)
+    .map(({ item }) => ({
+      id: item.id,
+      text: toHighlightText(item),
+      category: item.category,
+      source: item.source,
+      link: item.link
+    }));
+}
+
 async function main() {
+  if (process.argv.includes('--from-cache')) {
+    await rebuildFromExistingFeed();
+    return;
+  }
+
   const existingFeed = await readExistingFeed();
 
   try {
@@ -717,6 +940,7 @@ async function main() {
     const payload = {
       sources: FEEDS,
       updatedAt: new Date().toISOString(),
+      highlights: buildHighlights(items),
       items
     };
 

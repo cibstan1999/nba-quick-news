@@ -6,6 +6,7 @@ const app = document.querySelector('#app');
 
 const state = {
   items: [],
+  highlights: [],
   updatedAt: '',
   query: '',
   category: '最新',
@@ -59,7 +60,7 @@ function render() {
         <div>
           <p class="eyebrow">NBA 中文速览</p>
           <h1>NBA Quick News</h1>
-          <p class="subtitle">Real-time NBA news from RealGM and Yahoo Sports, summarized in Chinese</p>
+          <p class="subtitle">3 分钟刷完 NBA 今日流言、签约与交易。</p>
         </div>
         <div class="status-card" aria-label="Feed status">
           <span>最后更新</span>
@@ -86,6 +87,8 @@ function render() {
       </section>
 
       ${state.error ? `<p class="notice">${escapeHtml(state.error)}</p>` : ''}
+
+      ${renderHighlights()}
 
       <section class="news-meta" aria-live="polite">
         <span>${state.loading ? '正在加载...' : `${filteredItems.length} 条新闻`}</span>
@@ -116,6 +119,31 @@ function render() {
   });
 }
 
+function renderHighlights() {
+  if (!state.highlights.length) return '';
+
+  return `
+    <section class="highlights" aria-label="今日速览">
+      <div class="section-heading">
+        <h2>今日速览</h2>
+        <span>打开就知道重点</span>
+      </div>
+      <ul>
+        ${state.highlights
+          .map(
+            (item) => `
+              <li>
+                <span class="mini-pill">${escapeHtml(item.category || 'NBA')}</span>
+                <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.text)}</a>
+              </li>
+            `
+          )
+          .join('')}
+      </ul>
+    </section>
+  `;
+}
+
 function renderCard(item) {
   const titleZh = item.titleZh || item.title;
   const summaryZh = item.summaryZh || item.summary || '暂无摘要。';
@@ -132,12 +160,18 @@ function renderCard(item) {
       }
       <div class="card-body">
         <div class="card-topline">
-          <span class="pill">${escapeHtml(item.category || '其他')}</span>
           <time datetime="${escapeHtml(item.pubDate || '')}">${escapeHtml(formatDate(item.pubDate))}</time>
         </div>
         <h2><a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(titleZh)}</a></h2>
-        <p class="original-title">${escapeHtml(item.title)}</p>
         <p class="summary">${escapeHtml(summaryZh)}</p>
+        <div class="card-tags">
+          <span class="pill">${escapeHtml(item.category || '其他')}</span>
+          ${item.isMerged ? '<span class="merged-note">多源报道</span>' : ''}
+        </div>
+        <details class="original-title">
+          <summary>英文原题</summary>
+          <p>${escapeHtml(item.title)}</p>
+        </details>
         <div class="card-footer">
           <span>${escapeHtml(source)} 原文${item.imageUrl ? ' / 图片预览来自原站元数据' : ''}</span>
           <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">查看原文</a>
@@ -156,6 +190,7 @@ async function loadNews() {
 
     const data = await response.json();
     state.items = Array.isArray(data.items) ? data.items : [];
+    state.highlights = Array.isArray(data.highlights) ? data.highlights : [];
     state.updatedAt = data.updatedAt || '';
   } catch (error) {
     state.error = '无法读取本地新闻数据。请运行 npm run fetch 后重试。';
