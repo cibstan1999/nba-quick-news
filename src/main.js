@@ -41,7 +41,7 @@ function getFilteredItems() {
 
   return state.items.filter((item) => {
     const matchesCategory = state.category === '最新' || item.category === state.category;
-    const haystack = `${item.title} ${item.summary} ${item.category}`.toLowerCase();
+    const haystack = `${item.title} ${item.titleZh} ${item.summary} ${item.summaryZh} ${item.category}`.toLowerCase();
     const matchesQuery = !query || haystack.includes(query);
     return matchesCategory && matchesQuery;
   });
@@ -57,20 +57,20 @@ function render() {
     <main class="shell">
       <header class="site-header">
         <div>
-          <p class="eyebrow">NBA wiretap monitor</p>
+          <p class="eyebrow">NBA 中文速览</p>
           <h1>NBA Quick News</h1>
-          <p class="subtitle">Real-time NBA wiretap from RealGM</p>
+          <p class="subtitle">Real-time NBA wiretap from RealGM, summarized in Chinese</p>
         </div>
         <div class="status-card" aria-label="Feed status">
-          <span>Last updated</span>
+          <span>最后更新</span>
           <strong>${escapeHtml(updatedLabel)}</strong>
         </div>
       </header>
 
       <section class="controls" aria-label="News filters">
         <label class="search">
-          <span>Search</span>
-          <input id="searchInput" type="search" value="${escapeHtml(state.query)}" placeholder="Search players, teams, topics..." autocomplete="off" />
+          <span>搜索</span>
+          <input id="searchInput" type="search" value="${escapeHtml(state.query)}" placeholder="搜索球员、球队、交易、伤病..." autocomplete="off" />
         </label>
         <div class="category-tabs" role="tablist" aria-label="Categories">
           ${categories
@@ -88,15 +88,15 @@ function render() {
       ${state.error ? `<p class="notice">${escapeHtml(state.error)}</p>` : ''}
 
       <section class="news-meta" aria-live="polite">
-        <span>${state.loading ? 'Loading feed...' : `${filteredItems.length} stories`}</span>
-        <span>Source: RealGM</span>
+        <span>${state.loading ? '正在加载...' : `${filteredItems.length} 条新闻`}</span>
+        <span>来源：RealGM</span>
       </section>
 
       <section class="news-list" aria-label="NBA news stories">
         ${
           filteredItems.length
             ? filteredItems.map(renderCard).join('')
-            : `<article class="empty-state"><h2>No stories found</h2><p>Try a different keyword or category.</p></article>`
+            : `<article class="empty-state"><h2>没有找到相关新闻</h2><p>换个关键词或分类试试。</p></article>`
         }
       </section>
     </main>
@@ -117,17 +117,36 @@ function render() {
 }
 
 function renderCard(item) {
+  const points = Array.isArray(item.keyPoints) ? item.keyPoints.filter(Boolean).slice(0, 3) : [];
+  const titleZh = item.titleZh || item.title;
+  const summaryZh = item.summaryZh || item.summary || '暂无摘要。';
+
   return `
-    <article class="news-card">
-      <div class="card-topline">
-        <span class="pill">${escapeHtml(item.category || '其他')}</span>
-        <time datetime="${escapeHtml(item.pubDate || '')}">${escapeHtml(formatDate(item.pubDate))}</time>
-      </div>
-      <h2><a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)}</a></h2>
-      <p>${escapeHtml(item.summary || 'No summary available.')}</p>
-      <div class="card-footer">
-        <span>RealGM</span>
-        <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">Open original</a>
+    <article class="news-card ${item.imageUrl ? 'has-image' : ''}">
+      ${
+        item.imageUrl
+          ? `<a class="thumb" href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer" aria-label="Open original image source">
+              <img src="${escapeHtml(item.imageUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer" />
+            </a>`
+          : ''
+      }
+      <div class="card-body">
+        <div class="card-topline">
+          <span class="pill">${escapeHtml(item.category || '其他')}</span>
+          <time datetime="${escapeHtml(item.pubDate || '')}">${escapeHtml(formatDate(item.pubDate))}</time>
+        </div>
+        <h2><a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(titleZh)}</a></h2>
+        <p class="original-title">${escapeHtml(item.title)}</p>
+        <p class="summary">${escapeHtml(summaryZh)}</p>
+        ${
+          points.length
+            ? `<ul class="key-points">${points.map((point) => `<li>${escapeHtml(point)}</li>`).join('')}</ul>`
+            : ''
+        }
+        <div class="card-footer">
+          <span>RealGM 原文${item.imageUrl ? ' / 图片预览来自原站元数据' : ''}</span>
+          <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">Open Original</a>
+        </div>
       </div>
     </article>
   `;
@@ -144,7 +163,7 @@ async function loadNews() {
     state.items = Array.isArray(data.items) ? data.items : [];
     state.updatedAt = data.updatedAt || '';
   } catch (error) {
-    state.error = 'Unable to load the local news feed. Run npm run fetch and try again.';
+    state.error = '无法读取本地新闻数据。请运行 npm run fetch 后重试。';
     console.error(error);
   } finally {
     state.loading = false;
