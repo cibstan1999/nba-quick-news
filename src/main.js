@@ -117,7 +117,6 @@ function render() {
 }
 
 function renderCard(item) {
-  const points = Array.isArray(item.keyPoints) ? item.keyPoints.filter(Boolean).slice(0, 3) : [];
   const titleZh = item.titleZh || item.title;
   const summaryZh = item.summaryZh || item.summary || '暂无摘要。';
   const source = item.source || 'Original source';
@@ -139,11 +138,6 @@ function renderCard(item) {
         <h2><a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(titleZh)}</a></h2>
         <p class="original-title">${escapeHtml(item.title)}</p>
         <p class="summary">${escapeHtml(summaryZh)}</p>
-        ${
-          points.length
-            ? `<ul class="key-points">${points.map((point) => `<li>${escapeHtml(point)}</li>`).join('')}</ul>`
-            : ''
-        }
         <div class="card-footer">
           <span>${escapeHtml(source)} 原文${item.imageUrl ? ' / 图片预览来自原站元数据' : ''}</span>
           <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">Open Original</a>

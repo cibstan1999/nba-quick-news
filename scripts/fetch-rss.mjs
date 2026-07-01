@@ -183,6 +183,11 @@ function localizeCommonTerms(value = '') {
 }
 
 function translateTitle(title = '', category = '其他') {
+  const leavesForDealMatch = title.match(/^(.+?) leaves (.+?) for (.+?) deal with (.+)$/i);
+  if (leavesForDealMatch) {
+    return `${localizeCommonTerms(leavesForDealMatch[1])}离开${localizeCommonTerms(leavesForDealMatch[2])}，与${localizeCommonTerms(leavesForDealMatch[4])}签下${localizeCommonTerms(leavesForDealMatch[3])}合同`;
+  }
+
   const freeAgencyRetainMatch = title.match(/^(.+?) fail to retain starting small forward in free agency$/i);
   if (freeAgencyRetainMatch) {
     return `${localizeCommonTerms(freeAgencyRetainMatch[1])}在自由市场未能留住首发小前锋`;
@@ -345,7 +350,7 @@ function buildChineseSummary(title, summary, category, source) {
     .slice(0, 2);
   const summaryZh = coreSentences.length
     ? `据 ${source} 报道，${coreSentences.join(' ')}`
-    : `据 ${source} 报道，暂无更多细节，详情请查看原文。`;
+    : `据 ${source} 报道，${titleZh}。原文暂未提供更多可提炼细节。`;
 
   const keyPoints = coreSentences.filter((sentence) => sentence.length <= 160).slice(0, 3);
 
