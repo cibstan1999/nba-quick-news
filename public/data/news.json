@@ -9,27 +9,27 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-01T19:22:06.945Z",
+  "updatedAt": "2026-07-01T21:08:18.136Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-01T19:22:06.945Z",
+    "checkedAt": "2026-07-01T21:08:18.136Z",
     "fetchedItems": 63,
     "failedFeeds": []
   },
   "highlights": [
-    {
-      "id": "https://basketball.realgm.com/wiretap/286478/Moe-Wagner-Nets-Agree-To-Two-Year-$19M-Deal",
-      "text": "Moe Wagner与篮网达成两年，1900万美元合同",
-      "category": "签约",
-      "source": "RealGM / Yahoo Sports",
-      "link": "https://basketball.realgm.com/wiretap/286478/Moe-Wagner-Nets-Agree-To-Two-Year-$19M-Deal"
-    },
     {
       "id": "https://sports.yahoo.com/articles/lakers-sign-quentin-grimes-four-164539108.html",
       "text": "湖人相关动态：自由市场与合同情况继续更新",
       "category": "签约",
       "source": "Yahoo Sports / RealGM",
       "link": "https://sports.yahoo.com/articles/lakers-sign-quentin-grimes-four-164539108.html"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lakers-land-collin-sexton-19-163138148.html",
+      "text": "湖人 land Collin Sexton on 1900万美元 合同",
+      "category": "签约",
+      "source": "Yahoo Sports / RealGM",
+      "link": "https://sports.yahoo.com/articles/lakers-land-collin-sexton-19-163138148.html"
     },
     {
       "id": "https://sports.yahoo.com/articles/sandro-mamukelashvili-signs-four-52-161830428.html",
@@ -55,6 +55,186 @@
   ],
   "items": [
     {
+      "id": "https://sports.yahoo.com/articles/does-lebron-deserve-lakers-statue-203659178.html",
+      "title": "Does LeBron deserve a Lakers statue? This former champion thinks so",
+      "originalTitle": "Does LeBron deserve a Lakers statue? This former champion thinks so",
+      "headlineZh": "湖人相关动态：球队后续动向值得关注",
+      "titleZh": "湖人相关动态：球队后续动向值得关注",
+      "link": "https://sports.yahoo.com/articles/does-lebron-deserve-lakers-statue-203659178.html",
+      "url": "https://sports.yahoo.com/articles/does-lebron-deserve-lakers-statue-203659178.html",
+      "pubDate": "2026-07-01T20:36:59.000Z",
+      "publishedAt": "2026-07-01T20:36:59.000Z",
+      "summary": "LeBron James' departure from the Los Angeles Lakers has sparked debate over whether he deserves a statue alongside statues honoring Laker greats.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "湖人相关动态：球队后续动向值得关注",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/GkGvYrN.0adLruCG1F_.jg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/07ba934142fa1e5987f7bfc6ddebf86f",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/cavs-sign-rookie-meleek-thomas-200000023.html",
+      "title": "Cavs sign rookie Meleek Thomas to a four-year deal",
+      "originalTitle": "Cavs sign rookie Meleek Thomas to a four-year deal",
+      "headlineZh": "骑士相关动态：自由市场与合同情况继续更新",
+      "titleZh": "骑士相关动态：自由市场与合同情况继续更新",
+      "link": "https://sports.yahoo.com/articles/cavs-sign-rookie-meleek-thomas-200000023.html",
+      "url": "https://sports.yahoo.com/articles/cavs-sign-rookie-meleek-thomas-200000023.html",
+      "pubDate": "2026-07-01T20:00:00.000Z",
+      "publishedAt": "2026-07-01T20:00:00.000Z",
+      "summary": "The Cleveland Cavaliers have signed Meleek Thomas to a four-year, $9.3 million deal. Thomas was selected 34th overall by the Cavs last week in the 2026 NBA Draft. Thomas played 37 games with Arkansas last year as a freshman. He averaged 15.7 points and 3.8 rebounds as a 6’3” sharpshooting combo-guard. The Cavs are excited […]",
+      "dekZh": "He场均15.7分和3.8篮板 as 6’3” sharpshooting combo-后卫。",
+      "summaryZh": "",
+      "oneLineZh": "骑士相关动态：自由市场与合同情况继续更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [
+        "He场均15.7分和3.8篮板 as 6’3” sharpshooting combo-后卫。"
+      ],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Ajy_toTIrK.i17JRlhFl1A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MTY7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/0cb945b04178cfec6730a78c02e3d362",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 4
+    },
+    {
+      "id": "https://sports.yahoo.com/nba/breaking-news/article/tobias-harris-reportedly-reaches-2-year-31-million-deal-to-join-spurs-195703012.html",
+      "title": "Tobias Harris reportedly reaches 2-year, $31 million deal to join Spurs",
+      "originalTitle": "Tobias Harris reportedly reaches 2-year, $31 million deal to join Spurs",
+      "headlineZh": "马刺相关动态：自由市场与合同情况继续更新",
+      "titleZh": "马刺相关动态：自由市场与合同情况继续更新",
+      "link": "https://sports.yahoo.com/nba/breaking-news/article/tobias-harris-reportedly-reaches-2-year-31-million-deal-to-join-spurs-195703012.html",
+      "url": "https://sports.yahoo.com/nba/breaking-news/article/tobias-harris-reportedly-reaches-2-year-31-million-deal-to-join-spurs-195703012.html",
+      "pubDate": "2026-07-01T19:57:03.000Z",
+      "publishedAt": "2026-07-01T19:57:03.000Z",
+      "summary": "Tobias Harris helped lead the Pistons to the No. 1 seed in the Eastern Conference last season.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "马刺相关动态：自由市场与合同情况继续更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/_FWXdE5gSTwEak6LWOQ.CA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/9e05ba04-4e1e-4a74-8b1e-ea8fd6538fb8",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 4
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286484/Tobiars-Harris-Spurs-Agree-To-Two-Year-$31M-Deal",
+      "title": "Tobiars Harris, Spurs Agree To Two-Year, $31M Deal",
+      "originalTitle": "Tobiars Harris, Spurs Agree To Two-Year, $31M Deal",
+      "headlineZh": "Tobiars Harris与马刺达成两年，3100万美元合同",
+      "titleZh": "Tobiars Harris与马刺达成两年，3100万美元合同",
+      "link": "https://basketball.realgm.com/wiretap/286484/Tobiars-Harris-Spurs-Agree-To-Two-Year-$31M-Deal",
+      "url": "https://basketball.realgm.com/wiretap/286484/Tobiars-Harris-Spurs-Agree-To-Two-Year-$31M-Deal",
+      "pubDate": "2026-07-01T19:54:52.000Z",
+      "publishedAt": "2026-07-01T19:54:52.000Z",
+      "summary": "Tobias Harris and the San Antonio Spurs have agreed to a two-year, $31 million deal. Harris is represented by Torrel Harris . Harris averaged 13.3 points, 5.1 rebounds and 2.5 assists in 27.7 minutes across 63 games with the Pistons. The Spurs were looking to sign a forward in free agency and Harris gives them an option similar to Julian Champagnie. San Antonio will utilize their non-taxpayer midlevel exception on Harris and now be hard capped at the first apron. The Pistons already signed his probable replacement in John Collins on a three-year, $51 million contract .",
+      "dekZh": "Tobias Harris与圣安东尼奥马刺达成两年，3100万美元合同。",
+      "summaryZh": "据 RealGM 报道，Tobiars Harris与马刺达成两年，3100万美元合同。",
+      "oneLineZh": "Tobiars Harris与马刺达成两年，3100万美元合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [
+        "Tobias Harris与圣安东尼奥马刺达成两年，3100万美元合同。"
+      ],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Harris_Tobias_det_241015.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 4
+    },
+    {
+      "id": "https://sports.yahoo.com/nba/article/where-will-lebron-go--breaking-down-the-wild-offseason-start-194924335.html",
+      "title": "Where will LeBron go? + breaking down the wild offseason start",
+      "originalTitle": "Where will LeBron go? + breaking down the wild offseason start",
+      "headlineZh": "NBA相关动态：球队后续动向值得关注",
+      "titleZh": "NBA相关动态：球队后续动向值得关注",
+      "link": "https://sports.yahoo.com/nba/article/where-will-lebron-go--breaking-down-the-wild-offseason-start-194924335.html",
+      "url": "https://sports.yahoo.com/nba/article/where-will-lebron-go--breaking-down-the-wild-offseason-start-194924335.html",
+      "pubDate": "2026-07-01T19:49:24.000Z",
+      "publishedAt": "2026-07-01T19:49:24.000Z",
+      "summary": "Tom and Dan break down where they think LeBron James will go as well as other free agency news.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "NBA相关动态：球队后续动向值得关注",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/hFcfkrMbzxVZhx..c42dpw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/user-uploaded/tbn-bron-thumb_2953.jpg",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 4
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286483/Jaxson-Hayes-Jazz-Agree-To-Two-Year-$12M-Deal",
+      "title": "Jaxson Hayes, Jazz Agree To Two-Year, $12M Deal",
+      "originalTitle": "Jaxson Hayes, Jazz Agree To Two-Year, $12M Deal",
+      "headlineZh": "Jaxson Hayes与爵士达成两年，1200万美元合同",
+      "titleZh": "Jaxson Hayes与爵士达成两年，1200万美元合同",
+      "link": "https://basketball.realgm.com/wiretap/286483/Jaxson-Hayes-Jazz-Agree-To-Two-Year-$12M-Deal",
+      "url": "https://basketball.realgm.com/wiretap/286483/Jaxson-Hayes-Jazz-Agree-To-Two-Year-$12M-Deal",
+      "pubDate": "2026-07-01T19:49:19.000Z",
+      "publishedAt": "2026-07-01T19:49:19.000Z",
+      "summary": "Jaxson Hayes and the Utah Jazz have agreed to a two-year deal worth $12 million. The Jazz will have a team option for the 2027-28 season. Hayes leaves the Los Angeles Lakers following their sign-and-trade with the Utah Jazz for Walker Kessler. Hayes appeared in 66 games last season with the Lakers, averaging 7.5 points and 4.1 rebounds in 18.3 minutes. Hayes first joined the Lakers during the 2023-24 season. Hayes gives the Jazz extra depth at center behind Jusuf Nurkic.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，Jaxson Hayes与爵士达成两年，1200万美元合同。",
+      "oneLineZh": "Jaxson Hayes与爵士达成两年，1200万美元合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_utahjazz.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "交易",
+      "importance": 5
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286482/Meleek-Thomas-Cavaliers-Agree-To-Four-Year-$93M-Deal",
+      "title": "Meleek Thomas, Cavaliers Agree To Four-Year, $9.3M Deal",
+      "originalTitle": "Meleek Thomas, Cavaliers Agree To Four-Year, $9.3M Deal",
+      "headlineZh": "Meleek Thomas与骑士达成四年，930.0000000000001万美元合同",
+      "titleZh": "Meleek Thomas与骑士达成四年，930.0000000000001万美元合同",
+      "link": "https://basketball.realgm.com/wiretap/286482/Meleek-Thomas-Cavaliers-Agree-To-Four-Year-$93M-Deal",
+      "url": "https://basketball.realgm.com/wiretap/286482/Meleek-Thomas-Cavaliers-Agree-To-Four-Year-$93M-Deal",
+      "pubDate": "2026-07-01T19:38:05.000Z",
+      "publishedAt": "2026-07-01T19:38:05.000Z",
+      "summary": "Meleek Thomas and the Cleveland Cavaliers have agreed to a four-year, $9.3 million deal after he was the 34th overall pick in the 2026 NBA draft. Thomas is represented by Sam Permut . Thomas will have the first three seasons of the deal fully guaranteed for a total of $6.4 million. Thomas appeared in 37 games at Arkansas, averaging 15.6 points, 3.8 rebounds, 2.5 assists and 1.5 steals in 30.5 minutes.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，Meleek Thomas与骑士达成四年，930.0000000000001万美元合同。",
+      "oneLineZh": "Meleek Thomas与骑士达成四年，930.0000000000001万美元合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Thomas_Meleek_ark_260622.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 4
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286481/Tobias-Harris-Expected-To-Leave-Pistons-Could-Sign-With-Spurs",
+      "title": "Tobias Harris Expected To Leave Pistons, Could Sign With Spurs",
+      "originalTitle": "Tobias Harris Expected To Leave Pistons, Could Sign With Spurs",
+      "headlineZh": "活塞相关动态：自由市场与合同情况继续更新",
+      "titleZh": "活塞相关动态：自由市场与合同情况继续更新",
+      "link": "https://basketball.realgm.com/wiretap/286481/Tobias-Harris-Expected-To-Leave-Pistons-Could-Sign-With-Spurs",
+      "url": "https://basketball.realgm.com/wiretap/286481/Tobias-Harris-Expected-To-Leave-Pistons-Could-Sign-With-Spurs",
+      "pubDate": "2026-07-01T19:33:28.000Z",
+      "publishedAt": "2026-07-01T19:33:28.000Z",
+      "summary": "Tobias Harris has had two productive seasons with the Detroit Pistons to help support the franchise's resurgence around Cade Cunningham, but he will likely exit in free agency this offseason. The Pistons already signed his probable replacement in John Collins on a three-year, $51 million contract . \"They're going to lose Tobias Harris,\" said Brian Windhorst. Harris averaged 13.3 points, 5.1 rebounds and 2.5 assists in 27.7 minutes across 63 games with the Pistons. The San Antonio Spurs are looking to sign a forward in free agency and Harris could be an option on a shorter contract. \"Tobias Harris has a chance to end up one San Antonio,\" added Windhorst.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "活塞相关动态：自由市场与合同情况继续更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Harris_Tobias_det_241015.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 4
+    },
+    {
       "id": "https://basketball.realgm.com/wiretap/286480/Nuggets-Reach-Out-To-LeBron-James-In-Free-Agency",
       "title": "Nuggets Reach Out To LeBron James In Free Agency",
       "originalTitle": "Nuggets Reach Out To LeBron James In Free Agency",
@@ -64,7 +244,7 @@
       "url": "https://basketball.realgm.com/wiretap/286480/Nuggets-Reach-Out-To-LeBron-James-In-Free-Agency",
       "pubDate": "2026-07-01T19:16:41.000Z",
       "publishedAt": "2026-07-01T19:16:41.000Z",
-      "summary": "The Denver Nuggets have reached out to express interest in signing LeBron James. James made the decision on Tuesday that he will explore his options in free agency and leave the Los Angeles Lakers after eight seasons with the franchise. The Nuggets tried to recruit James to the Nuggets in 2018 when he was a free agent and ultimately left the Cleveland Cavaliers for the Lakers. James has described Nuggets team president Josh Kroenke as a \"very dear friend.\" The Nuggets would give James the opportunity to team up with Nikola Jokic. The Golden State Warriors, Cleveland Cavaliers and Miami Heat have been mentioned by ESPN as the three most probable destinations for James.",
+      "summary": "The Denver Nuggets have reached out to express interest in signing LeBron James. James made the decision on Tuesday that he will explore his options in free agency and leave the Los Angeles Lakers after eight seasons with the franchise. The Nuggets tried to recruit James to the Nuggets in 2018 when he was a free agent and ultimately left the Cleveland Cavaliers for the Lakers. James has described Nuggets team president Josh Kroenke as a \"very dear friend.\" The Nuggets would give James the opportunity to team up with Nikola Jokic. The Golden State Warriors, Cleveland Cavaliers and Miami Heat have been mentioned by ESPN as the three most probable destinations for James. But with James willing to take less money in free agency, the Nuggets open up as a possibility.",
       "dekZh": "",
       "summaryZh": "据 RealGM 报道，签约动态：掘金 Reach Out To LeBron James 在 自由市场。",
       "oneLineZh": "掘金 Reach Out To LeBron James 在 自由市场",
@@ -99,6 +279,50 @@
       "importance": 5
     },
     {
+      "id": "https://sports.yahoo.com/articles/benefits-cavs-lebron-james-sweepstakes-191048800.html",
+      "title": "New update benefits Cavs in LeBron James sweepstakes",
+      "originalTitle": "New update benefits Cavs in LeBron James sweepstakes",
+      "headlineZh": "骑士相关动态：球队后续动向值得关注",
+      "titleZh": "骑士相关动态：球队后续动向值得关注",
+      "link": "https://sports.yahoo.com/articles/benefits-cavs-lebron-james-sweepstakes-191048800.html",
+      "url": "https://sports.yahoo.com/articles/benefits-cavs-lebron-james-sweepstakes-191048800.html",
+      "pubDate": "2026-07-01T19:10:48.000Z",
+      "publishedAt": "2026-07-01T19:10:48.000Z",
+      "summary": "This latest update might give Cleveland an advantage in signing LeBron James.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "骑士相关动态：球队后续动向值得关注",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/uxyK4XEtVw_GoFitX_O8XA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/d91086956f1def40378ff02198fc04ce",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 4
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/report-sergio-larrea-come-dallas-183324212.html",
+      "title": "Report: Sergio de Larrea will come to Dallas, sign with Mavericks, play in Summer League",
+      "originalTitle": "Report: Sergio de Larrea will come to Dallas, sign with Mavericks, play in Summer League",
+      "headlineZh": "独行侠相关动态：自由市场与合同情况继续更新",
+      "titleZh": "独行侠相关动态：自由市场与合同情况继续更新",
+      "link": "https://sports.yahoo.com/articles/report-sergio-larrea-come-dallas-183324212.html",
+      "url": "https://sports.yahoo.com/articles/report-sergio-larrea-come-dallas-183324212.html",
+      "pubDate": "2026-07-01T18:33:24.000Z",
+      "publishedAt": "2026-07-01T18:33:24.000Z",
+      "summary": "The Mavericks’ rookie is reportedly on his way to Dallas after being drafted 25th",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "独行侠相关动态：自由市场与合同情况继续更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/xo.lPk4fnhc2aC9KnU6WlA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/fe37996110360ce040be4ab1e4c9be8e",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 3
+    },
+    {
       "id": "https://basketball.realgm.com/wiretap/286478/Moe-Wagner-Nets-Agree-To-Two-Year-$19M-Deal",
       "title": "Moe Wagner, Nets Agree To Two-Year, $19M Deal",
       "originalTitle": "Moe Wagner, Nets Agree To Two-Year, $19M Deal",
@@ -110,34 +334,15 @@
       "publishedAt": "2026-07-01T18:29:46.000Z",
       "summary": "Moe Wagner and the Brooklyn Nets have agreed to a two-year, $19 million deal. The deal contains a clause where either side can opt-in to the second season of the contract. Wagner appeared in 36 games last season with the Orlando Magic returning from a torn ACL and averaged 6.9 points and 3.2 rebounds in 11.9 minutes. Wagner will be playing in his age-29 season.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，篮网将签下Moe Wagner，合同为两年，1900万美元。",
+      "summaryZh": "据 RealGM 报道，Moe Wagner与篮网达成两年，1900万美元合同。",
       "oneLineZh": "Moe Wagner与篮网达成两年，1900万美元合同",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Wagner_Mo_orl_210527.jpg",
-      "source": "RealGM / Yahoo Sports",
+      "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
-      "importance": 5,
-      "sources": [
-        "RealGM",
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286478/Moe-Wagner-Nets-Agree-To-Two-Year-$19M-Deal"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/nets-signing-moe-wagner-two-152202798.html"
-        }
-      ],
-      "originalTitles": [
-        "Moe Wagner, Nets Agree To Two-Year, $19M Deal",
-        "Nets signing Moe Wagner to two-year, $19 million deal"
-      ],
-      "isMerged": true
+      "importance": 5
     },
     {
       "id": "https://sports.yahoo.com/articles/mitchell-robinson-leaves-york-rival-182750320.html",
@@ -156,6 +361,95 @@
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/vmyVE4cyQAzfI3j_CJpFuA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/f4e565c4aa13c63fba4d6f2f0c2b9122",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 4
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/celtics-pry-mitchell-robinson-away-182410503.html",
+      "title": "Celtics pry Mitchell Robinson away from Knicks on three-year deal",
+      "originalTitle": "Celtics pry Mitchell Robinson away from Knicks on three-year deal",
+      "headlineZh": "凯尔特人相关动态：自由市场与合同情况继续更新",
+      "titleZh": "凯尔特人相关动态：自由市场与合同情况继续更新",
+      "link": "https://sports.yahoo.com/articles/celtics-pry-mitchell-robinson-away-182410503.html",
+      "url": "https://sports.yahoo.com/articles/celtics-pry-mitchell-robinson-away-182410503.html",
+      "pubDate": "2026-07-01T18:24:10.000Z",
+      "publishedAt": "2026-07-01T18:24:10.000Z",
+      "summary": "End of an era.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "凯尔特人相关动态：自由市场与合同情况继续更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/467wH1uxvH7TPBE86zp6mQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/bda456875097179d6e1fda5b53b9c42c",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 5,
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/celtics-pry-mitchell-robinson-away-182410503.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/nba/article/nba-champion-mitchell-robinson-reportedly-agrees-to-3-year-474m-deal-with-celtics-153340375.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/mitchell-robinson-leaving-knicks-sign-153233105.html"
+        }
+      ],
+      "originalTitles": [
+        "Celtics pry Mitchell Robinson away from Knicks on three-year deal",
+        "NBA champion Mitchell Robinson reportedly agrees to 3-year, $47.4M deal with Celtics",
+        "Mitchell Robinson leaving Knicks to sign with Celtics"
+      ],
+      "isMerged": true
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/eastern-conference-offseason-tracker-updated-182332093.html",
+      "title": "Eastern Conference Offseason Tracker [UPDATED]",
+      "originalTitle": "Eastern Conference Offseason Tracker [UPDATED]",
+      "headlineZh": "Eastern Conference Offseason相关动态：球队后续动向值得关注",
+      "titleZh": "Eastern Conference Offseason相关动态：球队后续动向值得关注",
+      "link": "https://sports.yahoo.com/articles/eastern-conference-offseason-tracker-updated-182332093.html",
+      "url": "https://sports.yahoo.com/articles/eastern-conference-offseason-tracker-updated-182332093.html",
+      "pubDate": "2026-07-01T18:23:32.000Z",
+      "publishedAt": "2026-07-01T18:23:32.000Z",
+      "summary": "Monitoring every significant move around the Eastern Conference",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Eastern Conference Offseason相关动态：球队后续动向值得关注",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/9UrsQqWIljeolagQcGy3ng--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/c959e49d8304ec61c200279a98eafe19",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 3
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/wizards-sign-jamir-watkins-two-182318017.html",
+      "title": "Wizards re-sign Jamir Watkins to two-way deal",
+      "originalTitle": "Wizards re-sign Jamir Watkins to two-way deal",
+      "headlineZh": "奇才续约Jamir Watkins to two-way 合同",
+      "titleZh": "奇才续约Jamir Watkins to two-way 合同",
+      "link": "https://sports.yahoo.com/articles/wizards-sign-jamir-watkins-two-182318017.html",
+      "url": "https://sports.yahoo.com/articles/wizards-sign-jamir-watkins-two-182318017.html",
+      "pubDate": "2026-07-01T18:23:18.000Z",
+      "publishedAt": "2026-07-01T18:23:18.000Z",
+      "summary": "The Washington Wizards have re-signed Jamir Watkins to a two-way contract, the team announced Wednesday. Washington has re-signed Watkins just days after it declined his $2.15 million team option for the 2026-27 season. The Wizards did something similar in 2024, when they declined Tristan Vukcevic’s team option before signing him to a two-way contract. By […]",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，奇才续约Jamir Watkins to two-way 合同。",
+      "oneLineZh": "奇才续约Jamir Watkins to two-way 合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/dYu5PKkFBOK6GpU17KJCaw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/79ead9b40660acc3ddebf591a8f27beb",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "签约",
@@ -206,49 +500,48 @@
       "importance": 4
     },
     {
-      "id": "https://sports.yahoo.com/articles/mitchell-robinson-agrees-3-47-180555868.html",
-      "title": "Mitchell Robinson agrees to a 3-year, $47.4 million deal with the Celtics, AP source says",
-      "originalTitle": "Mitchell Robinson agrees to a 3-year, $47.4 million deal with the Celtics, AP source says",
-      "headlineZh": "凯尔特人相关动态：自由市场与合同情况继续更新",
-      "titleZh": "凯尔特人相关动态：自由市场与合同情况继续更新",
-      "link": "https://sports.yahoo.com/articles/mitchell-robinson-agrees-3-47-180555868.html",
-      "url": "https://sports.yahoo.com/articles/mitchell-robinson-agrees-3-47-180555868.html",
-      "pubDate": "2026-07-01T18:05:55.000Z",
-      "publishedAt": "2026-07-01T18:05:55.000Z",
-      "summary": "The Boston Celtics have agreed to a $47.4 million, three-year deal with veteran center Mitchell Robinson, who is fresh off winning an NBA title with the New York Knicks, a person with knowledge of the agreement told The Associated Press on Wednesday. The 7-foot Robinson has spent his entire eight-year career with the Knicks since being selected by them in the second round of the 2018 draft. Boston, which was eliminated in the first round of the playoffs after winning 56 games and earning the No. 2 seed in the Eastern Conference, entered the offseason looking for help protecting the rim.",
+      "id": "https://sports.yahoo.com/articles/nba-free-agency-five-big-181410939.html",
+      "title": "NBA Free Agency: Five big men the Wizards could target",
+      "originalTitle": "NBA Free Agency: Five big men the Wizards could target",
+      "headlineZh": "奇才相关动态：自由市场与合同情况继续更新",
+      "titleZh": "奇才相关动态：自由市场与合同情况继续更新",
+      "link": "https://sports.yahoo.com/articles/nba-free-agency-five-big-181410939.html",
+      "url": "https://sports.yahoo.com/articles/nba-free-agency-five-big-181410939.html",
+      "pubDate": "2026-07-01T18:14:10.000Z",
+      "publishedAt": "2026-07-01T18:14:10.000Z",
+      "summary": "It’s no secret the Washington Wizards need to add depth behind their presumed starting frontcourt of Anthony Davis and Alex Sarr. Wizards general manager Will Dawkins said as much last week, stating the team’s desire to add another forward or center in free agency. Nearly a day into the NBA’s legal tampering period, several teams […]",
       "dekZh": "",
       "summaryZh": "",
-      "oneLineZh": "凯尔特人相关动态：自由市场与合同情况继续更新",
+      "oneLineZh": "奇才相关动态：自由市场与合同情况继续更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/ZdLwgWyrNjNmMMMjGQyO2w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ap.org/6050c344ebe76525fca7c3de90696590",
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/di7vGPXFLx8cnla9zPYgyQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/bbeaee63de041898edba341f0a1b4489",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "签约",
-      "importance": 5,
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/mitchell-robinson-agrees-3-47-180555868.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/celtics-just-signed-player-brilliant-145110263.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/celtics-quiet-start-free-agency-140819286.html"
-        }
-      ],
-      "originalTitles": [
-        "Mitchell Robinson agrees to a 3-year, $47.4 million deal with the Celtics, AP source says",
-        "The Celtics just signed a new player, and it’s a brilliant move",
-        "The Celtics’ quiet start to free agency feels louder than usual"
-      ],
-      "isMerged": true
+      "importance": 3
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/knicks-drawn-suspicious-east-group-180000030.html",
+      "title": "Knicks drawn into suspicious East Group B for 2026 NBA Cup",
+      "originalTitle": "Knicks drawn into suspicious East Group B for 2026 NBA Cup",
+      "headlineZh": "尼克斯相关动态：赛事安排与争冠话题继续更新",
+      "titleZh": "尼克斯相关动态：赛事安排与争冠话题继续更新",
+      "link": "https://sports.yahoo.com/articles/knicks-drawn-suspicious-east-group-180000030.html",
+      "url": "https://sports.yahoo.com/articles/knicks-drawn-suspicious-east-group-180000030.html",
+      "pubDate": "2026-07-01T18:00:00.000Z",
+      "publishedAt": "2026-07-01T18:00:00.000Z",
+      "summary": "In an odd development, as it coincided with the start of free agency, the NBA officially unveiled the 2026 Emirates NBA Cup groups, schedule, and a new championship venue on Tuesday. The format remains unchanged, with teams drawn into groups based on their 2025-26 regular-season records. With all that, the New York Knicks now know […]",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "尼克斯相关动态：赛事安排与争冠话题继续更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/qtwqPa.l1IeW.r9WwMptaw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/9367bacf60ddee8b5895383e58705153",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 4
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286474/Jonathan-Isaac-Magic-Agree-To-One-Year-Deal",
@@ -339,10 +632,6 @@
         },
         {
           "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/walker-kessler-going-jazz-lakers-164943384.html"
-        },
-        {
-          "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/walker-kessler-trade-grades-lakers-160221079.html"
         }
       ],
@@ -351,10 +640,53 @@
         "Lakers reload with Walker Kessler, Sandro Mamukelashvili, Collin Sexton and Quentin Grimes",
         "Walker Kessler trade grades: Lakers get Luka Dončić some young talent",
         "Walker Kessler trade grades: Did Lakers give up too much in Jazz deal?",
-        "Walker Kessler is going from the Jazz to the Lakers, will get a 4-year deal, AP source says",
         "Walker Kessler trade grades for Lakers, Jazz after LA sends massive picks haul to Utah"
       ],
       "isMerged": true
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/rui-hachimura-almost-certainly-leaving-174353527.html",
+      "title": "Rui Hachimura is almost certainly leaving the Lakers after flurry of signings",
+      "originalTitle": "Rui Hachimura is almost certainly leaving the Lakers after flurry of signings",
+      "headlineZh": "湖人相关动态：自由市场与合同情况继续更新",
+      "titleZh": "湖人相关动态：自由市场与合同情况继续更新",
+      "link": "https://sports.yahoo.com/articles/rui-hachimura-almost-certainly-leaving-174353527.html",
+      "url": "https://sports.yahoo.com/articles/rui-hachimura-almost-certainly-leaving-174353527.html",
+      "pubDate": "2026-07-01T17:43:53.000Z",
+      "publishedAt": "2026-07-01T17:43:53.000Z",
+      "summary": "After a flurry of moves on Wednesday, Rui Hachimura looks like the odd man out for the Lakers.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "湖人相关动态：自由市场与合同情况继续更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/oX0YYSe0t39xe3h2huGypQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/10fc45f3cd630e820f4f53299867e77d",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 4
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/breaking-news-utah-jazz-send-173701874.html",
+      "title": "BREAKING NEWS: Utah Jazz send Walker Kessler to the Los Angeles Lakers",
+      "originalTitle": "BREAKING NEWS: Utah Jazz send Walker Kessler to the Los Angeles Lakers",
+      "headlineZh": "洛杉矶湖人相关动态：球队后续动向值得关注",
+      "titleZh": "洛杉矶湖人相关动态：球队后续动向值得关注",
+      "link": "https://sports.yahoo.com/articles/breaking-news-utah-jazz-send-173701874.html",
+      "url": "https://sports.yahoo.com/articles/breaking-news-utah-jazz-send-173701874.html",
+      "pubDate": "2026-07-01T17:37:01.000Z",
+      "publishedAt": "2026-07-01T17:37:01.000Z",
+      "summary": "Walker Kessler is a Laker. Utah gets draft capital in return.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "洛杉矶湖人相关动态：球队后续动向值得关注",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/IqNn05p7Zrhp8h.zlNnA1g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02MTY7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/7bbde67c86aa3e99290def53d78eb07e",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "选秀",
+      "importance": 4
     },
     {
       "id": "https://sports.yahoo.com/articles/ja-morant-norman-powell-other-172636588.html",
@@ -563,12 +895,17 @@
           "link": "https://sports.yahoo.com/articles/lakers-sign-quentin-grimes-four-164539108.html"
         },
         {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lakers-signing-quentin-grimes-60-162602852.html"
+        },
+        {
           "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286469/Quentin-Grimes-Lakers-Agree-To-Four-Year-$60M-Deal"
         }
       ],
       "originalTitles": [
         "Lakers sign Quentin Grimes to four-year, $60 million deal",
+        "Lakers signing Quentin Grimes to $60 million contract in free agency",
         "Quentin Grimes, Lakers Agree To Four-Year, $60M Deal"
       ],
       "isMerged": true
@@ -616,6 +953,57 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 1
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lakers-land-collin-sexton-19-163138148.html",
+      "title": "Lakers land Collin Sexton on $19 million deal",
+      "originalTitle": "Lakers land Collin Sexton on $19 million deal",
+      "headlineZh": "签约动态：湖人 land Collin Sexton on 1900万美元 合同",
+      "titleZh": "签约动态：湖人 land Collin Sexton on 1900万美元 合同",
+      "link": "https://sports.yahoo.com/articles/lakers-land-collin-sexton-19-163138148.html",
+      "url": "https://sports.yahoo.com/articles/lakers-land-collin-sexton-19-163138148.html",
+      "pubDate": "2026-07-01T16:31:38.000Z",
+      "publishedAt": "2026-07-01T16:31:38.000Z",
+      "summary": "The floodgates were fully open for the Lakers' free agency moves Wednesday morning.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，签约动态：湖人 land Collin Sexton on 1900万美元 合同。",
+      "oneLineZh": "湖人 land Collin Sexton on 1900万美元 合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/3ZczDz9Puj8uDpSgcnz7zg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/449d190dff843b6a59062899bc5b1bce",
+      "source": "Yahoo Sports / RealGM",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 5,
+      "sources": [
+        "Yahoo Sports",
+        "RealGM"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lakers-land-collin-sexton-19-163138148.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/report-quentin-grimes-sign-four-161326469.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lakers-trade-two-firsts-jazz-153503436.html"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286453/Jalen-Duren-Meets-With-Lakers-Kings;-Set-For-More-Talks-On-Wednesday"
+        }
+      ],
+      "originalTitles": [
+        "Lakers land Collin Sexton on $19 million deal",
+        "Report: Quentin Grimes to sign four-year, $60 million dollar deal with Lakers, ending his Sixers tenure",
+        "Lakers trade two firsts to Jazz for Walker Kessler in sign-and-trade",
+        "Jalen Duren Meets With Lakers, Kings; Set For More Talks On Wednesday"
+      ],
+      "isMerged": true
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286472/DeAnthony-Melton-Warriors-Agree-To-Two-Year-$11M-Deal",
@@ -715,7 +1103,7 @@
       "url": "https://sports.yahoo.com/nba/article/nba-offseason-tracker-each-teams-notable-signings-trades-and-draft-picks-162056825.html",
       "pubDate": "2026-07-01T16:20:56.000Z",
       "publishedAt": "2026-07-01T16:20:56.000Z",
-      "summary": "Keep track of every team’s most notable offseason moves.",
+      "summary": "Keep track of every team's most notable offseason moves.",
       "dekZh": "",
       "summaryZh": "",
       "oneLineZh": "NBA相关动态：自由市场与合同情况继续更新",
@@ -758,6 +1146,10 @@
           "link": "https://sports.yahoo.com/articles/sandro-mamukelashvili-signs-four-52-161830428.html"
         },
         {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lakers-agree-52-million-contract-160742805.html"
+        },
+        {
           "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286468/Sandro-Mamukelashvili-Lakers-Agree-To-Four-Year-$52M-Deal"
         },
@@ -768,6 +1160,7 @@
       ],
       "originalTitles": [
         "Sandro Mamukelashvili signs four-year, $52 million deal with Lakers",
+        "Lakers agree to $52 million contract with Sandro Mamukelashvili",
         "Sandro Mamukelashvili, Lakers Agree To Four-Year, $52M Deal",
         "Lakers reportedly acquire Walker Kessler from Jazz in $130 million sign-and-trade, reach deals with Sandro Mamukelashvili, Quentin Grimes and Collin Sexton"
       ],
@@ -815,52 +1208,6 @@
       "isMerged": true
     },
     {
-      "id": "https://sports.yahoo.com/articles/report-quentin-grimes-sign-four-161326469.html",
-      "title": "Report: Quentin Grimes to sign four-year, $60 million dollar deal with Lakers, ending his Sixers tenure",
-      "originalTitle": "Report: Quentin Grimes to sign four-year, $60 million dollar deal with Lakers, ending his Sixers tenure",
-      "headlineZh": "湖人相关动态：自由市场与合同情况继续更新",
-      "titleZh": "湖人相关动态：自由市场与合同情况继续更新",
-      "link": "https://sports.yahoo.com/articles/report-quentin-grimes-sign-four-161326469.html",
-      "url": "https://sports.yahoo.com/articles/report-quentin-grimes-sign-four-161326469.html",
-      "pubDate": "2026-07-01T16:13:26.000Z",
-      "publishedAt": "2026-07-01T16:13:26.000Z",
-      "summary": "After two years in Philadelphia, Grimes looks for opportunity elsewhere./Quentin Grimes has signed on for his third season in Philadelphia.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "湖人相关动态：自由市场与合同情况继续更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/1h8ijD3Cw84_OBLKgWnJpQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/f5c946cf7f36c91635dcbb58191903f3",
-      "source": "Yahoo Sports / RealGM",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 5,
-      "sources": [
-        "Yahoo Sports",
-        "RealGM"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/report-quentin-grimes-sign-four-161326469.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lakers-trade-two-firsts-jazz-153503436.html"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286453/Jalen-Duren-Meets-With-Lakers-Kings;-Set-For-More-Talks-On-Wednesday"
-        }
-      ],
-      "originalTitles": [
-        "Report: Quentin Grimes to sign four-year, $60 million dollar deal with Lakers, ending his Sixers tenure",
-        "Lakers trade two firsts to Jazz for Walker Kessler in sign-and-trade",
-        "Jalen Duren Meets With Lakers, Kings; Set For More Talks On Wednesday"
-      ],
-      "isMerged": true
-    },
-    {
       "id": "https://sports.yahoo.com/articles/celtics-sign-mitchell-robinson-long-155656906.html",
       "title": "Celtics sign Mitchell Robinson to a long-term deal",
       "originalTitle": "Celtics sign Mitchell Robinson to a long-term deal",
@@ -893,11 +1240,16 @@
         {
           "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286466/Mitchell-Robinson-Celtics-Agree-To-Three-Year-$474M-Deal"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/mitchell-robinson-leaves-knicks-celtics-153124113.html"
         }
       ],
       "originalTitles": [
         "Celtics sign Mitchell Robinson to a long-term deal",
-        "Mitchell Robinson, Celtics Agree To Three-Year, $47.4M Deal"
+        "Mitchell Robinson, Celtics Agree To Three-Year, $47.4M Deal",
+        "Mitchell Robinson leaves Knicks for Celtics in NBA free agency gut-punch"
       ],
       "isMerged": true
     },
@@ -946,6 +1298,28 @@
       "importance": 4
     },
     {
+      "id": "https://sports.yahoo.com/articles/lakers-acquiring-walker-kessler-130-153621185.html",
+      "title": "Lakers acquiring Walker Kessler in $130 million sign-and-trade with Jazz",
+      "originalTitle": "Lakers acquiring Walker Kessler in $130 million sign-and-trade with Jazz",
+      "headlineZh": "湖人相关动态：自由市场与合同情况继续更新",
+      "titleZh": "湖人相关动态：自由市场与合同情况继续更新",
+      "link": "https://sports.yahoo.com/articles/lakers-acquiring-walker-kessler-130-153621185.html",
+      "url": "https://sports.yahoo.com/articles/lakers-acquiring-walker-kessler-130-153621185.html",
+      "pubDate": "2026-07-01T15:36:21.000Z",
+      "publishedAt": "2026-07-01T15:36:21.000Z",
+      "summary": "Securing a top-notch big man was one of the Lakers’ biggest priorities entering the offseason.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "湖人相关动态：自由市场与合同情况继续更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/YG_y78HizULuATfT9murmQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/c538b28fbbfa410280b95c51d6c438a0",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 5
+    },
+    {
       "id": "https://basketball.realgm.com/wiretap/286467/Walker-Kessler-From-Jazz-To-Lakers-In-Four-Year-$130M-Sign-And-Trade-For-Two-FRPs-Two-Swaps",
       "title": "Walker Kessler From Jazz To Lakers In Four-Year, $130M Sign-And-Trade For Two FRPs, Two Swaps",
       "originalTitle": "Walker Kessler From Jazz To Lakers In Four-Year, $130M Sign-And-Trade For Two FRPs, Two Swaps",
@@ -966,51 +1340,6 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "交易",
       "importance": 5
-    },
-    {
-      "id": "https://sports.yahoo.com/nba/article/nba-champion-mitchell-robinson-reportedly-agrees-to-3-year-474m-deal-with-celtics-153340375.html",
-      "title": "NBA champion Mitchell Robinson reportedly agrees to 3-year, $47.4M deal with Celtics",
-      "originalTitle": "NBA champion Mitchell Robinson reportedly agrees to 3-year, $47.4M deal with Celtics",
-      "headlineZh": "凯尔特人相关动态：自由市场与合同情况继续更新",
-      "titleZh": "凯尔特人相关动态：自由市场与合同情况继续更新",
-      "link": "https://sports.yahoo.com/nba/article/nba-champion-mitchell-robinson-reportedly-agrees-to-3-year-474m-deal-with-celtics-153340375.html",
-      "url": "https://sports.yahoo.com/nba/article/nba-champion-mitchell-robinson-reportedly-agrees-to-3-year-474m-deal-with-celtics-153340375.html",
-      "pubDate": "2026-07-01T15:33:40.000Z",
-      "publishedAt": "2026-07-01T15:33:40.000Z",
-      "summary": "Robinson has averaged 7.5 points, 8 rebounds, 1.7 blocks and 0.9 steals in 23.4 minutes per game across eight pro seasons.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "凯尔特人相关动态：自由市场与合同情况继续更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/cWQju6OhsfC2jx_KZpcFNQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-06/168793a1-869c-44e7-a614-48bbfdab83e2",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 5,
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/nba/article/nba-champion-mitchell-robinson-reportedly-agrees-to-3-year-474m-deal-with-celtics-153340375.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/mitchell-robinson-leaving-knicks-sign-153233105.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/nba/breaking-news/article/mike-conley-reportedly-agrees-to-1-year-deal-with-celtics-becoming-14th-player-in-nba-history-to-reach-20-seasons-145612084.html"
-        }
-      ],
-      "originalTitles": [
-        "NBA champion Mitchell Robinson reportedly agrees to 3-year, $47.4M deal with Celtics",
-        "Mitchell Robinson leaving Knicks to sign with Celtics",
-        "Mike Conley reportedly agrees to 1-year deal with Celtics, becoming 14th player in NBA history to reach 20 seasons"
-      ],
-      "isMerged": true
     },
     {
       "id": "https://sports.yahoo.com/articles/lakers-top-defender-marcus-smart-152802244.html",
@@ -1035,28 +1364,6 @@
       "importance": 5
     },
     {
-      "id": "https://sports.yahoo.com/articles/suns-reacts-survey-evaluating-suns-152514443.html",
-      "title": "Suns Reacts Survey: Evaluating the Suns’ completed Miles Bridges trade",
-      "originalTitle": "Suns Reacts Survey: Evaluating the Suns’ completed Miles Bridges trade",
-      "headlineZh": "太阳相关动态：球队继续评估交易与阵容调整",
-      "titleZh": "太阳相关动态：球队继续评估交易与阵容调整",
-      "link": "https://sports.yahoo.com/articles/suns-reacts-survey-evaluating-suns-152514443.html",
-      "url": "https://sports.yahoo.com/articles/suns-reacts-survey-evaluating-suns-152514443.html",
-      "pubDate": "2026-07-01T15:25:14.000Z",
-      "publishedAt": "2026-07-01T15:25:14.000Z",
-      "summary": "With Luke Kennard signed, fans can finally judge every part of the Miles Bridges trade.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "太阳相关动态：球队继续评估交易与阵容调整",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/cEaFFzsWJ9fHlDIxU7XOfg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/9f3707f3aae19f044a90831b9275a10a",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 4
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286465/Jevon-Carter-Magic-Agree-To-One-Year-$35M-Deal",
       "title": "Jevon Carter, Magic Agree To One-Year, $3.5M Deal",
       "originalTitle": "Jevon Carter, Magic Agree To One-Year, $3.5M Deal",
@@ -1077,72 +1384,6 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
       "importance": 4
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/nets-signing-center-moe-wagner-151026209.html",
-      "title": "Nets signing center Moe Wagner to two-year deal: report",
-      "originalTitle": "Nets signing center Moe Wagner to two-year deal: report",
-      "headlineZh": "篮网相关动态：自由市场与合同情况继续更新",
-      "titleZh": "篮网相关动态：自由市场与合同情况继续更新",
-      "link": "https://sports.yahoo.com/articles/nets-signing-center-moe-wagner-151026209.html",
-      "url": "https://sports.yahoo.com/articles/nets-signing-center-moe-wagner-151026209.html",
-      "pubDate": "2026-07-01T15:10:26.000Z",
-      "publishedAt": "2026-07-01T15:10:26.000Z",
-      "summary": "The Nets continue to be active in free agency, agreeing to a two-year contract with former Orlando Magic center Moe Wagner.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "篮网相关动态：自由市场与合同情况继续更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/sny_articles_235/5230fe79b56d3b0de895c43e5eb5cb85",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 4
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/nba-free-agency-norman-powell-150208218.html",
-      "title": "NBA free agency: Norman Powell to Chicago in another All-Star move as teams continue shaping rosters",
-      "originalTitle": "NBA free agency: Norman Powell to Chicago in another All-Star move as teams continue shaping rosters",
-      "headlineZh": "Norman Powell相关动态：自由市场与合同情况继续更新",
-      "titleZh": "Norman Powell相关动态：自由市场与合同情况继续更新",
-      "link": "https://sports.yahoo.com/articles/nba-free-agency-norman-powell-150208218.html",
-      "url": "https://sports.yahoo.com/articles/nba-free-agency-norman-powell-150208218.html",
-      "pubDate": "2026-07-01T15:02:08.000Z",
-      "publishedAt": "2026-07-01T15:02:08.000Z",
-      "summary": "Add Norman Powell to the list of this past season's All-Stars who are changing addresses this summer in NBA free agency. Powell has agreed to a two-year deal that could be worth up to $45 million with the Chicago Bulls, a person with knowledge of the talks said Wednesday. Powell also had received some interest from the Detroit Pistons, said the person, who spoke to The Associated Press on condition of anonymity because the contract cannot be finalized until July 6 at the earliest.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Norman Powell相关动态：自由市场与合同情况继续更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/yUIbwrl.4uiw0XEk3RAIrQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ap.org/1312e4581bd76a2d4475369ef545dc14",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 4
-    },
-    {
-      "id": "https://sports.yahoo.com/collectibles/article/lebron-james-is-leaving-the-lakers-heres-the-most-valuable-cards-from-each-stop-of-his-career-145255683.html",
-      "title": "LeBron James is leaving the Lakers. Here's the most valuable cards from each stop of his career",
-      "originalTitle": "LeBron James is leaving the Lakers. Here's the most valuable cards from each stop of his career",
-      "headlineZh": "湖人相关动态：球队后续动向值得关注",
-      "titleZh": "湖人相关动态：球队后续动向值得关注",
-      "link": "https://sports.yahoo.com/collectibles/article/lebron-james-is-leaving-the-lakers-heres-the-most-valuable-cards-from-each-stop-of-his-career-145255683.html",
-      "url": "https://sports.yahoo.com/collectibles/article/lebron-james-is-leaving-the-lakers-heres-the-most-valuable-cards-from-each-stop-of-his-career-145255683.html",
-      "pubDate": "2026-07-01T14:52:55.000Z",
-      "publishedAt": "2026-07-01T14:52:55.000Z",
-      "summary": "LeBron James' decision to return for a 24th season could be a boost for collectors of his cards.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "湖人相关动态：球队后续动向值得关注",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/ipdTg_1K8taIts27EJ7.3g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-05/138fa6c3-352e-4db2-aa19-38e2c8b33242",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286464/Mike-Conley-Jr-Celtics-Agree-To-One-Year-Deal",
@@ -1213,160 +1454,6 @@
       "importance": 5
     },
     {
-      "id": "https://sports.yahoo.com/articles/updated-sixers-2026-27-roster-220500251.html",
-      "title": "Updated Sixers 2026-27 roster as NBA free agency begins",
-      "originalTitle": "Updated Sixers 2026-27 roster as NBA free agency begins",
-      "headlineZh": "签约动态：Updated 76人 2026-27 roster as NBA 自由市场 begins",
-      "titleZh": "签约动态：Updated 76人 2026-27 roster as NBA 自由市场 begins",
-      "link": "https://sports.yahoo.com/articles/updated-sixers-2026-27-roster-220500251.html",
-      "url": "https://sports.yahoo.com/articles/updated-sixers-2026-27-roster-220500251.html",
-      "pubDate": "2026-07-01T14:42:12.000Z",
-      "publishedAt": "2026-07-01T14:42:12.000Z",
-      "summary": "With players coming and going via the NBA Draft and free agency, we have you covered on the Philadelphia 76ers’ projected 2026-27 roster.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，签约动态：Updated 76人 2026-27 roster as NBA 自由市场 begins。",
-      "oneLineZh": "Updated 76人 2026-27 roster as NBA 自由市场 begins",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/7GhDKDNNzzwW4rbKvQY9FA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NDM7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/84b609bf88f21d64bc4dc25201427105",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 4
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/report-sixers-agree-one-deal-143717866.html",
-      "title": "Report: Sixers agree to one-year deal with center Ariel Hukporti",
-      "originalTitle": "Report: Sixers agree to one-year deal with center Ariel Hukporti",
-      "headlineZh": "76人相关动态：自由市场与合同情况继续更新",
-      "titleZh": "76人相关动态：自由市场与合同情况继续更新",
-      "link": "https://sports.yahoo.com/articles/report-sixers-agree-one-deal-143717866.html",
-      "url": "https://sports.yahoo.com/articles/report-sixers-agree-one-deal-143717866.html",
-      "pubDate": "2026-07-01T14:37:17.000Z",
-      "publishedAt": "2026-07-01T14:37:17.000Z",
-      "summary": "The Sixers continue to make moves in the first day of free agency, now reportedly agreeing to terms on a one-year, $3.4 million deal with center Ariel Hukporti.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "76人相关动态：自由市场与合同情况继续更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/jJ7P1RX_KSKvWRSYiIfZrg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDE7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/89434116f4380566f6bc572ebb6c2bfe",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 5
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/ariel-hukporti-leaving-knicks-sign-142222167.html",
-      "title": "Ariel Hukporti leaving Knicks to sign one-year deal with 76ers: report",
-      "originalTitle": "Ariel Hukporti leaving Knicks to sign one-year deal with 76ers: report",
-      "headlineZh": "尼克斯相关动态：自由市场与合同情况继续更新",
-      "titleZh": "尼克斯相关动态：自由市场与合同情况继续更新",
-      "link": "https://sports.yahoo.com/articles/ariel-hukporti-leaving-knicks-sign-142222167.html",
-      "url": "https://sports.yahoo.com/articles/ariel-hukporti-leaving-knicks-sign-142222167.html",
-      "pubDate": "2026-07-01T14:22:22.000Z",
-      "publishedAt": "2026-07-01T14:22:22.000Z",
-      "summary": "Ariel Hukporti is leaving the Knicks, reportedly signing a one-year deal with the Philadelphia 76ers.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "尼克斯相关动态：自由市场与合同情况继续更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/sny_articles_235/aae1f70a76ecaf80efefde99e6626955",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 4
-    },
-    {
-      "id": "https://sports.yahoo.com/nba/article/lebron-james-agent-rich-paul-says-pursuit-of-complete-happiness-led-to-star-deciding-to-leave-lakers-141520450.html",
-      "title": "LeBron James' agent Rich Paul says pursuit of 'complete happiness' led to star deciding to leave Lakers",
-      "originalTitle": "LeBron James' agent Rich Paul says pursuit of 'complete happiness' led to star deciding to leave Lakers",
-      "headlineZh": "湖人相关动态：球队后续动向值得关注",
-      "titleZh": "湖人相关动态：球队后续动向值得关注",
-      "link": "https://sports.yahoo.com/nba/article/lebron-james-agent-rich-paul-says-pursuit-of-complete-happiness-led-to-star-deciding-to-leave-lakers-141520450.html",
-      "url": "https://sports.yahoo.com/nba/article/lebron-james-agent-rich-paul-says-pursuit-of-complete-happiness-led-to-star-deciding-to-leave-lakers-141520450.html",
-      "pubDate": "2026-07-01T14:15:20.000Z",
-      "publishedAt": "2026-07-01T14:15:20.000Z",
-      "summary": "LeBron James' next free-agent move won't necessarily be determined by money.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "湖人相关动态：球队后续动向值得关注",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/bOG5uifkKl2OP5FCJYYmGg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MjI7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/c75a6cd7-cc1a-4c50-9fe1-69ca77ec17de",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/knicks-goodbye-ariel-hukporti-free-141455145.html",
-      "title": "Knicks say goodbye to Ariel Hukporti in free agency",
-      "originalTitle": "Knicks say goodbye to Ariel Hukporti in free agency",
-      "headlineZh": "签约动态：尼克斯 say goodbye to Ariel Hukporti 在 自由市场",
-      "titleZh": "签约动态：尼克斯 say goodbye to Ariel Hukporti 在 自由市场",
-      "link": "https://sports.yahoo.com/articles/knicks-goodbye-ariel-hukporti-free-141455145.html",
-      "url": "https://sports.yahoo.com/articles/knicks-goodbye-ariel-hukporti-free-141455145.html",
-      "pubDate": "2026-07-01T14:14:55.000Z",
-      "publishedAt": "2026-07-01T14:14:55.000Z",
-      "summary": "Ariel Hukporti has signed with the Philadelphia 76ers in free agency.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，签约动态：尼克斯 say goodbye to Ariel Hukporti 在 自由市场。",
-      "oneLineZh": "尼克斯 say goodbye to Ariel Hukporti 在 自由市场",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/gsq.JpcvGMbI.ZrZndfJ.g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/6b531e8792ddb68ad50283394d7534f9",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 4
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/live-nba-free-agent-signings-120000315.html",
-      "title": "Live NBA free agent signings 2026 for every deal and trade this summer",
-      "originalTitle": "Live NBA free agent signings 2026 for every deal and trade this summer",
-      "headlineZh": "NBA相关动态：自由市场与合同情况继续更新",
-      "titleZh": "NBA相关动态：自由市场与合同情况继续更新",
-      "link": "https://sports.yahoo.com/articles/live-nba-free-agent-signings-120000315.html",
-      "url": "https://sports.yahoo.com/articles/live-nba-free-agent-signings-120000315.html",
-      "pubDate": "2026-07-01T13:54:17.000Z",
-      "publishedAt": "2026-07-01T13:54:17.000Z",
-      "summary": "Let’s track every NBA free agent signing and trade this summer.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "NBA相关动态：自由市场与合同情况继续更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/XWaHnGrmj1Ddfi5LgZOCWg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/41874e8aa65f49d0aac1f12995e42a62",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 3
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/kendrick-perkins-rips-lebron-james-134137360.html",
-      "title": "Kendrick Perkins rips LeBron James’ agent Rich Paul: ‘Little turtle head snotty nose ass’",
-      "originalTitle": "Kendrick Perkins rips LeBron James’ agent Rich Paul: ‘Little turtle head snotty nose ass’",
-      "headlineZh": "Kendrick Perkins相关动态：球队后续动向值得关注",
-      "titleZh": "Kendrick Perkins相关动态：球队后续动向值得关注",
-      "link": "https://sports.yahoo.com/articles/kendrick-perkins-rips-lebron-james-134137360.html",
-      "url": "https://sports.yahoo.com/articles/kendrick-perkins-rips-lebron-james-134137360.html",
-      "pubDate": "2026-07-01T13:41:37.000Z",
-      "publishedAt": "2026-07-01T13:41:37.000Z",
-      "summary": "Kendrick Perkins isn't mincing words when it comes to LeBron James' agent, Rich Paul.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Kendrick Perkins相关动态：球队后续动向值得关注",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/GmT5z.7fi1fv0lKbl9U0WA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/70324de3e7d561b65da7d09c78c2f3e1",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286460/Norman-Powell-Bulls-Agree-To-Two-Year-$45M-Contract",
       "title": "Norman Powell, Bulls Agree To Two-Year, $45M Contract",
       "originalTitle": "Norman Powell, Bulls Agree To Two-Year, $45M Contract",
@@ -1409,28 +1496,6 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Filipowski_Kyle_uta_260116.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 4
-    },
-    {
-      "id": "https://sports.yahoo.com/nba/article/norman-powell-agrees-to-2-year-45-million-deal-with-bulls-report-133343169.html",
-      "title": "Norman Powell agrees to 2-year, $45 million deal with Bulls: report",
-      "originalTitle": "Norman Powell agrees to 2-year, $45 million deal with Bulls: report",
-      "headlineZh": "公牛相关动态：自由市场与合同情况继续更新",
-      "titleZh": "公牛相关动态：自由市场与合同情况继续更新",
-      "link": "https://sports.yahoo.com/nba/article/norman-powell-agrees-to-2-year-45-million-deal-with-bulls-report-133343169.html",
-      "url": "https://sports.yahoo.com/nba/article/norman-powell-agrees-to-2-year-45-million-deal-with-bulls-report-133343169.html",
-      "pubDate": "2026-07-01T13:33:43.000Z",
-      "publishedAt": "2026-07-01T13:33:43.000Z",
-      "summary": "Powell averaged 21.7 points per game for the Miami Heat this past season.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "公牛相关动态：自由市场与合同情况继续更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/a3KhfMvs_luyt3ezDL784A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://s.yimg.com/os/creatr-uploaded-images/2026-01/bf5c3860-fef5-11f0-9bf3-9f3c11b4740b",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "签约",
       "importance": 4
     },
@@ -1567,96 +1632,6 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "交易",
       "importance": 4
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286451/Multiple-Bids-For-NBA-Europe-Franchises-Top-$1-Billion",
-      "title": "Multiple Bids For NBA Europe Franchises Top $1 Billion",
-      "originalTitle": "Multiple Bids For NBA Europe Franchises Top $1 Billion",
-      "headlineZh": "NBA欧洲联赛多个球队竞标价超过10亿美元",
-      "titleZh": "NBA欧洲联赛多个球队竞标价超过10亿美元",
-      "link": "https://basketball.realgm.com/wiretap/286451/Multiple-Bids-For-NBA-Europe-Franchises-Top-$1-Billion",
-      "url": "https://basketball.realgm.com/wiretap/286451/Multiple-Bids-For-NBA-Europe-Franchises-Top-$1-Billion",
-      "pubDate": "2026-07-01T06:23:44.000Z",
-      "publishedAt": "2026-07-01T06:23:44.000Z",
-      "summary": "Over 20 groups placed bids to participate in NBA Europe, with multiple bids topping $1 billion in select markets, sources told Ben Golliver of ESPN. NBA Europe plans to launch in 2027 in 12 markets including London, Paris, Madrid, Berlin, Munich, Milan, Rome and Istanbul. \"We're extremely encouraged by the final bids we received for permanent franchises in a new NBA and FIBA-backed league in Europe, which reflect the tremendous interest and momentum around this project,\" NBA deputy commissioner Mark Tatum said in a statement Tuesday. \"This will be the biggest influx of capital European basketball has ever seen, and we have clear frontrunners in each of our 12 target cities.\" NBA Europe plans to have 12 permanent teams and four open spots filled by a promotion system. Several existing EuroLeague teams also reportedly put forth bids",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，NBA欧洲联赛多个球队竞标价超过10亿美元。",
-      "oneLineZh": "NBA欧洲联赛多个球队竞标价超过10亿美元",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_realgm.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "其他",
-      "importance": 3
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286450/Bogdan-Bogdanovic-Rockets-Agree-To-One-Year-Deal",
-      "title": "Bogdan Bogdanovic, Rockets Agree To One-Year Deal",
-      "originalTitle": "Bogdan Bogdanovic, Rockets Agree To One-Year Deal",
-      "headlineZh": "Bogdan Bogdanovic与火箭达成一年合同",
-      "titleZh": "Bogdan Bogdanovic与火箭达成一年合同",
-      "link": "https://basketball.realgm.com/wiretap/286450/Bogdan-Bogdanovic-Rockets-Agree-To-One-Year-Deal",
-      "url": "https://basketball.realgm.com/wiretap/286450/Bogdan-Bogdanovic-Rockets-Agree-To-One-Year-Deal",
-      "pubDate": "2026-07-01T06:06:24.000Z",
-      "publishedAt": "2026-07-01T06:06:24.000Z",
-      "summary": "The Houston Rockets signed Bogdan Bogdanovic to a one-year contract at the veteran's minimum, sources told Shams Charania of ESPN. Bogdanovic became a free agent after the Clippers declined their $16 million option on his contract. The 33-year-old most recently played for the Clippers, averaging 7.4 points and 2.6 rebounds last season. Bogdanovic played in just 77 games over the past two seasons due to injuries. Bogdanovic gives the Rockets a perimeter shooter with size that can also handle the ball on the wing.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Bogdan Bogdanovic与火箭达成一年合同。",
-      "oneLineZh": "Bogdan Bogdanovic与火箭达成一年合同",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Bogdanovic_Bogdan_lac_260626.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 4
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286449/Lakers-Expected-To-Sign-Sandro-Mamukelashvili-Quentin-Grimes;-Continue-Pursuit-Of-Walker-Kessler",
-      "title": "Lakers Expected To Sign Sandro Mamukelashvili, Quentin Grimes; Continue Pursuit Of Walker Kessler",
-      "originalTitle": "Lakers Expected To Sign Sandro Mamukelashvili, Quentin Grimes; Continue Pursuit Of Walker Kessler",
-      "headlineZh": "湖人预计签下Sandro Mamukelashvili和Quentin Grimes",
-      "titleZh": "湖人预计签下Sandro Mamukelashvili和Quentin Grimes",
-      "link": "https://basketball.realgm.com/wiretap/286449/Lakers-Expected-To-Sign-Sandro-Mamukelashvili-Quentin-Grimes;-Continue-Pursuit-Of-Walker-Kessler",
-      "url": "https://basketball.realgm.com/wiretap/286449/Lakers-Expected-To-Sign-Sandro-Mamukelashvili-Quentin-Grimes;-Continue-Pursuit-Of-Walker-Kessler",
-      "pubDate": "2026-07-01T03:08:41.000Z",
-      "publishedAt": "2026-07-01T03:08:41.000Z",
-      "summary": "The Los Angeles Lakers are expected to eventually secure free agent agreements with Sandro Mamukelashvili and Quentin Grimes. The Lakers are also still pursuing Walker Kessler as their top target this offseason as they look to upgrade the center position. Kessler is a restricted free agent and would either need to reach agreement with the Utah Jazz on a sign-and-trade, or risk signing him to an offer sheet that can be matched. Kessler is represented by Aaron Mintz , Houston Kessler and Dave Spahn . The Jazz have been expected to try to retain Kessler this offseason. Mamukelashvili is receiving considerable interest on the open market and has been expected to command more than $10 million per season. Mamukelashvili averaged 11.2 points, 4.9 rebounds and 1.9 assists in 21.9 minutes over 80 games in his one season with the Toronto Raptors. Mamukelashvili is represented by George Roussakis . Grimes averaged 13.4 points, 3.6 rebounds and 3.3 assists in 29.4 minutes with the Philadelphia 76ers over 75 games. Grimes played the season on a one-year qualifying offer after being unable to secure a longer deal as a restricted free agent. Grimes is represented by Austin Brown and Steven Heumann . Grimes is also expected to sign with the Lakers on a contract that starts around $10 million in Year 1.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，洛杉矶湖人预计将与Sandro Mamukelashvili和Quentin Grimes达成自由球员协议。湖人仍将Walker Kessler视为休赛期重点目标，希望升级中锋位置。",
-      "oneLineZh": "湖人预计签下Sandro Mamukelashvili和Quentin Grimes",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Mamukelashvili_Sandro_tor_260116.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
-      "importance": 5
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286448/Dean-Wade-Sixers-Agree-To-Four-Year-$39M-Deal",
-      "title": "Dean Wade, Sixers Agree To Four-Year, $39M Deal",
-      "originalTitle": "Dean Wade, Sixers Agree To Four-Year, $39M Deal",
-      "headlineZh": "Dean Wade与76人达成四年，3900万美元合同",
-      "titleZh": "Dean Wade与76人达成四年，3900万美元合同",
-      "link": "https://basketball.realgm.com/wiretap/286448/Dean-Wade-Sixers-Agree-To-Four-Year-$39M-Deal",
-      "url": "https://basketball.realgm.com/wiretap/286448/Dean-Wade-Sixers-Agree-To-Four-Year-$39M-Deal",
-      "pubDate": "2026-07-01T02:37:05.000Z",
-      "publishedAt": "2026-07-01T02:37:05.000Z",
-      "summary": "Dean Wade and the Philadelphia 76ers have agreed to a four-year, $39 million deal. The Sixers are using the non-taxpayer midlevel exception to sign Wade and will be hard capped at the first apron. Wade entered the NBA on a two-way contract with the Cleveland Cavaliers during the 2019-20 season. Wade is coming off a three-year, $18.5 million extension signed with the Cavaliers ahead of the 2022-23 season. Last season, Wade averaged 5.8 points, 4.2 rebounds and 1.5 assists in 22.3 minutes. Wade is represented by Adam Papas and Austin Walton . The Sixers hired Mike Gansey away from the Cavaliers as as president of basketball operations this offseason and his first free agent acquisition becomes a player he is familiar with in Wade.",
-      "dekZh": "76人将使用非纳税人中产特例签下Wade，并受到第一土豪线硬工资帽限制。",
-      "summaryZh": "据 RealGM 报道，Dean Wade与76人达成四年，3900万美元合同。",
-      "oneLineZh": "Dean Wade与76人达成四年，3900万美元合同",
-      "goldenQuoteZh": "",
-      "keyPoints": [
-        "76人将使用非纳税人中产特例签下Wade，并受到第一土豪线硬工资帽限制。"
-      ],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Wade_Dean_cle_220225.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 5
     }
   ]
 }
