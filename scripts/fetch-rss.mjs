@@ -372,6 +372,13 @@ function localizeCommonTerms(value = '') {
     .replace(/\bthe\s+(?=[\u4e00-\u9fa5])/gi, '')
     .replace(/\ba\s+(?=[\u4e00-\u9fa5])/gi, '')
     .replace(/\bLas Vegas\b/gi, '拉斯维加斯')
+    .replace(/\bMonday\b/gi, '周一')
+    .replace(/\bTuesday\b/gi, '周二')
+    .replace(/\bWednesday\b/gi, '周三')
+    .replace(/\bThursday\b/gi, '周四')
+    .replace(/\bFriday\b/gi, '周五')
+    .replace(/\bSaturday\b/gi, '周六')
+    .replace(/\bSunday\b/gi, '周日')
     .replace(/\bOne-Year\b/gi, '一年')
     .replace(/\bone-year\b/gi, '一年')
     .replace(/\bone year\b/gi, '一年')
@@ -387,6 +394,7 @@ function localizeCommonTerms(value = '') {
     .replace(/\bFive-Year\b/gi, '五年')
     .replace(/\bfive-year\b/gi, '五年')
     .replace(/\bfive year\b/gi, '五年')
+    .replace(/\beight\b/gi, '八')
     .replace(/\b(\d+)-year\b/gi, (_, years) => `${years}年`)
     .replace(/\$(\d+(?:\.\d+)?)M\b/g, (_, amount) => `${Number(amount) * 100}万美元`)
     .replace(/\$(\d+(?:\.\d+)?) million\b/gi, (_, amount) => `${Number(amount) * 100}万美元`)
@@ -404,6 +412,12 @@ function localizeCommonTerms(value = '') {
     .replace(/\bplayoff games\b/gi, '季后赛')
     .replace(/\bregular season games\b/gi, '常规赛')
     .replace(/\bfree agency\b/gi, '自由市场')
+    .replace(/\bfrontcourt\b/gi, '前场')
+    .replace(/\bbackcourt\b/gi, '后场')
+    .replace(/\bcenter position\b/gi, '中锋位置')
+    .replace(/\bcenter\b/gi, '中锋')
+    .replace(/\bdefense\b/gi, '防守')
+    .replace(/\bpoint of attack\b/gi, '持球攻击点防守')
     .replace(/\bveteran guard\b/gi, '老将后卫')
     .replace(/\bguard\b/gi, '后卫')
     .replace(/\bstarting small forward\b/gi, '首发小前锋')
@@ -776,6 +790,231 @@ function isDuplicateOfTitle(sentence = '', titleZh = '') {
   );
 }
 
+function cleanupFactSentence(value = '') {
+  return normalizeSpacing(
+    String(value)
+      .replace(/\s*,?\s*sources told.+$/i, '')
+      .replace(/\s*,?\s*according to.+$/i, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+  );
+}
+
+function splitNameList(value = '') {
+  return String(value)
+    .split(/\s*,\s*|\s+and\s+/i)
+    .map((item) => item.trim().replace(/^(?:and|or)\s+/i, ''))
+    .map((item) => localizeCommonTerms(item))
+    .filter(Boolean);
+}
+
+function joinChineseList(items = []) {
+  if (items.length <= 1) return items[0] || '';
+  if (items.length === 2) return `${items[0]}和${items[1]}`;
+  return `${items.slice(0, -1).join('、')}和${items.at(-1)}`;
+}
+
+function contractAmount(value = '') {
+  return localizeCommonTerms(value)
+    .replace(/\$(\d+(?:\.\d+)?)\s*million/gi, (_, amount) => `${Number(amount) * 100}万美元`)
+    .replace(/\$(\d+(?:\.\d+)?)M/gi, (_, amount) => `${Number(amount) * 100}万美元`);
+}
+
+function summarizeFactSentence(sentence = '') {
+  const original = cleanupFactSentence(sentence);
+  if (!original || /represented by/i.test(original)) return '';
+
+  const planningCapMatch = original.match(
+    /^(?:The )?(.+?) are planning additional moves to gain more cap flexibility if (.+?) shows interest in signing with the team/i
+  );
+  if (planningCapMatch) {
+    return `如果${localizeCommonTerms(planningCapMatch[2])}有意加盟，${localizeCommonTerms(planningCapMatch[1])}计划继续操作，以腾出更多薪资空间。`;
+  }
+
+  const leadingContendersMatch = original.match(/^(.+?) are the leading contenders to sign (.+?)\.$/i);
+  if (leadingContendersMatch) {
+    return `${joinChineseList(splitNameList(leadingContendersMatch[1]))}被视为签下${localizeCommonTerms(leadingContendersMatch[2])}的主要竞争者。`;
+  }
+
+  const dozenTeamsMatch = original.match(/^It is expected that over a dozen teams will pursue (.+?)\.$/i);
+  if (dozenTeamsMatch) {
+    return `预计将有十多支球队追逐${localizeCommonTerms(dozenTeamsMatch[1])}。`;
+  }
+
+  const endedTradeTalksMatch = original.match(/^(?:The )?(.+?) ended trade talks for (.+?) and are focused on adding (.+?) to the roster\.$/i);
+  if (endedTradeTalksMatch) {
+    return `${localizeCommonTerms(endedTradeTalksMatch[1])}已经结束关于${localizeCommonTerms(endedTradeTalksMatch[2])}的交易谈判，转而专注于补进${localizeCommonTerms(endedTradeTalksMatch[3])}。`;
+  }
+
+  const expectedAgreementsMatch = original.match(
+    /^(?:The )?(.+?) are expected to eventually secure free agent agreements with (.+?)\.$/i
+  );
+  if (expectedAgreementsMatch) {
+    return `${localizeCommonTerms(expectedAgreementsMatch[1])}预计将与${joinChineseList(splitNameList(expectedAgreementsMatch[2]))}达成自由球员协议。`;
+  }
+
+  const stillPursuingMatch = original.match(
+    /^(?:The )?(.+?) are also still pursuing (.+?) as their top target this offseason as they look to upgrade (?:the )?(.+?) position\.$/i
+  );
+  if (stillPursuingMatch) {
+    return `${localizeCommonTerms(stillPursuingMatch[1])}仍将${localizeCommonTerms(stillPursuingMatch[2])}视为休赛期重点目标，希望升级${localizeCommonTerms(stillPursuingMatch[3])}位置。`;
+  }
+
+  const secondMeetingMatch = original.match(/^(?:The )?(.+?) and (.+?) are set to have a second meeting on (.+?)\.$/i);
+  if (secondMeetingMatch) {
+    return `${localizeCommonTerms(secondMeetingMatch[1])}将与${localizeCommonTerms(secondMeetingMatch[2])}进行第二次会面，时间是在${localizeCommonTerms(secondMeetingMatch[3])}。`;
+  }
+
+  const headingToMatch = original.match(/^(.+?) is heading to (?:the )?City of Brotherly Love\.$/i);
+  if (headingToMatch) {
+    return `${localizeCommonTerms(headingToMatch[1])}将前往费城。`;
+  }
+
+  const gotPaydayMatch = original.match(/^(.+?) got (?:what )?he wanted \(another massive payday\) and (?:the )?(.+?) take a big swing\.$/i);
+  if (gotPaydayMatch) {
+    return `${localizeCommonTerms(gotPaydayMatch[1])}获得了想要的大合同，${localizeCommonTerms(gotPaydayMatch[2])}则选择进行一次大胆补强。`;
+  }
+
+  const neededVeteranMatch = original.match(/^With (.+?), (?:the )?(.+?) needed to add a veteran in (?:the )?(.+?) and (.+?)\.$/i);
+  if (neededVeteranMatch) {
+    return `${localizeCommonTerms(neededVeteranMatch[2])}需要在${localizeCommonTerms(neededVeteranMatch[3])}补进老将，同时提升持球点防守压迫。`;
+  }
+
+  const pathChampionshipMatch = original.match(/^(?:The )?(.+?)['’] path to (?:the )?NBA championship involved contributions from everyone on (?:the )?roster/i);
+  if (pathChampionshipMatch) {
+    return `${localizeCommonTerms(pathChampionshipMatch[1])}的争冠历程强调全队贡献，即便部分球员没有在季后赛登场。`;
+  }
+
+  const floatedCavaliersMatch = original.match(
+    /^On ESPN's free agency special, (.+?) floated the possibility of (?:the )?(.+?) trading for (.+?) and then signing (.+?) in free agency\.$/i
+  );
+  if (floatedCavaliersMatch) {
+    return `${localizeCommonTerms(floatedCavaliersMatch[1])}提出设想：${localizeCommonTerms(floatedCavaliersMatch[2])}可以先交易得到${localizeCommonTerms(floatedCavaliersMatch[3])}，再在自由市场签下${localizeCommonTerms(floatedCavaliersMatch[4])}。`;
+  }
+
+  const lakersOptionMatch = original.match(/^(.+?) could be an option for (?:the )?(.+?) this offseason as (?:the )?team looks to replace (.+?)['’] production\.$/i);
+  if (lakersOptionMatch) {
+    return `${localizeCommonTerms(lakersOptionMatch[1])}可能成为${localizeCommonTerms(lakersOptionMatch[2])}休赛期选择之一，球队希望填补${localizeCommonTerms(lakersOptionMatch[3])}留下的产量。`;
+  }
+
+  const lebronConversationMatch = original.match(/^The (.+?) NBA free agency negotiation window has officially opened, and (.+?) remains at the forefront of the conversation\.$/i);
+  if (lebronConversationMatch) {
+    return `${localizeCommonTerms(lebronConversationMatch[1])}NBA自由市场谈判窗口已经开启，${localizeCommonTerms(lebronConversationMatch[2])}仍是外界讨论焦点。`;
+  }
+
+  const lebronFirstFreeAgencyMatch = original.match(/^(.+?) is hitting free agency for the first time in (.+?) years/i);
+  if (lebronFirstFreeAgencyMatch) {
+    return `${localizeCommonTerms(lebronFirstFreeAgencyMatch[1])}${localizeCommonTerms(lebronFirstFreeAgencyMatch[2])}年来首次进入自由市场。`;
+  }
+
+  const jazzCenterPopularMatch = original.match(/^(?:The )?(.+?) Center is.+popular on (?:the )?free agency market/i);
+  if (jazzCenterPopularMatch) {
+    return `${localizeCommonTerms(jazzCenterPopularMatch[1])}的中锋在自由市场上受到关注。`;
+  }
+
+  const draymondPodcastMatch = original.match(/^(.+?) didn't hold back when exposing his newest teammate on his podcast .+ on (.+?)\.$/i);
+  if (draymondPodcastMatch) {
+    return `${localizeCommonTerms(draymondPodcastMatch[1])}在${localizeCommonTerms(draymondPodcastMatch[2])}的播客中谈到新队友，语气相当直接。`;
+  }
+
+  const cavsSalaryMatch = original.match(
+    /^(?:The )?(.+?) may be able to offer (.+?) a competitive salary, and (.+?)['’]s contract decision could be central to making that happen\.$/i
+  );
+  if (cavsSalaryMatch) {
+    return `${localizeCommonTerms(cavsSalaryMatch[1])}可能为${localizeCommonTerms(cavsSalaryMatch[2])}提供有竞争力的薪资，而${localizeCommonTerms(cavsSalaryMatch[3])}的合同决定是关键。`;
+  }
+
+  const leavingFranchiseMatch = original.match(/^(.+?) informed (?:the )?(.+?) on (.+?) that he will be leaving (?:the )?franchise in free agency\.$/i);
+  if (leavingFranchiseMatch) {
+    return `${localizeCommonTerms(leavingFranchiseMatch[1])}已在${localizeCommonTerms(leavingFranchiseMatch[3])}通知${localizeCommonTerms(leavingFranchiseMatch[2])}，自己将在自由市场离队。`;
+  }
+
+  return '';
+}
+
+function summarizeFactFromTitle(title = '') {
+  const cleanTitle = stripSourcePhrases(title);
+
+  const signingAmountMatch = cleanTitle.match(/^(.+?) signing (.+?) on (.+?) contract/i);
+  if (signingAmountMatch) {
+    return `${localizeCommonTerms(signingAmountMatch[1])}将签下${localizeCommonTerms(signingAmountMatch[2])}，合同金额为${contractAmount(signingAmountMatch[3])}。`;
+  }
+
+  const bolsteringContractMatch = cleanTitle.match(
+    /^(.+?) bolstering (.+?) with ((?:one|two|three|four|five|\d+)-year),?\s+(\$\d+(?:\.\d+)?\s*million)\s+(.+?) contract$/i
+  );
+  if (bolsteringContractMatch) {
+    return `${localizeCommonTerms(bolsteringContractMatch[1])}用${contractAmount(`${bolsteringContractMatch[3]}、${bolsteringContractMatch[4]}`)}合同补强${localizeCommonTerms(bolsteringContractMatch[2])}，相关球员是${localizeCommonTerms(bolsteringContractMatch[5])}。`;
+  }
+
+  const reportedDealMatch = cleanTitle.match(/^(.+?) free agency tracker: (.+?) reportedly agrees to (.+?) deal$/i);
+  if (reportedDealMatch) {
+    return `${localizeCommonTerms(reportedDealMatch[2])}据报与${localizeCommonTerms(reportedDealMatch[1])}达成${contractAmount(reportedDealMatch[3])}合同。`;
+  }
+
+  const reSignMatch = cleanTitle.match(/^(.+?) Re-Sign (.+)$/i);
+  if (reSignMatch) {
+    return `${localizeCommonTerms(reSignMatch[1])}续约${localizeCommonTerms(reSignMatch[2])}。`;
+  }
+
+  const notInterestedTradeMatch = cleanTitle.match(/^(.+?) Not Interested In Exploring (.+?) Trade$/i);
+  if (notInterestedTradeMatch) {
+    return `${localizeCommonTerms(notInterestedTradeMatch[1])}无意探索关于${localizeCommonTerms(notInterestedTradeMatch[2])}的交易。`;
+  }
+
+  const summerLeagueWisdomMatch = cleanTitle.match(/^(.+?) and (.+?) impart wisdom on (?:the )?(.+?)['’]s new Summer League star$/i);
+  if (summerLeagueWisdomMatch) {
+    return `${localizeCommonTerms(summerLeagueWisdomMatch[1])}和${localizeCommonTerms(summerLeagueWisdomMatch[2])}向${localizeCommonTerms(summerLeagueWisdomMatch[3])}夏季联赛新星分享经验。`;
+  }
+
+  const brunsonChampionMatch = cleanTitle.match(/^(.+?), NBA Champion$/i);
+  if (brunsonChampionMatch) {
+    return `文章聚焦${localizeCommonTerms(brunsonChampionMatch[1])}的冠军身份，以及他如何回应外界质疑。`;
+  }
+
+  const shametDealMatch = cleanTitle.match(/^(.+?)['’]s new deal with (.+?) built on relationship of faith$/i);
+  if (shametDealMatch) {
+    return `${localizeCommonTerms(shametDealMatch[1])}与${localizeCommonTerms(shametDealMatch[2])}的新合同建立在双方信任关系之上。`;
+  }
+
+  const lebronPoolsideMatch = cleanTitle.match(/^(.+?) seen hanging poolside in first post as free agent$/i);
+  if (lebronPoolsideMatch) {
+    return `${localizeCommonTerms(lebronPoolsideMatch[1])}成为自由球员后的首条动态是在泳池边放松。`;
+  }
+
+  const kesslerPriceMatch = cleanTitle.match(/^(.+?)['’]s High Price Tag Revealed/i);
+  if (kesslerPriceMatch) {
+    return `${localizeCommonTerms(kesslerPriceMatch[1])}的要价成为自由市场关注点，爵士是否匹配报价仍是焦点。`;
+  }
+
+  const draymondCallsOutMatch = cleanTitle.match(/^(.+?) calls out (.+?) rookie (.+?):/i);
+  if (draymondCallsOutMatch) {
+    return `${localizeCommonTerms(draymondCallsOutMatch[1])}公开点名${localizeCommonTerms(draymondCallsOutMatch[2])}新秀${localizeCommonTerms(draymondCallsOutMatch[3])}。`;
+  }
+
+  return '';
+}
+
+function buildFallbackSummaryZh({ source, headlineZh, title, sentences }) {
+  const factSentences = [
+    summarizeFactFromTitle(title),
+    ...sentences.slice(0, 6).map(summarizeFactSentence)
+  ]
+    .filter(Boolean)
+    .filter((sentence, index, all) => all.findIndex((candidate) => isHighlySimilarText(candidate, sentence)) === index)
+    .slice(0, 2);
+
+  if (factSentences.length) {
+    return normalizeSpacing(`据 ${source} 报道，${factSentences.join('')}`);
+  }
+
+  if (/相关动态：/.test(headlineZh)) {
+    return '';
+  }
+
+  return normalizeSpacing(`据 ${source} 报道，${headlineZh}。`);
+}
+
 function buildChineseSummary(title, summary, category, source) {
   const titleZh = translateTitle(title, category);
   const sentences = summary
@@ -934,8 +1173,7 @@ function fallbackSummarizeArticle({ title, description, url, articleText, source
     .filter(isUsefulChineseSentence)
     .filter((sentence) => !isDuplicateOfTitle(sentence, headlineZh))
     .slice(0, 2);
-  const detailSummary = coreSentences.join('');
-  const summaryZh = normalizeSpacing(`据 ${source} 报道，${detailSummary || `${headlineZh}。`}`);
+  const summaryZh = buildFallbackSummaryZh({ source, headlineZh, title, sentences });
   const dekCandidate = coreSentences[0] || '';
   const dekZh = cleanDek(headlineZh, dekCandidate);
   const oneLineZh = normalizeSpacing(headlineZh.replace(/^NBA动态：/, '').replace(/^签约动态：/, '').replace(/^交易动态：/, ''));
