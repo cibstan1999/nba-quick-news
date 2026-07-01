@@ -1147,6 +1147,131 @@ RSS 描述：${description}
 `.trim();
 }
 
+function isTemplateHeadline(value = '') {
+  return /相关动态：|继续更新|后续动向值得关注|值得关注/.test(value);
+}
+
+function stripReportPrefix(value = '') {
+  return String(value).replace(/^据\s+.+?\s+报道，/, '').trim();
+}
+
+function firstSummarySentence(summaryZh = '') {
+  return stripReportPrefix(summaryZh).split(/(?<=[。！？])\s*/).filter(Boolean)[0] || '';
+}
+
+function headlineFromSummary(summaryZh = '') {
+  const first = firstSummarySentence(summaryZh);
+  if (!first || isTemplateHeadline(first)) return '';
+
+  const lebronWarriorsMatch = first.match(/^如果(.+?)有意加盟，(.+?)计划继续操作，以腾出更多薪资空间。?$/);
+  if (lebronWarriorsMatch) {
+    return `${lebronWarriorsMatch[2].replace(/^金州/, '')}若追${lebronWarriorsMatch[1]}，将继续腾薪资空间`;
+  }
+
+  const meetingMatch = first.match(/^(.+?)将与(.+?)进行第二次会面/);
+  if (meetingMatch) {
+    return `${meetingMatch[1]}将与${meetingMatch[2]}进行第二次会面`;
+  }
+
+  const signAmountMatch = first.match(/^(.+?)将签下(.+?)，合同金额为(.+?)。?$/);
+  if (signAmountMatch) {
+    return `${signAmountMatch[1]}将以${signAmountMatch[3]}签下${signAmountMatch[2]}`;
+  }
+
+  const expectedAgreementsMatch = first.match(/^(.+?)预计将与(.+?)达成自由球员协议。?$/);
+  if (expectedAgreementsMatch) {
+    return `${expectedAgreementsMatch[1].replace(/^洛杉矶/, '')}预计签下${expectedAgreementsMatch[2]}`;
+  }
+
+  const reportedDealMatch = first.match(/^(.+?)据报与(.+?)达成(.+?)合同。?$/);
+  if (reportedDealMatch) {
+    return `${reportedDealMatch[2]}将与${reportedDealMatch[1]}达成${reportedDealMatch[3]}合同`;
+  }
+
+  const netsContractMatch = first.match(/^(.+?)用(.+?)合同补强(.+?)，相关球员是(.+?)。?$/);
+  if (netsContractMatch) {
+    return `${netsContractMatch[1]}将以${netsContractMatch[2]}签下${netsContractMatch[4]}`;
+  }
+
+  const kawhiPaydayMatch = first.match(/^(.+?)获得了想要的大合同，(.+?)则选择进行一次大胆补强。?$/);
+  if (kawhiPaydayMatch) {
+    return `${kawhiPaydayMatch[2]}豪赌补强，${kawhiPaydayMatch[1]}拿到大合同`;
+  }
+
+  const championshipPathMatch = first.match(/^(.+?)的争冠历程强调全队贡献/);
+  if (championshipPathMatch) {
+    return `${championshipPathMatch[1]}争冠历程凸显全队贡献`;
+  }
+
+  const summerLeagueMatch = first.match(/^(.+?)和(.+?)向(.+?)夏季联赛新星分享经验。?$/);
+  if (summerLeagueMatch) {
+    return `${summerLeagueMatch[1]}和${summerLeagueMatch[2]}指导${summerLeagueMatch[3]}新星`;
+  }
+
+  const brunsonMatch = first.match(/^文章聚焦(.+?)的冠军身份/);
+  if (brunsonMatch) {
+    return `${brunsonMatch[1]}以冠军身份回应外界质疑`;
+  }
+
+  const newDealTrustMatch = first.match(/^(.+?)与(.+?)的新合同建立在双方信任关系之上。?$/);
+  if (newDealTrustMatch) {
+    return `${newDealTrustMatch[1]}与${newDealTrustMatch[2]}新合同源于信任`;
+  }
+
+  const lebronPoolMatch = first.match(/^(.+?)成为自由球员后的首条动态是在泳池边放松。?$/);
+  if (lebronPoolMatch) {
+    return `${lebronPoolMatch[1]}成为自由球员后首度更新动态`;
+  }
+
+  const priceTagMatch = first.match(/^(.+?)的要价成为自由市场关注点/);
+  if (priceTagMatch) {
+    return `${priceTagMatch[1]}要价成为自由市场焦点`;
+  }
+
+  const floatedMatch = first.match(/^(.+?)提出设想：(.+?)可以先交易得到(.+?)，再在自由市场签下(.+?)。?$/);
+  if (floatedMatch) {
+    return `${floatedMatch[2]}或先追${floatedMatch[3]}，再签${floatedMatch[4]}`;
+  }
+
+  const lakersOptionMatch = first.match(/^(.+?)可能成为(.+?)休赛期选择之一/);
+  if (lakersOptionMatch) {
+    return `${lakersOptionMatch[2]}将${lakersOptionMatch[1]}视为休赛期选项`;
+  }
+
+  const lebronFocusMatch = first.match(/^(.+?)NBA自由市场谈判窗口已经开启，(.+?)仍是外界讨论焦点。?$/);
+  if (lebronFocusMatch) {
+    return `${lebronFocusMatch[2]}仍是自由市场讨论焦点`;
+  }
+
+  const reSignMatch = first.match(/^(.+?)续约(.+?)。?$/);
+  if (reSignMatch) {
+    return `${reSignMatch[1]}续约${reSignMatch[2]}`;
+  }
+
+  const draymondMatch = first.match(/^(.+?)公开点名(.+?)新秀(.+?)。?$/);
+  if (draymondMatch) {
+    return `${draymondMatch[1]}公开点名${draymondMatch[2]}新秀${draymondMatch[3]}`;
+  }
+
+  const cavsSalaryMatch = first.match(/^(.+?)可能为(.+?)提供有竞争力的薪资/);
+  if (cavsSalaryMatch) {
+    return `${cavsSalaryMatch[1]}或为${cavsSalaryMatch[2]}腾出竞争性薪资`;
+  }
+
+  const notTradeMatch = first.match(/^(.+?)无意探索关于(.+?)的交易。?$/);
+  if (notTradeMatch) {
+    return `${notTradeMatch[1]}无意探索${notTradeMatch[2]}交易`;
+  }
+
+  const clipped = first.replace(/[。！？]$/g, '');
+  return clipped.length <= 34 ? clipped : '';
+}
+
+function improveHeadlineFromSummary(headlineZh = '', summaryZh = '') {
+  if (!isTemplateHeadline(headlineZh)) return headlineZh;
+  return headlineFromSummary(summaryZh) || headlineZh;
+}
+
 function scoreImportance({ title = '', summary = '', category = '其他', isMerged = false }) {
   const text = `${title} ${summary}`.toLowerCase();
   let score = 1;
@@ -1160,7 +1285,7 @@ function scoreImportance({ title = '', summary = '', category = '其他', isMerg
 
 function fallbackSummarizeArticle({ title, description, url, articleText, source }) {
   const category = classify(title, `${description} ${articleText}`);
-  const headlineZh = finalizeHeadline(title, category);
+  const initialHeadlineZh = finalizeHeadline(title, category);
   const rawSummary = stripHtml(description || articleText || '');
   const sentences = rawSummary
     .split(/(?<=[.!?])\s+/)
@@ -1171,9 +1296,10 @@ function fallbackSummarizeArticle({ title, description, url, articleText, source
     .slice(0, 5)
     .map(summarizeSentence)
     .filter(isUsefulChineseSentence)
-    .filter((sentence) => !isDuplicateOfTitle(sentence, headlineZh))
+    .filter((sentence) => !isDuplicateOfTitle(sentence, initialHeadlineZh))
     .slice(0, 2);
-  const summaryZh = buildFallbackSummaryZh({ source, headlineZh, title, sentences });
+  const summaryZh = buildFallbackSummaryZh({ source, headlineZh: initialHeadlineZh, title, sentences });
+  const headlineZh = improveHeadlineFromSummary(initialHeadlineZh, summaryZh);
   const dekCandidate = coreSentences[0] || '';
   const dekZh = cleanDek(headlineZh, dekCandidate);
   const oneLineZh = normalizeSpacing(headlineZh.replace(/^NBA动态：/, '').replace(/^签约动态：/, '').replace(/^交易动态：/, ''));
