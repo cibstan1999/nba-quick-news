@@ -59,7 +59,7 @@ function render() {
         <div>
           <p class="eyebrow">NBA 中文速览</p>
           <h1>NBA Quick News</h1>
-          <p class="subtitle">Real-time NBA wiretap from RealGM, summarized in Chinese</p>
+          <p class="subtitle">Real-time NBA news from RealGM and Yahoo Sports, summarized in Chinese</p>
         </div>
         <div class="status-card" aria-label="Feed status">
           <span>最后更新</span>
@@ -89,7 +89,7 @@ function render() {
 
       <section class="news-meta" aria-live="polite">
         <span>${state.loading ? '正在加载...' : `${filteredItems.length} 条新闻`}</span>
-        <span>来源：RealGM</span>
+        <span>来源：RealGM / Yahoo Sports</span>
       </section>
 
       <section class="news-list" aria-label="NBA news stories">
@@ -120,6 +120,7 @@ function renderCard(item) {
   const points = Array.isArray(item.keyPoints) ? item.keyPoints.filter(Boolean).slice(0, 3) : [];
   const titleZh = item.titleZh || item.title;
   const summaryZh = item.summaryZh || item.summary || '暂无摘要。';
+  const source = item.source || 'Original source';
 
   return `
     <article class="news-card ${item.imageUrl ? 'has-image' : ''}">
@@ -144,7 +145,7 @@ function renderCard(item) {
             : ''
         }
         <div class="card-footer">
-          <span>RealGM 原文${item.imageUrl ? ' / 图片预览来自原站元数据' : ''}</span>
+          <span>${escapeHtml(source)} 原文${item.imageUrl ? ' / 图片预览来自原站元数据' : ''}</span>
           <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">Open Original</a>
         </div>
       </div>

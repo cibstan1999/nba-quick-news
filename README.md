@@ -1,6 +1,6 @@
 # NBA Quick News
 
-NBA Quick News is a clean static NBA news reader powered by the RealGM Wiretap RSS feed.
+NBA Quick News is a clean static NBA news reader powered by RealGM and Yahoo Sports NBA RSS feeds.
 
 ## Local Setup
 
@@ -14,7 +14,7 @@ npm install
 npm run fetch
 ```
 
-This reads `https://basketball.realgm.com/rss/wiretap/15/0.xml`, parses the RSS with `fast-xml-parser`, cleans summaries, assigns categories, and writes `public/data/news.json`. If fetching fails and an old JSON file exists, the script leaves the old file untouched.
+This reads the configured NBA RSS feeds, parses them with `fast-xml-parser`, cleans summaries, assigns categories, and writes `public/data/news.json`. If fetching fails and an old JSON file exists, the script leaves the old file untouched.
 
 ## Local Preview
 

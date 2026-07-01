@@ -3,8 +3,16 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { XMLParser } from 'fast-xml-parser';
 
-const FEED_URL = 'https://basketball.realgm.com/rss/wiretap/15/0.xml';
-const SOURCE = 'RealGM';
+const FEEDS = [
+  {
+    source: 'RealGM',
+    feed: 'https://basketball.realgm.com/rss/wiretap/15/0.xml'
+  },
+  {
+    source: 'Yahoo Sports',
+    feed: 'https://sports.yahoo.com/nba/rss.xml'
+  }
+];
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outputPath = path.join(rootDir, 'public', 'data', 'news.json');
 
@@ -26,6 +34,7 @@ const teamNames = new Map([
   ['Bulls', '公牛'],
   ['Cleveland Cavaliers', '克利夫兰骑士'],
   ['Cavaliers', '骑士'],
+  ['Cavs', '骑士'],
   ['Dallas Mavericks', '达拉斯独行侠'],
   ['Mavericks', '独行侠'],
   ['Denver Nuggets', '丹佛掘金'],
@@ -131,6 +140,7 @@ function localizeCommonTerms(value = '') {
     .replace(/\bfour-year\b/gi, '四年')
     .replace(/\bFive-Year\b/gi, '五年')
     .replace(/\bfive-year\b/gi, '五年')
+    .replace(/\b(\d+)-year\b/gi, (_, years) => `${years}年`)
     .replace(/\$(\d+(?:\.\d+)?)M\b/g, (_, amount) => `${Number(amount) * 100}万美元`)
     .replace(/\$(\d+(?:\.\d+)?) million\b/gi, (_, amount) => `${Number(amount) * 100}万美元`)
     .replace(/\bpoints\b/gi, '分')
@@ -146,7 +156,12 @@ function localizeCommonTerms(value = '') {
     .replace(/\bthree-pointers\b/gi, '三分球')
     .replace(/\bplayoff games\b/gi, '季后赛')
     .replace(/\bregular season games\b/gi, '常规赛')
+    .replace(/\bfree agency\b/gi, '自由市场')
+    .replace(/\bstarting small forward\b/gi, '首发小前锋')
+    .replace(/\bfail to retain\b/gi, '未能留住')
+    .replace(/\bcontract extension\b/gi, '续约合同')
     .replace(/\bdeal\b/gi, '合同')
+    .replace(/\bcontract\b/gi, '合同')
     .replace(/\bagreement\b/gi, '协议')
     .replace(/\bagree to\b/gi, '达成')
     .replace(/\bagreed to\b/gi, '达成')
@@ -168,6 +183,26 @@ function localizeCommonTerms(value = '') {
 }
 
 function translateTitle(title = '', category = '其他') {
+  const freeAgencyRetainMatch = title.match(/^(.+?) fail to retain starting small forward in free agency$/i);
+  if (freeAgencyRetainMatch) {
+    return `${localizeCommonTerms(freeAgencyRetainMatch[1])}在自由市场未能留住首发小前锋`;
+  }
+
+  const tradeImpactMatch = title.match(/^What's next for (.+?)\? What (.+?) trade means for roster$/i);
+  if (tradeImpactMatch) {
+    return `${localizeCommonTerms(tradeImpactMatch[1])}下一步怎么走：${localizeCommonTerms(tradeImpactMatch[2])}交易对阵容的影响`;
+  }
+
+  const extensionMatch = title.match(/^(.+?) Agrees to Contract Extension With (.+)$/i);
+  if (extensionMatch) {
+    return `${localizeCommonTerms(extensionMatch[1])}与${localizeCommonTerms(extensionMatch[2])}达成续约合同`;
+  }
+
+  const sourceSaysDealMatch = title.match(/^(.+?) agree to an? (.+?),\s*(\d+)-year deal with (.+?)(?:,.*)?$/i);
+  if (sourceSaysDealMatch) {
+    return `${localizeCommonTerms(sourceSaysDealMatch[1])}与${localizeCommonTerms(sourceSaysDealMatch[4])}达成${localizeCommonTerms(`${sourceSaysDealMatch[3]}-year`)}、${localizeCommonTerms(sourceSaysDealMatch[2])}合同`;
+  }
+
   const agreeMatch = title.match(/^(.+?),\s*(.+?) Agree To (.+?) Deal$/i);
   if (agreeMatch) {
     return `${localizeCommonTerms(agreeMatch[1])}与${localizeCommonTerms(agreeMatch[2])}达成${localizeCommonTerms(agreeMatch[3])}合同`;
@@ -228,6 +263,11 @@ function summarizeSentence(sentence = '') {
     return `${localizeCommonTerms(midlevelMatch[1])}将使用非纳税人中产特例签下${localizeCommonTerms(midlevelMatch[2])}，并受到第一土豪线硬工资帽限制。`;
   }
 
+  const loseKeyPlayerMatch = original.match(/^(.+?) lose key player to Philadelphia\.$/i);
+  if (loseKeyPlayerMatch) {
+    return `${localizeCommonTerms(loseKeyPlayerMatch[1])}有关键球员转投费城。`;
+  }
+
   const appearedMatch = original.match(/^(.+?) appeared in just (.+?) games last season due to (.+?)\.$/i);
   if (appearedMatch) {
     return `${localizeCommonTerms(appearedMatch[1])}上赛季因${localizeCommonTerms(appearedMatch[3])}只出战${appearedMatch[2]}场。`;
@@ -256,7 +296,7 @@ function summarizeSentence(sentence = '') {
 function isUsefulChineseSentence(sentence = '') {
   const englishWords = sentence.match(/[A-Za-z]{3,}/g) || [];
   const knownNameWords = sentence.match(/\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\b/g) || [];
-  return englishWords.length - knownNameWords.length <= 4;
+  return englishWords.length - knownNameWords.length <= 1;
 }
 
 function getMoneyTokens(value = '') {
@@ -290,7 +330,7 @@ function isDuplicateOfTitle(sentence = '', titleZh = '') {
   );
 }
 
-function buildChineseSummary(title, summary, category) {
+function buildChineseSummary(title, summary, category, source) {
   const titleZh = translateTitle(title, category);
   const sentences = summary
     .split(/(?<=[.!?])\s+/)
@@ -304,8 +344,8 @@ function buildChineseSummary(title, summary, category) {
     .filter((sentence) => !isDuplicateOfTitle(sentence, titleZh))
     .slice(0, 2);
   const summaryZh = coreSentences.length
-    ? `据 RealGM 报道，${coreSentences.join(' ')}`
-    : `据 RealGM 报道，暂无更多细节，详情请查看 RealGM 原文。`;
+    ? `据 ${source} 报道，${coreSentences.join(' ')}`
+    : `据 ${source} 报道，暂无更多细节，详情请查看原文。`;
 
   const keyPoints = coreSentences.filter((sentence) => sentence.length <= 160).slice(0, 3);
 
@@ -347,6 +387,22 @@ async function fetchArticleImage(link) {
   }
 }
 
+function getRssImageUrl(item = {}, link = '') {
+  const candidates = [
+    item.enclosure?.['@_url'],
+    item['media:content']?.['@_url'],
+    item['media:thumbnail']?.['@_url']
+  ];
+  const imageUrl = candidates.find(Boolean);
+  if (!imageUrl) return '';
+
+  try {
+    return new URL(imageUrl, link).href;
+  } catch {
+    return '';
+  }
+}
+
 async function mapWithConcurrency(items, limit, mapper) {
   const results = new Array(items.length);
   let nextIndex = 0;
@@ -363,13 +419,14 @@ async function mapWithConcurrency(items, limit, mapper) {
   return results;
 }
 
-async function normalizeItem(item, index) {
+async function normalizeItem(item, index, feedConfig) {
   const title = stripHtml(item.title);
   const link = String(item.link || '').trim();
   const pubDate = item.pubDate ? new Date(item.pubDate).toISOString() : new Date().toISOString();
   const summary = stripHtml(item.description);
   const category = classify(title, summary);
-  const chinese = buildChineseSummary(title, summary, category);
+  const chinese = buildChineseSummary(title, summary, category, feedConfig.source);
+  const rssImageUrl = getRssImageUrl(item, link);
 
   return {
     id: link || `${title}-${index}`,
@@ -380,8 +437,9 @@ async function normalizeItem(item, index) {
     summary,
     summaryZh: chinese.summaryZh,
     keyPoints: chinese.keyPoints,
-    imageUrl: await fetchArticleImage(link),
-    source: SOURCE,
+    imageUrl: rssImageUrl || (await fetchArticleImage(link)),
+    source: feedConfig.source,
+    feed: feedConfig.feed,
     category
   };
 }
@@ -394,36 +452,79 @@ async function readExistingFeed() {
   }
 }
 
-async function fetchFeed() {
-  const response = await fetch(FEED_URL, {
+async function fetchFeed(feedUrl) {
+  const response = await fetch(feedUrl, {
     headers: {
       'User-Agent': 'nba-quick-news/0.1 (+https://github.com/)'
     }
   });
 
   if (!response.ok) {
-    throw new Error(`RealGM RSS request failed: ${response.status} ${response.statusText}`);
+    throw new Error(`${feedUrl} request failed: ${response.status} ${response.statusText}`);
   }
 
   return response.text();
+}
+
+function getFeedItems(parsed) {
+  return toArray(parsed?.rss?.channel?.item || parsed?.feed?.entry);
+}
+
+function getTimestamp(item) {
+  const date = new Date(item.pubDate || item.published || item.updated || 0);
+  return Number.isNaN(date.getTime()) ? 0 : date.getTime();
+}
+
+function dedupeAndSort(items) {
+  const seen = new Set();
+
+  return items
+    .filter((item) => {
+      const key = item.link || `${item.source}:${item.title.toLowerCase()}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
+    .slice(0, 120);
 }
 
 async function main() {
   const existingFeed = await readExistingFeed();
 
   try {
-    const xml = await fetchFeed();
-    const parsed = parser.parse(xml);
-    const rawItems = toArray(parsed?.rss?.channel?.item);
+    const feedResults = await Promise.all(
+      FEEDS.map(async (feedConfig) => {
+        try {
+          const xml = await fetchFeed(feedConfig.feed);
+          const parsed = parser.parse(xml);
+          const rawItems = getFeedItems(parsed);
 
-    if (!rawItems.length) {
-      throw new Error('RealGM RSS did not contain any items.');
+          if (!rawItems.length) {
+            throw new Error(`${feedConfig.source} RSS did not contain any items.`);
+          }
+
+          const items = await mapWithConcurrency(rawItems, 4, (item, index) => normalizeItem(item, index, feedConfig));
+          return { feedConfig, items: items.filter((item) => item.title && item.link), error: null };
+        } catch (error) {
+          return { feedConfig, items: [], error };
+        }
+      })
+    );
+
+    const failedFeeds = feedResults.filter((result) => result.error);
+    for (const result of failedFeeds) {
+      console.error(`${result.feedConfig.source} fetch failed: ${result.error instanceof Error ? result.error.message : result.error}`);
     }
 
-    const items = (await mapWithConcurrency(rawItems, 4, normalizeItem)).filter((item) => item.title && item.link);
+    const items = dedupeAndSort(feedResults.flatMap((result) => result.items));
+
+    if (!items.length) {
+      throw new Error('No RSS items were fetched from any source.');
+    }
+
     const payload = {
-      source: SOURCE,
-      feed: FEED_URL,
+      sources: FEEDS,
       updatedAt: new Date().toISOString(),
       items
     };

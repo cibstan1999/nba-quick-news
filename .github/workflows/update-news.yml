@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Fetch RealGM RSS
+      - name: Fetch NBA RSS feeds
         run: npm run fetch
 
       - name: Commit updated news
