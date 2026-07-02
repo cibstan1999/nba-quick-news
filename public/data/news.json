@@ -11,13 +11,13 @@
   ],
   "updatedAt": "2026-07-02T03:14:43.737Z",
   "lastFetchStatus": {
-    "status": "success",
-    "checkedAt": "2026-07-02T03:14:43.737Z",
+    "status": "rebuilt-from-cache",
+    "checkedAt": "2026-07-02T03:25:26.395Z",
     "updatedAt": "2026-07-02T03:14:43.737Z",
-    "fetchedItems": 80,
-    "mergedItems": 54,
+    "fetchedItems": 0,
+    "mergedItems": 53,
     "failedFeeds": [],
-    "message": "Fetched 80 usable RSS items from all feeds."
+    "message": "Rebuilt derived news fields from the existing local JSON cache."
   },
   "highlights": [
     {
@@ -36,8 +36,8 @@
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286483/Jaxson-Hayes-Jazz-Agree-To-Two-Year-$12M-Deal",
-      "text": "Jaxson Hayes 签约动向更新",
-      "category": "交易",
+      "text": "Jaxson Hayes 与爵士达成两年，1200 万美元合同",
+      "category": "签约",
       "source": "RealGM / Yahoo Sports",
       "link": "https://basketball.realgm.com/wiretap/286483/Jaxson-Hayes-Jazz-Agree-To-Two-Year-$12M-Deal"
     },
@@ -61,39 +61,41 @@
       "id": "https://sports.yahoo.com/articles/76ers-now-title-contenders-early-022843162.html",
       "title": "Are 76ers now title contenders? Early odds to win 2027 NBA championship",
       "originalTitle": "Are 76ers now title contenders? Early odds to win 2027 NBA championship",
-      "headlineZh": "76 人赛事安排与争冠话题",
-      "titleZh": "76 人赛事安排与争冠话题",
+      "headlineZh": "76 人2027 年争冠赔率出炉",
+      "titleZh": "76 人2027 年争冠赔率出炉",
       "link": "https://sports.yahoo.com/articles/76ers-now-title-contenders-early-022843162.html",
       "url": "https://sports.yahoo.com/articles/76ers-now-title-contenders-early-022843162.html",
       "pubDate": "2026-07-02T02:28:43.000Z",
       "publishedAt": "2026-07-02T02:28:43.000Z",
       "summary": "The NBA is just two days into the 2026 free agency period and there’s already been plenty of movement. Here's the latest team rankings by odds.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，76 人赛事安排与争冠话题，原文提到 NBA is just two days into 2026 自由市场 period 和 there’s already been plenty of movement。",
-      "oneLineZh": "76 人赛事安排与争冠话题",
+      "summaryZh": "据 Yahoo Sports 报道，自由市场开启后，76 人的争冠前景和最新赔率受到关注。",
+      "oneLineZh": "76 人2027 年争冠赔率出炉",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/t.TgZ_mGwhATbnmF0lHm0w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/45e2de1652ab4854f57b07ce93b1f961",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "签约",
-      "importance": 3,
-      "eventKey": ""
+      "importance": 2,
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/report-76ers-interested-adding-lebron-014151908.html",
       "title": "Report: 76ers interested in adding LeBron James",
       "originalTitle": "Report: 76ers interested in adding LeBron James",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
+      "headlineZh": "76 人有意引进 LeBron James",
+      "titleZh": "76 人有意引进 LeBron James",
       "link": "https://sports.yahoo.com/articles/report-76ers-interested-adding-lebron-014151908.html",
       "url": "https://sports.yahoo.com/articles/report-76ers-interested-adding-lebron-014151908.html",
       "pubDate": "2026-07-02T01:41:51.000Z",
       "publishedAt": "2026-07-02T01:41:51.000Z",
       "summary": "Eric Samulski explores the fit of LeBron James potentially landing in Philadelphia",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James 相关消息更新",
+      "summaryZh": "据 Yahoo Sports 报道，76 人对引进 LeBron James 表达了兴趣。",
+      "oneLineZh": "76 人有意引进 LeBron James",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Zw3uCc8c4FaqGmCGZvfMGQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/5e3cc8aa708ef2968040d33e3701990a",
@@ -101,22 +103,24 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "eventKey": ""
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/bucks-sign-bogoljub-markovi-multi-010108361.html",
       "title": "Bucks sign Bogoljub Marković to multi-year contract",
       "originalTitle": "Bucks sign Bogoljub Marković to multi-year contract",
-      "headlineZh": "雄鹿签下 Bogoljub Marković，合同为 multi-year",
-      "titleZh": "雄鹿签下 Bogoljub Marković，合同为 multi-year",
+      "headlineZh": "雄鹿签下 Bogoljub Marković，合同为多年",
+      "titleZh": "雄鹿签下 Bogoljub Marković，合同为多年",
       "link": "https://sports.yahoo.com/articles/bucks-sign-bogoljub-markovi-multi-010108361.html",
       "url": "https://sports.yahoo.com/articles/bucks-sign-bogoljub-markovi-multi-010108361.html",
       "pubDate": "2026-07-02T01:01:08.000Z",
       "publishedAt": "2026-07-02T01:01:08.000Z",
       "summary": "On the back of an Adriatic League MVP, Milwaukee has committed to its 2025 second-round pick.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，雄鹿签下 Bogoljub Marković，合同为 multi-year，原文关注 Bogoljub Markovi 的合同或自由市场动向。",
-      "oneLineZh": "雄鹿签下 Bogoljub Marković，合同为 multi-year",
+      "summaryZh": "据 Yahoo Sports 报道，雄鹿签下 Bogoljub Marković，合同为多年，原文关注 Bogoljub Markovi 的合同或自由市场动向。",
+      "oneLineZh": "雄鹿签下 Bogoljub Marković，合同为多年",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/os/en/sb_nation_articles_115/1ce6f82b3d1fd72e51dd9bd8a87b086c",
@@ -125,22 +129,23 @@
       "category": "签约",
       "importance": 3,
       "eventKey": "sign:bogoljub-markovi",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/nba/article/lakers-big-questions-how-about-all-those-moves-do-they-make-la-a-contender-now-004636733.html",
       "title": "Lakers' big questions: How about all those moves? Do they make L.A. a contender now?",
       "originalTitle": "Lakers' big questions: How about all those moves? Do they make L.A. a contender now?",
-      "headlineZh": "湖人休赛期后续动向",
-      "titleZh": "湖人休赛期后续动向",
+      "headlineZh": "湖人围绕 Luka Doncic 和 Austin Reaves 调整阵容",
+      "titleZh": "湖人围绕 Luka Doncic 和 Austin Reaves 调整阵容",
       "link": "https://sports.yahoo.com/nba/article/lakers-big-questions-how-about-all-those-moves-do-they-make-la-a-contender-now-004636733.html",
       "url": "https://sports.yahoo.com/nba/article/lakers-big-questions-how-about-all-those-moves-do-they-make-la-a-contender-now-004636733.html",
       "pubDate": "2026-07-02T00:46:36.000Z",
       "publishedAt": "2026-07-02T00:46:36.000Z",
       "summary": "The Lakers are certainly trying to build around Luka Dončić and Austin Reaves, but does all this make sense?",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，湖人休赛期后续动向，原文提到湖人 are certainly trying to build around Luka Dončić和 Austin Reaves，but does all this make sense。",
-      "oneLineZh": "湖人休赛期后续动向",
+      "summaryZh": "据 Yahoo Sports 报道，湖人正围绕 Luka Doncic 和 Austin Reaves 重塑阵容，外界仍在评估这些操作能否让球队成为争冠级别。",
+      "oneLineZh": "湖人围绕 Luka Doncic 和 Austin Reaves 调整阵容",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/VdYbzQ2zuh1ZX2zVOskywQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xMjI5O2NmPXdlYnA-/https://d29szjachogqwa.cloudfront.net/images/2026-04/ce5b3cc5-82d7-450b-8def-fb196cf7b3e7",
@@ -148,22 +153,24 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "eventKey": ""
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/tarris-reed-jr-alex-karaban-004527200.html",
       "title": "Tarris Reed Jr. and Alex Karaban to begin NBA Summer League play in California",
       "originalTitle": "Tarris Reed Jr. and Alex Karaban to begin NBA Summer League play in California",
-      "headlineZh": "Tarris Reed Jr 相关消息更新",
-      "titleZh": "Tarris Reed Jr 相关消息更新",
+      "headlineZh": "Tarris Reed Jr. 和 Alex Karaban 将出战夏季联赛",
+      "titleZh": "Tarris Reed Jr. 和 Alex Karaban 将出战夏季联赛",
       "link": "https://sports.yahoo.com/articles/tarris-reed-jr-alex-karaban-004527200.html",
       "url": "https://sports.yahoo.com/articles/tarris-reed-jr-alex-karaban-004527200.html",
       "pubDate": "2026-07-02T00:45:27.000Z",
       "publishedAt": "2026-07-02T00:45:27.000Z",
       "summary": "The two former Huskies are carrying the UConn culture with them to the next level.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Tarris Reed Jr 的最新动态和后续影响。",
-      "oneLineZh": "Tarris Reed Jr 相关消息更新",
+      "summaryZh": "据 Yahoo Sports 报道，Tarris Reed Jr. 和 Alex Karaban 将在 California 开始 NBA 夏季联赛征程。",
+      "oneLineZh": "Tarris Reed Jr. 和 Alex Karaban 将出战夏季联赛",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/os/en/sb_nation_articles_115/df1d15c4de9ac0d9a65f99959ce738c1",
@@ -171,22 +178,24 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 1,
-      "eventKey": ""
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/knicks-starting-five-gets-invite-003437181.html",
       "title": "Knicks starting five gets invite to Taylor Swift-Travis Kelce wedding at MSG, per report",
       "originalTitle": "Knicks starting five gets invite to Taylor Swift-Travis Kelce wedding at MSG, per report",
-      "headlineZh": "Taylor Swift-Travis Kelce 相关消息更新",
-      "titleZh": "Taylor Swift-Travis Kelce 相关消息更新",
+      "headlineZh": "尼克斯 starting five 据报获邀参加 MSG 婚礼",
+      "titleZh": "尼克斯 starting five 据报获邀参加 MSG 婚礼",
       "link": "https://sports.yahoo.com/articles/knicks-starting-five-gets-invite-003437181.html",
       "url": "https://sports.yahoo.com/articles/knicks-starting-five-gets-invite-003437181.html",
       "pubDate": "2026-07-02T00:34:37.000Z",
       "publishedAt": "2026-07-02T00:34:37.000Z",
       "summary": "Taylor Swift was courtside for Knicks' 29-point Game 4 comeback. Now the NBA champs reportedly have an invite to her Madison Square Garden wedding.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Taylor Swift-Travis Kelce 的最新动态和后续影响。",
-      "oneLineZh": "Taylor Swift-Travis Kelce 相关消息更新",
+      "summaryZh": "据 Yahoo Sports 报道，尼克斯 starting five 据报收到 Taylor Swift 和 Travis Kelce 在麦迪逊广场花园婚礼的邀请。",
+      "oneLineZh": "尼克斯 starting five 据报获邀参加 MSG 婚礼",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/PpRw0Sh6aFvn1zGEMVpnzg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xNTAwO2NmPXdlYnA-/https://media.zenfs.com/en/usa_today_sports_articles_558/85eb16061a4bc43558380a4343fe60dc",
@@ -194,22 +203,24 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "eventKey": ""
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/utah-jazz-lost-walker-kessler-002221256.html",
       "title": "The Utah Jazz lost Walker Kessler, but at least they have Jaxson Hayes",
       "originalTitle": "The Utah Jazz lost Walker Kessler, but at least they have Jaxson Hayes",
-      "headlineZh": "Walker Kessler 相关消息更新",
-      "titleZh": "Walker Kessler 相关消息更新",
+      "headlineZh": "爵士失去 Walker Kessler 后补进 Jaxson Hayes",
+      "titleZh": "爵士失去 Walker Kessler 后补进 Jaxson Hayes",
       "link": "https://sports.yahoo.com/articles/utah-jazz-lost-walker-kessler-002221256.html",
       "url": "https://sports.yahoo.com/articles/utah-jazz-lost-walker-kessler-002221256.html",
       "pubDate": "2026-07-02T00:22:21.000Z",
       "publishedAt": "2026-07-02T00:22:21.000Z",
       "summary": "Didn’t see that coming.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Walker Kessler 的最新动态和后续影响。",
-      "oneLineZh": "Walker Kessler 相关消息更新",
+      "summaryZh": "据 Yahoo Sports 报道，爵士失去 Walker Kessler 后，至少用 Jaxson Hayes 补充了内线轮换。",
+      "oneLineZh": "爵士失去 Walker Kessler 后补进 Jaxson Hayes",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/brxYEj0XgGo7EIsX0ekB1g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/689f9a665866ba2dcf41ff989deb0ae1",
@@ -217,31 +228,34 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 1,
-      "eventKey": ""
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/two-words-wolves-pod-randle-000030741.html",
       "title": "Two Words, Wolves Pod: Randle and LaMelo Trades + Projecting the Starting Lineup",
       "originalTitle": "Two Words, Wolves Pod: Randle and LaMelo Trades + Projecting the Starting Lineup",
-      "headlineZh": "Two Words 交易影响继续发酵",
-      "titleZh": "Two Words 交易影响继续发酵",
+      "headlineZh": "森林狼播客讨论 Randle 与 LaMelo 交易",
+      "titleZh": "森林狼播客讨论 Randle 与 LaMelo 交易",
       "link": "https://sports.yahoo.com/articles/two-words-wolves-pod-randle-000030741.html",
       "url": "https://sports.yahoo.com/articles/two-words-wolves-pod-randle-000030741.html",
       "pubDate": "2026-07-02T00:00:30.000Z",
       "publishedAt": "2026-07-02T00:00:30.000Z",
       "summary": "As the rest of the NBA makes their moves in free agency, the Timberwolves have already made two huge trade.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Two Words 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
-      "oneLineZh": "Two Words 交易影响继续发酵",
+      "summaryZh": "据 Yahoo Sports 报道，森林狼相关播客讨论 Randle 和 LaMelo 交易设想，以及球队首发阵容的可能变化。",
+      "oneLineZh": "森林狼播客讨论 Randle 与 LaMelo 交易",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/62A6L3oXxcWM834vRQn7Sw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xMjAwO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/d3a53a89ab08e25f50d4ab6abb1f4206",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "交易",
-      "importance": 3,
+      "importance": 2,
       "eventKey": "trade:two-words",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286490/Mavericks-Acquire-Santi-Aldama-From-Grizzlies-For-Protected-2030-Pick-Via-Warriors",
@@ -266,14 +280,6 @@
       "importance": 5,
       "eventKey": "trade:santi-aldama:mavericks:grizzlies",
       "relatedItems": [
-        {
-          "title": "Mavericks send Warriors’ first-rounder to Grizzlies for Spanish forward",
-          "originalTitle": "Mavericks send Warriors’ first-rounder to Grizzlies for Spanish forward",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/mavericks-send-warriors-first-rounder-004708735.html",
-          "publishedAt": "2026-07-02T00:47:08.000Z",
-          "angle": "source"
-        },
         {
           "title": "Dallas Mavericks acquire Santi Aldama from Memphis Grizzlies",
           "originalTitle": "Dallas Mavericks acquire Santi Aldama from Memphis Grizzlies",
@@ -325,16 +331,16 @@
       "id": "https://sports.yahoo.com/articles/updated-sixers-2026-27-roster-220500251.html",
       "title": "Updated Sixers 2026-27 roster as NBA free agency begins",
       "originalTitle": "Updated Sixers 2026-27 roster as NBA free agency begins",
-      "headlineZh": "签约动态：Updated 76 人 2026-27 roster as NBA 自由市场 begins",
-      "titleZh": "签约动态：Updated 76 人 2026-27 roster as NBA 自由市场 begins",
+      "headlineZh": "76 人更新2026-27赛季阵容名单",
+      "titleZh": "76 人更新2026-27赛季阵容名单",
       "link": "https://sports.yahoo.com/articles/updated-sixers-2026-27-roster-220500251.html",
       "url": "https://sports.yahoo.com/articles/updated-sixers-2026-27-roster-220500251.html",
       "pubDate": "2026-07-01T23:01:28.000Z",
       "publishedAt": "2026-07-01T23:01:28.000Z",
       "summary": "With players coming and going via the NBA Draft and free agency, we have you covered on the Philadelphia 76ers’ projected 2026-27 roster.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，签约动态：Updated 76 人 2026-27 roster as NBA 自由市场 begins，原文提到 With players coming 和 going via NBA Draft 和自由市场，we have you covered on 费城 76 人’ projected 2026-27 roster。",
-      "oneLineZh": "签约动态：Updated 76 人 2026-27 roster as NBA 自由市场 begins",
+      "summaryZh": "据 Yahoo Sports 报道，76 人在自由市场开启后更新2026-27赛季预计阵容，涉及选秀和签约带来的人员变化。",
+      "oneLineZh": "76 人更新2026-27赛季阵容名单",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/7GhDKDNNzzwW4rbKvQY9FA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NDM7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/84b609bf88f21d64bc4dc25201427105",
@@ -343,22 +349,23 @@
       "category": "签约",
       "importance": 4,
       "eventKey": "sign:updated-sixers:76ers",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/jaylen-brown-legacy-boston-much-225525667.html",
       "title": "Jaylen Brown’s legacy in Boston is so much bigger than basketball",
       "originalTitle": "Jaylen Brown’s legacy in Boston is so much bigger than basketball",
-      "headlineZh": "Jaylen Brown 相关消息更新",
-      "titleZh": "Jaylen Brown 相关消息更新",
+      "headlineZh": "Jaylen Brown 在波士顿的影响被重新回顾",
+      "titleZh": "Jaylen Brown 在波士顿的影响被重新回顾",
       "link": "https://sports.yahoo.com/articles/jaylen-brown-legacy-boston-much-225525667.html",
       "url": "https://sports.yahoo.com/articles/jaylen-brown-legacy-boston-much-225525667.html",
       "pubDate": "2026-07-01T22:55:25.000Z",
       "publishedAt": "2026-07-01T22:55:25.000Z",
       "summary": "Brown’s tenure in Boston is over after nearly a decade. The 2024 Finals MVP will be remembered for much more than just his basketball.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Jaylen Brown 的最新动态和后续影响。",
-      "oneLineZh": "Jaylen Brown 相关消息更新",
+      "summaryZh": "据 Yahoo Sports 报道，Jaylen Brown 离开凯尔特人后，他在波士顿场内外留下的影响被重新讨论。",
+      "oneLineZh": "Jaylen Brown 在波士顿的影响被重新回顾",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/qrhWPDp4hEDz5mEul_cpDg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/f303c271c4a8efedae5a183236fd18a8",
@@ -366,22 +373,24 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "季后赛",
       "importance": 2,
-      "eventKey": ""
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/lebron-james-went-hometown-tinseltown-224024470.html",
       "title": "LeBron James went from his hometown to Tinseltown — here’s where he will likely take his talents next, ranked",
       "originalTitle": "LeBron James went from his hometown to Tinseltown — here’s where he will likely take his talents next, ranked",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
+      "headlineZh": "LeBron James 潜在下家排名出炉",
+      "titleZh": "LeBron James 潜在下家排名出炉",
       "link": "https://sports.yahoo.com/articles/lebron-james-went-hometown-tinseltown-224024470.html",
       "url": "https://sports.yahoo.com/articles/lebron-james-went-hometown-tinseltown-224024470.html",
       "pubDate": "2026-07-01T22:40:24.000Z",
       "publishedAt": "2026-07-01T22:40:24.000Z",
       "summary": "After LeBron James decided not to return to the Lakers for his unprecedented 24th NBA season, teams are clamoring to sign one of the greatest players of all-time, who apparently isn’t...",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James 相关消息更新",
+      "summaryZh": "据 Yahoo Sports 报道，随着 LeBron James 未来去向引发讨论，外界开始评估他下一站的可能选择。",
+      "oneLineZh": "LeBron James 潜在下家排名出炉",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/BcETQ5q3kSpLb1CEAClh4A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/6cdb8e58d843efc1ee42a437675d96dd",
@@ -390,22 +399,23 @@
       "category": "签约",
       "importance": 4,
       "eventKey": "sign:lebron-james:lakers",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/jalen-brunson-nba-champion-knicks-223224964.html",
       "title": "Jalen Brunson, NBA champion Knicks score invites to Taylor Swift-Travis Kelce MSG wedding",
       "originalTitle": "Jalen Brunson, NBA champion Knicks score invites to Taylor Swift-Travis Kelce MSG wedding",
-      "headlineZh": "Jalen Brunson 相关消息更新",
-      "titleZh": "Jalen Brunson 相关消息更新",
+      "headlineZh": "Jalen Brunson 和尼克斯据报获邀参加 MSG 婚礼",
+      "titleZh": "Jalen Brunson 和尼克斯据报获邀参加 MSG 婚礼",
       "link": "https://sports.yahoo.com/articles/jalen-brunson-nba-champion-knicks-223224964.html",
       "url": "https://sports.yahoo.com/articles/jalen-brunson-nba-champion-knicks-223224964.html",
       "pubDate": "2026-07-01T22:32:24.000Z",
       "publishedAt": "2026-07-01T22:32:24.000Z",
       "summary": "The Taylor Swift-Travis Kelce Garden party might include, well, some of the championship tenants of MSG.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Jalen Brunson 的最新动态和后续影响。",
-      "oneLineZh": "Jalen Brunson 相关消息更新",
+      "summaryZh": "据 Yahoo Sports 报道，Jalen Brunson 和尼克斯据报收到 Taylor Swift 和 Travis Kelce 在麦迪逊广场花园婚礼的邀请。",
+      "oneLineZh": "Jalen Brunson 和尼克斯据报获邀参加 MSG 婚礼",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/WfK7E.KkBWi7gIn1RGBHqQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/622fa3ec3ba870d490429674a1a2fb39",
@@ -413,22 +423,24 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "季后赛",
       "importance": 2,
-      "eventKey": ""
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/report-sixers-expressed-interest-acquiring-223103933.html",
       "title": "Report: Sixers have ‘expressed interest in acquiring' LeBron James",
       "originalTitle": "Report: Sixers have ‘expressed interest in acquiring' LeBron James",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
+      "headlineZh": "76 人有意交易得到 LeBron James",
+      "titleZh": "76 人有意交易得到 LeBron James",
       "link": "https://sports.yahoo.com/articles/report-sixers-expressed-interest-acquiring-223103933.html",
       "url": "https://sports.yahoo.com/articles/report-sixers-expressed-interest-acquiring-223103933.html",
       "pubDate": "2026-07-01T22:31:03.000Z",
       "publishedAt": "2026-07-01T22:31:03.000Z",
       "summary": "The Sixers have reportedly “expressed interest in acquiring” free agent LeBron James.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James 相关消息更新",
+      "summaryZh": "据 Yahoo Sports 报道，76 人已经表达出交易得到 LeBron James 的兴趣。",
+      "oneLineZh": "76 人有意交易得到 LeBron James",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/4lWiFj_fs8IwhJLTf.BYVg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/csnphilly.com/ed6b1fbf0b2bc9dae05567cef0fcccbf",
@@ -437,31 +449,8 @@
       "category": "签约",
       "importance": 3,
       "eventKey": "sign:lebron-james:76ers",
-      "relatedItems": []
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/jaylen-brown-era-boston-come-222331938.html",
-      "title": "The Jaylen Brown era in Boston has come to an end",
-      "originalTitle": "The Jaylen Brown era in Boston has come to an end",
-      "headlineZh": "Jaylen Brown 相关消息更新",
-      "titleZh": "Jaylen Brown 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/jaylen-brown-era-boston-come-222331938.html",
-      "url": "https://sports.yahoo.com/articles/jaylen-brown-era-boston-come-222331938.html",
-      "pubDate": "2026-07-01T22:23:31.000Z",
-      "publishedAt": "2026-07-01T22:23:31.000Z",
-      "summary": "Brown has been traded for Paul George, two first-round picks, and two second-round picks.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Jaylen Brown 的最新动态和后续影响。",
-      "oneLineZh": "Jaylen Brown 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/kJlwuOq5AQVWbKjGHq8Uzw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/8676b4e9c03c307d6cf88840681db3d3",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 4,
-      "eventKey": "trade:jaylen-brown",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286489/76ers-Acquire-Jaylen-Brown-From-Celtics-For-Paul-George-Two-First-Round-Picks",
@@ -481,7 +470,7 @@
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Brown_Jaylen_bos_260415.jpg",
       "source": "Yahoo Sports / RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "交易",
       "importance": 5,
       "eventKey": "trade:jaylen-brown:celtics:76ers",
@@ -517,14 +506,6 @@
           "url": "https://sports.yahoo.com/nba/article/did-the-celtics-give-away-jaylen-brown-why-analytics-dont-see-phillys-new-star-as-elite-of-elite-004011270.html",
           "publishedAt": "2026-07-02T00:40:11.000Z",
           "angle": "source"
-        },
-        {
-          "title": "Jaylen Brown trade grades: Let's try to make sense of it all",
-          "originalTitle": "Jaylen Brown trade grades: Let's try to make sense of it all",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/nba/article/jaylen-brown-trade-grades-lets-try-to-make-sense-of-it-all-234335634.html",
-          "publishedAt": "2026-07-01T23:43:35.000Z",
-          "angle": "grades"
         },
         {
           "title": "In a stunning move, Celtics reportedly trade Jaylen Brown to 76ers for Paul George, two first-round picks",
@@ -575,28 +556,12 @@
           "angle": "source"
         },
         {
-          "title": "Forsberg: C's trade package for Jaylen Brown ‘almost incomprehensible'",
-          "originalTitle": "Forsberg: C's trade package for Jaylen Brown ‘almost incomprehensible'",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/forsberg-cs-trade-package-jaylen-203312707.html",
-          "publishedAt": "2026-07-01T20:33:12.000Z",
-          "angle": "source"
-        },
-        {
           "title": "Jaylen Brown Not Seeking Trade As Celtics Motivated To Find Deal",
           "originalTitle": "Jaylen Brown Not Seeking Trade As Celtics Motivated To Find Deal",
           "source": "RealGM",
           "url": "https://basketball.realgm.com/wiretap/286471/Jaylen-Brown-Not-Seeking-Trade-As-Celtics-Motivated-To-Find-Deal",
           "publishedAt": "2026-07-01T16:21:17.000Z",
           "angle": "report"
-        },
-        {
-          "title": "Jaylen Brown blockbuster, Lakers makeover and a wild Day 2 of NBA free agency",
-          "originalTitle": "Jaylen Brown blockbuster, Lakers makeover and a wild Day 2 of NBA free agency",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/nba/article/jaylen-brown-blockbuster-lakers-makeover-and-a-wild-day-2-of-nba-free-agency-233200215.html",
-          "publishedAt": "2026-07-01T23:32:00.000Z",
-          "angle": "source"
         }
       ],
       "sources": [
@@ -604,9 +569,6 @@
         "RealGM"
       ],
       "originalTitles": [
-        "Jaylen Brown blockbuster, Lakers makeover and a wild Day 2 of NBA free agency",
-        "Jaylen Brown trade grades: Let's try to make sense of it all",
-        "Forsberg: C's trade package for Jaylen Brown ‘almost incomprehensible'",
         "76ers Acquire Jaylen Brown From Celtics For Paul George, Two First Round Picks",
         "Jaylen Brown Not Seeking Trade As Celtics Motivated To Find Deal",
         "It's hard to make sense of the Celtics trading Jaylen Brown, especially to a division rival",
@@ -629,7 +591,7 @@
       "sourceLinks": [
         {
           "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/nba/article/jaylen-brown-blockbuster-lakers-makeover-and-a-wild-day-2-of-nba-free-agency-233200215.html"
+          "link": "https://sports.yahoo.com/articles/jaylen-brown-era-boston-come-222331938.html"
         },
         {
           "source": "Yahoo Sports / RealGM",
@@ -650,7 +612,7 @@
       "publishedAt": "2026-07-01T22:19:55.000Z",
       "summary": "Utah Jazz sign a new center from the Los Angeles Lakers",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，犹他爵士签下 former 湖人 中锋 on 两年，原文提到犹他爵士 sign new 中锋 from 湖人。",
+      "summaryZh": "据 Yahoo Sports 报道，犹他爵士签下 former 湖人 中锋 on 两年，更多背景来自原文报道。",
       "oneLineZh": "犹他爵士签下 former 湖人 中锋 on 两年",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -660,22 +622,23 @@
       "category": "签约",
       "importance": 4,
       "eventKey": "sign:utah-jazz:jazz:2",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/tobias-harris-leaves-pistons-31-221034504.html",
       "title": "Tobias Harris leaves Pistons for $31 million Spurs contract",
       "originalTitle": "Tobias Harris leaves Pistons for $31 million Spurs contract",
-      "headlineZh": "Tobias Harris 签约动向更新",
-      "titleZh": "Tobias Harris 签约动向更新",
+      "headlineZh": "Tobias Harris 与 million 马刺达成$31合同",
+      "titleZh": "Tobias Harris 与 million 马刺达成$31合同",
       "link": "https://sports.yahoo.com/articles/tobias-harris-leaves-pistons-31-221034504.html",
       "url": "https://sports.yahoo.com/articles/tobias-harris-leaves-pistons-31-221034504.html",
       "pubDate": "2026-07-01T22:10:34.000Z",
       "publishedAt": "2026-07-01T22:10:34.000Z",
       "summary": "The NBA Finals-losing Spurs are bolstering their depth on the wing.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Tobias Harris 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Tobias Harris 签约动向更新",
+      "summaryZh": "据 Yahoo Sports 报道，Tobias Harris 将离开活塞，并与 million 马刺达成$31合同。",
+      "oneLineZh": "Tobias Harris 与 million 马刺达成$31合同",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/wNpVlBIwW.pXVDVuWWaHkw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/d5346fe5eb8aa2c3360c63c049e27913",
@@ -684,45 +647,48 @@
       "category": "签约",
       "importance": 4,
       "eventKey": "sign:tobias-harris:spurs:3100",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/lakers-announce-summer-league-roster-220835695.html",
       "title": "Lakers announce Summer League roster, including Adou Thiero, Cameron Carr",
       "originalTitle": "Lakers announce Summer League roster, including Adou Thiero, Cameron Carr",
-      "headlineZh": "Summer League 相关消息更新",
-      "titleZh": "Summer League 相关消息更新",
+      "headlineZh": "湖人公布夏季联赛名单",
+      "titleZh": "湖人公布夏季联赛名单",
       "link": "https://sports.yahoo.com/articles/lakers-announce-summer-league-roster-220835695.html",
       "url": "https://sports.yahoo.com/articles/lakers-announce-summer-league-roster-220835695.html",
       "pubDate": "2026-07-01T22:08:35.000Z",
       "publishedAt": "2026-07-01T22:08:35.000Z",
       "summary": "The Lakers have announced their Summer League roster, which includes their two most recent draft picks.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Summer League 的最新动态和后续影响。",
-      "oneLineZh": "Summer League 相关消息更新",
+      "summaryZh": "据 Yahoo Sports 报道，湖人公布夏季联赛名单，Adou Thiero，Cameron Carr 等球员在列。",
+      "oneLineZh": "湖人公布夏季联赛名单",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/lIT0oq4Uc7x3FTHBrdAbOQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/6a3270297f13fb918a962cfb40da2764",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "选秀",
-      "importance": 4,
-      "eventKey": ""
+      "importance": 2,
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/stephen-smith-delivers-unhinged-hot-220531155.html",
       "title": "Stephen A. Smith delivers unhinged hot take on new-look Lakers",
       "originalTitle": "Stephen A. Smith delivers unhinged hot take on new-look Lakers",
-      "headlineZh": "Stephen A. Smith 相关消息更新",
-      "titleZh": "Stephen A. Smith 相关消息更新",
+      "headlineZh": "Stephen A. Smith 点评新版湖人",
+      "titleZh": "Stephen A. Smith 点评新版湖人",
       "link": "https://sports.yahoo.com/articles/stephen-smith-delivers-unhinged-hot-220531155.html",
       "url": "https://sports.yahoo.com/articles/stephen-smith-delivers-unhinged-hot-220531155.html",
       "pubDate": "2026-07-01T22:05:31.000Z",
       "publishedAt": "2026-07-01T22:05:31.000Z",
       "summary": "Stephen A. Smith has entered the Lakers group chat — and, as usual, he did not come quietly.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Stephen A. Smith 的最新动态和后续影响。",
-      "oneLineZh": "Stephen A. Smith 相关消息更新",
+      "summaryZh": "据 Yahoo Sports 报道，Stephen A. Smith 对湖人休赛期后的新阵容给出了强烈评价。",
+      "oneLineZh": "Stephen A. Smith 点评新版湖人",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/FXrt.y5mEco5UcMhQ8B2Mw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/02eaa5ba1783b1094b6ac4d6c32723a1",
@@ -730,7 +696,9 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "eventKey": ""
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/darius-acuff-jr-brings-swagger-215448939.html",
@@ -753,22 +721,24 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "选秀",
       "importance": 2,
-      "eventKey": ""
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/nuggets-enter-lebron-james-sweepstakes-215442470.html",
       "title": "Nuggets enter LeBron James sweepstakes with one big selling point",
       "originalTitle": "Nuggets enter LeBron James sweepstakes with one big selling point",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
+      "headlineZh": "掘金加入 LeBron James 争夺",
+      "titleZh": "掘金加入 LeBron James 争夺",
       "link": "https://sports.yahoo.com/articles/nuggets-enter-lebron-james-sweepstakes-215442470.html",
       "url": "https://sports.yahoo.com/articles/nuggets-enter-lebron-james-sweepstakes-215442470.html",
       "pubDate": "2026-07-01T21:54:42.000Z",
       "publishedAt": "2026-07-01T21:54:42.000Z",
       "summary": "The Denver Nuggets have entered the LeBron James sweepstakes, and while they may not be the obvious favorite, they might be one of the most fascinating fits on the board.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James 相关消息更新",
+      "summaryZh": "据 Yahoo Sports 报道，掘金加入 LeBron James 争夺，球队希望利用自身条件吸引他加盟。",
+      "oneLineZh": "掘金加入 LeBron James 争夺",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/PTEY_Kf4OosB2p8xZy.CAA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/b178fada36696795b669bd766be1313a",
@@ -776,22 +746,24 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "eventKey": ""
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/lebron-james-reportedly-planning-tell-213952252.html",
       "title": "LeBron James reportedly planning tell-all on Lakers departure in upcoming docuseries",
       "originalTitle": "LeBron James reportedly planning tell-all on Lakers departure in upcoming docuseries",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
+      "headlineZh": "LeBron James 据报计划讲述离开湖人内幕",
+      "titleZh": "LeBron James 据报计划讲述离开湖人内幕",
       "link": "https://sports.yahoo.com/articles/lebron-james-reportedly-planning-tell-213952252.html",
       "url": "https://sports.yahoo.com/articles/lebron-james-reportedly-planning-tell-213952252.html",
       "pubDate": "2026-07-01T21:39:52.000Z",
       "publishedAt": "2026-07-01T21:39:52.000Z",
       "summary": "LeBron James won't return to the Los Angeles Lakers for the 2026-27 season, but the cameras will still be on him.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James 相关消息更新",
+      "summaryZh": "据 Yahoo Sports 报道，LeBron James 据报将在即将推出的纪录片中讲述自己离开湖人的相关经历。",
+      "oneLineZh": "LeBron James 据报计划讲述离开湖人内幕",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/K.y4PpMRs0as7kS_vSHOwQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/a148c3306ab908e5e1e21c1e620e14e8",
@@ -799,7 +771,9 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "eventKey": ""
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/ex-nba-player-malik-beasley-212500187.html",
@@ -822,22 +796,24 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 1,
-      "eventKey": ""
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/quentin-grimes-celebrates-lakers-signing-211911489.html",
       "title": "Quentin Grimes celebrates Lakers signing with full-circle throwback photo",
       "originalTitle": "Quentin Grimes celebrates Lakers signing with full-circle throwback photo",
-      "headlineZh": "Quentin Grimes 签约动向更新",
-      "titleZh": "Quentin Grimes 签约动向更新",
+      "headlineZh": "Quentin Grimes 用旧照庆祝签约湖人",
+      "titleZh": "Quentin Grimes 用旧照庆祝签约湖人",
       "link": "https://sports.yahoo.com/articles/quentin-grimes-celebrates-lakers-signing-211911489.html",
       "url": "https://sports.yahoo.com/articles/quentin-grimes-celebrates-lakers-signing-211911489.html",
       "pubDate": "2026-07-01T21:19:11.000Z",
       "publishedAt": "2026-07-01T21:19:11.000Z",
       "summary": "For the Lakers, the signing is about shooting, defense and depth around Luka Dončić. For Grimes, the photo says something more.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Quentin Grimes 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Quentin Grimes 签约动向更新",
+      "summaryZh": "据 Yahoo Sports 报道，Quentin Grimes 签约湖人后，用一张旧照庆祝这次加盟。",
+      "oneLineZh": "Quentin Grimes 用旧照庆祝签约湖人",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/T2tZWGl.JOBJ_T.uxNTBNw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/ec98bf0419aa5e5704928c8164b51a48",
@@ -846,7 +822,8 @@
       "category": "签约",
       "importance": 4,
       "eventKey": "sign:quentin-grimes:lakers",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286488/NBA-Cuts-Dozens-Of-Jobs-As-League-Shifts-Focus-To-Global-Growth",
@@ -867,10 +844,11 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Silver_Adam_nba_240515.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
+      "category": "签约",
       "importance": 3,
-      "eventKey": "trade:cuts-dozens-of",
-      "relatedItems": []
+      "eventKey": "sign:cuts-dozens-of",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/boston-celtics-daily-links-7-211204605.html",
@@ -893,7 +871,9 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "eventKey": ""
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/lebron-james-post-lakers-landing-210351664.html",
@@ -917,7 +897,8 @@
       "category": "交易",
       "importance": 4,
       "eventKey": "trade:lebron-james:lakers",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/does-lebron-deserve-lakers-statue-203659178.html",
@@ -940,7 +921,9 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "eventKey": ""
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286484/Tobias-Harris-Spurs-Agree-To-Two-Year-$31M-Deal",
@@ -964,65 +947,38 @@
       "category": "签约",
       "importance": 4,
       "eventKey": "sign:tobias-harris:spurs:2:3100",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286483/Jaxson-Hayes-Jazz-Agree-To-Two-Year-$12M-Deal",
       "title": "Jaxson Hayes, Jazz Agree To Two-Year, $12M Deal",
       "originalTitle": "Jaxson Hayes, Jazz Agree To Two-Year, $12M Deal",
-      "headlineZh": "Jaxson Hayes 签约动向更新",
-      "titleZh": "Jaxson Hayes 签约动向更新",
+      "headlineZh": "Jaxson Hayes 与爵士达成两年，1200 万美元合同",
+      "titleZh": "Jaxson Hayes 与爵士达成两年，1200 万美元合同",
       "link": "https://basketball.realgm.com/wiretap/286483/Jaxson-Hayes-Jazz-Agree-To-Two-Year-$12M-Deal",
       "url": "https://basketball.realgm.com/wiretap/286483/Jaxson-Hayes-Jazz-Agree-To-Two-Year-$12M-Deal",
       "pubDate": "2026-07-01T19:49:19.000Z",
       "publishedAt": "2026-07-01T19:49:19.000Z",
       "summary": "Jaxson Hayes and the Utah Jazz have agreed to a two-year deal worth $12 million. The Jazz will have a team option for the 2027-28 season. Hayes leaves the Los Angeles Lakers following their sign-and-trade with the Utah Jazz for Walker Kessler. Hayes appeared in 66 games last season with the Lakers, averaging 7.5 points and 4.1 rebounds in 18.3 minutes. Hayes first joined the Lakers during the 2023-24 season. Hayes gives the Jazz extra depth at center behind Jusuf Nurkic.",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Jaxson Hayes 与爵士达成两年，1200 万美元合同。",
-      "oneLineZh": "Jaxson Hayes 签约动向更新",
+      "summaryZh": "据 RealGM / Yahoo Sports 报道，Jaxson Hayes 与爵士达成两年，1200 万美元合同，原文关注 Jaxson Hayes 的合同或自由市场动向。",
+      "oneLineZh": "Jaxson Hayes 与爵士达成两年，1200 万美元合同",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_utahjazz.jpg",
       "source": "RealGM / Yahoo Sports",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
+      "category": "签约",
       "importance": 5,
-      "eventKey": "trade:walker-kessler:jazz:lakers",
-      "relatedItems": [
-        {
-          "title": "Lakers push all their chips into middle with Walker Kessler trade, Reaves, free agent moves",
-          "originalTitle": "Lakers push all their chips into middle with Walker Kessler trade, Reaves, free agent moves",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/lakers-push-chips-middle-walker-020956057.html",
-          "publishedAt": "2026-07-02T02:09:56.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "Los Angeles Lakers offseason moves: LeBron out, Walker Kessler and others in",
-          "originalTitle": "Los Angeles Lakers offseason moves: LeBron out, Walker Kessler and others in",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/los-angeles-lakers-offseason-moves-233915783.html",
-          "publishedAt": "2026-07-01T23:39:15.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "Walker Kessler From Jazz To Lakers In Four-Year, $130M Sign-And-Trade For Two FRPs, Two Swaps",
-          "originalTitle": "Walker Kessler From Jazz To Lakers In Four-Year, $130M Sign-And-Trade For Two FRPs, Two Swaps",
-          "source": "RealGM",
-          "url": "https://basketball.realgm.com/wiretap/286467/Walker-Kessler-From-Jazz-To-Lakers-In-Four-Year-$130M-Sign-And-Trade-For-Two-FRPs-Two-Swaps",
-          "publishedAt": "2026-07-01T15:35:45.000Z",
-          "angle": "source"
-        }
-      ],
+      "eventKey": "sign:jaxson-hayes:jazz:2:1200",
+      "relatedItems": [],
       "sources": [
         "RealGM",
         "Yahoo Sports"
       ],
       "originalTitles": [
-        "Walker Kessler From Jazz To Lakers In Four-Year, $130M Sign-And-Trade For Two FRPs, Two Swaps",
-        "Jaxson Hayes, Jazz Agree To Two-Year, $12M Deal",
-        "Lakers push all their chips into middle with Walker Kessler trade, Reaves, free agent moves",
-        "Los Angeles Lakers offseason moves: LeBron out, Walker Kessler and others in"
+        "Jaxson Hayes, Jazz Agree To Two-Year, $12M Deal"
       ],
       "sourceLinks": [
         {
@@ -1042,7 +998,7 @@
           "link": "https://sports.yahoo.com/articles/los-angeles-lakers-offseason-moves-233915783.html"
         }
       ],
-      "isMerged": true
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286482/Meleek-Thomas-Cavaliers-Agree-To-Four-Year-$93M-Deal",
@@ -1066,22 +1022,23 @@
       "category": "签约",
       "importance": 4,
       "eventKey": "sign:meleek-thomas:cavaliers:4:930",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286481/Tobias-Harris-Expected-To-Leave-Pistons-Could-Sign-With-Spurs",
       "title": "Tobias Harris Expected To Leave Pistons, Could Sign With Spurs",
       "originalTitle": "Tobias Harris Expected To Leave Pistons, Could Sign With Spurs",
-      "headlineZh": "Tobias Harris Expected 签约动向更新",
-      "titleZh": "Tobias Harris Expected 签约动向更新",
+      "headlineZh": "Tobias Harris 可能离开活塞",
+      "titleZh": "Tobias Harris 可能离开活塞",
       "link": "https://basketball.realgm.com/wiretap/286481/Tobias-Harris-Expected-To-Leave-Pistons-Could-Sign-With-Spurs",
       "url": "https://basketball.realgm.com/wiretap/286481/Tobias-Harris-Expected-To-Leave-Pistons-Could-Sign-With-Spurs",
       "pubDate": "2026-07-01T19:33:28.000Z",
       "publishedAt": "2026-07-01T19:33:28.000Z",
       "summary": "Tobias Harris has had two productive seasons with the Detroit Pistons to help support the franchise's resurgence around Cade Cunningham, but he will likely exit in free agency this offseason. The Pistons already signed his probable replacement in John Collins on a three-year, $51 million contract . \"They're going to lose Tobias Harris,\" said Brian Windhorst. Harris averaged 13.3 points, 5.1 rebounds and 2.5 assists in 27.7 minutes across 63 games with the Pistons. The San Antonio Spurs are looking to sign a forward in free agency and Harris could be an option on a shorter contract. \"Tobias Harris has a chance to end up one San Antonio,\" added Windhorst.",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Tobias Harris Expected 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Tobias Harris Expected 签约动向更新",
+      "summaryZh": "据 RealGM 报道，Tobias Harris 预计可能离开活塞，并有机会加盟马刺。",
+      "oneLineZh": "Tobias Harris 可能离开活塞",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Harris_Tobias_det_241015.jpg",
@@ -1090,7 +1047,8 @@
       "category": "签约",
       "importance": 4,
       "eventKey": "sign:tobias-harris:spurs:3:5100",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286480/Nuggets-Reach-Out-To-LeBron-James-In-Free-Agency",
@@ -1114,7 +1072,8 @@
       "category": "签约",
       "importance": 4,
       "eventKey": "sign:lebron-james:nuggets",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286479/Kelly-Oubre-Pacers-Agree-To-Two-Year-$17M-Deal",
@@ -1138,7 +1097,8 @@
       "category": "签约",
       "importance": 5,
       "eventKey": "sign:kelly-oubre:pacers:2:1700",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286478/Moe-Wagner-Nets-Agree-To-Two-Year-$19M-Deal",
@@ -1162,7 +1122,8 @@
       "category": "签约",
       "importance": 5,
       "eventKey": "sign:moe-wagner:nets:2:1900",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286477/Jamir-Watkins-Wizards-Agree-To-Two-Way-Deal",
@@ -1188,7 +1149,8 @@
       "category": "签约",
       "importance": 3,
       "eventKey": "sign:jamir-watkins",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286474/Jonathan-Isaac-Magic-Agree-To-One-Year-Deal",
@@ -1214,7 +1176,8 @@
       "category": "签约",
       "importance": 4,
       "eventKey": "sign:jonathan-isaac:1:800",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286473/Alijah-Martin-Raptors-Agree-To-Two-Year-$48M-Deal",
@@ -1237,8 +1200,9 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
       "importance": 5,
-      "eventKey": "sign:alijah-martin:2:480",
-      "relatedItems": []
+      "eventKey": "sign:alijah-martin:raptors:2:480",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286472/DeAnthony-Melton-Warriors-Agree-To-Two-Year-$11M-Deal",
@@ -1262,7 +1226,8 @@
       "category": "签约",
       "importance": 5,
       "eventKey": "sign:de-anthony-melton:warriors:2:1100",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286470/Collin-Sexton-Lakers-Agree-To-Two-Year-$19M-Deal",
@@ -1286,7 +1251,8 @@
       "category": "签约",
       "importance": 5,
       "eventKey": "sign:collin-sexton:lakers:2:1900",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286469/Quentin-Grimes-Lakers-Agree-To-Four-Year-$60M-Deal",
@@ -1310,7 +1276,8 @@
       "category": "签约",
       "importance": 5,
       "eventKey": "sign:quentin-grimes:lakers:4:6000",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286468/Sandro-Mamukelashvili-Lakers-Agree-To-Four-Year-$52M-Deal",
@@ -1334,7 +1301,8 @@
       "category": "签约",
       "importance": 5,
       "eventKey": "sign:sandro-mamukelashvili:lakers:4:5200",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286466/Mitchell-Robinson-Celtics-Agree-To-Three-Year-$474M-Deal",
@@ -1358,7 +1326,8 @@
       "category": "签约",
       "importance": 5,
       "eventKey": "sign:mitchell-robinson:celtics:3:4740",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286465/Jevon-Carter-Magic-Agree-To-One-Year-$35M-Deal",
@@ -1381,8 +1350,9 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
       "importance": 4,
-      "eventKey": "sign:jevon-carter:1:350",
-      "relatedItems": []
+      "eventKey": "sign:jevon-carter:magic:1:350",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286464/Mike-Conley-Jr-Celtics-Agree-To-One-Year-Deal",
@@ -1408,7 +1378,8 @@
       "category": "签约",
       "importance": 4,
       "eventKey": "sign:mike-conley-jr:celtics:1",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286463/Nikola-Vucevic-Magic-Agree-To-One-Year-$39M-Deal",
@@ -1429,10 +1400,11 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Vucevic_Nikola_bos_260225.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
+      "category": "签约",
       "importance": 5,
-      "eventKey": "trade:nikola-vucevic:76ers:celtics",
-      "relatedItems": []
+      "eventKey": "sign:nikola-vucevic:magic:1:390",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286461/Ariel-Hukporti-Sixers-Agree-To-One-Year-$34M-Deal",
@@ -1455,23 +1427,24 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
       "importance": 5,
-      "eventKey": "sign:ariel-hukporti:76ers:1:340",
-      "relatedItems": []
+      "eventKey": "sign:ariel-hukporti:sixers:1:340",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286460/Norman-Powell-Bulls-Agree-To-Two-Year-$45M-Contract",
       "title": "Norman Powell, Bulls Agree To Two-Year, $45M Contract",
       "originalTitle": "Norman Powell, Bulls Agree To Two-Year, $45M Contract",
-      "headlineZh": "Norman Powell 签约动向更新",
-      "titleZh": "Norman Powell 签约动向更新",
+      "headlineZh": "Norman Powell 与公牛达成两年，4500 万美元合同",
+      "titleZh": "Norman Powell 与公牛达成两年，4500 万美元合同",
       "link": "https://basketball.realgm.com/wiretap/286460/Norman-Powell-Bulls-Agree-To-Two-Year-$45M-Contract",
       "url": "https://basketball.realgm.com/wiretap/286460/Norman-Powell-Bulls-Agree-To-Two-Year-$45M-Contract",
       "pubDate": "2026-07-01T13:38:33.000Z",
       "publishedAt": "2026-07-01T13:38:33.000Z",
       "summary": "The Chicago Bulls and guard Norman Powell have agreed to a two-year, $45 million contract. This will use up most of Chicago's remaining cap space. Powell was a first-time All-Star for the Miami Heat last season. The 33-year-old shooting guard averaged 21.7 points, 3.5 rebounds, 2.5 assists and 1.1 steals per game. Powell shot 47% from the field, including 38% on three-pointers. Powell was traded to Miami ahead of last season from the LA Clippers. In addition to the Heat and Clippers, Powell has also played for the Toronto Raptors and Portland Trail Blazers in his 11-year NBA career.",
       "dekZh": "芝加哥公牛与后卫 Norman Powell 达成两年，4500 万美元合同。",
-      "summaryZh": "据 RealGM 报道，交易动态：Norman Powell，公牛 达成 两年，4500 万美元合同。",
-      "oneLineZh": "Norman Powell 签约动向更新",
+      "summaryZh": "据 RealGM 报道，签约动态：Norman Powell，公牛 达成 两年，4500 万美元合同。",
+      "oneLineZh": "Norman Powell 与公牛达成两年，4500 万美元合同",
       "goldenQuoteZh": "",
       "keyPoints": [
         "芝加哥公牛与后卫 Norman Powell达成两年，4500万美元合同。"
@@ -1479,25 +1452,26 @@
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Powell_Norman_mia_251009.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
+      "category": "签约",
       "importance": 4,
-      "eventKey": "trade:norman-powell:heat",
-      "relatedItems": []
+      "eventKey": "sign:norman-powell:bulls:2:4500",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286459/Jazz-Guarantee-Contracts-For-Kyle-Filipowski-Svi-Mykhailiuk",
       "title": "Jazz Guarantee Contracts For Kyle Filipowski, Svi Mykhailiuk",
       "originalTitle": "Jazz Guarantee Contracts For Kyle Filipowski, Svi Mykhailiuk",
-      "headlineZh": "Guarantee Contracts For 签约动向更新",
-      "titleZh": "Guarantee Contracts For 签约动向更新",
+      "headlineZh": "爵士保障 Kyle Filipowski，Svi Mykhailiuk 的合同",
+      "titleZh": "爵士保障 Kyle Filipowski，Svi Mykhailiuk 的合同",
       "link": "https://basketball.realgm.com/wiretap/286459/Jazz-Guarantee-Contracts-For-Kyle-Filipowski-Svi-Mykhailiuk",
       "url": "https://basketball.realgm.com/wiretap/286459/Jazz-Guarantee-Contracts-For-Kyle-Filipowski-Svi-Mykhailiuk",
       "pubDate": "2026-07-01T13:34:23.000Z",
       "publishedAt": "2026-07-01T13:34:23.000Z",
       "summary": "The Utah Jazz fully guaranteed the contracts for big man Kyle Filipowski and wing Svi Mykhailiuk for the 2026-27 season. Filipowski will hit the books at $3 million. Mykhailiuk will count at $3.85 million. In his second NBA season, Filipowski averaged 11.4 points, 7.2 rebounds and 2.6 assists. With the Jazz dealing with injuries at the center spot, Filipowski started in 41 of the 77 games he played last season. Mykhailiuk is valued as a stay-ready veteran off the bench. Despite an inconsistent role, the veteran wing shooter averaged 9.4 points on 48% shooting, including 41% on three-pointers.",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Guarantee Contracts For 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Guarantee Contracts For 签约动向更新",
+      "summaryZh": "据 RealGM 报道，爵士保障 Kyle Filipowski，Svi Mykhailiuk 的合同，球队继续调整轮换深度。",
+      "oneLineZh": "爵士保障 Kyle Filipowski，Svi Mykhailiuk 的合同",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Filipowski_Kyle_uta_260116.jpg",
@@ -1506,22 +1480,23 @@
       "category": "签约",
       "importance": 4,
       "eventKey": "sign:jazz-guarantee-contracts:jazz:300",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286458/Clippers-Guarantee-Kris-Dunn;-Push-Back-Guarantee-Date-For-Cam-Christie",
       "title": "Clippers Guarantee Kris Dunn; Push Back Guarantee Date For Cam Christie",
       "originalTitle": "Clippers Guarantee Kris Dunn; Push Back Guarantee Date For Cam Christie",
-      "headlineZh": "快船 Guarantee Kris 相关消息更新",
-      "titleZh": "快船 Guarantee Kris 相关消息更新",
+      "headlineZh": "快船保障 Kris Dunn 合同并推迟 Cam Christie 保障日期",
+      "titleZh": "快船保障 Kris Dunn 合同并推迟 Cam Christie 保障日期",
       "link": "https://basketball.realgm.com/wiretap/286458/Clippers-Guarantee-Kris-Dunn;-Push-Back-Guarantee-Date-For-Cam-Christie",
       "url": "https://basketball.realgm.com/wiretap/286458/Clippers-Guarantee-Kris-Dunn;-Push-Back-Guarantee-Date-For-Cam-Christie",
       "pubDate": "2026-07-01T13:11:17.000Z",
       "publishedAt": "2026-07-01T13:11:17.000Z",
       "summary": "The LA Clippers have fully guaranteed the $5.7 million contract for guard Kris Dunn. The Clippers and Cam Christie agreed to amend the guarantee date for his $2.3 million contract. LA and Christie pushed that date back from June 30 to July 20. Dunn appeared in all 82 games (68 starts) for the Clippers last season. The veteran guard averaged 7.3 points, 3.3 rebounds, 3.6 assists and 1.6 steals. Dunn has become a consistent three-pointer shooter, in addition to being one of the top perimeter defenders in the NBA.",
       "dekZh": "老将后卫场均7.3分，3.3篮板，3.6助攻和1.6抢断。",
-      "summaryZh": "据 RealGM 报道，原文聚焦快船 Guarantee Kris 的最新动态和后续影响。",
-      "oneLineZh": "快船 Guarantee Kris 相关消息更新",
+      "summaryZh": "据 RealGM 报道，快船保障 Kris Dunn 的合同，同时与 Cam Christie 调整合同保障日期。",
+      "oneLineZh": "快船保障 Kris Dunn 合同并推迟 Cam Christie 保障日期",
       "goldenQuoteZh": "",
       "keyPoints": [
         "老将后卫场均7.3分，3.3篮板，3.6助攻和1.6抢断。"
@@ -1532,22 +1507,23 @@
       "category": "签约",
       "importance": 4,
       "eventKey": "sign:clippers-guarantee-kris:570",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286457/John-Collins-Pistons-Agree-To-Three-Year-$51M-Contract",
       "title": "John Collins, Pistons Agree To Three-Year, $51M Contract",
       "originalTitle": "John Collins, Pistons Agree To Three-Year, $51M Contract",
-      "headlineZh": "交易动态：John Collins，活塞 达成 三年，5100 万美元合同",
-      "titleZh": "交易动态：John Collins，活塞 达成 三年，5100 万美元合同",
+      "headlineZh": "签约动态：John Collins，活塞 达成 三年，5100 万美元合同",
+      "titleZh": "签约动态：John Collins，活塞 达成 三年，5100 万美元合同",
       "link": "https://basketball.realgm.com/wiretap/286457/John-Collins-Pistons-Agree-To-Three-Year-$51M-Contract",
       "url": "https://basketball.realgm.com/wiretap/286457/John-Collins-Pistons-Agree-To-Three-Year-$51M-Contract",
       "pubDate": "2026-07-01T12:38:53.000Z",
       "publishedAt": "2026-07-01T12:38:53.000Z",
       "summary": "The Detroit Pistons have agreed to a three-year, $51 million contract with forward John Collins. Adding Collins gives the Pistons a veteran big man who can finish around the rim, as well as provide floor spacing for Cade Cunningham. In 69 games with the LA Clippers last season, Collins averaged 13.6 points and 5.3 rebounds in 27.1 minutes per game. The 28-year-old forward shot 55.2% from the field, including 40.6% on 3.2 three-point attempts per game. Collins played the first six years of his NBA career with the Atlanta Hawks. He then spent two years with the Utah Jazz before playing for the Clippers last season.",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，交易动态：John Collins，活塞 达成 三年，5100 万美元合同，原文关注 John Collins 的合同或自由市场动向。",
-      "oneLineZh": "交易动态：John Collins，活塞 达成 三年，5100 万美元合同",
+      "summaryZh": "据 RealGM 报道，签约动态：John Collins，活塞 达成 三年，5100 万美元合同，原文关注 John Collins 的合同或自由市场动向。",
+      "oneLineZh": "签约动态：John Collins，活塞 达成 三年，5100 万美元合同",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Collins_John_lac_260116.jpg",
@@ -1555,8 +1531,9 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
       "importance": 4,
-      "eventKey": "sign:john-collins:jazz:3:5100",
-      "relatedItems": []
+      "eventKey": "sign:john-collins:pistons:3:5100",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286456/Bulls-Waive-Kam-Jones",
@@ -1570,7 +1547,7 @@
       "publishedAt": "2026-07-01T12:24:39.000Z",
       "summary": "The Chicago Bulls have waived guard Kam Jones. The Bulls will eat a guarantee of just more than $1 million in dead salary for Jones for the 2026-27 season. Chicago acquired Jones as part of a draft-day swap with the Indiana Pacers. The Bulls acquired cash and the right to swap two future second-round picks, while the Pacers landed the draft rights for Braden Smith.",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，交易动态：公牛 Waive Kam Jones，原文提到芝加哥公牛 have waived 后卫 Kam Jones。",
+      "summaryZh": "据 RealGM 报道，交易动态：公牛 Waive Kam Jones，更多背景来自原文报道。",
       "oneLineZh": "交易动态：公牛 Waive Kam Jones",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -1580,7 +1557,8 @@
       "category": "交易",
       "importance": 4,
       "eventKey": "trade:bulls-waive-kam:pacers",
-      "relatedItems": []
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286455/Marcus-Smart-Rockets-Agree-To-Two-Year-$13M-Deal",
@@ -1603,8 +1581,9 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
       "importance": 5,
-      "eventKey": "sign:marcus-smart:lakers:2:1300",
-      "relatedItems": []
+      "eventKey": "sign:marcus-smart:rockets:2:1300",
+      "relatedItems": [],
+      "isMerged": false
     }
   ]
 }
