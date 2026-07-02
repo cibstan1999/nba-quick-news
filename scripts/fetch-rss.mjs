@@ -1329,6 +1329,40 @@ function hasUntranslatedContractTerm(value = '') {
   return /\b(?:multi[-\s]+year|one[-\s]+year|two[-\s]+year|three[-\s]+year|four[-\s]+year|five[-\s]+year)\b/i.test(String(value));
 }
 
+function hasChineseText(value = '') {
+  return /[\u4e00-\u9fa5]/.test(String(value));
+}
+
+function hasMixedChineseEnglish(value = '') {
+  const text = String(value);
+  return hasChineseText(text) && (hasMachineEnglish(text) || isMixedLanguageHeadline(text) || hasUntranslatedContractTerm(text));
+}
+
+function isCoreNewsCategory(category = '') {
+  return ['交易', '签约', '伤病', '选秀'].includes(category);
+}
+
+function isImportantRumor(item = {}) {
+  const text = `${item.originalTitle || item.title || ''} ${item.headlineZh || ''} ${item.summaryZh || ''}`;
+  return /(lebron|durant|giannis|doncic|curry|kawhi|harden|brown)/i.test(text) && /(rumou?r|report|interested|target|sweepstakes|free agency|有意|目标|争夺|接触|下家)/i.test(text);
+}
+
+function isHighQualityChineseHeadline(item = {}, value = item.headlineZh || item.oneLineZh || '') {
+  const text = normalizeChineseText(value);
+  if (!text || !hasChineseText(text)) return false;
+  if (isGenericHeadline(text) || hasMixedChineseEnglish(text) || hasMixedEnglishSummary(text)) return false;
+  if ((item.importance || 1) < 4) return false;
+  if (!isCoreNewsCategory(item.category) && !isImportantRumor(item)) return false;
+  return hasConcreteStructure({ ...item, headlineZh: text });
+}
+
+function getDisplayTitle(item = {}) {
+  const originalTitle = normalizeSpacing(item.originalTitle || item.title || '');
+  const headlineZh = normalizeChineseText(item.headlineZh || item.titleZh || '');
+  if (isHighQualityChineseHeadline(item, headlineZh)) return headlineZh;
+  return originalTitle || headlineZh || 'Untitled';
+}
+
 function isLowValueArticle(title = '', summary = '') {
   return /\b(?:odds|fantasy|wedding|culture|preview|big questions|hot take|pod|legacy|summer league roster|score invites|invite to Taylor Swift|championship odds)\b/i.test(`${title} ${summary}`);
 }
@@ -2094,12 +2128,15 @@ function normalizeChineseText(text = '') {
     .replace(/([一二三四五六七八九十两]+年)(?=[、，,]\s*\d)/g, '$1')
     .replace(/([\u4e00-\u9fa5])([A-Za-z])/g, '$1 $2')
     .replace(/([A-Za-z])([\u4e00-\u9fa5])/g, '$1 $2')
+    .replace(/([A-Za-zÀ-ÖØ-öø-ÿĀ-ž])([\u4e00-\u9fa5])/g, '$1 $2')
+    .replace(/([\u4e00-\u9fa5])([A-Za-zÀ-ÖØ-öø-ÿĀ-ž])/g, '$1 $2')
     .replace(/([A-Za-z]\.)([\u4e00-\u9fa5])/g, '$1 $2')
     .replace(/([A-Za-z])\s+([A-Za-z])/g, '$1 $2')
     .replace(/\s+([，。！？；：、])/g, '$1')
     .replace(/([（《])\s+/g, '$1')
     .replace(/\s+([）》])/g, '$1')
     .replace(/万美元\s+合同/g, '万美元合同')
+    .replace(/合同为多年/g, '多年合同')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -2211,7 +2248,7 @@ function normalizeNewsItemText(item = {}) {
   headlineZh = normalizeChineseText(deTemplateHeadline(improveHeadlineFromSummary(headlineZh, summaryZh)));
   headlineZh = normalizeChineseText(fixMixedLanguageHeadline(headlineZh, item));
   const originalFactText = `${item.originalTitle || item.title || ''} ${item.summary || ''}`;
-  const extractedFact = (isGenericHeadline(headlineZh) || !summaryZh || isMixedLanguageHeadline(summaryZh) || hasMixedEnglishSummary(summaryZh) || hasUntranslatedContractTerm(`${headlineZh} ${summaryZh}`) || /sign-and-trade| from .+ to .+ in .+ for /i.test(originalFactText))
+  const extractedFact = (isGenericHeadline(headlineZh) || !summaryZh || isMixedLanguageHeadline(summaryZh) || hasMixedEnglishSummary(summaryZh) || hasUntranslatedContractTerm(`${headlineZh} ${summaryZh}`) || /\bmulti[-\s]+year contract\b/i.test(originalFactText) || /sign-and-trade| from .+ to .+ in .+ for /i.test(originalFactText))
     ? extractFactFromEnglish({ title: item.originalTitle || item.title || '', summary: item.summary || '', source: item.source || '' })
     : null;
   if (extractedFact?.headlineZh) {
@@ -2275,9 +2312,18 @@ function normalizeNewsItemText(item = {}) {
     const titleKey = getEventKey({ originalTitle: title, title, summary: '', category });
     return !titleKey || titleKey === eventKey;
   });
+  const itemForTitle = {
+    ...item,
+    headlineZh,
+    summaryZh,
+    category,
+    importance
+  };
+  const displayTitle = getDisplayTitle(itemForTitle);
 
   return {
     ...item,
+    displayTitle,
     headlineZh,
     titleZh,
     dekZh,
@@ -2326,6 +2372,7 @@ function getQualityReport(payload = {}) {
   const items = toArray(payload.items);
   const highlights = toArray(payload.highlights);
   const textFields = items.flatMap((item) => [
+    ['displayTitle', item.displayTitle || '', item],
     ['headlineZh', item.headlineZh || '', item],
     ['titleZh', item.titleZh || '', item],
     ['dekZh', item.dekZh || '', item],
@@ -2345,6 +2392,9 @@ function getQualityReport(payload = {}) {
   const genericHeadlineZh = items.filter((item) => isGenericHeadline(item.headlineZh || ''));
   const genericOneLineZh = items.filter((item) => isGenericHeadline(item.oneLineZh || ''));
   const genericHighlights = highlights.filter((highlight) => isGenericHeadline(highlight.text || ''));
+  const emptyDisplayTitle = items.filter((item) => !(item.displayTitle || '').trim());
+  const genericDisplayTitle = items.filter((item) => hasChineseText(item.displayTitle || '') && isGenericHeadline(item.displayTitle || ''));
+  const mixedDisplayTitle = items.filter((item) => hasMixedChineseEnglish(item.displayTitle || ''));
   const repeatedSummary = items.filter((item) => {
     const headline = compactComparable(item.headlineZh || '');
     const summary = compactComparable(item.summaryZh || '');
@@ -2370,7 +2420,10 @@ function getQualityReport(payload = {}) {
   const vagueImpactHeadline = items.filter((item) => /(交易影响继续发酵|相关交易成为焦点|后续走势受到关注)/.test(item.headlineZh || item.oneLineZh || ''));
   const mixedLanguageHeadline = items.filter((item) => isMixedLanguageHeadline(`${item.headlineZh || ''} ${item.oneLineZh || ''} ${item.summaryZh || ''}`));
   const mixedEnglishSummary = items.filter((item) => hasMixedEnglishSummary(item.summaryZh || ''));
-  const untranslatedContractTerm = allTextRecords.filter(([, value]) => hasUntranslatedContractTerm(value));
+  const untranslatedContractTerm = allTextRecords.filter(([field, value]) => {
+    if (field === 'displayTitle' && !hasChineseText(value)) return false;
+    return hasUntranslatedContractTerm(value);
+  });
   const tradeTitleMisclassifiedAsInjury = items.filter(
     (item) => item.category === '伤病' && /\b(acquire|acquired|traded|trade|trading|lands? in deal|land .+ in deal|for aj johnson|deal with grizzlies|for .*picks?)\b/i.test(item.originalTitle || item.title || '')
   );
@@ -2418,6 +2471,9 @@ function getQualityReport(payload = {}) {
       genericHeadlineZh: genericHeadlineZh.length,
       genericOneLineZh: genericOneLineZh.length,
       genericHighlights: genericHighlights.length,
+      emptyDisplayTitle: emptyDisplayTitle.length,
+      genericDisplayTitle: genericDisplayTitle.length,
+      mixedDisplayTitle: mixedDisplayTitle.length,
       originalTitleHasTradeButGenericHeadline: originalTitleHasTradeButGenericHeadline.length,
       originalTitleHasContractButGenericHeadline: originalTitleHasContractButGenericHeadline.length,
       originalTitleHasPlayerButSummaryEmpty: originalTitleHasPlayerButSummaryEmpty.length,
@@ -2448,6 +2504,9 @@ function getQualityReport(payload = {}) {
       genericHeadlineZh,
       genericOneLineZh,
       genericHighlights,
+      emptyDisplayTitle,
+      genericDisplayTitle,
+      mixedDisplayTitle,
       originalTitleHasTradeButGenericHeadline,
       originalTitleHasContractButGenericHeadline,
       originalTitleHasPlayerButSummaryEmpty,
@@ -3010,14 +3069,14 @@ function scoreHighlight(item) {
 }
 
 function toHighlightText(item) {
-  return normalizeSpacing((item.oneLineZh || item.headlineZh || item.titleZh || item.title).replace(/^NBA动态：/, '').replace(/^签约动态：/, '').replace(/^交易动态：/, ''));
+  return normalizeSpacing((item.oneLineZh || item.headlineZh || '').replace(/^NBA动态：/, '').replace(/^签约动态：/, '').replace(/^交易动态：/, ''));
 }
 
 function buildHighlights(items) {
   return [...items]
     .map((item) => ({ item, score: scoreHighlight(item) }))
     .sort((a, b) => b.score - a.score || new Date(b.item.pubDate).getTime() - new Date(a.item.pubDate).getTime())
-    .filter(({ item }) => !isGenericHeadline(toHighlightText(item)))
+    .filter(({ item }) => isHighQualityChineseHeadline(item, toHighlightText(item)))
     .slice(0, 5)
     .map(({ item }) => ({
       id: item.id,

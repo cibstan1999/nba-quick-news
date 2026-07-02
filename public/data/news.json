@@ -12,7 +12,7 @@
   "updatedAt": "2026-07-02T03:14:43.737Z",
   "lastFetchStatus": {
     "status": "rebuilt-from-cache",
-    "checkedAt": "2026-07-02T03:25:26.395Z",
+    "checkedAt": "2026-07-02T06:56:50.433Z",
     "updatedAt": "2026-07-02T03:14:43.737Z",
     "fetchedItems": 0,
     "mergedItems": 53,
@@ -80,7 +80,8 @@
       "importance": 2,
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Are 76ers now title contenders? Early odds to win 2027 NBA championship"
     },
     {
       "id": "https://sports.yahoo.com/articles/report-76ers-interested-adding-lebron-014151908.html",
@@ -105,22 +106,23 @@
       "importance": 2,
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Report: 76ers interested in adding LeBron James"
     },
     {
       "id": "https://sports.yahoo.com/articles/bucks-sign-bogoljub-markovi-multi-010108361.html",
       "title": "Bucks sign Bogoljub Marković to multi-year contract",
       "originalTitle": "Bucks sign Bogoljub Marković to multi-year contract",
-      "headlineZh": "雄鹿签下 Bogoljub Marković，合同为多年",
-      "titleZh": "雄鹿签下 Bogoljub Marković，合同为多年",
+      "headlineZh": "雄鹿与 Bogoljub Marković 签下多年合同",
+      "titleZh": "雄鹿与 Bogoljub Marković 签下多年合同",
       "link": "https://sports.yahoo.com/articles/bucks-sign-bogoljub-markovi-multi-010108361.html",
       "url": "https://sports.yahoo.com/articles/bucks-sign-bogoljub-markovi-multi-010108361.html",
       "pubDate": "2026-07-02T01:01:08.000Z",
       "publishedAt": "2026-07-02T01:01:08.000Z",
       "summary": "On the back of an Adriatic League MVP, Milwaukee has committed to its 2025 second-round pick.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，雄鹿签下 Bogoljub Marković，合同为多年，原文关注 Bogoljub Markovi 的合同或自由市场动向。",
-      "oneLineZh": "雄鹿签下 Bogoljub Marković，合同为多年",
+      "summaryZh": "据 Yahoo Sports 报道，雄鹿签下 Bogoljub Marković，多年合同。",
+      "oneLineZh": "雄鹿与 Bogoljub Marković 签下多年合同",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/os/en/sb_nation_articles_115/1ce6f82b3d1fd72e51dd9bd8a87b086c",
@@ -130,7 +132,8 @@
       "importance": 3,
       "eventKey": "sign:bogoljub-markovi",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Bucks sign Bogoljub Marković to multi-year contract"
     },
     {
       "id": "https://sports.yahoo.com/nba/article/lakers-big-questions-how-about-all-those-moves-do-they-make-la-a-contender-now-004636733.html",
@@ -155,7 +158,8 @@
       "importance": 2,
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Lakers' big questions: How about all those moves? Do they make L.A. a contender now?"
     },
     {
       "id": "https://sports.yahoo.com/articles/tarris-reed-jr-alex-karaban-004527200.html",
@@ -180,7 +184,8 @@
       "importance": 1,
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Tarris Reed Jr. and Alex Karaban to begin NBA Summer League play in California"
     },
     {
       "id": "https://sports.yahoo.com/articles/knicks-starting-five-gets-invite-003437181.html",
@@ -205,7 +210,8 @@
       "importance": 2,
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Knicks starting five gets invite to Taylor Swift-Travis Kelce wedding at MSG, per report"
     },
     {
       "id": "https://sports.yahoo.com/articles/utah-jazz-lost-walker-kessler-002221256.html",
@@ -230,7 +236,8 @@
       "importance": 1,
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "The Utah Jazz lost Walker Kessler, but at least they have Jaxson Hayes"
     },
     {
       "id": "https://sports.yahoo.com/articles/two-words-wolves-pod-randle-000030741.html",
@@ -255,7 +262,8 @@
       "importance": 2,
       "eventKey": "trade:two-words",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Two Words, Wolves Pod: Randle and LaMelo Trades + Projecting the Starting Lineup"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286490/Mavericks-Acquire-Santi-Aldama-From-Grizzlies-For-Protected-2030-Pick-Via-Warriors",
@@ -325,7 +333,8 @@
           "link": "https://sports.yahoo.com/nba/breaking-news/article/mavericks-reportedly-land-santi-aldama-in-deal-with-grizzlies-for-aj-johnson-230307968.html"
         }
       ],
-      "isMerged": true
+      "isMerged": true,
+      "displayTitle": "独行侠从灰熊得到 Santi Aldama"
     },
     {
       "id": "https://sports.yahoo.com/articles/updated-sixers-2026-27-roster-220500251.html",
@@ -350,7 +359,8 @@
       "importance": 4,
       "eventKey": "sign:updated-sixers:76ers",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Updated Sixers 2026-27 roster as NBA free agency begins"
     },
     {
       "id": "https://sports.yahoo.com/articles/jaylen-brown-legacy-boston-much-225525667.html",
@@ -375,7 +385,8 @@
       "importance": 2,
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Jaylen Brown’s legacy in Boston is so much bigger than basketball"
     },
     {
       "id": "https://sports.yahoo.com/articles/lebron-james-went-hometown-tinseltown-224024470.html",
@@ -400,7 +411,8 @@
       "importance": 4,
       "eventKey": "sign:lebron-james:lakers",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "LeBron James went from his hometown to Tinseltown — here’s where he will likely take his talents next, ranked"
     },
     {
       "id": "https://sports.yahoo.com/articles/jalen-brunson-nba-champion-knicks-223224964.html",
@@ -425,7 +437,8 @@
       "importance": 2,
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Jalen Brunson, NBA champion Knicks score invites to Taylor Swift-Travis Kelce MSG wedding"
     },
     {
       "id": "https://sports.yahoo.com/articles/report-sixers-expressed-interest-acquiring-223103933.html",
@@ -450,7 +463,8 @@
       "importance": 3,
       "eventKey": "sign:lebron-james:76ers",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Report: Sixers have ‘expressed interest in acquiring' LeBron James"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286489/76ers-Acquire-Jaylen-Brown-From-Celtics-For-Paul-George-Two-First-Round-Picks",
@@ -598,7 +612,8 @@
           "link": "https://basketball.realgm.com/wiretap/286489/76ers-Acquire-Jaylen-Brown-From-Celtics-For-Paul-George-Two-First-Round-Picks"
         }
       ],
-      "isMerged": true
+      "isMerged": true,
+      "displayTitle": "费城 76 人从凯尔特人得到 Jaylen Brown"
     },
     {
       "id": "https://sports.yahoo.com/articles/utah-jazz-sign-former-lakers-221955474.html",
@@ -623,7 +638,8 @@
       "importance": 4,
       "eventKey": "sign:utah-jazz:jazz:2",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "犹他爵士签下 former 湖人 中锋 on 两年"
     },
     {
       "id": "https://sports.yahoo.com/articles/tobias-harris-leaves-pistons-31-221034504.html",
@@ -648,7 +664,8 @@
       "importance": 4,
       "eventKey": "sign:tobias-harris:spurs:3100",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Tobias Harris 与 million 马刺达成$31合同"
     },
     {
       "id": "https://sports.yahoo.com/articles/lakers-announce-summer-league-roster-220835695.html",
@@ -673,7 +690,8 @@
       "importance": 2,
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Lakers announce Summer League roster, including Adou Thiero, Cameron Carr"
     },
     {
       "id": "https://sports.yahoo.com/articles/stephen-smith-delivers-unhinged-hot-220531155.html",
@@ -698,7 +716,8 @@
       "importance": 2,
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Stephen A. Smith delivers unhinged hot take on new-look Lakers"
     },
     {
       "id": "https://sports.yahoo.com/articles/darius-acuff-jr-brings-swagger-215448939.html",
@@ -723,7 +742,8 @@
       "importance": 2,
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Darius Acuff Jr. brings swagger, winning, culture to Sacramento Kings"
     },
     {
       "id": "https://sports.yahoo.com/articles/nuggets-enter-lebron-james-sweepstakes-215442470.html",
@@ -748,7 +768,8 @@
       "importance": 2,
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Nuggets enter LeBron James sweepstakes with one big selling point"
     },
     {
       "id": "https://sports.yahoo.com/articles/lebron-james-reportedly-planning-tell-213952252.html",
@@ -773,7 +794,8 @@
       "importance": 2,
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "LeBron James reportedly planning tell-all on Lakers departure in upcoming docuseries"
     },
     {
       "id": "https://sports.yahoo.com/articles/ex-nba-player-malik-beasley-212500187.html",
@@ -798,7 +820,8 @@
       "importance": 1,
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Ex-NBA Player Malik Beasley Pleads Not Guilty in Federal Gambling Case"
     },
     {
       "id": "https://sports.yahoo.com/articles/quentin-grimes-celebrates-lakers-signing-211911489.html",
@@ -823,7 +846,8 @@
       "importance": 4,
       "eventKey": "sign:quentin-grimes:lakers",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Quentin Grimes celebrates Lakers signing with full-circle throwback photo"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286488/NBA-Cuts-Dozens-Of-Jobs-As-League-Shifts-Focus-To-Global-Growth",
@@ -848,7 +872,8 @@
       "importance": 3,
       "eventKey": "sign:cuts-dozens-of",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "NBA Cuts Dozens Of Jobs As League Shifts Focus To Global Growth"
     },
     {
       "id": "https://sports.yahoo.com/articles/boston-celtics-daily-links-7-211204605.html",
@@ -873,7 +898,8 @@
       "importance": 2,
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Boston Celtics Daily Links 7/1/26"
     },
     {
       "id": "https://sports.yahoo.com/articles/lebron-james-post-lakers-landing-210351664.html",
@@ -898,7 +924,8 @@
       "importance": 4,
       "eventKey": "trade:lebron-james:lakers",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "LeBron James post-Lakers landing spots: Ranking destinations by fit"
     },
     {
       "id": "https://sports.yahoo.com/articles/does-lebron-deserve-lakers-statue-203659178.html",
@@ -923,7 +950,8 @@
       "importance": 2,
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Does LeBron deserve a Lakers statue? This former champion thinks so"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286484/Tobias-Harris-Spurs-Agree-To-Two-Year-$31M-Deal",
@@ -948,7 +976,8 @@
       "importance": 4,
       "eventKey": "sign:tobias-harris:spurs:2:3100",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Tobias Harris 与马刺达成两年，3100 万美元合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286483/Jaxson-Hayes-Jazz-Agree-To-Two-Year-$12M-Deal",
@@ -998,7 +1027,8 @@
           "link": "https://sports.yahoo.com/articles/los-angeles-lakers-offseason-moves-233915783.html"
         }
       ],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Jaxson Hayes 与爵士达成两年，1200 万美元合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286482/Meleek-Thomas-Cavaliers-Agree-To-Four-Year-$93M-Deal",
@@ -1023,7 +1053,8 @@
       "importance": 4,
       "eventKey": "sign:meleek-thomas:cavaliers:4:930",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Meleek Thomas 与骑士达成四年，930 万美元合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286481/Tobias-Harris-Expected-To-Leave-Pistons-Could-Sign-With-Spurs",
@@ -1048,7 +1079,8 @@
       "importance": 4,
       "eventKey": "sign:tobias-harris:spurs:3:5100",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Tobias Harris Expected To Leave Pistons, Could Sign With Spurs"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286480/Nuggets-Reach-Out-To-LeBron-James-In-Free-Agency",
@@ -1073,7 +1105,8 @@
       "importance": 4,
       "eventKey": "sign:lebron-james:nuggets",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Nuggets Reach Out To LeBron James In Free Agency"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286479/Kelly-Oubre-Pacers-Agree-To-Two-Year-$17M-Deal",
@@ -1098,7 +1131,8 @@
       "importance": 5,
       "eventKey": "sign:kelly-oubre:pacers:2:1700",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Kelly Oubre 与步行者达成两年，1700 万美元合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286478/Moe-Wagner-Nets-Agree-To-Two-Year-$19M-Deal",
@@ -1123,7 +1157,8 @@
       "importance": 5,
       "eventKey": "sign:moe-wagner:nets:2:1900",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Moe Wagner 与篮网达成两年，1900 万美元合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286477/Jamir-Watkins-Wizards-Agree-To-Two-Way-Deal",
@@ -1150,7 +1185,8 @@
       "importance": 3,
       "eventKey": "sign:jamir-watkins",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Jamir Watkins, Wizards Agree To Two-Way Deal"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286474/Jonathan-Isaac-Magic-Agree-To-One-Year-Deal",
@@ -1177,7 +1213,8 @@
       "importance": 4,
       "eventKey": "sign:jonathan-isaac:1:800",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Jonathan Isaac 与魔术达成一年合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286473/Alijah-Martin-Raptors-Agree-To-Two-Year-$48M-Deal",
@@ -1202,7 +1239,8 @@
       "importance": 5,
       "eventKey": "sign:alijah-martin:raptors:2:480",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Alijah Martin 与猛龙达成两年，480 万美元合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286472/DeAnthony-Melton-Warriors-Agree-To-Two-Year-$11M-Deal",
@@ -1227,7 +1265,8 @@
       "importance": 5,
       "eventKey": "sign:de-anthony-melton:warriors:2:1100",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "De'Anthony Melton 与勇士达成两年，1100 万美元合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286470/Collin-Sexton-Lakers-Agree-To-Two-Year-$19M-Deal",
@@ -1252,7 +1291,8 @@
       "importance": 5,
       "eventKey": "sign:collin-sexton:lakers:2:1900",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Collin Sexton 与湖人达成两年，1900 万美元合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286469/Quentin-Grimes-Lakers-Agree-To-Four-Year-$60M-Deal",
@@ -1277,7 +1317,8 @@
       "importance": 5,
       "eventKey": "sign:quentin-grimes:lakers:4:6000",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Quentin Grimes 与湖人达成四年，6000 万美元合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286468/Sandro-Mamukelashvili-Lakers-Agree-To-Four-Year-$52M-Deal",
@@ -1302,7 +1343,8 @@
       "importance": 5,
       "eventKey": "sign:sandro-mamukelashvili:lakers:4:5200",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Sandro Mamukelashvili 与湖人达成四年，5200 万美元合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286466/Mitchell-Robinson-Celtics-Agree-To-Three-Year-$474M-Deal",
@@ -1327,7 +1369,8 @@
       "importance": 5,
       "eventKey": "sign:mitchell-robinson:celtics:3:4740",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Mitchell Robinson 与凯尔特人达成三年，4740 万美元合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286465/Jevon-Carter-Magic-Agree-To-One-Year-$35M-Deal",
@@ -1352,7 +1395,8 @@
       "importance": 4,
       "eventKey": "sign:jevon-carter:magic:1:350",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Jevon Carter 与魔术达成一年，350 万美元合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286464/Mike-Conley-Jr-Celtics-Agree-To-One-Year-Deal",
@@ -1379,7 +1423,8 @@
       "importance": 4,
       "eventKey": "sign:mike-conley-jr:celtics:1",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Mike Conley Jr. 与凯尔特人达成一年合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286463/Nikola-Vucevic-Magic-Agree-To-One-Year-$39M-Deal",
@@ -1404,7 +1449,8 @@
       "importance": 5,
       "eventKey": "sign:nikola-vucevic:magic:1:390",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Nikola Vucevic 与魔术达成一年，390 万美元合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286461/Ariel-Hukporti-Sixers-Agree-To-One-Year-$34M-Deal",
@@ -1429,7 +1475,8 @@
       "importance": 5,
       "eventKey": "sign:ariel-hukporti:sixers:1:340",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Ariel Hukporti 与 76 人达成一年，340 万美元合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286460/Norman-Powell-Bulls-Agree-To-Two-Year-$45M-Contract",
@@ -1456,7 +1503,8 @@
       "importance": 4,
       "eventKey": "sign:norman-powell:bulls:2:4500",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Norman Powell 与公牛达成两年，4500 万美元合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286459/Jazz-Guarantee-Contracts-For-Kyle-Filipowski-Svi-Mykhailiuk",
@@ -1481,7 +1529,8 @@
       "importance": 4,
       "eventKey": "sign:jazz-guarantee-contracts:jazz:300",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Jazz Guarantee Contracts For Kyle Filipowski, Svi Mykhailiuk"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286458/Clippers-Guarantee-Kris-Dunn;-Push-Back-Guarantee-Date-For-Cam-Christie",
@@ -1508,7 +1557,8 @@
       "importance": 4,
       "eventKey": "sign:clippers-guarantee-kris:570",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Clippers Guarantee Kris Dunn; Push Back Guarantee Date For Cam Christie"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286457/John-Collins-Pistons-Agree-To-Three-Year-$51M-Contract",
@@ -1533,7 +1583,8 @@
       "importance": 4,
       "eventKey": "sign:john-collins:pistons:3:5100",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "签约动态：John Collins，活塞 达成 三年，5100 万美元合同"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286456/Bulls-Waive-Kam-Jones",
@@ -1558,7 +1609,8 @@
       "importance": 4,
       "eventKey": "trade:bulls-waive-kam:pacers",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Bulls Waive Kam Jones"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286455/Marcus-Smart-Rockets-Agree-To-Two-Year-$13M-Deal",
@@ -1583,7 +1635,8 @@
       "importance": 5,
       "eventKey": "sign:marcus-smart:rockets:2:1300",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "displayTitle": "Marcus Smart 与火箭达成两年，1300 万美元合同"
     }
   ]
 }

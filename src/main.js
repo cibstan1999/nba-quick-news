@@ -43,7 +43,7 @@ function getFilteredItems() {
   return state.items.filter((item) => {
     const matchesCategory = state.category === '最新' || item.category === state.category;
     const haystack =
-      `${item.originalTitle} ${item.headlineZh} ${item.dekZh} ${item.summaryZh} ${item.oneLineZh} ${item.category}`.toLowerCase();
+      `${item.displayTitle} ${item.originalTitle} ${item.headlineZh} ${item.dekZh} ${item.summaryZh} ${item.oneLineZh} ${item.category}`.toLowerCase();
     const matchesQuery = !query || haystack.includes(query);
     return matchesCategory && matchesQuery;
   });
@@ -146,11 +146,12 @@ function renderHighlights() {
 }
 
 function renderCard(item) {
-  const headlineZh = item.headlineZh || item.titleZh || item.title;
+  const displayTitle = item.displayTitle || item.headlineZh || item.titleZh || item.originalTitle || item.title;
   const dekZh = item.dekZh || '';
   const summaryZh = item.summaryZh || item.summary || '暂无摘要。';
   const goldenQuoteZh = item.goldenQuoteZh || '';
   const originalTitle = item.originalTitle || item.title || '';
+  const showOriginalTitle = originalTitle && originalTitle !== displayTitle;
   const source = item.source || 'Original source';
   const url = item.url || item.link;
   const publishedAt = item.publishedAt || item.pubDate;
@@ -168,7 +169,7 @@ function renderCard(item) {
         <div class="card-topline">
           <time datetime="${escapeHtml(publishedAt || '')}">${escapeHtml(formatDate(publishedAt))}</time>
         </div>
-        <h2><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(headlineZh)}</a></h2>
+        <h2><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(displayTitle)}</a></h2>
         ${dekZh ? `<p class="dek">${escapeHtml(dekZh)}</p>` : ''}
         <p class="summary">${escapeHtml(summaryZh)}</p>
         ${goldenQuoteZh ? `<blockquote class="golden-quote">${escapeHtml(goldenQuoteZh)}</blockquote>` : ''}
@@ -177,10 +178,14 @@ function renderCard(item) {
           ${item.isMerged ? '<span class="merged-note">多源报道</span>' : ''}
           ${item.importance ? `<span class="importance">重要度 ${escapeHtml(item.importance)}</span>` : ''}
         </div>
-        <details class="original-title">
-          <summary>英文原题</summary>
-          <p>${escapeHtml(originalTitle)}</p>
-        </details>
+        ${
+          showOriginalTitle
+            ? `<details class="original-title">
+                <summary>英文原题</summary>
+                <p>${escapeHtml(originalTitle)}</p>
+              </details>`
+            : ''
+        }
         <div class="card-footer">
           <span>${escapeHtml(source)} 原文${item.imageUrl ? ' / 图片预览来自原站元数据' : ''}</span>
           <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">查看原文</a>
