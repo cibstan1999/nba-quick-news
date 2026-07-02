@@ -9,11 +9,11 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-02T03:13:01.558Z",
+  "updatedAt": "2026-07-02T03:14:43.737Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-02T03:13:01.558Z",
-    "updatedAt": "2026-07-02T03:13:01.558Z",
+    "checkedAt": "2026-07-02T03:14:43.737Z",
+    "updatedAt": "2026-07-02T03:14:43.737Z",
     "fetchedItems": 80,
     "mergedItems": 54,
     "failedFeeds": [],

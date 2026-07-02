@@ -2236,6 +2236,7 @@ async function writePayload(payload) {
   printQualityReport(normalizedPayload);
   await mkdir(path.dirname(outputPath), { recursive: true });
   await writeFile(outputPath, `${JSON.stringify(normalizedPayload, null, 2)}\n`, 'utf8');
+  return normalizedPayload;
 }
 
 async function rebuildFromExistingFeed() {
@@ -2307,8 +2308,8 @@ async function rebuildFromExistingFeed() {
     items
   };
 
-  await writePayload(payload);
-  console.log(`Rebuilt ${items.length} cached stories in ${path.relative(rootDir, outputPath)}`);
+  const writtenPayload = await writePayload(payload);
+  console.log(`Rebuilt ${toArray(writtenPayload.items).length} cached stories in ${path.relative(rootDir, outputPath)}`);
 }
 
 async function fetchWithRetry(url, options = {}, retries = 3) {
@@ -2809,8 +2810,8 @@ async function main() {
         }
       };
 
-      await writePayload(payload);
-      console.error('No RSS items were fetched. Kept existing news items and wrote per-feed failure details.');
+      const writtenPayload = await writePayload(payload);
+      console.error(`No RSS items were fetched. Kept ${toArray(writtenPayload.items).length} existing news items and wrote per-feed failure details.`);
       return;
     }
 
@@ -2838,8 +2839,8 @@ async function main() {
       items
     };
 
-    await writePayload(payload);
-    console.log(`Wrote ${items.length} stories to ${path.relative(rootDir, outputPath)}`);
+    const writtenPayload = await writePayload(payload);
+    console.log(`Wrote ${toArray(writtenPayload.items).length} stories to ${path.relative(rootDir, outputPath)}`);
   } catch (error) {
     console.error(error instanceof Error ? error.message : error);
     const existingPayload = parseExistingPayload(existingFeed);
@@ -2867,8 +2868,8 @@ async function main() {
       }
     };
 
-    await writePayload(payload);
-    console.error('Fetch failed. Kept existing news items and wrote lastFetchStatus to public/data/news.json.');
+    const writtenPayload = await writePayload(payload);
+    console.error(`Fetch failed. Kept ${toArray(writtenPayload.items).length} existing news items and wrote lastFetchStatus to public/data/news.json.`);
   }
 }
 
