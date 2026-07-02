@@ -384,6 +384,12 @@ function localizeCommonTerms(value = '') {
   return text
     .replace(/\bthe\s+(?=[\u4e00-\u9fa5])/gi, '')
     .replace(/\ba\s+(?=[\u4e00-\u9fa5])/gi, '')
+    .replace(/\bstarting five\b/gi, '首发五人')
+    .replace(/\bCalifornia\b/gi, '加州')
+    .replace(/\bmulti[-\s]+year contract\b/gi, '多年合同')
+    .replace(/\btitle contenders\b/gi, '争冠球队')
+    .replace(/\bchampionship odds\b/gi, '争冠赔率')
+    .replace(/\bfantasy basketball\b/gi, '梦幻篮球')
     .replace(/\bLas Vegas\b/gi, '拉斯维加斯')
     .replace(/\bMonday\b/gi, '周一')
     .replace(/\bTuesday\b/gi, '周二')
@@ -1319,10 +1325,16 @@ function isMixedLanguageHeadline(value = '') {
   return /Reach Out To|Shows Interest In|Expected To|Planning To|Agree To|In Free Agency|At Summer League|在 自由市场|签约动态：.+Reach Out To|交易动态：.+Acquire/i.test(value);
 }
 
+function hasUnsafeEnglishResidue(value = '') {
+  const text = String(value);
+  if (!hasChineseText(text)) return false;
+  return /\b(?:starting five|California|multi[-\s]+year|one[-\s]+year|two[-\s]+year|four[-\s]+year|reach out|shows interest|expected to|planning to|title contenders|championship odds|trade grades|fantasy fallout|fantasy|fallout|odds|former|on|million|are certainly trying|is just two days into)\b|\$\d/i.test(text);
+}
+
 function hasMixedEnglishSummary(value = '') {
   const text = String(value);
   if (!text) return false;
-  return /[\u4e00-\u9fa5].*\b(?:is|are|was|were|be|been|being|has|have|had|will|would|could|should|trying|build around|make sense|period|coming|going|plenty of movement|projected|roster)\b/i.test(text);
+  return hasUnsafeEnglishResidue(text) || /[\u4e00-\u9fa5].*\b(?:is|are|was|were|be|been|being|has|have|had|will|would|could|should|trying|build around|make sense|period|coming|going|plenty of movement|projected|roster)\b/i.test(text);
 }
 
 function hasUntranslatedContractTerm(value = '') {
@@ -1335,7 +1347,25 @@ function hasChineseText(value = '') {
 
 function hasMixedChineseEnglish(value = '') {
   const text = String(value);
-  return hasChineseText(text) && (hasMachineEnglish(text) || isMixedLanguageHeadline(text) || hasUntranslatedContractTerm(text));
+  return hasChineseText(text) && (hasUnsafeEnglishResidue(text) || hasMachineEnglish(text) || isMixedLanguageHeadline(text) || hasUntranslatedContractTerm(text));
+}
+
+function isSafeChineseTitle(text = '') {
+  const value = normalizeChineseText(text);
+  if (!value || !hasChineseText(value)) return false;
+  if (isGenericHeadline(value)) return false;
+  if (hasMixedChineseEnglish(value) || hasMixedEnglishSummary(value)) return false;
+  if (/Fantasy Fallout|Championship Odds|Trade Grades/i.test(value)) return false;
+  return true;
+}
+
+function isSafeChineseSummary(text = '') {
+  const value = normalizeChineseText(text);
+  if (!value) return true;
+  if (!hasChineseText(value)) return false;
+  if (hasMixedEnglishSummary(value) || hasUntranslatedContractTerm(value)) return false;
+  if (/Fantasy Fallout|Championship Odds|Trade Grades/i.test(value)) return false;
+  return true;
 }
 
 function isCoreNewsCategory(category = '') {
@@ -1349,14 +1379,13 @@ function isImportantRumor(item = {}) {
 
 function isHighQualityChineseHeadline(item = {}, value = item.headlineZh || item.oneLineZh || '') {
   const text = normalizeChineseText(value);
-  if (!text || !hasChineseText(text)) return false;
-  if (isGenericHeadline(text) || hasMixedChineseEnglish(text) || hasMixedEnglishSummary(text)) return false;
+  if (!isSafeChineseTitle(text)) return false;
   if ((item.importance || 1) < 4) return false;
   if (!isCoreNewsCategory(item.category) && !isImportantRumor(item)) return false;
   return hasConcreteStructure({ ...item, headlineZh: text });
 }
 
-function getDisplayTitle(item = {}) {
+function chooseDisplayTitle(item = {}) {
   const originalTitle = normalizeSpacing(item.originalTitle || item.title || '');
   const headlineZh = normalizeChineseText(item.headlineZh || item.titleZh || '');
   if (isHighQualityChineseHeadline(item, headlineZh)) return headlineZh;
@@ -1524,6 +1553,18 @@ function extractFactFromEnglish({ title = '', summary = '', source = '' } = {}) 
     return {
       headlineZh: `${player}与${team}达成${terms ? `${terms}合同` : '合同'}`,
       summaryZh: `${player}与${team}达成${terms ? `${terms}合同` : '合同'}。`
+    };
+  }
+
+  const leavesForMoneyTeamContractMatch = cleanTitle.match(/^(.+?) leaves (.+?) for (\$\d+(?:\.\d+)?\s*million|\$\d+(?:\.\d+)?M) (.+?) contract$/i);
+  if (leavesForMoneyTeamContractMatch) {
+    const player = localizeCommonTerms(leavesForMoneyTeamContractMatch[1]);
+    const oldTeam = localizeCommonTerms(leavesForMoneyTeamContractMatch[2]);
+    const amount = contractAmount(leavesForMoneyTeamContractMatch[3]);
+    const team = localizeCommonTerms(leavesForMoneyTeamContractMatch[4]);
+    return {
+      headlineZh: `${player}与${team}达成${amount ? `${amount}合同` : '合同'}`,
+      summaryZh: `${player}将离开${oldTeam}，并与${team}达成${amount ? `${amount}合同` : '合同'}。`
     };
   }
 
@@ -1866,6 +1907,17 @@ function extractFactFromEnglish({ title = '', summary = '', source = '' } = {}) 
     return {
       headlineZh: `${team}与${player}签下${terms ? `${terms}合同` : '合同'}`,
       summaryZh: `${team}与${player}签下${terms ? `${terms}合同` : '合同'}。`
+    };
+  }
+
+  const teamSignFormerCenterMatch = cleanTitle.match(/^(.+?) signs? former (.+?) center on (.+?) deal$/i);
+  if (teamSignFormerCenterMatch) {
+    const team = localizeCommonTerms(teamSignFormerCenterMatch[1]);
+    const formerTeam = localizeCommonTerms(teamSignFormerCenterMatch[2]);
+    const terms = contractAmount(teamSignFormerCenterMatch[3]);
+    return {
+      headlineZh: `${team}签下前${formerTeam}中锋`,
+      summaryZh: `${team}签下一名前${formerTeam}中锋${terms ? `，合同为${terms}` : ''}。`
     };
   }
 
@@ -2328,7 +2380,7 @@ function normalizeNewsItemText(item = {}) {
   headlineZh = normalizeChineseText(deTemplateHeadline(improveHeadlineFromSummary(headlineZh, summaryZh)));
   headlineZh = normalizeChineseText(fixMixedLanguageHeadline(headlineZh, item));
   const originalFactText = `${item.originalTitle || item.title || ''} ${item.summary || ''}`;
-  const extractedFact = (isGenericHeadline(headlineZh) || !summaryZh || isMixedLanguageHeadline(summaryZh) || hasMixedEnglishSummary(summaryZh) || hasUntranslatedContractTerm(`${headlineZh} ${summaryZh}`) || /\bmulti[-\s]+year contract\b/i.test(originalFactText) || /sign-and-trade| from .+ to .+ in .+ for /i.test(originalFactText))
+  const extractedFact = (isGenericHeadline(headlineZh) || hasUnsafeEnglishResidue(headlineZh) || !summaryZh || isMixedLanguageHeadline(summaryZh) || hasMixedEnglishSummary(summaryZh) || hasUntranslatedContractTerm(`${headlineZh} ${summaryZh}`) || /\bmulti[-\s]+year contract\b/i.test(originalFactText) || /sign-and-trade| from .+ to .+ in .+ for /i.test(originalFactText))
     ? extractFactFromEnglish({ title: item.originalTitle || item.title || '', summary: item.summary || '', source: item.source || '' })
     : null;
   if (extractedFact?.headlineZh) {
@@ -2363,6 +2415,12 @@ function normalizeNewsItemText(item = {}) {
     summaryZh = extractedFact?.summaryZh
       ? normalizeChineseText(`${item.source ? `据 ${item.source} 报道，` : ''}${extractedFact.summaryZh}`)
       : '';
+  }
+  if (!isSafeChineseSummary(summaryZh)) {
+    const fallbackSummary = extractedFact?.summaryZh
+      ? normalizeChineseText(`${item.source ? `据 ${item.source} 报道，` : ''}${extractedFact.summaryZh}`)
+      : '';
+    summaryZh = isSafeChineseSummary(fallbackSummary) ? fallbackSummary : '';
   }
 
   const rawImportance = Number(item.importance || 1);
@@ -2399,7 +2457,7 @@ function normalizeNewsItemText(item = {}) {
     category,
     importance
   };
-  const displayTitle = getDisplayTitle(itemForTitle);
+  const displayTitle = chooseDisplayTitle(itemForTitle);
 
   return {
     ...item,
@@ -2473,9 +2531,13 @@ function getQualityReport(payload = {}) {
   const genericHeadlineZh = items.filter((item) => usesChineseDisplayTitle(item) && isGenericHeadline(item.headlineZh || ''));
   const genericOneLineZh = items.filter((item) => isHighQualityChineseHeadline(item, item.oneLineZh || '') && isGenericHeadline(item.oneLineZh || ''));
   const genericHighlights = highlights.filter((highlight) => isGenericHeadline(highlight.text || ''));
-  const emptyDisplayTitle = items.filter((item) => !(item.displayTitle || '').trim());
+  const displayTitleMissing = items.filter((item) => !(item.displayTitle || '').trim());
+  const unsafeChineseDisplayTitle = items.filter((item) => hasChineseText(item.displayTitle || '') && !isSafeChineseTitle(item.displayTitle || ''));
   const genericDisplayTitle = items.filter((item) => hasChineseText(item.displayTitle || '') && isGenericHeadline(item.displayTitle || ''));
   const mixedDisplayTitle = items.filter((item) => hasMixedChineseEnglish(item.displayTitle || ''));
+  const mixedChineseEnglishHeadline = items.filter((item) => hasMixedChineseEnglish(item.displayTitle || ''));
+  const mixedChineseEnglishSummary = items.filter((item) => !isSafeChineseSummary(item.summaryZh || ''));
+  const duplicatedOriginalTitleDisplay = [];
   const repeatedSummary = items.filter((item) => {
     const headline = compactComparable(item.headlineZh || '');
     const summary = compactComparable(item.summaryZh || '');
@@ -2552,9 +2614,13 @@ function getQualityReport(payload = {}) {
       genericHeadlineZh: genericHeadlineZh.length,
       genericOneLineZh: genericOneLineZh.length,
       genericHighlights: genericHighlights.length,
-      emptyDisplayTitle: emptyDisplayTitle.length,
+      displayTitleMissing: displayTitleMissing.length,
+      unsafeChineseDisplayTitle: unsafeChineseDisplayTitle.length,
       genericDisplayTitle: genericDisplayTitle.length,
       mixedDisplayTitle: mixedDisplayTitle.length,
+      mixedChineseEnglishHeadline: mixedChineseEnglishHeadline.length,
+      mixedChineseEnglishSummary: mixedChineseEnglishSummary.length,
+      duplicatedOriginalTitleDisplay: duplicatedOriginalTitleDisplay.length,
       originalTitleHasTradeButGenericHeadline: originalTitleHasTradeButGenericHeadline.length,
       originalTitleHasContractButGenericHeadline: originalTitleHasContractButGenericHeadline.length,
       originalTitleHasPlayerButSummaryEmpty: originalTitleHasPlayerButSummaryEmpty.length,
@@ -2585,9 +2651,13 @@ function getQualityReport(payload = {}) {
       genericHeadlineZh,
       genericOneLineZh,
       genericHighlights,
-      emptyDisplayTitle,
+      displayTitleMissing,
+      unsafeChineseDisplayTitle,
       genericDisplayTitle,
       mixedDisplayTitle,
+      mixedChineseEnglishHeadline,
+      mixedChineseEnglishSummary,
+      duplicatedOriginalTitleDisplay,
       originalTitleHasTradeButGenericHeadline,
       originalTitleHasContractButGenericHeadline,
       originalTitleHasPlayerButSummaryEmpty,

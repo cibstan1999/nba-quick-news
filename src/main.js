@@ -146,7 +146,7 @@ function renderHighlights() {
 }
 
 function renderCard(item) {
-  const displayTitle = item.displayTitle || item.headlineZh || item.titleZh || item.originalTitle || item.title;
+  const displayTitle = item.displayTitle || item.originalTitle || item.title || 'Untitled';
   const dekZh = item.dekZh || '';
   const summaryZh = item.summaryZh || item.summary || '暂无摘要。';
   const goldenQuoteZh = item.goldenQuoteZh || '';
