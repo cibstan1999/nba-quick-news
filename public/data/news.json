@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-02T08:14:27.542Z",
+  "updatedAt": "2026-07-02T11:09:31.472Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-02T08:14:27.542Z",
-    "updatedAt": "2026-07-02T08:14:27.542Z",
+    "checkedAt": "2026-07-02T11:09:31.472Z",
+    "updatedAt": "2026-07-02T11:09:31.472Z",
     "fetchedItems": 80,
-    "mergedItems": 51,
+    "mergedItems": 52,
     "failedFeeds": [],
     "message": "Fetched 80 usable RSS items from all feeds."
   },
@@ -57,6 +57,32 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/paul-george-still-good-084500144.html",
+      "title": "Paul George is (still) good",
+      "originalTitle": "Paul George is (still) good",
+      "headlineZh": "Paul George 相关消息更新",
+      "titleZh": "Paul George 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/paul-george-still-good-084500144.html",
+      "url": "https://sports.yahoo.com/articles/paul-george-still-good-084500144.html",
+      "pubDate": "2026-07-02T08:45:00.000Z",
+      "publishedAt": "2026-07-02T08:45:00.000Z",
+      "summary": "His contract is bad and he is older than you’d like, but the Celtics are getting a good player in Paul George",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Paul George 的最新动态和后续影响。",
+      "oneLineZh": "Paul George 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/MlfrAeQdbh3mMLNDIOWYzw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/f568e79d234dddae511b7d2684480323",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:paul-george:celtics",
+      "relatedItems": [],
+      "displayTitle": "Paul George is (still) good",
+      "isMerged": false
+    },
     {
       "id": "https://basketball.realgm.com/wiretap/286497/Kings-Sign-Emanuel-Sharp-Adam-Flagler",
       "title": "Kings Sign Emanuel Sharp, Adam Flagler",
@@ -157,6 +183,32 @@
       "category": "选秀",
       "importance": 2,
       "displayTitle": "湖人年轻球员与选秀话题",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/egor-demin-seeks-quick-connection-043610189.html",
+      "title": "Egor Demin seeks to make quick connection with Nets’ 2026 top draft pick",
+      "originalTitle": "Egor Demin seeks to make quick connection with Nets’ 2026 top draft pick",
+      "headlineZh": "Egor Demin 相关消息更新",
+      "titleZh": "Egor Demin 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/egor-demin-seeks-quick-connection-043610189.html",
+      "url": "https://sports.yahoo.com/articles/egor-demin-seeks-quick-connection-043610189.html",
+      "pubDate": "2026-07-02T04:36:10.000Z",
+      "publishedAt": "2026-07-02T04:36:10.000Z",
+      "summary": "For Egor Dëmin, the offseason checklist is simple, if not easy.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Egor Demin 的最新动态和后续影响。",
+      "oneLineZh": "Egor Demin 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/sxY4uCCqtpSuv4m60ptqpg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/f127ca8e7f3ba335565303365005532d",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "选秀",
+      "importance": 2,
+      "displayTitle": "Egor Demin seeks to make quick connection with Nets’ 2026 top draft pick",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -341,6 +393,32 @@
       "displayTitle": "LeBron James reacts to Folarin Balogun’s celebration in World Cup knockout game",
       "eventKey": "",
       "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/brad-stevens-went-trading-jaylen-015253540.html",
+      "title": "Brad Stevens went through with trading Jaylen Brown — and now must answer for it",
+      "originalTitle": "Brad Stevens went through with trading Jaylen Brown — and now must answer for it",
+      "headlineZh": "Brad Stevens 相关消息更新",
+      "titleZh": "Brad Stevens 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/brad-stevens-went-trading-jaylen-015253540.html",
+      "url": "https://sports.yahoo.com/articles/brad-stevens-went-trading-jaylen-015253540.html",
+      "pubDate": "2026-07-02T01:52:53.000Z",
+      "publishedAt": "2026-07-02T01:52:53.000Z",
+      "summary": "Boston pulled the trigger. But why?",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Brad Stevens 的最新动态和后续影响。",
+      "oneLineZh": "Brad Stevens 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/.SOJGpp76ID_mXUImdIvxA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/0264df4a7a8b46868b4f82130531c9ca",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 2,
+      "eventKey": "trade:jaylen-brown",
+      "relatedItems": [],
+      "displayTitle": "Brad Stevens went through with trading Jaylen Brown — and now must answer for it",
       "isMerged": false
     },
     {
@@ -787,58 +865,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/jalen-brunson-nba-champion-knicks-223224964.html",
-      "title": "Jalen Brunson, NBA champion Knicks score invites to Taylor Swift-Travis Kelce MSG wedding",
-      "originalTitle": "Jalen Brunson, NBA champion Knicks score invites to Taylor Swift-Travis Kelce MSG wedding",
-      "headlineZh": "Jalen Brunson 和尼克斯据报获邀参加 MSG 婚礼",
-      "titleZh": "Jalen Brunson 和尼克斯据报获邀参加 MSG 婚礼",
-      "link": "https://sports.yahoo.com/articles/jalen-brunson-nba-champion-knicks-223224964.html",
-      "url": "https://sports.yahoo.com/articles/jalen-brunson-nba-champion-knicks-223224964.html",
-      "pubDate": "2026-07-01T22:32:24.000Z",
-      "publishedAt": "2026-07-01T22:32:24.000Z",
-      "summary": "The Taylor Swift-Travis Kelce Garden party might include, well, some of the championship tenants of MSG.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Jalen Brunson 和尼克斯据报收到 Taylor Swift 和 Travis Kelce 在麦迪逊广场花园婚礼的邀请。",
-      "oneLineZh": "Jalen Brunson 和尼克斯据报获邀参加 MSG 婚礼",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/WfK7E.KkBWi7gIn1RGBHqQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/622fa3ec3ba870d490429674a1a2fb39",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "季后赛",
-      "importance": 2,
-      "displayTitle": "Jalen Brunson 和尼克斯据报获邀参加 MSG 婚礼",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/report-sixers-expressed-interest-acquiring-223103933.html",
-      "title": "Report: Sixers have ‘expressed interest in acquiring' LeBron James",
-      "originalTitle": "Report: Sixers have ‘expressed interest in acquiring' LeBron James",
-      "headlineZh": "76 人有意交易得到 LeBron James",
-      "titleZh": "76 人有意交易得到 LeBron James",
-      "link": "https://sports.yahoo.com/articles/report-sixers-expressed-interest-acquiring-223103933.html",
-      "url": "https://sports.yahoo.com/articles/report-sixers-expressed-interest-acquiring-223103933.html",
-      "pubDate": "2026-07-01T22:31:03.000Z",
-      "publishedAt": "2026-07-01T22:31:03.000Z",
-      "summary": "The Sixers have reportedly “expressed interest in acquiring” free agent LeBron James.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，76 人已经表达出交易得到 LeBron James 的兴趣。",
-      "oneLineZh": "76 人有意交易得到 LeBron James",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/4lWiFj_fs8IwhJLTf.BYVg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/csnphilly.com/ed6b1fbf0b2bc9dae05567cef0fcccbf",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 3,
-      "eventKey": "sign:lebron-james:76ers",
-      "relatedItems": [],
-      "displayTitle": "76 人有意交易得到 LeBron James",
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286489/76ers-Acquire-Jaylen-Brown-From-Celtics-For-Paul-George-Two-First-Round-Picks",
       "title": "76ers Acquire Jaylen Brown From Celtics For Paul George, Two First Round Picks",
       "originalTitle": "76ers Acquire Jaylen Brown From Celtics For Paul George, Two First Round Picks",
@@ -934,20 +960,20 @@
           "angle": "fantasy"
         },
         {
-          "title": "Sixers free agency tracker: Sixers reportedly trade for Jaylen Brown?!",
-          "originalTitle": "Sixers free agency tracker: Sixers reportedly trade for Jaylen Brown?!",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/sixers-free-agency-tracker-oubre-204115340.html",
-          "publishedAt": "2026-07-01T22:34:58.000Z",
-          "angle": "rumor"
-        },
-        {
           "title": "Jaylen Brown Not Seeking Trade As Celtics Motivated To Find Deal",
           "originalTitle": "Jaylen Brown Not Seeking Trade As Celtics Motivated To Find Deal",
           "source": "RealGM",
           "url": "https://basketball.realgm.com/wiretap/286471/Jaylen-Brown-Not-Seeking-Trade-As-Celtics-Motivated-To-Find-Deal",
           "publishedAt": "2026-07-01T16:21:17.000Z",
           "angle": "report"
+        },
+        {
+          "title": "76ers snatch Jaylen Brown from Celtics in blockbuster steal",
+          "originalTitle": "76ers snatch Jaylen Brown from Celtics in blockbuster steal",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/76ers-snatch-jaylen-brown-celtics-081500331.html",
+          "publishedAt": "2026-07-02T08:15:00.000Z",
+          "angle": "source"
         }
       ],
       "sources": [
@@ -955,6 +981,7 @@
         "RealGM"
       ],
       "originalTitles": [
+        "76ers snatch Jaylen Brown from Celtics in blockbuster steal",
         "NBA Championship Odds 2027: Celtics Drop to +1200 Following Jaylen Brown Trade",
         "76ers Acquire Jaylen Brown From Celtics For Paul George, Two First Round Picks",
         "Jaylen Brown Not Seeking Trade As Celtics Motivated To Find Deal",
@@ -969,10 +996,13 @@
         "Jaylen Brown trade grades for 76ers, Celtics blockbuster as Boston sells low on superstar",
         "Did the Celtics give away Jaylen Brown? Why 'analytics' don't see Philly's new star as elite of elite",
         "In a stunning move, Celtics reportedly trade Jaylen Brown to 76ers for Paul George, two first-round picks",
-        "Fantasy Fallout: Celtics reportedly trade Jaylen Brown to Philadelphia for Paul George, picks",
-        "Sixers free agency tracker: Sixers reportedly trade for Jaylen Brown?!"
+        "Fantasy Fallout: Celtics reportedly trade Jaylen Brown to Philadelphia for Paul George, picks"
       ],
       "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/76ers-snatch-jaylen-brown-celtics-081500331.html"
+        },
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/nba/article/jaylen-brown-blockbuster-lakers-makeover-and-a-wild-day-2-of-nba-free-agency-233200215.html"
