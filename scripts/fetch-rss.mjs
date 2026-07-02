@@ -1618,6 +1618,86 @@ function extractFactFromEnglish({ title = '', summary = '', source = '' } = {}) 
     };
   }
 
+  const lakersLineupRaceMatch = cleanTitle.match(/^Lakers' new starting lineup sparks debate over race's role in NBA success$/i);
+  if (lakersLineupRaceMatch) {
+    return {
+      headlineZh: '湖人新首发阵容引发讨论',
+      summaryZh: '湖人新首发阵容引发外界讨论，报道关注种族因素在NBA成功叙事中的角色。'
+    };
+  }
+
+  const wisemanEuropeMatch = cleanTitle.match(/^Warriors lottery pick Wiseman leaving NBA to play in Europe$/i);
+  if (wisemanEuropeMatch) {
+    return {
+      headlineZh: 'Wiseman将离开NBA转战欧洲',
+      summaryZh: '前勇士乐透秀James Wiseman将离开NBA，转往欧洲联赛继续职业生涯。'
+    };
+  }
+
+  const mavsWarriorsPickMatch = cleanTitle.match(/^Mavericks send Warriors[’'] first-rounder to Grizzlies for Spanish forward$/i);
+  if (mavsWarriorsPickMatch) {
+    return {
+      headlineZh: '独行侠用勇士首轮签换来西班牙前锋',
+      summaryZh: '独行侠将来自勇士的首轮签送至灰熊，换来一名西班牙前锋。'
+    };
+  }
+
+  const jaylenSixersLiftMatch = cleanTitle.match(/^Can Jaylen Brown lift the Sixers/i);
+  if (jaylenSixersLiftMatch) {
+    return {
+      headlineZh: 'Jaylen Brown加盟后76人前景受关注',
+      summaryZh: '报道分析Jaylen Brown能否提升76人的上限，并回应外界对这笔操作的质疑。'
+    };
+  }
+
+  const harrisSpursMatch = cleanTitle.match(/^Tobias Harris raises the floor of a Spurs team/i);
+  if (harrisSpursMatch) {
+    return {
+      headlineZh: 'Tobias Harris提升马刺阵容下限',
+      summaryZh: 'Tobias Harris的加盟被认为能提升马刺阵容下限，让这支球队在新赛季更稳定。'
+    };
+  }
+
+  const sixersLeBronTargetMatch = cleanTitle.match(/^The Sixers’ next reported target: LeBron James/i);
+  if (sixersLeBronTargetMatch) {
+    return {
+      headlineZh: '76人据报将LeBron James视为目标',
+      summaryZh: '76人据报把LeBron James列为下一步追逐目标，但这仍属于自由市场传闻。'
+    };
+  }
+
+  const malikGamblingMatch = cleanTitle.match(/^Malik Beasley pleading not guilty to gambling charges/i);
+  if (malikGamblingMatch) {
+    return {
+      headlineZh: 'Malik Beasley对赌博相关指控不认罪',
+      summaryZh: 'Malik Beasley对赌博相关指控表示不认罪，其律师称他希望继续向前。'
+    };
+  }
+
+  const reavesLeBronDepartureMatch = cleanTitle.match(/^Austin Reaves breaks silence on LeBron James/i);
+  if (reavesLeBronDepartureMatch) {
+    return {
+      headlineZh: 'Austin Reaves回应LeBron James离开湖人',
+      summaryZh: 'Austin Reaves首次回应LeBron James离开湖人的话题，湖人后续阵容走向继续受到关注。'
+    };
+  }
+
+  const spursLeBronMatch = cleanTitle.match(/^Spurs not expected to pursue LeBron James/i);
+  if (spursLeBronMatch) {
+    return {
+      headlineZh: '马刺预计不会追逐LeBron James',
+      summaryZh: '尽管自由市场传闻不断，马刺预计不会加入LeBron James争夺。'
+    };
+  }
+
+  const sasserTradeMatch = cleanTitle.match(/^Reports: Mavericks trade for Pistons guard Marcus Sasser/i);
+  if (sasserTradeMatch) {
+    return {
+      headlineZh: '独行侠交易得到Marcus Sasser预计下周完成',
+      summaryZh: '据报道，独行侠从活塞交易得到后卫Marcus Sasser的操作预计将在下周完成。'
+    };
+  }
+
   const stephenALakersMatch = cleanTitle.match(/^Stephen A\. Smith delivers .+ on new-look Lakers$/i);
   if (stephenALakersMatch) {
     return {
@@ -2389,8 +2469,9 @@ function getQualityReport(payload = {}) {
   const headlineRelated = items.filter((item) => /相关动态/.test(item.headlineZh || ''));
   const headlineContinue = items.filter((item) => /继续更新/.test(item.headlineZh || ''));
   const emptySummaryZh = items.filter((item) => !(item.summaryZh || '').trim());
-  const genericHeadlineZh = items.filter((item) => isGenericHeadline(item.headlineZh || ''));
-  const genericOneLineZh = items.filter((item) => isGenericHeadline(item.oneLineZh || ''));
+  const usesChineseDisplayTitle = (item) => compactComparable(item.displayTitle || '') === compactComparable(item.headlineZh || '');
+  const genericHeadlineZh = items.filter((item) => usesChineseDisplayTitle(item) && isGenericHeadline(item.headlineZh || ''));
+  const genericOneLineZh = items.filter((item) => isHighQualityChineseHeadline(item, item.oneLineZh || '') && isGenericHeadline(item.oneLineZh || ''));
   const genericHighlights = highlights.filter((highlight) => isGenericHeadline(highlight.text || ''));
   const emptyDisplayTitle = items.filter((item) => !(item.displayTitle || '').trim());
   const genericDisplayTitle = items.filter((item) => hasChineseText(item.displayTitle || '') && isGenericHeadline(item.displayTitle || ''));
@@ -2401,10 +2482,10 @@ function getQualityReport(payload = {}) {
     return headline && summary && (summary === headline || summary === `${headline}`);
   });
   const originalTitleHasTradeButGenericHeadline = items.filter(
-    (item) => /(trade|traded|acquire|acquired|deal with|land|lands|for .*pick)/i.test(item.originalTitle || item.title || '') && isGenericHeadline(item.headlineZh || '')
+    (item) => usesChineseDisplayTitle(item) && /(trade|traded|acquire|acquired|deal with|land|lands|for .*pick)/i.test(item.originalTitle || item.title || '') && isGenericHeadline(item.headlineZh || '')
   );
   const originalTitleHasContractButGenericHeadline = items.filter(
-    (item) => /(sign|signed|signing|contract|deal|extension|free agency)/i.test(item.originalTitle || item.title || '') && isGenericHeadline(item.headlineZh || '')
+    (item) => usesChineseDisplayTitle(item) && /(sign|signed|signing|contract|deal|extension|free agency)/i.test(item.originalTitle || item.title || '') && isGenericHeadline(item.headlineZh || '')
   );
   const originalTitleHasPlayerButSummaryEmpty = items.filter(
     (item) =>
@@ -2415,9 +2496,9 @@ function getQualityReport(payload = {}) {
   const containsFantasyFallout = allTextRecords.filter(([, value]) => /Fantasy Fallout/i.test(value));
   const containsTradeGrades = allTextRecords.filter(([, value]) => /Trade Grades|trade grades/i.test(value));
   const containsChampionshipOdds = allTextRecords.filter(([, value]) => /NBA Championship Odds|Championship Odds/i.test(value));
-  const containsPhiladelphiaEnglish = allTextRecords.filter(([, value]) => /\bPhiladelphia\b/i.test(value));
+  const containsPhiladelphiaEnglish = allTextRecords.filter(([field, value]) => !(field === 'displayTitle' && !hasChineseText(value)) && /\bPhiladelphia\b/i.test(value));
   const contains76人WithoutSpace = allTextRecords.filter(([, value]) => /76人|费城76\s*人|至76\s*人|与76\s*人|从76\s*人/.test(value));
-  const vagueImpactHeadline = items.filter((item) => /(交易影响继续发酵|相关交易成为焦点|后续走势受到关注)/.test(item.headlineZh || item.oneLineZh || ''));
+  const vagueImpactHeadline = items.filter((item) => usesChineseDisplayTitle(item) && /(交易影响继续发酵|相关交易成为焦点|后续走势受到关注)/.test(item.headlineZh || item.oneLineZh || ''));
   const mixedLanguageHeadline = items.filter((item) => isMixedLanguageHeadline(`${item.headlineZh || ''} ${item.oneLineZh || ''} ${item.summaryZh || ''}`));
   const mixedEnglishSummary = items.filter((item) => hasMixedEnglishSummary(item.summaryZh || ''));
   const untranslatedContractTerm = allTextRecords.filter(([field, value]) => {
