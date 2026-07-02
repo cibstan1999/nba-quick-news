@@ -1388,7 +1388,7 @@ function isHighQualityChineseHeadline(item = {}, value = item.headlineZh || item
 function chooseDisplayTitle(item = {}) {
   const originalTitle = normalizeSpacing(item.originalTitle || item.title || '');
   const headlineZh = normalizeChineseText(item.headlineZh || item.titleZh || '');
-  if (isHighQualityChineseHeadline(item, headlineZh)) return headlineZh;
+  if (isSafeChineseTitle(headlineZh)) return headlineZh;
   return originalTitle || headlineZh || 'Untitled';
 }
 
@@ -2253,6 +2253,9 @@ function normalizeChineseText(text = '') {
     .replace(/(\d+(?:\.\d+)?)\s*亿美元/g, '$1 亿美元')
     .replace(/费城\s*76\s*人/g, '费城 76 人')
     .replace(/76\s*人/g, '76 人')
+    .replace(/76\s*人(?=\d)/g, '76 人 ')
+    .replace(/(提升|加盟后)\s*76\s*人/g, '$1 76 人')
+    .replace(/尼克斯\s+首发五人/g, '尼克斯首发五人')
     .replace(/([至与从给为])76\s*人/g, '$1 76 人')
     .replace(/凯尔特人交易至\s*76\s*人/g, '凯尔特人交易至 76 人')
     .replace(/([\u4e00-\u9fa5])(\d+(?:\.\d+)?\s*(?:万|亿)美元)/g, '$1 $2')
@@ -2533,6 +2536,12 @@ function getQualityReport(payload = {}) {
   const genericHighlights = highlights.filter((highlight) => isGenericHeadline(highlight.text || ''));
   const displayTitleMissing = items.filter((item) => !(item.displayTitle || '').trim());
   const unsafeChineseDisplayTitle = items.filter((item) => hasChineseText(item.displayTitle || '') && !isSafeChineseTitle(item.displayTitle || ''));
+  const safeChineseTitleWronglyFallbackToEnglish = items.filter((item) => {
+    const originalTitle = normalizeSpacing(item.originalTitle || item.title || '');
+    return originalTitle &&
+      compactComparable(item.displayTitle || '') === compactComparable(originalTitle) &&
+      isSafeChineseTitle(item.headlineZh || item.titleZh || '');
+  });
   const genericDisplayTitle = items.filter((item) => hasChineseText(item.displayTitle || '') && isGenericHeadline(item.displayTitle || ''));
   const mixedDisplayTitle = items.filter((item) => hasMixedChineseEnglish(item.displayTitle || ''));
   const mixedChineseEnglishHeadline = items.filter((item) => hasMixedChineseEnglish(item.displayTitle || ''));
@@ -2560,6 +2569,9 @@ function getQualityReport(payload = {}) {
   const containsChampionshipOdds = allTextRecords.filter(([, value]) => /NBA Championship Odds|Championship Odds/i.test(value));
   const containsPhiladelphiaEnglish = allTextRecords.filter(([field, value]) => !(field === 'displayTitle' && !hasChineseText(value)) && /\bPhiladelphia\b/i.test(value));
   const contains76人WithoutSpace = allTextRecords.filter(([, value]) => /76人|费城76\s*人|至76\s*人|与76\s*人|从76\s*人/.test(value));
+  const chineseTeamNameWrongSpace = allTextRecords.filter(([, value]) => /尼克斯\s+首发五人/.test(value));
+  const missingSpaceBefore76人 = allTextRecords.filter(([, value]) => /[\u4e00-\u9fa5A-Za-z]76\s*人/.test(value));
+  const missingSpaceAfter76人 = allTextRecords.filter(([, value]) => /76\s*人(?=\d)/.test(value));
   const vagueImpactHeadline = items.filter((item) => usesChineseDisplayTitle(item) && /(交易影响继续发酵|相关交易成为焦点|后续走势受到关注)/.test(item.headlineZh || item.oneLineZh || ''));
   const mixedLanguageHeadline = items.filter((item) => isMixedLanguageHeadline(`${item.headlineZh || ''} ${item.oneLineZh || ''} ${item.summaryZh || ''}`));
   const mixedEnglishSummary = items.filter((item) => hasMixedEnglishSummary(item.summaryZh || ''));
@@ -2616,6 +2628,7 @@ function getQualityReport(payload = {}) {
       genericHighlights: genericHighlights.length,
       displayTitleMissing: displayTitleMissing.length,
       unsafeChineseDisplayTitle: unsafeChineseDisplayTitle.length,
+      safeChineseTitleWronglyFallbackToEnglish: safeChineseTitleWronglyFallbackToEnglish.length,
       genericDisplayTitle: genericDisplayTitle.length,
       mixedDisplayTitle: mixedDisplayTitle.length,
       mixedChineseEnglishHeadline: mixedChineseEnglishHeadline.length,
@@ -2629,6 +2642,9 @@ function getQualityReport(payload = {}) {
       containsChampionshipOdds: containsChampionshipOdds.length,
       containsPhiladelphiaEnglish: containsPhiladelphiaEnglish.length,
       contains76人WithoutSpace: contains76人WithoutSpace.length,
+      chineseTeamNameWrongSpace: chineseTeamNameWrongSpace.length,
+      missingSpaceBefore76人: missingSpaceBefore76人.length,
+      missingSpaceAfter76人: missingSpaceAfter76人.length,
       vagueImpactHeadline: vagueImpactHeadline.length,
       mixedLanguageHeadline: mixedLanguageHeadline.length,
       mixedEnglishSummary: mixedEnglishSummary.length,
@@ -2653,6 +2669,7 @@ function getQualityReport(payload = {}) {
       genericHighlights,
       displayTitleMissing,
       unsafeChineseDisplayTitle,
+      safeChineseTitleWronglyFallbackToEnglish,
       genericDisplayTitle,
       mixedDisplayTitle,
       mixedChineseEnglishHeadline,
@@ -2666,6 +2683,9 @@ function getQualityReport(payload = {}) {
       containsChampionshipOdds,
       containsPhiladelphiaEnglish,
       contains76人WithoutSpace,
+      chineseTeamNameWrongSpace,
+      missingSpaceBefore76人,
+      missingSpaceAfter76人,
       vagueImpactHeadline,
       mixedLanguageHeadline,
       mixedEnglishSummary,
