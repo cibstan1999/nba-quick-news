@@ -120,6 +120,10 @@ function toArray(value) {
 
 function classify(title = '', summary = '') {
   const text = `${title} ${summary}`.toLowerCase();
+  if (/\b(acquire|acquired|traded|trade|trading|lands? in deal|for .*picks?|for .*first[-\s]+round|from .* for )\b/i.test(text)) {
+    return '交易';
+  }
+
   const rules = [
     ['交易', ['trade', 'traded', 'trading', 'acquire', 'acquired', 'swap']],
     ['签约', ['sign', 'signed', 'signing', 'contract', 'extension', 'free agent', 'free agency', 'waive', 'waived', 'deal']],
@@ -1316,8 +1320,8 @@ function isGenericHeadline(text = '') {
 
 function localizeDraftAssets(value = '') {
   return localizeCommonTerms(value)
-    .replace(/\bFRPs\b/gi, '首轮签')
     .replace(/\btwo FRPs\b/gi, '两个首轮签')
+    .replace(/\bFRPs\b/gi, '首轮签')
     .replace(/\btwo swaps\b/gi, '两次选秀权互换')
     .replace(/\btwo first[-\s]+round picks\b/gi, '两个首轮签')
     .replace(/\btwo second[-\s]+round picks\b/gi, '两个次轮签')
@@ -1877,6 +1881,7 @@ function getContractTermsFromText(value = '') {
 function getMergedContractUpgrade(item = {}) {
   const titles = toArray(item.originalTitles).filter(Boolean);
   if (!titles.length) return null;
+  if (titles.some((title) => /sign-and-trade| from .+ to .+ in .+ for /i.test(title))) return null;
 
   const realGmDealTitle = titles.find((title) =>
     /^(.+?),\s*(.+?) Agree To (?:One|Two|Three|Four|Five|\d+)-Year,\s*\$\d+(?:\.\d+)?M Deal$/i.test(title)
@@ -1951,7 +1956,8 @@ function normalizeNewsItemText(item = {}) {
   let summaryZh = normalizeChineseText(item.summaryZh || '');
   let headlineZh = normalizeChineseText(forcedContractHeadline || item.headlineZh || '');
   headlineZh = normalizeChineseText(deTemplateHeadline(improveHeadlineFromSummary(headlineZh, summaryZh)));
-  const extractedFact = (isGenericHeadline(headlineZh) || !summaryZh)
+  const originalFactText = `${item.originalTitle || item.title || ''} ${item.summary || ''}`;
+  const extractedFact = (isGenericHeadline(headlineZh) || !summaryZh || /sign-and-trade| from .+ to .+ in .+ for /i.test(originalFactText))
     ? extractFactFromEnglish({ title: item.originalTitle || item.title || '', summary: item.summary || '', source: item.source || '' })
     : null;
   if (extractedFact?.headlineZh) {
@@ -1983,6 +1989,13 @@ function normalizeNewsItemText(item = {}) {
     });
   }
 
+  const category = correctCategory({
+    ...item,
+    headlineZh,
+    summaryZh,
+    category: classify(item.originalTitle || item.title || headlineZh, `${item.summary || ''} ${summaryZh}`)
+  });
+
   return {
     ...item,
     headlineZh,
@@ -1990,7 +2003,9 @@ function normalizeNewsItemText(item = {}) {
     dekZh,
     summaryZh,
     oneLineZh,
-    goldenQuoteZh
+    goldenQuoteZh,
+    category,
+    eventKey: getEventKey({ ...item, headlineZh, summaryZh })
   };
 }
 
@@ -2003,7 +2018,7 @@ function normalizeHighlightText(highlight = {}) {
 
 function preparePayloadForWrite(payload = {}) {
   const items = Array.isArray(payload.items)
-    ? payload.items.map(enrichMergedContractDetails).map(normalizeNewsItemText)
+    ? mergeEvents(mergeEvents(payload.items.map(enrichMergedContractDetails).map(normalizeNewsItemText)).map(normalizeNewsItemText)).map(normalizeNewsItemText)
     : payload.items;
   const highlights = Array.isArray(items)
     ? buildHighlights(items).map(normalizeHighlightText)
@@ -2069,6 +2084,22 @@ function getQualityReport(payload = {}) {
   const containsPhiladelphiaEnglish = allTextRecords.filter(([, value]) => /\bPhiladelphia\b/i.test(value));
   const contains76人WithoutSpace = allTextRecords.filter(([, value]) => /76人|费城76\s*人|至76\s*人|与76\s*人|从76\s*人/.test(value));
   const vagueImpactHeadline = items.filter((item) => /(交易影响继续发酵|相关交易成为焦点|后续走势受到关注)/.test(item.headlineZh || item.oneLineZh || ''));
+  const eventKeyCounts = items.reduce((acc, item) => {
+    if (!item.eventKey) return acc;
+    acc.set(item.eventKey, (acc.get(item.eventKey) || 0) + 1);
+    return acc;
+  }, new Map());
+  const duplicateEventKeys = items.filter((item) => item.eventKey && eventKeyCounts.get(item.eventKey) > 1);
+  const highlightEventKeys = highlights
+    .map((highlight) => items.find((item) => item.id === highlight.id || item.link === highlight.link)?.eventKey)
+    .filter(Boolean);
+  const highlightsDuplicateEvents = highlightEventKeys.filter((key, index) => highlightEventKeys.indexOf(key) !== index);
+  const tradeMisclassifiedAsSigning = items.filter(
+    (item) => item.category === '签约' && /\b(acquire|acquired|traded|trade|trading|lands? in deal|for .*picks?)\b/i.test(`${item.originalTitle || item.title || ''} ${item.summary || ''}`)
+  );
+  const signingMisclassifiedAsTrade = items.filter(
+    (item) => item.category === '交易' && !/\b(acquire|acquired|traded|trade|trading|lands? in deal|for .*picks?)\b/i.test(`${item.originalTitle || item.title || ''} ${item.summary || ''}`) && /\b(sign|signed|signing|contract|extension|re-sign|agrees? to .+ deal)\b/i.test(`${item.originalTitle || item.title || ''} ${item.summary || ''}`)
+  );
   const mergedMissingTerms = items.filter((item) => {
     if (!item.isMerged) return false;
     const titles = toArray(item.originalTitles).join(' ');
@@ -2099,6 +2130,10 @@ function getQualityReport(payload = {}) {
       containsPhiladelphiaEnglish: containsPhiladelphiaEnglish.length,
       contains76人WithoutSpace: contains76人WithoutSpace.length,
       vagueImpactHeadline: vagueImpactHeadline.length,
+      duplicateEventKeys: duplicateEventKeys.length,
+      highlightsDuplicateEvents: highlightsDuplicateEvents.length,
+      tradeMisclassifiedAsSigning: tradeMisclassifiedAsSigning.length,
+      signingMisclassifiedAsTrade: signingMisclassifiedAsTrade.length,
       repeatedSummary: repeatedSummary.length,
       mergedMissingTerms: mergedMissingTerms.length
     },
@@ -2120,6 +2155,10 @@ function getQualityReport(payload = {}) {
       containsPhiladelphiaEnglish,
       contains76人WithoutSpace,
       vagueImpactHeadline,
+      duplicateEventKeys,
+      highlightsDuplicateEvents,
+      tradeMisclassifiedAsSigning,
+      signingMisclassifiedAsTrade,
       repeatedSummary,
       mergedMissingTerms
     }
@@ -2319,6 +2358,242 @@ function getDuplicateKey(item) {
   return '';
 }
 
+const eventTeamAliases = [
+  ['76ers', '76ers'],
+  ['Sixers', '76ers'],
+  ['Philadelphia', '76ers'],
+  ['Philadelphia 76ers', '76ers'],
+  ['76 人', '76ers'],
+  ['费城 76 人', '76ers'],
+  ['Celtics', 'celtics'],
+  ['Boston Celtics', 'celtics'],
+  ['凯尔特人', 'celtics'],
+  ['Mavericks', 'mavericks'],
+  ['Dallas Mavericks', 'mavericks'],
+  ['独行侠', 'mavericks'],
+  ['Grizzlies', 'grizzlies'],
+  ['Memphis Grizzlies', 'grizzlies'],
+  ['灰熊', 'grizzlies'],
+  ['Warriors', 'warriors'],
+  ['Golden State Warriors', 'warriors'],
+  ['勇士', 'warriors'],
+  ['Lakers', 'lakers'],
+  ['Los Angeles Lakers', 'lakers'],
+  ['湖人', 'lakers'],
+  ['Jazz', 'jazz'],
+  ['Utah Jazz', 'jazz'],
+  ['爵士', 'jazz'],
+  ['Spurs', 'spurs'],
+  ['San Antonio Spurs', 'spurs'],
+  ['马刺', 'spurs'],
+  ['Pacers', 'pacers'],
+  ['Indiana Pacers', 'pacers'],
+  ['步行者', 'pacers'],
+  ['Suns', 'suns'],
+  ['Phoenix Suns', 'suns'],
+  ['太阳', 'suns'],
+  ['Nets', 'nets'],
+  ['Brooklyn Nets', 'nets'],
+  ['篮网', 'nets'],
+  ['Heat', 'heat'],
+  ['Miami Heat', 'heat'],
+  ['热火', 'heat'],
+  ['Cavaliers', 'cavaliers'],
+  ['Cavs', 'cavaliers'],
+  ['Cleveland Cavaliers', 'cavaliers'],
+  ['骑士', 'cavaliers']
+];
+
+function slugText(value = '') {
+  return String(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+function getEventTeams(value = '') {
+  const text = String(value);
+  const found = [];
+  for (const [label, slug] of eventTeamAliases) {
+    const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const pattern = /[\u4e00-\u9fa5]/.test(label)
+      ? new RegExp(escaped, 'i')
+      : new RegExp(`\\b${escaped}\\b`, 'i');
+    if (pattern.test(text) && !found.includes(slug)) found.push(slug);
+  }
+  return found;
+}
+
+function getEventPlayer(value = '') {
+  const text = String(value);
+  const knownPlayers = [
+    'Jaylen Brown',
+    'Santi Aldama',
+    'Walker Kessler',
+    'LeBron James',
+    'Paul George',
+    'Tobias Harris',
+    'Dean Wade',
+    'Luke Kennard',
+    'Keon Ellis',
+    'Tim Hardaway Jr.',
+    'Meleek Thomas',
+    'Kelly Oubre',
+    'Ariel Hukporti',
+    'Collin Sexton',
+    'Quentin Grimes'
+  ];
+  const known = knownPlayers.find((player) => new RegExp(`\\b${player.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(text));
+  if (known) return slugText(known);
+
+  const candidate = text
+    .replace(/\b(?:NBA|Yahoo Sports|RealGM|AP|Fantasy Fallout|Trade Grades|Championship Odds)\b/g, '')
+    .match(/\b[A-Z][A-Za-z.'-]+(?:\s+[A-Z][A-Za-z.'-]+){1,2}\b/)?.[0];
+  return candidate ? slugText(candidate.replace(/\s+Not$/i, '')) : '';
+}
+
+function getEventAction(value = '', category = '') {
+  const text = String(value).toLowerCase();
+  if (/\b(odds|championship odds)\b/.test(text)) return 'odds';
+  if (/\b(fantasy|fantasy fallout)\b/.test(text)) return 'fantasy';
+  if (/\b(grades|grade)\b/.test(text)) return 'grades';
+  if (/\b(meeting|meet with|second meeting)\b/.test(text)) return 'meeting';
+  if (/\b(injury|injured|surgery|rehab)\b/.test(text)) return 'injury';
+  if (/\b(acquire|acquired|traded|trade|trading|lands? in deal)\b/.test(text)) return 'trade';
+  if (/\b(sign|signed|signing|agrees? to|contract|extension|re-sign)\b/.test(text)) return 'sign';
+  return category === '交易' ? 'trade' : category === '签约' ? 'sign' : '';
+}
+
+function correctCategory(item = {}) {
+  const text = `${item.originalTitle || item.title || ''} ${item.summary || ''} ${item.headlineZh || ''} ${item.summaryZh || ''}`;
+  const hasTrade = /\b(acquire|acquired|traded|trade|trading|lands? in deal)\b|送出|换回|交易至|得到.+送出|首轮签|次轮签/i.test(text);
+  const hasSigning = /\b(sign|signed|signing|contract|extension|re-sign|agrees? to .+ deal|guarantee)\b|签下|续约|合同|达成.+合同/i.test(text);
+  if (hasTrade) return '交易';
+  if (hasSigning) return '签约';
+  return item.category || classify(item.originalTitle || item.title || '', item.summary || '');
+}
+
+function normalizeEventAction(action, value = '') {
+  if (['odds', 'fantasy', 'grades'].includes(action) && /\b(trade|traded|acquire|acquired)\b/i.test(value)) {
+    return 'trade';
+  }
+  return action;
+}
+
+function getEventKey(item = {}) {
+  const text = `${item.originalTitle || item.title || ''} ${item.headlineZh || ''} ${item.summaryZh || ''} ${item.summary || ''}`;
+  const action = normalizeEventAction(getEventAction(text, item.category), text);
+  const player = getEventPlayer(text);
+  const teams = getEventTeams(text);
+  const terms = getContractTermsFromText(text);
+
+  if (!action || !player) return '';
+
+  if (action === 'trade') {
+    if (player === 'jaylen-brown' && (teams.includes('celtics') || teams.includes('76ers'))) {
+      return 'trade:jaylen-brown:celtics:76ers';
+    }
+    if (player === 'santi-aldama' && (teams.includes('mavericks') || teams.includes('grizzlies'))) {
+      return 'trade:santi-aldama:mavericks:grizzlies';
+    }
+    if (player === 'walker-kessler' && teams.includes('lakers')) {
+      return 'trade:walker-kessler:jazz:lakers';
+    }
+    return ['trade', player, ...teams.slice(0, 2)].filter(Boolean).join(':');
+  }
+
+  if (action === 'sign') {
+    if (player === 'walker-kessler' && teams.includes('lakers')) {
+      return 'trade:walker-kessler:jazz:lakers';
+    }
+    const signTeam = teams.at(-1) || '';
+    return ['sign', player, signTeam, terms.duration || '', terms.amount || ''].filter(Boolean).map(slugText).join(':');
+  }
+
+  return [action, player, teams[0] || ''].filter(Boolean).join(':');
+}
+
+function getRelatedAngle(item = {}) {
+  const text = `${item.originalTitle || ''} ${item.title || ''} ${item.summary || ''}`.toLowerCase();
+  if (/fantasy/.test(text)) return 'fantasy';
+  if (/odds/.test(text)) return 'odds';
+  if (/grades?/.test(text)) return 'grades';
+  if (/rumou?r/.test(text)) return 'rumor';
+  if (/report|reported|source/.test(text)) return 'report';
+  if (/analysis|fallout|effect|impact|reacts|make sense/.test(text)) return 'analysis';
+  return 'source';
+}
+
+function hasConcreteStructure(item = {}) {
+  const text = `${item.originalTitle || ''} ${item.headlineZh || ''} ${item.summaryZh || ''}`;
+  return /(acquire|acquired|trade|traded|from .* for|送出|换回|得到|签下|达成|万美元|首轮签|次轮签)/i.test(text);
+}
+
+function pickEventPrimary(group = []) {
+  return [...group].sort((a, b) => {
+    const realGmDelta = Number(/RealGM/i.test(b.source || '')) - Number(/RealGM/i.test(a.source || ''));
+    if (realGmDelta) return realGmDelta;
+    const structureDelta = Number(hasConcreteStructure(b)) - Number(hasConcreteStructure(a));
+    if (structureDelta) return structureDelta;
+    const summaryDelta = (b.summaryZh || '').length - (a.summaryZh || '').length;
+    if (summaryDelta) return summaryDelta;
+    const importanceDelta = (b.importance || 0) - (a.importance || 0);
+    if (importanceDelta) return importanceDelta;
+    return new Date(b.publishedAt || b.pubDate || 0).getTime() - new Date(a.publishedAt || a.pubDate || 0).getTime();
+  })[0];
+}
+
+function mergeEventGroup(group = []) {
+  if (group.length === 1) {
+    return { ...group[0], eventKey: group[0].eventKey || getEventKey(group[0]), relatedItems: group[0].relatedItems || [] };
+  }
+
+  const primaryBase = pickEventPrimary(group);
+  const primary = { ...primaryBase };
+  const relatedItems = group
+    .filter((item) => item !== primaryBase)
+    .sort((a, b) => new Date(b.publishedAt || b.pubDate || 0).getTime() - new Date(a.publishedAt || a.pubDate || 0).getTime())
+    .map((item) => ({
+      title: item.title || '',
+      originalTitle: item.originalTitle || item.title || '',
+      source: item.source || '',
+      url: item.url || item.link || '',
+      publishedAt: item.publishedAt || item.pubDate || '',
+      angle: getRelatedAngle(item)
+    }));
+
+  const sources = [...new Set(group.flatMap((item) => item.sources || String(item.source || '').split(' / ')).map((source) => source.trim()).filter(Boolean))];
+  primary.eventKey = primary.eventKey || getEventKey(primary);
+  primary.relatedItems = [...(primary.relatedItems || []), ...relatedItems];
+  primary.source = sources.join(' / ');
+  primary.sources = sources;
+  primary.originalTitles = [...new Set(group.flatMap((item) => item.originalTitles || [item.originalTitle || item.title]).filter(Boolean))];
+  primary.sourceLinks = group.map((item) => ({ source: item.source, link: item.url || item.link }));
+  primary.isMerged = true;
+  primary.importance = Math.max(...group.map((item) => item.importance || 1));
+  return primary;
+}
+
+function mergeEvents(items = []) {
+  const groups = new Map();
+  const singles = [];
+
+  for (const item of items) {
+    const eventKey = item.eventKey || getEventKey(item);
+    if (!eventKey) {
+      singles.push(item);
+      continue;
+    }
+    const withKey = { ...item, eventKey };
+    if (!groups.has(eventKey)) groups.set(eventKey, []);
+    groups.get(eventKey).push(withKey);
+  }
+
+  return [...singles, ...Array.from(groups.values()).map(mergeEventGroup)]
+    .sort((a, b) => new Date(b.publishedAt || b.pubDate || 0).getTime() - new Date(a.publishedAt || a.pubDate || 0).getTime())
+    .slice(0, 120);
+}
+
 function mergeDuplicateGroup(group) {
   if (group.length === 1) return group[0];
 
@@ -2377,7 +2652,7 @@ function dedupeAndSort(items) {
     groups.get(duplicateKey).push(item);
   }
 
-  return [...singles, ...Array.from(groups.values()).map(mergeDuplicateGroup)]
+  return mergeEvents([...singles, ...Array.from(groups.values()).map(mergeDuplicateGroup)])
     .sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
     .slice(0, 120);
 }
