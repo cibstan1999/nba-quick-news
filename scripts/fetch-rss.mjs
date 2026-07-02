@@ -1405,9 +1405,262 @@ function parseExistingPayload(existingFeed) {
   }
 }
 
+function normalizeChineseText(text = '') {
+  if (text === null || text === undefined) return '';
+
+  return String(text)
+    .replace(/\$(\d+(?:\.\d+)?)M\b/gi, (_, amount) => `${Math.round(Number(amount) * 100)} 万美元`)
+    .replace(/\$(\d+(?:\.\d+)?)\s*million\b/gi, (_, amount) => `${Math.round(Number(amount) * 100)} 万美元`)
+    .replace(/(\d+(?:\.\d+)?)\s*万美元/g, '$1 万美元')
+    .replace(/(\d+(?:\.\d+)?)\s*亿美元/g, '$1 亿美元')
+    .replace(/([\u4e00-\u9fa5])(\d+(?:\.\d+)?\s*(?:万|亿)美元)/g, '$1 $2')
+    .replace(/(\d+)\s*年/g, '$1 年')
+    .replace(/([一二三四五六七八九十两]+年)(?=[、，,]\s*\d)/g, '$1')
+    .replace(/([\u4e00-\u9fa5])([A-Za-z])/g, '$1 $2')
+    .replace(/([A-Za-z])([\u4e00-\u9fa5])/g, '$1 $2')
+    .replace(/([A-Za-z]\.)([\u4e00-\u9fa5])/g, '$1 $2')
+    .replace(/([A-Za-z])\s+([A-Za-z])/g, '$1 $2')
+    .replace(/\s+([，。！？；：、])/g, '$1')
+    .replace(/([（《])\s+/g, '$1')
+    .replace(/\s+([）》])/g, '$1')
+    .replace(/万美元\s+合同/g, '万美元合同')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function getContractTermsFromText(value = '') {
+  const text = String(value);
+  const durationWords = {
+    one: '1 年',
+    two: '2 年',
+    three: '3 年',
+    four: '4 年',
+    five: '5 年',
+    six: '6 年'
+  };
+  const durationMatch =
+    text.match(/\b(one|two|three|four|five|six)[-\s]+year\b/i) ||
+    text.match(/\b(\d+)[-\s]+year\b/i) ||
+    text.match(/\b(\d+)\s*年\b/i);
+  const amountMatch =
+    text.match(/\$(\d+(?:\.\d+)?)M\b/i) ||
+    text.match(/\$(\d+(?:\.\d+)?)\s*million\b/i) ||
+    text.match(/(\d+(?:\.\d+)?)\s*万美元/);
+
+  const duration = durationMatch
+    ? durationWords[durationMatch[1].toLowerCase?.()] || `${durationMatch[1]} 年`
+    : '';
+  const amount = amountMatch ? `${Math.round(Number(amountMatch[1]) * (/\$/.test(amountMatch[0]) ? 100 : 1))} 万美元` : '';
+
+  return { duration, amount };
+}
+
+function getMergedContractUpgrade(item = {}) {
+  const titles = toArray(item.originalTitles).filter(Boolean);
+  if (!titles.length) return null;
+
+  const realGmDealTitle = titles.find((title) =>
+    /^(.+?),\s*(.+?) Agree To (?:One|Two|Three|Four|Five|\d+)-Year,\s*\$\d+(?:\.\d+)?M Deal$/i.test(title)
+  );
+  if (realGmDealTitle) {
+    const match = realGmDealTitle.match(/^(.+?),\s*(.+?) Agree To ((?:One|Two|Three|Four|Five|\d+)-Year),\s*(\$\d+(?:\.\d+)?M) Deal$/i);
+    const terms = getContractTermsFromText(`${match[3]} ${match[4]}`);
+    return normalizeChineseText(`${localizeCommonTerms(match[1])} 与${localizeCommonTerms(match[2])}达成 ${terms.duration} ${terms.amount} 合同`);
+  }
+
+  const titleWithTerms = titles
+    .map((title) => ({ title, terms: getContractTermsFromText(title) }))
+    .filter(({ terms }) => terms.duration || terms.amount)
+    .sort((a, b) => Number(Boolean(b.terms.duration)) + Number(Boolean(b.terms.amount)) - (Number(Boolean(a.terms.duration)) + Number(Boolean(a.terms.amount))))[0]?.title;
+  if (!titleWithTerms) return null;
+
+  const terms = getContractTermsFromText(titleWithTerms);
+  if (!terms.duration && !terms.amount) return null;
+
+  const person = getPrimaryPerson(titleWithTerms);
+  const team = getEventTeam(`${titleWithTerms} ${item.headlineZh || ''}`);
+  if (!person || !team) return null;
+
+  const contractText = [terms.duration, terms.amount].filter(Boolean).join(' ');
+  return normalizeChineseText(`${person} 与${team}达成 ${contractText} 合同`);
+}
+
+function enrichMergedContractDetails(item = {}) {
+  const upgradedHeadline = getMergedContractUpgrade(item);
+  if (!upgradedHeadline) return item;
+
+  const combinedText = `${item.headlineZh || ''} ${item.summaryZh || ''}`;
+  const terms = getContractTermsFromText(upgradedHeadline);
+  const hasAmount = hasEquivalentAmount(combinedText, terms.amount);
+  const hasDuration = hasEquivalentDuration(combinedText, terms.duration);
+  if (hasAmount && hasDuration) return item;
+
+  const sourcePrefix = item.source ? `据 ${item.source} 报道，` : '';
+  return {
+    ...item,
+    headlineZh: upgradedHeadline,
+    titleZh: upgradedHeadline,
+    oneLineZh: upgradedHeadline,
+    summaryZh: normalizeChineseText(`${sourcePrefix}${upgradedHeadline}。`)
+  };
+}
+
+function hasEquivalentDuration(value = '', duration = '') {
+  if (!duration) return true;
+  const compact = String(value).replace(/\s+/g, '');
+  const normalizedDuration = duration.replace(/\s+/g, '');
+  const digit = normalizedDuration.match(/^(\d+)年$/)?.[1];
+  const digitToChinese = {
+    1: '一年',
+    2: '两年',
+    3: '三年',
+    4: '四年',
+    5: '五年',
+    6: '六年'
+  };
+  return compact.includes(normalizedDuration) || Boolean(digit && compact.includes(digitToChinese[digit]));
+}
+
+function hasEquivalentAmount(value = '', amount = '') {
+  if (!amount) return true;
+  return String(value).includes(amount) || String(value).includes(amount.replace(/\s+/g, ''));
+}
+
+function normalizeNewsItemText(item = {}) {
+  const forcedContractHeadline = item.isMerged ? getMergedContractUpgrade(item) : '';
+  const headlineZh = normalizeChineseText(forcedContractHeadline || item.headlineZh || '');
+  const titleZh = normalizeChineseText(forcedContractHeadline || item.titleZh || headlineZh);
+  const dekZh = normalizeChineseText(item.dekZh || '');
+  let summaryZh = normalizeChineseText(item.summaryZh || '');
+  const oneLineZh = normalizeChineseText(forcedContractHeadline || item.oneLineZh || headlineZh);
+  const goldenQuoteZh = normalizeChineseText(item.goldenQuoteZh || '');
+  if (forcedContractHeadline && !hasEquivalentAmount(summaryZh, getContractTermsFromText(forcedContractHeadline).amount)) {
+    summaryZh = normalizeChineseText(`${item.source ? `据 ${item.source} 报道，` : ''}${forcedContractHeadline}。`);
+  }
+  if (compactComparable(summaryZh) === compactComparable(headlineZh)) {
+    summaryZh = '';
+  }
+
+  return {
+    ...item,
+    headlineZh,
+    titleZh,
+    dekZh,
+    summaryZh,
+    oneLineZh,
+    goldenQuoteZh
+  };
+}
+
+function normalizeHighlightText(highlight = {}) {
+  return {
+    ...highlight,
+    text: normalizeChineseText(highlight.text || '')
+  };
+}
+
+function preparePayloadForWrite(payload = {}) {
+  const items = Array.isArray(payload.items)
+    ? payload.items.map(enrichMergedContractDetails).map(normalizeNewsItemText)
+    : payload.items;
+  const highlights = Array.isArray(items)
+    ? buildHighlights(items).map(normalizeHighlightText)
+    : toArray(payload.highlights).map(normalizeHighlightText);
+
+  return {
+    ...payload,
+    highlights,
+    items
+  };
+}
+
+function compactComparable(value = '') {
+  return normalizeChineseText(value)
+    .replace(/^据\s+.+?\s+报道，/, '')
+    .replace(/[。！？\s]/g, '')
+    .trim();
+}
+
+function getQualityReport(payload = {}) {
+  const items = toArray(payload.items);
+  const highlights = toArray(payload.highlights);
+  const textFields = items.flatMap((item) => [
+    ['headlineZh', item.headlineZh || '', item],
+    ['titleZh', item.titleZh || '', item],
+    ['dekZh', item.dekZh || '', item],
+    ['summaryZh', item.summaryZh || '', item],
+    ['oneLineZh', item.oneLineZh || '', item],
+    ['goldenQuoteZh', item.goldenQuoteZh || '', item]
+  ]);
+  const highlightFields = highlights.map((highlight) => ['highlight', highlight.text || '', highlight]);
+
+  const glued = [...textFields, ...highlightFields].filter(([, value]) => /[\u4e00-\u9fa5][A-Za-z]|[A-Za-z][\u4e00-\u9fa5]/.test(value));
+  const unspacedMoney = [...textFields, ...highlightFields].filter(([, value]) =>
+    /\d+(?:\.\d+)?(?:万|亿)美元|[\u4e00-\u9fa5]\d+(?:\.\d+)?\s*(?:万|亿)美元/.test(value)
+  );
+  const headlineRelated = items.filter((item) => /相关动态/.test(item.headlineZh || ''));
+  const headlineContinue = items.filter((item) => /继续更新/.test(item.headlineZh || ''));
+  const repeatedSummary = items.filter((item) => {
+    const headline = compactComparable(item.headlineZh || '');
+    const summary = compactComparable(item.summaryZh || '');
+    return headline && summary && (summary === headline || summary === `${headline}`);
+  });
+  const mergedMissingTerms = items.filter((item) => {
+    if (!item.isMerged) return false;
+    const titles = toArray(item.originalTitles).join(' ');
+    const terms = getContractTermsFromText(titles);
+    if (!terms.amount && !terms.duration) return false;
+    const combined = `${item.headlineZh || ''} ${item.summaryZh || ''}`;
+    const hasAmount = hasEquivalentAmount(combined, terms.amount);
+    const hasDuration = hasEquivalentDuration(combined, terms.duration);
+    return !hasAmount || !hasDuration;
+  });
+
+  return {
+    counts: {
+      gluedText: glued.length,
+      unspacedMoney: unspacedMoney.length,
+      headlineRelated: headlineRelated.length,
+      headlineContinue: headlineContinue.length,
+      repeatedSummary: repeatedSummary.length,
+      mergedMissingTerms: mergedMissingTerms.length
+    },
+    issues: {
+      glued,
+      unspacedMoney,
+      headlineRelated,
+      headlineContinue,
+      repeatedSummary,
+      mergedMissingTerms
+    }
+  };
+}
+
+function printQualityReport(payload = {}) {
+  const report = getQualityReport(payload);
+  console.log('News quality check:', JSON.stringify(report.counts, null, 2));
+
+  const issueEntries = Object.entries(report.issues).filter(([, values]) => values.length);
+  for (const [name, values] of issueEntries) {
+    console.warn(`Quality issue: ${name}`);
+    for (const issue of values.slice(0, 10)) {
+      if (Array.isArray(issue)) {
+        const [field, value, item] = issue;
+        console.warn(`- ${field}: ${value} (${item.originalTitle || item.id || item.text || 'unknown'})`);
+      } else {
+        console.warn(`- ${issue.headlineZh || issue.text || issue.id}: ${issue.originalTitle || toArray(issue.originalTitles).join(' | ')}`);
+      }
+    }
+  }
+
+  return report;
+}
+
 async function writePayload(payload) {
+  const normalizedPayload = preparePayloadForWrite(payload);
+  printQualityReport(normalizedPayload);
   await mkdir(path.dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+  await writeFile(outputPath, `${JSON.stringify(normalizedPayload, null, 2)}\n`, 'utf8');
 }
 
 async function rebuildFromExistingFeed() {
