@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-02T21:13:30.191Z",
+  "updatedAt": "2026-07-02T22:37:57.925Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-02T21:13:30.191Z",
-    "updatedAt": "2026-07-02T21:13:30.191Z",
+    "checkedAt": "2026-07-02T22:37:57.925Z",
+    "updatedAt": "2026-07-02T22:37:57.925Z",
     "fetchedItems": 79,
-    "mergedItems": 54,
+    "mergedItems": 56,
     "failedFeeds": [],
     "message": "Fetched 79 usable RSS items from all feeds."
   },
@@ -29,9 +29,9 @@
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286508/Anfernee-Simons-Sixers-Agree-To-Two-Year-$123M-Deal",
-      "text": "Anfernee Simons 与 76 人达成 2 年 1230 万美元合同",
+      "text": "Anfernee Simons 与 76 人达成两年，1230 万美元合同",
       "category": "签约",
-      "source": "RealGM / Yahoo Sports",
+      "source": "RealGM",
       "link": "https://basketball.realgm.com/wiretap/286508/Anfernee-Simons-Sixers-Agree-To-Two-Year-$123M-Deal"
     },
     {
@@ -57,6 +57,110 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/cavaliers-reacts-survey-fans-totally-222220439.html",
+      "title": "Cavaliers Reacts Survey: Fans are totally split on Evan Mobley",
+      "originalTitle": "Cavaliers Reacts Survey: Fans are totally split on Evan Mobley",
+      "headlineZh": "骑士 Reacts Survey 相关消息更新",
+      "titleZh": "骑士 Reacts Survey 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/cavaliers-reacts-survey-fans-totally-222220439.html",
+      "url": "https://sports.yahoo.com/articles/cavaliers-reacts-survey-fans-totally-222220439.html",
+      "pubDate": "2026-07-02T22:22:20.000Z",
+      "publishedAt": "2026-07-02T22:22:20.000Z",
+      "summary": "Cavs fans are split on Mobley’s potential.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦骑士 Reacts Survey 的最新动态和后续影响。",
+      "oneLineZh": "骑士 Reacts Survey 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/FMeZctzw3L.2OYAb8K_pGA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/43015fdc4c025ec00b0dd698885bd6bc",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Cavaliers Reacts Survey: Fans are totally split on Evan Mobley",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/report-dubs-not-top-lebron-220325923.html",
+      "title": "Report: Dubs not at the top of LeBron’s short list; Cavs remain in race",
+      "originalTitle": "Report: Dubs not at the top of LeBron’s short list; Cavs remain in race",
+      "headlineZh": "骑士休赛期后续动向",
+      "titleZh": "骑士休赛期后续动向",
+      "link": "https://sports.yahoo.com/articles/report-dubs-not-top-lebron-220325923.html",
+      "url": "https://sports.yahoo.com/articles/report-dubs-not-top-lebron-220325923.html",
+      "pubDate": "2026-07-02T22:03:25.000Z",
+      "publishedAt": "2026-07-02T22:03:25.000Z",
+      "summary": "The Warriors don’t feel like they are leading the race for LeBron. So, who is?",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "骑士休赛期后续动向",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/..eihLtZbLwYgitC8aZJCA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/cd481f3843ccaef59f081cf7d1bf5010",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Report: Dubs not at the top of LeBron’s short list; Cavs remain in race",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/nba/article/kyle-lowry-chafes-at-report-hes-retiring-after-20-nba-seasons-wait-for-the-word-to-come-from-me-215914675.html",
+      "title": "Kyle Lowry chafes at report he's retiring after 20 NBA seasons: 'Wait for the word to come from me'",
+      "originalTitle": "Kyle Lowry chafes at report he's retiring after 20 NBA seasons: 'Wait for the word to come from me'",
+      "headlineZh": "Kyle Lowry 相关消息更新",
+      "titleZh": "Kyle Lowry 相关消息更新",
+      "link": "https://sports.yahoo.com/nba/article/kyle-lowry-chafes-at-report-hes-retiring-after-20-nba-seasons-wait-for-the-word-to-come-from-me-215914675.html",
+      "url": "https://sports.yahoo.com/nba/article/kyle-lowry-chafes-at-report-hes-retiring-after-20-nba-seasons-wait-for-the-word-to-come-from-me-215914675.html",
+      "pubDate": "2026-07-02T21:59:14.000Z",
+      "publishedAt": "2026-07-02T21:59:14.000Z",
+      "summary": "Kyle Lowry will be done when he says he's done.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Kyle Lowry 的最新动态和后续影响。",
+      "oneLineZh": "Kyle Lowry 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Bmy0Pbuwk1X7rkhTs3OVwg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/571a8fb6-cd5d-4175-9c4e-8ea7b9d6d35a",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Kyle Lowry chafes at report he's retiring after 20 NBA seasons: 'Wait for the word to come from me'",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286512/Celtics-Negotiated-With-Giannis-Antetokounmpo-For-Extension-At-Less-Than-Full-Max",
+      "title": "Celtics Negotiated With Giannis Antetokounmpo For Extension At Less Than Full Max",
+      "originalTitle": "Celtics Negotiated With Giannis Antetokounmpo For Extension At Less Than Full Max",
+      "headlineZh": "Negotiated With Giannis 签约动向更新",
+      "titleZh": "Negotiated With Giannis 签约动向更新",
+      "link": "https://basketball.realgm.com/wiretap/286512/Celtics-Negotiated-With-Giannis-Antetokounmpo-For-Extension-At-Less-Than-Full-Max",
+      "url": "https://basketball.realgm.com/wiretap/286512/Celtics-Negotiated-With-Giannis-Antetokounmpo-For-Extension-At-Less-Than-Full-Max",
+      "pubDate": "2026-07-02T20:32:33.000Z",
+      "publishedAt": "2026-07-02T20:32:33.000Z",
+      "summary": "The Boston Celtics were close enough to a trade for Giannis Antetokounmpo where they held discussions with his camp on what his extension with the franchise would look like. While Antetokounmpo is eligible for an extension worth up to $275 million over four years, the Celtics hoped to sign him to a two-year extension at 30 percent of the cap. Antetokounmpo was seeking a three-year extension at 35 percent of the cap. Antetokounmpo was eventually traded by the Milwaukee Bucks to the Miami Heat instead of the Celtics. There have not been any indications on what type of contract extension he will ultimately sign with the Heat. Antetokounmpo will become eligible to officially sign an extension with the Heat in January. \"The Giannis to Boston thing was closer than I think people realize,\" said Bill Simmons. \"I still don't think Hugo [Gonzalez] was ever in the trade. \"But I do think it got to the point that Bucks had an arrangement with Giannis that-they weren't going to trade him without him signing off on it. And he didn't sign off on the Miami trade for a couple days there. And they were talking about extensions with the Celtics. And it came down to two years and 30 percent of the cap, or three years for 35. The Celtics were pretty entrenched at two for 30. And Giannis wanted the three for 35 and they couldn't agree on it. \"And that was when he green-lit the Miami trade and Miami threw in [Kasparas] Jakucionis. And that's when it happened.\"",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，Negotiated With Giannis 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Negotiated With Giannis 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Antetokounmpo_Giannis_mil_260504.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "trade:celtics-negotiated-with:celtics:heat",
+      "relatedItems": [],
+      "displayTitle": "Celtics Negotiated With Giannis Antetokounmpo For Extension At Less Than Full Max",
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/cavs-announce-2026-nba-summer-200000509.html",
       "title": "Cavs announce 2026 NBA Summer League roster",
@@ -133,6 +237,14 @@
       "eventKey": "trade:jaylen-brown:celtics:76ers",
       "relatedItems": [
         {
+          "title": "Jaylen Brown’s first statement since being traded to Sixers",
+          "originalTitle": "Jaylen Brown’s first statement since being traded to Sixers",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/jaylen-brown-first-statement-since-194612710.html",
+          "publishedAt": "2026-07-02T19:46:12.000Z",
+          "angle": "source"
+        },
+        {
           "title": "Jaylen Brown releases statement following shocking trade to Philadelphia",
           "originalTitle": "Jaylen Brown releases statement following shocking trade to Philadelphia",
           "source": "Yahoo Sports",
@@ -205,22 +317,6 @@
           "angle": "source"
         },
         {
-          "title": "Jaylen Brown trade: Celtics' concern over Twitch streams, comparison to Jayson Tatum may have played role in deal",
-          "originalTitle": "Jaylen Brown trade: Celtics' concern over Twitch streams, comparison to Jayson Tatum may have played role in deal",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/nba/article/jaylen-brown-trade-celtics-concern-over-twitch-streams-comparison-to-jayson-tatum-may-have-played-role-in-deal-142643312.html",
-          "publishedAt": "2026-07-02T14:26:43.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "The Celtics’ Jaylen Brown trade actually makes sense",
-          "originalTitle": "The Celtics’ Jaylen Brown trade actually makes sense",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/celtics-jaylen-brown-trade-actually-142425454.html",
-          "publishedAt": "2026-07-02T14:24:25.000Z",
-          "angle": "source"
-        },
-        {
           "title": "76ers Acquire Jaylen Brown From Celtics For Paul George, Two First Round Picks",
           "originalTitle": "76ers Acquire Jaylen Brown From Celtics For Paul George, Two First Round Picks",
           "source": "RealGM",
@@ -239,6 +335,7 @@
         "Celtics Not Motivated By Money Or Follow-Up Trade In Dealing Jaylen Brown",
         "Jaylen Brown Never Requested Trade; Celtics Didn't Expect Offers To Improve If They Waited",
         "76ers Acquire Jaylen Brown From Celtics For Paul George, Two First Round Picks",
+        "Jaylen Brown’s first statement since being traded to Sixers",
         "Jaylen Brown releases statement following shocking trade to Philadelphia",
         "Jaylen Brown releases statement after trade to 76ers, says he's 'excited and disappointed at the same time'",
         "Sixers free agency tracker: Sixers reportedly trade for Jaylen Brown; sign Anfernee Simons",
@@ -247,10 +344,7 @@
         "76ers Surge at Sportsbooks, Prediction Markets After Jaylen Brown Trade",
         "Is Jaylen Brown for Paul George the worst Celtics trade of all time?",
         "Celtics roster reset: Depth chart, contracts and more after Jaylen trade",
-        "Celtics ‘were done’ with Jaylen Brown before shocking 76ers trade",
-        "Jaylen Brown trade: Celtics' concern over Twitch streams, comparison to Jayson Tatum may have played role in deal",
-        "Jaylen Brown trade grades: Experts analyze Celtics-Sixers blockbuster",
-        "The Celtics’ Jaylen Brown trade actually makes sense"
+        "Celtics ‘were done’ with Jaylen Brown before shocking 76ers trade"
       ],
       "sourceLinks": [
         {
@@ -477,44 +571,27 @@
       "id": "https://basketball.realgm.com/wiretap/286508/Anfernee-Simons-Sixers-Agree-To-Two-Year-$123M-Deal",
       "title": "Anfernee Simons, Sixers Agree To Two-Year, $12.3M Deal",
       "originalTitle": "Anfernee Simons, Sixers Agree To Two-Year, $12.3M Deal",
-      "headlineZh": "Anfernee Simons 与 76 人达成 2 年 1230 万美元合同",
-      "titleZh": "Anfernee Simons 与 76 人达成 2 年 1230 万美元合同",
+      "headlineZh": "Anfernee Simons 与 76 人达成两年，1230 万美元合同",
+      "titleZh": "Anfernee Simons 与 76 人达成两年，1230 万美元合同",
       "link": "https://basketball.realgm.com/wiretap/286508/Anfernee-Simons-Sixers-Agree-To-Two-Year-$123M-Deal",
       "url": "https://basketball.realgm.com/wiretap/286508/Anfernee-Simons-Sixers-Agree-To-Two-Year-$123M-Deal",
       "pubDate": "2026-07-02T18:34:33.000Z",
       "publishedAt": "2026-07-02T18:34:33.000Z",
       "summary": "Anfernee Simons and the Philadelphia 76ers have agreed to a two-year, $12.3 million contract. Simons will hold a player option for Year 2 of the contract. Simons received interest from the Golden State Warriors, Miami Heat, Dallas Mavericks, Boston Celtics and others. The 76ers' signing of Simons follows their trade with the Boston Celtics for Jaylen Brown.",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Anfernee Simons 与 76 人达成两年，1230 万美元合同。",
-      "oneLineZh": "Anfernee Simons 与 76 人达成 2 年 1230 万美元合同",
+      "summaryZh": "据 RealGM 报道，Anfernee Simons 与 76 人达成两年，1230 万美元合同，原文关注 Anfernee Simons 的合同或自由市场动向。",
+      "oneLineZh": "Anfernee Simons 与 76 人达成两年，1230 万美元合同",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Simons_Anfernee_chi_260225.jpg",
-      "source": "RealGM / Yahoo Sports",
+      "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
       "importance": 5,
-      "sources": [
-        "RealGM",
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286508/Anfernee-Simons-Sixers-Agree-To-Two-Year-$123M-Deal"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/sixers-grab-guard-free-agency-144319805.html"
-        }
-      ],
-      "originalTitles": [
-        "Anfernee Simons, Sixers Agree To Two-Year, $12.3M Deal"
-      ],
-      "isMerged": false,
       "eventKey": "sign:anfernee-simons:sixers:2:1230",
       "relatedItems": [],
-      "displayTitle": "Anfernee Simons 与 76 人达成 2 年 1230 万美元合同"
+      "displayTitle": "Anfernee Simons 与 76 人达成两年，1230 万美元合同",
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/nba/article/nba-free-agency-2026-early-winners-and-losers-including-lebron-james-the-celtics-and-unpredictable-star-guards-182704098.html",
@@ -645,6 +722,58 @@
       "relatedItems": [],
       "displayTitle": "NBA free agency: The most notable July 4 transactions in league history as teams wait on LeBron James",
       "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/crucifying-california-taxes-carve-walker-174233749.html",
+      "title": "Crucifying California taxes carve up Walker Kessler’s $130M Lakers pay",
+      "originalTitle": "Crucifying California taxes carve up Walker Kessler’s $130M Lakers pay",
+      "headlineZh": "Crucifying 加州相关消息更新",
+      "titleZh": "Crucifying 加州相关消息更新",
+      "link": "https://sports.yahoo.com/articles/crucifying-california-taxes-carve-walker-174233749.html",
+      "url": "https://sports.yahoo.com/articles/crucifying-california-taxes-carve-walker-174233749.html",
+      "pubDate": "2026-07-02T17:42:33.000Z",
+      "publishedAt": "2026-07-02T17:42:33.000Z",
+      "summary": "Kessler accepted Los Angeles' four-year, $130 million contract over the five-year, $140 million offered by the Jazz.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Crucifying 加州的最新动态和后续影响。",
+      "oneLineZh": "Crucifying 加州相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/lo/mysterio/api/CD165AAE94F5F98769803CF83D2B79F7F0B783417BF1303E6D2CCC07EEF3FCB9/subgraphmysterio/resizefill_w1200_h800;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Faol_ny_post_sports_articles_402%2Fac3916cccdeac2ba417166ae7dc5a632",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "trade:walker-kessler:jazz:lakers",
+      "relatedItems": [
+        {
+          "title": "The Lakers used their leverage to finally land Walker Kessler from Jazz",
+          "originalTitle": "The Lakers used their leverage to finally land Walker Kessler from Jazz",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/lakers-used-leverage-finally-land-192416186.html",
+          "publishedAt": "2026-07-02T19:24:16.000Z",
+          "angle": "source"
+        }
+      ],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "The Lakers used their leverage to finally land Walker Kessler from Jazz",
+        "Crucifying California taxes carve up Walker Kessler’s $130M Lakers pay"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lakers-used-leverage-finally-land-192416186.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/crucifying-california-taxes-carve-walker-174233749.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "Crucifying California taxes carve up Walker Kessler’s $130M Lakers pay"
     },
     {
       "id": "https://sports.yahoo.com/articles/brooklyn-nets-2026-summer-league-173227528.html",
@@ -1167,58 +1296,6 @@
       "displayTitle": "LeBron James Has No Timetable For Making Free Agency Decision"
     },
     {
-      "id": "https://sports.yahoo.com/articles/goodbye-unc-tobias-harris-pistons-141323733.html",
-      "title": "Goodbye, Unc: Tobias Harris’ Pistons legacy will live on",
-      "originalTitle": "Goodbye, Unc: Tobias Harris’ Pistons legacy will live on",
-      "headlineZh": "Tobias Harris 相关消息更新",
-      "titleZh": "Tobias Harris 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/goodbye-unc-tobias-harris-pistons-141323733.html",
-      "url": "https://sports.yahoo.com/articles/goodbye-unc-tobias-harris-pistons-141323733.html",
-      "pubDate": "2026-07-02T14:13:23.000Z",
-      "publishedAt": "2026-07-02T14:13:23.000Z",
-      "summary": "Goodbye, Tobias Harris. You will certainly be missed. While Jalen Duren’s restricted free agency has sucked up most of the oxygen this offseason, and the rumor mill was stuffed full of potential trades for star players that are unlikely to come to fruition, when I have talked to people who really know the team well, […]",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Tobias Harris 的最新动态和后续影响。",
-      "oneLineZh": "Tobias Harris 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Vigp5bTA.h.Ia2S5SddX.Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/3709800f48d83dcefab0ab8489df5a7f",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 2,
-      "eventKey": "trade:tobias-harris",
-      "relatedItems": [],
-      "displayTitle": "Goodbye, Unc: Tobias Harris’ Pistons legacy will live on",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/rob-pelinka-lakers-overhaul-cannot-140000577.html",
-      "title": "Rob Pelinka’s Lakers overhaul cannot be another Hollywood flop",
-      "originalTitle": "Rob Pelinka’s Lakers overhaul cannot be another Hollywood flop",
-      "headlineZh": "Rob Pelinka 相关消息更新",
-      "titleZh": "Rob Pelinka 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/rob-pelinka-lakers-overhaul-cannot-140000577.html",
-      "url": "https://sports.yahoo.com/articles/rob-pelinka-lakers-overhaul-cannot-140000577.html",
-      "pubDate": "2026-07-02T14:00:00.000Z",
-      "publishedAt": "2026-07-02T14:00:00.000Z",
-      "summary": "Rob Pelinka, this is what you planned for.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Rob Pelinka 的最新动态和后续影响。",
-      "oneLineZh": "Rob Pelinka 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/j3vCpMZVKBwHKOMFZmDZlg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/a89ac39f141ee966ee5dbab55bb3bd79",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Rob Pelinka’s Lakers overhaul cannot be another Hollywood flop",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286497/Kings-Sign-Emanuel-Sharp-Adam-Flagler",
       "title": "Kings Sign Emanuel Sharp, Adam Flagler",
       "originalTitle": "Kings Sign Emanuel Sharp, Adam Flagler",
@@ -1610,32 +1687,6 @@
       "eventKey": "sign:alijah-martin:raptors:2:480",
       "relatedItems": [],
       "displayTitle": "Alijah Martin 与猛龙达成两年，480 万美元合同",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286472/DeAnthony-Melton-Warriors-Agree-To-Two-Year-$11M-Deal",
-      "title": "De'Anthony Melton, Warriors Agree To Two-Year, $11M Deal",
-      "originalTitle": "De'Anthony Melton, Warriors Agree To Two-Year, $11M Deal",
-      "headlineZh": "De'Anthony Melton 与勇士达成两年，1100 万美元合同",
-      "titleZh": "De'Anthony Melton 与勇士达成两年，1100 万美元合同",
-      "link": "https://basketball.realgm.com/wiretap/286472/DeAnthony-Melton-Warriors-Agree-To-Two-Year-$11M-Deal",
-      "url": "https://basketball.realgm.com/wiretap/286472/DeAnthony-Melton-Warriors-Agree-To-Two-Year-$11M-Deal",
-      "pubDate": "2026-07-01T16:30:42.000Z",
-      "publishedAt": "2026-07-01T16:30:42.000Z",
-      "summary": "The Golden State Warriors and De'Anthony Melton have agreed to a two-year, $11 million deal with a player option in Year 2. Melton appeared in 49 games with the Warriors last season after returning from a torn ACL, averaging 12.3 points, 3.2 rebounds, 2.6 assists and 1.6 steals in 23.0 minutes. Melton is represented by Joe Smith , Thaddeus Foucher and Aaron Klevan .",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，De'Anthony Melton 与勇士达成两年，1100 万美元合同，原文关注 De'Anthony Melton 的合同或自由市场动向。",
-      "oneLineZh": "De'Anthony Melton 与勇士达成两年，1100 万美元合同",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Melton_Deanthony_gsw_241028.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 5,
-      "eventKey": "sign:de-anthony-melton:warriors:2:1100",
-      "relatedItems": [],
-      "displayTitle": "De'Anthony Melton 与勇士达成两年，1100 万美元合同",
       "isMerged": false
     }
   ]
