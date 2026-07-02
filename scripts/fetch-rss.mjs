@@ -121,6 +121,7 @@ function toArray(value) {
 function classify(title = '', summary = '') {
   const titleText = String(title).toLowerCase();
   const text = `${title} ${summary}`.toLowerCase();
+  if (isOddsArticle(title, summary)) return '\u5176\u4ed6';
   const hasSigningSignal = /\b(signs?|signed|signing|agree(?:s|d)? to (?:a )?(?:one|two|three|four|five|\d+)[-\s]+year|agree(?:s|d)? to .+?(?:deal|contract)|contract|extension|multi[-\s]+year contract|(?:one|two|three|four|five|\d+)[-\s]+year,?\s*\$\d+(?:\.\d+)?m deal)\b/i.test(titleText);
   const hasTradeSignal = /\b(acquire|acquired|traded|trade|trading|lands? in deal|sent to|for .*picks?|for .*first[-\s]+round)\b/i.test(titleText);
 
@@ -143,10 +144,22 @@ function classify(title = '', summary = '') {
   return rules.find(([, keywords]) => keywords.some((keyword) => text.includes(keyword)))?.[0] || '其他';
 }
 
+function isOddsArticle(...values) {
+  const text = values.map((value) => String(value || '')).join(' ');
+  return /\b(?:odds|championship odds|title contenders)\b|争冠赔率|冠军赔率/i.test(text);
+}
+
 function normalizeSpacing(value = '') {
-  return String(value)
+  return normalizeWhitespace(value)
     .replace(/\s+([，。！？：；、])/g, '$1')
     .replace(/([，。！？：；、])\s+/g, '$1')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function normalizeWhitespace(value = '') {
+  return String(value ?? '')
+    .replace(/[\n\r\t]+/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -2234,7 +2247,7 @@ function parseExistingPayload(existingFeed) {
 function normalizeChineseText(text = '') {
   if (text === null || text === undefined) return '';
 
-  return String(text)
+  return normalizeWhitespace(text)
     .replace(/\bFantasy Fallout:\s*/gi, '')
     .replace(/\bFantasy Fallout\b/gi, '')
     .replace(/\bTrade Grades:\s*/gi, '')
@@ -2464,7 +2477,8 @@ function normalizeNewsItemText(item = {}) {
 
   return {
     ...item,
-    displayTitle,
+    originalTitle: normalizeWhitespace(item.originalTitle || item.title || ''),
+    displayTitle: normalizeWhitespace(displayTitle),
     headlineZh,
     titleZh,
     dekZh,
@@ -2564,6 +2578,26 @@ function getQualityReport(payload = {}) {
       !(item.summaryZh || '').trim()
   );
   const allTextRecords = [...textFields, ...highlightFields];
+  const titleWhitespaceRecords = [
+    ...items.map((item) => ['originalTitle', item.originalTitle || '', item]),
+    ...textFields,
+    ...highlightFields
+  ];
+  const titleContainsNewline = titleWhitespaceRecords.filter(([field, value]) =>
+    ['originalTitle', 'displayTitle', 'headlineZh', 'titleZh', 'oneLineZh', 'dekZh', 'goldenQuoteZh', 'highlight'].includes(field) &&
+    /[\n\r\t]/.test(value)
+  );
+  const summaryContainsNewline = textFields.filter(([field, value]) =>
+    field === 'summaryZh' && /[\n\r\t]/.test(value)
+  );
+  const oddsMisclassifiedAsSigning = items.filter((item) =>
+    item.category === '\u7b7e\u7ea6' &&
+    isOddsArticle(item.originalTitle || item.title || '', item.displayTitle || '', item.summaryZh || '')
+  );
+  const oddsMisclassifiedAsTrade = items.filter((item) =>
+    item.category === '\u4ea4\u6613' &&
+    isOddsArticle(item.originalTitle || item.title || '', item.displayTitle || '', item.summaryZh || '')
+  );
   const containsFantasyFallout = allTextRecords.filter(([, value]) => /Fantasy Fallout/i.test(value));
   const containsTradeGrades = allTextRecords.filter(([, value]) => /Trade Grades|trade grades/i.test(value));
   const containsChampionshipOdds = allTextRecords.filter(([, value]) => /NBA Championship Odds|Championship Odds/i.test(value));
@@ -2637,6 +2671,10 @@ function getQualityReport(payload = {}) {
       originalTitleHasTradeButGenericHeadline: originalTitleHasTradeButGenericHeadline.length,
       originalTitleHasContractButGenericHeadline: originalTitleHasContractButGenericHeadline.length,
       originalTitleHasPlayerButSummaryEmpty: originalTitleHasPlayerButSummaryEmpty.length,
+      titleContainsNewline: titleContainsNewline.length,
+      summaryContainsNewline: summaryContainsNewline.length,
+      oddsMisclassifiedAsSigning: oddsMisclassifiedAsSigning.length,
+      oddsMisclassifiedAsTrade: oddsMisclassifiedAsTrade.length,
       containsFantasyFallout: containsFantasyFallout.length,
       containsTradeGrades: containsTradeGrades.length,
       containsChampionshipOdds: containsChampionshipOdds.length,
@@ -2678,6 +2716,10 @@ function getQualityReport(payload = {}) {
       originalTitleHasTradeButGenericHeadline,
       originalTitleHasContractButGenericHeadline,
       originalTitleHasPlayerButSummaryEmpty,
+      titleContainsNewline,
+      summaryContainsNewline,
+      oddsMisclassifiedAsSigning,
+      oddsMisclassifiedAsTrade,
       containsFantasyFallout,
       containsTradeGrades,
       containsChampionshipOdds,
@@ -3018,6 +3060,9 @@ function getEventAction(value = '', category = '') {
 function correctCategory(item = {}) {
   const text = `${item.originalTitle || item.title || ''} ${item.summary || ''} ${item.headlineZh || ''} ${item.summaryZh || ''}`;
   const titleText = `${item.originalTitle || item.title || ''} ${item.headlineZh || ''}`;
+  if (isOddsArticle(item.originalTitle || item.title || '', item.displayTitle || '', item.summaryZh || '', item.summary || '', item.headlineZh || '')) {
+    return '\u5176\u4ed6';
+  }
   const hasTitleSigning = /\b(signs?|signed|signing|contract|extension|re-sign|agrees? to .+?(?:deal|contract)|guarantee|multi[-\s]+year contract|(?:one|two|three|four|five|\d+)[-\s]+year,?\s*\$\d+(?:\.\d+)?m deal)\b|签下|续约|合同|达成.+合同/i.test(titleText);
   const hasTitleTrade = /\b(acquire|acquired|traded|trade|trading|lands? in deal|sent to|for .*picks?)\b|送出|换回|交易至|得到.+送出/i.test(titleText);
   const hasTrade = /\b(acquire|acquired|traded|trade|trading|lands? in deal|sent to)\b|送出|换回|交易至|得到.+送出|首轮签|次轮签/i.test(text);

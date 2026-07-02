@@ -12,7 +12,7 @@
   "updatedAt": "2026-07-02T04:42:03.641Z",
   "lastFetchStatus": {
     "status": "rebuilt-from-cache",
-    "checkedAt": "2026-07-02T08:09:09.466Z",
+    "checkedAt": "2026-07-02T08:13:01.878Z",
     "updatedAt": "2026-07-02T04:42:03.641Z",
     "fetchedItems": 0,
     "mergedItems": 51,
@@ -154,7 +154,7 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/t.TgZ_mGwhATbnmF0lHm0w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/45e2de1652ab4854f57b07ce93b1f961",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
+      "category": "其他",
       "importance": 2,
       "eventKey": "",
       "relatedItems": [],
