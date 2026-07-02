@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-02T11:09:31.472Z",
+  "updatedAt": "2026-07-02T13:18:54.144Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-02T11:09:31.472Z",
-    "updatedAt": "2026-07-02T11:09:31.472Z",
+    "checkedAt": "2026-07-02T13:18:54.144Z",
+    "updatedAt": "2026-07-02T13:18:54.144Z",
     "fetchedItems": 80,
-    "mergedItems": 52,
+    "mergedItems": 56,
     "failedFeeds": [],
     "message": "Fetched 80 usable RSS items from all feeds."
   },
@@ -57,6 +57,110 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/nba-free-agency-live-updates-114156873.html",
+      "title": "NBA free agency LIVE updates: LeBron James rumors, trades and more",
+      "originalTitle": "NBA free agency LIVE updates: LeBron James rumors, trades and more",
+      "headlineZh": "LeBron James 交易影响继续发酵",
+      "titleZh": "LeBron James 交易影响继续发酵",
+      "link": "https://sports.yahoo.com/articles/nba-free-agency-live-updates-114156873.html",
+      "url": "https://sports.yahoo.com/articles/nba-free-agency-live-updates-114156873.html",
+      "pubDate": "2026-07-02T11:41:56.000Z",
+      "publishedAt": "2026-07-02T11:41:56.000Z",
+      "summary": "The wait for LeBron James continues as the rest of the NBA’s free agents continue to negotiate and secure a place to play for the upcoming season.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，LeBron James 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "LeBron James 交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/D8quybv0BbeEwh_zqUIJkQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/7523373eb4c2161a8fa4eab62ea5deac",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 4,
+      "eventKey": "trade:lebron-james",
+      "relatedItems": [],
+      "displayTitle": "LeBron James 交易影响继续发酵",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/open-thread-spurs-host-forums-110000143.html",
+      "title": "Open Thread: Spurs to host forums addressing new arena",
+      "originalTitle": "Open Thread: Spurs to host forums addressing new arena",
+      "headlineZh": "Open Thread 相关消息更新",
+      "titleZh": "Open Thread 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/open-thread-spurs-host-forums-110000143.html",
+      "url": "https://sports.yahoo.com/articles/open-thread-spurs-host-forums-110000143.html",
+      "pubDate": "2026-07-02T11:00:00.000Z",
+      "publishedAt": "2026-07-02T11:00:00.000Z",
+      "summary": "Ten community conversations invite residents to share ideas on the downtown arena district",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Open Thread 的最新动态和后续影响。",
+      "oneLineZh": "Open Thread 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/JUMYWzR9p55zm6_ITiNJbg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/c292c1822c55e851f28c4ea971bb33cf",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Open Thread: Spurs to host forums addressing new arena",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/nba-free-agency-2026-day-100000390.html",
+      "title": "NBA Free Agency 2026 Day 3 discussion",
+      "originalTitle": "NBA Free Agency 2026 Day 3 discussion",
+      "headlineZh": "自由市场签约动向更新",
+      "titleZh": "自由市场签约动向更新",
+      "link": "https://sports.yahoo.com/articles/nba-free-agency-2026-day-100000390.html",
+      "url": "https://sports.yahoo.com/articles/nba-free-agency-2026-day-100000390.html",
+      "pubDate": "2026-07-02T10:00:00.000Z",
+      "publishedAt": "2026-07-02T10:00:00.000Z",
+      "summary": "Good morning folks. It’s Thursday, July 2 and the third day of free agency. Jamir Watkins is back on a two-way deal. And Gabe Vincent is rumored to be one of the Wizards’ targets. Things can change at a moment’s notice. I’m writing this at 8:30 p.m. ET on Wednesday, and if things drastically change, […]",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，签约动态：NBA 自由市场 2026 Day 3 discussion。",
+      "oneLineZh": "自由市场签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/EKOoRIUQmUa4cTbcg4PMgw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05NjA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/74ab0a07c8c86fb4bd369228ac2e30bb",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:free-agency",
+      "relatedItems": [],
+      "displayTitle": "NBA Free Agency 2026 Day 3 discussion",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/years-evading-rumors-ve-finally-092500194.html",
+      "title": "After years of evading rumors, we’ve finally seen the trade to end the Jays Era",
+      "originalTitle": "After years of evading rumors, we’ve finally seen the trade to end the Jays Era",
+      "headlineZh": "Jays Era 交易影响继续发酵",
+      "titleZh": "Jays Era 交易影响继续发酵",
+      "link": "https://sports.yahoo.com/articles/years-evading-rumors-ve-finally-092500194.html",
+      "url": "https://sports.yahoo.com/articles/years-evading-rumors-ve-finally-092500194.html",
+      "pubDate": "2026-07-02T09:25:00.000Z",
+      "publishedAt": "2026-07-02T09:25:00.000Z",
+      "summary": "Welcome to a new era of Celtics basketball.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Jays Era 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "Jays Era 交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/eD.3g88IK0pKzv7iA4YdAw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xMjAwO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/8367c5b0c8437fb253d68e1984e7d00b",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 4,
+      "eventKey": "trade:jays-era:celtics",
+      "relatedItems": [],
+      "displayTitle": "Jays Era 交易影响继续发酵",
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/paul-george-still-good-084500144.html",
       "title": "Paul George is (still) good",
@@ -470,24 +574,8 @@
       "importance": 2,
       "eventKey": "sign:lebron-james:lakers",
       "relatedItems": [],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "LeBron James has no ‘real plan’ after leaving Lakers, NBA analyst says"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-went-hometown-tinseltown-224024470.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-no-real-plan-011400631.html"
-        }
-      ],
-      "isMerged": false,
-      "displayTitle": "LeBron James has no ‘real plan’ after leaving Lakers, NBA analyst says"
+      "displayTitle": "LeBron James has no ‘real plan’ after leaving Lakers, NBA analyst says",
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/sixers-next-reported-target-lebron-010827194.html",
@@ -952,14 +1040,6 @@
           "angle": "report"
         },
         {
-          "title": "Fantasy Fallout: Celtics reportedly trade Jaylen Brown to Philadelphia for Paul George, picks",
-          "originalTitle": "Fantasy Fallout: Celtics reportedly trade Jaylen Brown to Philadelphia for Paul George, picks",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/fantasy-fallout-celtics-reportedly-trade-224933279.html",
-          "publishedAt": "2026-07-01T22:49:33.000Z",
-          "angle": "fantasy"
-        },
-        {
           "title": "Jaylen Brown Not Seeking Trade As Celtics Motivated To Find Deal",
           "originalTitle": "Jaylen Brown Not Seeking Trade As Celtics Motivated To Find Deal",
           "source": "RealGM",
@@ -993,10 +1073,8 @@
         "Jaylen Brown traded to 76ers: Basketball world, including Tyrese Maxey, reacts after jaw-dropping Celtics deal",
         "Jaylen Brown reportedly traded from Celtics to 76ers: Ripple effect will alter fantasy basketball landscape",
         "Jaylen Brown trade grades: Clear winner in seismic deal between Celtics and 76ers",
-        "Jaylen Brown trade grades for 76ers, Celtics blockbuster as Boston sells low on superstar",
         "Did the Celtics give away Jaylen Brown? Why 'analytics' don't see Philly's new star as elite of elite",
-        "In a stunning move, Celtics reportedly trade Jaylen Brown to 76ers for Paul George, two first-round picks",
-        "Fantasy Fallout: Celtics reportedly trade Jaylen Brown to Philadelphia for Paul George, picks"
+        "In a stunning move, Celtics reportedly trade Jaylen Brown to 76ers for Paul George, two first-round picks"
       ],
       "sourceLinks": [
         {
@@ -1201,44 +1279,27 @@
       "id": "https://basketball.realgm.com/wiretap/286478/Moe-Wagner-Nets-Agree-To-Two-Year-$19M-Deal",
       "title": "Moe Wagner, Nets Agree To Two-Year, $19M Deal",
       "originalTitle": "Moe Wagner, Nets Agree To Two-Year, $19M Deal",
-      "headlineZh": "Moe Wagner 与篮网达成 2 年 1900 万美元合同",
-      "titleZh": "Moe Wagner 与篮网达成 2 年 1900 万美元合同",
+      "headlineZh": "Moe Wagner 与篮网达成两年，1900 万美元合同",
+      "titleZh": "Moe Wagner 与篮网达成两年，1900 万美元合同",
       "link": "https://basketball.realgm.com/wiretap/286478/Moe-Wagner-Nets-Agree-To-Two-Year-$19M-Deal",
       "url": "https://basketball.realgm.com/wiretap/286478/Moe-Wagner-Nets-Agree-To-Two-Year-$19M-Deal",
       "pubDate": "2026-07-01T18:29:46.000Z",
       "publishedAt": "2026-07-01T18:29:46.000Z",
       "summary": "Moe Wagner and the Brooklyn Nets have agreed to a two-year, $19 million deal. The deal contains a clause where either side can opt-in to the second season of the contract. Wagner appeared in 36 games last season with the Orlando Magic returning from a torn ACL and averaged 6.9 points and 3.2 rebounds in 11.9 minutes. Wagner will be playing in his age-29 season.",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Moe Wagner 与篮网达成两年，1900 万美元合同。",
-      "oneLineZh": "Moe Wagner 与篮网达成 2 年 1900 万美元合同",
+      "summaryZh": "据 RealGM 报道，Moe Wagner 与篮网达成两年，1900 万美元合同，原文关注 Moe Wagner 的合同或自由市场动向。",
+      "oneLineZh": "Moe Wagner 与篮网达成两年，1900 万美元合同",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Wagner_Mo_orl_210527.jpg",
-      "source": "RealGM / Yahoo Sports",
+      "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
       "importance": 5,
       "eventKey": "sign:moe-wagner:nets:2:1900",
       "relatedItems": [],
-      "sources": [
-        "RealGM",
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Moe Wagner, Nets Agree To Two-Year, $19M Deal"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286478/Moe-Wagner-Nets-Agree-To-Two-Year-$19M-Deal"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/nets-sign-moe-wagner-19-225343022.html"
-        }
-      ],
-      "isMerged": false,
-      "displayTitle": "Moe Wagner 与篮网达成 2 年 1900 万美元合同"
+      "displayTitle": "Moe Wagner 与篮网达成两年，1900 万美元合同",
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286477/Jamir-Watkins-Wizards-Agree-To-Two-Way-Deal",
@@ -1450,6 +1511,14 @@
       "eventKey": "trade:walker-kessler:jazz:lakers",
       "relatedItems": [
         {
+          "title": "Ranking the Lakers’ place in NBA championship race after Walker Kessler trade, FA moves",
+          "originalTitle": "Ranking the Lakers’ place in NBA championship race after Walker Kessler trade, FA moves",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/ranking-lakers-place-nba-championship-120000083.html",
+          "publishedAt": "2026-07-02T12:00:00.000Z",
+          "angle": "source"
+        },
+        {
           "title": "Lakers push all their chips into middle with Walker Kessler trade, Reaves, free agent moves",
           "originalTitle": "Lakers push all their chips into middle with Walker Kessler trade, Reaves, free agent moves",
           "source": "Yahoo Sports",
@@ -1472,6 +1541,7 @@
       ],
       "originalTitles": [
         "Walker Kessler From Jazz To Lakers In Four-Year, $130M Sign-And-Trade For Two FRPs, Two Swaps",
+        "Ranking the Lakers’ place in NBA championship race after Walker Kessler trade, FA moves",
         "Lakers push all their chips into middle with Walker Kessler trade, Reaves, free agent moves",
         "Lakers fans will love this Walker Kessler stat"
       ],
@@ -1479,6 +1549,10 @@
         {
           "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286467/Walker-Kessler-From-Jazz-To-Lakers-In-Four-Year-$130M-Sign-And-Trade-For-Two-FRPs-Two-Swaps"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/ranking-lakers-place-nba-championship-120000083.html"
         },
         {
           "source": "Yahoo Sports",
