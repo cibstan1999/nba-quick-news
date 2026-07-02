@@ -396,8 +396,8 @@ function localizeCommonTerms(value = '') {
     .replace(/\bfive year\b/gi, '五年')
     .replace(/\beight\b/gi, '八')
     .replace(/\b(\d+)-year\b/gi, (_, years) => `${years}年`)
-    .replace(/\$(\d+(?:\.\d+)?)M\b/g, (_, amount) => `${Number(amount) * 100}万美元`)
-    .replace(/\$(\d+(?:\.\d+)?) million\b/gi, (_, amount) => `${Number(amount) * 100}万美元`)
+    .replace(/\$(\d+(?:\.\d+)?)M\b/g, (_, amount) => `${Math.round(Number(amount) * 100)}万美元`)
+    .replace(/\$(\d+(?:\.\d+)?) million\b/gi, (_, amount) => `${Math.round(Number(amount) * 100)}万美元`)
     .replace(/\bpoints\b/gi, '分')
     .replace(/\brebounds\b/gi, '篮板')
     .replace(/\bassists\b/gi, '助攻')
@@ -412,6 +412,9 @@ function localizeCommonTerms(value = '') {
     .replace(/\bplayoff games\b/gi, '季后赛')
     .replace(/\bregular season games\b/gi, '常规赛')
     .replace(/\bfree agency\b/gi, '自由市场')
+    .replace(/\brookie\b/gi, '新秀')
+    .replace(/\btwo-way\b/gi, '双向')
+    .replace(/\btwo way\b/gi, '双向')
     .replace(/\bfrontcourt\b/gi, '前场')
     .replace(/\bbackcourt\b/gi, '后场')
     .replace(/\bcenter position\b/gi, '中锋位置')
@@ -929,6 +932,11 @@ function summarizeFactSentence(sentence = '') {
     return `${localizeCommonTerms(leavingFranchiseMatch[1])}已在${localizeCommonTerms(leavingFranchiseMatch[3])}通知${localizeCommonTerms(leavingFranchiseMatch[2])}，自己将在自由市场离队。`;
   }
 
+  const teamSignedPlayerDealMatch = original.match(/^(?:The )?(.+?) have signed (.+?) to an? (.+?) deal\.$/i);
+  if (teamSignedPlayerDealMatch) {
+    return `${localizeCommonTerms(teamSignedPlayerDealMatch[1])}签下${localizeCommonTerms(teamSignedPlayerDealMatch[2])}，合同为${contractAmount(teamSignedPlayerDealMatch[3])}。`;
+  }
+
   return '';
 }
 
@@ -1291,6 +1299,354 @@ function deTemplateHeadline(headlineZh = '') {
   return normalizeChineseText(`${subject}${body}`);
 }
 
+function isGenericHeadline(text = '') {
+  const value = normalizeChineseText(text);
+  if (!value) return true;
+  if (/(交易与阵容调整|自由市场与合同动向|休赛期后续动向|后续动向|阵容调整|合同动向|相关交易|相关签约)$/.test(value)) {
+    return true;
+  }
+
+  const hasFact =
+    /\b[A-Z][A-Za-z.'-]+(?:\s+[A-Z][A-Za-z.'-]+)+\b/.test(value) ||
+    /\d+\s*(?:年|万美元|亿美元|首轮|次轮|顺位)/.test(value) ||
+    /(交易至|得到|送出|换来|签下|续约|会面|伤病|受伤|手术|首轮签|次轮签|选秀权|薪资空间|下家|目标|候选)/.test(value);
+  return !hasFact && /(交易|签约|合同|自由市场|休赛期|阵容)/.test(value);
+}
+
+function localizeDraftAssets(value = '') {
+  return localizeCommonTerms(value)
+    .replace(/\bFRPs\b/gi, '首轮签')
+    .replace(/\btwo FRPs\b/gi, '两个首轮签')
+    .replace(/\btwo swaps\b/gi, '两次选秀权互换')
+    .replace(/\btwo first[-\s]+round picks\b/gi, '两个首轮签')
+    .replace(/\btwo second[-\s]+round picks\b/gi, '两个次轮签')
+    .replace(/\btwo future second[-\s]+round picks\b/gi, '两个未来次轮签')
+    .replace(/\ba protected (\d{4}) first round pick via (?:the )?(.+?)$/i, (_, year, team) => `一个来自${localizeCommonTerms(team)}的受保护 ${year} 年首轮签`)
+    .replace(/\bprotected (\d{4}) pick via (?:the )?(.+?)$/i, (_, year, team) => `一个来自${localizeCommonTerms(team)}的受保护 ${year} 年选秀权`)
+    .replace(/\bprotected (\d{4}) first round pick via (?:the )?(.+?)$/i, (_, year, team) => `一个来自${localizeCommonTerms(team)}的受保护 ${year} 年首轮签`)
+    .replace(/\b(\d{4}) first round pick\b/gi, '$1 年首轮签')
+    .replace(/\bfirst round picks?\b/gi, '首轮签')
+    .replace(/\bsecond round picks?\b/gi, '次轮签')
+    .replace(/\bpicks?\b/gi, '选秀权');
+}
+
+function getTitlePerson(value = '') {
+  const withoutTeams = String(value)
+    .replace(/\b(?:NBA|Cavs|C's|Celtics|Sixers|76ers|Lakers|Mavericks|Warriors|Rockets|Suns|Pacers|Pistons|Spurs|Jazz|Grizzlies|Kings)\b/g, '')
+    .replace(/\b(?:Fantasy Fallout|Report|Grading|Where|Does|Daily Links)\b/g, '');
+  return withoutTeams.match(/\b[A-Z][A-Za-z.'-]+(?:\s+[A-Z][A-Za-z.'-]+){1,2}\b/)?.[0] || '';
+}
+
+function joinAssets(value = '') {
+  return String(value)
+    .split(/\s*,\s*|\s+and\s+/i)
+    .map((asset) => localizeDraftAssets(asset.trim()))
+    .filter(Boolean)
+    .join('、');
+}
+
+function stripArticleLead(value = '') {
+  return String(value).replace(/^(?:In a stunning move,\s*)?(?:The\s+)?/i, '').trim();
+}
+
+function extractFactFromEnglish({ title = '', summary = '', source = '' } = {}) {
+  const cleanTitle = stripSourcePhrases(stripArticleLead(title));
+  const cleanSummary = stripHtml(summary);
+
+  const summarySignedDeal = cleanSummary.match(/^(?:The )?(.+?) have signed (.+?) to an? (.+?) deal\./i);
+  if (summarySignedDeal) {
+    return {
+      headlineZh: `${localizeCommonTerms(summarySignedDeal[1])}签下${localizeCommonTerms(summarySignedDeal[2])}`,
+      summaryZh: `${localizeCommonTerms(summarySignedDeal[1])}签下${localizeCommonTerms(summarySignedDeal[2])}，合同为${contractAmount(summarySignedDeal[3])}。`
+    };
+  }
+
+  const acquireMatch = cleanTitle.match(/^(.+?) Acquire (.+?) From (.+?) For (.+)$/i);
+  if (acquireMatch) {
+    const summaryTrade = cleanSummary.match(/^(?:The )?(.+?) have acquired (.+?) from (?:the )?(.+?) for (.+?)\./i);
+    if (summaryTrade) {
+      const team = localizeCommonTerms(summaryTrade[1]);
+      const player = localizeCommonTerms(summaryTrade[2]);
+      const fromTeam = localizeCommonTerms(summaryTrade[3]);
+      const assets = joinAssets(summaryTrade[4]);
+      return {
+        headlineZh: `${team}从${fromTeam}得到${player}`,
+        summaryZh: `${team}从${fromTeam}得到${player}${assets ? `，送出${assets}` : ''}。`
+      };
+    }
+
+    const team = localizeCommonTerms(acquireMatch[1]);
+    const player = localizeCommonTerms(acquireMatch[2]);
+    const fromTeam = localizeCommonTerms(acquireMatch[3]);
+    const assets = joinAssets(acquireMatch[4]);
+    return {
+      headlineZh: `${team}从${fromTeam}得到${player}`,
+      summaryZh: `${team}从${fromTeam}得到${player}${assets ? `，送出${assets}` : ''}。`
+    };
+  }
+
+  const acquiredSentenceMatch = cleanSummary.match(/^(?:The )?(.+?) have acquired (.+?) from (?:the )?(.+?) for (.+?)\./i);
+  if (acquiredSentenceMatch) {
+    const team = localizeCommonTerms(acquiredSentenceMatch[1]);
+    const player = localizeCommonTerms(acquiredSentenceMatch[2]);
+    const fromTeam = localizeCommonTerms(acquiredSentenceMatch[3]);
+    const assets = joinAssets(acquiredSentenceMatch[4]);
+    return {
+      headlineZh: `${team}从${fromTeam}得到${player}`,
+      summaryZh: `${team}从${fromTeam}得到${player}${assets ? `，送出${assets}` : ''}。`
+    };
+  }
+
+  const playerTradedMatch = cleanTitle.match(/^(.+?) traded from (.+?) to (.+?)(?::|$)/i);
+  if (playerTradedMatch) {
+    const player = localizeCommonTerms(playerTradedMatch[1]);
+    const fromTeam = localizeCommonTerms(playerTradedMatch[2]);
+    const toTeam = localizeCommonTerms(playerTradedMatch[3]);
+    return {
+      headlineZh: `${player}被${fromTeam}交易至${toTeam}`,
+      summaryZh: `${player}被${fromTeam}交易至${toTeam}，这笔交易将影响两队阵容和 fantasy basketball 价值。`
+    };
+  }
+
+  const reportedTradedForMatch = cleanTitle.match(/^(.+?) reportedly traded to (.+?) for (.+?) in .+$/i);
+  if (reportedTradedForMatch) {
+    const player = localizeCommonTerms(reportedTradedForMatch[1]);
+    const toTeam = localizeCommonTerms(reportedTradedForMatch[2]);
+    const assets = joinAssets(reportedTradedForMatch[3]);
+    return {
+      headlineZh: `${player}据报被交易至${toTeam}`,
+      summaryZh: `${player}据报被交易至${toTeam}${assets ? `，交易筹码包括${assets}` : ''}。`
+    };
+  }
+
+  const teamTradeMatch = cleanTitle.match(/^(.+?) reportedly trade (.+?) to (.+?) for (.+)$/i);
+  if (teamTradeMatch) {
+    const team = localizeCommonTerms(teamTradeMatch[1]);
+    const player = localizeCommonTerms(teamTradeMatch[2]);
+    const toTeam = localizeCommonTerms(teamTradeMatch[3]);
+    const assets = joinAssets(teamTradeMatch[4]);
+    return {
+      headlineZh: `${team}将${player}交易至${toTeam}`,
+      summaryZh: `${team}将${player}交易至${toTeam}${assets ? `，换回${assets}` : ''}。`
+    };
+  }
+
+  const fantasyFalloutTradeMatch = cleanTitle.match(/^Fantasy Fallout: (.+?) reportedly trade (.+?) to (.+?) for (.+)$/i);
+  if (fantasyFalloutTradeMatch) {
+    const team = localizeCommonTerms(fantasyFalloutTradeMatch[1]);
+    const player = localizeCommonTerms(fantasyFalloutTradeMatch[2]);
+    const toTeam = localizeCommonTerms(fantasyFalloutTradeMatch[3]);
+    const assets = joinAssets(fantasyFalloutTradeMatch[4]);
+    return {
+      headlineZh: `${team}将${player}交易至${toTeam}`,
+      summaryZh: `${team}将${player}交易至${toTeam}${assets ? `，换回${assets}` : ''}。`
+    };
+  }
+
+  const sixersTradeForMatch = cleanTitle.match(/^(.+?) trade for (.+?), send (.+?) to (.+?) in .+ deal$/i);
+  if (sixersTradeForMatch) {
+    const team = localizeCommonTerms(sixersTradeForMatch[1]);
+    const player = localizeCommonTerms(sixersTradeForMatch[2]);
+    const assets = joinAssets(sixersTradeForMatch[3]);
+    const toTeam = localizeCommonTerms(sixersTradeForMatch[4]);
+    return {
+      headlineZh: `${team}交易得到${player}`,
+      summaryZh: `${team}交易得到${player}，并将${assets}送至${toTeam}。`
+    };
+  }
+
+  const celticsTradeReportMatch = cleanTitle.match(/^C's trade (.+?) to (.+?) for (.+?): Report$/i);
+  if (celticsTradeReportMatch) {
+    const player = localizeCommonTerms(celticsTradeReportMatch[1]);
+    const toTeam = localizeCommonTerms(celticsTradeReportMatch[2]);
+    const assets = joinAssets(celticsTradeReportMatch[3]);
+    return {
+      headlineZh: `凯尔特人将${player}交易至${toTeam}`,
+      summaryZh: `凯尔特人将${player}交易至${toTeam}${assets ? `，换回${assets}` : ''}。`
+    };
+  }
+
+  const landsMatch = cleanTitle.match(/^(.+?) reportedly land (.+?) in deal with (.+?) for (.+)$/i);
+  if (landsMatch) {
+    const team = localizeCommonTerms(landsMatch[1]);
+    const player = localizeCommonTerms(landsMatch[2]);
+    const fromTeam = localizeCommonTerms(landsMatch[3]);
+    const assets = joinAssets(landsMatch[4]);
+    return {
+      headlineZh: `${team}从${fromTeam}得到${player}`,
+      summaryZh: `${team}从${fromTeam}得到${player}${assets ? `，送出${assets}` : ''}。`
+    };
+  }
+
+  const signsDealMatch = cleanTitle.match(/^(.+?) signs? (.+?) to (.+?) deal$/i);
+  if (signsDealMatch) {
+    const team = localizeCommonTerms(signsDealMatch[1]);
+    const player = localizeCommonTerms(signsDealMatch[2]);
+    const terms = contractAmount(signsDealMatch[3]);
+    return {
+      headlineZh: `${team}签下${player}${terms ? `，合同为${terms}` : ''}`,
+      summaryZh: `${team}签下${player}${terms ? `，合同为${terms}` : ''}。`
+    };
+  }
+
+  const contractTitleMatch = cleanTitle.match(/^(.+?) signs? (.+?) contract$/i) || cleanTitle.match(/^(.+?) signs? (.+?) deal$/i);
+  if (contractTitleMatch) {
+    return {
+      headlineZh: `${localizeCommonTerms(contractTitleMatch[1])}签下${localizeCommonTerms(contractTitleMatch[2])}`,
+      summaryZh: `${localizeCommonTerms(contractTitleMatch[1])}签下${localizeCommonTerms(contractTitleMatch[2])}。`
+    };
+  }
+
+  const meetingTitleMatch = cleanTitle.match(/^(.+?) to have (?:a )?(second )?meeting with (.+?)(?: after .+)?$/i);
+  if (meetingTitleMatch) {
+    const team = localizeCommonTerms(meetingTitleMatch[1]);
+    const player = localizeCommonTerms(meetingTitleMatch[3]);
+    return {
+      headlineZh: `${team}将与${player}进行${meetingTitleMatch[2] ? '第二次' : ''}会面`,
+      summaryZh: `${team}将与${player}进行${meetingTitleMatch[2] ? '第二次' : ''}会面。`
+    };
+  }
+
+  const lakersMovesMatch = cleanTitle.match(/^(.+?) offseason moves: (.+?) out, (.+?) and others in$/i);
+  if (lakersMovesMatch) {
+    return {
+      headlineZh: `${localizeCommonTerms(lakersMovesMatch[1])}休赛期送走${localizeCommonTerms(lakersMovesMatch[2])}并补进${localizeCommonTerms(lakersMovesMatch[3])}`,
+      summaryZh: `${localizeCommonTerms(lakersMovesMatch[1])}休赛期已经完成多笔操作，包括通过交易引进${localizeCommonTerms(lakersMovesMatch[3])}。`
+    };
+  }
+
+  const rookieCultureMatch = cleanTitle.match(/^(.+?) brings swagger, winning, culture to (.+)$/i);
+  if (rookieCultureMatch) {
+    return {
+      headlineZh: `${localizeCommonTerms(rookieCultureMatch[1])}希望为${localizeCommonTerms(rookieCultureMatch[2])}带来赢球文化`,
+      summaryZh: `${localizeCommonTerms(rookieCultureMatch[1])}准备帮助${localizeCommonTerms(rookieCultureMatch[2])}建立新的赢球文化。`
+    };
+  }
+
+  const gamblingCaseMatch = cleanTitle.match(/^Ex-NBA Player (.+?) Pleads Not Guilty in Federal Gambling Case$/i);
+  if (gamblingCaseMatch) {
+    return {
+      headlineZh: `${localizeCommonTerms(gamblingCaseMatch[1])}在联邦赌博案中不认罪`,
+      summaryZh: `${localizeCommonTerms(gamblingCaseMatch[1])}否认与涉嫌投注计划相关的联邦欺诈、贿赂和洗钱指控。`
+    };
+  }
+
+  const nbaLayoffsMatch = cleanTitle.match(/^NBA Cuts Dozens Of Jobs As League Shifts Focus To Global Growth$/i);
+  if (nbaLayoffsMatch) {
+    return {
+      headlineZh: 'NBA裁员数十人，转向全球增长业务',
+      summaryZh: 'NBA裁撤数十个岗位，并把资源重新分配到 NBA 欧洲、地方电视业务和全球增长等方向。'
+    };
+  }
+
+  const lebronDestinationsMatch = cleanTitle.match(/^LeBron James post-Lakers landing spots: Ranking destinations by fit$/i);
+  if (lebronDestinationsMatch) {
+    return {
+      headlineZh: 'LeBron James离开湖人后的潜在下家排名',
+      summaryZh: '随着LeBron James可能自2018年以来首次更换球队，外界开始评估他离开湖人后的潜在下家。'
+    };
+  }
+
+  const lakersStatueMatch = cleanTitle.match(/^Does LeBron deserve a Lakers statue\?/i);
+  if (lakersStatueMatch) {
+    return {
+      headlineZh: 'LeBron James是否应拥有湖人雕像引发讨论',
+      summaryZh: 'LeBron James离开湖人后，外界开始讨论他是否值得与湖人名宿一样拥有雕像。'
+    };
+  }
+
+  const lakersFinanceMatch = cleanTitle.match(/^Where the Lakers stand financially after their free-agent spending spree$/i);
+  if (lakersFinanceMatch) {
+    return {
+      headlineZh: '湖人大手笔签约后薪资空间所剩不多',
+      summaryZh: '湖人在自由市场投入超过四分之一亿美元后，球队看起来已经没有太多薪资空间。'
+    };
+  }
+
+  const lebronWhereMatch = cleanTitle.match(/^Where will LeBron go\? \+ breaking down the wild offseason start$/i);
+  if (lebronWhereMatch) {
+    return {
+      headlineZh: 'LeBron James下家悬念牵动休赛期',
+      summaryZh: '原文讨论LeBron James的潜在下家，以及NBA休赛期开局阶段的多笔重大动向。'
+    };
+  }
+
+  const wizardsBigMenMatch = cleanTitle.match(/^NBA Free Agency: Five big men the Wizards could target$/i);
+  if (wizardsBigMenMatch) {
+    return {
+      headlineZh: '奇才可能追逐五名内线补强目标',
+      summaryZh: '原文盘点奇才在自由市场可能追逐的五名内线补强目标。'
+    };
+  }
+
+  const signAndTradeMatch = cleanTitle.match(/^(.+?) From (.+?) To (.+?) In (.+?),\s*(.+?) Sign-And-Trade For (.+)$/i);
+  if (signAndTradeMatch) {
+    const player = localizeCommonTerms(signAndTradeMatch[1]);
+    const fromTeam = localizeCommonTerms(signAndTradeMatch[2]);
+    const toTeam = localizeCommonTerms(signAndTradeMatch[3]);
+    const terms = contractAmount(`${signAndTradeMatch[4]} ${signAndTradeMatch[5]}`);
+    const assets = joinAssets(signAndTradeMatch[6]);
+    return {
+      headlineZh: `${toTeam}通过先签后换得到${player}`,
+      summaryZh: `${toTeam}从${fromTeam}通过${terms}先签后换得到${player}${assets ? `，送出${assets}` : ''}。`
+    };
+  }
+
+  const cavsRookieMatch = cleanTitle.match(/^Cavs sign rookie (.+?) to a (.+?) deal$/i);
+  if (cavsRookieMatch) {
+    return {
+      headlineZh: `骑士与新秀${localizeCommonTerms(cavsRookieMatch[1])}签下${contractAmount(cavsRookieMatch[2])}合同`,
+      summaryZh: `骑士与新秀${localizeCommonTerms(cavsRookieMatch[1])}签下${contractAmount(cavsRookieMatch[2])}合同。`
+    };
+  }
+
+  const titlePerson = getTitlePerson(cleanTitle);
+  if (titlePerson && /(trade|traded|acquire|acquired|blockbuster)/i.test(cleanTitle)) {
+    return {
+      headlineZh: `${localizeCommonTerms(titlePerson)}交易影响继续发酵`,
+      summaryZh: `${localizeCommonTerms(titlePerson)}相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。`
+    };
+  }
+
+  if (titlePerson && /(sign|signed|signing|contract|deal|extension|free agency)/i.test(cleanTitle)) {
+    return {
+      headlineZh: `${localizeCommonTerms(titlePerson)}签约动向更新`,
+      summaryZh: `${localizeCommonTerms(titlePerson)}的签约或合同动向成为焦点，原文围绕其自由市场前景展开。`
+    };
+  }
+
+  if (titlePerson) {
+    return {
+      headlineZh: `${localizeCommonTerms(titlePerson)}相关消息更新`,
+      summaryZh: `原文聚焦${localizeCommonTerms(titlePerson)}的最新动态和后续影响。`
+    };
+  }
+
+  return null;
+}
+
+function fallbackNonEmptySummary({ headlineZh = '', title = '', summary = '', source = '' } = {}) {
+  if (!headlineZh) return '';
+  const sourcePrefix = source ? `据 ${source} 报道，` : '';
+  const cleanTitle = stripSourcePhrases(title);
+  const cleanSummary = stripHtml(summary);
+  const person = getTitlePerson(cleanTitle);
+
+  if (person && /(trade|traded|acquire|acquired)/i.test(cleanTitle)) {
+    return normalizeChineseText(`${sourcePrefix}${headlineZh}，原文关注${localizeCommonTerms(person)}相关交易的后续影响。`);
+  }
+
+  if (person && /(sign|signed|signing|contract|deal|extension|free agency)/i.test(cleanTitle)) {
+    return normalizeChineseText(`${sourcePrefix}${headlineZh}，原文关注${localizeCommonTerms(person)}的合同或自由市场动向。`);
+  }
+
+  if (cleanSummary && cleanSummary.length > 20) {
+    return normalizeChineseText(`${sourcePrefix}${headlineZh}，原文提到${localizeCommonTerms(cleanSummary.split(/(?<=[.!?])\s+/)[0]).replace(/[。.!?！？]+$/g, '')}。`);
+  }
+
+  return normalizeChineseText(`${sourcePrefix}${headlineZh}，更多背景来自原文报道。`);
+}
+
 function scoreImportance({ title = '', summary = '', category = '其他', isMerged = false }) {
   const text = `${title} ${summary}`.toLowerCase();
   let score = 1;
@@ -1551,14 +1907,36 @@ function normalizeNewsItemText(item = {}) {
   let summaryZh = normalizeChineseText(item.summaryZh || '');
   let headlineZh = normalizeChineseText(forcedContractHeadline || item.headlineZh || '');
   headlineZh = normalizeChineseText(deTemplateHeadline(improveHeadlineFromSummary(headlineZh, summaryZh)));
+  const extractedFact = (isGenericHeadline(headlineZh) || !summaryZh)
+    ? extractFactFromEnglish({ title: item.originalTitle || item.title || '', summary: item.summary || '', source: item.source || '' })
+    : null;
+  if (extractedFact?.headlineZh) {
+    headlineZh = normalizeChineseText(extractedFact.headlineZh);
+  }
+  if (!summaryZh && extractedFact?.summaryZh) {
+    summaryZh = normalizeChineseText(`${item.source ? `据 ${item.source} 报道，` : ''}${extractedFact.summaryZh}`);
+  }
   const titleZh = normalizeChineseText(forcedContractHeadline || headlineZh);
   const oneLineZh = normalizeChineseText(forcedContractHeadline || headlineZh);
   const goldenQuoteZh = normalizeChineseText(item.goldenQuoteZh || '');
   if (forcedContractHeadline && !hasEquivalentAmount(summaryZh, getContractTermsFromText(forcedContractHeadline).amount)) {
     summaryZh = normalizeChineseText(`${item.source ? `据 ${item.source} 报道，` : ''}${forcedContractHeadline}。`);
   }
+  if (!summaryZh) {
+    summaryZh = fallbackNonEmptySummary({
+      headlineZh,
+      title: item.originalTitle || item.title || '',
+      summary: item.summary || '',
+      source: item.source || ''
+    });
+  }
   if (compactComparable(summaryZh) === compactComparable(headlineZh)) {
-    summaryZh = '';
+    summaryZh = fallbackNonEmptySummary({
+      headlineZh,
+      title: item.originalTitle || item.title || '',
+      summary: item.summary || '',
+      source: item.source || ''
+    });
   }
 
   return {
@@ -1620,11 +1998,26 @@ function getQualityReport(payload = {}) {
   );
   const headlineRelated = items.filter((item) => /相关动态/.test(item.headlineZh || ''));
   const headlineContinue = items.filter((item) => /继续更新/.test(item.headlineZh || ''));
+  const emptySummaryZh = items.filter((item) => !(item.summaryZh || '').trim());
+  const genericHeadlineZh = items.filter((item) => isGenericHeadline(item.headlineZh || ''));
+  const genericOneLineZh = items.filter((item) => isGenericHeadline(item.oneLineZh || ''));
+  const genericHighlights = highlights.filter((highlight) => isGenericHeadline(highlight.text || ''));
   const repeatedSummary = items.filter((item) => {
     const headline = compactComparable(item.headlineZh || '');
     const summary = compactComparable(item.summaryZh || '');
     return headline && summary && (summary === headline || summary === `${headline}`);
   });
+  const originalTitleHasTradeButGenericHeadline = items.filter(
+    (item) => /(trade|traded|acquire|acquired|deal with|land|lands|for .*pick)/i.test(item.originalTitle || item.title || '') && isGenericHeadline(item.headlineZh || '')
+  );
+  const originalTitleHasContractButGenericHeadline = items.filter(
+    (item) => /(sign|signed|signing|contract|deal|extension|free agency)/i.test(item.originalTitle || item.title || '') && isGenericHeadline(item.headlineZh || '')
+  );
+  const originalTitleHasPlayerButSummaryEmpty = items.filter(
+    (item) =>
+      /\b[A-Z][A-Za-z.'-]+(?:\s+[A-Z][A-Za-z.'-]+)+\b/.test(item.originalTitle || item.title || '') &&
+      !(item.summaryZh || '').trim()
+  );
   const mergedMissingTerms = items.filter((item) => {
     if (!item.isMerged) return false;
     const titles = toArray(item.originalTitles).join(' ');
@@ -1642,6 +2035,13 @@ function getQualityReport(payload = {}) {
       unspacedMoney: unspacedMoney.length,
       headlineRelated: headlineRelated.length,
       headlineContinue: headlineContinue.length,
+      emptySummaryZh: emptySummaryZh.length,
+      genericHeadlineZh: genericHeadlineZh.length,
+      genericOneLineZh: genericOneLineZh.length,
+      genericHighlights: genericHighlights.length,
+      originalTitleHasTradeButGenericHeadline: originalTitleHasTradeButGenericHeadline.length,
+      originalTitleHasContractButGenericHeadline: originalTitleHasContractButGenericHeadline.length,
+      originalTitleHasPlayerButSummaryEmpty: originalTitleHasPlayerButSummaryEmpty.length,
       repeatedSummary: repeatedSummary.length,
       mergedMissingTerms: mergedMissingTerms.length
     },
@@ -1650,6 +2050,13 @@ function getQualityReport(payload = {}) {
       unspacedMoney,
       headlineRelated,
       headlineContinue,
+      emptySummaryZh,
+      genericHeadlineZh,
+      genericOneLineZh,
+      genericHighlights,
+      originalTitleHasTradeButGenericHeadline,
+      originalTitleHasContractButGenericHeadline,
+      originalTitleHasPlayerButSummaryEmpty,
       repeatedSummary,
       mergedMissingTerms
     }
@@ -1931,6 +2338,7 @@ function buildHighlights(items) {
   return [...items]
     .map((item) => ({ item, score: scoreHighlight(item) }))
     .sort((a, b) => b.score - a.score || new Date(b.item.pubDate).getTime() - new Date(a.item.pubDate).getTime())
+    .filter(({ item }) => !isGenericHeadline(toHighlightText(item)))
     .slice(0, 5)
     .map(({ item }) => ({
       id: item.id,
