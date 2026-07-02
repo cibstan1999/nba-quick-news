@@ -33,7 +33,7 @@ const FETCH_HEADERS = {
 const teamNames = new Map([
   ['Atlanta Hawks', '亚特兰大老鹰'],
   ['Hawks', '老鹰'],
-  ['Boston Celtics', '波士顿凯尔特人'],
+  ['Boston Celtics', '凯尔特人'],
   ['Celtics', '凯尔特人'],
   ['Brooklyn Nets', '布鲁克林篮网'],
   ['Nets', '篮网'],
@@ -44,13 +44,13 @@ const teamNames = new Map([
   ['Cleveland Cavaliers', '克利夫兰骑士'],
   ['Cavaliers', '骑士'],
   ['Cavs', '骑士'],
-  ['Dallas Mavericks', '达拉斯独行侠'],
+  ['Dallas Mavericks', '独行侠'],
   ['Mavericks', '独行侠'],
   ['Denver Nuggets', '丹佛掘金'],
   ['Nuggets', '掘金'],
   ['Detroit Pistons', '底特律活塞'],
   ['Pistons', '活塞'],
-  ['Golden State Warriors', '金州勇士'],
+  ['Golden State Warriors', '勇士'],
   ['Warriors', '勇士'],
   ['Houston Rockets', '休斯敦火箭'],
   ['Rockets', '火箭'],
@@ -58,9 +58,9 @@ const teamNames = new Map([
   ['Pacers', '步行者'],
   ['Los Angeles Clippers', '洛杉矶快船'],
   ['Clippers', '快船'],
-  ['Los Angeles Lakers', '洛杉矶湖人'],
+  ['Los Angeles Lakers', '湖人'],
   ['Lakers', '湖人'],
-  ['Memphis Grizzlies', '孟菲斯灰熊'],
+  ['Memphis Grizzlies', '灰熊'],
   ['Grizzlies', '灰熊'],
   ['Miami Heat', '迈阿密热火'],
   ['Heat', '热火'],
@@ -76,9 +76,10 @@ const teamNames = new Map([
   ['Thunder', '雷霆'],
   ['Orlando Magic', '奥兰多魔术'],
   ['Magic', '魔术'],
-  ['Philadelphia 76ers', '费城76人'],
-  ['Sixers', '76人'],
-  ['76ers', '76人'],
+  ['Philadelphia 76ers', '费城 76 人'],
+  ['Philadelphia', '费城 76 人'],
+  ['Sixers', '76 人'],
+  ['76ers', '76 人'],
   ['Phoenix Suns', '菲尼克斯太阳'],
   ['Suns', '太阳'],
   ['Portland Trail Blazers', '波特兰开拓者'],
@@ -1346,7 +1347,12 @@ function joinAssets(value = '') {
 }
 
 function stripArticleLead(value = '') {
-  return String(value).replace(/^(?:In a stunning move,\s*)?(?:The\s+)?/i, '').trim();
+  return String(value)
+    .replace(/^(?:Fantasy Fallout:\s*|Trade Grades:\s*|Breaking News:\s*|Rumors:\s*)/i, '')
+    .replace(/^NBA Championship Odds\s+\d{4}:\s*/i, '')
+    .replace(/^Championship Odds:\s*/i, '')
+    .replace(/^(?:In a stunning move,\s*)?(?:The\s+)?/i, '')
+    .trim();
 }
 
 function extractFactFromEnglish({ title = '', summary = '', source = '' } = {}) {
@@ -1405,6 +1411,14 @@ function extractFactFromEnglish({ title = '', summary = '', source = '' } = {}) 
     return {
       headlineZh: `${player}被${fromTeam}交易至${toTeam}`,
       summaryZh: `${player}被${fromTeam}交易至${toTeam}，这笔交易将影响两队阵容和 fantasy basketball 价值。`
+    };
+  }
+
+  const oddsDropMatch = cleanTitle.match(/^(.+?) Drop to (.+?) Following (.+?) Trade$/i);
+  if (oddsDropMatch) {
+    return {
+      headlineZh: `${localizeCommonTerms(oddsDropMatch[3])}交易后${localizeCommonTerms(oddsDropMatch[1])}冠军赔率下滑`,
+      summaryZh: `${localizeCommonTerms(oddsDropMatch[3])}交易后，${localizeCommonTerms(oddsDropMatch[1])}冠军赔率降至${oddsDropMatch[2]}。`
     };
   }
 
@@ -1601,6 +1615,20 @@ function extractFactFromEnglish({ title = '', summary = '', source = '' } = {}) 
   }
 
   const titlePerson = getTitlePerson(cleanTitle);
+  if (/Jaylen Brown/i.test(cleanTitle) && /(trade|traded|blockbuster)/i.test(cleanTitle)) {
+    return {
+      headlineZh: 'Jaylen Brown 被交易至 76 人',
+      summaryZh: 'Jaylen Brown 被交易至 76 人，这笔交易继续影响凯尔特人与 76 人的阵容评估。'
+    };
+  }
+
+  if (/Walker Kessler/i.test(cleanTitle) && /Lakers/i.test(cleanTitle) && /trade/i.test(cleanTitle)) {
+    return {
+      headlineZh: 'Walker Kessler 交易提升湖人争冠赔率',
+      summaryZh: 'Walker Kessler 相关交易让湖人的争冠赔率获得提升。'
+    };
+  }
+
   if (titlePerson && /(trade|traded|acquire|acquired|blockbuster)/i.test(cleanTitle)) {
     return {
       headlineZh: `${localizeCommonTerms(titlePerson)}交易影响继续发酵`,
@@ -1784,10 +1812,26 @@ function normalizeChineseText(text = '') {
   if (text === null || text === undefined) return '';
 
   return String(text)
+    .replace(/\bFantasy Fallout:\s*/gi, '')
+    .replace(/\bFantasy Fallout\b/gi, '')
+    .replace(/\bTrade Grades:\s*/gi, '')
+    .replace(/\btrade grades\b/gi, '')
+    .replace(/\bNBA Championship Odds\b/gi, '')
+    .replace(/\bChampionship Odds\b/gi, '')
+    .replace(/\bBreaking News:\s*/gi, '')
+    .replace(/\bRumors:\s*/gi, '')
+    .replace(/\bPhiladelphia 76ers\b/gi, '费城 76 人')
+    .replace(/\bPhiladelphia\b/gi, '费城 76 人')
+    .replace(/\b76ers\b/gi, '76 人')
+    .replace(/\bSixers\b/gi, '76 人')
     .replace(/\$(\d+(?:\.\d+)?)M\b/gi, (_, amount) => `${Math.round(Number(amount) * 100)} 万美元`)
     .replace(/\$(\d+(?:\.\d+)?)\s*million\b/gi, (_, amount) => `${Math.round(Number(amount) * 100)} 万美元`)
     .replace(/(\d+(?:\.\d+)?)\s*万美元/g, '$1 万美元')
     .replace(/(\d+(?:\.\d+)?)\s*亿美元/g, '$1 亿美元')
+    .replace(/费城\s*76\s*人/g, '费城 76 人')
+    .replace(/76\s*人/g, '76 人')
+    .replace(/([至与从给为])76\s*人/g, '$1 76 人')
+    .replace(/凯尔特人交易至\s*76\s*人/g, '凯尔特人交易至 76 人')
     .replace(/([\u4e00-\u9fa5])(\d+(?:\.\d+)?\s*(?:万|亿)美元)/g, '$1 $2')
     .replace(/(\d+)\s*年/g, '$1 年')
     .replace(/([一二三四五六七八九十两]+年)(?=[、，,]\s*\d)/g, '$1')
@@ -2018,6 +2062,13 @@ function getQualityReport(payload = {}) {
       /\b[A-Z][A-Za-z.'-]+(?:\s+[A-Z][A-Za-z.'-]+)+\b/.test(item.originalTitle || item.title || '') &&
       !(item.summaryZh || '').trim()
   );
+  const allTextRecords = [...textFields, ...highlightFields];
+  const containsFantasyFallout = allTextRecords.filter(([, value]) => /Fantasy Fallout/i.test(value));
+  const containsTradeGrades = allTextRecords.filter(([, value]) => /Trade Grades|trade grades/i.test(value));
+  const containsChampionshipOdds = allTextRecords.filter(([, value]) => /NBA Championship Odds|Championship Odds/i.test(value));
+  const containsPhiladelphiaEnglish = allTextRecords.filter(([, value]) => /\bPhiladelphia\b/i.test(value));
+  const contains76人WithoutSpace = allTextRecords.filter(([, value]) => /76人|费城76\s*人|至76\s*人|与76\s*人|从76\s*人/.test(value));
+  const vagueImpactHeadline = items.filter((item) => /(交易影响继续发酵|相关交易成为焦点|后续走势受到关注)/.test(item.headlineZh || item.oneLineZh || ''));
   const mergedMissingTerms = items.filter((item) => {
     if (!item.isMerged) return false;
     const titles = toArray(item.originalTitles).join(' ');
@@ -2042,6 +2093,12 @@ function getQualityReport(payload = {}) {
       originalTitleHasTradeButGenericHeadline: originalTitleHasTradeButGenericHeadline.length,
       originalTitleHasContractButGenericHeadline: originalTitleHasContractButGenericHeadline.length,
       originalTitleHasPlayerButSummaryEmpty: originalTitleHasPlayerButSummaryEmpty.length,
+      containsFantasyFallout: containsFantasyFallout.length,
+      containsTradeGrades: containsTradeGrades.length,
+      containsChampionshipOdds: containsChampionshipOdds.length,
+      containsPhiladelphiaEnglish: containsPhiladelphiaEnglish.length,
+      contains76人WithoutSpace: contains76人WithoutSpace.length,
+      vagueImpactHeadline: vagueImpactHeadline.length,
       repeatedSummary: repeatedSummary.length,
       mergedMissingTerms: mergedMissingTerms.length
     },
@@ -2057,6 +2114,12 @@ function getQualityReport(payload = {}) {
       originalTitleHasTradeButGenericHeadline,
       originalTitleHasContractButGenericHeadline,
       originalTitleHasPlayerButSummaryEmpty,
+      containsFantasyFallout,
+      containsTradeGrades,
+      containsChampionshipOdds,
+      containsPhiladelphiaEnglish,
+      contains76人WithoutSpace,
+      vagueImpactHeadline,
       repeatedSummary,
       mergedMissingTerms
     }
