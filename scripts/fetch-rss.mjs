@@ -1272,6 +1272,25 @@ function improveHeadlineFromSummary(headlineZh = '', summaryZh = '') {
   return headlineFromSummary(summaryZh) || headlineZh;
 }
 
+function deTemplateHeadline(headlineZh = '') {
+  const match = String(headlineZh).match(/^(.+?)相关动态：(.+)$/);
+  if (!match) return headlineZh;
+
+  const subject = match[1];
+  const body = match[2]
+    .replace(/球队继续评估交易与阵容调整/g, '交易与阵容调整')
+    .replace(/自由市场与合同情况继续更新/g, '自由市场与合同动向')
+    .replace(/球队后续动向值得关注/g, '休赛期后续动向')
+    .replace(/伤病与复出情况继续更新/g, '伤病与复出进展')
+    .replace(/年轻球员与选秀话题继续发酵/g, '年轻球员与选秀话题')
+    .replace(/赛事安排与争冠话题继续更新/g, '赛事安排与争冠话题')
+    .replace(/球队继续围绕经验阵容调整/g, '围绕经验阵容调整')
+    .replace(/继续更新/g, '动向')
+    .replace(/值得关注/g, '受关注');
+
+  return normalizeChineseText(`${subject}${body}`);
+}
+
 function scoreImportance({ title = '', summary = '', category = '其他', isMerged = false }) {
   const text = `${title} ${summary}`.toLowerCase();
   let score = 1;
@@ -1528,11 +1547,12 @@ function hasEquivalentAmount(value = '', amount = '') {
 
 function normalizeNewsItemText(item = {}) {
   const forcedContractHeadline = item.isMerged ? getMergedContractUpgrade(item) : '';
-  const headlineZh = normalizeChineseText(forcedContractHeadline || item.headlineZh || '');
-  const titleZh = normalizeChineseText(forcedContractHeadline || item.titleZh || headlineZh);
   const dekZh = normalizeChineseText(item.dekZh || '');
   let summaryZh = normalizeChineseText(item.summaryZh || '');
-  const oneLineZh = normalizeChineseText(forcedContractHeadline || item.oneLineZh || headlineZh);
+  let headlineZh = normalizeChineseText(forcedContractHeadline || item.headlineZh || '');
+  headlineZh = normalizeChineseText(deTemplateHeadline(improveHeadlineFromSummary(headlineZh, summaryZh)));
+  const titleZh = normalizeChineseText(forcedContractHeadline || headlineZh);
+  const oneLineZh = normalizeChineseText(forcedContractHeadline || headlineZh);
   const goldenQuoteZh = normalizeChineseText(item.goldenQuoteZh || '');
   if (forcedContractHeadline && !hasEquivalentAmount(summaryZh, getContractTermsFromText(forcedContractHeadline).amount)) {
     summaryZh = normalizeChineseText(`${item.source ? `据 ${item.source} 报道，` : ''}${forcedContractHeadline}。`);
