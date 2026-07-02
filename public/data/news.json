@@ -12,10 +12,17 @@
   "updatedAt": "2026-07-02T00:12:58.468Z",
   "lastFetchStatus": {
     "status": "rebuilt-from-cache",
-    "checkedAt": "2026-07-02T03:00:08.388Z",
+    "checkedAt": "2026-07-02T03:06:32.741Z",
     "message": "Rebuilt derived news fields from the existing local JSON cache."
   },
   "highlights": [
+    {
+      "id": "https://basketball.realgm.com/wiretap/286490/Mavericks-Acquire-Santi-Aldama-From-Grizzlies-For-Protected-2030-Pick-Via-Warriors",
+      "text": "独行侠从灰熊得到 Santi Aldama",
+      "category": "交易",
+      "source": "RealGM / Yahoo Sports",
+      "link": "https://basketball.realgm.com/wiretap/286490/Mavericks-Acquire-Santi-Aldama-From-Grizzlies-For-Protected-2030-Pick-Via-Warriors"
+    },
     {
       "id": "https://basketball.realgm.com/wiretap/286489/76ers-Acquire-Jaylen-Brown-From-Celtics-For-Paul-George-Two-First-Round-Picks",
       "text": "费城 76 人从凯尔特人得到 Jaylen Brown",
@@ -43,13 +50,6 @@
       "category": "交易",
       "source": "Yahoo Sports / RealGM",
       "link": "https://basketball.realgm.com/wiretap/286467/Walker-Kessler-From-Jazz-To-Lakers-In-Four-Year-$130M-Sign-And-Trade-For-Two-FRPs-Two-Swaps"
-    },
-    {
-      "id": "https://sports.yahoo.com/nba/article/where-will-lebron-go--breaking-down-the-wild-offseason-start-194924335.html",
-      "text": "LeBron James 下家悬念牵动休赛期",
-      "category": "签约",
-      "source": "Yahoo Sports",
-      "link": "https://sports.yahoo.com/nba/article/where-will-lebron-go--breaking-down-the-wild-offseason-start-194924335.html"
     }
   ],
   "items": [
@@ -65,41 +65,45 @@
       "publishedAt": "2026-07-01T23:06:41.000Z",
       "summary": "The Dallas Mavericks have acquired Santi Aldama from the Memphis Grizzlies for AJ Johnson, a protected 2030 first round pick via the Golden State Warriors and two future second round picks. The Mavericks also acquire the draft rights to Tarik Biberovic. Aldama appeared in 43 games with the Grizzlies last season, averaging 14.0 points, 6.7 rebounds and 2.9 assists in 27.9 minutes. Aldama signed a three-year, $52.5 million deal with the Grizzlies last offseason.",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，独行侠从灰熊得到 Santi Aldama，送出 AJ Johnson、一个来自勇士的受保护 2030 年首轮签、两个未来次轮签。",
+      "summaryZh": "据 RealGM / Yahoo Sports 报道，独行侠从灰熊得到 Santi Aldama，送出 AJ Johnson、一个来自勇士的受保护 2030 年首轮签、两个未来次轮签。",
       "oneLineZh": "独行侠从灰熊得到 Santi Aldama",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Aldama_Santi_mem_230109.jpg",
-      "source": "RealGM",
+      "source": "RealGM / Yahoo Sports",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "交易",
       "importance": 5,
       "eventKey": "trade:santi-aldama:mavericks:grizzlies",
-      "relatedItems": []
-    },
-    {
-      "id": "https://sports.yahoo.com/nba/breaking-news/article/mavericks-reportedly-land-santi-aldama-in-deal-with-grizzlies-for-aj-johnson-230307968.html",
-      "title": "Mavericks reportedly land Santi Aldama in deal with Grizzlies for AJ Johnson",
-      "originalTitle": "Mavericks reportedly land Santi Aldama in deal with Grizzlies for AJ Johnson",
-      "headlineZh": "独行侠从灰熊得到 Santi Aldama",
-      "titleZh": "独行侠从灰熊得到 Santi Aldama",
-      "link": "https://sports.yahoo.com/nba/breaking-news/article/mavericks-reportedly-land-santi-aldama-in-deal-with-grizzlies-for-aj-johnson-230307968.html",
-      "url": "https://sports.yahoo.com/nba/breaking-news/article/mavericks-reportedly-land-santi-aldama-in-deal-with-grizzlies-for-aj-johnson-230307968.html",
-      "pubDate": "2026-07-01T23:03:07.000Z",
-      "publishedAt": "2026-07-01T23:03:07.000Z",
-      "summary": "Santi Aldama missed the second half of last season with a knee injury.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，独行侠从灰熊得到 Santi Aldama，送出 AJ Johnson。",
-      "oneLineZh": "独行侠从灰熊得到 Santi Aldama",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/40ZdWF5WqE5eJApdcdJtOA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MTg7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/87499b73-87bb-45fc-b18d-445ec15d192f",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 3,
-      "eventKey": "injury:santi-aldama:mavericks",
-      "relatedItems": []
+      "relatedItems": [
+        {
+          "title": "Mavericks reportedly land Santi Aldama in deal with Grizzlies for AJ Johnson",
+          "originalTitle": "Mavericks reportedly land Santi Aldama in deal with Grizzlies for AJ Johnson",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/nba/breaking-news/article/mavericks-reportedly-land-santi-aldama-in-deal-with-grizzlies-for-aj-johnson-230307968.html",
+          "publishedAt": "2026-07-01T23:03:07.000Z",
+          "angle": "report"
+        }
+      ],
+      "sources": [
+        "RealGM",
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Mavericks Acquire Santi Aldama From Grizzlies For Protected 2030 Pick Via Warriors",
+        "Mavericks reportedly land Santi Aldama in deal with Grizzlies for AJ Johnson"
+      ],
+      "sourceLinks": [
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286490/Mavericks-Acquire-Santi-Aldama-From-Grizzlies-For-Protected-2030-Pick-Via-Warriors"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/nba/breaking-news/article/mavericks-reportedly-land-santi-aldama-in-deal-with-grizzlies-for-aj-johnson-230307968.html"
+        }
+      ],
+      "isMerged": true
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286489/76ers-Acquire-Jaylen-Brown-From-Celtics-For-Paul-George-Two-First-Round-Picks",
@@ -207,6 +211,14 @@
           "url": "https://sports.yahoo.com/nba/article/jaylen-brown-blockbuster-lakers-makeover-and-a-wild-day-2-of-nba-free-agency-233200215.html",
           "publishedAt": "2026-07-01T23:32:00.000Z",
           "angle": "source"
+        },
+        {
+          "title": "Jaylen Brown Not Seeking Trade As Celtics Motivated To Find Deal",
+          "originalTitle": "Jaylen Brown Not Seeking Trade As Celtics Motivated To Find Deal",
+          "source": "RealGM",
+          "url": "https://basketball.realgm.com/wiretap/286471/Jaylen-Brown-Not-Seeking-Trade-As-Celtics-Motivated-To-Find-Deal",
+          "publishedAt": "2026-07-01T16:21:17.000Z",
+          "angle": "report"
         }
       ],
       "originalTitles": [
@@ -224,16 +236,17 @@
         "Jaylen Brown reportedly traded to 76ers for Paul George in blockbuster deal after Celtics miss out on Giannis Antetokounmpo",
         "NBA world reacts as C's trade Jaylen Brown to Sixers in stunner",
         "Sixers trade for Jaylen Brown, send Paul George and picks to Celtics in massive deal",
-        "C's trade Jaylen Brown to Sixers for Paul George and picks: Report"
+        "C's trade Jaylen Brown to Sixers for Paul George and picks: Report",
+        "Jaylen Brown Not Seeking Trade As Celtics Motivated To Find Deal"
       ],
       "sourceLinks": [
         {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/nba/article/jaylen-brown-blockbuster-lakers-makeover-and-a-wild-day-2-of-nba-free-agency-233200215.html"
-        },
-        {
           "source": "Yahoo Sports / RealGM",
           "link": "https://basketball.realgm.com/wiretap/286489/76ers-Acquire-Jaylen-Brown-From-Celtics-For-Paul-George-Two-First-Round-Picks"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286471/Jaylen-Brown-Not-Seeking-Trade-As-Celtics-Motivated-To-Find-Deal"
         }
       ],
       "isMerged": true
@@ -671,16 +684,16 @@
       "id": "https://basketball.realgm.com/wiretap/286480/Nuggets-Reach-Out-To-LeBron-James-In-Free-Agency",
       "title": "Nuggets Reach Out To LeBron James In Free Agency",
       "originalTitle": "Nuggets Reach Out To LeBron James In Free Agency",
-      "headlineZh": "签约动态：掘金 Reach Out To LeBron James 在 自由市场",
-      "titleZh": "签约动态：掘金 Reach Out To LeBron James 在 自由市场",
+      "headlineZh": "掘金在自由市场接触 LeBron James",
+      "titleZh": "掘金在自由市场接触 LeBron James",
       "link": "https://basketball.realgm.com/wiretap/286480/Nuggets-Reach-Out-To-LeBron-James-In-Free-Agency",
       "url": "https://basketball.realgm.com/wiretap/286480/Nuggets-Reach-Out-To-LeBron-James-In-Free-Agency",
       "pubDate": "2026-07-01T19:16:41.000Z",
       "publishedAt": "2026-07-01T19:16:41.000Z",
       "summary": "The Denver Nuggets have reached out to express interest in signing LeBron James. James made the decision on Tuesday that he will explore his options in free agency and leave the Los Angeles Lakers after eight seasons with the franchise. The Nuggets tried to recruit James to the Nuggets in 2018 when he was a free agent and ultimately left the Cleveland Cavaliers for the Lakers. James has described Nuggets team president Josh Kroenke as a \"very dear friend.\" The Nuggets would give James the opportunity to team up with Nikola Jokic. The Golden State Warriors, Cleveland Cavaliers and Miami Heat have been mentioned by ESPN as the three most probable destinations for James. But with James willing to take less money in free agency, the Nuggets open up as a possibility.",
       "dekZh": "",
-      "summaryZh": "据 RealGM / Yahoo Sports 报道，签约动态：掘金 Reach Out To LeBron James 在 自由市场，原文关注掘金 Reach Out 的合同或自由市场动向。",
-      "oneLineZh": "签约动态：掘金 Reach Out To LeBron James 在 自由市场",
+      "summaryZh": "据 RealGM / Yahoo Sports 报道，掘金已经在自由市场接触 LeBron James。",
+      "oneLineZh": "掘金在自由市场接触 LeBron James",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_251120.jpg",
@@ -688,7 +701,7 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
       "importance": 4,
-      "eventKey": "sign:lebron-james:cavaliers",
+      "eventKey": "sign:lebron-james:nuggets",
       "relatedItems": [
         {
           "title": "New update benefits Cavs in LeBron James sweepstakes",
@@ -863,7 +876,7 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "签约",
       "importance": 3,
-      "eventKey": "sign:summer-league-summer:mavericks",
+      "eventKey": "sign:summer-league:mavericks",
       "relatedItems": []
     },
     {
@@ -1226,30 +1239,6 @@
       "category": "签约",
       "importance": 5,
       "eventKey": "sign:de-anthony-melton:warriors:2:1100",
-      "relatedItems": []
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286471/Jaylen-Brown-Not-Seeking-Trade-As-Celtics-Motivated-To-Find-Deal",
-      "title": "Jaylen Brown Not Seeking Trade As Celtics Motivated To Find Deal",
-      "originalTitle": "Jaylen Brown Not Seeking Trade As Celtics Motivated To Find Deal",
-      "headlineZh": "Jaylen Brown 被交易至 76 人",
-      "titleZh": "Jaylen Brown 被交易至 76 人",
-      "link": "https://basketball.realgm.com/wiretap/286471/Jaylen-Brown-Not-Seeking-Trade-As-Celtics-Motivated-To-Find-Deal",
-      "url": "https://basketball.realgm.com/wiretap/286471/Jaylen-Brown-Not-Seeking-Trade-As-Celtics-Motivated-To-Find-Deal",
-      "pubDate": "2026-07-01T16:21:17.000Z",
-      "publishedAt": "2026-07-01T16:21:17.000Z",
-      "summary": "The Boston Celtics have been actively shopping guard Jaylen Brown, soliciting offers from roughly eight to 10 teams over the past several days, according to ESPN's Shams Charania. Brown has not requested or signaled a preference for a trade, with the push coming entirely from the front office. Charania made the comments Wednesday on ESPN's First Take, noting that Boston has set a high asking price throughout the process. \"Sources tell me the Celtics have actually started strongly shopping Jaylen Brown, soliciting offers from a market of about 8 to 10 teams in the last several days,\" said Charania. \"It's unclear whether a deal is close or where they necessarily stand, but there's been a high price threshold that the Celtics have set from the outset of any type of a Jaylen Brown trade. \"We know a couple weeks ago they offered Jaylen Brown and two first-round picks for Giannis Antetokounmpo, so clearly they would be willing to move him for a premium player. Is there a player like Giannis out there right now in the market? Probably not. So then you turn your attention to a package of draft capital. And so, they have asked some teams for at least four first-round picks. Clearly, no deal done yet. \"And just to be clear here, this is the organization choosing to put Jaylen Brown's name out there among teams. My understanding is Jaylen Brown has not requested a trade. This is not something that he has advocated for. So, think about it: if you're Jaylen Brown, you just won Finals MVP in 2024, you're an MVP finalist this past season, and the Celtics are now working to try to move Jaylen Brown.\" Brian Windhorst said he expects Boston to continue pursuing a trade for Brown regardless of how the situation initially resolves, even suggesting the guard could be shopped again later if he starts the season with the team. \"So, what we've come to understand was the Celtics weren't trying to get Giannis Antetokounmpo and realizing, 'Boy, we have to give up Jaylen Brown to get him,'\" said Windhorst. \"They've decided that they're trading Jaylen Brown, and they just decided to offer him for Giannis Antetokounmpo. You've got to focus on it the other way. They've decided they're done with him, and so no, I don't think they're going to keep him. I think they're going to do everything they possibly can to trade him, and that's what their actions are showing here. \"Their actions are showing that not only are they motivated to trade him, they're not even focused on trading him for a package of players. Like, you know, it'd be one thing if you thought, 'Look, he replicates Tatum a little bit too much. Tatum's coming off this injury, and we had to thin out our big man position, so we just need to reallocate our resources. So, let's look for two really good players.' That's not what they're doing. \"They're asking for draft picks. They're basically saying, even if we have to take a step back as an organization and hold onto these draft picks and either use them to get young players or package them for a trade later, even if we have to take a step back, that is more preferable right now to bringing Jaylen Brown back. That's what their actions are saying. \"And so, no, I do think that there is a pathway and a possibility that they don't find a trade, because you're talking about 40 cents, whether it's 40 cents or 60 cents on the dollar, you can't do a trade like that with a player in his prime. So, I do think there's a possibility that they don't find a trade and we get into the season, and maybe there's some uncomfortable weeks or months. But Jaylen Brown is not going to be a long-term Celtic. One way or another, he's on his way out of town. They've decided that, and it's kind of fascinating to see how this has played out.\" Despite the Celtics' efforts to find a trade, there doesn't appear to be any traction towards a deal at this time.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Jaylen Brown 被交易至 76 人，这笔交易继续影响凯尔特人与 76 人的阵容评估。",
-      "oneLineZh": "Jaylen Brown 被交易至 76 人",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Brown_Jaylen_bos_260620.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
-      "importance": 4,
-      "eventKey": "injury:jaylen-brown:76ers",
       "relatedItems": []
     },
     {

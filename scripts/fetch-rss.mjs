@@ -1304,6 +1304,20 @@ function deTemplateHeadline(headlineZh = '') {
   return normalizeChineseText(`${subject}${body}`);
 }
 
+function isMixedLanguageHeadline(value = '') {
+  return /Reach Out To|Shows Interest In|Expected To|Planning To|Agree To|In Free Agency|At Summer League|在 自由市场|签约动态：.+Reach Out To|交易动态：.+Acquire/i.test(value);
+}
+
+function fixMixedLanguageHeadline(value = '', item = {}) {
+  if (!isMixedLanguageHeadline(value)) return value;
+  const fact = extractFactFromEnglish({ title: item.originalTitle || item.title || value, summary: item.summary || '', source: item.source || '' });
+  if (fact?.headlineZh) return fact.headlineZh;
+  return value
+    .replace(/^签约动态：/, '')
+    .replace(/^交易动态：/, '')
+    .replace(/(.+?) Reach Out To (.+?) 在 自由市场/i, (_, team, player) => `${team}在自由市场接触${player}`);
+}
+
 function isGenericHeadline(text = '') {
   const value = normalizeChineseText(text);
   if (!value) return true;
@@ -1362,6 +1376,14 @@ function stripArticleLead(value = '') {
 function extractFactFromEnglish({ title = '', summary = '', source = '' } = {}) {
   const cleanTitle = stripSourcePhrases(stripArticleLead(title));
   const cleanSummary = stripHtml(summary);
+
+  const reachOutFreeAgencyMatch = cleanTitle.match(/^(.+?) Reach Out To (.+?) In Free Agency$/i);
+  if (reachOutFreeAgencyMatch) {
+    return {
+      headlineZh: `${localizeCommonTerms(reachOutFreeAgencyMatch[1])}在自由市场接触${localizeCommonTerms(reachOutFreeAgencyMatch[2])}`,
+      summaryZh: `${localizeCommonTerms(reachOutFreeAgencyMatch[1])}已经在自由市场接触${localizeCommonTerms(reachOutFreeAgencyMatch[2])}。`
+    };
+  }
 
   const summarySignedDeal = cleanSummary.match(/^(?:The )?(.+?) have signed (.+?) to an? (.+?) deal\./i);
   if (summarySignedDeal) {
@@ -1956,18 +1978,19 @@ function normalizeNewsItemText(item = {}) {
   let summaryZh = normalizeChineseText(item.summaryZh || '');
   let headlineZh = normalizeChineseText(forcedContractHeadline || item.headlineZh || '');
   headlineZh = normalizeChineseText(deTemplateHeadline(improveHeadlineFromSummary(headlineZh, summaryZh)));
+  headlineZh = normalizeChineseText(fixMixedLanguageHeadline(headlineZh, item));
   const originalFactText = `${item.originalTitle || item.title || ''} ${item.summary || ''}`;
-  const extractedFact = (isGenericHeadline(headlineZh) || !summaryZh || /sign-and-trade| from .+ to .+ in .+ for /i.test(originalFactText))
+  const extractedFact = (isGenericHeadline(headlineZh) || !summaryZh || isMixedLanguageHeadline(summaryZh) || /sign-and-trade| from .+ to .+ in .+ for /i.test(originalFactText))
     ? extractFactFromEnglish({ title: item.originalTitle || item.title || '', summary: item.summary || '', source: item.source || '' })
     : null;
   if (extractedFact?.headlineZh) {
     headlineZh = normalizeChineseText(extractedFact.headlineZh);
   }
-  if (!summaryZh && extractedFact?.summaryZh) {
+  if ((!summaryZh || isMixedLanguageHeadline(summaryZh)) && extractedFact?.summaryZh) {
     summaryZh = normalizeChineseText(`${item.source ? `据 ${item.source} 报道，` : ''}${extractedFact.summaryZh}`);
   }
   const titleZh = normalizeChineseText(forcedContractHeadline || headlineZh);
-  const oneLineZh = normalizeChineseText(forcedContractHeadline || headlineZh);
+  const oneLineZh = normalizeChineseText(fixMixedLanguageHeadline(forcedContractHeadline || headlineZh, item));
   const goldenQuoteZh = normalizeChineseText(item.goldenQuoteZh || '');
   if (forcedContractHeadline && !hasEquivalentAmount(summaryZh, getContractTermsFromText(forcedContractHeadline).amount)) {
     summaryZh = normalizeChineseText(`${item.source ? `据 ${item.source} 报道，` : ''}${forcedContractHeadline}。`);
@@ -2084,6 +2107,10 @@ function getQualityReport(payload = {}) {
   const containsPhiladelphiaEnglish = allTextRecords.filter(([, value]) => /\bPhiladelphia\b/i.test(value));
   const contains76人WithoutSpace = allTextRecords.filter(([, value]) => /76人|费城76\s*人|至76\s*人|与76\s*人|从76\s*人/.test(value));
   const vagueImpactHeadline = items.filter((item) => /(交易影响继续发酵|相关交易成为焦点|后续走势受到关注)/.test(item.headlineZh || item.oneLineZh || ''));
+  const mixedLanguageHeadline = items.filter((item) => isMixedLanguageHeadline(`${item.headlineZh || ''} ${item.oneLineZh || ''} ${item.summaryZh || ''}`));
+  const tradeTitleMisclassifiedAsInjury = items.filter(
+    (item) => item.category === '伤病' && /\b(acquire|acquired|traded|trade|trading|lands? in deal|land .+ in deal|for aj johnson|deal with grizzlies|for .*picks?)\b/i.test(item.originalTitle || item.title || '')
+  );
   const eventKeyCounts = items.reduce((acc, item) => {
     if (!item.eventKey) return acc;
     acc.set(item.eventKey, (acc.get(item.eventKey) || 0) + 1);
@@ -2100,6 +2127,13 @@ function getQualityReport(payload = {}) {
   const signingMisclassifiedAsTrade = items.filter(
     (item) => item.category === '交易' && !/\b(acquire|acquired|traded|trade|trading|lands? in deal|for .*picks?)\b/i.test(`${item.originalTitle || item.title || ''} ${item.summary || ''}`) && /\b(sign|signed|signing|contract|extension|re-sign|agrees? to .+ deal)\b/i.test(`${item.originalTitle || item.title || ''} ${item.summary || ''}`)
   );
+  const tradeEventCountsByPlayerTeams = items.reduce((acc, item) => {
+    const key = item.eventKey?.startsWith('trade:') ? item.eventKey.replace(/:(odds|fantasy|grades|report|analysis|source)$/i, '') : '';
+    if (!key) return acc;
+    acc.set(key, (acc.get(key) || 0) + 1);
+    return acc;
+  }, new Map());
+  const duplicatePlayerTeamTradeEvents = items.filter((item) => item.eventKey?.startsWith('trade:') && tradeEventCountsByPlayerTeams.get(item.eventKey) > 1);
   const mergedMissingTerms = items.filter((item) => {
     if (!item.isMerged) return false;
     const titles = toArray(item.originalTitles).join(' ');
@@ -2130,6 +2164,9 @@ function getQualityReport(payload = {}) {
       containsPhiladelphiaEnglish: containsPhiladelphiaEnglish.length,
       contains76人WithoutSpace: contains76人WithoutSpace.length,
       vagueImpactHeadline: vagueImpactHeadline.length,
+      mixedLanguageHeadline: mixedLanguageHeadline.length,
+      tradeTitleMisclassifiedAsInjury: tradeTitleMisclassifiedAsInjury.length,
+      duplicatePlayerTeamTradeEvents: duplicatePlayerTeamTradeEvents.length,
       duplicateEventKeys: duplicateEventKeys.length,
       highlightsDuplicateEvents: highlightsDuplicateEvents.length,
       tradeMisclassifiedAsSigning: tradeMisclassifiedAsSigning.length,
@@ -2155,6 +2192,9 @@ function getQualityReport(payload = {}) {
       containsPhiladelphiaEnglish,
       contains76人WithoutSpace,
       vagueImpactHeadline,
+      mixedLanguageHeadline,
+      tradeTitleMisclassifiedAsInjury,
+      duplicatePlayerTeamTradeEvents,
       duplicateEventKeys,
       highlightsDuplicateEvents,
       tradeMisclassifiedAsSigning,
@@ -2454,12 +2494,15 @@ function getEventPlayer(value = '') {
 
 function getEventAction(value = '', category = '') {
   const text = String(value).toLowerCase();
+  const titleText = text.split(' || ')[0] || text;
+  if (/\b(acquire|acquired|traded|trade|trading|lands? in deal|land .+ in deal|for aj johnson|deal with grizzlies|for .*picks?)\b/.test(titleText)) return 'trade';
+  if (/\b(reach out to|shows interest in|in free agency)\b/.test(titleText)) return 'sign';
   if (/\b(odds|championship odds)\b/.test(text)) return 'odds';
   if (/\b(fantasy|fantasy fallout)\b/.test(text)) return 'fantasy';
   if (/\b(grades|grade)\b/.test(text)) return 'grades';
   if (/\b(meeting|meet with|second meeting)\b/.test(text)) return 'meeting';
-  if (/\b(injury|injured|surgery|rehab)\b/.test(text)) return 'injury';
   if (/\b(acquire|acquired|traded|trade|trading|lands? in deal)\b/.test(text)) return 'trade';
+  if (/\b(injury update|injury news|injured|injury|surgery|rehab|out|return|missed game)\b/.test(titleText)) return 'injury';
   if (/\b(sign|signed|signing|agrees? to|contract|extension|re-sign)\b/.test(text)) return 'sign';
   return category === '交易' ? 'trade' : category === '签约' ? 'sign' : '';
 }
@@ -2481,7 +2524,7 @@ function normalizeEventAction(action, value = '') {
 }
 
 function getEventKey(item = {}) {
-  const text = `${item.originalTitle || item.title || ''} ${item.headlineZh || ''} ${item.summaryZh || ''} ${item.summary || ''}`;
+  const text = `${item.originalTitle || item.title || ''} || ${item.headlineZh || ''} ${item.summaryZh || ''} ${item.summary || ''}`;
   const action = normalizeEventAction(getEventAction(text, item.category), text);
   const player = getEventPlayer(text);
   const teams = getEventTeams(text);
@@ -2503,6 +2546,9 @@ function getEventKey(item = {}) {
   }
 
   if (action === 'sign') {
+    if (player === 'lebron-james' && /nuggets reach out to lebron james/i.test(text)) {
+      return 'sign:lebron-james:nuggets';
+    }
     if (player === 'walker-kessler' && teams.includes('lakers')) {
       return 'trade:walker-kessler:jazz:lakers';
     }
