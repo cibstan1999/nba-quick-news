@@ -2227,6 +2227,12 @@ function printQualityReport(payload = {}) {
 
 async function writePayload(payload) {
   const normalizedPayload = preparePayloadForWrite(payload);
+  if (normalizedPayload.lastFetchStatus) {
+    normalizedPayload.lastFetchStatus = {
+      ...normalizedPayload.lastFetchStatus,
+      mergedItems: toArray(normalizedPayload.items).length
+    };
+  }
   printQualityReport(normalizedPayload);
   await mkdir(path.dirname(outputPath), { recursive: true });
   await writeFile(outputPath, `${JSON.stringify(normalizedPayload, null, 2)}\n`, 'utf8');
@@ -2291,6 +2297,10 @@ async function rebuildFromExistingFeed() {
     lastFetchStatus: {
       status: 'rebuilt-from-cache',
       checkedAt: new Date().toISOString(),
+      updatedAt: existing.updatedAt || '',
+      fetchedItems: 0,
+      mergedItems: items.length,
+      failedFeeds: [],
       message: 'Rebuilt derived news fields from the existing local JSON cache.'
     },
     highlights: buildHighlights(items),
@@ -2762,8 +2772,12 @@ async function main() {
     );
 
     const failedFeeds = feedResults.filter((result) => result.error);
+    const fetchedItems = feedResults.reduce((total, result) => total + result.items.length, 0);
     for (const result of failedFeeds) {
       console.error(`${result.feedConfig.source} fetch failed: ${result.error instanceof Error ? result.error.message : result.error}`);
+    }
+    for (const result of feedResults.filter((entry) => !entry.error)) {
+      console.log(`${result.feedConfig.source} fetched ${result.items.length} usable RSS items.`);
     }
 
     const items = dedupeAndSort(feedResults.flatMap((result) => result.items));
@@ -2783,12 +2797,14 @@ async function main() {
       }));
       const payload = {
         ...existingPayload,
-        updatedAt: checkedAt,
+        updatedAt: existingPayload.updatedAt || '',
         lastFetchStatus: {
-          status: 'error',
+          status: 'fetch-failed',
           checkedAt,
+          updatedAt: existingPayload.updatedAt || '',
           message: 'All RSS feeds failed or returned no usable items. Kept existing news items.',
           fetchedItems: 0,
+          mergedItems: toArray(existingPayload.items).length,
           failedFeeds: failedFeedDetails
         }
       };
@@ -2798,18 +2814,25 @@ async function main() {
       return;
     }
 
+    const updatedAt = new Date().toISOString();
+    const failedFeedDetails = failedFeeds.map((result) => ({
+      source: result.feedConfig.source,
+      feed: result.feedConfig.feed,
+      error: result.error instanceof Error ? result.error.message : String(result.error)
+    }));
     const payload = {
       sources: FEEDS,
-      updatedAt: new Date().toISOString(),
+      updatedAt,
       lastFetchStatus: {
         status: failedFeeds.length ? 'partial-success' : 'success',
-        checkedAt: new Date().toISOString(),
-        fetchedItems: items.length,
-        failedFeeds: failedFeeds.map((result) => ({
-          source: result.feedConfig.source,
-          feed: result.feedConfig.feed,
-          error: result.error instanceof Error ? result.error.message : String(result.error)
-        }))
+        checkedAt: updatedAt,
+        updatedAt,
+        fetchedItems,
+        mergedItems: items.length,
+        failedFeeds: failedFeedDetails,
+        message: failedFeeds.length
+          ? `Fetched ${fetchedItems} usable RSS items with ${failedFeeds.length} failed feed(s).`
+          : `Fetched ${fetchedItems} usable RSS items from all feeds.`
       },
       highlights: buildHighlights(items),
       items
@@ -2828,12 +2851,19 @@ async function main() {
     const checkedAt = new Date().toISOString();
     const payload = {
       ...existingPayload,
-      updatedAt: checkedAt,
+      updatedAt: existingPayload.updatedAt || '',
       lastFetchStatus: {
-        status: 'error',
+        status: 'fetch-failed',
         checkedAt,
+        updatedAt: existingPayload.updatedAt || '',
         message: 'RSS fetch failed. Kept existing news items and updated fetch status.',
-        error: error instanceof Error ? error.message : String(error)
+        fetchedItems: 0,
+        mergedItems: toArray(existingPayload.items).length,
+        failedFeeds: FEEDS.map((feedConfig) => ({
+          source: feedConfig.source,
+          feed: feedConfig.feed,
+          error: error instanceof Error ? error.message : String(error)
+        }))
       }
     };
 
