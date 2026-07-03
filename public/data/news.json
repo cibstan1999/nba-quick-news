@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-03T04:26:42.169Z",
+  "updatedAt": "2026-07-03T07:47:22.726Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-03T04:26:42.169Z",
-    "updatedAt": "2026-07-03T04:26:42.169Z",
+    "checkedAt": "2026-07-03T07:47:22.726Z",
+    "updatedAt": "2026-07-03T07:47:22.726Z",
     "fetchedItems": 79,
-    "mergedItems": 60,
+    "mergedItems": 59,
     "failedFeeds": [],
     "message": "Fetched 79 usable RSS items from all feeds."
   },
@@ -24,7 +24,7 @@
       "id": "https://basketball.realgm.com/wiretap/286511/Celtics-Not-Motivated-By-Money-Or-Follow-Up-Trade-In-Dealing-Jaylen-Brown",
       "text": "Jaylen Brown 与 76 人达成 6 年 合同",
       "category": "交易",
-      "source": "RealGM / Yahoo Sports",
+      "source": "Yahoo Sports / RealGM",
       "link": "https://basketball.realgm.com/wiretap/286511/Celtics-Not-Motivated-By-Money-Or-Follow-Up-Trade-In-Dealing-Jaylen-Brown"
     },
     {
@@ -42,21 +42,116 @@
       "link": "https://basketball.realgm.com/wiretap/286508/Anfernee-Simons-Sixers-Agree-To-Two-Year-$123M-Deal"
     },
     {
-      "id": "https://basketball.realgm.com/wiretap/286490/Mavericks-Acquire-Santi-Aldama-From-Grizzlies-For-Protected-2030-Pick-Via-Warriors",
-      "text": "独行侠从灰熊得到 Santi Aldama",
-      "category": "交易",
-      "source": "RealGM",
-      "link": "https://basketball.realgm.com/wiretap/286490/Mavericks-Acquire-Santi-Aldama-From-Grizzlies-For-Protected-2030-Pick-Via-Warriors"
-    },
-    {
       "id": "https://sports.yahoo.com/articles/first-round-pick-cameron-carr-014327543.html",
       "text": "First-round pick Cameron Carr 签下湖人 新秀",
       "category": "签约",
       "source": "Yahoo Sports",
       "link": "https://sports.yahoo.com/articles/first-round-pick-cameron-carr-014327543.html"
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286519/Tari-Eason-Rockets-Agree-To-Five-Year-$815M-Deal",
+      "text": "Tari Eason 与火箭达成五年，8150 万美元合同",
+      "category": "签约",
+      "source": "RealGM",
+      "link": "https://basketball.realgm.com/wiretap/286519/Tari-Eason-Rockets-Agree-To-Five-Year-$815M-Deal"
     }
   ],
   "items": [
+    {
+      "id": "https://basketball.realgm.com/wiretap/286526/Rui-Hachimura-In-Contact-With-Warriors-Timberwolves",
+      "title": "Rui Hachimura In Contact With Warriors, Timberwolves",
+      "originalTitle": "Rui Hachimura In Contact With Warriors, Timberwolves",
+      "headlineZh": "Rui Hachimura 在相关消息更新",
+      "titleZh": "Rui Hachimura 在相关消息更新",
+      "link": "https://basketball.realgm.com/wiretap/286526/Rui-Hachimura-In-Contact-With-Warriors-Timberwolves",
+      "url": "https://basketball.realgm.com/wiretap/286526/Rui-Hachimura-In-Contact-With-Warriors-Timberwolves",
+      "pubDate": "2026-07-03T07:04:18.000Z",
+      "publishedAt": "2026-07-03T07:04:18.000Z",
+      "summary": "Rui Hachimura's representatives are in contact with the Golden State Warriors and Minnesota Timberwolves, sources told Marc Stein and Jake Fischer of The Stein Line. Hachimura is reportedly the Timberwolves' top choice to replace Julius Randle and Naz Reid at the power forward position. Hachimura was also a candidate to sign with the Spurs before the team signed Tobias Harris. The Nets remain a possible destination for Hachimura.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，原文聚焦 Rui Hachimura 在的最新动态和后续影响。",
+      "oneLineZh": "Rui Hachimura 在相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Hachimura_Rui_lal_230217.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:tobias-harris:nets",
+      "relatedItems": [],
+      "displayTitle": "Rui Hachimura In Contact With Warriors, Timberwolves",
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286525/Knicks-Have-Shown-Some-Interest-In-Signing-LeBron-James",
+      "title": "Knicks Have 'Shown Some Interest' In Signing LeBron James",
+      "originalTitle": "Knicks Have 'Shown Some Interest' In Signing LeBron James",
+      "headlineZh": "尼克斯 Have 签约动向更新",
+      "titleZh": "尼克斯 Have 签约动向更新",
+      "link": "https://basketball.realgm.com/wiretap/286525/Knicks-Have-Shown-Some-Interest-In-Signing-LeBron-James",
+      "url": "https://basketball.realgm.com/wiretap/286525/Knicks-Have-Shown-Some-Interest-In-Signing-LeBron-James",
+      "pubDate": "2026-07-03T07:00:29.000Z",
+      "publishedAt": "2026-07-03T07:00:29.000Z",
+      "summary": "The New York Knicks have \"shown some interest\" in signing LeBron James, according to Marc Stein and Jake Fischer of The Stein Line. The Nuggets and Sixers have also registered their interest in James. It is widely expected around the league that James will likely take his time to come to a decision on where he plays next season. The Warriors reportedly have planned additional moves to clear cap space in case James shows interest in signing with the team. The Cavs and Heat are also mentioned as co-favorites with the Warriors to land James.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "尼克斯 Have 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_260502.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james:cavaliers",
+      "relatedItems": [],
+      "sources": [
+        "RealGM"
+      ],
+      "originalTitles": [
+        "LeBron James Has No Timetable For Making Free Agency Decision",
+        "Knicks Have 'Shown Some Interest' In Signing LeBron James"
+      ],
+      "sourceLinks": [
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286500/LeBron-James-Has-No-Timetable-For-Making-Free-Agency-Decision"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286525/Knicks-Have-Shown-Some-Interest-In-Signing-LeBron-James"
+        }
+      ],
+      "isMerged": false,
+      "displayTitle": "Knicks Have 'Shown Some Interest' In Signing LeBron James"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/potential-center-trade-targets-post-040706745.html",
+      "title": "Potential center trade targets post Walker Kessler trade",
+      "originalTitle": "Potential center trade targets post Walker Kessler trade",
+      "headlineZh": "Walker Kessler 交易影响继续发酵",
+      "titleZh": "Walker Kessler 交易影响继续发酵",
+      "link": "https://sports.yahoo.com/articles/potential-center-trade-targets-post-040706745.html",
+      "url": "https://sports.yahoo.com/articles/potential-center-trade-targets-post-040706745.html",
+      "pubDate": "2026-07-03T04:07:06.000Z",
+      "publishedAt": "2026-07-03T04:07:06.000Z",
+      "summary": "Trades the Jazz should make post Walker Kessler",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Walker Kessler 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "Walker Kessler 交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Bh245T.niFJGrCCwpkBdJw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03NzQ7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/e4f3a9afb767fd3d5c5fea301412ac7d",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 3,
+      "eventKey": "trade:walker-kessler:jazz",
+      "relatedItems": [],
+      "displayTitle": "Walker Kessler 交易影响继续发酵",
+      "isMerged": false
+    },
     {
       "id": "https://basketball.realgm.com/wiretap/286524/Ugonna-Onyenso-Pistons-Agree-To-Two-Way-Deal",
       "title": "Ugonna Onyenso, Pistons Agree To Two-Way Deal",
@@ -252,6 +347,58 @@
       "category": "其他",
       "importance": 1,
       "displayTitle": "Jakucionis delivers in FIBA debut for Lithuania",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/kyle-lowry-wants-us-put-023732423.html",
+      "title": "Kyle Lowry wants us to put the breaks on retirement talk",
+      "originalTitle": "Kyle Lowry wants us to put the breaks on retirement talk",
+      "headlineZh": "Kyle Lowry 相关消息更新",
+      "titleZh": "Kyle Lowry 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/kyle-lowry-wants-us-put-023732423.html",
+      "url": "https://sports.yahoo.com/articles/kyle-lowry-wants-us-put-023732423.html",
+      "pubDate": "2026-07-03T02:37:32.000Z",
+      "publishedAt": "2026-07-03T02:37:32.000Z",
+      "summary": "The guard seems to want us to wait until notice comes from the horse’s mouth",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Kyle Lowry 的最新动态和后续影响。",
+      "oneLineZh": "Kyle Lowry 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/NXATYhZ95m2wPngXqrUU0g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/ab51e650acfc43a6388714db580653d3",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Kyle Lowry wants us to put the breaks on retirement talk",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lakers-vs-warriors-california-classic-023000207.html",
+      "title": "Lakers vs Warriors California Classic preview: Summer season is here",
+      "originalTitle": "Lakers vs Warriors California Classic preview: Summer season is here",
+      "headlineZh": "加州 Classic 相关消息更新",
+      "titleZh": "加州 Classic 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/lakers-vs-warriors-california-classic-023000207.html",
+      "url": "https://sports.yahoo.com/articles/lakers-vs-warriors-california-classic-023000207.html",
+      "pubDate": "2026-07-03T02:30:00.000Z",
+      "publishedAt": "2026-07-03T02:30:00.000Z",
+      "summary": "Adou Thiero and Cameron Carr will headline this year’s summer team.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦加州 Classic 的最新动态和后续影响。",
+      "oneLineZh": "加州 Classic 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/JtC3Ptp97AgunyV0JU0lzg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MTQ7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/ce00db71503341ce376a4195ab874e2b",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Lakers vs Warriors California Classic preview: Summer season is here",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -617,26 +764,10 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "签约",
       "importance": 2,
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-lakers-rift-stemmed-232703613.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-lakers-front-office-184047363.html"
-        }
-      ],
-      "originalTitles": [
-        "LeBron James’ Lakers rift stemmed from failed Russell Westbrook saga"
-      ],
-      "isMerged": false,
       "eventKey": "sign:lebron-james:lakers",
       "relatedItems": [],
-      "displayTitle": "LeBron James’ Lakers rift stemmed from failed Russell Westbrook saga"
+      "displayTitle": "LeBron James’ Lakers rift stemmed from failed Russell Westbrook saga",
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286516/Billy-Donovan-Hired-As-Top-Assistant-Coach-Of-Spurs",
@@ -1232,12 +1363,36 @@
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Brown_Jaylen_bos_230221.jpg",
-      "source": "RealGM / Yahoo Sports",
+      "source": "Yahoo Sports / RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "交易",
       "importance": 5,
       "eventKey": "trade:jaylen-brown:celtics:76ers",
       "relatedItems": [
+        {
+          "title": "Jaylen Brown decries Celtics' 'lack of respect' over trade: 'Key card got rejected'",
+          "originalTitle": "Jaylen Brown decries Celtics' 'lack of respect' over trade: 'Key card got rejected'",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/jaylen-brown-decries-celtics-lack-053356949.html",
+          "publishedAt": "2026-07-03T05:33:56.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Where the Sixers stand financially after adding Jaylen Brown, Anfernee Simons",
+          "originalTitle": "Where the Sixers stand financially after adding Jaylen Brown, Anfernee Simons",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/where-sixers-stand-financially-jaylen-135605314.html",
+          "publishedAt": "2026-07-03T03:59:51.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Jaylen Brown opens up about 76ers trade — and how he has to change attitude toward former nemesis",
+          "originalTitle": "Jaylen Brown opens up about 76ers trade — and how he has to change attitude toward former nemesis",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/jaylen-brown-opens-76ers-trade-024024600.html",
+          "publishedAt": "2026-07-03T02:40:24.000Z",
+          "angle": "source"
+        },
         {
           "title": "LeBron James to Sixers? Rumors heat up after sudden Jaylen Brown trade",
           "originalTitle": "LeBron James to Sixers? Rumors heat up after sudden Jaylen Brown trade",
@@ -1245,14 +1400,6 @@
           "url": "https://sports.yahoo.com/articles/lebron-james-sixers-rumors-heat-013422481.html",
           "publishedAt": "2026-07-03T01:34:22.000Z",
           "angle": "rumor"
-        },
-        {
-          "title": "Jaylen Brown comforts crying 6-year-old superfan after trade to 76ers",
-          "originalTitle": "Jaylen Brown comforts crying 6-year-old superfan after trade to 76ers",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/jaylen-brown-comforts-crying-6-235614724.html",
-          "publishedAt": "2026-07-02T23:56:14.000Z",
-          "angle": "source"
         },
         {
           "title": "Jaylen Brown’s first statement since being traded to Sixers",
@@ -1271,14 +1418,6 @@
           "angle": "report"
         },
         {
-          "title": "Sixers free agency tracker: Sixers reportedly trade for Jaylen Brown; sign Anfernee Simons",
-          "originalTitle": "Sixers free agency tracker: Sixers reportedly trade for Jaylen Brown; sign Anfernee Simons",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/sixers-free-agency-tracker-oubre-204115340.html",
-          "publishedAt": "2026-07-02T18:47:55.000Z",
-          "angle": "rumor"
-        },
-        {
           "title": "Celtics Rejected Every Trade Call On Jayson Tatum Amid Decision To Move Jaylen Brown",
           "originalTitle": "Celtics Rejected Every Trade Call On Jayson Tatum Amid Decision To Move Jaylen Brown",
           "source": "RealGM",
@@ -1293,19 +1432,11 @@
           "url": "https://basketball.realgm.com/wiretap/286502/Rival-Executives-Believe-Celtics-Made-Jaylen-Brown-Trade-Under-Duress",
           "publishedAt": "2026-07-02T15:04:45.000Z",
           "angle": "rumor"
-        },
-        {
-          "title": "76ers Acquire Jaylen Brown From Celtics For Paul George, Two First Round Picks",
-          "originalTitle": "76ers Acquire Jaylen Brown From Celtics For Paul George, Two First Round Picks",
-          "source": "RealGM",
-          "url": "https://basketball.realgm.com/wiretap/286489/76ers-Acquire-Jaylen-Brown-From-Celtics-For-Paul-George-Two-First-Round-Picks",
-          "publishedAt": "2026-07-01T22:21:09.000Z",
-          "angle": "report"
         }
       ],
       "sources": [
-        "RealGM",
-        "Yahoo Sports"
+        "Yahoo Sports",
+        "RealGM"
       ],
       "originalTitles": [
         "Scal: C's ‘owe it to Tatum' to figure out next ‘championship-level' move",
@@ -1313,70 +1444,23 @@
         "Celtics Rejected Every Trade Call On Jayson Tatum Amid Decision To Move Jaylen Brown",
         "Celtics Not Motivated By Money Or Follow-Up Trade In Dealing Jaylen Brown",
         "Jaylen Brown Never Requested Trade; Celtics Didn't Expect Offers To Improve If They Waited",
-        "76ers Acquire Jaylen Brown From Celtics For Paul George, Two First Round Picks",
-        "LeBron James to Sixers? Rumors heat up after sudden Jaylen Brown trade",
+        "Jaylen Brown decries Celtics' 'lack of respect' over trade: 'Key card got rejected'",
+        "Where the Sixers stand financially after adding Jaylen Brown, Anfernee Simons",
+        "Jaylen Brown opens up about 76ers trade — and how he has to change attitude toward former nemesis",
         "Jaylen Brown comforts crying 6-year-old superfan after trade to 76ers",
         "Jaylen Brown releases statement following shocking trade to Philadelphia",
         "Jaylen Brown releases statement after trade to 76ers, says he's 'excited and disappointed at the same time'",
-        "Jaylen Brown’s first statement since being traded to Sixers",
-        "Sixers free agency tracker: Sixers reportedly trade for Jaylen Brown; sign Anfernee Simons"
+        "LeBron James to Sixers? Rumors heat up after sudden Jaylen Brown trade",
+        "Jaylen Brown’s first statement since being traded to Sixers"
       ],
       "sourceLinks": [
         {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286498/Hollinger-Duncan-Which-Crazy-Moves-Reshaped-the-League-the-Most"
-        },
-        {
           "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/jaylen-brown-opens-being-traded-212807178.html"
+          "link": "https://sports.yahoo.com/articles/everything-jaylen-brown-unpacked-post-040251749.html"
         },
         {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/scal-cs-owe-tatum-figure-202314966.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/espn-analyst-jaylen-brown-trade-184203864.html"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286502/Rival-Executives-Believe-Celtics-Made-Jaylen-Brown-Trade-Under-Duress"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286504/Celtics-Rejected-Every-Trade-Call-On-Jayson-Tatum-Amid-Decision-To-Move-Jaylen-Brown"
-        },
-        {
-          "source": "RealGM",
+          "source": "RealGM / Yahoo Sports",
           "link": "https://basketball.realgm.com/wiretap/286511/Celtics-Not-Motivated-By-Money-Or-Follow-Up-Trade-In-Dealing-Jaylen-Brown"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286509/Jaylen-Brown-Never-Requested-Trade;-Celtics-Didnt-Expect-Offers-To-Improve-If-They-Waited"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286493/Sixers-Interested-In-Signing-LeBron-James"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286489/76ers-Acquire-Jaylen-Brown-From-Celtics-For-Paul-George-Two-First-Round-Picks"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-sixers-rumors-heat-013422481.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/jaylen-brown-comforts-crying-6-235614724.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/jaylen-brown-first-statement-since-194612710.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/sixers-free-agency-tracker-oubre-204115340.html"
         }
       ],
       "isMerged": true,
@@ -1458,110 +1542,6 @@
       "eventKey": "sign:eastern-conference-offseason",
       "relatedItems": [],
       "displayTitle": "Eastern Conference Offseason Tracker [UPDATED]",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/updated-sixers-2026-27-roster-220500251.html",
-      "title": "Updated Sixers 2026-27 roster as NBA free agency begins",
-      "originalTitle": "Updated Sixers 2026-27 roster as NBA free agency begins",
-      "headlineZh": "76 人更新2026-27赛季阵容名单",
-      "titleZh": "76 人更新2026-27赛季阵容名单",
-      "link": "https://sports.yahoo.com/articles/updated-sixers-2026-27-roster-220500251.html",
-      "url": "https://sports.yahoo.com/articles/updated-sixers-2026-27-roster-220500251.html",
-      "pubDate": "2026-07-02T18:46:51.000Z",
-      "publishedAt": "2026-07-02T18:46:51.000Z",
-      "summary": "With players coming and going via the NBA Draft and free agency, we have you covered on the Philadelphia 76ers’ projected 2026-27 roster.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，76 人在自由市场开启后更新2026-27赛季预计阵容，涉及选秀和签约带来的人员变化。",
-      "oneLineZh": "76 人更新2026-27赛季阵容名单",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/7GhDKDNNzzwW4rbKvQY9FA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NDM7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/84b609bf88f21d64bc4dc25201427105",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 4,
-      "eventKey": "sign:updated-sixers:76ers",
-      "relatedItems": [],
-      "displayTitle": "76 人更新2026-27赛季阵容名单",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/report-willie-green-join-dusty-184004195.html",
-      "title": "Report: Willie Green to join Dusty May’s staff",
-      "originalTitle": "Report: Willie Green to join Dusty May’s staff",
-      "headlineZh": "Willie Green 相关消息更新",
-      "titleZh": "Willie Green 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/report-willie-green-join-dusty-184004195.html",
-      "url": "https://sports.yahoo.com/articles/report-willie-green-join-dusty-184004195.html",
-      "pubDate": "2026-07-02T18:40:04.000Z",
-      "publishedAt": "2026-07-02T18:40:04.000Z",
-      "summary": "May is starting the process of picking who will join him on the bench next season",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Willie Green 的最新动态和后续影响。",
-      "oneLineZh": "Willie Green 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/wJ77EPU0YSY8vePjHXVssQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xNzk5O2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/678dc63d6a2336ca7714b4c2d6da8bc6",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 2,
-      "displayTitle": "Report: Willie Green to join Dusty May’s staff",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/sixers-reportedly-agree-terms-anfernee-183755952.html",
-      "title": "Sixers reportedly agree to terms with Anfernee Simons",
-      "originalTitle": "Sixers reportedly agree to terms with Anfernee Simons",
-      "headlineZh": "Anfernee Simons 相关消息更新",
-      "titleZh": "Anfernee Simons 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/sixers-reportedly-agree-terms-anfernee-183755952.html",
-      "url": "https://sports.yahoo.com/articles/sixers-reportedly-agree-terms-anfernee-183755952.html",
-      "pubDate": "2026-07-02T18:37:55.000Z",
-      "publishedAt": "2026-07-02T18:37:55.000Z",
-      "summary": "In a bit of a surprising move, the Sixers have added serious scoring punch and shooting off their bench.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Anfernee Simons 的最新动态和后续影响。",
-      "oneLineZh": "Anfernee Simons 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/ipkX2vpE4T.vdeqUWywb9Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/f5e22db24b394cf814173f7348385d4a",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "eventKey": "sign:anfernee-simons:76ers",
-      "relatedItems": [],
-      "displayTitle": "Sixers reportedly agree to terms with Anfernee Simons",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/utah-jazz-ceiling-never-higher-183750423.html",
-      "title": "The Utah Jazz Ceiling Has Never Been Higher",
-      "originalTitle": "The Utah Jazz Ceiling Has Never Been Higher",
-      "headlineZh": "Utah Ceiling Has 相关消息更新",
-      "titleZh": "Utah Ceiling Has 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/utah-jazz-ceiling-never-higher-183750423.html",
-      "url": "https://sports.yahoo.com/articles/utah-jazz-ceiling-never-higher-183750423.html",
-      "pubDate": "2026-07-02T18:37:50.000Z",
-      "publishedAt": "2026-07-02T18:37:50.000Z",
-      "summary": "Are the Utah Jazz actually in a better spot long term without Walker Kessler?",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Utah Ceiling Has 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/tQVeNjdOCHhXxzc1Yfp2ZQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04NDc7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/75e98e98d6d011b1a6155f67b3ec1d4a",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "The Utah Jazz Ceiling Has Never Been Higher",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -1721,32 +1701,6 @@
       "isMerged": false
     },
     {
-      "id": "https://basketball.realgm.com/wiretap/286500/LeBron-James-Has-No-Timetable-For-Making-Free-Agency-Decision",
-      "title": "LeBron James Has No Timetable For Making Free Agency Decision",
-      "originalTitle": "LeBron James Has No Timetable For Making Free Agency Decision",
-      "headlineZh": "LeBron James Has 签约动向更新",
-      "titleZh": "LeBron James Has 签约动向更新",
-      "link": "https://basketball.realgm.com/wiretap/286500/LeBron-James-Has-No-Timetable-For-Making-Free-Agency-Decision",
-      "url": "https://basketball.realgm.com/wiretap/286500/LeBron-James-Has-No-Timetable-For-Making-Free-Agency-Decision",
-      "pubDate": "2026-07-02T14:36:05.000Z",
-      "publishedAt": "2026-07-02T14:36:05.000Z",
-      "summary": "LeBron James is taking his time in free agency and has no timetable for when he will make a decision. Because James is showing some level of flexibility for the type of contract he is prepared to sign, he can be patient without necessarily stopping other business around the league from getting done unlike the situations in 2010 and 2014. \"LeBron James is not in a rush right now to make a decision,\" said Shams Charania on Thursday. \"He's evaluating everything. His biggest priority in all this is finding a team where he feels he's going to have a chance to play meaningful basketball and compete for a championship. My understanding is this will not be a financially driven, money decision. \"His agent, Rich Paul, has been getting about a dozen pitches ever since free agency opened.\" The Golden State Warriors, Cleveland Cavaliers and Miami Heat are considered the three most probable teams for James. The Denver Nuggets and Philadelphia 76ers have also been identified as teams that have reached out to James. \"LeBron James will probably take the next few days to sift through all that and figure out exactly where he's at. There is no timetable,\" added Charania.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "LeBron James Has 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_251210.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james:cavaliers",
-      "relatedItems": [],
-      "displayTitle": "LeBron James Has No Timetable For Making Free Agency Decision",
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286497/Kings-Sign-Emanuel-Sharp-Adam-Flagler",
       "title": "Kings Sign Emanuel Sharp, Adam Flagler",
       "originalTitle": "Kings Sign Emanuel Sharp, Adam Flagler",
@@ -1822,32 +1776,6 @@
       "eventKey": "sign:marvin-bagley-iii:mavericks:1",
       "relatedItems": [],
       "displayTitle": "Marvin Bagley III 与掘金达成一年合同",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286490/Mavericks-Acquire-Santi-Aldama-From-Grizzlies-For-Protected-2030-Pick-Via-Warriors",
-      "title": "Mavericks Acquire Santi Aldama From Grizzlies For Protected 2030 Pick Via Warriors",
-      "originalTitle": "Mavericks Acquire Santi Aldama From Grizzlies For Protected 2030 Pick Via Warriors",
-      "headlineZh": "独行侠从灰熊得到 Santi Aldama",
-      "titleZh": "独行侠从灰熊得到 Santi Aldama",
-      "link": "https://basketball.realgm.com/wiretap/286490/Mavericks-Acquire-Santi-Aldama-From-Grizzlies-For-Protected-2030-Pick-Via-Warriors",
-      "url": "https://basketball.realgm.com/wiretap/286490/Mavericks-Acquire-Santi-Aldama-From-Grizzlies-For-Protected-2030-Pick-Via-Warriors",
-      "pubDate": "2026-07-01T23:06:41.000Z",
-      "publishedAt": "2026-07-01T23:06:41.000Z",
-      "summary": "The Dallas Mavericks have acquired Santi Aldama from the Memphis Grizzlies for AJ Johnson, a protected 2030 first round pick via the Golden State Warriors and two future second round picks. The Mavericks also acquire the draft rights to Tarik Biberovic. Aldama appeared in 43 games with the Grizzlies last season, averaging 14.0 points, 6.7 rebounds and 2.9 assists in 27.9 minutes. Aldama signed a three-year, $52.5 million deal with the Grizzlies last offseason.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，独行侠从灰熊得到 Santi Aldama，送出 AJ Johnson、一个来自勇士的受保护 2030 年首轮签、两个未来次轮签。",
-      "oneLineZh": "独行侠从灰熊得到 Santi Aldama",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Aldama_Santi_mem_230109.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
-      "importance": 5,
-      "eventKey": "trade:santi-aldama:mavericks:grizzlies",
-      "relatedItems": [],
-      "displayTitle": "独行侠从灰熊得到 Santi Aldama",
       "isMerged": false
     }
   ]
