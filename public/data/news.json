@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-03T18:15:52.749Z",
+  "updatedAt": "2026-07-03T19:58:22.729Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-03T18:15:52.749Z",
-    "updatedAt": "2026-07-03T18:15:52.749Z",
+    "checkedAt": "2026-07-03T19:58:22.729Z",
+    "updatedAt": "2026-07-03T19:58:22.729Z",
     "fetchedItems": 80,
-    "mergedItems": 65,
+    "mergedItems": 61,
     "failedFeeds": [],
     "message": "Fetched 80 usable RSS items from all feeds."
   },
@@ -28,18 +28,18 @@
       "link": "https://basketball.realgm.com/wiretap/286537/Caleb-Love-Sixers-Agree-To-Two-Way-Contract"
     },
     {
+      "id": "https://sports.yahoo.com/articles/sixers-reportedly-sign-rayan-rupert-162020509.html",
+      "text": "76 人 reportedly 与 Rayan Rupert 签下双向合同",
+      "category": "签约",
+      "source": "Yahoo Sports / RealGM",
+      "link": "https://sports.yahoo.com/articles/sixers-reportedly-sign-rayan-rupert-162020509.html"
+    },
+    {
       "id": "https://basketball.realgm.com/wiretap/286530/Jaylen-Brown-Trade-Ignites-Concern-NBA-Overrun-With-Strategy",
       "text": "Jaylen Brown 被交易至 76 人",
       "category": "交易",
       "source": "RealGM / Yahoo Sports",
       "link": "https://basketball.realgm.com/wiretap/286530/Jaylen-Brown-Trade-Ignites-Concern-NBA-Overrun-With-Strategy"
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286532/Rayan-Rupert-Sixers-Agree-To-Two-Way-Deal",
-      "text": "Rayan Rupert 与 76 人达成双向合同",
-      "category": "签约",
-      "source": "RealGM / Yahoo Sports",
-      "link": "https://basketball.realgm.com/wiretap/286532/Rayan-Rupert-Sixers-Agree-To-Two-Way-Deal"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286528/Neemias-Queta-Celtics-Agree-To-Four-Year-$56M-Extension",
@@ -57,6 +57,84 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/cavs-look-frontrunners-land-lebron-190114049.html",
+      "title": "Cavs look like frontrunners to land LeBron James after Rich Paul’s hints",
+      "originalTitle": "Cavs look like frontrunners to land LeBron James after Rich Paul’s hints",
+      "headlineZh": "LeBron James 相关消息更新",
+      "titleZh": "LeBron James 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/cavs-look-frontrunners-land-lebron-190114049.html",
+      "url": "https://sports.yahoo.com/articles/cavs-look-frontrunners-land-lebron-190114049.html",
+      "pubDate": "2026-07-03T19:01:14.000Z",
+      "publishedAt": "2026-07-03T19:01:14.000Z",
+      "summary": "The more smoke, the better. LeBron’s return to Cleveland is heating up.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
+      "oneLineZh": "LeBron James 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/uyaHNO64hZvHrlqE9iCR2w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/571eb21751b7ed1044beb1334f83a83f",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Cavs look like frontrunners to land LeBron James after Rich Paul’s hints",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/nba-summer-league-predictions-parlay-181200893.html",
+      "title": "NBA Summer League Predictions & Parlay for Today, July 3: Youngsters Show Out",
+      "originalTitle": "NBA Summer League Predictions & Parlay for Today, July 3: Youngsters Show Out",
+      "headlineZh": "Summer League Predictions 相关消息更新",
+      "titleZh": "Summer League Predictions 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/nba-summer-league-predictions-parlay-181200893.html",
+      "url": "https://sports.yahoo.com/articles/nba-summer-league-predictions-parlay-181200893.html",
+      "pubDate": "2026-07-03T18:52:00.000Z",
+      "publishedAt": "2026-07-03T18:52:00.000Z",
+      "summary": "The Spurs and Lakers headline tonight's NBA Summer League predictions & parlay for Friday, July 3, 2026.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Summer League Predictions 的最新动态和后续影响。",
+      "oneLineZh": "Summer League Predictions 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/22baae9d3e6558373812626fbb13a500",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "eventKey": "injury:summer-league-predictions:lakers",
+      "relatedItems": [],
+      "displayTitle": "NBA Summer League Predictions & Parlay for Today, July 3: Youngsters Show Out",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/report-wizards-acquire-ayton-lakers-174549113.html",
+      "title": "Report: Wizards acquire Ayton from Lakers for Hardy, two draft picks",
+      "originalTitle": "Report: Wizards acquire Ayton from Lakers for Hardy, two draft picks",
+      "headlineZh": "Report: 奇才从湖人得到 Ayton",
+      "titleZh": "Report: 奇才从湖人得到 Ayton",
+      "link": "https://sports.yahoo.com/articles/report-wizards-acquire-ayton-lakers-174549113.html",
+      "url": "https://sports.yahoo.com/articles/report-wizards-acquire-ayton-lakers-174549113.html",
+      "pubDate": "2026-07-03T17:45:49.000Z",
+      "publishedAt": "2026-07-03T17:45:49.000Z",
+      "summary": "The Washington Wizards are FINALLY in the news for reasons other than AJ Dybantsa, Anthony Davis or Trae Young. Maybe Russell Westbrook as well? On Friday, Shams Charania of ESPN reported that the Wizards will acquire Deandre Ayton from the Los Angeles Lakers in exchange for Jaden Hardy and two of the Wizards’ second round […]",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Report: 奇才从湖人得到 Ayton，送出 Hardy、two draft 选秀权。",
+      "oneLineZh": "Report: 奇才从湖人得到 Ayton",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/hEHVaepETVdaP6DHtHddrQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/7b6b2259adc8a918b5a191d34ae89f8c",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 4,
+      "eventKey": "trade:the-washington-wizards:lakers",
+      "relatedItems": [],
+      "displayTitle": "Report: 奇才从湖人得到 Ayton",
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/nba/article/jaylen-brown--kawhi-leonard-on-the-move-lakers-make-splashes--wnba-all-star-update-173225623.html",
       "title": "Jaylen Brown & Kawhi Leonard on the move, Lakers make splashes + WNBA All-Star update",
@@ -84,47 +162,81 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/nba/breaking-news/article/lakers-reportedly-trading-deandre-ayton-to-wizards-for-jaden-hardy-2-second-round-picks-171721611.html",
-      "title": "Lakers reportedly trading Deandre Ayton to Wizards for Jaden Hardy, 2 second-round picks",
-      "originalTitle": "Lakers reportedly trading Deandre Ayton to Wizards for Jaden Hardy, 2 second-round picks",
-      "headlineZh": "Deandre Ayton 相关消息更新",
-      "titleZh": "Deandre Ayton 相关消息更新",
-      "link": "https://sports.yahoo.com/nba/breaking-news/article/lakers-reportedly-trading-deandre-ayton-to-wizards-for-jaden-hardy-2-second-round-picks-171721611.html",
-      "url": "https://sports.yahoo.com/nba/breaking-news/article/lakers-reportedly-trading-deandre-ayton-to-wizards-for-jaden-hardy-2-second-round-picks-171721611.html",
-      "pubDate": "2026-07-03T17:17:21.000Z",
-      "publishedAt": "2026-07-03T17:17:21.000Z",
-      "summary": "The Lakers continue making moves in the post-LeBron James era.",
+      "id": "https://basketball.realgm.com/wiretap/286539/Lakers-Interested-In-Andre-Drummond-Jonas-Valanciunas-Kevon-Looney",
+      "title": "Lakers Interested In Andre Drummond, Jonas Valanciunas, Kevon Looney",
+      "originalTitle": "Lakers Interested In Andre Drummond, Jonas Valanciunas, Kevon Looney",
+      "headlineZh": "Interested 在 Andre 相关消息更新",
+      "titleZh": "Interested 在 Andre 相关消息更新",
+      "link": "https://basketball.realgm.com/wiretap/286539/Lakers-Interested-In-Andre-Drummond-Jonas-Valanciunas-Kevon-Looney",
+      "url": "https://basketball.realgm.com/wiretap/286539/Lakers-Interested-In-Andre-Drummond-Jonas-Valanciunas-Kevon-Looney",
+      "pubDate": "2026-07-03T17:26:44.000Z",
+      "publishedAt": "2026-07-03T17:26:44.000Z",
+      "summary": "The Los Angeles Lakers have interest in Andre Drummond, Jonas Valanciunas and Kevon Looney for their backup center role behind Walker Kessler after trading Deandre Ayton to the Washington Wizards. Valanciunas is currently under contract with the Denver Nuggets on a $10 million deal, but is not guaranteed until July 8th. Valanciunas appeared in 65 games with the Nuggets, averaging 8.7 points, 5.1 rebounds and 1.2 assists in 13.4 minutes. Drummond appeared in 63 games last season with the Philadelphia 76ers, averaging 6.4 points, 8.4 rebounds and 1.3 assists in 19.5 minutes. Looney appeared in 21 games last season with the New Orleans Pelicans, averaging 2.8 points, 5.6 rebounds and 1.6 assists in 14.6 minutes.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Deandre Ayton 的最新动态和后续影响。",
-      "oneLineZh": "Deandre Ayton 相关消息更新",
+      "summaryZh": "据 RealGM / Yahoo Sports 报道，原文聚焦 Interested 在 Andre 的最新动态和后续影响。",
+      "oneLineZh": "Interested 在 Andre 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/.NjxoVAnSYlE7q6BUY2ZBQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MTU7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/571b0501-fd95-48e4-acd7-50a52698a6f3",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Drummond_Andre_phi_240627.jpg",
+      "source": "RealGM / Yahoo Sports",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "交易",
       "importance": 2,
+      "eventKey": "trade:walker-kessler:jazz:lakers",
+      "relatedItems": [],
       "sources": [
+        "RealGM",
         "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Lakers’ trade for Walker Kessler worth steep price — and needed to happen"
       ],
       "sourceLinks": [
         {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/nba/breaking-news/article/lakers-reportedly-trading-deandre-ayton-to-wizards-for-jaden-hardy-2-second-round-picks-171721611.html"
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286531/NBA-Executives-Notice-Surge-In-Spending-On-Centers-In-Age-Of-Victor-Wembanyama"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286539/Lakers-Interested-In-Andre-Drummond-Jonas-Valanciunas-Kevon-Looney"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286521/Luka-Doncic-Excited-For-Lakers-Free-Agency-Moves"
         },
         {
           "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lakers-trade-walker-kessler-worth-140000160.html"
+          "link": "https://sports.yahoo.com/articles/lakers-trade-deandre-ayton-wizards-182425018.html"
         }
       ],
-      "originalTitles": [
-        "Lakers reportedly trading Deandre Ayton to Wizards for Jaden Hardy, 2 second-round picks",
-        "Lakers’ trade for Walker Kessler worth steep price — and needed to happen"
-      ],
       "isMerged": false,
-      "eventKey": "trade:lebron-james:lakers",
+      "displayTitle": "Lakers Interested In Andre Drummond, Jonas Valanciunas, Kevon Looney"
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286538/Lakers-Trade-Deandre-Ayton-To-Wizards-For-Jaden-Hardy-Two-2nd-Rounders",
+      "title": "Lakers Trade Deandre Ayton To Wizards For Jaden Hardy, Two 2nd Rounders",
+      "originalTitle": "Lakers Trade Deandre Ayton To Wizards For Jaden Hardy, Two 2nd Rounders",
+      "headlineZh": "Trade Deandre Ayton 交易影响继续发酵",
+      "titleZh": "Trade Deandre Ayton 交易影响继续发酵",
+      "link": "https://basketball.realgm.com/wiretap/286538/Lakers-Trade-Deandre-Ayton-To-Wizards-For-Jaden-Hardy-Two-2nd-Rounders",
+      "url": "https://basketball.realgm.com/wiretap/286538/Lakers-Trade-Deandre-Ayton-To-Wizards-For-Jaden-Hardy-Two-2nd-Rounders",
+      "pubDate": "2026-07-03T17:18:02.000Z",
+      "publishedAt": "2026-07-03T17:18:02.000Z",
+      "summary": "The Los Angeles Lakers have agreed to trade Deandre Ayton to the Washington Wizards for Jaden Hardy and two second round picks. Ayton is on an $8.4 million contract for the 2026-27 season, while Hardy's deal is worth $6 million. Ayton appeared in 72 games with the Lakers, averaging 12.5 points and 8.0 rebounds in 27.2 minutes. Hardy appeared in 57 total games last season with the Dallas Mavericks and Wizards, averaging 9.2 points, 1.5 rebounds and 1.0 assists in 15.8 minutes. Hardy previously was teammates with Luka Doncic. The Lakers will look at options on the veteran's minimum to be backup center such as Jonas Valanciunas, Andre Drummond and Kevon Looney.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，Trade Deandre Ayton 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "Trade Deandre Ayton 交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Ayton_Deandre_lal_251025.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "交易",
+      "importance": 5,
+      "eventKey": "trade:lakers-trade-deandre:mavericks:lakers",
       "relatedItems": [],
-      "displayTitle": "Lakers reportedly trading Deandre Ayton to Wizards for Jaden Hardy, 2 second-round picks"
+      "displayTitle": "Lakers Trade Deandre Ayton To Wizards For Jaden Hardy, Two 2nd Rounders",
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/rockets-reportedly-trade-dorian-finney-171251537.html",
@@ -199,6 +311,110 @@
       "displayTitle": "签约动态：Caleb Love，76 人 达成 双向 合同"
     },
     {
+      "id": "https://sports.yahoo.com/articles/lebron-james-agent-rich-paul-170012770.html",
+      "title": "LeBron James' agent Rich Paul says star would've signed with Knicks if they didn't win NBA title",
+      "originalTitle": "LeBron James' agent Rich Paul says star would've signed with Knicks if they didn't win NBA title",
+      "headlineZh": "LeBron James 签约动向更新",
+      "titleZh": "LeBron James 签约动向更新",
+      "link": "https://sports.yahoo.com/articles/lebron-james-agent-rich-paul-170012770.html",
+      "url": "https://sports.yahoo.com/articles/lebron-james-agent-rich-paul-170012770.html",
+      "pubDate": "2026-07-03T17:00:12.000Z",
+      "publishedAt": "2026-07-03T17:00:12.000Z",
+      "summary": "LeBron James' agent Rich Paul said in a sit down interview that the star would have chosen to sign with the Knicks if they didn't win the 2026 NBA Finals.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，LeBron James 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "LeBron James 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/sny_articles_235/435a3f367e3d2b0e1f9e9e1cd78fd0a7",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james",
+      "relatedItems": [
+        {
+          "title": "Rich Paul reveals LeBron James’ free agency finalists on whiteboard during podcast",
+          "originalTitle": "Rich Paul reveals LeBron James’ free agency finalists on whiteboard during podcast",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/rich-paul-reveals-lebron-james-125649504.html",
+          "publishedAt": "2026-07-03T12:56:49.000Z",
+          "angle": "source"
+        }
+      ],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Rich Paul reveals LeBron James’ free agency finalists on whiteboard during podcast",
+        "LeBron James' agent Rich Paul says star would've signed with Knicks if they didn't win NBA title"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/rich-paul-reveals-lebron-james-125649504.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-agent-rich-paul-170012770.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "LeBron James' agent Rich Paul says star would've signed with Knicks if they didn't win NBA title"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/luka-don-excited-lakers-offseason-165357251.html",
+      "title": "Luka Dončić is excited about the Lakers’ offseason signings",
+      "originalTitle": "Luka Dončić is excited about the Lakers’ offseason signings",
+      "headlineZh": "Luka Don 签约动向更新",
+      "titleZh": "Luka Don 签约动向更新",
+      "link": "https://sports.yahoo.com/articles/luka-don-excited-lakers-offseason-165357251.html",
+      "url": "https://sports.yahoo.com/articles/luka-don-excited-lakers-offseason-165357251.html",
+      "pubDate": "2026-07-03T16:53:57.000Z",
+      "publishedAt": "2026-07-03T16:53:57.000Z",
+      "summary": "It seems that Luka Dončić is pleased with the Lakers’ moves this summer, and maybe that’s all that matters.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Luka Don 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Luka Don 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/NDNf7ry_DFmHTKp3ingw.Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/93b9022fbca1f0a05e3ad51dfffe9350",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:luka-don:lakers",
+      "relatedItems": [],
+      "displayTitle": "Luka Dončić is excited about the Lakers’ offseason signings",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/wrapping-free-agency-spurs-shore-163425596.html",
+      "title": "Wrapping up free agency: Spurs shore up the 4",
+      "originalTitle": "Wrapping up free agency: Spurs shore up the 4",
+      "headlineZh": "签约动态：Wrapping up 自由市场: 马刺 shore up 4",
+      "titleZh": "签约动态：Wrapping up 自由市场: 马刺 shore up 4",
+      "link": "https://sports.yahoo.com/articles/wrapping-free-agency-spurs-shore-163425596.html",
+      "url": "https://sports.yahoo.com/articles/wrapping-free-agency-spurs-shore-163425596.html",
+      "pubDate": "2026-07-03T16:34:25.000Z",
+      "publishedAt": "2026-07-03T16:34:25.000Z",
+      "summary": "The San Antonio Spurs’ first order of business was re-signing their own, but they didn’t stop there. Julian Champagnie and Harrison Barnes, who shared the Spurs’ power forward spot most of the year, were locked down in Day 1 of the NBA’s free agency period. The Silver and Black rewarded Champagnie with a new 3-year, […]",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "签约动态：Wrapping up 自由市场: 马刺 shore up 4",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/uXnHyb2v65LwMut_z6l7_w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/0020aeeec260e7b140af770b423644f4",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:the-san-antonio:spurs:3",
+      "relatedItems": [],
+      "displayTitle": "Wrapping up free agency: Spurs shore up the 4",
+      "isMerged": false
+    },
+    {
       "id": "https://basketball.realgm.com/wiretap/286534/Hornets-Acquire-Dorian-Finney-Smith-Plus-Three-Second-Rounders-From-Rockets",
       "title": "Hornets Acquire Dorian Finney-Smith Plus Three Second Rounders From Rockets",
       "originalTitle": "Hornets Acquire Dorian Finney-Smith Plus Three Second Rounders From Rockets",
@@ -222,6 +438,81 @@
       "eventKey": "trade:hornets-acquire-dorian:grizzlies",
       "relatedItems": [],
       "displayTitle": "Hornets Acquire Dorian Finney-Smith Plus Three Second Rounders From Rockets",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/sixers-reportedly-sign-rayan-rupert-162020509.html",
+      "title": "Sixers reportedly sign Rayan Rupert to two-way deal",
+      "originalTitle": "Sixers reportedly sign Rayan Rupert to two-way deal",
+      "headlineZh": "76 人 reportedly 与 Rayan Rupert 签下双向合同",
+      "titleZh": "76 人 reportedly 与 Rayan Rupert 签下双向合同",
+      "link": "https://sports.yahoo.com/articles/sixers-reportedly-sign-rayan-rupert-162020509.html",
+      "url": "https://sports.yahoo.com/articles/sixers-reportedly-sign-rayan-rupert-162020509.html",
+      "pubDate": "2026-07-03T16:20:20.000Z",
+      "publishedAt": "2026-07-03T16:20:20.000Z",
+      "summary": "Sixers take a swing on a young wing.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Report: 76 人 to 签下 Rayan Rupert，合同为双向。",
+      "oneLineZh": "76 人 reportedly 与 Rayan Rupert 签下双向合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/oZkR2LM1zk8b6o7N8qZseQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/3c01d783b6fa5fac6bef860a201ad758",
+      "source": "Yahoo Sports / RealGM",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 5,
+      "sources": [
+        "Yahoo Sports",
+        "RealGM"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/sixers-reportedly-sign-rayan-rupert-162020509.html"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286532/Rayan-Rupert-Sixers-Agree-To-Two-Way-Deal"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/report-sixers-sign-rayan-rupert-114948456.html"
+        }
+      ],
+      "originalTitles": [
+        "Sixers reportedly sign Rayan Rupert to two-way deal",
+        "Rayan Rupert, Sixers Agree To Two-Way Deal",
+        "Report: Sixers to sign Rayan Rupert to two-way contract"
+      ],
+      "isMerged": true,
+      "eventKey": "sign:rayan-rupert:76ers",
+      "relatedItems": [],
+      "displayTitle": "76 人 reportedly 与 Rayan Rupert 签下双向合同"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/pistons-announce-summer-league-roster-161405537.html",
+      "title": "Pistons announce Summer League roster",
+      "originalTitle": "Pistons announce Summer League roster",
+      "headlineZh": "Summer League 相关消息更新",
+      "titleZh": "Summer League 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/pistons-announce-summer-league-roster-161405537.html",
+      "url": "https://sports.yahoo.com/articles/pistons-announce-summer-league-roster-161405537.html",
+      "pubDate": "2026-07-03T16:14:05.000Z",
+      "publishedAt": "2026-07-03T16:14:05.000Z",
+      "summary": "Ebuka Okorie headlines Detroit’s Summer League squad",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Summer League 的最新动态和后续影响。",
+      "oneLineZh": "Summer League 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/zUd2s8D7KIJdVZmXuDhMCg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05NjA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/3f6edd50388a7360a1b29d178c9199e0",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Pistons announce Summer League roster",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -303,93 +594,6 @@
       "isMerged": false
     },
     {
-      "id": "https://basketball.realgm.com/wiretap/286532/Rayan-Rupert-Sixers-Agree-To-Two-Way-Deal",
-      "title": "Rayan Rupert, Sixers Agree To Two-Way Deal",
-      "originalTitle": "Rayan Rupert, Sixers Agree To Two-Way Deal",
-      "headlineZh": "Rayan Rupert 与 76 人达成双向合同",
-      "titleZh": "Rayan Rupert 与 76 人达成双向合同",
-      "link": "https://basketball.realgm.com/wiretap/286532/Rayan-Rupert-Sixers-Agree-To-Two-Way-Deal",
-      "url": "https://basketball.realgm.com/wiretap/286532/Rayan-Rupert-Sixers-Agree-To-Two-Way-Deal",
-      "pubDate": "2026-07-03T15:52:59.000Z",
-      "publishedAt": "2026-07-03T15:52:59.000Z",
-      "summary": "Rayan Rupert and the Philadelphia 76ers have agreed to a two-way NBA deal. Rupert was the 43rd overall pick in the 2023 NBA draft by the Portland Trail Blazers. Rupert appeared in 64 games last season with the Blazers and Memphis Grizzlies, averaging 5.2 points, 2.9 rebounds and 1.1 assists in 16.8 minutes. Rupert will be playing in his age-22 season with the Sixers.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Report: 76 人 to 签下 Rayan Rupert，合同为双向。",
-      "oneLineZh": "Rayan Rupert 与 76 人达成双向合同",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Rupert_Rayan_mem_260405.jpg",
-      "source": "RealGM / Yahoo Sports",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 5,
-      "sources": [
-        "RealGM",
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286532/Rayan-Rupert-Sixers-Agree-To-Two-Way-Deal"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/report-sixers-sign-rayan-rupert-114948456.html"
-        }
-      ],
-      "originalTitles": [
-        "Rayan Rupert, Sixers Agree To Two-Way Deal",
-        "Report: Sixers to sign Rayan Rupert to two-way contract"
-      ],
-      "isMerged": false,
-      "eventKey": "sign:rayan-rupert:grizzlies",
-      "relatedItems": [],
-      "displayTitle": "Rayan Rupert 与 76 人达成双向合同"
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286531/NBA-Executives-Notice-Surge-In-Spending-On-Centers-In-Age-Of-Victor-Wembanyama",
-      "title": "NBA Executives Notice Surge In Spending On Centers In Age Of Victor Wembanyama",
-      "originalTitle": "NBA Executives Notice Surge In Spending On Centers In Age Of Victor Wembanyama",
-      "headlineZh": "Executives Notice Surge 相关消息更新",
-      "titleZh": "Executives Notice Surge 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286531/NBA-Executives-Notice-Surge-In-Spending-On-Centers-In-Age-Of-Victor-Wembanyama",
-      "url": "https://basketball.realgm.com/wiretap/286531/NBA-Executives-Notice-Surge-In-Spending-On-Centers-In-Age-Of-Victor-Wembanyama",
-      "pubDate": "2026-07-03T15:50:10.000Z",
-      "publishedAt": "2026-07-03T15:50:10.000Z",
-      "summary": "NBA teams are spending heavily on centers this offseason, with league executives noting a sharp rise in the going rate for big men across the market. The Los Angeles Lakers sent two first-round picks, two second-round picks and two pick swaps to the Utah Jazz in a sign-and-trade for Walker Kessler, whom they view as their long-term answer at center alongside Luka Doncic. The Lakers signed Kessler to a four-year, $130 million contract as part of the deal. \"There's several teams who wanted Kessler for a few years, and if it had been a truly open market, other teams might've been willing to make a similar offer,\" said one NBA personnel director. \"But I'd be worried about doing a big deal with the Ainges just on principle.\" Kristaps Porzingis, who has appeared in just 74 games over the past two seasons, signed a two-year, $40 million deal with the Golden State Warriors. Robert Williams III, who carries an extensive injury history, received three years and $44 million from the Portland Trail Blazers. Mitchell Robinson, who averaged under 20 minutes per game last season, landed a three-year, $47 million contract with the Boston Celtics. Jock Landale, a career backup, secured a one-year, $14 million deal with the Atlanta Hawks. Moritz Wagner, coming off a season-ending ACL tear, received a two-year, $19 million contract from the Brooklyn Nets to serve as a reserve. Not all of those deals are fully guaranteed. Still, the pattern reflects growing demand for size league-wide, a shift some attribute to the emergence of Victor Wembanyama as a positional standard. One Eastern Conference executive pointed to a different transaction as an undervalued move this summer. \"I haven't seen it talked about at all, but what the Thunder got Hartenstein for might be one of the deals of summer,\" the executive said. Isaiah Hartenstein signed a three-year, $75 million extension with the Oklahoma City Thunder, representing a slight decrease in average annual value from his previous contract.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，原文聚焦 Executives Notice Surge 的最新动态和后续影响。",
-      "oneLineZh": "Executives Notice Surge 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Wembanyama_Victor_sas_260519.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
-      "importance": 2,
-      "eventKey": "trade:walker-kessler:jazz:lakers",
-      "relatedItems": [],
-      "sources": [
-        "RealGM"
-      ],
-      "originalTitles": [
-        "NBA Executives Notice Surge In Spending On Centers In Age Of Victor Wembanyama",
-        "Luka Doncic 'Excited' For Lakers' Free Agency Moves"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286531/NBA-Executives-Notice-Surge-In-Spending-On-Centers-In-Age-Of-Victor-Wembanyama"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286521/Luka-Doncic-Excited-For-Lakers-Free-Agency-Moves"
-        }
-      ],
-      "isMerged": false,
-      "displayTitle": "NBA Executives Notice Surge In Spending On Centers In Age Of Victor Wembanyama"
-    },
-    {
       "id": "https://sports.yahoo.com/articles/could-philadelphia-really-michael-jordan-154915585.html",
       "title": "Could Philadelphia really have Michael Jordan AND LeBron James?",
       "originalTitle": "Could Philadelphia really have Michael Jordan AND LeBron James?",
@@ -455,14 +659,6 @@
           "angle": "source"
         },
         {
-          "title": "Jaylen Brown decries Celtics' 'lack of respect' over trade: 'Key card got rejected'",
-          "originalTitle": "Jaylen Brown decries Celtics' 'lack of respect' over trade: 'Key card got rejected'",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/jaylen-brown-decries-celtics-lack-053356949.html",
-          "publishedAt": "2026-07-03T05:33:56.000Z",
-          "angle": "source"
-        },
-        {
           "title": "Celtics Not Motivated By Money Or Follow-Up Trade In Dealing Jaylen Brown",
           "originalTitle": "Celtics Not Motivated By Money Or Follow-Up Trade In Dealing Jaylen Brown",
           "source": "RealGM",
@@ -487,17 +683,36 @@
         "RealGM Radio w/Dubin, Dakhil: Jaylen Brown To Sixers",
         "Celtics Not Motivated By Money Or Follow-Up Trade In Dealing Jaylen Brown",
         "Jaylen Brown Never Requested Trade; Celtics Didn't Expect Offers To Improve If They Waited",
-        "Jaylen Brown ‘wasn’t thrilled’ with Celtics’ lack of respect before shocking 76ers trade",
-        "Jaylen Brown decries Celtics' 'lack of respect' over trade: 'Key card got rejected'"
+        "Jaylen Brown ‘wasn’t thrilled’ with Celtics’ lack of respect before shocking 76ers trade"
       ],
       "sourceLinks": [
         {
-          "source": "RealGM / Yahoo Sports",
+          "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286530/Jaylen-Brown-Trade-Ignites-Concern-NBA-Overrun-With-Strategy"
         },
         {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286527/Jaylen-Browns-Contract-Size-Suppressed-Trade-Market"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286536/RealGM-Radio-w-Goldberg-DuFour-Jaylen-Brown-Trade-Fallout-East-Vs-West-NBAs-Most-Catastrophic-Trades"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286535/RealGM-Radio-w-Dubin-Dakhil-Jaylen-Brown-To-Sixers"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286511/Celtics-Not-Motivated-By-Money-Or-Follow-Up-Trade-In-Dealing-Jaylen-Brown"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286509/Jaylen-Brown-Never-Requested-Trade;-Celtics-Didnt-Expect-Offers-To-Improve-If-They-Waited"
+        },
+        {
           "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/everything-jaylen-brown-unpacked-post-040251749.html"
+          "link": "https://sports.yahoo.com/articles/jaylen-brown-wasn-t-thrilled-123420847.html"
         }
       ],
       "isMerged": true,
@@ -1174,6 +1389,32 @@
       "isMerged": false
     },
     {
+      "id": "https://sports.yahoo.com/articles/warriors-not-top-lebron-james-112849449.html",
+      "title": "Warriors not at top of LeBron James' free-agent destination list, Shams says",
+      "originalTitle": "Warriors not at top of LeBron James' free-agent destination list, Shams says",
+      "headlineZh": "LeBron James 相关消息更新",
+      "titleZh": "LeBron James 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/warriors-not-top-lebron-james-112849449.html",
+      "url": "https://sports.yahoo.com/articles/warriors-not-top-lebron-james-112849449.html",
+      "pubDate": "2026-07-03T11:28:49.000Z",
+      "publishedAt": "2026-07-03T11:28:49.000Z",
+      "summary": "The Golden State Warriors are not \"at the top of the list\" of LeBron James' preferred free-agent destinations, per ESPN's Shams Charania",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
+      "oneLineZh": "LeBron James 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/573e7ab4ba43d9b64760580756eb5033",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Warriors not at top of LeBron James' free-agent destination list, Shams says",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
       "id": "https://sports.yahoo.com/articles/coming-terms-boston-look-112200295.html",
       "title": "Coming to terms with Boston’s new look",
       "originalTitle": "Coming to terms with Boston’s new look",
@@ -1252,252 +1493,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "title": "2026 LeBron James Next Team Odds: The King Ready To Play For Minimum To Get On The Right Team",
-      "originalTitle": "2026 LeBron James Next Team Odds: The King Ready To Play For Minimum To Get On The Right Team",
-      "headlineZh": "LeBron James Next 相关消息更新",
-      "titleZh": "LeBron James Next 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "url": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "pubDate": "2026-07-03T10:54:00.000Z",
-      "publishedAt": "2026-07-03T10:54:00.000Z",
-      "summary": "LeBron James next team odds show Lakers favored, but Warriors 'Big Four' rumors are driving a major Kalshi market surge as The King announces plans.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James Next 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James Next 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/829b52bbdc0f0e73b91edebe6030e0f7",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "eventKey": "odds:lebron-james:warriors",
-      "relatedItems": [],
-      "displayTitle": "2026 LeBron James Next Team Odds: The King Ready To Play For Minimum To Get On The Right Team",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/trent-noah-may-finally-leap-100500385.html",
-      "title": "Trent Noah may finally take the leap BBN has been hoping for",
-      "originalTitle": "Trent Noah may finally take the leap BBN has been hoping for",
-      "headlineZh": "Trent Noah 相关消息更新",
-      "titleZh": "Trent Noah 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/trent-noah-may-finally-leap-100500385.html",
-      "url": "https://sports.yahoo.com/articles/trent-noah-may-finally-leap-100500385.html",
-      "pubDate": "2026-07-03T10:05:00.000Z",
-      "publishedAt": "2026-07-03T10:05:00.000Z",
-      "summary": "Mark Pope believes Trent Noah is ready to take a step forward after struggling to make an impact last season.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Trent Noah 的最新动态和后续影响。",
-      "oneLineZh": "Trent Noah 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/b29qbwd9BbID.MBKNWMYmA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/07807eba85f71abe813c2256dba639f5",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Trent Noah may finally take the leap BBN has been hoping for",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/youtube-gold-1961-nba-star-100200440.html",
-      "title": "YouTube Gold: The 1961 NBA All-Star Game Had A Tremendous Amount Of Talent",
-      "originalTitle": "YouTube Gold: The 1961 NBA All-Star Game Had A Tremendous Amount Of Talent",
-      "headlineZh": "YouTube Gold 相关消息更新",
-      "titleZh": "YouTube Gold 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/youtube-gold-1961-nba-star-100200440.html",
-      "url": "https://sports.yahoo.com/articles/youtube-gold-1961-nba-star-100200440.html",
-      "pubDate": "2026-07-03T10:02:00.000Z",
-      "publishedAt": "2026-07-03T10:02:00.000Z",
-      "summary": "The NBA looked radically different decades ago, but still had astonishing athletes.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 YouTube Gold 的最新动态和后续影响。",
-      "oneLineZh": "YouTube Gold 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/cyV9OQArANzv_VconKNlTA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xMDM2O2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/0421088f2164c7eed62b8847bad00c17",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "YouTube Gold: The 1961 NBA All-Star Game Had A Tremendous Amount Of Talent",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/nba-free-agency-2026-day-100000446.html",
-      "title": "NBA Free Agency 2026 Day 4 discussion",
-      "originalTitle": "NBA Free Agency 2026 Day 4 discussion",
-      "headlineZh": "自由市场签约动向更新",
-      "titleZh": "自由市场签约动向更新",
-      "link": "https://sports.yahoo.com/articles/nba-free-agency-2026-day-100000446.html",
-      "url": "https://sports.yahoo.com/articles/nba-free-agency-2026-day-100000446.html",
-      "pubDate": "2026-07-03T10:00:00.000Z",
-      "publishedAt": "2026-07-03T10:00:00.000Z",
-      "summary": "It is July 3, 2026. Since today is also Friday, it’s Independence Day observed so bureaucrats and government workers can enjoy their barbecues one day early. This is also your space to chat more about what’s going on in the NBA so far. Where will LeBron James play? And more importantly, where will Russell Westbrook […]",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，签约动态：NBA 自由市场 2026 Day 4 discussion。",
-      "oneLineZh": "自由市场签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/AlDTi3nyb0RejKGMeETpUw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/a654b0747a86c7dd7b5bde3b735cd347",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james",
-      "relatedItems": [
-        {
-          "title": "LeBron James' agent Rich Paul says star would've signed with Knicks if they didn't win NBA title",
-          "originalTitle": "LeBron James' agent Rich Paul says star would've signed with Knicks if they didn't win NBA title",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/lebron-james-agent-rich-paul-170012770.html",
-          "publishedAt": "2026-07-03T17:00:12.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "Rich Paul reveals LeBron James’ free agency finalists on whiteboard during podcast",
-          "originalTitle": "Rich Paul reveals LeBron James’ free agency finalists on whiteboard during podcast",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/rich-paul-reveals-lebron-james-125649504.html",
-          "publishedAt": "2026-07-03T12:56:49.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Rich Paul reveals LeBron James’ free agency finalists on whiteboard during podcast",
-        "LeBron James' agent Rich Paul says star would've signed with Knicks if they didn't win NBA title"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/rich-paul-reveals-lebron-james-125649504.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/nba-free-agency-2026-day-100000446.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-agent-rich-paul-170012770.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "NBA Free Agency 2026 Day 4 discussion"
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/neemias-queta-signing-four-extension-094610124.html",
-      "title": "Neemias Queta signing four-year extension with Celtics: Report",
-      "originalTitle": "Neemias Queta signing four-year extension with Celtics: Report",
-      "headlineZh": "Neemias Queta 签约动向更新",
-      "titleZh": "Neemias Queta 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/neemias-queta-signing-four-extension-094610124.html",
-      "url": "https://sports.yahoo.com/articles/neemias-queta-signing-four-extension-094610124.html",
-      "pubDate": "2026-07-03T09:46:10.000Z",
-      "publishedAt": "2026-07-03T09:46:10.000Z",
-      "summary": "As the Celtics enter into a new era without Jaylen Brown, they've ensured that center Neemias Queta will be a part of their future.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Neemias Queta 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Neemias Queta 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/SOP8Ue_qH3SsWOrgJcWW8A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/csnne.com/0cb8eef3802d8aafc994d9025190a22c",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:jaylen-brown:celtics:4",
-      "relatedItems": [],
-      "displayTitle": "Neemias Queta signing four-year extension with Celtics: Report",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/jayson-tatum-post-jaylen-brown-091500852.html",
-      "title": "Jayson Tatum in a post-Jaylen Brown world",
-      "originalTitle": "Jayson Tatum in a post-Jaylen Brown world",
-      "headlineZh": "Jayson Tatum 相关消息更新",
-      "titleZh": "Jayson Tatum 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/jayson-tatum-post-jaylen-brown-091500852.html",
-      "url": "https://sports.yahoo.com/articles/jayson-tatum-post-jaylen-brown-091500852.html",
-      "pubDate": "2026-07-03T09:15:00.000Z",
-      "publishedAt": "2026-07-03T09:15:00.000Z",
-      "summary": "The city is in need of hero, and they are looking to Tatum to answer the call",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Jayson Tatum 的最新动态和后续影响。",
-      "oneLineZh": "Jayson Tatum 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/9e..9KarcsAAlC6G6uNdUA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/a8e8c2c9c16056ccb71d93d82a7f5613",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Jayson Tatum in a post-Jaylen Brown world",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/nets-youth-excited-weight-room-085413190.html",
-      "title": "Nets’ youth excited to go from the weight room to summer ball",
-      "originalTitle": "Nets’ youth excited to go from the weight room to summer ball",
-      "headlineZh": "篮网休赛期后续动向",
-      "titleZh": "篮网休赛期后续动向",
-      "link": "https://sports.yahoo.com/articles/nets-youth-excited-weight-room-085413190.html",
-      "url": "https://sports.yahoo.com/articles/nets-youth-excited-weight-room-085413190.html",
-      "pubDate": "2026-07-03T08:54:13.000Z",
-      "publishedAt": "2026-07-03T08:54:13.000Z",
-      "summary": "Egor Dëmin and Jordi Fernández spoke to the media ahead of Brooklyn’s trip out West, seven summer league games.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "篮网休赛期后续动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Z8PB9MXmt423P50oHZCnlg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03MjE7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/e673b533f5db6920b0e296de1fa28cf1",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Nets’ youth excited to go from the weight room to summer ball",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/lebron-james-potentially-signing-warriors-081714999.html",
-      "title": "LeBron James potentially signing with Warriors addressed by his agent Rich Paul",
-      "originalTitle": "LeBron James potentially signing with Warriors addressed by his agent Rich Paul",
-      "headlineZh": "LeBron James 签约动向更新",
-      "titleZh": "LeBron James 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/lebron-james-potentially-signing-warriors-081714999.html",
-      "url": "https://sports.yahoo.com/articles/lebron-james-potentially-signing-warriors-081714999.html",
-      "pubDate": "2026-07-03T08:17:14.000Z",
-      "publishedAt": "2026-07-03T08:17:14.000Z",
-      "summary": "Agent Rich Paul revealed the 10 teams, including the Golden State Warriors, with the best chance to sign LeBron James in free agency.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，LeBron James 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "LeBron James 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/a4674db862a4eaf76325b1dffdcd635d",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james:warriors",
-      "relatedItems": [],
-      "displayTitle": "LeBron James potentially signing with Warriors addressed by his agent Rich Paul",
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286526/Rui-Hachimura-In-Contact-With-Warriors-Timberwolves",
       "title": "Rui Hachimura In Contact With Warriors, Timberwolves",
       "originalTitle": "Rui Hachimura In Contact With Warriors, Timberwolves",
@@ -1547,58 +1542,6 @@
       "eventKey": "sign:lebron-james:cavaliers",
       "relatedItems": [],
       "displayTitle": "Knicks Have 'Shown Some Interest' In Signing LeBron James",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/kyle-lowry-signing-one-day-042039469.html",
-      "title": "Kyle Lowry signing one-day contract to retire with Raptors",
-      "originalTitle": "Kyle Lowry signing one-day contract to retire with Raptors",
-      "headlineZh": "Kyle Lowry 签约动向更新",
-      "titleZh": "Kyle Lowry 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/kyle-lowry-signing-one-day-042039469.html",
-      "url": "https://sports.yahoo.com/articles/kyle-lowry-signing-one-day-042039469.html",
-      "pubDate": "2026-07-03T04:20:39.000Z",
-      "publishedAt": "2026-07-03T04:20:39.000Z",
-      "summary": "Kyle Lowry is reportedly set to retire next week at a special event in Toronto.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Kyle Lowry 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Kyle Lowry 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/4WojTZGHNfFmbX2_ODXLlw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/24f1a5cbe480cbf01eff37cd4cc161b1",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:kyle-lowry",
-      "relatedItems": [],
-      "displayTitle": "Kyle Lowry signing one-day contract to retire with Raptors",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/potential-center-trade-targets-post-040706745.html",
-      "title": "Potential center trade targets post Walker Kessler trade",
-      "originalTitle": "Potential center trade targets post Walker Kessler trade",
-      "headlineZh": "Walker Kessler 交易影响继续发酵",
-      "titleZh": "Walker Kessler 交易影响继续发酵",
-      "link": "https://sports.yahoo.com/articles/potential-center-trade-targets-post-040706745.html",
-      "url": "https://sports.yahoo.com/articles/potential-center-trade-targets-post-040706745.html",
-      "pubDate": "2026-07-03T04:07:06.000Z",
-      "publishedAt": "2026-07-03T04:07:06.000Z",
-      "summary": "Trades the Jazz should make post Walker Kessler",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Walker Kessler 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
-      "oneLineZh": "Walker Kessler 交易影响继续发酵",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Bh245T.niFJGrCCwpkBdJw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03NzQ7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/e4f3a9afb767fd3d5c5fea301412ac7d",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 3,
-      "eventKey": "trade:walker-kessler:jazz",
-      "relatedItems": [],
-      "displayTitle": "Walker Kessler 交易影响继续发酵",
       "isMerged": false
     },
     {
@@ -1893,58 +1836,6 @@
       "eventKey": "sign:anfernee-simons:sixers:2:1230",
       "relatedItems": [],
       "displayTitle": "Anfernee Simons 与 76 人达成两年，1230 万美元合同",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286507/Rui-Hachimura-Could-Return-If-Lakers-Clear-Jarred-Vanderbilt-Or-Deandre-Ayton",
-      "title": "Rui Hachimura Could Return If Lakers Clear Jarred Vanderbilt Or Deandre Ayton",
-      "originalTitle": "Rui Hachimura Could Return If Lakers Clear Jarred Vanderbilt Or Deandre Ayton",
-      "headlineZh": "Rui Hachimura Could 相关消息更新",
-      "titleZh": "Rui Hachimura Could 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286507/Rui-Hachimura-Could-Return-If-Lakers-Clear-Jarred-Vanderbilt-Or-Deandre-Ayton",
-      "url": "https://basketball.realgm.com/wiretap/286507/Rui-Hachimura-Could-Return-If-Lakers-Clear-Jarred-Vanderbilt-Or-Deandre-Ayton",
-      "pubDate": "2026-07-02T16:59:30.000Z",
-      "publishedAt": "2026-07-02T16:59:30.000Z",
-      "summary": "The Los Angeles Lakers do not currently have any remaining cap space to re-sign Rui Hachimura, with 13 roster spots filled and only veteran minimum contracts available for outside additions. Hachimura earned $18.3 million last season and posted 17.5 points per game on 54.9% shooting, including 56.9% from three-point range, to go with 4.0 rebounds during the playoffs. Hachimura's unsigned status has prompted speculation among league sources about a possible trade or use of the stretch provision that the Lakers could make to free up space involving Jarred Vanderbilt or Deandre Ayton. Vanderbilt is on a $12.43 million expiring contract as he wraps his four-year, $48 million deal. Ayton picked up his $8.1 million option for the 2026-27 season. The Lakers signed Sandro Mamukelashvili to a four-year, $52 million contract and shot 38.9% from three on a career-high 3.7 attempts per game last season, providing similar size and shooting to Hachimura. The San Antonio Spurs had emerged as a possible destination for Hachimura in free agency, but went inandother direction on Wednesday by reaching agreement with Tobias Harris.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Rui Hachimura Could 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Hachimura_Rui_lal_230217.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
-      "importance": 2,
-      "eventKey": "trade:tobias-harris:lakers:spurs",
-      "relatedItems": [],
-      "displayTitle": "Rui Hachimura Could Return If Lakers Clear Jarred Vanderbilt Or Deandre Ayton",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286506/Mavericks-Interested-In-Anfernee-Simons",
-      "title": "Mavericks Interested In Anfernee Simons",
-      "originalTitle": "Mavericks Interested In Anfernee Simons",
-      "headlineZh": "Interested 在 Anfernee 相关消息更新",
-      "titleZh": "Interested 在 Anfernee 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286506/Mavericks-Interested-In-Anfernee-Simons",
-      "url": "https://basketball.realgm.com/wiretap/286506/Mavericks-Interested-In-Anfernee-Simons",
-      "pubDate": "2026-07-02T16:30:45.000Z",
-      "publishedAt": "2026-07-02T16:30:45.000Z",
-      "summary": "Anfernee Simons has received interest from the Dallas Mavericks. Simons has also received interest from the Chicago Bulls, Boston Celtics, Golden State Warriors and Los Angeles Lakers . Simons appeared in 55 games last season with the Bulls and Celtics, averaging 14.3 points, 2.5 rebounds and 2.4 assists in 24.9 minutes.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，原文聚焦 Interested 在 Anfernee 的最新动态和后续影响。",
-      "oneLineZh": "Interested 在 Anfernee 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Simons_Anfernee_chi_260225.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Mavericks Interested In Anfernee Simons",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     }
   ]
