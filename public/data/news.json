@@ -9,27 +9,27 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-03T19:58:22.729Z",
+  "updatedAt": "2026-07-03T21:18:08.689Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-03T19:58:22.729Z",
-    "updatedAt": "2026-07-03T19:58:22.729Z",
+    "checkedAt": "2026-07-03T21:18:08.689Z",
+    "updatedAt": "2026-07-03T21:18:08.689Z",
     "fetchedItems": 80,
-    "mergedItems": 61,
+    "mergedItems": 60,
     "failedFeeds": [],
     "message": "Fetched 80 usable RSS items from all feeds."
   },
   "highlights": [
     {
-      "id": "https://basketball.realgm.com/wiretap/286537/Caleb-Love-Sixers-Agree-To-Two-Way-Contract",
-      "text": "Caleb Love，76 人 达成 双向 合同",
+      "id": "https://sports.yahoo.com/articles/report-sixers-sign-caleb-love-180402900.html",
+      "text": "Report: 76 人签下 Caleb Love，合同为双向",
       "category": "签约",
-      "source": "RealGM / Yahoo Sports",
-      "link": "https://basketball.realgm.com/wiretap/286537/Caleb-Love-Sixers-Agree-To-Two-Way-Contract"
+      "source": "Yahoo Sports / RealGM",
+      "link": "https://sports.yahoo.com/articles/report-sixers-sign-caleb-love-180402900.html"
     },
     {
       "id": "https://sports.yahoo.com/articles/sixers-reportedly-sign-rayan-rupert-162020509.html",
-      "text": "76 人 reportedly 与 Rayan Rupert 签下双向合同",
+      "text": "Rayan Rupert 与 76 人达成双向合同",
       "category": "签约",
       "source": "Yahoo Sports / RealGM",
       "link": "https://sports.yahoo.com/articles/sixers-reportedly-sign-rayan-rupert-162020509.html"
@@ -49,14 +49,92 @@
       "link": "https://basketball.realgm.com/wiretap/286528/Neemias-Queta-Celtics-Agree-To-Four-Year-$56M-Extension"
     },
     {
-      "id": "https://basketball.realgm.com/wiretap/286508/Anfernee-Simons-Sixers-Agree-To-Two-Year-$123M-Deal",
-      "text": "Anfernee Simons 与 76 人达成两年，1230 万美元合同",
-      "category": "签约",
-      "source": "RealGM",
-      "link": "https://basketball.realgm.com/wiretap/286508/Anfernee-Simons-Sixers-Agree-To-Two-Year-$123M-Deal"
+      "id": "https://sports.yahoo.com/articles/deandre-ayton-traded-wizards-caleb-201500721.html",
+      "text": "Deandre Ayton 交易影响继续发酵",
+      "category": "交易",
+      "source": "Yahoo Sports",
+      "link": "https://sports.yahoo.com/articles/deandre-ayton-traded-wizards-caleb-201500721.html"
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/deandre-ayton-traded-wizards-caleb-201500721.html",
+      "title": "Deandre Ayton traded to Wizards; Caleb Love signs two-way deal with 76ers",
+      "originalTitle": "Deandre Ayton traded to Wizards; Caleb Love signs two-way deal with 76ers",
+      "headlineZh": "Deandre Ayton 交易影响继续发酵",
+      "titleZh": "Deandre Ayton 交易影响继续发酵",
+      "link": "https://sports.yahoo.com/articles/deandre-ayton-traded-wizards-caleb-201500721.html",
+      "url": "https://sports.yahoo.com/articles/deandre-ayton-traded-wizards-caleb-201500721.html",
+      "pubDate": "2026-07-03T20:15:00.000Z",
+      "publishedAt": "2026-07-03T20:15:00.000Z",
+      "summary": "Two former Arizona Wildcats men’s basketball stars are heading east. The Los Angeles Lakers on Friday traded center Deandre Ayton to the Washington Wizards in exchange for Jaden Hardy and two second-round picks, ESPN’s Shams Charania reported. Ayton recently opted in to the second year of his contract with the Lakers, which will now transfer […]",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Deandre Ayton 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "Deandre Ayton 交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/hhS0OSNagL5YhtXux8wQ7Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/5bab3a546750915b28d9f20163fa2f85",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 4,
+      "eventKey": "trade:deandre-ayton:76ers:lakers",
+      "relatedItems": [],
+      "displayTitle": "Deandre Ayton 交易影响继续发酵",
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286540/Jordan-Miller-Clippers-Agree-To-Three-Year-$153M-Deal",
+      "title": "Jordan Miller, Clippers Agree To Three-Year, $15.3M Deal",
+      "originalTitle": "Jordan Miller, Clippers Agree To Three-Year, $15.3M Deal",
+      "headlineZh": "Jordan Miller 与快船达成三年，1530 万美元合同",
+      "titleZh": "Jordan Miller 与快船达成三年，1530 万美元合同",
+      "link": "https://basketball.realgm.com/wiretap/286540/Jordan-Miller-Clippers-Agree-To-Three-Year-$153M-Deal",
+      "url": "https://basketball.realgm.com/wiretap/286540/Jordan-Miller-Clippers-Agree-To-Three-Year-$153M-Deal",
+      "pubDate": "2026-07-03T19:37:06.000Z",
+      "publishedAt": "2026-07-03T19:37:06.000Z",
+      "summary": "Jordan Miller and the Los Angeles Clippers have agreed to a three-year, $15.3 million deal. Miller was a restricted free agent. Miller appeared in 60 games last season, averaging 10.0 points, 3.0 rebounds and 2.3 assists in 22.1 minutes. The Clippers converted Miller from a two-way contract in February.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，Jordan Miller 与快船达成三年，1530 万美元合同，原文关注 Jordan Miller 的合同或自由市场动向。",
+      "oneLineZh": "Jordan Miller 与快船达成三年，1530 万美元合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_losangelesclippers.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 4,
+      "eventKey": "sign:jordan-miller:clippers:3:1530",
+      "relatedItems": [],
+      "displayTitle": "Jordan Miller 与快船达成三年，1530 万美元合同",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/suns-unveil-summer-league-roster-190957937.html",
+      "title": "Suns unveil Summer League roster for Las Vegas",
+      "originalTitle": "Suns unveil Summer League roster for Las Vegas",
+      "headlineZh": "Summer League 相关消息更新",
+      "titleZh": "Summer League 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/suns-unveil-summer-league-roster-190957937.html",
+      "url": "https://sports.yahoo.com/articles/suns-unveil-summer-league-roster-190957937.html",
+      "pubDate": "2026-07-03T19:09:57.000Z",
+      "publishedAt": "2026-07-03T19:09:57.000Z",
+      "summary": "Khaman Maluach, Rasheer Fleming and Koa Peat headline Phoenix's young core in Las Vegas.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Summer League 的最新动态和后续影响。",
+      "oneLineZh": "Summer League 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/2TEhmvRXJWZeNDwVvhaN_w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xODAwO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/fa79e8a737fa80a599a024c26ffae991",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Suns unveil Summer League roster for Las Vegas",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/cavs-look-frontrunners-land-lebron-190114049.html",
       "title": "Cavs look like frontrunners to land LeBron James after Rich Paul’s hints",
@@ -108,6 +186,107 @@
       "relatedItems": [],
       "displayTitle": "NBA Summer League Predictions & Parlay for Today, July 3: Youngsters Show Out",
       "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lakers-considering-andre-drummond-kevon-183852692.html",
+      "title": "Lakers considering Andre Drummond, Kevon Looney as backup center",
+      "originalTitle": "Lakers considering Andre Drummond, Kevon Looney as backup center",
+      "headlineZh": "Andre Drummond 相关消息更新",
+      "titleZh": "Andre Drummond 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/lakers-considering-andre-drummond-kevon-183852692.html",
+      "url": "https://sports.yahoo.com/articles/lakers-considering-andre-drummond-kevon-183852692.html",
+      "pubDate": "2026-07-03T18:38:52.000Z",
+      "publishedAt": "2026-07-03T18:38:52.000Z",
+      "summary": "Now that Deandre Ayton is reportedly leaving the Lakers, the team needs a backup center to take his place.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Andre Drummond 的最新动态和后续影响。",
+      "oneLineZh": "Andre Drummond 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/4NVGMKnWu0AVXcs.LocHqQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/e60622ac9e9e24fa6680d3689d1265c7",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Lakers considering Andre Drummond, Kevon Looney as backup center",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/where-lakers-stand-financially-free-200715249.html",
+      "title": "Where the Lakers stand financially after the Deandre Ayton trade",
+      "originalTitle": "Where the Lakers stand financially after the Deandre Ayton trade",
+      "headlineZh": "Deandre Ayton 交易影响继续发酵",
+      "titleZh": "Deandre Ayton 交易影响继续发酵",
+      "link": "https://sports.yahoo.com/articles/where-lakers-stand-financially-free-200715249.html",
+      "url": "https://sports.yahoo.com/articles/where-lakers-stand-financially-free-200715249.html",
+      "pubDate": "2026-07-03T18:24:13.000Z",
+      "publishedAt": "2026-07-03T18:24:13.000Z",
+      "summary": "After spending more than a quarter-billion dollars on Wednesday, the Lakers appear to have no more salary-cap space.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Deandre Ayton 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "Deandre Ayton 交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/2HwRfHKdmFkEjHjKsEw1rg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/88cdb9b9b6c5800902bda9f306c042b2",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 4,
+      "eventKey": "trade:deandre-ayton:lakers",
+      "relatedItems": [],
+      "displayTitle": "Deandre Ayton 交易影响继续发酵",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/report-sixers-sign-caleb-love-180402900.html",
+      "title": "Report: Sixers sign Caleb Love to two-way contract",
+      "originalTitle": "Report: Sixers sign Caleb Love to two-way contract",
+      "headlineZh": "Report: 76 人签下 Caleb Love，合同为双向",
+      "titleZh": "Report: 76 人签下 Caleb Love，合同为双向",
+      "link": "https://sports.yahoo.com/articles/report-sixers-sign-caleb-love-180402900.html",
+      "url": "https://sports.yahoo.com/articles/report-sixers-sign-caleb-love-180402900.html",
+      "pubDate": "2026-07-03T18:04:02.000Z",
+      "publishedAt": "2026-07-03T18:04:02.000Z",
+      "summary": "Another two-way signing and the Sixers have just one slot left.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports / RealGM 报道，Report: 76 人签下 Caleb Love，合同为双向，原文关注 Caleb Love 的合同或自由市场动向。",
+      "oneLineZh": "Report: 76 人签下 Caleb Love，合同为双向",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/6HMGkk0spKNhhrWsm1OtjQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/67a7f9f0f118ae628d9c49b493b16228",
+      "source": "Yahoo Sports / RealGM",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 5,
+      "sources": [
+        "Yahoo Sports",
+        "RealGM"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/report-sixers-sign-caleb-love-180402900.html"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286537/Caleb-Love-Sixers-Agree-To-Two-Way-Contract"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/sixers-reportedly-set-sign-caleb-133137045.html"
+        }
+      ],
+      "originalTitles": [
+        "Report: Sixers sign Caleb Love to two-way contract",
+        "Caleb Love, Sixers Agree To Two-Way Contract",
+        "Sixers reportedly set to sign Caleb Love to two-way deal"
+      ],
+      "isMerged": true,
+      "eventKey": "sign:caleb-love:76ers",
+      "relatedItems": [],
+      "displayTitle": "Report: 76 人签下 Caleb Love，合同为双向"
     },
     {
       "id": "https://sports.yahoo.com/articles/report-wizards-acquire-ayton-lakers-174549113.html",
@@ -265,52 +444,6 @@
       "isMerged": false
     },
     {
-      "id": "https://basketball.realgm.com/wiretap/286537/Caleb-Love-Sixers-Agree-To-Two-Way-Contract",
-      "title": "Caleb Love, Sixers Agree To Two-Way Contract",
-      "originalTitle": "Caleb Love, Sixers Agree To Two-Way Contract",
-      "headlineZh": "签约动态：Caleb Love，76 人 达成 双向 合同",
-      "titleZh": "签约动态：Caleb Love，76 人 达成 双向 合同",
-      "link": "https://basketball.realgm.com/wiretap/286537/Caleb-Love-Sixers-Agree-To-Two-Way-Contract",
-      "url": "https://basketball.realgm.com/wiretap/286537/Caleb-Love-Sixers-Agree-To-Two-Way-Contract",
-      "pubDate": "2026-07-03T17:09:58.000Z",
-      "publishedAt": "2026-07-03T17:09:58.000Z",
-      "summary": "Caleb Love and the Philadelphia 76ers have agreed to a two-way deal. Love went undrafted out of Arizona in 2025 and spent the 2025-26 season with the Portland Trail Blazers on a two-way deal. Love averaged 10.4 points, 2.3 rebounds and 2.5 assists in 20.7 minutes. Love had a True Shooting Percentage of .497.",
-      "dekZh": "Caleb Love 与费城 76 人达成双向合同。",
-      "summaryZh": "据 RealGM / Yahoo Sports 报道，签约动态：Caleb Love，76 人 达成 双向 合同，原文关注 Caleb Love 的合同或自由市场动向。",
-      "oneLineZh": "签约动态：Caleb Love，76 人 达成 双向 合同",
-      "goldenQuoteZh": "",
-      "keyPoints": [
-        "Caleb Love与费城 76 人达成双向合同。"
-      ],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Love_Caleb_phx_260116.jpg",
-      "source": "RealGM / Yahoo Sports",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 5,
-      "sources": [
-        "RealGM",
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286537/Caleb-Love-Sixers-Agree-To-Two-Way-Contract"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/sixers-reportedly-set-sign-caleb-133137045.html"
-        }
-      ],
-      "originalTitles": [
-        "Caleb Love, Sixers Agree To Two-Way Contract",
-        "Sixers reportedly set to sign Caleb Love to two-way deal"
-      ],
-      "isMerged": true,
-      "eventKey": "sign:caleb-love:76ers",
-      "relatedItems": [],
-      "displayTitle": "签约动态：Caleb Love，76 人 达成 双向 合同"
-    },
-    {
       "id": "https://sports.yahoo.com/articles/lebron-james-agent-rich-paul-170012770.html",
       "title": "LeBron James' agent Rich Paul says star would've signed with Knicks if they didn't win NBA title",
       "originalTitle": "LeBron James' agent Rich Paul says star would've signed with Knicks if they didn't win NBA title",
@@ -334,6 +467,14 @@
       "eventKey": "sign:lebron-james",
       "relatedItems": [
         {
+          "title": "The Knicks looked into a LeBron James union — here’s why it’s ‘very, very unlikely’",
+          "originalTitle": "The Knicks looked into a LeBron James union — here’s why it’s ‘very, very unlikely’",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/knicks-looked-lebron-james-union-155600861.html",
+          "publishedAt": "2026-07-03T15:56:00.000Z",
+          "angle": "report"
+        },
+        {
           "title": "Rich Paul reveals LeBron James’ free agency finalists on whiteboard during podcast",
           "originalTitle": "Rich Paul reveals LeBron James’ free agency finalists on whiteboard during podcast",
           "source": "Yahoo Sports",
@@ -347,7 +488,8 @@
       ],
       "originalTitles": [
         "Rich Paul reveals LeBron James’ free agency finalists on whiteboard during podcast",
-        "LeBron James' agent Rich Paul says star would've signed with Knicks if they didn't win NBA title"
+        "LeBron James' agent Rich Paul says star would've signed with Knicks if they didn't win NBA title",
+        "The Knicks looked into a LeBron James union — here’s why it’s ‘very, very unlikely’"
       ],
       "sourceLinks": [
         {
@@ -357,6 +499,10 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/lebron-james-agent-rich-paul-170012770.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/knicks-looked-lebron-james-union-155600861.html"
         }
       ],
       "isMerged": true,
@@ -386,6 +532,32 @@
       "eventKey": "sign:luka-don:lakers",
       "relatedItems": [],
       "displayTitle": "Luka Dončić is excited about the Lakers’ offseason signings",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/tatum-breaks-silence-jaylen-nothing-164101947.html",
+      "title": "Tatum breaks silence on Jaylen: ‘Nothing but love and respect for you'",
+      "originalTitle": "Tatum breaks silence on Jaylen: ‘Nothing but love and respect for you'",
+      "headlineZh": "NBA 休赛期后续动向",
+      "titleZh": "NBA 休赛期后续动向",
+      "link": "https://sports.yahoo.com/articles/tatum-breaks-silence-jaylen-nothing-164101947.html",
+      "url": "https://sports.yahoo.com/articles/tatum-breaks-silence-jaylen-nothing-164101947.html",
+      "pubDate": "2026-07-03T16:41:01.000Z",
+      "publishedAt": "2026-07-03T16:41:01.000Z",
+      "summary": "Nearly 48 hours after news broke, Jayson Tatum has chimed in on the Jaylen Brown trade.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "NBA 休赛期后续动向",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/cmT8Gu2afpogY_A298UqKg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/csnne.com/6fb9a4bc12455a6172509ae5e0abd3d1",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 2,
+      "eventKey": "trade:jaylen-brown",
+      "relatedItems": [],
+      "displayTitle": "Tatum breaks silence on Jaylen: ‘Nothing but love and respect for you'",
       "isMerged": false
     },
     {
@@ -444,16 +616,16 @@
       "id": "https://sports.yahoo.com/articles/sixers-reportedly-sign-rayan-rupert-162020509.html",
       "title": "Sixers reportedly sign Rayan Rupert to two-way deal",
       "originalTitle": "Sixers reportedly sign Rayan Rupert to two-way deal",
-      "headlineZh": "76 人 reportedly 与 Rayan Rupert 签下双向合同",
-      "titleZh": "76 人 reportedly 与 Rayan Rupert 签下双向合同",
+      "headlineZh": "Rayan Rupert 与 76 人达成双向合同",
+      "titleZh": "Rayan Rupert 与 76 人达成双向合同",
       "link": "https://sports.yahoo.com/articles/sixers-reportedly-sign-rayan-rupert-162020509.html",
       "url": "https://sports.yahoo.com/articles/sixers-reportedly-sign-rayan-rupert-162020509.html",
       "pubDate": "2026-07-03T16:20:20.000Z",
       "publishedAt": "2026-07-03T16:20:20.000Z",
       "summary": "Sixers take a swing on a young wing.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Report: 76 人 to 签下 Rayan Rupert，合同为双向。",
-      "oneLineZh": "76 人 reportedly 与 Rayan Rupert 签下双向合同",
+      "summaryZh": "据 Yahoo Sports / RealGM 报道，Rayan Rupert 与 76 人达成双向合同，原文关注 Rayan Rupert 的合同或自由市场动向。",
+      "oneLineZh": "Rayan Rupert 与 76 人达成双向合同",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/oZkR2LM1zk8b6o7N8qZseQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/3c01d783b6fa5fac6bef860a201ad758",
@@ -473,21 +645,16 @@
         {
           "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286532/Rayan-Rupert-Sixers-Agree-To-Two-Way-Deal"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/report-sixers-sign-rayan-rupert-114948456.html"
         }
       ],
       "originalTitles": [
         "Sixers reportedly sign Rayan Rupert to two-way deal",
-        "Rayan Rupert, Sixers Agree To Two-Way Deal",
-        "Report: Sixers to sign Rayan Rupert to two-way contract"
+        "Rayan Rupert, Sixers Agree To Two-Way Deal"
       ],
       "isMerged": true,
       "eventKey": "sign:rayan-rupert:76ers",
       "relatedItems": [],
-      "displayTitle": "76 人 reportedly 与 Rayan Rupert 签下双向合同"
+      "displayTitle": "Rayan Rupert 与 76 人达成双向合同"
     },
     {
       "id": "https://sports.yahoo.com/articles/pistons-announce-summer-league-roster-161405537.html",
@@ -643,20 +810,20 @@
       "eventKey": "trade:jaylen-brown:celtics:76ers",
       "relatedItems": [
         {
+          "title": "The Jaylen Brown trade was a risk that the Sixers had to take",
+          "originalTitle": "The Jaylen Brown trade was a risk that the Sixers had to take",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/jaylen-brown-trade-risk-sixers-185216484.html",
+          "publishedAt": "2026-07-03T18:52:16.000Z",
+          "angle": "source"
+        },
+        {
           "title": "RealGM Radio w/Dubin, Dakhil: Jaylen Brown To Sixers",
           "originalTitle": "RealGM Radio w/Dubin, Dakhil: Jaylen Brown To Sixers",
           "source": "RealGM",
           "url": "https://basketball.realgm.com/wiretap/286535/RealGM-Radio-w-Dubin-Dakhil-Jaylen-Brown-To-Sixers",
           "publishedAt": "2026-07-03T16:36:25.000Z",
           "angle": "rumor"
-        },
-        {
-          "title": "Jaylen Brown ‘wasn’t thrilled’ with Celtics’ lack of respect before shocking 76ers trade",
-          "originalTitle": "Jaylen Brown ‘wasn’t thrilled’ with Celtics’ lack of respect before shocking 76ers trade",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/jaylen-brown-wasn-t-thrilled-123420847.html",
-          "publishedAt": "2026-07-03T12:34:20.000Z",
-          "angle": "source"
         },
         {
           "title": "Celtics Not Motivated By Money Or Follow-Up Trade In Dealing Jaylen Brown",
@@ -683,7 +850,7 @@
         "RealGM Radio w/Dubin, Dakhil: Jaylen Brown To Sixers",
         "Celtics Not Motivated By Money Or Follow-Up Trade In Dealing Jaylen Brown",
         "Jaylen Brown Never Requested Trade; Celtics Didn't Expect Offers To Improve If They Waited",
-        "Jaylen Brown ‘wasn’t thrilled’ with Celtics’ lack of respect before shocking 76ers trade"
+        "The Jaylen Brown trade was a risk that the Sixers had to take"
       ],
       "sourceLinks": [
         {
@@ -692,11 +859,11 @@
         },
         {
           "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286527/Jaylen-Browns-Contract-Size-Suppressed-Trade-Market"
+          "link": "https://basketball.realgm.com/wiretap/286536/RealGM-Radio-w-Goldberg-DuFour-Jaylen-Brown-Trade-Fallout-East-Vs-West-NBAs-Most-Catastrophic-Trades"
         },
         {
           "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286536/RealGM-Radio-w-Goldberg-DuFour-Jaylen-Brown-Trade-Fallout-East-Vs-West-NBAs-Most-Catastrophic-Trades"
+          "link": "https://basketball.realgm.com/wiretap/286527/Jaylen-Browns-Contract-Size-Suppressed-Trade-Market"
         },
         {
           "source": "RealGM",
@@ -712,7 +879,7 @@
         },
         {
           "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/jaylen-brown-wasn-t-thrilled-123420847.html"
+          "link": "https://sports.yahoo.com/articles/jaylen-brown-trade-risk-sixers-185216484.html"
         }
       ],
       "isMerged": true,
@@ -742,6 +909,32 @@
       "displayTitle": "The harsh reality of targeting Trey Murphy",
       "eventKey": "",
       "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/mitchell-robinson-hints-knicks-free-153912680.html",
+      "title": "Mitchell Robinson hints at Knicks free agency truth: ‘Didn’t want this to happen’",
+      "originalTitle": "Mitchell Robinson hints at Knicks free agency truth: ‘Didn’t want this to happen’",
+      "headlineZh": "Mitchell Robinson 签约动向更新",
+      "titleZh": "Mitchell Robinson 签约动向更新",
+      "link": "https://sports.yahoo.com/articles/mitchell-robinson-hints-knicks-free-153912680.html",
+      "url": "https://sports.yahoo.com/articles/mitchell-robinson-hints-knicks-free-153912680.html",
+      "pubDate": "2026-07-03T15:39:12.000Z",
+      "publishedAt": "2026-07-03T15:39:12.000Z",
+      "summary": "Mitchell Robinson's departure from the Knicks to the Celtics caused a lot of head-scratching around the league, and he's hinting at there being more to the story.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Mitchell Robinson 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Mitchell Robinson 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/ZnViL59RfPx3IR5GNDgX3g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/c803b121833a1d3df474227dd21c1011",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:mitchell-robinson:celtics",
+      "relatedItems": [],
+      "displayTitle": "Mitchell Robinson hints at Knicks free agency truth: ‘Didn’t want this to happen’",
       "isMerged": false
     },
     {
@@ -1311,188 +1504,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/agent-rich-paul-highlights-sixers-121052801.html",
-      "title": "Agent Rich Paul highlights Sixers as potential destination for LeBron James",
-      "originalTitle": "Agent Rich Paul highlights Sixers as potential destination for LeBron James",
-      "headlineZh": "Agent Rich Paul 相关消息更新",
-      "titleZh": "Agent Rich Paul 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/agent-rich-paul-highlights-sixers-121052801.html",
-      "url": "https://sports.yahoo.com/articles/agent-rich-paul-highlights-sixers-121052801.html",
-      "pubDate": "2026-07-03T12:10:52.000Z",
-      "publishedAt": "2026-07-03T12:10:52.000Z",
-      "summary": "On the latest “Game Over” podcast, agent Rich Paul named the Sixers as a potential destination for LeBron James.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Agent Rich Paul 的最新动态和后续影响。",
-      "oneLineZh": "Agent Rich Paul 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/zhnhVmP._e07whmmWF4axA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/csnphilly.com/fe5e3c450eb18b57122ccd2098a10459",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Agent Rich Paul highlights Sixers as potential destination for LeBron James",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/dallas-mavericks-fans-grade-team-120000487.html",
-      "title": "Dallas Mavericks fans grade the team’s draft performance",
-      "originalTitle": "Dallas Mavericks fans grade the team’s draft performance",
-      "headlineZh": "独行侠年轻球员与选秀话题",
-      "titleZh": "独行侠年轻球员与选秀话题",
-      "link": "https://sports.yahoo.com/articles/dallas-mavericks-fans-grade-team-120000487.html",
-      "url": "https://sports.yahoo.com/articles/dallas-mavericks-fans-grade-team-120000487.html",
-      "pubDate": "2026-07-03T12:00:00.000Z",
-      "publishedAt": "2026-07-03T12:00:00.000Z",
-      "summary": "Dallas fans are pleased",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "独行侠年轻球员与选秀话题",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/_M9bcj.wY7VOUOfRBecUYA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDY7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/0b49ad03502919611a74987ba74fb61d",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 3,
-      "eventKey": "grades:dallas-mavericks:mavericks",
-      "relatedItems": [],
-      "displayTitle": "独行侠年轻球员与选秀话题",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/marvin-bagley-signs-denver-115300393.html",
-      "title": "Marvin Bagley Signs With Denver",
-      "originalTitle": "Marvin Bagley Signs With Denver",
-      "headlineZh": "Marvin Bagley Signs 签约动向更新",
-      "titleZh": "Marvin Bagley Signs 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/marvin-bagley-signs-denver-115300393.html",
-      "url": "https://sports.yahoo.com/articles/marvin-bagley-signs-denver-115300393.html",
-      "pubDate": "2026-07-03T11:53:00.000Z",
-      "publishedAt": "2026-07-03T11:53:00.000Z",
-      "summary": "The former Duke star will be in the Mile High City",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Marvin Bagley Signs 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Marvin Bagley Signs 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/9wXwW0QSGO06yJcnAUYoQg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/036f3c5c7abb7a06c9b11629218ae1e4",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:marvin-bagley-signs",
-      "relatedItems": [],
-      "displayTitle": "Marvin Bagley Signs With Denver",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/warriors-not-top-lebron-james-112849449.html",
-      "title": "Warriors not at top of LeBron James' free-agent destination list, Shams says",
-      "originalTitle": "Warriors not at top of LeBron James' free-agent destination list, Shams says",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/warriors-not-top-lebron-james-112849449.html",
-      "url": "https://sports.yahoo.com/articles/warriors-not-top-lebron-james-112849449.html",
-      "pubDate": "2026-07-03T11:28:49.000Z",
-      "publishedAt": "2026-07-03T11:28:49.000Z",
-      "summary": "The Golden State Warriors are not \"at the top of the list\" of LeBron James' preferred free-agent destinations, per ESPN's Shams Charania",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/573e7ab4ba43d9b64760580756eb5033",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Warriors not at top of LeBron James' free-agent destination list, Shams says",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/coming-terms-boston-look-112200295.html",
-      "title": "Coming to terms with Boston’s new look",
-      "originalTitle": "Coming to terms with Boston’s new look",
-      "headlineZh": "NBA 休赛期后续动向",
-      "titleZh": "NBA 休赛期后续动向",
-      "link": "https://sports.yahoo.com/articles/coming-terms-boston-look-112200295.html",
-      "url": "https://sports.yahoo.com/articles/coming-terms-boston-look-112200295.html",
-      "pubDate": "2026-07-03T11:22:00.000Z",
-      "publishedAt": "2026-07-03T11:22:00.000Z",
-      "summary": "It’s hard to see your favorite player get traded. It’s harder when it’s to a rival. But there’s always a new day.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "NBA 休赛期后续动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/ymsV0PqAFzEUKwyiZdNJkg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05NjA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/45c405ed4c8fe7b9b9a5e350325e9cda",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 2,
-      "displayTitle": "Coming to terms with Boston’s new look",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/open-thread-many-shades-paul-110000259.html",
-      "title": "Open Thread: The many shades of the Paul George trades",
-      "originalTitle": "Open Thread: The many shades of the Paul George trades",
-      "headlineZh": "Open Thread 交易影响继续发酵",
-      "titleZh": "Open Thread 交易影响继续发酵",
-      "link": "https://sports.yahoo.com/articles/open-thread-many-shades-paul-110000259.html",
-      "url": "https://sports.yahoo.com/articles/open-thread-many-shades-paul-110000259.html",
-      "pubDate": "2026-07-03T11:00:00.000Z",
-      "publishedAt": "2026-07-03T11:00:00.000Z",
-      "summary": "The vet is heading Boston where jersey #13 is available",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Open Thread 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
-      "oneLineZh": "Open Thread 交易影响继续发酵",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/vJkVZ60yvY5EDD4C25Epdw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05NjA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/350de5f76b0bcb0df49d86668af09d4b",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 3,
-      "eventKey": "trade:paul-george",
-      "relatedItems": [],
-      "displayTitle": "Open Thread 交易影响继续发酵",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/paul-george-doesnt-mention-boston-105656807.html",
-      "title": "Paul George doesn't mention Boston in farewell post to Philadelphia",
-      "originalTitle": "Paul George doesn't mention Boston in farewell post to Philadelphia",
-      "headlineZh": "Paul George 相关消息更新",
-      "titleZh": "Paul George 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/paul-george-doesnt-mention-boston-105656807.html",
-      "url": "https://sports.yahoo.com/articles/paul-george-doesnt-mention-boston-105656807.html",
-      "pubDate": "2026-07-03T10:56:56.000Z",
-      "publishedAt": "2026-07-03T10:56:56.000Z",
-      "summary": "If Paul George is excited about going to Boston, then he's keeping that emotion close to the vest at this point in time.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Paul George 的最新动态和后续影响。",
-      "oneLineZh": "Paul George 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/BKhbJHJyQA7v2RqtJhXw2w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/csnne.com/3c42e72fb4bfd2e5bd2af2bdee3b0cee",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Paul George doesn't mention Boston in farewell post to Philadelphia",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286526/Rui-Hachimura-In-Contact-With-Warriors-Timberwolves",
       "title": "Rui Hachimura In Contact With Warriors, Timberwolves",
       "originalTitle": "Rui Hachimura In Contact With Warriors, Timberwolves",
@@ -1810,32 +1821,6 @@
       "eventKey": "trade:celtics-negotiated-with:celtics:heat",
       "relatedItems": [],
       "displayTitle": "Celtics Negotiated With Giannis Antetokounmpo For Extension At Less Than Full Max",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286508/Anfernee-Simons-Sixers-Agree-To-Two-Year-$123M-Deal",
-      "title": "Anfernee Simons, Sixers Agree To Two-Year, $12.3M Deal",
-      "originalTitle": "Anfernee Simons, Sixers Agree To Two-Year, $12.3M Deal",
-      "headlineZh": "Anfernee Simons 与 76 人达成两年，1230 万美元合同",
-      "titleZh": "Anfernee Simons 与 76 人达成两年，1230 万美元合同",
-      "link": "https://basketball.realgm.com/wiretap/286508/Anfernee-Simons-Sixers-Agree-To-Two-Year-$123M-Deal",
-      "url": "https://basketball.realgm.com/wiretap/286508/Anfernee-Simons-Sixers-Agree-To-Two-Year-$123M-Deal",
-      "pubDate": "2026-07-02T18:34:33.000Z",
-      "publishedAt": "2026-07-02T18:34:33.000Z",
-      "summary": "Anfernee Simons and the Philadelphia 76ers have agreed to a two-year, $12.3 million contract. Simons will hold a player option for Year 2 of the contract. Simons received interest from the Golden State Warriors, Miami Heat, Dallas Mavericks, Boston Celtics and others. The 76ers' signing of Simons follows their trade with the Boston Celtics for Jaylen Brown.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Anfernee Simons 与 76 人达成两年，1230 万美元合同，原文关注 Anfernee Simons 的合同或自由市场动向。",
-      "oneLineZh": "Anfernee Simons 与 76 人达成两年，1230 万美元合同",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Simons_Anfernee_chi_260225.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 5,
-      "eventKey": "sign:anfernee-simons:sixers:2:1230",
-      "relatedItems": [],
-      "displayTitle": "Anfernee Simons 与 76 人达成两年，1230 万美元合同",
       "isMerged": false
     }
   ]
