@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-04T09:37:41.932Z",
+  "updatedAt": "2026-07-04T11:36:27.242Z",
   "lastFetchStatus": {
     "status": "partial-success",
-    "checkedAt": "2026-07-04T09:37:41.932Z",
-    "updatedAt": "2026-07-04T09:37:41.932Z",
+    "checkedAt": "2026-07-04T11:36:27.242Z",
+    "updatedAt": "2026-07-04T11:36:27.242Z",
     "fetchedItems": 50,
-    "mergedItems": 45,
+    "mergedItems": 46,
     "failedFeeds": [
       {
         "source": "RealGM",
@@ -63,6 +63,84 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/between-charlotte-dallas-nba-team-111400096.html",
+      "title": "Between Charlotte And Dallas, Which NBA Team Is In A Better Situation?",
+      "originalTitle": "Between Charlotte And Dallas, Which NBA Team Is In A Better Situation?",
+      "headlineZh": "Between Charlotte 和相关消息更新",
+      "titleZh": "Between Charlotte 和相关消息更新",
+      "link": "https://sports.yahoo.com/articles/between-charlotte-dallas-nba-team-111400096.html",
+      "url": "https://sports.yahoo.com/articles/between-charlotte-dallas-nba-team-111400096.html",
+      "pubDate": "2026-07-04T11:14:00.000Z",
+      "publishedAt": "2026-07-04T11:14:00.000Z",
+      "summary": "Cooper Flagg is a brillant talent, but Kon Knueppel’s Charlotte framework is better for long-term success.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Between Charlotte 和的最新动态和后续影响。",
+      "oneLineZh": "Between Charlotte 和相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/l2ltSHCfp668CT7iWdXyXQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03NDg7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/a41a17822b638cccb7adc18817013ce6",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Between Charlotte And Dallas, Which NBA Team Is In A Better Situation?",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/letters-sports-mixed-emotions-over-110000122.html",
+      "title": "Letters to Sports: Mixed emotions over LeBron James leaving Lakers",
+      "originalTitle": "Letters to Sports: Mixed emotions over LeBron James leaving Lakers",
+      "headlineZh": "LeBron James 相关消息更新",
+      "titleZh": "LeBron James 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/letters-sports-mixed-emotions-over-110000122.html",
+      "url": "https://sports.yahoo.com/articles/letters-sports-mixed-emotions-over-110000122.html",
+      "pubDate": "2026-07-04T11:00:00.000Z",
+      "publishedAt": "2026-07-04T11:00:00.000Z",
+      "summary": "Readers of the Los Angeles Times Sports section give their thought on LeBron James parting ways with the Lakers, Kawhi Leonard, Dave Roberts and the Sparks.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
+      "oneLineZh": "LeBron James 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/la_times_articles_853/864775a09d8aadf64b08c50d65adf2b3",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Letters to Sports: Mixed emotions over LeBron James leaving Lakers",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/much-big-three-jays-era-092000262.html",
+      "title": "Much like the Big Three, the Jays era left fans grateful but craving more",
+      "originalTitle": "Much like the Big Three, the Jays era left fans grateful but craving more",
+      "headlineZh": "Big Three 相关消息更新",
+      "titleZh": "Big Three 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/much-big-three-jays-era-092000262.html",
+      "url": "https://sports.yahoo.com/articles/much-big-three-jays-era-092000262.html",
+      "pubDate": "2026-07-04T09:20:00.000Z",
+      "publishedAt": "2026-07-04T09:20:00.000Z",
+      "summary": "If you’ve followed the Celtics closely over some portion of the last 40 years, there’s a strong chance a specific series sticks in your mind as the one that slipped away. For those in their 50s or 60s, it’s likely 1987. For those in their teens or 20s, it’s likely 2022. For those who are […]",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Big Three 的最新动态和后续影响。",
+      "oneLineZh": "Big Three 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Po_fhsR7YuPlExjbSUq2Dw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/6c5468395cf1167a0f9719ca3e2cd53f",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Much like the Big Three, the Jays era left fans grateful but craving more",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/utah-jazz-vs-atlanta-hawks-065143893.html",
       "title": "Utah Jazz vs Atlanta Hawks: Summer League preview, start time, how to watch",
@@ -257,14 +335,6 @@
           "url": "https://sports.yahoo.com/nba/article/jayson-tatum-bids-farewell-to-jaylen-brown-after-celtics-sixers-blockbuster-trade-forever-grateful-213122214.html",
           "publishedAt": "2026-07-03T21:31:22.000Z",
           "angle": "source"
-        },
-        {
-          "title": "The Jaylen Brown trade was a risk that the Sixers had to take",
-          "originalTitle": "The Jaylen Brown trade was a risk that the Sixers had to take",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/jaylen-brown-trade-risk-sixers-185216484.html",
-          "publishedAt": "2026-07-03T18:52:16.000Z",
-          "angle": "source"
         }
       ],
       "sources": [
@@ -273,8 +343,7 @@
       "originalTitles": [
         "NBA Championship Odds 2027: Celtics Drop to +1200 Following Jaylen Brown Trade",
         "Celtics assistant coach has honest take on Jaylen Brown’s stunning 76ers trade",
-        "Jayson Tatum bids farewell to Jaylen Brown after Celtics-Sixers blockbuster trade: 'Forever grateful'",
-        "The Jaylen Brown trade was a risk that the Sixers had to take"
+        "Jayson Tatum bids farewell to Jaylen Brown after Celtics-Sixers blockbuster trade: 'Forever grateful'"
       ],
       "sourceLinks": [
         {
@@ -288,10 +357,6 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/nba/article/jayson-tatum-bids-farewell-to-jaylen-brown-after-celtics-sixers-blockbuster-trade-forever-grateful-213122214.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/jaylen-brown-trade-risk-sixers-185216484.html"
         }
       ],
       "isMerged": true,
@@ -1261,58 +1326,6 @@
       "category": "其他",
       "importance": 2,
       "displayTitle": "Knicks’ interest in LeBron James unclear after conflicting reports",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/suns-unveil-summer-league-roster-190957937.html",
-      "title": "Suns unveil Summer League roster for Las Vegas",
-      "originalTitle": "Suns unveil Summer League roster for Las Vegas",
-      "headlineZh": "Summer League 相关消息更新",
-      "titleZh": "Summer League 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/suns-unveil-summer-league-roster-190957937.html",
-      "url": "https://sports.yahoo.com/articles/suns-unveil-summer-league-roster-190957937.html",
-      "pubDate": "2026-07-03T19:09:57.000Z",
-      "publishedAt": "2026-07-03T19:09:57.000Z",
-      "summary": "Khaman Maluach, Rasheer Fleming and Koa Peat headline Phoenix's young core in Las Vegas.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Summer League 的最新动态和后续影响。",
-      "oneLineZh": "Summer League 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/2TEhmvRXJWZeNDwVvhaN_w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xODAwO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/fa79e8a737fa80a599a024c26ffae991",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Suns unveil Summer League roster for Las Vegas",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/cavs-look-frontrunners-land-lebron-190114049.html",
-      "title": "Cavs look like frontrunners to land LeBron James after Rich Paul’s hints",
-      "originalTitle": "Cavs look like frontrunners to land LeBron James after Rich Paul’s hints",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/cavs-look-frontrunners-land-lebron-190114049.html",
-      "url": "https://sports.yahoo.com/articles/cavs-look-frontrunners-land-lebron-190114049.html",
-      "pubDate": "2026-07-03T19:01:14.000Z",
-      "publishedAt": "2026-07-03T19:01:14.000Z",
-      "summary": "The more smoke, the better. LeBron’s return to Cleveland is heating up.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/uyaHNO64hZvHrlqE9iCR2w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/571eb21751b7ed1044beb1334f83a83f",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Cavs look like frontrunners to land LeBron James after Rich Paul’s hints",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
