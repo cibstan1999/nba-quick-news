@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-04T16:32:54.417Z",
+  "updatedAt": "2026-07-04T18:05:32.458Z",
   "lastFetchStatus": {
     "status": "partial-success",
-    "checkedAt": "2026-07-04T16:32:54.417Z",
-    "updatedAt": "2026-07-04T16:32:54.417Z",
+    "checkedAt": "2026-07-04T18:05:32.458Z",
+    "updatedAt": "2026-07-04T18:05:32.458Z",
     "fetchedItems": 50,
-    "mergedItems": 44,
+    "mergedItems": 46,
     "failedFeeds": [
       {
         "source": "RealGM",
@@ -63,6 +63,32 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/report-milwaukee-signing-kam-jones-163356941.html",
+      "title": "REPORT: Milwaukee Is Signing Kam Jones To A Two-Way Contract",
+      "originalTitle": "REPORT: Milwaukee Is Signing Kam Jones To A Two-Way Contract",
+      "headlineZh": "Milwaukee Is Signing 签约动向更新",
+      "titleZh": "Milwaukee Is Signing 签约动向更新",
+      "link": "https://sports.yahoo.com/articles/report-milwaukee-signing-kam-jones-163356941.html",
+      "url": "https://sports.yahoo.com/articles/report-milwaukee-signing-kam-jones-163356941.html",
+      "pubDate": "2026-07-04T16:33:56.000Z",
+      "publishedAt": "2026-07-04T16:33:56.000Z",
+      "summary": "The former Marquette guard didn’t even go a week without an NBA deal, even if it only a two-way contract now.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Milwaukee Is Signing 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/9CL6zwI8crq.xAM5L0mjnQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xNTAwO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/f098b0beb04fcac1cd04514d966452bc",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:milwaukee-is-signing",
+      "relatedItems": [],
+      "displayTitle": "REPORT: Milwaukee Is Signing Kam Jones To A Two-Way Contract",
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
       "title": "2026 LeBron James Next Team Odds: The King Ready To Play For Minimum To Get On The Right Team",
@@ -113,6 +139,58 @@
       "eventKey": "sign:lebron-james",
       "relatedItems": [],
       "displayTitle": "Rich Paul gives an update on when LeBron James will make free agency decision",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lakers-focusing-youth-athleticism-free-152400495.html",
+      "title": "The Lakers are focusing on youth and athleticism with free agency signings",
+      "originalTitle": "The Lakers are focusing on youth and athleticism with free agency signings",
+      "headlineZh": "湖人自由市场与合同动向",
+      "titleZh": "湖人自由市场与合同动向",
+      "link": "https://sports.yahoo.com/articles/lakers-focusing-youth-athleticism-free-152400495.html",
+      "url": "https://sports.yahoo.com/articles/lakers-focusing-youth-athleticism-free-152400495.html",
+      "pubDate": "2026-07-04T15:24:00.000Z",
+      "publishedAt": "2026-07-04T15:24:00.000Z",
+      "summary": "It remains to be seen if they’re better, but these new Lakers are certainly younger and more athletic.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "湖人自由市场与合同动向",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/WagMV4cbqTJE_rT3aJjACA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/200baf7f59a13f540c77c5ea8f7809b8",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:the-lakers:lakers",
+      "relatedItems": [],
+      "displayTitle": "The Lakers are focusing on youth and athleticism with free agency signings",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/fireworks-anyone-rich-paul-doesn-144444675.html",
+      "title": "Fireworks, anyone?: Rich Paul doesn’t rule out LeBron James joining the Celtics just yet",
+      "originalTitle": "Fireworks, anyone?: Rich Paul doesn’t rule out LeBron James joining the Celtics just yet",
+      "headlineZh": "Rich Paul 相关消息更新",
+      "titleZh": "Rich Paul 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/fireworks-anyone-rich-paul-doesn-144444675.html",
+      "url": "https://sports.yahoo.com/articles/fireworks-anyone-rich-paul-doesn-144444675.html",
+      "pubDate": "2026-07-04T14:44:44.000Z",
+      "publishedAt": "2026-07-04T14:44:44.000Z",
+      "summary": "Boston has already undergone its most stunning offseason in some time. So can we rule anything out, realistically?",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Rich Paul 的最新动态和后续影响。",
+      "oneLineZh": "Rich Paul 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/y1Y07PyXzSYC5ZtQkp.ZLQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/96a119e6a53fc81b2945881b500fd8c0",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "eventKey": "injury:lebron-james:celtics",
+      "relatedItems": [],
+      "displayTitle": "Fireworks, anyone?: Rich Paul doesn’t rule out LeBron James joining the Celtics just yet",
       "isMerged": false
     },
     {
@@ -405,8 +483,7 @@
       ],
       "originalTitles": [
         "NBA Championship Odds 2027: Celtics Drop to +1200 Following Jaylen Brown Trade",
-        "Celtics assistant coach has honest take on Jaylen Brown’s stunning 76ers trade",
-        "Jayson Tatum bids farewell to Jaylen Brown after Celtics-Sixers blockbuster trade: 'Forever grateful'"
+        "Celtics assistant coach has honest take on Jaylen Brown’s stunning 76ers trade"
       ],
       "sourceLinks": [
         {
@@ -1056,24 +1133,8 @@
       "importance": 2,
       "eventKey": "sign:lebron-james:lakers",
       "relatedItems": [],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Bryce James drools over girlfriend Sadie’s photo in first post since LeBron James’ Lakers exit"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/bryce-james-drools-over-girlfriend-223622855.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/timberwolves-serious-interest-signing-lakers-214114461.html"
-        }
-      ],
-      "isMerged": false,
-      "displayTitle": "Bryce James drools over girlfriend Sadie’s photo in first post since LeBron James’ Lakers exit"
+      "displayTitle": "Bryce James drools over girlfriend Sadie’s photo in first post since LeBron James’ Lakers exit",
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/knicks-signing-andre-drummond-3-223446718.html",
@@ -1255,32 +1316,6 @@
       "displayTitle": "NBA 动态：CSR Weekend 勇士: 7/3-7/5",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/austin-reaves-extension-gets-high-215305504.html",
-      "title": "Austin Reaves’ extension gets high grade from Lakers fans",
-      "originalTitle": "Austin Reaves’ extension gets high grade from Lakers fans",
-      "headlineZh": "Austin Reaves 签约动向更新",
-      "titleZh": "Austin Reaves 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/austin-reaves-extension-gets-high-215305504.html",
-      "url": "https://sports.yahoo.com/articles/austin-reaves-extension-gets-high-215305504.html",
-      "pubDate": "2026-07-03T21:53:05.000Z",
-      "publishedAt": "2026-07-03T21:53:05.000Z",
-      "summary": "It wasn’t a bargain deal, but the Lakers locking up Austin Reaves for years to come is a move fans liked.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Austin Reaves 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Austin Reaves 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/PzXAqj3NINu2bh9NkFlkYQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/cc6e556d51ebf19996e5b6fb3743fdaf",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "grades:austin-reaves:lakers",
-      "relatedItems": [],
-      "displayTitle": "Austin Reaves’ extension gets high grade from Lakers fans",
       "isMerged": false
     }
   ]
