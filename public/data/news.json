@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-04T19:46:03.190Z",
+  "updatedAt": "2026-07-04T21:02:51.639Z",
   "lastFetchStatus": {
     "status": "partial-success",
-    "checkedAt": "2026-07-04T19:46:03.190Z",
-    "updatedAt": "2026-07-04T19:46:03.190Z",
+    "checkedAt": "2026-07-04T21:02:51.639Z",
+    "updatedAt": "2026-07-04T21:02:51.639Z",
     "fetchedItems": 50,
-    "mergedItems": 46,
+    "mergedItems": 44,
     "failedFeeds": [
       {
         "source": "RealGM",
@@ -41,13 +41,6 @@
       "link": "https://sports.yahoo.com/articles/why-suns-could-not-pursue-120000105.html"
     },
     {
-      "id": "https://sports.yahoo.com/articles/knicks-signing-veteran-center-andre-222909502.html",
-      "text": "尼克斯与 Andre Drummond 达成一年合同",
-      "category": "签约",
-      "source": "Yahoo Sports",
-      "link": "https://sports.yahoo.com/articles/knicks-signing-veteran-center-andre-222909502.html"
-    },
-    {
       "id": "https://sports.yahoo.com/articles/knicks-signing-andre-drummond-3-223446718.html",
       "text": "尼克斯将以 390 万美元签下 Andre Drummond",
       "category": "签约",
@@ -63,6 +56,84 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/james-dolan-defends-appointing-son-195125560.html",
+      "title": "How James Dolan Defends Appointing His Son To Big Job",
+      "originalTitle": "How James Dolan Defends Appointing His Son To Big Job",
+      "headlineZh": "How James Dolan 相关消息更新",
+      "titleZh": "How James Dolan 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/james-dolan-defends-appointing-son-195125560.html",
+      "url": "https://sports.yahoo.com/articles/james-dolan-defends-appointing-son-195125560.html",
+      "pubDate": "2026-07-04T19:51:25.000Z",
+      "publishedAt": "2026-07-04T19:51:25.000Z",
+      "summary": "Does it fit Quentin Dolan being named president, chief operating officer and alternate governor of the Rangers?",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 How James Dolan 的最新动态和后续影响。",
+      "oneLineZh": "How James Dolan 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/iFuT1q28Ll0m8Scdlf8p3A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/the_hockey_news_new_york_rangers_articles_182/9775dcaad1cab25f2dd2799b67a2fd40",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "How James Dolan Defends Appointing His Son To Big Job",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "title": "2026 LeBron James Next Team Odds: The King Ready To Play For Minimum To Get On The Right Team",
+      "originalTitle": "2026 LeBron James Next Team Odds: The King Ready To Play For Minimum To Get On The Right Team",
+      "headlineZh": "LeBron James Next 相关消息更新",
+      "titleZh": "LeBron James Next 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "url": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "pubDate": "2026-07-04T19:44:00.000Z",
+      "publishedAt": "2026-07-04T19:44:00.000Z",
+      "summary": "LeBron James' next team odds show the Lakers favored, but Warriors' \"Big Four\" rumors are driving a major Kalshi market surge as The King announces plans.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James Next 的最新动态和后续影响。",
+      "oneLineZh": "LeBron James Next 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/829b52bbdc0f0e73b91edebe6030e0f7",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "eventKey": "odds:lebron-james:warriors",
+      "relatedItems": [],
+      "displayTitle": "2026 LeBron James Next Team Odds: The King Ready To Play For Minimum To Get On The Right Team",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/nets-vs-kings-preview-summer-182825025.html",
+      "title": "Nets vs. Kings preview: Summer League begins in Sacramento",
+      "originalTitle": "Nets vs. Kings preview: Summer League begins in Sacramento",
+      "headlineZh": "Summer League 相关消息更新",
+      "titleZh": "Summer League 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/nets-vs-kings-preview-summer-182825025.html",
+      "url": "https://sports.yahoo.com/articles/nets-vs-kings-preview-summer-182825025.html",
+      "pubDate": "2026-07-04T18:28:25.000Z",
+      "publishedAt": "2026-07-04T18:28:25.000Z",
+      "summary": "While America celebrates its 250th birthday, the Brooklyn Nets tip-off their Summer League slate.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Summer League 的最新动态和后续影响。",
+      "oneLineZh": "Summer League 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/_Z81bb_YWxPKqKVtZVPv3g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/ffbae046f94b29a8aeac9eedeb311c4b",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Nets vs. Kings preview: Summer League begins in Sacramento",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/utah-jazz-summer-league-storylines-173152796.html",
       "title": "Utah Jazz Summer League Storylines",
@@ -142,32 +213,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "title": "2026 LeBron James Next Team Odds: The King Ready To Play For Minimum To Get On The Right Team",
-      "originalTitle": "2026 LeBron James Next Team Odds: The King Ready To Play For Minimum To Get On The Right Team",
-      "headlineZh": "LeBron James Next 相关消息更新",
-      "titleZh": "LeBron James Next 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "url": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "pubDate": "2026-07-04T15:52:00.000Z",
-      "publishedAt": "2026-07-04T15:52:00.000Z",
-      "summary": "LeBron James next team odds show Lakers favored, but Warriors 'Big Four' rumors are driving a major Kalshi market surge as The King announces plans.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James Next 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James Next 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/829b52bbdc0f0e73b91edebe6030e0f7",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "eventKey": "odds:lebron-james:warriors",
-      "relatedItems": [],
-      "displayTitle": "2026 LeBron James Next Team Odds: The King Ready To Play For Minimum To Get On The Right Team",
-      "isMerged": false
-    },
-    {
       "id": "https://sports.yahoo.com/articles/rich-paul-gives-lebron-james-154037824.html",
       "title": "Rich Paul gives an update on when LeBron James will make free agency decision",
       "originalTitle": "Rich Paul gives an update on when LeBron James will make free agency decision",
@@ -192,6 +237,58 @@
       "relatedItems": [],
       "displayTitle": "Rich Paul gives an update on when LeBron James will make free agency decision",
       "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lakers-rival-thinks-land-lebron-153431741.html",
+      "title": "Lakers rival thinks it can land LeBron James for bold reason: ‘Full belief’",
+      "originalTitle": "Lakers rival thinks it can land LeBron James for bold reason: ‘Full belief’",
+      "headlineZh": "LeBron James 相关消息更新",
+      "titleZh": "LeBron James 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/lakers-rival-thinks-land-lebron-153431741.html",
+      "url": "https://sports.yahoo.com/articles/lakers-rival-thinks-land-lebron-153431741.html",
+      "pubDate": "2026-07-04T15:34:31.000Z",
+      "publishedAt": "2026-07-04T15:34:31.000Z",
+      "summary": "The Minnesota Timberwolves seem convinced they have the perfect recruiting pitch to sign LeBron James in free agency.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
+      "oneLineZh": "LeBron James 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Pou7oe1VXvNOx.ShHzN3WQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/afb5e3c0c4cf27a8740876957eac9d13",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lakers-rival-thinks-land-lebron-153431741.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/bryce-james-drools-over-girlfriend-223622855.html"
+        }
+      ],
+      "originalTitles": [
+        "Lakers rival thinks it can land LeBron James for bold reason: ‘Full belief’",
+        "Bryce James drools over girlfriend Sadie’s photo in first post since LeBron James’ Lakers exit"
+      ],
+      "isMerged": true,
+      "eventKey": "sign:lebron-james:lakers",
+      "relatedItems": [
+        {
+          "title": "Bryce James drools over girlfriend Sadie’s photo in first post since LeBron James’ Lakers exit",
+          "originalTitle": "Bryce James drools over girlfriend Sadie’s photo in first post since LeBron James’ Lakers exit",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/bryce-james-drools-over-girlfriend-223622855.html",
+          "publishedAt": "2026-07-03T22:36:22.000Z",
+          "angle": "source"
+        }
+      ],
+      "displayTitle": "Lakers rival thinks it can land LeBron James for bold reason: ‘Full belief’"
     },
     {
       "id": "https://sports.yahoo.com/articles/lakers-focusing-youth-athleticism-free-152400495.html",
@@ -835,48 +932,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/lakers-sign-chris-ma-two-033414882.html",
-      "title": "Lakers re-sign Chris Mañon to two-way contract",
-      "originalTitle": "Lakers re-sign Chris Mañon to two-way contract",
-      "headlineZh": "Chris Ma 签约动向更新",
-      "titleZh": "Chris Ma 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/lakers-sign-chris-ma-two-033414882.html",
-      "url": "https://sports.yahoo.com/articles/lakers-sign-chris-ma-two-033414882.html",
-      "pubDate": "2026-07-04T03:34:14.000Z",
-      "publishedAt": "2026-07-04T03:34:14.000Z",
-      "summary": "Chris Mañon will once again be on the Lakers roster on a two-way deal.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Chris Ma 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Chris Ma 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/_4NC_OVv4z5DKv5DR5CrRA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/676b5c10c58ff6b7d3d42f575e7e3853",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lakers-sign-chris-ma-two-033414882.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lakers-shopping-dalton-knecht-jarred-235640214.html"
-        }
-      ],
-      "originalTitles": [
-        "Lakers re-sign Chris Mañon to two-way contract"
-      ],
-      "isMerged": false,
-      "eventKey": "sign:chris-ma:lakers",
-      "relatedItems": [],
-      "displayTitle": "Lakers re-sign Chris Mañon to two-way contract"
-    },
-    {
       "id": "https://sports.yahoo.com/articles/jalen-brunson-opens-mavericks-letting-032921076.html",
       "title": "Jalen Brunson opens up about Mavericks letting him and Luka Doncic go",
       "originalTitle": "Jalen Brunson opens up about Mavericks letting him and Luka Doncic go",
@@ -1163,32 +1218,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/bryce-james-drools-over-girlfriend-223622855.html",
-      "title": "Bryce James drools over girlfriend Sadie’s photo in first post since LeBron James’ Lakers exit",
-      "originalTitle": "Bryce James drools over girlfriend Sadie’s photo in first post since LeBron James’ Lakers exit",
-      "headlineZh": "Bryce James 相关消息更新",
-      "titleZh": "Bryce James 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/bryce-james-drools-over-girlfriend-223622855.html",
-      "url": "https://sports.yahoo.com/articles/bryce-james-drools-over-girlfriend-223622855.html",
-      "pubDate": "2026-07-03T22:36:22.000Z",
-      "publishedAt": "2026-07-03T22:36:22.000Z",
-      "summary": "By now, basketball fans know that LeBron James has informed the Los Angeles Lakers that he will not be re-signing with them in free agency this offseason, and will instead find a new team to end his legendary NBA career with.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Bryce James 的最新动态和后续影响。",
-      "oneLineZh": "Bryce James 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/ls28xG8LRhiUPMApAIR1lA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/5c650ec26bfbc6eb0118def10de4e4d5",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james:lakers",
-      "relatedItems": [],
-      "displayTitle": "Bryce James drools over girlfriend Sadie’s photo in first post since LeBron James’ Lakers exit",
-      "isMerged": false
-    },
-    {
       "id": "https://sports.yahoo.com/articles/knicks-signing-andre-drummond-3-223446718.html",
       "title": "Knicks signing Andre Drummond on $3.9 million contract to fill Mitchell Robinson void",
       "originalTitle": "Knicks signing Andre Drummond on $3.9 million contract to fill Mitchell Robinson void",
@@ -1238,84 +1267,6 @@
       "displayTitle": "Highly anticipated assistant coach no longer joining Bucks",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/nba/article/knicks-find-their-mitchell-robinson-replacement-with-andre-drummond-on-1-year-39-million-deal-223036587.html",
-      "title": "Knicks find their Mitchell Robinson replacement with Andre Drummond on 1-year, $3.9 million deal",
-      "originalTitle": "Knicks find their Mitchell Robinson replacement with Andre Drummond on 1-year, $3.9 million deal",
-      "headlineZh": "Mitchell Robinson 签约动向更新",
-      "titleZh": "Mitchell Robinson 签约动向更新",
-      "link": "https://sports.yahoo.com/nba/article/knicks-find-their-mitchell-robinson-replacement-with-andre-drummond-on-1-year-39-million-deal-223036587.html",
-      "url": "https://sports.yahoo.com/nba/article/knicks-find-their-mitchell-robinson-replacement-with-andre-drummond-on-1-year-39-million-deal-223036587.html",
-      "pubDate": "2026-07-03T22:30:36.000Z",
-      "publishedAt": "2026-07-03T22:30:36.000Z",
-      "summary": "The Knicks are bringing in a veteran big man to replace their biggest free agent departure.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Mitchell Robinson 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Mitchell Robinson 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/ryrNpN008mfOz.vofqgHxw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/944443cf-9fa2-46e8-9158-7d44082de964",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:mitchell-robinson:1:390",
-      "relatedItems": [],
-      "displayTitle": "Knicks find their Mitchell Robinson replacement with Andre Drummond on 1-year, $3.9 million deal",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/knicks-signing-veteran-center-andre-222909502.html",
-      "title": "Knicks, Andre Drummond agree to one-year deal",
-      "originalTitle": "Knicks, Andre Drummond agree to one-year deal",
-      "headlineZh": "尼克斯与 Andre Drummond 达成一年合同",
-      "titleZh": "尼克斯与 Andre Drummond 达成一年合同",
-      "link": "https://sports.yahoo.com/articles/knicks-signing-veteran-center-andre-222909502.html",
-      "url": "https://sports.yahoo.com/articles/knicks-signing-veteran-center-andre-222909502.html",
-      "pubDate": "2026-07-03T22:29:09.000Z",
-      "publishedAt": "2026-07-03T22:29:09.000Z",
-      "summary": "After losing Mitchell Robinson to the Boston Celtics in free agency, the Knicks have found a new backup center.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，尼克斯与 Andre Drummond 达成一年合同，原文关注 Andre Drummond 的合同或自由市场动向。",
-      "oneLineZh": "尼克斯与 Andre Drummond 达成一年合同",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/sny_articles_235/5783d89c66900ca3182b7855ab31fcc4",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 4,
-      "eventKey": "sign:andre-drummond:celtics:1",
-      "relatedItems": [],
-      "displayTitle": "尼克斯与 Andre Drummond 达成一年合同",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/celtics-sign-neemias-queta-56-222028885.html",
-      "title": "Celtics sign Neemias Queta to $56 million extension after Mitchell Robinson addition",
-      "originalTitle": "Celtics sign Neemias Queta to $56 million extension after Mitchell Robinson addition",
-      "headlineZh": "Neemias Queta 签约动向更新",
-      "titleZh": "Neemias Queta 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/celtics-sign-neemias-queta-56-222028885.html",
-      "url": "https://sports.yahoo.com/articles/celtics-sign-neemias-queta-56-222028885.html",
-      "pubDate": "2026-07-03T22:20:28.000Z",
-      "publishedAt": "2026-07-03T22:20:28.000Z",
-      "summary": "The Celtics continued reshaping their future Friday by locking up 2025-26 starting center Neemias Queta on a long-term extension.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Neemias Queta 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Neemias Queta 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/SjrN8oBJZIBzFsjXDddLjA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/51bd4e07f4bf775c68c61ed0dc090321",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:neemias-queta:celtics:5600",
-      "relatedItems": [],
-      "displayTitle": "Celtics sign Neemias Queta to $56 million extension after Mitchell Robinson addition",
       "isMerged": false
     }
   ]
