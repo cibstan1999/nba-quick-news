@@ -9,23 +9,23 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-05T18:07:24.004Z",
+  "updatedAt": "2026-07-05T19:52:25.944Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-05T18:07:24.004Z",
-    "updatedAt": "2026-07-05T18:07:24.004Z",
+    "checkedAt": "2026-07-05T19:52:25.944Z",
+    "updatedAt": "2026-07-05T19:52:25.944Z",
     "fetchedItems": 80,
-    "mergedItems": 72,
+    "mergedItems": 75,
     "failedFeeds": [],
     "message": "Fetched 80 usable RSS items from all feeds."
   },
   "highlights": [
     {
-      "id": "https://basketball.realgm.com/wiretap/286530/Jaylen-Brown-Trade-Ignites-Concern-NBA-Overrun-With-Strategy",
+      "id": "https://basketball.realgm.com/wiretap/286543/Jayson-Tatum-Breaks-Silence-On-Jaylen-Brown-Trade",
       "text": "Jaylen Brown 被交易至 76 人",
       "category": "交易",
       "source": "RealGM",
-      "link": "https://basketball.realgm.com/wiretap/286530/Jaylen-Brown-Trade-Ignites-Concern-NBA-Overrun-With-Strategy"
+      "link": "https://basketball.realgm.com/wiretap/286543/Jayson-Tatum-Breaks-Silence-On-Jaylen-Brown-Trade"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286541/Andre-Drummond-Knicks-Agree-To-One-Year-$39M-Deal",
@@ -58,6 +58,84 @@
   ],
   "items": [
     {
+      "id": "https://sports.yahoo.com/articles/cavs-final-report-card-donovan-192157805.html",
+      "title": "Cavs final report card: Donovan Mitchell – Inconsistent playoff run sours great regular season",
+      "originalTitle": "Cavs final report card: Donovan Mitchell – Inconsistent playoff run sours great regular season",
+      "headlineZh": "Donovan Mitchell 相关消息更新",
+      "titleZh": "Donovan Mitchell 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/cavs-final-report-card-donovan-192157805.html",
+      "url": "https://sports.yahoo.com/articles/cavs-final-report-card-donovan-192157805.html",
+      "pubDate": "2026-07-05T19:21:57.000Z",
+      "publishedAt": "2026-07-05T19:21:57.000Z",
+      "summary": "Mitchell needs to become a more willing playmaker if he wants to carry his regular season success over to the playoffs.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Donovan Mitchell 的最新动态和后续影响。",
+      "oneLineZh": "Donovan Mitchell 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/YHSVPUTzJFetZqR2UjLR8A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/2c97aa2c11389fbf2f6aa80adaa754c0",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "季后赛",
+      "importance": 1,
+      "displayTitle": "Cavs final report card: Donovan Mitchell – Inconsistent playoff run sours great regular season",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286564/Mitchell-Robinson-Says-Hand-Injury-Was-Related-To-Reaction-To-Car-Accident-Involving-Sibling",
+      "title": "Mitchell Robinson Says Hand Injury Was Related To Reaction To Car Accident Involving Sibling",
+      "originalTitle": "Mitchell Robinson Says Hand Injury Was Related To Reaction To Car Accident Involving Sibling",
+      "headlineZh": "Mitchell Robinson Says 相关消息更新",
+      "titleZh": "Mitchell Robinson Says 相关消息更新",
+      "link": "https://basketball.realgm.com/wiretap/286564/Mitchell-Robinson-Says-Hand-Injury-Was-Related-To-Reaction-To-Car-Accident-Involving-Sibling",
+      "url": "https://basketball.realgm.com/wiretap/286564/Mitchell-Robinson-Says-Hand-Injury-Was-Related-To-Reaction-To-Car-Accident-Involving-Sibling",
+      "pubDate": "2026-07-05T19:14:01.000Z",
+      "publishedAt": "2026-07-05T19:14:01.000Z",
+      "summary": "Mitchell Robinson addressed the hand injury he suffered before the NBA Finals on a Facebook post on Sunday, saying it was related to his reaction after hearing that his younger brother was in a car accident. \"I received an unexpected phone call, and my family members contacted me, informing me that my youngest brother had been involved in a car accident. I did not see the messages until I arrived home late that night. As the eldest sibling, I felt a deep sense of concern, and I immediately went into panic mode. \"I began returning calls and texts, and when I FaceTimed my brother, I thought he was deceased. He was wearing a neck brace, unresponsive, and not speaking. I broke down in tears, feeling like a failure for not being able to protect my siblings. Being 910 miles away, I felt helpless. In a moment of frustration, I banged my hand on my truck,\" wrote Robinson in his post. Robinson averaged 4.8 points and 5.5 rebounds over 18 playoff games. Robinson most recently signed a three-year, $47.4 million deal with the Celtics.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，原文聚焦 Mitchell Robinson Says 的最新动态和后续影响。",
+      "oneLineZh": "Mitchell Robinson Says 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Robinson_Mitchell_nyk_260610.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "injury:mitchell-robinson-says:celtics",
+      "relatedItems": [],
+      "displayTitle": "Mitchell Robinson Says Hand Injury Was Related To Reaction To Car Accident Involving Sibling",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "title": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "originalTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "headlineZh": "LeBron James Next 相关消息更新",
+      "titleZh": "LeBron James Next 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "url": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "pubDate": "2026-07-05T19:09:00.000Z",
+      "publishedAt": "2026-07-05T19:09:00.000Z",
+      "summary": "LeBron James' next team odds show the Lakers favored, but Warriors' \"Big Four\" rumors are driving a major Kalshi market surge as The King announces plans.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James Next 的最新动态和后续影响。",
+      "oneLineZh": "LeBron James Next 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/829b52bbdc0f0e73b91edebe6030e0f7",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "eventKey": "odds:lebron-james:warriors",
+      "relatedItems": [],
+      "displayTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "isMerged": false
+    },
+    {
       "id": "https://sports.yahoo.com/articles/top-10-2026-nba-free-172219966.html",
       "title": "Top 10 2026 NBA free agents still available",
       "originalTitle": "Top 10 2026 NBA free agents still available",
@@ -81,32 +159,6 @@
       "displayTitle": "Top 10 2026 NBA free agents still available",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "title": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
-      "originalTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
-      "headlineZh": "LeBron James Next 相关消息更新",
-      "titleZh": "LeBron James Next 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "url": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "pubDate": "2026-07-05T17:07:00.000Z",
-      "publishedAt": "2026-07-05T17:07:00.000Z",
-      "summary": "LeBron James' next team odds show the Lakers favored, but Warriors' \"Big Four\" rumors are driving a major Kalshi market surge as The King announces plans.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James Next 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James Next 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/829b52bbdc0f0e73b91edebe6030e0f7",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "eventKey": "odds:lebron-james:warriors",
-      "relatedItems": [],
-      "displayTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
       "isMerged": false
     },
     {
@@ -211,6 +263,32 @@
       "displayTitle": "Lakers vs Heat California Classic preview: Hoping for a better showing",
       "eventKey": "",
       "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/ex-knick-mitchell-robinson-reveals-142000968.html",
+      "title": "Ex-Knick Mitchell Robinson reveals how he injured hand before NBA Finals: ‘Broke down in tears’",
+      "originalTitle": "Ex-Knick Mitchell Robinson reveals how he injured hand before NBA Finals: ‘Broke down in tears’",
+      "headlineZh": "Ex-Knick Mitchell Robinson 相关消息更新",
+      "titleZh": "Ex-Knick Mitchell Robinson 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/ex-knick-mitchell-robinson-reveals-142000968.html",
+      "url": "https://sports.yahoo.com/articles/ex-knick-mitchell-robinson-reveals-142000968.html",
+      "pubDate": "2026-07-05T14:20:00.000Z",
+      "publishedAt": "2026-07-05T14:20:00.000Z",
+      "summary": "Former Knicks center Mitchell Robinson finally revealed Sunday morning how he broke his hand before the NBA Finals.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Ex-Knick Mitchell Robinson 的最新动态和后续影响。",
+      "oneLineZh": "Ex-Knick Mitchell Robinson 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/hixk6j0ygXYojkLfzkODhA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/3a079924a352fe5569abf2fc3798987e",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "伤病",
+      "importance": 2,
+      "eventKey": "injury:ex-knick-mitchell-robinson",
+      "relatedItems": [],
+      "displayTitle": "Ex-Knick Mitchell Robinson reveals how he injured hand before NBA Finals: ‘Broke down in tears’",
       "isMerged": false
     },
     {
@@ -1063,13 +1141,13 @@
       "isMerged": false
     },
     {
-      "id": "https://basketball.realgm.com/wiretap/286553/Growing-Belief-That-LeBron-James-Returning-To-Cavs-is-Likeliest-Scenario",
-      "title": "'Growing Belief' That LeBron James Returning To Cavs is Likeliest Scenario",
-      "originalTitle": "'Growing Belief' That LeBron James Returning To Cavs is Likeliest Scenario",
+      "id": "https://basketball.realgm.com/wiretap/286553/Growing-Belief-That-LeBron-James-Returning-To-Cavs-Is-Likeliest-Scenario",
+      "title": "'Growing Belief' That LeBron James Returning To Cavs Is Likeliest Scenario",
+      "originalTitle": "'Growing Belief' That LeBron James Returning To Cavs Is Likeliest Scenario",
       "headlineZh": "Growing Belief' That 相关消息更新",
       "titleZh": "Growing Belief' That 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286553/Growing-Belief-That-LeBron-James-Returning-To-Cavs-is-Likeliest-Scenario",
-      "url": "https://basketball.realgm.com/wiretap/286553/Growing-Belief-That-LeBron-James-Returning-To-Cavs-is-Likeliest-Scenario",
+      "link": "https://basketball.realgm.com/wiretap/286553/Growing-Belief-That-LeBron-James-Returning-To-Cavs-Is-Likeliest-Scenario",
+      "url": "https://basketball.realgm.com/wiretap/286553/Growing-Belief-That-LeBron-James-Returning-To-Cavs-Is-Likeliest-Scenario",
       "pubDate": "2026-07-04T22:12:42.000Z",
       "publishedAt": "2026-07-04T22:12:42.000Z",
       "summary": "There is a \"growing belief\" from people around the league that LeBron James will sign with the Cleveland Cavaliers, according to Marc Stein and Jake Fischer of The Stein Line. There are whispers that the Cavs are delaying offseason transactions, like signing a new deal with James Harden, because they want to have open roster spots in case they need to trade for Bronny James. Rich Paul previously cited the Cavs as a potential landing spot for James on his \"Game Over\" podcast. It was reported late Friday night at the Wolves have also increased their efforts to sign James. The Sixers and Nuggets also believe they still have a chance to land James.",
@@ -1085,7 +1163,7 @@
       "importance": 2,
       "eventKey": "trade:lebron-james:76ers:cavaliers",
       "relatedItems": [],
-      "displayTitle": "'Growing Belief' That LeBron James Returning To Cavs is Likeliest Scenario",
+      "displayTitle": "'Growing Belief' That LeBron James Returning To Cavs Is Likeliest Scenario",
       "isMerged": false
     },
     {
@@ -1424,35 +1502,9 @@
       "category": "签约",
       "importance": 2,
       "eventKey": "sign:lebron-james",
-      "relatedItems": [
-        {
-          "title": "Rich Paul gives an update on when LeBron James will make free agency decision",
-          "originalTitle": "Rich Paul gives an update on when LeBron James will make free agency decision",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/rich-paul-gives-lebron-james-154037824.html",
-          "publishedAt": "2026-07-04T15:40:37.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "LeBron James spends Fourth of July near potential NBA free agency destination",
-        "Rich Paul gives an update on when LeBron James will make free agency decision"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-spends-fourth-july-182841880.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/rich-paul-gives-lebron-james-154037824.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "LeBron James spends Fourth of July near potential NBA free agency destination"
+      "relatedItems": [],
+      "displayTitle": "LeBron James spends Fourth of July near potential NBA free agency destination",
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/nets-vs-kings-preview-summer-182825025.html",
@@ -1535,10 +1587,6 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/lakers-sign-chris-manon-filling-172322188.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lakers-rival-thinks-land-lebron-153431741.html"
         },
         {
           "source": "RealGM",
@@ -1710,6 +1758,65 @@
       "relatedItems": [],
       "displayTitle": "Josh Okogie 与爵士达成两年，1200 万美元合同",
       "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286543/Jayson-Tatum-Breaks-Silence-On-Jaylen-Brown-Trade",
+      "title": "Jayson Tatum Breaks Silence On Jaylen Brown Trade",
+      "originalTitle": "Jayson Tatum Breaks Silence On Jaylen Brown Trade",
+      "headlineZh": "Jaylen Brown 被交易至 76 人",
+      "titleZh": "Jaylen Brown 被交易至 76 人",
+      "link": "https://basketball.realgm.com/wiretap/286543/Jayson-Tatum-Breaks-Silence-On-Jaylen-Brown-Trade",
+      "url": "https://basketball.realgm.com/wiretap/286543/Jayson-Tatum-Breaks-Silence-On-Jaylen-Brown-Trade",
+      "pubDate": "2026-07-03T22:50:03.000Z",
+      "publishedAt": "2026-07-03T22:50:03.000Z",
+      "summary": "Jayson Tatum publicly acknowledged Jaylen Brown's departure Friday, sharing an Instagram tribute two days after the Boston Celtics dealt his longtime running mate to the Philadelphia 76ers. The trade sent Brown to Philadelphia in exchange for Paul George, two first-round picks and two second-round picks. The deal ended a nine-year on-court pairing between Tatum and Brown. Tatum posted a photo of the two players together, reflecting on their shared history in Boston. \"9 years! Forever grateful for all that we accomplished together, for pushing me to be a better player,\" wrote Tatum. \"From first round exits to winning a champ together and respect for you as a player and as a person. Looking forward to see how you attack this next chapter of your career and wish nothing but the best for you! Continue to be special!\" Brown had already addressed the trade publicly Thursday night, speaking on a livestream without referencing Tatum by name. \"The message was received,\" said Brown, on his stream. \"I wasn't thrilled with the amount of respect that was shown throughout this process. I think there was a bit of lack of respect. I think it was fine at one point, then out of nowhere, things just went left. I think Brad (Stevens) is getting a lot of the criticism. I wasn't thrilled with the way he facilitated some of the conversations. \"I definitely think there's more to it. I just wish that the more to it could've been explained to me. Because I think if the more to it was explained that I would've understood. I thought I earned respect to get that explanation. But hey, obviously, I was wrong. That's life. You move on.\" Celtics president Brad Stevens and owner Bill Chisholm are set to discuss the trade publicly on Monday.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，Jaylen Brown 被交易至 76 人，这笔交易继续影响凯尔特人与 76 人的阵容评估。",
+      "oneLineZh": "Jaylen Brown 被交易至 76 人",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Tatum_Jayson_250503.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "交易",
+      "importance": 4,
+      "eventKey": "trade:jaylen-brown:celtics:76ers",
+      "relatedItems": [
+        {
+          "title": "RealGM Radio w/Dubin, Dakhil: Jaylen Brown To Sixers",
+          "originalTitle": "RealGM Radio w/Dubin, Dakhil: Jaylen Brown To Sixers",
+          "source": "RealGM",
+          "url": "https://basketball.realgm.com/wiretap/286535/RealGM-Radio-w-Dubin-Dakhil-Jaylen-Brown-To-Sixers",
+          "publishedAt": "2026-07-03T16:36:25.000Z",
+          "angle": "rumor"
+        }
+      ],
+      "sources": [
+        "RealGM"
+      ],
+      "originalTitles": [
+        "RealGM Radio w/Dubin, Dakhil: Jaylen Brown To Sixers"
+      ],
+      "sourceLinks": [
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286546/Warriors-Chances-Of-Signing-LeBron-James-Appear-Dependent-On-Trading-For-Anthony-Davis"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286543/Jayson-Tatum-Breaks-Silence-On-Jaylen-Brown-Trade"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286536/RealGM-Radio-w-Goldberg-DuFour-Jaylen-Brown-Trade-Fallout-East-Vs-West-NBAs-Most-Catastrophic-Trades"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286535/RealGM-Radio-w-Dubin-Dakhil-Jaylen-Brown-To-Sixers"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "Jaylen Brown 被交易至 76 人"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286542/Rich-Paul-Details-Ten-Potential-LeBron-James-Teams-In-Free-Agency",
@@ -1946,69 +2053,6 @@
       "relatedItems": [],
       "displayTitle": "NBA Executives Notice Surge In Spending On Centers In Age Of Victor Wembanyama",
       "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286530/Jaylen-Brown-Trade-Ignites-Concern-NBA-Overrun-With-Strategy",
-      "title": "Jaylen Brown Trade Ignites Concern NBA 'Overrun With Strategy'",
-      "originalTitle": "Jaylen Brown Trade Ignites Concern NBA 'Overrun With Strategy'",
-      "headlineZh": "Jaylen Brown 被交易至 76 人",
-      "titleZh": "Jaylen Brown 被交易至 76 人",
-      "link": "https://basketball.realgm.com/wiretap/286530/Jaylen-Brown-Trade-Ignites-Concern-NBA-Overrun-With-Strategy",
-      "url": "https://basketball.realgm.com/wiretap/286530/Jaylen-Brown-Trade-Ignites-Concern-NBA-Overrun-With-Strategy",
-      "pubDate": "2026-07-03T15:43:44.000Z",
-      "publishedAt": "2026-07-03T15:43:44.000Z",
-      "summary": "The Boston Celtics' decision to trade Jaylen Brown for Paul George and draft compensation has reignited a leaguewide argument over analytics-driven roster building, according to multiple executives and coaches who spoke to ESPN. The debate traces back roughly six weeks, when Cleveland Cavaliers coach Kenny Atkinson suggested advanced metrics indicated his team should have led its Eastern Conference finals series against the New York Knicks. That comment became a defining moment of last postseason as the Cavaliers were on their way to be eliminated by the Knicks in a four-game sweep. Yahoo Sports columnist Tom Haberstroh noted that Boston has gone 36-6 over the past three seasons in games Brown has missed, a figure often cited by those defending the trade. Not everyone agrees with the approach. \"The league is overrun with strategy,\" said an Eastern Conference scout. \"Honestly, I'm not sure how many people who work in the league are actually watching the games.\" A Western Conference general manager pushed back on that framing. \"Yes, there are more graduate degrees in front offices now, but that's only part of the picture,\" said the general manager. \"The aprons force you to analyze all of your spending more and put more attention to detail on getting the most out of each salary slot. The owners put that into the rules, and the players accepted it. This is all a choice.\" Another Western Conference executive expressed concern about where the trend leads. \"We're going to turn into baseball if we're not careful where you have every defender between second base and right field, and no one can get a hit and it becomes boring,\" said the executive. Boston's ownership group, led by Bill Chisholm, financed its record $6 billion purchase of the franchise through private equity backing, a structure some believe reinforces the club's analytical approach. The trade also marks the first major transaction for new 76ers president of basketball operations Mike Gansey, who succeeded analytics pioneer Daryl Morey earlier this offseason. Gansey played high level collegiate basketball and internationally before working his way up the Cavaliers' front office after first beginning as a scout.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Jaylen Brown 被交易至 76 人，这笔交易继续影响凯尔特人与 76 人的阵容评估。",
-      "oneLineZh": "Jaylen Brown 被交易至 76 人",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Brown_Jaylen_bos_250503.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
-      "importance": 5,
-      "eventKey": "trade:jaylen-brown:celtics:76ers",
-      "relatedItems": [
-        {
-          "title": "RealGM Radio w/Dubin, Dakhil: Jaylen Brown To Sixers",
-          "originalTitle": "RealGM Radio w/Dubin, Dakhil: Jaylen Brown To Sixers",
-          "source": "RealGM",
-          "url": "https://basketball.realgm.com/wiretap/286535/RealGM-Radio-w-Dubin-Dakhil-Jaylen-Brown-To-Sixers",
-          "publishedAt": "2026-07-03T16:36:25.000Z",
-          "angle": "rumor"
-        }
-      ],
-      "sources": [
-        "RealGM"
-      ],
-      "originalTitles": [
-        "RealGM Radio w/Dubin, Dakhil: Jaylen Brown To Sixers"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286546/Warriors-Chances-Of-Signing-LeBron-James-Appear-Dependent-On-Trading-For-Anthony-Davis"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286543/Jayson-Tatum-Breaks-Silence-On-Jaylen-Brown-Trade"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286536/RealGM-Radio-w-Goldberg-DuFour-Jaylen-Brown-Trade-Fallout-East-Vs-West-NBAs-Most-Catastrophic-Trades"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286530/Jaylen-Brown-Trade-Ignites-Concern-NBA-Overrun-With-Strategy"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286535/RealGM-Radio-w-Dubin-Dakhil-Jaylen-Brown-To-Sixers"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "Jaylen Brown 被交易至 76 人"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286528/Neemias-Queta-Celtics-Agree-To-Four-Year-$56M-Extension",
