@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-05T11:55:46.813Z",
+  "updatedAt": "2026-07-05T13:52:33.258Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-05T11:55:46.813Z",
-    "updatedAt": "2026-07-05T11:55:46.813Z",
+    "checkedAt": "2026-07-05T13:52:33.258Z",
+    "updatedAt": "2026-07-05T13:52:33.258Z",
     "fetchedItems": 80,
-    "mergedItems": 70,
+    "mergedItems": 71,
     "failedFeeds": [],
     "message": "Fetched 80 usable RSS items from all feeds."
   },
@@ -24,7 +24,7 @@
       "id": "https://basketball.realgm.com/wiretap/286530/Jaylen-Brown-Trade-Ignites-Concern-NBA-Overrun-With-Strategy",
       "text": "Jaylen Brown 被交易至 76 人",
       "category": "交易",
-      "source": "Yahoo Sports / RealGM",
+      "source": "RealGM",
       "link": "https://basketball.realgm.com/wiretap/286530/Jaylen-Brown-Trade-Ignites-Concern-NBA-Overrun-With-Strategy"
     },
     {
@@ -57,6 +57,32 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "title": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "originalTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "headlineZh": "LeBron James Next 相关消息更新",
+      "titleZh": "LeBron James Next 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "url": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "pubDate": "2026-07-05T12:47:00.000Z",
+      "publishedAt": "2026-07-05T12:47:00.000Z",
+      "summary": "LeBron James' next team odds show the Lakers favored, but Warriors' \"Big Four\" rumors are driving a major Kalshi market surge as The King announces plans.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James Next 的最新动态和后续影响。",
+      "oneLineZh": "LeBron James Next 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/829b52bbdc0f0e73b91edebe6030e0f7",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "eventKey": "odds:lebron-james:warriors",
+      "relatedItems": [],
+      "displayTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/youtube-gold-cameron-boozer-nba-113300860.html",
       "title": "YouTube Gold: Cameron Boozer’s NBA Summer League Debut Is Drawing Raves",
@@ -110,6 +136,58 @@
       "isMerged": false
     },
     {
+      "id": "https://sports.yahoo.com/articles/open-thread-nba-testing-free-110000380.html",
+      "title": "Open Thread: The NBA is testing a free throw procedure at Summer League",
+      "originalTitle": "Open Thread: The NBA is testing a free throw procedure at Summer League",
+      "headlineZh": "Open Thread 相关消息更新",
+      "titleZh": "Open Thread 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/open-thread-nba-testing-free-110000380.html",
+      "url": "https://sports.yahoo.com/articles/open-thread-nba-testing-free-110000380.html",
+      "pubDate": "2026-07-05T11:00:00.000Z",
+      "publishedAt": "2026-07-05T11:00:00.000Z",
+      "summary": "The rule is designed to speed up the game.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Open Thread 的最新动态和后续影响。",
+      "oneLineZh": "Open Thread 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/HCC3L9lzXprwbkcUVT4Vyw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MTA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/3d0e401123559894f0309f726538ee17",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:open-thread",
+      "relatedItems": [],
+      "displayTitle": "Open Thread: The NBA is testing a free throw procedure at Summer League",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/nba-free-agency-2026-day-105440630.html",
+      "title": "NBA Free Agency 2026 Day 6 discussion",
+      "originalTitle": "NBA Free Agency 2026 Day 6 discussion",
+      "headlineZh": "自由市场签约动向更新",
+      "titleZh": "自由市场签约动向更新",
+      "link": "https://sports.yahoo.com/articles/nba-free-agency-2026-day-105440630.html",
+      "url": "https://sports.yahoo.com/articles/nba-free-agency-2026-day-105440630.html",
+      "pubDate": "2026-07-05T10:54:40.000Z",
+      "publishedAt": "2026-07-05T10:54:40.000Z",
+      "summary": "Today is July 5. The fireworks are over. The barbecues are over. NBA Free Agency still exists. And the Washington Wizards made a lot of coaching news yesterday. And no, Brian Keefe wasn’t fired. The biggest news is that Patrick Ewing is going full circle. He’s back in DC, and back with the Wizards, the […]",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，签约动态：NBA 自由市场 2026 Day 6 discussion。",
+      "oneLineZh": "自由市场签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/jFYvQQ4VA72m3mwLv6Xj2w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MTg7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/3c7169551c6a3ee9999b5c0ad4aec2f0",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:free-agency",
+      "relatedItems": [],
+      "displayTitle": "NBA Free Agency 2026 Day 6 discussion",
+      "isMerged": false
+    },
+    {
       "id": "https://sports.yahoo.com/articles/kentucky-wildcats-news-former-wildcats-104000808.html",
       "title": "Kentucky Wildcats News: Former Wildcats in the NBA Summer League",
       "originalTitle": "Kentucky Wildcats News: Former Wildcats in the NBA Summer League",
@@ -131,6 +209,32 @@
       "category": "其他",
       "importance": 1,
       "displayTitle": "Kentucky Wildcats News: Former Wildcats in the NBA Summer League",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/knicks-goat-patrick-ewing-joins-100000109.html",
+      "title": "Knicks GOAT Patrick Ewing joins Wizards coaching staff",
+      "originalTitle": "Knicks GOAT Patrick Ewing joins Wizards coaching staff",
+      "headlineZh": "尼克斯 GOAT Patrick 相关消息更新",
+      "titleZh": "尼克斯 GOAT Patrick 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/knicks-goat-patrick-ewing-joins-100000109.html",
+      "url": "https://sports.yahoo.com/articles/knicks-goat-patrick-ewing-joins-100000109.html",
+      "pubDate": "2026-07-05T10:00:00.000Z",
+      "publishedAt": "2026-07-05T10:00:00.000Z",
+      "summary": "Patrick Ewing is leaving his Knicks ambassador role to join the Wizards staff for the 2026-27 season.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦尼克斯 GOAT Patrick 的最新动态和后续影响。",
+      "oneLineZh": "尼克斯 GOAT Patrick 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/HYzrEMMsigsRGRwHXslx8A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/a0ca0d240823a80059d7a3431fb06450",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Knicks GOAT Patrick Ewing joins Wizards coaching staff",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -549,32 +653,6 @@
       "displayTitle": "Utah Jazz vs Atlanta Hawks recap and final score: DARRYN PETERSON",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "title": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
-      "originalTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
-      "headlineZh": "LeBron James Next 相关消息更新",
-      "titleZh": "LeBron James Next 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "url": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "pubDate": "2026-07-05T00:14:00.000Z",
-      "publishedAt": "2026-07-05T00:14:00.000Z",
-      "summary": "LeBron James' next team odds show the Lakers favored, but Warriors' \"Big Four\" rumors are driving a major Kalshi market surge as The King announces plans.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James Next 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James Next 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/829b52bbdc0f0e73b91edebe6030e0f7",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "eventKey": "odds:lebron-james:warriors",
-      "relatedItems": [],
-      "displayTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
       "isMerged": false
     },
     {
@@ -1545,58 +1623,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/between-charlotte-dallas-nba-team-111400096.html",
-      "title": "Between Charlotte And Dallas, Which NBA Team Is In A Better Situation?",
-      "originalTitle": "Between Charlotte And Dallas, Which NBA Team Is In A Better Situation?",
-      "headlineZh": "Between Charlotte 和相关消息更新",
-      "titleZh": "Between Charlotte 和相关消息更新",
-      "link": "https://sports.yahoo.com/articles/between-charlotte-dallas-nba-team-111400096.html",
-      "url": "https://sports.yahoo.com/articles/between-charlotte-dallas-nba-team-111400096.html",
-      "pubDate": "2026-07-04T11:14:00.000Z",
-      "publishedAt": "2026-07-04T11:14:00.000Z",
-      "summary": "Cooper Flagg is a brillant talent, but Kon Knueppel’s Charlotte framework is better for long-term success.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Between Charlotte 和的最新动态和后续影响。",
-      "oneLineZh": "Between Charlotte 和相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/l2ltSHCfp668CT7iWdXyXQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03NDg7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/a41a17822b638cccb7adc18817013ce6",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Between Charlotte And Dallas, Which NBA Team Is In A Better Situation?",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/letters-sports-mixed-emotions-over-110000122.html",
-      "title": "Letters to Sports: Mixed emotions over LeBron James leaving Lakers",
-      "originalTitle": "Letters to Sports: Mixed emotions over LeBron James leaving Lakers",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/letters-sports-mixed-emotions-over-110000122.html",
-      "url": "https://sports.yahoo.com/articles/letters-sports-mixed-emotions-over-110000122.html",
-      "pubDate": "2026-07-04T11:00:00.000Z",
-      "publishedAt": "2026-07-04T11:00:00.000Z",
-      "summary": "Readers of the Los Angeles Times Sports section give their thought on LeBron James parting ways with the Lakers, Kawhi Leonard, Dave Roberts and the Sparks.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/la_times_articles_853/864775a09d8aadf64b08c50d65adf2b3",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Letters to Sports: Mixed emotions over LeBron James leaving Lakers",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286548/Timberwolves-Increase-Efforts-To-Sign-LeBron-James",
       "title": "Timberwolves Increase Efforts To Sign LeBron James",
       "originalTitle": "Timberwolves Increase Efforts To Sign LeBron James",
@@ -1929,7 +1955,7 @@
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Brown_Jaylen_bos_250503.jpg",
-      "source": "Yahoo Sports / RealGM",
+      "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "交易",
       "importance": 5,
@@ -1945,7 +1971,6 @@
         }
       ],
       "sources": [
-        "Yahoo Sports",
         "RealGM"
       ],
       "originalTitles": [
@@ -1953,12 +1978,24 @@
       ],
       "sourceLinks": [
         {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/why-suns-could-not-pursue-120000105.html"
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286546/Warriors-Chances-Of-Signing-LeBron-James-Appear-Dependent-On-Trading-For-Anthony-Davis"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286543/Jayson-Tatum-Breaks-Silence-On-Jaylen-Brown-Trade"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286536/RealGM-Radio-w-Goldberg-DuFour-Jaylen-Brown-Trade-Fallout-East-Vs-West-NBAs-Most-Catastrophic-Trades"
         },
         {
           "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286530/Jaylen-Brown-Trade-Ignites-Concern-NBA-Overrun-With-Strategy"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286535/RealGM-Radio-w-Dubin-Dakhil-Jaylen-Brown-To-Sixers"
         }
       ],
       "isMerged": true,
