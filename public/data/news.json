@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-06T22:20:20.043Z",
+  "updatedAt": "2026-07-06T23:39:22.523Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-06T22:20:20.043Z",
-    "updatedAt": "2026-07-06T22:20:20.043Z",
-    "fetchedItems": 78,
+    "checkedAt": "2026-07-06T23:39:22.523Z",
+    "updatedAt": "2026-07-06T23:39:22.523Z",
+    "fetchedItems": 76,
     "mergedItems": 57,
     "failedFeeds": [],
-    "message": "Fetched 78 usable RSS items from all feeds."
+    "message": "Fetched 76 usable RSS items from all feeds."
   },
   "highlights": [
     {
@@ -57,6 +57,110 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/nba/article/nikola-jokic-pushing-off-nuggets-extension-for-another-offseason-vows-he-wants-to-stay-with-denver-for-the-rest-of-my-career-231329442.html",
+      "title": "Nikola Jokić pushing off Nuggets extension for another offseason, vows he wants to 'stay with Denver for the rest of my career'",
+      "originalTitle": "Nikola Jokić pushing off Nuggets extension for another offseason, vows he wants to 'stay with Denver for the rest of my career'",
+      "headlineZh": "Nikola Joki 签约动向更新",
+      "titleZh": "Nikola Joki 签约动向更新",
+      "link": "https://sports.yahoo.com/nba/article/nikola-jokic-pushing-off-nuggets-extension-for-another-offseason-vows-he-wants-to-stay-with-denver-for-the-rest-of-my-career-231329442.html",
+      "url": "https://sports.yahoo.com/nba/article/nikola-jokic-pushing-off-nuggets-extension-for-another-offseason-vows-he-wants-to-stay-with-denver-for-the-rest-of-my-career-231329442.html",
+      "pubDate": "2026-07-06T23:13:29.000Z",
+      "publishedAt": "2026-07-06T23:13:29.000Z",
+      "summary": "Jokić has tens of millions of dollars in motivation to delay an extension. But another offseason without a long-term deal is enough raise anxiety among Nuggets fans.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Nikola Joki 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Nikola Joki 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/IYJgvHAmBb1ZJUKxNeqP7g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/d1e6111c-7fb6-41e0-9548-e1339c71abf6",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:nikola-joki",
+      "relatedItems": [],
+      "displayTitle": "Nikola Jokić pushing off Nuggets extension for another offseason, vows he wants to 'stay with Denver for the rest of my career'",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lebron-james-former-high-school-231315031.html",
+      "title": "LeBron James’s former high school teammate serves as Cavs Summer League guest coach",
+      "originalTitle": "LeBron James’s former high school teammate serves as Cavs Summer League guest coach",
+      "headlineZh": "LeBron James 相关消息更新",
+      "titleZh": "LeBron James 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/lebron-james-former-high-school-231315031.html",
+      "url": "https://sports.yahoo.com/articles/lebron-james-former-high-school-231315031.html",
+      "pubDate": "2026-07-06T23:13:15.000Z",
+      "publishedAt": "2026-07-06T23:13:15.000Z",
+      "summary": "I’m sure no one will read too much into this.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
+      "oneLineZh": "LeBron James 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/6bdwBUjaZUlqrV_pecPX0Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03NTA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/d168ff52b62c855d81641db6e80d70eb",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "LeBron James’s former high school teammate serves as Cavs Summer League guest coach",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/miami-heat-sign-antetokounmpo-milwaukee-224651893.html",
+      "title": "Miami Heat sign Antetokounmpo from Milwaukee Bucks",
+      "originalTitle": "Miami Heat sign Antetokounmpo from Milwaukee Bucks",
+      "headlineZh": "迈阿密热火签约动向更新",
+      "titleZh": "迈阿密热火签约动向更新",
+      "link": "https://sports.yahoo.com/articles/miami-heat-sign-antetokounmpo-milwaukee-224651893.html",
+      "url": "https://sports.yahoo.com/articles/miami-heat-sign-antetokounmpo-milwaukee-224651893.html",
+      "pubDate": "2026-07-06T22:46:51.000Z",
+      "publishedAt": "2026-07-06T22:46:51.000Z",
+      "summary": "Two-time NBA Most Valuable Player Giannis Antetokounmpo joins Miami Heat from the Milwaukee Bucks.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，迈阿密热火的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "迈阿密热火签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/bbc_us_articles_995/c8e65123bc8bdda044cc79d7e9cf66a8",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:miami-heat:heat",
+      "relatedItems": [],
+      "displayTitle": "Miami Heat sign Antetokounmpo from Milwaukee Bucks",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "title": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "originalTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "headlineZh": "LeBron James Next 相关消息更新",
+      "titleZh": "LeBron James Next 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "url": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "pubDate": "2026-07-06T22:18:00.000Z",
+      "publishedAt": "2026-07-06T22:18:00.000Z",
+      "summary": "LeBron James' next team odds have tightened, with Cleveland still leading Kalshi's market as Miami surges past Golden State into second.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James Next 的最新动态和后续影响。",
+      "oneLineZh": "LeBron James Next 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/829b52bbdc0f0e73b91edebe6030e0f7",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "eventKey": "odds:lebron-james",
+      "relatedItems": [],
+      "displayTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/kawhi-leonard-reportedly-hires-agent-212247259.html",
       "title": "Kawhi Leonard reportedly hires new agent for extension negotiations with Raptors",
@@ -187,26 +291,15 @@
         },
         {
           "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/kings-waive-nba-star-forward-114127354.html"
+          "link": "https://sports.yahoo.com/nba/breaking-news/article/kings-reportedly-waiving-demar-derozan-after-trade-talks-stall-183809318.html"
         }
       ],
       "originalTitles": [
-        "Kings reportedly to waive DeMar DeRozan, making him free agent",
-        "Kings reportedly waive NBA All-Star wing DeMar DeRozan after two seasons",
-        "Kings waive NBA All-Star forward DeMar DeRozan after two seasons with team"
+        "Kings reportedly to waive DeMar DeRozan, making him free agent"
       ],
-      "isMerged": true,
+      "isMerged": false,
       "eventKey": "sign:demar-derozan",
-      "relatedItems": [
-        {
-          "title": "Kings waive NBA All-Star forward DeMar DeRozan after two seasons with team",
-          "originalTitle": "Kings waive NBA All-Star forward DeMar DeRozan after two seasons with team",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/kings-waive-nba-star-forward-114127354.html",
-          "publishedAt": "2026-07-06T11:41:27.000Z",
-          "angle": "source"
-        }
-      ],
+      "relatedItems": [],
       "displayTitle": "Kings reportedly to waive DeMar DeRozan, making him free agent"
     },
     {
@@ -339,6 +432,32 @@
       "eventKey": "sign:lebron-james:lakers:5260",
       "relatedItems": [],
       "displayTitle": "LeBron James Was '80 Percent' Sure He'd Stay With Lakers Until Handling Of Free Agency Led To Exit",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/surprise-frontrunner-emerges-lebron-james-191006748.html",
+      "title": "Surprise frontrunner emerges in LeBron James sweepstakes",
+      "originalTitle": "Surprise frontrunner emerges in LeBron James sweepstakes",
+      "headlineZh": "LeBron James 相关消息更新",
+      "titleZh": "LeBron James 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/surprise-frontrunner-emerges-lebron-james-191006748.html",
+      "url": "https://sports.yahoo.com/articles/surprise-frontrunner-emerges-lebron-james-191006748.html",
+      "pubDate": "2026-07-06T19:10:06.000Z",
+      "publishedAt": "2026-07-06T19:10:06.000Z",
+      "summary": "LeBron James seems to be near a decision.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
+      "oneLineZh": "LeBron James 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/jytap.HHMjNwzPa5vz4A.A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/94ff0d380c2df49275a562c642a5b8b7",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Surprise frontrunner emerges in LeBron James sweepstakes",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -509,12 +628,12 @@
       "publishedAt": "2026-07-06T17:54:13.000Z",
       "summary": "The Boston Celtics had no contingency plan after failing to acquire Giannis Antetokounmpo. Boston then pursued an aggressive trade market for Jaylen Brown, reportedly seeking four unprotected first-round picks, a demand that ultimately drove potential trade partners away. Multiple executives said the steep asking price backfired on the Celtics as the trade market cooled. \"The asking price for Brown was so high that teams got scared away and moved on to other business,\" said an executive from a team that held brief discussions with Boston. \"There was no need to circle back.\" Several teams interested in Brown made other significant moves while Boston waited for a stronger offer to emerge. The Celtics had initially targeted Antetokounmpo, engaging the Milwaukee Bucks in trade talks before finishing as runner-up to the Miami Heat. Boston reportedly refused to include young prospects Baylor Scheierman and Hugo Gonzalez in its offer, which centered on Brown and two first-round picks. After missing on Antetokounmpo, the Celtics broadened their search across the league, continuing to push for an aggressive package in return for Brown. That approach discouraged teams from staying engaged in negotiations. Boston ultimately traded Brown to the Philadelphia 76ers on July 1 for Paul George, one unprotected first-round pick, an additional first-round selection or swap, and two second-round picks. Brown, a five-time All-Star, averaged career highs of 28.7 points, 6.9 rebounds and 5.1 assists last season.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports / RealGM 报道，原文聚焦 Initial High Asking 的最新动态和后续影响。",
+      "summaryZh": "据 RealGM / Yahoo Sports 报道，原文聚焦 Initial High Asking 的最新动态和后续影响。",
       "oneLineZh": "Initial High Asking 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Brown_Jaylen_bos_250504.jpg",
-      "source": "Yahoo Sports / RealGM",
+      "source": "RealGM / Yahoo Sports",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "交易",
       "importance": 2,
@@ -526,6 +645,14 @@
           "source": "Yahoo Sports",
           "url": "https://sports.yahoo.com/nba/article/celtics-president-brad-stevens-on-if-jaylen-brown-trade-will-make-team-better-next-year-well-find-out-204509407.html",
           "publishedAt": "2026-07-06T20:45:09.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Key takeaways from Celtics' Jaylen Brown trade press conference",
+          "originalTitle": "Key takeaways from Celtics' Jaylen Brown trade press conference",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/key-takeaways-celtics-jaylen-brown-185713661.html",
+          "publishedAt": "2026-07-06T18:57:13.000Z",
           "angle": "source"
         },
         {
@@ -546,23 +673,36 @@
         }
       ],
       "sources": [
-        "Yahoo Sports",
-        "RealGM"
+        "RealGM",
+        "Yahoo Sports"
       ],
       "originalTitles": [
         "Celtics Initial High Asking Price Scared Off Teams Interested In Trading For Jaylen Brown",
         "Celtics president Brad Stevens on if Jaylen Brown trade will make team better next year: 'We'll find out'",
+        "Key takeaways from Celtics' Jaylen Brown trade press conference",
         "The Jaylen Brown Trade Changed Everything for the Sixers",
         "Sixers free agency tracker: Sixers reportedly trade for Jaylen Brown; sign Anfernee Simons"
       ],
       "sourceLinks": [
         {
-          "source": "Yahoo Sports / RealGM",
+          "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286580/Celtics-Initial-High-Asking-Price-Scared-Off-Teams-Interested-In-Trading-For-Jaylen-Brown"
         },
         {
           "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/ex-celtic-reveals-jayson-tatums-130033393.html"
+          "link": "https://sports.yahoo.com/nba/article/celtics-president-brad-stevens-on-if-jaylen-brown-trade-will-make-team-better-next-year-well-find-out-204509407.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/key-takeaways-celtics-jaylen-brown-185713661.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/jaylen-brown-trade-changed-everything-152943520.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/sixers-free-agency-tracker-oubre-204115340.html"
         }
       ],
       "isMerged": true,
@@ -898,55 +1038,46 @@
       "isMerged": false
     },
     {
-      "id": "https://basketball.realgm.com/wiretap/286575/LeBron-James-Free-Agency-Suitors-Havent-Heard-Anything",
-      "title": "LeBron James' Free Agency Suitors Haven't Heard Anything",
-      "originalTitle": "LeBron James' Free Agency Suitors Haven't Heard Anything",
-      "headlineZh": "LeBron James' Free 签约动向更新",
-      "titleZh": "LeBron James' Free 签约动向更新",
-      "link": "https://basketball.realgm.com/wiretap/286575/LeBron-James-Free-Agency-Suitors-Havent-Heard-Anything",
-      "url": "https://basketball.realgm.com/wiretap/286575/LeBron-James-Free-Agency-Suitors-Havent-Heard-Anything",
-      "pubDate": "2026-07-06T16:05:59.000Z",
-      "publishedAt": "2026-07-06T16:05:59.000Z",
-      "summary": "LeBron James is nearly a week into his free agency and there have been little tangible indictors with where he is at regards to his decision. When the decision by James to leave the Los Angeles Lakers was revealed, he was most closely tied to the Cleveland Cavaliers, Golden State Warriors and Miami Heat. The list has now expanded to include the Denver Nuggets, Philadelphia 76ers and Minnesota Timberwolves. The teams involved in the pursuit of James are believed to know no additional details from James and Rich Paul than what has been released publicly. James followed a similar pattern during his free agencies in 2010, 2014 and 2018 where he kept his decision-making private until he notified his next team that he would sign. \"But the last I heard, the teams had not heard anything,\" said ESPN's Brian Windhorst on the Hoop Collective. \"The teams were interested in LeBron-like, they had, they had made contact and whatever-and they hadn't heard anything. And they're like, 'Well, we don't know what to make of it.' And this is what happened with the previous LeBron free agency when he switched teams. \"They didn't know. LeBron called in and was basically like, 'Yep, I'm coming.' And they're like, 'Oh, okay.' Like, it wasn't like-maybe they, maybe they felt good. Like they said, 'Oh, I think the vibe is good.' But like, the Heat didn't know he was coming. The Cavs didn't know he was coming back.\"",
+      "id": "https://sports.yahoo.com/articles/warriors-reportedly-had-interest-signing-161312601.html",
+      "title": "Warriors reportedly had interest in signing Rui Hachimura, Anfernee Simons",
+      "originalTitle": "Warriors reportedly had interest in signing Rui Hachimura, Anfernee Simons",
+      "headlineZh": "Rui Hachimura 签约动向更新",
+      "titleZh": "Rui Hachimura 签约动向更新",
+      "link": "https://sports.yahoo.com/articles/warriors-reportedly-had-interest-signing-161312601.html",
+      "url": "https://sports.yahoo.com/articles/warriors-reportedly-had-interest-signing-161312601.html",
+      "pubDate": "2026-07-06T16:13:12.000Z",
+      "publishedAt": "2026-07-06T16:13:12.000Z",
+      "summary": "The Golden State Warriors reportedly had interest in wing Rui Hachimura and guard Anfernee Simons before agreeing to new contracts with other teams.",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，LeBron James' Free 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "LeBron James' Free 签约动向更新",
+      "summaryZh": "据 Yahoo Sports 报道，Rui Hachimura 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Rui Hachimura 签约动向更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_240531.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/m.jGdU6Lz1jPXw8ONxNV6Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02Nzc7Y2Y9d2VicA--/https://media.zenfs.com/en/csnbayarea.com/a1c9dc7409991eac2fc627e10b21c045",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "签约",
       "importance": 2,
-      "eventKey": "sign:lebron-james:cavaliers",
-      "relatedItems": [
-        {
-          "title": "Cavaliers, Warriors, Sixers, Heat, Wolves, Nuggets All Believe They Can Sign LeBron James",
-          "originalTitle": "Cavaliers, Warriors, Sixers, Heat, Wolves, Nuggets All Believe They Can Sign LeBron James",
-          "source": "RealGM",
-          "url": "https://basketball.realgm.com/wiretap/286568/Cavaliers-Warriors-Sixers-Heat-Wolves-Nuggets-All-Believe-They-Can-Sign-LeBron-James",
-          "publishedAt": "2026-07-06T12:59:42.000Z",
-          "angle": "source"
-        }
-      ],
       "sources": [
-        "RealGM"
-      ],
-      "originalTitles": [
-        "Cavaliers, Warriors, Sixers, Heat, Wolves, Nuggets All Believe They Can Sign LeBron James"
+        "Yahoo Sports"
       ],
       "sourceLinks": [
         {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286575/LeBron-James-Free-Agency-Suitors-Havent-Heard-Anything"
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/warriors-reportedly-had-interest-signing-161312601.html"
         },
         {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286568/Cavaliers-Warriors-Sixers-Heat-Wolves-Nuggets-All-Believe-They-Can-Sign-LeBron-James"
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/warriors-reportedly-low-level-optimism-143622718.html"
         }
       ],
-      "isMerged": true,
-      "displayTitle": "LeBron James' Free Agency Suitors Haven't Heard Anything"
+      "originalTitles": [
+        "Warriors reportedly had interest in signing Rui Hachimura, Anfernee Simons"
+      ],
+      "isMerged": false,
+      "eventKey": "sign:rui-hachimura:warriors",
+      "relatedItems": [],
+      "displayTitle": "Warriors reportedly had interest in signing Rui Hachimura, Anfernee Simons"
     },
     {
       "id": "https://sports.yahoo.com/articles/rui-hachimura-reportedly-jumping-cross-155839229.html",
@@ -1023,6 +1154,49 @@
       "isMerged": false
     },
     {
+      "id": "https://sports.yahoo.com/articles/lebron-suitors-anticipating-him-signing-154716040.html",
+      "title": "Some LeBron suitors anticipating him signing with Cavaliers, per Brian Windhorst",
+      "originalTitle": "Some LeBron suitors anticipating him signing with Cavaliers, per Brian Windhorst",
+      "headlineZh": "Some LeBron 签约动向更新",
+      "titleZh": "Some LeBron 签约动向更新",
+      "link": "https://sports.yahoo.com/articles/lebron-suitors-anticipating-him-signing-154716040.html",
+      "url": "https://sports.yahoo.com/articles/lebron-suitors-anticipating-him-signing-154716040.html",
+      "pubDate": "2026-07-06T15:47:16.000Z",
+      "publishedAt": "2026-07-06T15:47:16.000Z",
+      "summary": "Brian Windhorst has spoken to insiders around the league, and many appear to be saying the same thing. LeBron James could be headed back to Cleveland",
+      "dekZh": "",
+      "summaryZh": "据 RealGM / Yahoo Sports 报道，Some LeBron 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Some LeBron 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/dzxSE9Ti6CBvns8bz32LbA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/csnbayarea.com/c7e123f6d968301e1bb70fc23ab2c887",
+      "source": "RealGM / Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "sources": [
+        "RealGM",
+        "Yahoo Sports"
+      ],
+      "sourceLinks": [
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286575/LeBron-James-Free-Agency-Suitors-Havent-Heard-Anything"
+        },
+        {
+          "source": "Yahoo Sports / RealGM",
+          "link": "https://sports.yahoo.com/articles/lebron-suitors-anticipating-him-signing-154716040.html"
+        }
+      ],
+      "originalTitles": [
+        "Cavaliers, Warriors, Sixers, Heat, Wolves, Nuggets All Believe They Can Sign LeBron James"
+      ],
+      "isMerged": false,
+      "eventKey": "sign:lebron-james:cavaliers",
+      "relatedItems": [],
+      "displayTitle": "Some LeBron suitors anticipating him signing with Cavaliers, per Brian Windhorst"
+    },
+    {
       "id": "https://basketball.realgm.com/wiretap/286573/Rui-Hachimura-Clippers-Agree-To-Two-Year-$28M-Deal",
       "title": "Rui Hachimura, Clippers Agree To Two-Year, $28M Deal",
       "originalTitle": "Rui Hachimura, Clippers Agree To Two-Year, $28M Deal",
@@ -1092,29 +1266,29 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/warriors-reportedly-low-level-optimism-143622718.html",
-      "title": "Warriors reportedly have ‘low level of optimism' that LeBron James chooses them",
-      "originalTitle": "Warriors reportedly have ‘low level of optimism' that LeBron James chooses them",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/warriors-reportedly-low-level-optimism-143622718.html",
-      "url": "https://sports.yahoo.com/articles/warriors-reportedly-low-level-optimism-143622718.html",
-      "pubDate": "2026-07-06T14:36:22.000Z",
-      "publishedAt": "2026-07-06T14:36:22.000Z",
-      "summary": "The Golden State Warriors reportedly are not confident LeBron James ultimately will decide to sign with them in NBA free agency.",
+      "id": "https://sports.yahoo.com/articles/draymond-green-likens-folarin-balogun-142139430.html",
+      "title": "Draymond Green likens Folarin Balogun red card case to his NBA Finals suspension",
+      "originalTitle": "Draymond Green likens Folarin Balogun red card case to his NBA Finals suspension",
+      "headlineZh": "Draymond Green 相关消息更新",
+      "titleZh": "Draymond Green 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/draymond-green-likens-folarin-balogun-142139430.html",
+      "url": "https://sports.yahoo.com/articles/draymond-green-likens-folarin-balogun-142139430.html",
+      "pubDate": "2026-07-06T14:21:39.000Z",
+      "publishedAt": "2026-07-06T14:21:39.000Z",
+      "summary": "Golden State Warriors star Draymond Green likened USMNT forward Folarin Balogun's red card situation to his 2016 NBA Finals suspension.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James 相关消息更新",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Draymond Green 的最新动态和后续影响。",
+      "oneLineZh": "Draymond Green 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/998eeda2e93c41478d8f2ca8fa38f028",
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/si6Zb8PVywcAye6WfCGVlQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02Nzc7Y2Y9d2VicA--/https://media.zenfs.com/en/csnbayarea.com/4b1df27339edb8a272fde567a8d9560b",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
+      "category": "季后赛",
       "importance": 2,
-      "eventKey": "sign:lebron-james:warriors",
+      "displayTitle": "Draymond Green likens Folarin Balogun red card case to his NBA Finals suspension",
+      "eventKey": "",
       "relatedItems": [],
-      "displayTitle": "Warriors reportedly have ‘low level of optimism' that LeBron James chooses them",
       "isMerged": false
     },
     {
@@ -1269,162 +1443,6 @@
       "category": "选秀",
       "importance": 2,
       "displayTitle": "Nets rookie Mikel Brown Jr. set to make NBA Summer League debut after two DNPs",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/updated-sixers-2026-27-roster-220500251.html",
-      "title": "Updated Sixers 2026-27 roster as NBA free agency begins",
-      "originalTitle": "Updated Sixers 2026-27 roster as NBA free agency begins",
-      "headlineZh": "76 人更新2026-27赛季阵容名单",
-      "titleZh": "76 人更新2026-27赛季阵容名单",
-      "link": "https://sports.yahoo.com/articles/updated-sixers-2026-27-roster-220500251.html",
-      "url": "https://sports.yahoo.com/articles/updated-sixers-2026-27-roster-220500251.html",
-      "pubDate": "2026-07-06T13:18:45.000Z",
-      "publishedAt": "2026-07-06T13:18:45.000Z",
-      "summary": "With players coming and going via the NBA Draft and free agency, we have you covered on the Philadelphia 76ers’ projected 2026-27 roster.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，76 人在自由市场开启后更新2026-27赛季预计阵容，涉及选秀和签约带来的人员变化。",
-      "oneLineZh": "76 人更新2026-27赛季阵容名单",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/7GhDKDNNzzwW4rbKvQY9FA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NDM7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/84b609bf88f21d64bc4dc25201427105",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 4,
-      "eventKey": "sign:updated-sixers:76ers",
-      "relatedItems": [],
-      "displayTitle": "76 人更新2026-27赛季阵容名单",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/answers-today-celtics-press-conference-131423942.html",
-      "title": "Will we get the answers we need from today’s Celtics press conference?",
-      "originalTitle": "Will we get the answers we need from today’s Celtics press conference?",
-      "headlineZh": "凯尔特人休赛期后续动向",
-      "titleZh": "凯尔特人休赛期后续动向",
-      "link": "https://sports.yahoo.com/articles/answers-today-celtics-press-conference-131423942.html",
-      "url": "https://sports.yahoo.com/articles/answers-today-celtics-press-conference-131423942.html",
-      "pubDate": "2026-07-06T13:14:23.000Z",
-      "publishedAt": "2026-07-06T13:14:23.000Z",
-      "summary": "Brad Stevens and Bill Chisholm have a lot of explaining to do",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "凯尔特人休赛期后续动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/2G7irQghxv_0xsF.IATp6Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/9091c2ff35c8c2f25dbac57dc3141f5d",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Will we get the answers we need from today’s Celtics press conference?",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/warriors-lebron-james-anthony-davis-120000735.html",
-      "title": "Warriors need to go all in on LeBron James, Anthony Davis — it’s the only way",
-      "originalTitle": "Warriors need to go all in on LeBron James, Anthony Davis — it’s the only way",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/warriors-lebron-james-anthony-davis-120000735.html",
-      "url": "https://sports.yahoo.com/articles/warriors-lebron-james-anthony-davis-120000735.html",
-      "pubDate": "2026-07-06T12:00:00.000Z",
-      "publishedAt": "2026-07-06T12:00:00.000Z",
-      "summary": "The Warriors can't waste another season for Steph Curry.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/U8R4I.tgjm1qRD7RtH5oyw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/b1bd5eaaf5b3ff5ffbb374ab6bb492ff",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Warriors need to go all in on LeBron James, Anthony Davis — it’s the only way",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/inside-suns-miles-bridges-evaluating-120000408.html",
-      "title": "Inside the Suns: Miles Bridges, evaluating the Suns’ offseason so far",
-      "originalTitle": "Inside the Suns: Miles Bridges, evaluating the Suns’ offseason so far",
-      "headlineZh": "Miles Bridges 相关消息更新",
-      "titleZh": "Miles Bridges 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/inside-suns-miles-bridges-evaluating-120000408.html",
-      "url": "https://sports.yahoo.com/articles/inside-suns-miles-bridges-evaluating-120000408.html",
-      "pubDate": "2026-07-06T12:00:00.000Z",
-      "publishedAt": "2026-07-06T12:00:00.000Z",
-      "summary": "Your weekly Inside the Suns analysis straight from the BSotS community who live and breathe the team.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Miles Bridges 的最新动态和后续影响。",
-      "oneLineZh": "Miles Bridges 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/OD7YFoTOMAA4vMkjI2vsdA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDE7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/ed1674a7d6e3dfa4a953ce498f0c3559",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Inside the Suns: Miles Bridges, evaluating the Suns’ offseason so far",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/maliq-brown-snuffs-one-114900835.html",
-      "title": "Maliq Brown Snuffs One!",
-      "originalTitle": "Maliq Brown Snuffs One!",
-      "headlineZh": "Maliq Brown Snuffs 相关消息更新",
-      "titleZh": "Maliq Brown Snuffs 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/maliq-brown-snuffs-one-114900835.html",
-      "url": "https://sports.yahoo.com/articles/maliq-brown-snuffs-one-114900835.html",
-      "pubDate": "2026-07-06T11:49:00.000Z",
-      "publishedAt": "2026-07-06T11:49:00.000Z",
-      "summary": "We didn't see this at Duke",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Maliq Brown Snuffs 的最新动态和后续影响。",
-      "oneLineZh": "Maliq Brown Snuffs 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/NmbCpAfYE9RdV4si_cAy6A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTk7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/e0b5c26e97c3af3c4d486af5050b9a48",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Maliq Brown Snuffs One!",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/sixers-release-roster-2026-las-110215895.html",
-      "title": "Sixers release roster for 2026 Las Vegas summer league",
-      "originalTitle": "Sixers release roster for 2026 Las Vegas summer league",
-      "headlineZh": "拉斯维加斯相关消息更新",
-      "titleZh": "拉斯维加斯相关消息更新",
-      "link": "https://sports.yahoo.com/articles/sixers-release-roster-2026-las-110215895.html",
-      "url": "https://sports.yahoo.com/articles/sixers-release-roster-2026-las-110215895.html",
-      "pubDate": "2026-07-06T11:02:15.000Z",
-      "publishedAt": "2026-07-06T11:02:15.000Z",
-      "summary": "The Sixers’ 2026 summer league roster is all set.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦拉斯维加斯的最新动态和后续影响。",
-      "oneLineZh": "拉斯维加斯相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/aKeGjydeBbh_Ahz9SpKIUQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/csnphilly.com/9e65ed8fde274754be939ec8dd913efd",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Sixers release roster for 2026 Las Vegas summer league",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
