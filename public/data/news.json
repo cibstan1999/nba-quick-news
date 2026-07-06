@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-06T09:02:35.076Z",
+  "updatedAt": "2026-07-06T13:04:57.638Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-06T09:02:35.076Z",
-    "updatedAt": "2026-07-06T09:02:35.076Z",
-    "fetchedItems": 80,
-    "mergedItems": 74,
+    "checkedAt": "2026-07-06T13:04:57.638Z",
+    "updatedAt": "2026-07-06T13:04:57.638Z",
+    "fetchedItems": 79,
+    "mergedItems": 72,
     "failedFeeds": [],
-    "message": "Fetched 80 usable RSS items from all feeds."
+    "message": "Fetched 79 usable RSS items from all feeds."
   },
   "highlights": [
     {
@@ -31,7 +31,7 @@
       "id": "https://basketball.realgm.com/wiretap/286543/Jayson-Tatum-Breaks-Silence-On-Jaylen-Brown-Trade",
       "text": "Jaylen Brown 被交易至 76 人",
       "category": "交易",
-      "source": "RealGM",
+      "source": "Yahoo Sports / RealGM",
       "link": "https://basketball.realgm.com/wiretap/286543/Jayson-Tatum-Breaks-Silence-On-Jaylen-Brown-Trade"
     },
     {
@@ -57,6 +57,58 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/maliq-brown-snuffs-one-114900835.html",
+      "title": "Maliq Brown Snuffs One!",
+      "originalTitle": "Maliq Brown Snuffs One!",
+      "headlineZh": "Maliq Brown Snuffs 相关消息更新",
+      "titleZh": "Maliq Brown Snuffs 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/maliq-brown-snuffs-one-114900835.html",
+      "url": "https://sports.yahoo.com/articles/maliq-brown-snuffs-one-114900835.html",
+      "pubDate": "2026-07-06T11:49:00.000Z",
+      "publishedAt": "2026-07-06T11:49:00.000Z",
+      "summary": "We didn't see this at Duke",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Maliq Brown Snuffs 的最新动态和后续影响。",
+      "oneLineZh": "Maliq Brown Snuffs 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/NmbCpAfYE9RdV4si_cAy6A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTk7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/e0b5c26e97c3af3c4d486af5050b9a48",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Maliq Brown Snuffs One!",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/monday-posted-toasted-notes-mitch-100441002.html",
+      "title": "Monday Posted & Toasted Notes: Mitch reveals the truth, Melo ain’t afraid",
+      "originalTitle": "Monday Posted & Toasted Notes: Mitch reveals the truth, Melo ain’t afraid",
+      "headlineZh": "周一 Posted 相关消息更新",
+      "titleZh": "周一 Posted 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/monday-posted-toasted-notes-mitch-100441002.html",
+      "url": "https://sports.yahoo.com/articles/monday-posted-toasted-notes-mitch-100441002.html",
+      "pubDate": "2026-07-06T10:04:41.000Z",
+      "publishedAt": "2026-07-06T10:04:41.000Z",
+      "summary": "Crazy slow start to Monday around these places, and on top of that, the muscles on my right leg don’t feel willing to cooperate when I try to move around. Links and notes next, so I can forget about my pains. ““I would like to address the concerns regarding my finger, which was actually my […]",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦周一 Posted 的最新动态和后续影响。",
+      "oneLineZh": "周一 Posted 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/ILtYN_nZ8LiVUDlPLS0dFQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTc7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/44de58443ff3f53e2f703ccf3da4efbf",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Monday Posted & Toasted Notes: Mitch reveals the truth, Melo ain’t afraid",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/ja-morant-norman-powell-other-172636588.html",
       "title": "Ja Morant, Norman Powell and other offseason moves affecting fantasy basketball in 2026-27",
@@ -1478,32 +1530,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/andre-drummond-thinks-fill-knicks-035741716.html",
-      "title": "Andre Drummond thinks he can fill Knicks’ Mitchell Robinson void: ‘Bring in a similar talent’",
-      "originalTitle": "Andre Drummond thinks he can fill Knicks’ Mitchell Robinson void: ‘Bring in a similar talent’",
-      "headlineZh": "Andre Drummond 相关消息更新",
-      "titleZh": "Andre Drummond 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/andre-drummond-thinks-fill-knicks-035741716.html",
-      "url": "https://sports.yahoo.com/articles/andre-drummond-thinks-fill-knicks-035741716.html",
-      "pubDate": "2026-07-05T03:57:41.000Z",
-      "publishedAt": "2026-07-05T03:57:41.000Z",
-      "summary": "Andre Drummond is excited to join the team he grew up rooting for and hopefully help it repeat as champions.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Andre Drummond 的最新动态和后续影响。",
-      "oneLineZh": "Andre Drummond 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/kJkfoMi1SaL1g0Fj1zfHHA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/3d93cc402c3eba1045f0e5254bec382b",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Andre Drummond thinks he can fill Knicks’ Mitchell Robinson void: ‘Bring in a similar talent’",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286555/Jonathan-Kuminga-Drawing-Interest-From-Cavs-Bucks",
       "title": "Jonathan Kuminga Drawing Interest From Cavs, Bucks",
       "originalTitle": "Jonathan Kuminga Drawing Interest From Cavs, Bucks",
@@ -1527,84 +1553,6 @@
       "eventKey": "trade:lebron-james:lakers:cavaliers",
       "relatedItems": [],
       "displayTitle": "Jonathan Kuminga Drawing Interest From Cavs, Bucks",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/lebron-james-seen-cavs-front-031358183.html",
-      "title": "LeBron James seen with Cavs front office member in Akron",
-      "originalTitle": "LeBron James seen with Cavs front office member in Akron",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/lebron-james-seen-cavs-front-031358183.html",
-      "url": "https://sports.yahoo.com/articles/lebron-james-seen-cavs-front-031358183.html",
-      "pubDate": "2026-07-05T03:13:58.000Z",
-      "publishedAt": "2026-07-05T03:13:58.000Z",
-      "summary": "This isn’t going to stop the LeBron to the Cavs speculation.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/zK6CvaZ0UMcCmB3HFJq5ew--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/78868a2de052330e2443182ceadf4bba",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "LeBron James seen with Cavs front office member in Akron",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/report-wizards-add-nba-legend-025242956.html",
-      "title": "Report: Wizards add NBA legend Patrick Ewing to coaching staff",
-      "originalTitle": "Report: Wizards add NBA legend Patrick Ewing to coaching staff",
-      "headlineZh": "Patrick Ewing 相关消息更新",
-      "titleZh": "Patrick Ewing 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/report-wizards-add-nba-legend-025242956.html",
-      "url": "https://sports.yahoo.com/articles/report-wizards-add-nba-legend-025242956.html",
-      "pubDate": "2026-07-05T02:52:42.000Z",
-      "publishedAt": "2026-07-05T02:52:42.000Z",
-      "summary": "The Washington Wizards have hired NBA legend Patrick Ewing to a position on their coaching staff, ESPN’s Shams Charania reported Saturday. This is the second time that Ewing has spent time with he Wizards SNY’s Ian Begley first reported the talks between Ewing and Washington before multiple outlets confirmed the hiring on Saturday. Ewing spent […]",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Patrick Ewing 的最新动态和后续影响。",
-      "oneLineZh": "Patrick Ewing 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/yiaQ6tBSWC1xYwAlzGqE6A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/ca55a625e6b466cc3c76561d37e32225",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Report: Wizards add NBA legend Patrick Ewing to coaching staff",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/nba/article/patrick-ewing-reportedly-joining-wizards-staff-as-assistant-with-steve-clifford-coming-aboard-as-coaching-adviser-024347449.html",
-      "title": "Patrick Ewing reportedly joining Wizards' staff as assistant, with Steve Clifford coming aboard as coaching adviser",
-      "originalTitle": "Patrick Ewing reportedly joining Wizards' staff as assistant, with Steve Clifford coming aboard as coaching adviser",
-      "headlineZh": "Patrick Ewing 相关消息更新",
-      "titleZh": "Patrick Ewing 相关消息更新",
-      "link": "https://sports.yahoo.com/nba/article/patrick-ewing-reportedly-joining-wizards-staff-as-assistant-with-steve-clifford-coming-aboard-as-coaching-adviser-024347449.html",
-      "url": "https://sports.yahoo.com/nba/article/patrick-ewing-reportedly-joining-wizards-staff-as-assistant-with-steve-clifford-coming-aboard-as-coaching-adviser-024347449.html",
-      "pubDate": "2026-07-05T02:43:47.000Z",
-      "publishedAt": "2026-07-05T02:43:47.000Z",
-      "summary": "Ewing starred and coached at Georgetown. In between, he first served as a Wizards assistant during the 2002-03 season.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Patrick Ewing 的最新动态和后续影响。",
-      "oneLineZh": "Patrick Ewing 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/UtBMzrRulgdQu3mEJ4DJmA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/eed5816d-7c78-4cb2-ae73-d7377a776c61",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Patrick Ewing reportedly joining Wizards' staff as assistant, with Steve Clifford coming aboard as coaching adviser",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -1853,7 +1801,7 @@
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Tatum_Jayson_250503.jpg",
-      "source": "RealGM",
+      "source": "Yahoo Sports / RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "交易",
       "importance": 4,
@@ -1869,6 +1817,7 @@
         }
       ],
       "sources": [
+        "Yahoo Sports",
         "RealGM"
       ],
       "originalTitles": [
@@ -1876,20 +1825,12 @@
       ],
       "sourceLinks": [
         {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286546/Warriors-Chances-Of-Signing-LeBron-James-Appear-Dependent-On-Trading-For-Anthony-Davis"
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/jaylen-brown-trade-watershed-moment-120000356.html"
         },
         {
           "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286543/Jayson-Tatum-Breaks-Silence-On-Jaylen-Brown-Trade"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286536/RealGM-Radio-w-Goldberg-DuFour-Jaylen-Brown-Trade-Fallout-East-Vs-West-NBAs-Most-Catastrophic-Trades"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286535/RealGM-Radio-w-Dubin-Dakhil-Jaylen-Brown-To-Sixers"
         }
       ],
       "isMerged": true,
