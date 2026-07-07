@@ -9,11 +9,11 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-07T03:49:47.438Z",
+  "updatedAt": "2026-07-07T07:44:05.201Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-07T03:49:47.438Z",
-    "updatedAt": "2026-07-07T03:49:47.438Z",
+    "checkedAt": "2026-07-07T07:44:05.201Z",
+    "updatedAt": "2026-07-07T07:44:05.201Z",
     "fetchedItems": 76,
     "mergedItems": 66,
     "failedFeeds": [],
@@ -26,6 +26,13 @@
       "category": "交易",
       "source": "Yahoo Sports / RealGM",
       "link": "https://basketball.realgm.com/wiretap/286586/Brad-Stevens-Explains-Reasoning-Behind-Celtics-Jaylen-Brown-Trade"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lakers-unlikely-sign-demar-derozan-021307932.html",
+      "text": "湖人，AK Okereke 达成 双向 合同",
+      "category": "签约",
+      "source": "Yahoo Sports / RealGM",
+      "link": "https://sports.yahoo.com/articles/lakers-unlikely-sign-demar-derozan-021307932.html"
     },
     {
       "id": "https://sports.yahoo.com/articles/kawhi-leonard-reportedly-hires-agent-212247259.html",
@@ -47,16 +54,194 @@
       "category": "交易",
       "source": "RealGM",
       "link": "https://basketball.realgm.com/wiretap/286565/Nuggets-To-Match-Any-Peyton-Watson-Offer-Sheet-Open-To-Sign-And-Trade"
-    },
-    {
-      "id": "https://sports.yahoo.com/nba/breaking-news/article/giannis-antetokounmpo-releases-tribute-video-to-milwaukee-as-trade-to-miami-becomes-official-milwaukee-will-always-be-my-city-184628150.html",
-      "text": "Giannis Antetokounmpo 交易影响继续发酵",
-      "category": "交易",
-      "source": "Yahoo Sports",
-      "link": "https://sports.yahoo.com/nba/breaking-news/article/giannis-antetokounmpo-releases-tribute-video-to-milwaukee-as-trade-to-miami-becomes-official-milwaukee-will-always-be-my-city-184628150.html"
     }
   ],
   "items": [
+    {
+      "id": "https://basketball.realgm.com/wiretap/286589/LeBron-James-Only-Considering-A-Handful-Of-Teams-Not-In-Any-Rush-To-Make-Decision",
+      "title": "LeBron James Only Considering A 'Handful' Of Teams, Not In Any Rush To Make Decision",
+      "originalTitle": "LeBron James Only Considering A 'Handful' Of Teams, Not In Any Rush To Make Decision",
+      "headlineZh": "LeBron James Only 相关消息更新",
+      "titleZh": "LeBron James Only 相关消息更新",
+      "link": "https://basketball.realgm.com/wiretap/286589/LeBron-James-Only-Considering-A-Handful-Of-Teams-Not-In-Any-Rush-To-Make-Decision",
+      "url": "https://basketball.realgm.com/wiretap/286589/LeBron-James-Only-Considering-A-Handful-Of-Teams-Not-In-Any-Rush-To-Make-Decision",
+      "pubDate": "2026-07-07T05:47:02.000Z",
+      "publishedAt": "2026-07-07T05:47:02.000Z",
+      "summary": "LeBron James is only considering signing with a \"handful\" of teams, including the Golden State Warriors, Cleveland Cavaliers, Miami Heat, Philadelphia 76ers, and Minnesota Timberwolves, according to Chris Haynes. Haynes added that James has no plans to take pitch meetings with those teams and will let agent Rich Paul handle that part of the negotiations. \"Rich Paul is doing all the background work. He's talking with teams, and then he in return will relay all the intel and data to LeBron James, in which LeBron will make a decision. So there will be no meetings, no pitches that will allow teams to sit down with LeBron,\" said Haynes. Haynes then reiterated that James is in no rush to make a decision. It was reported over the weekend that there was a \" growing belief \" that James would eventually return to the Cavs.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，原文聚焦 LeBron James Only 的最新动态和后续影响。",
+      "oneLineZh": "LeBron James Only 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_260502.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james:cavaliers",
+      "relatedItems": [
+        {
+          "title": "Cavaliers, Warriors, Sixers, Heat, Wolves, Nuggets All Believe They Can Sign LeBron James",
+          "originalTitle": "Cavaliers, Warriors, Sixers, Heat, Wolves, Nuggets All Believe They Can Sign LeBron James",
+          "source": "RealGM",
+          "url": "https://basketball.realgm.com/wiretap/286568/Cavaliers-Warriors-Sixers-Heat-Wolves-Nuggets-All-Believe-They-Can-Sign-LeBron-James",
+          "publishedAt": "2026-07-06T12:59:42.000Z",
+          "angle": "source"
+        }
+      ],
+      "sources": [
+        "RealGM"
+      ],
+      "originalTitles": [
+        "Cavaliers, Warriors, Sixers, Heat, Wolves, Nuggets All Believe They Can Sign LeBron James"
+      ],
+      "sourceLinks": [
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286575/LeBron-James-Free-Agency-Suitors-Havent-Heard-Anything"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286589/LeBron-James-Only-Considering-A-Handful-Of-Teams-Not-In-Any-Rush-To-Make-Decision"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286568/Cavaliers-Warriors-Sixers-Heat-Wolves-Nuggets-All-Believe-They-Can-Sign-LeBron-James"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "LeBron James Only Considering A 'Handful' Of Teams, Not In Any Rush To Make Decision"
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286588/Nick-Martinelli-Clippers-Agree-To-Two-Way-Contract",
+      "title": "Nick Martinelli, Clippers Agree To Two-Way Contract",
+      "originalTitle": "Nick Martinelli, Clippers Agree To Two-Way Contract",
+      "headlineZh": "签约动态：Nick Martinelli，快船 达成 双向 合同",
+      "titleZh": "签约动态：Nick Martinelli，快船 达成 双向 合同",
+      "link": "https://basketball.realgm.com/wiretap/286588/Nick-Martinelli-Clippers-Agree-To-Two-Way-Contract",
+      "url": "https://basketball.realgm.com/wiretap/286588/Nick-Martinelli-Clippers-Agree-To-Two-Way-Contract",
+      "pubDate": "2026-07-07T05:28:17.000Z",
+      "publishedAt": "2026-07-07T05:28:17.000Z",
+      "summary": "The Los Angeles Clippers signed Nick Martinelli to a two-way deal on Monday, sources told Michael Scotto of HoopsHype. The Clippers selected Martinelli with the 55th pick out of Northwestern in this year's draft.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，签约动态：Nick Martinelli，快船 达成 双向 合同，原文关注 Nick Martinelli 的合同或自由市场动向。",
+      "oneLineZh": "签约动态：Nick Martinelli，快船 达成 双向 合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_losangelesclippers.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 3,
+      "eventKey": "sign:nick-martinelli",
+      "relatedItems": [],
+      "displayTitle": "签约动态：Nick Martinelli，快船 达成 双向 合同",
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286587/Magic-Hire-Joe-Prunty-Greg-Buckner-Popeye-Jones-As-Assistant-Coaches",
+      "title": "Magic Hire Joe Prunty, Greg Buckner, Popeye Jones As Assistant Coaches",
+      "originalTitle": "Magic Hire Joe Prunty, Greg Buckner, Popeye Jones As Assistant Coaches",
+      "headlineZh": "魔术 Hire Joe 相关消息更新",
+      "titleZh": "魔术 Hire Joe 相关消息更新",
+      "link": "https://basketball.realgm.com/wiretap/286587/Magic-Hire-Joe-Prunty-Greg-Buckner-Popeye-Jones-As-Assistant-Coaches",
+      "url": "https://basketball.realgm.com/wiretap/286587/Magic-Hire-Joe-Prunty-Greg-Buckner-Popeye-Jones-As-Assistant-Coaches",
+      "pubDate": "2026-07-07T05:19:36.000Z",
+      "publishedAt": "2026-07-07T05:19:36.000Z",
+      "summary": "The Orlando Magic hired Joe Prunty, Greg Buckner, Popeye Jones, Tom Bialaszewski, Riley Crean, Jon Harris, Ben Johnson, Jacqlyn Poss and Mfon Udofia as assistant coaches on Sean Sweeney's staff on Monday. Shannan Lum was also named as an assistant coach and director of coaching operations. Curtis Lewis and Nicholas Russo were also hired as part of the basketball operations department. The Magic hired Sweeney to replace Jahmal Mosley.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，原文聚焦魔术 Hire Joe 的最新动态和后续影响。",
+      "oneLineZh": "魔术 Hire Joe 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_orlandomagic.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Magic Hire Joe Prunty, Greg Buckner, Popeye Jones As Assistant Coaches",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/nets-did-didn-t-day-050418804.html",
+      "title": "What Nets did and didn’t do on Day 1 of free agency",
+      "originalTitle": "What Nets did and didn’t do on Day 1 of free agency",
+      "headlineZh": "What 篮网签约动向更新",
+      "titleZh": "What 篮网签约动向更新",
+      "link": "https://sports.yahoo.com/articles/nets-did-didn-t-day-050418804.html",
+      "url": "https://sports.yahoo.com/articles/nets-did-didn-t-day-050418804.html",
+      "pubDate": "2026-07-07T05:04:18.000Z",
+      "publishedAt": "2026-07-07T05:04:18.000Z",
+      "summary": "Things got done tonight, but nothing surprising and completion of the Julius Randle trade has been postponed",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，What 篮网的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "What 篮网签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/EH4hK.fnu8pHdDLqwFTS8w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/56733cbe63b4184967efe7296e004179",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 2,
+      "eventKey": "trade:what-nets:nets",
+      "relatedItems": [],
+      "displayTitle": "What Nets did and didn’t do on Day 1 of free agency",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/summer-league-recap-kings-95-041245327.html",
+      "title": "Summer League Recap: Kings 95, Bucks 89",
+      "originalTitle": "Summer League Recap: Kings 95, Bucks 89",
+      "headlineZh": "NBA 动态：Summer League Recap: 国王 95，雄鹿 89",
+      "titleZh": "NBA 动态：Summer League Recap: 国王 95，雄鹿 89",
+      "link": "https://sports.yahoo.com/articles/summer-league-recap-kings-95-041245327.html",
+      "url": "https://sports.yahoo.com/articles/summer-league-recap-kings-95-041245327.html",
+      "pubDate": "2026-07-07T04:12:45.000Z",
+      "publishedAt": "2026-07-07T04:12:45.000Z",
+      "summary": "Milwaukee made one hell of a comeback, but ran out of gas in the end.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，NBA 动态：Summer League Recap: 国王 95，雄鹿 89，原文提到 Milwaukee made one hell of comeback，but ran out of gas 在 end。",
+      "oneLineZh": "NBA 动态：Summer League Recap: 国王 95，雄鹿 89",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/orUTs7HMKB8SsWSibWjSCg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/97a518c67c04ada20b0999df26efe5f1",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "NBA 动态：Summer League Recap: 国王 95，雄鹿 89",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/reportedly-no-plans-lebron-james-040157065.html",
+      "title": "There are reportedly ‘no plans’ for LeBron James to meet with teams, just Rich Paul",
+      "originalTitle": "There are reportedly ‘no plans’ for LeBron James to meet with teams, just Rich Paul",
+      "headlineZh": "LeBron James 相关消息更新",
+      "titleZh": "LeBron James 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/reportedly-no-plans-lebron-james-040157065.html",
+      "url": "https://sports.yahoo.com/articles/reportedly-no-plans-lebron-james-040157065.html",
+      "pubDate": "2026-07-07T04:01:57.000Z",
+      "publishedAt": "2026-07-07T04:01:57.000Z",
+      "summary": "LeBron seems to be conducting this free agency slightly different than normal.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
+      "oneLineZh": "LeBron James 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/uFPwCh0RVRdU0zVYerQ9IQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/ef13a3fa15ccc4b526ece39ca462eb87",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "meeting:lebron-james",
+      "relatedItems": [],
+      "displayTitle": "There are reportedly ‘no plans’ for LeBron James to meet with teams, just Rich Paul",
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/darryn-peterson-cam-boozer-deliver-034113627.html",
       "title": "Darryn Peterson, Cam Boozer deliver in head-to-head NBA Summer League game",
@@ -79,6 +264,127 @@
       "category": "选秀",
       "importance": 2,
       "displayTitle": "Darryn Peterson, Cam Boozer deliver in head-to-head NBA Summer League game",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/utah-jazz-vs-memphis-grizzlies-032622917.html",
+      "title": "Utah Jazz vs Memphis Grizzlies recap and final score: The NBA deserves better scouts",
+      "originalTitle": "Utah Jazz vs Memphis Grizzlies recap and final score: The NBA deserves better scouts",
+      "headlineZh": "灰熊休赛期后续动向",
+      "titleZh": "灰熊休赛期后续动向",
+      "link": "https://sports.yahoo.com/articles/utah-jazz-vs-memphis-grizzlies-032622917.html",
+      "url": "https://sports.yahoo.com/articles/utah-jazz-vs-memphis-grizzlies-032622917.html",
+      "pubDate": "2026-07-07T03:26:22.000Z",
+      "publishedAt": "2026-07-07T03:26:22.000Z",
+      "summary": "Seriously, HOW did we end up with Darryn?",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "灰熊休赛期后续动向",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/6kwOABlgWerUf3peZ1rkXg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05NjA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/de243e05af11e4752a96a8d5524e9497",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Utah Jazz vs Memphis Grizzlies recap and final score: The NBA deserves better scouts",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lakers-unlikely-sign-demar-derozan-021307932.html",
+      "title": "Lakers unlikely to sign DeMar DeRozan in free agency",
+      "originalTitle": "Lakers unlikely to sign DeMar DeRozan in free agency",
+      "headlineZh": "签约动态：湖人，AK Okereke 达成 双向 合同",
+      "titleZh": "签约动态：湖人，AK Okereke 达成 双向 合同",
+      "link": "https://sports.yahoo.com/articles/lakers-unlikely-sign-demar-derozan-021307932.html",
+      "url": "https://sports.yahoo.com/articles/lakers-unlikely-sign-demar-derozan-021307932.html",
+      "pubDate": "2026-07-07T02:13:07.000Z",
+      "publishedAt": "2026-07-07T02:13:07.000Z",
+      "summary": "DeMar DeRozan is set for free agency, but it doesn’t look like the Lakers will be an option.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports / RealGM 报道，签约动态：湖人，AK Okereke 达成 双向 合同，原文关注 DeMar DeRozan 的合同或自由市场动向。",
+      "oneLineZh": "签约动态：湖人，AK Okereke 达成 双向 合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/zFgvkVDc.WK9p85zADPH1g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MzA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/33bd3108a90f3cdf2f7a026cd524d18a",
+      "source": "Yahoo Sports / RealGM",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 5,
+      "sources": [
+        "Yahoo Sports",
+        "RealGM"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lakers-unlikely-sign-demar-derozan-021307932.html"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286567/Lakers-AK-Okereke-Agree-To-Two-Way-Contract"
+        }
+      ],
+      "originalTitles": [
+        "Lakers unlikely to sign DeMar DeRozan in free agency"
+      ],
+      "isMerged": false,
+      "eventKey": "sign:demar-derozan:lakers",
+      "relatedItems": [],
+      "displayTitle": "签约动态：湖人，AK Okereke 达成 双向 合同"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/mikel-brown-jr-flashes-nets-021214785.html",
+      "title": "Mikel Brown Jr. flashes, Nets fly past Warriors in Cali Classic Finale",
+      "originalTitle": "Mikel Brown Jr. flashes, Nets fly past Warriors in Cali Classic Finale",
+      "headlineZh": "Mikel Brown Jr 相关消息更新",
+      "titleZh": "Mikel Brown Jr 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/mikel-brown-jr-flashes-nets-021214785.html",
+      "url": "https://sports.yahoo.com/articles/mikel-brown-jr-flashes-nets-021214785.html",
+      "pubDate": "2026-07-07T02:12:14.000Z",
+      "publishedAt": "2026-07-07T02:12:14.000Z",
+      "summary": "Mikel Brown Jr.’s first game had everything you’d like to see out of a lottery pick — and ended in a win.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Mikel Brown Jr 的最新动态和后续影响。",
+      "oneLineZh": "Mikel Brown Jr 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/UhZXBywejGfV9Qs8w7CCqw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/de39fae3a64e0a93aafc56487f4ac80d",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "选秀",
+      "importance": 2,
+      "displayTitle": "Mikel Brown Jr. flashes, Nets fly past Warriors in Cali Classic Finale",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/darryn-peterson-cameron-boozer-gladiator-021100462.html",
+      "title": "Darryn Peterson and Cameron Boozer in a gladiator match at SLC Summer League",
+      "originalTitle": "Darryn Peterson and Cameron Boozer in a gladiator match at SLC Summer League",
+      "headlineZh": "Darryn Peterson 相关消息更新",
+      "titleZh": "Darryn Peterson 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/darryn-peterson-cameron-boozer-gladiator-021100462.html",
+      "url": "https://sports.yahoo.com/articles/darryn-peterson-cameron-boozer-gladiator-021100462.html",
+      "pubDate": "2026-07-07T02:11:00.000Z",
+      "publishedAt": "2026-07-07T02:11:00.000Z",
+      "summary": "Let the draft debate be settled here and now.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Darryn Peterson 的最新动态和后续影响。",
+      "oneLineZh": "Darryn Peterson 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/s2Qbz_AgfkElArUkDkB3qA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03MjY7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/3ce8d263210cca89273c4361879b290d",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "选秀",
+      "importance": 2,
+      "displayTitle": "Darryn Peterson and Cameron Boozer in a gladiator match at SLC Summer League",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -107,6 +413,32 @@
       "eventKey": "odds:lebron-james",
       "relatedItems": [],
       "displayTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/luka-doncic-burns-lebron-james-020006725.html",
+      "title": "Luka Doncic burns LeBron James with response to teammate question",
+      "originalTitle": "Luka Doncic burns LeBron James with response to teammate question",
+      "headlineZh": "Luka Doncic 相关消息更新",
+      "titleZh": "Luka Doncic 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/luka-doncic-burns-lebron-james-020006725.html",
+      "url": "https://sports.yahoo.com/articles/luka-doncic-burns-lebron-james-020006725.html",
+      "pubDate": "2026-07-07T02:00:06.000Z",
+      "publishedAt": "2026-07-07T02:00:06.000Z",
+      "summary": "Los Angeles Lakers star Luka Doncic had no problem picking another NBA star over LeBron James for his \"ultimate\" teammate in a recent interview.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Luka Doncic 的最新动态和后续影响。",
+      "oneLineZh": "Luka Doncic 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/ex1HogCKb9tAj3RzZu5BwQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/2410acdb77256ee13fa59084aa7e57c7",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "选秀",
+      "importance": 2,
+      "displayTitle": "Luka Doncic burns LeBron James with response to teammate question",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -211,6 +543,32 @@
       "eventKey": "injury:three-utah:jazz",
       "relatedItems": [],
       "displayTitle": "Three Utah stars to sit out Summer League game on Tuesday",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/giannis-antetokounmpo-posts-emotional-bucks-011035021.html",
+      "title": "Giannis Antetokounmpo posts emotional Bucks tribute video after Heat trade becomes official",
+      "originalTitle": "Giannis Antetokounmpo posts emotional Bucks tribute video after Heat trade becomes official",
+      "headlineZh": "Giannis Antetokounmpo 交易影响继续发酵",
+      "titleZh": "Giannis Antetokounmpo 交易影响继续发酵",
+      "link": "https://sports.yahoo.com/articles/giannis-antetokounmpo-posts-emotional-bucks-011035021.html",
+      "url": "https://sports.yahoo.com/articles/giannis-antetokounmpo-posts-emotional-bucks-011035021.html",
+      "pubDate": "2026-07-07T01:10:35.000Z",
+      "publishedAt": "2026-07-07T01:10:35.000Z",
+      "summary": "Bucks fans may shed a tear.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Giannis Antetokounmpo 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "Giannis Antetokounmpo 交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/ArwM5PSqOjpKYMDtFFCY4g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/7374278a0ade6a3e7bf3ac0b14bd7ed3",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 4,
+      "eventKey": "trade:giannis-antetokounmpo:heat",
+      "relatedItems": [],
+      "displayTitle": "Giannis Antetokounmpo 交易影响继续发酵",
       "isMerged": false
     },
     {
@@ -419,19 +777,19 @@
       "eventKey": "trade:jaylen-brown:celtics:76ers",
       "relatedItems": [
         {
+          "title": "Brad Stevens admits salary cap reason behind Celtics’ shocking Jaylen Brown trade",
+          "originalTitle": "Brad Stevens admits salary cap reason behind Celtics’ shocking Jaylen Brown trade",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/brad-stevens-admits-salary-cap-031639080.html",
+          "publishedAt": "2026-07-07T03:16:39.000Z",
+          "angle": "source"
+        },
+        {
           "title": "Celtics president Brad Stevens on if Jaylen Brown trade will make team better next year: 'We'll find out'",
           "originalTitle": "Celtics president Brad Stevens on if Jaylen Brown trade will make team better next year: 'We'll find out'",
           "source": "Yahoo Sports",
           "url": "https://sports.yahoo.com/nba/article/celtics-president-brad-stevens-on-if-jaylen-brown-trade-will-make-team-better-next-year-well-find-out-204509407.html",
           "publishedAt": "2026-07-06T20:45:09.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "Key takeaways from Celtics' Jaylen Brown trade press conference",
-          "originalTitle": "Key takeaways from Celtics' Jaylen Brown trade press conference",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/key-takeaways-celtics-jaylen-brown-185713661.html",
-          "publishedAt": "2026-07-06T18:57:13.000Z",
           "angle": "source"
         },
         {
@@ -450,8 +808,8 @@
       "originalTitles": [
         "Brad Stevens Explains Reasoning Behind Celtics' Jaylen Brown Trade",
         "Celtics Initial High Asking Price Scared Off Teams Interested In Trading For Jaylen Brown",
-        "Celtics president Brad Stevens on if Jaylen Brown trade will make team better next year: 'We'll find out'",
-        "Key takeaways from Celtics' Jaylen Brown trade press conference"
+        "Brad Stevens admits salary cap reason behind Celtics’ shocking Jaylen Brown trade",
+        "Celtics president Brad Stevens on if Jaylen Brown trade will make team better next year: 'We'll find out'"
       ],
       "sourceLinks": [
         {
@@ -468,11 +826,11 @@
         },
         {
           "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/nba/article/celtics-president-brad-stevens-on-if-jaylen-brown-trade-will-make-team-better-next-year-well-find-out-204509407.html"
+          "link": "https://sports.yahoo.com/articles/brad-stevens-admits-salary-cap-031639080.html"
         },
         {
           "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/key-takeaways-celtics-jaylen-brown-185713661.html"
+          "link": "https://sports.yahoo.com/nba/article/celtics-president-brad-stevens-on-if-jaylen-brown-trade-will-make-team-better-next-year-well-find-out-204509407.html"
         }
       ],
       "isMerged": true,
@@ -864,35 +1222,9 @@
       "category": "签约",
       "importance": 2,
       "eventKey": "sign:lebron-james:warriors",
-      "relatedItems": [
-        {
-          "title": "Warriors reportedly ‘will look into' DeMar DeRozan as LeBron James alternative",
-          "originalTitle": "Warriors reportedly ‘will look into' DeMar DeRozan as LeBron James alternative",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/warriors-reportedly-look-demar-derozan-191123442.html",
-          "publishedAt": "2026-07-06T19:11:23.000Z",
-          "angle": "report"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Warriors’ LeBron James free agency hopes take hit with latest update",
-        "Warriors reportedly ‘will look into' DeMar DeRozan as LeBron James alternative"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/warriors-lebron-james-free-agency-212253894.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/warriors-reportedly-look-demar-derozan-191123442.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "Warriors’ LeBron James free agency hopes take hit with latest update"
+      "relatedItems": [],
+      "displayTitle": "Warriors’ LeBron James free agency hopes take hit with latest update",
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/kawhi-leonard-reportedly-hires-agent-212247259.html",
@@ -968,19 +1300,19 @@
       "isMerged": false
     },
     {
-      "id": "https://basketball.realgm.com/wiretap/286585/Nikola-Jokic-To-Wait-Until-2027-Offseaosn-To-Sign-New-Contract",
-      "title": "Nikola Jokic To Wait Until 2027 Offseaosn To Sign New Contract",
-      "originalTitle": "Nikola Jokic To Wait Until 2027 Offseaosn To Sign New Contract",
-      "headlineZh": "Nikola Jokic To Wait Until 2027 Offseaosn To 签下 New",
-      "titleZh": "Nikola Jokic To Wait Until 2027 Offseaosn To 签下 New",
-      "link": "https://basketball.realgm.com/wiretap/286585/Nikola-Jokic-To-Wait-Until-2027-Offseaosn-To-Sign-New-Contract",
-      "url": "https://basketball.realgm.com/wiretap/286585/Nikola-Jokic-To-Wait-Until-2027-Offseaosn-To-Sign-New-Contract",
+      "id": "https://basketball.realgm.com/wiretap/286585/Nikola-Jokic-To-Wait-Until-2027-Offseason-To-Sign-New-Contract",
+      "title": "Nikola Jokic To Wait Until 2027 Offseason To Sign New Contract",
+      "originalTitle": "Nikola Jokic To Wait Until 2027 Offseason To Sign New Contract",
+      "headlineZh": "Nikola Jokic To Wait Until 2027 Offseason To 签下 New",
+      "titleZh": "Nikola Jokic To Wait Until 2027 Offseason To 签下 New",
+      "link": "https://basketball.realgm.com/wiretap/286585/Nikola-Jokic-To-Wait-Until-2027-Offseason-To-Sign-New-Contract",
+      "url": "https://basketball.realgm.com/wiretap/286585/Nikola-Jokic-To-Wait-Until-2027-Offseason-To-Sign-New-Contract",
       "pubDate": "2026-07-06T20:45:24.000Z",
       "publishedAt": "2026-07-06T20:45:24.000Z",
       "summary": "Nikola Jokic confirmed that he plans on waiting until the 2027 offseason to sign a long-term contract with the Denver Nuggets. Jokic can sign a four-year contract worth $278 million this offseason, or he can sign a five-year, $359.5 million max contract with a no-trade clause if he waits until 2027. Jokic has a player option worth $62.8 million for the 2027-28 season. Jokic has reiterated that he would like to remain with the Nuggets for his entire career despite waiting two consecutive offseasons to sign an extension. In 2025, Jokic could have signed a three-year, $200 million extension. \"My idea and desire is to stay in Denver. I'll probably sign next year,\" Jokic told reporters in Serbian following a FIBA World Cup qualifying game Monday. \"... My desire is to play the rest of my life in Denver.\" Jokic averaged 27.7 points, 12.9 rebounds and 10.7 assists in 34.8 minutes over 65 games in his age-30 season as he finished second in MVP voting. Jokic has finished first or second in MVP voting in six straight seasons dating back to 2021. The Nuggets haven't advanced out of the second round since winning the championship in 2023.",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Nikola Jokic To Wait Until 2027 Offseaosn To 签下 New，原文关注 Nikola Jokic To 的合同或自由市场动向。",
-      "oneLineZh": "Nikola Jokic To Wait Until 2027 Offseaosn To 签下 New",
+      "summaryZh": "据 RealGM 报道，Nikola Jokic To Wait Until 2027 Offseason To 签下 New，原文关注 Nikola Jokic To 的合同或自由市场动向。",
+      "oneLineZh": "Nikola Jokic To Wait Until 2027 Offseason To 签下 New",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Jokic_Nikola_den_260427.jpg",
@@ -990,7 +1322,7 @@
       "importance": 4,
       "eventKey": "trade:nikola-jokic-to",
       "relatedItems": [],
-      "displayTitle": "Nikola Jokic To Wait Until 2027 Offseaosn To 签下 New",
+      "displayTitle": "Nikola Jokic To Wait Until 2027 Offseason To 签下 New",
       "isMerged": false
     },
     {
@@ -1040,24 +1372,6 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "签约",
       "importance": 2,
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/demar-derozan-becomes-free-agent-202002232.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/kings-reportedly-waive-demar-derozan-201336009.html"
-        }
-      ],
-      "originalTitles": [
-        "DeMar DeRozan becomes free agent after Kings cut him",
-        "Kings reportedly to waive DeMar DeRozan, making him free agent"
-      ],
-      "isMerged": true,
       "eventKey": "sign:demar-derozan",
       "relatedItems": [
         {
@@ -1069,6 +1383,24 @@
           "angle": "source"
         }
       ],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "DeMar DeRozan becomes free agent after Kings cut him",
+        "Kings reportedly to waive DeMar DeRozan, making him free agent"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/demar-derozan-becomes-free-agent-202002232.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/kings-reportedly-waive-demar-derozan-201336009.html"
+        }
+      ],
+      "isMerged": true,
       "displayTitle": "Kings reportedly to waive DeMar DeRozan, making him free agent"
     },
     {
@@ -1093,32 +1425,6 @@
       "category": "其他",
       "importance": 2,
       "displayTitle": "NBA 动态：凯尔特人 Daily Links 7/6/26",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/giannis-antetokounmpo-says-goodbye-bucks-195113312.html",
-      "title": "Giannis Antetokounmpo says goodbye to Bucks in emotional farewell video",
-      "originalTitle": "Giannis Antetokounmpo says goodbye to Bucks in emotional farewell video",
-      "headlineZh": "Giannis Antetokounmpo 相关消息更新",
-      "titleZh": "Giannis Antetokounmpo 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/giannis-antetokounmpo-says-goodbye-bucks-195113312.html",
-      "url": "https://sports.yahoo.com/articles/giannis-antetokounmpo-says-goodbye-bucks-195113312.html",
-      "pubDate": "2026-07-06T19:51:13.000Z",
-      "publishedAt": "2026-07-06T19:51:13.000Z",
-      "summary": "While it was time for Milwaukee and Antetokounmpo to part ways, there is a lot of good history there.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Giannis Antetokounmpo 的最新动态和后续影响。",
-      "oneLineZh": "Giannis Antetokounmpo 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/8HK2MnqPtVC35h73znLT4Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/748b6a5624031f8a4db5eee50cf3b674",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Giannis Antetokounmpo says goodbye to Bucks in emotional farewell video",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1149,32 +1455,6 @@
       "eventKey": "trade:tari-eason-s",
       "relatedItems": [],
       "displayTitle": "Tari Eason's $81M Deal Guarantees More Than Rejected $100M Extension Offer From Rockets",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/lakers-entire-postseason-starting-5-192207525.html",
-      "title": "Lakers’ entire postseason starting 5 will play for other teams next season",
-      "originalTitle": "Lakers’ entire postseason starting 5 will play for other teams next season",
-      "headlineZh": "湖人赛事安排与争冠话题",
-      "titleZh": "湖人赛事安排与争冠话题",
-      "link": "https://sports.yahoo.com/articles/lakers-entire-postseason-starting-5-192207525.html",
-      "url": "https://sports.yahoo.com/articles/lakers-entire-postseason-starting-5-192207525.html",
-      "pubDate": "2026-07-06T19:22:07.000Z",
-      "publishedAt": "2026-07-06T19:22:07.000Z",
-      "summary": "The Los Angeles Lakers have completely revamped the roster this offseason.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "湖人赛事安排与争冠话题",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/VehlFmSqIxSv8q8GhjIkZQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/9c661da62a518abd32d09590c11e7a6e",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "季后赛",
-      "importance": 2,
-      "displayTitle": "Lakers’ entire postseason starting 5 will play for other teams next season",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -1230,84 +1510,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/surprise-frontrunner-emerges-lebron-james-191006748.html",
-      "title": "Surprise frontrunner emerges in LeBron James sweepstakes",
-      "originalTitle": "Surprise frontrunner emerges in LeBron James sweepstakes",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/surprise-frontrunner-emerges-lebron-james-191006748.html",
-      "url": "https://sports.yahoo.com/articles/surprise-frontrunner-emerges-lebron-james-191006748.html",
-      "pubDate": "2026-07-06T19:10:06.000Z",
-      "publishedAt": "2026-07-06T19:10:06.000Z",
-      "summary": "LeBron James seems to be near a decision.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/jytap.HHMjNwzPa5vz4A.A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/94ff0d380c2df49275a562c642a5b8b7",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Surprise frontrunner emerges in LeBron James sweepstakes",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/suns-ceo-josh-bartelstein-finalized-190000394.html",
-      "title": "Suns’ CEO Josh Bartelstein has finalized a new extension",
-      "originalTitle": "Suns’ CEO Josh Bartelstein has finalized a new extension",
-      "headlineZh": "CEO Josh Bartelstein 签约动向更新",
-      "titleZh": "CEO Josh Bartelstein 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/suns-ceo-josh-bartelstein-finalized-190000394.html",
-      "url": "https://sports.yahoo.com/articles/suns-ceo-josh-bartelstein-finalized-190000394.html",
-      "pubDate": "2026-07-06T19:00:00.000Z",
-      "publishedAt": "2026-07-06T19:00:00.000Z",
-      "summary": "Mat Ishbia praised Bartelstein's leadership as Phoenix continues reshaping the franchise on and off the court.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，CEO Josh Bartelstein 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "CEO Josh Bartelstein 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/m1ESKn3wvFZeIVOCvpfv_w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04ODU7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/78e64ae1c219e7fdf5339bdd0a6cfa30",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:ceo-josh-bartelstein:suns",
-      "relatedItems": [],
-      "displayTitle": "Suns’ CEO Josh Bartelstein has finalized a new extension",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/nba/breaking-news/article/giannis-antetokounmpo-releases-tribute-video-to-milwaukee-as-trade-to-miami-becomes-official-milwaukee-will-always-be-my-city-184628150.html",
-      "title": "Giannis Antetokounmpo releases tribute video to Milwaukee as trade to Miami becomes official: 'Milwaukee will always be my city'",
-      "originalTitle": "Giannis Antetokounmpo releases tribute video to Milwaukee as trade to Miami becomes official: 'Milwaukee will always be my city'",
-      "headlineZh": "Giannis Antetokounmpo 交易影响继续发酵",
-      "titleZh": "Giannis Antetokounmpo 交易影响继续发酵",
-      "link": "https://sports.yahoo.com/nba/breaking-news/article/giannis-antetokounmpo-releases-tribute-video-to-milwaukee-as-trade-to-miami-becomes-official-milwaukee-will-always-be-my-city-184628150.html",
-      "url": "https://sports.yahoo.com/nba/breaking-news/article/giannis-antetokounmpo-releases-tribute-video-to-milwaukee-as-trade-to-miami-becomes-official-milwaukee-will-always-be-my-city-184628150.html",
-      "pubDate": "2026-07-06T18:46:28.000Z",
-      "publishedAt": "2026-07-06T18:46:28.000Z",
-      "summary": "Antetokounmpo's message is heartfelt. Whether or not Bucks fans are ready to hear it is another story.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Giannis Antetokounmpo 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
-      "oneLineZh": "Giannis Antetokounmpo 交易影响继续发酵",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/ZsB5K47mHn2.QrVWIaaBuQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-06/90db06fb-f588-43c3-b7c3-c60afcb8dfa4",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 4,
-      "eventKey": "trade:giannis-antetokounmpo",
-      "relatedItems": [],
-      "displayTitle": "Giannis Antetokounmpo 交易影响继续发酵",
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286581/DeMar-DeRozan-Set-For-Free-Agency-After-Being-Waived-By-Kings",
       "title": "DeMar DeRozan Set For Free Agency After Being Waived By Kings",
       "originalTitle": "DeMar DeRozan Set For Free Agency After Being Waived By Kings",
@@ -1331,58 +1533,6 @@
       "eventKey": "trade:demar-derozan-set:lakers",
       "relatedItems": [],
       "displayTitle": "DeMar DeRozan Set For Free Agency After Being Waived By Kings",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/former-college-basketball-player-kerr-183010292.html",
-      "title": "Former college basketball player Kerr Kriisa indicted on wire fraud allegations from FBI",
-      "originalTitle": "Former college basketball player Kerr Kriisa indicted on wire fraud allegations from FBI",
-      "headlineZh": "Kerr Kriisa 相关消息更新",
-      "titleZh": "Kerr Kriisa 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/former-college-basketball-player-kerr-183010292.html",
-      "url": "https://sports.yahoo.com/articles/former-college-basketball-player-kerr-183010292.html",
-      "pubDate": "2026-07-06T18:30:10.000Z",
-      "publishedAt": "2026-07-06T18:30:10.000Z",
-      "summary": "Kerr Kriisa, who played six years of college basketball for four different schools, is being accused of defrauding multiple people.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Kerr Kriisa 的最新动态和后续影响。",
-      "oneLineZh": "Kerr Kriisa 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/1YxH5bVIP1Zc3YqnPbsLqA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/376051ba8b1d83e48dfe4fecf40632bc",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Former college basketball player Kerr Kriisa indicted on wire fraud allegations from FBI",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/ben-humrichous-shows-nets-first-181455453.html",
-      "title": "Ben Humrichous shows out in Nets’ first two Summer League games",
-      "originalTitle": "Ben Humrichous shows out in Nets’ first two Summer League games",
-      "headlineZh": "Ben Humrichous 相关消息更新",
-      "titleZh": "Ben Humrichous 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/ben-humrichous-shows-nets-first-181455453.html",
-      "url": "https://sports.yahoo.com/articles/ben-humrichous-shows-nets-first-181455453.html",
-      "pubDate": "2026-07-06T18:14:55.000Z",
-      "publishedAt": "2026-07-06T18:14:55.000Z",
-      "summary": "The Nets might have found their Summer League gem.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Ben Humrichous 的最新动态和后续影响。",
-      "oneLineZh": "Ben Humrichous 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/_EK02K.p3OYapgSvUDX9ww--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/bbd536f246846468c5adc097f0530db7",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "eventKey": "injury:ben-humrichous:nets",
-      "relatedItems": [],
-      "displayTitle": "Ben Humrichous shows out in Nets’ first two Summer League games",
       "isMerged": false
     },
     {
@@ -1410,57 +1560,6 @@
       "relatedItems": [],
       "displayTitle": "Kam Jones，雄鹿签下双向",
       "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286575/LeBron-James-Free-Agency-Suitors-Havent-Heard-Anything",
-      "title": "LeBron James' Free Agency Suitors Haven't Heard Anything",
-      "originalTitle": "LeBron James' Free Agency Suitors Haven't Heard Anything",
-      "headlineZh": "LeBron James' Free 签约动向更新",
-      "titleZh": "LeBron James' Free 签约动向更新",
-      "link": "https://basketball.realgm.com/wiretap/286575/LeBron-James-Free-Agency-Suitors-Havent-Heard-Anything",
-      "url": "https://basketball.realgm.com/wiretap/286575/LeBron-James-Free-Agency-Suitors-Havent-Heard-Anything",
-      "pubDate": "2026-07-06T16:05:59.000Z",
-      "publishedAt": "2026-07-06T16:05:59.000Z",
-      "summary": "LeBron James is nearly a week into his free agency and there have been little tangible indictors with where he is at regards to his decision. When the decision by James to leave the Los Angeles Lakers was revealed, he was most closely tied to the Cleveland Cavaliers, Golden State Warriors and Miami Heat. The list has now expanded to include the Denver Nuggets, Philadelphia 76ers and Minnesota Timberwolves. The teams involved in the pursuit of James are believed to know no additional details from James and Rich Paul than what has been released publicly. James followed a similar pattern during his free agencies in 2010, 2014 and 2018 where he kept his decision-making private until he notified his next team that he would sign. \"But the last I heard, the teams had not heard anything,\" said ESPN's Brian Windhorst on the Hoop Collective. \"The teams were interested in LeBron-like, they had, they had made contact and whatever-and they hadn't heard anything. And they're like, 'Well, we don't know what to make of it.' And this is what happened with the previous LeBron free agency when he switched teams. \"They didn't know. LeBron called in and was basically like, 'Yep, I'm coming.' And they're like, 'Oh, okay.' Like, it wasn't like-maybe they, maybe they felt good. Like they said, 'Oh, I think the vibe is good.' But like, the Heat didn't know he was coming. The Cavs didn't know he was coming back.\"",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，LeBron James' Free 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "LeBron James' Free 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_240531.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james:cavaliers",
-      "relatedItems": [
-        {
-          "title": "Cavaliers, Warriors, Sixers, Heat, Wolves, Nuggets All Believe They Can Sign LeBron James",
-          "originalTitle": "Cavaliers, Warriors, Sixers, Heat, Wolves, Nuggets All Believe They Can Sign LeBron James",
-          "source": "RealGM",
-          "url": "https://basketball.realgm.com/wiretap/286568/Cavaliers-Warriors-Sixers-Heat-Wolves-Nuggets-All-Believe-They-Can-Sign-LeBron-James",
-          "publishedAt": "2026-07-06T12:59:42.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "RealGM"
-      ],
-      "originalTitles": [
-        "Cavaliers, Warriors, Sixers, Heat, Wolves, Nuggets All Believe They Can Sign LeBron James"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286575/LeBron-James-Free-Agency-Suitors-Havent-Heard-Anything"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286568/Cavaliers-Warriors-Sixers-Heat-Wolves-Nuggets-All-Believe-They-Can-Sign-LeBron-James"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "LeBron James' Free Agency Suitors Haven't Heard Anything"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286574/Scout-Darryn-Peterson-Will-Become-Top-10-Player-In-NBA-Within-Two-Years",
@@ -1564,32 +1663,6 @@
       "eventKey": "injury:mario-hezonja-making",
       "relatedItems": [],
       "displayTitle": "Mario Hezonja Making Aggressive Push To Return To NBA",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286567/Lakers-AK-Okereke-Agree-To-Two-Way-Contract",
-      "title": "Lakers, AK Okereke Agree To Two-Way Contract",
-      "originalTitle": "Lakers, AK Okereke Agree To Two-Way Contract",
-      "headlineZh": "签约动态：湖人，AK Okereke 达成 双向 合同",
-      "titleZh": "签约动态：湖人，AK Okereke 达成 双向 合同",
-      "link": "https://basketball.realgm.com/wiretap/286567/Lakers-AK-Okereke-Agree-To-Two-Way-Contract",
-      "url": "https://basketball.realgm.com/wiretap/286567/Lakers-AK-Okereke-Agree-To-Two-Way-Contract",
-      "pubDate": "2026-07-06T05:35:46.000Z",
-      "publishedAt": "2026-07-06T05:35:46.000Z",
-      "summary": "The Los Angeles Lakers signed AK Okereke to a two-way deal on Sunday. Okereke went undrafted out of Vanderbilt, where he averaged 9.6 points and 3.6 rebounds last season. The Lakers now have all three two-way spots filled, with Okereke joining Chris Manon and Peter Suder .",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，签约动态：湖人，AK Okereke 达成 双向 合同，原文关注 AK Okereke Agree 的合同或自由市场动向。",
-      "oneLineZh": "签约动态：湖人，AK Okereke 达成 双向 合同",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_losangeleslakers.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 4,
-      "eventKey": "sign:ak-okereke-agree:lakers",
-      "relatedItems": [],
-      "displayTitle": "签约动态：湖人，AK Okereke 达成 双向 合同",
       "isMerged": false
     },
     {
@@ -1852,84 +1925,6 @@
       "eventKey": "sign:keyonte-george-to:jazz",
       "relatedItems": [],
       "displayTitle": "Keyonte George To Join Jazz Coaching Staff In Summer League",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286551/Garrett-Temple-Joins-Mavs-Coaching-Staff",
-      "title": "Garrett Temple Joins Mavs Coaching Staff",
-      "originalTitle": "Garrett Temple Joins Mavs Coaching Staff",
-      "headlineZh": "Garrett Temple Joins 相关消息更新",
-      "titleZh": "Garrett Temple Joins 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286551/Garrett-Temple-Joins-Mavs-Coaching-Staff",
-      "url": "https://basketball.realgm.com/wiretap/286551/Garrett-Temple-Joins-Mavs-Coaching-Staff",
-      "pubDate": "2026-07-04T18:29:14.000Z",
-      "publishedAt": "2026-07-04T18:29:14.000Z",
-      "summary": "Garrett Temple accepted an offer to join Dusty May's coaching staff with the Dallas Mavericks as an assistant, according to Marc Stein of The Stein Line. Temple appeared in 22 games for the Raptors last season. Temple joins Willie Green as an assistant on May's staff.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，原文聚焦 Garrett Temple Joins 的最新动态和后续影响。",
-      "oneLineZh": "Garrett Temple Joins 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_dallasmavericks.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Garrett Temple Joins Mavs Coaching Staff",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286549/Bucks-Kam-Jones-Agree-To-Two-Way-Deal",
-      "title": "Bucks, Kam Jones Agree To Two-Way Deal",
-      "originalTitle": "Bucks, Kam Jones Agree To Two-Way Deal",
-      "headlineZh": "雄鹿与 Kam Jones 达成双向合同",
-      "titleZh": "雄鹿与 Kam Jones 达成双向合同",
-      "link": "https://basketball.realgm.com/wiretap/286549/Bucks-Kam-Jones-Agree-To-Two-Way-Deal",
-      "url": "https://basketball.realgm.com/wiretap/286549/Bucks-Kam-Jones-Agree-To-Two-Way-Deal",
-      "pubDate": "2026-07-04T15:57:44.000Z",
-      "publishedAt": "2026-07-04T15:57:44.000Z",
-      "summary": "The Milwaukee Bucks signed Kam Jones to a two-way deal, sources told Shams Charania of ESPN. Jones averaged 4.4 points and 3.2 assists for the Pacers last season.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，雄鹿与 Kam Jones 达成双向合同，原文关注 Kam Jones Agree 的合同或自由市场动向。",
-      "oneLineZh": "雄鹿与 Kam Jones 达成双向合同",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_milwaukeebucks.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 3,
-      "eventKey": "sign:kam-jones-agree:pacers",
-      "relatedItems": [],
-      "displayTitle": "雄鹿与 Kam Jones 达成双向合同",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286548/Timberwolves-Increase-Efforts-To-Sign-LeBron-James",
-      "title": "Timberwolves Increase Efforts To Sign LeBron James",
-      "originalTitle": "Timberwolves Increase Efforts To Sign LeBron James",
-      "headlineZh": "森林狼 Increase Efforts 签约动向更新",
-      "titleZh": "森林狼 Increase Efforts 签约动向更新",
-      "link": "https://basketball.realgm.com/wiretap/286548/Timberwolves-Increase-Efforts-To-Sign-LeBron-James",
-      "url": "https://basketball.realgm.com/wiretap/286548/Timberwolves-Increase-Efforts-To-Sign-LeBron-James",
-      "pubDate": "2026-07-04T05:58:16.000Z",
-      "publishedAt": "2026-07-04T05:58:16.000Z",
-      "summary": "The Minnesota Timberwolves have \"ramped up\" their efforts to sign LeBron James, sources told Jon Krawczynski of The Athletic. The Wolves believe that they are in the running to land James, and are also the best situation for the 41-year-old. The Wolves are pitching James on the idea of teaming up with Anthony Edwards, LaMelo Ball, Jaden McDaniels and Rudy Gobert to help win Minnesota's first men's professional sports title since the Twins in 1991. The team is arguing that James winning a title with the Wolves, who have never won a championship, would solidify him as the greatest player of all time. Rich Paul mentioned the Wolves as a possible landing spot for James on his \"Game Over\" podcast.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，森林狼 Increase Efforts 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "森林狼 Increase Efforts 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_260502.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james:41",
-      "relatedItems": [],
-      "displayTitle": "Timberwolves Increase Efforts To Sign LeBron James",
       "isMerged": false
     }
   ]
