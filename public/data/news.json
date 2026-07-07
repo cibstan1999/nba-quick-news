@@ -9,11 +9,11 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-07T07:44:05.201Z",
+  "updatedAt": "2026-07-07T11:12:55.898Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-07T07:44:05.201Z",
-    "updatedAt": "2026-07-07T07:44:05.201Z",
+    "checkedAt": "2026-07-07T11:12:55.898Z",
+    "updatedAt": "2026-07-07T11:12:55.898Z",
     "fetchedItems": 76,
     "mergedItems": 66,
     "failedFeeds": [],
@@ -57,6 +57,58 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/meleek-thomas-grow-exactly-cavs-100000344.html",
+      "title": "Meleek Thomas should grow into exactly what the Cavs need",
+      "originalTitle": "Meleek Thomas should grow into exactly what the Cavs need",
+      "headlineZh": "Meleek Thomas 相关消息更新",
+      "titleZh": "Meleek Thomas 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/meleek-thomas-grow-exactly-cavs-100000344.html",
+      "url": "https://sports.yahoo.com/articles/meleek-thomas-grow-exactly-cavs-100000344.html",
+      "pubDate": "2026-07-07T10:00:00.000Z",
+      "publishedAt": "2026-07-07T10:00:00.000Z",
+      "summary": "Thomas should fill the void Ty Jerome left behind.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Meleek Thomas 的最新动态和后续影响。",
+      "oneLineZh": "Meleek Thomas 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/toWGdFkiXDtLXr2uqZZrZw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/21c970712b90982090f3a4f528f71b87",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Meleek Thomas should grow into exactly what the Cavs need",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/may-just-summer-league-darryn-075640550.html",
+      "title": "It may be just Summer League, but Darryn Peterson looks special",
+      "originalTitle": "It may be just Summer League, but Darryn Peterson looks special",
+      "headlineZh": "Summer League 相关消息更新",
+      "titleZh": "Summer League 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/may-just-summer-league-darryn-075640550.html",
+      "url": "https://sports.yahoo.com/articles/may-just-summer-league-darryn-075640550.html",
+      "pubDate": "2026-07-07T07:56:40.000Z",
+      "publishedAt": "2026-07-07T07:56:40.000Z",
+      "summary": "It's risky to read too much into Summer League games, but Peterson looks like what the Jazz need.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Summer League 的最新动态和后续影响。",
+      "oneLineZh": "Summer League 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/C20orNVpNE0581Y2eE6lCA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/11568f08c5f328ce6c6cf8e30b7b1e1c",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "It may be just Summer League, but Darryn Peterson looks special",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://basketball.realgm.com/wiretap/286589/LeBron-James-Only-Considering-A-Handful-Of-Teams-Not-In-Any-Rush-To-Make-Decision",
       "title": "LeBron James Only Considering A 'Handful' Of Teams, Not In Any Rush To Make Decision",
@@ -266,6 +318,32 @@
       "displayTitle": "Darryn Peterson, Cam Boozer deliver in head-to-head NBA Summer League game",
       "eventKey": "",
       "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/nikola-jokic-sets-record-straight-033552596.html",
+      "title": "Nikola Jokic sets record straight on Nuggets contract rumors",
+      "originalTitle": "Nikola Jokic sets record straight on Nuggets contract rumors",
+      "headlineZh": "Nikola Jokic 签约动向更新",
+      "titleZh": "Nikola Jokic 签约动向更新",
+      "link": "https://sports.yahoo.com/articles/nikola-jokic-sets-record-straight-033552596.html",
+      "url": "https://sports.yahoo.com/articles/nikola-jokic-sets-record-straight-033552596.html",
+      "pubDate": "2026-07-07T03:35:52.000Z",
+      "publishedAt": "2026-07-07T03:35:52.000Z",
+      "summary": "Don’t worry Nuggets fans, Nikola Jokic isn't saying goodbye anytime soon.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Nikola Jokic 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Nikola Jokic 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/AF1rohhXh0e7d4zpcHRnzg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/c90652dd5047bffbcd7db47953ecf6d2",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:nikola-jokic",
+      "relatedItems": [],
+      "displayTitle": "Nikola Jokic sets record straight on Nuggets contract rumors",
       "isMerged": false
     },
     {
@@ -777,6 +855,14 @@
       "eventKey": "trade:jaylen-brown:celtics:76ers",
       "relatedItems": [
         {
+          "title": "By trading Jaylen Brown, the Celtics are making big bets",
+          "originalTitle": "By trading Jaylen Brown, the Celtics are making big bets",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/trading-jaylen-brown-celtics-making-085400827.html",
+          "publishedAt": "2026-07-07T08:54:00.000Z",
+          "angle": "source"
+        },
+        {
           "title": "Brad Stevens admits salary cap reason behind Celtics’ shocking Jaylen Brown trade",
           "originalTitle": "Brad Stevens admits salary cap reason behind Celtics’ shocking Jaylen Brown trade",
           "source": "Yahoo Sports",
@@ -808,6 +894,7 @@
       "originalTitles": [
         "Brad Stevens Explains Reasoning Behind Celtics' Jaylen Brown Trade",
         "Celtics Initial High Asking Price Scared Off Teams Interested In Trading For Jaylen Brown",
+        "By trading Jaylen Brown, the Celtics are making big bets",
         "Brad Stevens admits salary cap reason behind Celtics’ shocking Jaylen Brown trade",
         "Celtics president Brad Stevens on if Jaylen Brown trade will make team better next year: 'We'll find out'"
       ],
@@ -823,6 +910,10 @@
         {
           "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286580/Celtics-Initial-High-Asking-Price-Scared-Off-Teams-Interested-In-Trading-For-Jaylen-Brown"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/trading-jaylen-brown-celtics-making-085400827.html"
         },
         {
           "source": "Yahoo Sports",
@@ -1323,110 +1414,6 @@
       "eventKey": "trade:nikola-jokic-to",
       "relatedItems": [],
       "displayTitle": "Nikola Jokic To Wait Until 2027 Offseason To 签下 New",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/nick-boyd-fared-first-summer-203231187.html",
-      "title": "How has Nick Boyd fared in first summer league games with the Warriors?",
-      "originalTitle": "How has Nick Boyd fared in first summer league games with the Warriors?",
-      "headlineZh": "Nick Boyd 相关消息更新",
-      "titleZh": "Nick Boyd 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/nick-boyd-fared-first-summer-203231187.html",
-      "url": "https://sports.yahoo.com/articles/nick-boyd-fared-first-summer-203231187.html",
-      "pubDate": "2026-07-06T20:32:31.000Z",
-      "publishedAt": "2026-07-06T20:32:31.000Z",
-      "summary": "The former Badgers point guard has played in a pair of summer league games so far.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Nick Boyd 的最新动态和后续影响。",
-      "oneLineZh": "Nick Boyd 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/9zKeiM4tpStX5bojSF39Vg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/1402bc7cbd160661da1c055942fbac17",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "How has Nick Boyd fared in first summer league games with the Warriors?",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/kings-reportedly-waive-demar-derozan-201336009.html",
-      "title": "Kings reportedly to waive DeMar DeRozan, making him free agent",
-      "originalTitle": "Kings reportedly to waive DeMar DeRozan, making him free agent",
-      "headlineZh": "DeMar DeRozan 相关消息更新",
-      "titleZh": "DeMar DeRozan 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/kings-reportedly-waive-demar-derozan-201336009.html",
-      "url": "https://sports.yahoo.com/articles/kings-reportedly-waive-demar-derozan-201336009.html",
-      "pubDate": "2026-07-06T20:13:36.000Z",
-      "publishedAt": "2026-07-06T20:13:36.000Z",
-      "summary": "DeRozan wanted to get out of Sacramento and the Kings will save enough money to get below the tax line.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 DeMar DeRozan 的最新动态和后续影响。",
-      "oneLineZh": "DeMar DeRozan 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/sj2rRipwfhhchPcdVhwRIQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/b409f9e8549d14f9d73e85696dea865e",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:demar-derozan",
-      "relatedItems": [
-        {
-          "title": "DeMar DeRozan becomes free agent after Kings cut him",
-          "originalTitle": "DeMar DeRozan becomes free agent after Kings cut him",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/demar-derozan-becomes-free-agent-202002232.html",
-          "publishedAt": "2026-07-06T20:20:02.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "DeMar DeRozan becomes free agent after Kings cut him",
-        "Kings reportedly to waive DeMar DeRozan, making him free agent"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/demar-derozan-becomes-free-agent-202002232.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/kings-reportedly-waive-demar-derozan-201336009.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "Kings reportedly to waive DeMar DeRozan, making him free agent"
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/boston-celtics-daily-links-7-195634934.html",
-      "title": "Boston Celtics Daily Links 7/6/26",
-      "originalTitle": "Boston Celtics Daily Links 7/6/26",
-      "headlineZh": "NBA 动态：凯尔特人 Daily Links 7/6/26",
-      "titleZh": "NBA 动态：凯尔特人 Daily Links 7/6/26",
-      "link": "https://sports.yahoo.com/articles/boston-celtics-daily-links-7-195634934.html",
-      "url": "https://sports.yahoo.com/articles/boston-celtics-daily-links-7-195634934.html",
-      "pubDate": "2026-07-06T19:56:34.000Z",
-      "publishedAt": "2026-07-06T19:56:34.000Z",
-      "summary": "All the Celtics news you need in one convenient place.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，NBA 动态：凯尔特人 Daily Links 7/6/26，原文提到 All 凯尔特人 news you need 在 one convenient place。",
-      "oneLineZh": "NBA 动态：凯尔特人 Daily Links 7/6/26",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/3uPUBrM61857ZWlyazUNYg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/119512c3ae1892bdfe49f443dce06954",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "NBA 动态：凯尔特人 Daily Links 7/6/26",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
