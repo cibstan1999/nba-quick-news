@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-07T11:12:55.898Z",
+  "updatedAt": "2026-07-07T13:36:14.193Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-07T11:12:55.898Z",
-    "updatedAt": "2026-07-07T11:12:55.898Z",
-    "fetchedItems": 76,
-    "mergedItems": 66,
+    "checkedAt": "2026-07-07T13:36:14.193Z",
+    "updatedAt": "2026-07-07T13:36:14.193Z",
+    "fetchedItems": 77,
+    "mergedItems": 69,
     "failedFeeds": [],
-    "message": "Fetched 76 usable RSS items from all feeds."
+    "message": "Fetched 77 usable RSS items from all feeds."
   },
   "highlights": [
     {
@@ -28,18 +28,18 @@
       "link": "https://basketball.realgm.com/wiretap/286586/Brad-Stevens-Explains-Reasoning-Behind-Celtics-Jaylen-Brown-Trade"
     },
     {
+      "id": "https://sports.yahoo.com/nba/breaking-news/article/donovan-mitchell-reportedly-agrees-to-4-year-273-million-maximum-contract-extension-to-stay-with-cavaliers-130829299.html",
+      "text": "Cavaliers 与骑士达成 4 年 27300 万美元合同",
+      "category": "签约",
+      "source": "Yahoo Sports / RealGM",
+      "link": "https://sports.yahoo.com/nba/breaking-news/article/donovan-mitchell-reportedly-agrees-to-4-year-273-million-maximum-contract-extension-to-stay-with-cavaliers-130829299.html"
+    },
+    {
       "id": "https://sports.yahoo.com/articles/lakers-unlikely-sign-demar-derozan-021307932.html",
       "text": "湖人，AK Okereke 达成 双向 合同",
       "category": "签约",
       "source": "Yahoo Sports / RealGM",
       "link": "https://sports.yahoo.com/articles/lakers-unlikely-sign-demar-derozan-021307932.html"
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/kawhi-leonard-reportedly-hires-agent-212247259.html",
-      "text": "猛龙与 Jaden Bradley 达成双向合同",
-      "category": "签约",
-      "source": "Yahoo Sports / RealGM",
-      "link": "https://sports.yahoo.com/articles/kawhi-leonard-reportedly-hires-agent-212247259.html"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286573/Rui-Hachimura-Clippers-Agree-To-Two-Year-$28M-Deal",
@@ -49,14 +49,239 @@
       "link": "https://basketball.realgm.com/wiretap/286573/Rui-Hachimura-Clippers-Agree-To-Two-Year-$28M-Deal"
     },
     {
-      "id": "https://basketball.realgm.com/wiretap/286565/Nuggets-To-Match-Any-Peyton-Watson-Offer-Sheet-Open-To-Sign-And-Trade",
-      "text": "掘金 To Match 交易影响继续发酵",
-      "category": "交易",
+      "id": "https://basketball.realgm.com/wiretap/286569/Kawhi-Leonard-Hires-Harrison-Gaines-As-New-Agent-Ahead-Of-Extension-Talks-With-Raptors",
+      "text": "猛龙与 Jaden Bradley 达成双向合同",
+      "category": "签约",
       "source": "RealGM",
-      "link": "https://basketball.realgm.com/wiretap/286565/Nuggets-To-Match-Any-Peyton-Watson-Offer-Sheet-Open-To-Sign-And-Trade"
+      "link": "https://basketball.realgm.com/wiretap/286569/Kawhi-Leonard-Hires-Harrison-Gaines-As-New-Agent-Ahead-Of-Extension-Talks-With-Raptors"
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/nba/breaking-news/article/donovan-mitchell-reportedly-agrees-to-4-year-273-million-maximum-contract-extension-to-stay-with-cavaliers-130829299.html",
+      "title": "Donovan Mitchell reportedly agrees to 4-year, $273 million maximum contract extension to stay with Cavaliers",
+      "originalTitle": "Donovan Mitchell reportedly agrees to 4-year, $273 million maximum contract extension to stay with Cavaliers",
+      "headlineZh": "Cavaliers 与骑士达成 4 年 27300 万美元合同",
+      "titleZh": "Cavaliers 与骑士达成 4 年 27300 万美元合同",
+      "link": "https://sports.yahoo.com/nba/breaking-news/article/donovan-mitchell-reportedly-agrees-to-4-year-273-million-maximum-contract-extension-to-stay-with-cavaliers-130829299.html",
+      "url": "https://sports.yahoo.com/nba/breaking-news/article/donovan-mitchell-reportedly-agrees-to-4-year-273-million-maximum-contract-extension-to-stay-with-cavaliers-130829299.html",
+      "pubDate": "2026-07-07T13:08:29.000Z",
+      "publishedAt": "2026-07-07T13:08:29.000Z",
+      "summary": "Donovan Mitchell made the All-Star team in each of his four seasons with the Cavaliers.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports / RealGM 报道，Cavaliers 与骑士达成 4 年 27300 万美元合同，原文关注 Donovan Mitchell 的合同或自由市场动向。",
+      "oneLineZh": "Cavaliers 与骑士达成 4 年 27300 万美元合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/6nl4Z5sSO_tzmF.rLY1aZQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-05/185f1578-f53a-4b45-866f-ed0d3aa33839",
+      "source": "Yahoo Sports / RealGM",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 5,
+      "sources": [
+        "Yahoo Sports",
+        "RealGM"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/nba/breaking-news/article/donovan-mitchell-reportedly-agrees-to-4-year-273-million-maximum-contract-extension-to-stay-with-cavaliers-130829299.html"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286568/Cavaliers-Warriors-Sixers-Heat-Wolves-Nuggets-All-Believe-They-Can-Sign-LeBron-James"
+        }
+      ],
+      "originalTitles": [
+        "Donovan Mitchell reportedly agrees to 4-year, $273 million maximum contract extension to stay with Cavaliers"
+      ],
+      "isMerged": false,
+      "eventKey": "sign:donovan-mitchell:cavaliers:4:27300",
+      "relatedItems": [],
+      "displayTitle": "Cavaliers 与骑士达成 4 年 27300 万美元合同"
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286591/Donovan-Mitchell-Cavaliers-Agree-To-Four-Year-$273M-Extension",
+      "title": "Donovan Mitchell, Cavaliers Agree To Four-Year, $273M Extension",
+      "originalTitle": "Donovan Mitchell, Cavaliers Agree To Four-Year, $273M Extension",
+      "headlineZh": "签约动态：Donovan Mitchell，骑士 达成 四年，27300 万美元 Extension",
+      "titleZh": "签约动态：Donovan Mitchell，骑士 达成 四年，27300 万美元 Extension",
+      "link": "https://basketball.realgm.com/wiretap/286591/Donovan-Mitchell-Cavaliers-Agree-To-Four-Year-$273M-Extension",
+      "url": "https://basketball.realgm.com/wiretap/286591/Donovan-Mitchell-Cavaliers-Agree-To-Four-Year-$273M-Extension",
+      "pubDate": "2026-07-07T13:07:27.000Z",
+      "publishedAt": "2026-07-07T13:07:27.000Z",
+      "summary": "The Cleveland Cavaliers and guard Donovan Mitchell have agreed to a four-year, $273 million veteran extension. Mitchell's new deal will run through the 2030-31 season. The final season of the deal includes a player option for Mitchell. The Cavs got Mitchell to extend a year earlier than he could have. The superstar guard could have opted out for the 2027-28 season and signed a five-year contract with Cleveland, but chose to lock up a new deal now. Mitchell has reportedly been working with Cavaliers GM Koby Altman this summer by giving input on roster moves. This is now Mitchell's second extension that he's signed with Cleveland since the team acquired him in 2022.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，签约动态：Donovan Mitchell，骑士 达成 四年，27300 万美元 Extension，原文关注 Donovan Mitchell 的合同或自由市场动向。",
+      "oneLineZh": "签约动态：Donovan Mitchell，骑士 达成 四年，27300 万美元 Extension",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Mitchell_Donovan_cle_260501.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 4,
+      "eventKey": "trade:donovan-mitchell:cavaliers",
+      "relatedItems": [],
+      "displayTitle": "签约动态：Donovan Mitchell，骑士 达成 四年，27300 万美元 Extension",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/nba/breaking-news/article/kyle-lowry-to-sign-1-day-contract-and-retire-as-a-raptor-after-20-nba-seasons-130440078.html",
+      "title": "Kyle Lowry to sign 1-day contract and retire as a Raptor after 20 NBA seasons",
+      "originalTitle": "Kyle Lowry to sign 1-day contract and retire as a Raptor after 20 NBA seasons",
+      "headlineZh": "Kyle Lowry 签约动向更新",
+      "titleZh": "Kyle Lowry 签约动向更新",
+      "link": "https://sports.yahoo.com/nba/breaking-news/article/kyle-lowry-to-sign-1-day-contract-and-retire-as-a-raptor-after-20-nba-seasons-130440078.html",
+      "url": "https://sports.yahoo.com/nba/breaking-news/article/kyle-lowry-to-sign-1-day-contract-and-retire-as-a-raptor-after-20-nba-seasons-130440078.html",
+      "pubDate": "2026-07-07T13:04:40.000Z",
+      "publishedAt": "2026-07-07T13:04:40.000Z",
+      "summary": "Lowry helped the Raptors win their first NBA title in 2018-19.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Kyle Lowry 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Kyle Lowry 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/2TDQm7T8O02w2kUnvZHtig--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03NTI7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/9366cb7c-27bb-435f-b0dc-f7e5d58ff5dd",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:kyle-lowry",
+      "relatedItems": [],
+      "displayTitle": "Kyle Lowry to sign 1-day contract and retire as a Raptor after 20 NBA seasons",
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286590/Dorian-Finney-Smith-Unlikely-To-Play-For-Hornets",
+      "title": "Dorian Finney-Smith Unlikely To Play For Hornets",
+      "originalTitle": "Dorian Finney-Smith Unlikely To Play For Hornets",
+      "headlineZh": "Dorian Finney-Smith Unlikely 相关消息更新",
+      "titleZh": "Dorian Finney-Smith Unlikely 相关消息更新",
+      "link": "https://basketball.realgm.com/wiretap/286590/Dorian-Finney-Smith-Unlikely-To-Play-For-Hornets",
+      "url": "https://basketball.realgm.com/wiretap/286590/Dorian-Finney-Smith-Unlikely-To-Play-For-Hornets",
+      "pubDate": "2026-07-07T12:23:15.000Z",
+      "publishedAt": "2026-07-07T12:23:15.000Z",
+      "summary": "The Charlotte Hornets officially completed their transaction to acquire Dorian Finney-Smith. The Hornets acquired Finney-Smith and three second-round picks from the Houston Rockets. Charlotte used the bulk of their Non-Taxpayer MLE to bring Finney-Smith in via trade. Despite them using a valuable exception to acquire Finney-Smith, the veteran forward is unlikely to play for the Hornets. Charlotte gave up the Non-Taxpayer MLE to acquire the three second-round picks. Those picks now add to a massive stash of draft capital that Hornets GM Jeff Peterson is building.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，原文聚焦 Dorian Finney-Smith Unlikely 的最新动态和后续影响。",
+      "oneLineZh": "Dorian Finney-Smith Unlikely 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Finneysmith_Dorian_hou_260405.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "交易",
+      "importance": 2,
+      "eventKey": "trade:dorian-finney-smith-unlikely",
+      "relatedItems": [],
+      "displayTitle": "Dorian Finney-Smith Unlikely To Play For Hornets",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/monday-night-summer-league-news-113000148.html",
+      "title": "Monday Night’s Summer League News",
+      "originalTitle": "Monday Night’s Summer League News",
+      "headlineZh": "周一 Night 相关消息更新",
+      "titleZh": "周一 Night 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/monday-night-summer-league-news-113000148.html",
+      "url": "https://sports.yahoo.com/articles/monday-night-summer-league-news-113000148.html",
+      "pubDate": "2026-07-07T11:30:00.000Z",
+      "publishedAt": "2026-07-07T11:30:00.000Z",
+      "summary": "As Cameron Boozer continues to impress.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦周一 Night 的最新动态和后续影响。",
+      "oneLineZh": "周一 Night 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/sUiBfmeGKLJ9KXl.4W6D_A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTI7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/f6c5884f21391c6fdd80e9f41027c1b2",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Monday Night’s Summer League News",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/open-thread-jesse-eisenberg-says-110000195.html",
+      "title": "Open Thread: Jesse Eisenberg says playing Gregg Popovich is his dream role",
+      "originalTitle": "Open Thread: Jesse Eisenberg says playing Gregg Popovich is his dream role",
+      "headlineZh": "Open Thread 相关消息更新",
+      "titleZh": "Open Thread 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/open-thread-jesse-eisenberg-says-110000195.html",
+      "url": "https://sports.yahoo.com/articles/open-thread-jesse-eisenberg-says-110000195.html",
+      "pubDate": "2026-07-07T11:00:00.000Z",
+      "publishedAt": "2026-07-07T11:00:00.000Z",
+      "summary": "Zuckerburg? Sure. Popovich? No way.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Open Thread 的最新动态和后续影响。",
+      "oneLineZh": "Open Thread 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Ou476F._MjusuUAWFRUojA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTk7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/eb24c0dc1209127167308bf8a2402dd3",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Open Thread: Jesse Eisenberg says playing Gregg Popovich is his dream role",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/tuesday-posted-toasted-notes-mo-103000489.html",
+      "title": "Tuesday Posted & Toasted Notes: Mo’s turn, Andre vs. Mitch, veterans on parade",
+      "originalTitle": "Tuesday Posted & Toasted Notes: Mo’s turn, Andre vs. Mitch, veterans on parade",
+      "headlineZh": "周二 Posted 相关消息更新",
+      "titleZh": "周二 Posted 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/tuesday-posted-toasted-notes-mo-103000489.html",
+      "url": "https://sports.yahoo.com/articles/tuesday-posted-toasted-notes-mo-103000489.html",
+      "pubDate": "2026-07-07T10:30:00.000Z",
+      "publishedAt": "2026-07-07T10:30:00.000Z",
+      "summary": "Shouts out to the World Cup organizers for placing Spain’s games all at 9 p.m. in my time zone, which is definitely better than having to wake up at 2:30 a.m. to watch the Knicks play. On to your daily links and notes. “Drummond, on the other hand, is a much more one-dimensional defender. He […]",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦周二 Posted 的最新动态和后续影响。",
+      "oneLineZh": "周二 Posted 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/7YHMf7_3uuCiWQ8u0.3E1Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xODAwO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/2cb9c15e97b16bb940a3b34aa3c6c531",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Tuesday Posted & Toasted Notes: Mo’s turn, Andre vs. Mitch, veterans on parade",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/breakdown-celtics-roster-going-next-100100606.html",
+      "title": "A breakdown of the Celtics roster going into next season",
+      "originalTitle": "A breakdown of the Celtics roster going into next season",
+      "headlineZh": "凯尔特人休赛期后续动向",
+      "titleZh": "凯尔特人休赛期后续动向",
+      "link": "https://sports.yahoo.com/articles/breakdown-celtics-roster-going-next-100100606.html",
+      "url": "https://sports.yahoo.com/articles/breakdown-celtics-roster-going-next-100100606.html",
+      "pubDate": "2026-07-07T10:01:00.000Z",
+      "publishedAt": "2026-07-07T10:01:00.000Z",
+      "summary": "With Brad Stevens seemingly saying the roster is set in stone, what should we expect?",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "凯尔特人休赛期后续动向",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/TbYV6EKIWh2ljfHLdiBUeg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/f47bff36212a7dfa48c435c3e1f13eee",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "A breakdown of the Celtics roster going into next season",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/meleek-thomas-grow-exactly-cavs-100000344.html",
       "title": "Meleek Thomas should grow into exactly what the Cavs need",
@@ -79,6 +304,32 @@
       "category": "其他",
       "importance": 1,
       "displayTitle": "Meleek Thomas should grow into exactly what the Cavs need",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lowry-announces-hes-retiring-nba-092531069.html",
+      "title": "Lowry announces that he's retiring from the NBA as a Raptor",
+      "originalTitle": "Lowry announces that he's retiring from the NBA as a Raptor",
+      "headlineZh": "NBA 休赛期后续动向",
+      "titleZh": "NBA 休赛期后续动向",
+      "link": "https://sports.yahoo.com/articles/lowry-announces-hes-retiring-nba-092531069.html",
+      "url": "https://sports.yahoo.com/articles/lowry-announces-hes-retiring-nba-092531069.html",
+      "pubDate": "2026-07-07T09:25:31.000Z",
+      "publishedAt": "2026-07-07T09:25:31.000Z",
+      "summary": "Kyle Lowry announced Tuesday morning that he's officially retiring as a Toronto Raptor.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "NBA 休赛期后续动向",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/g0id0mlrDSM7SKdlIK3ocQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/csnphilly.com/b2c107b14800705c75e715bca77f9585",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Lowry announces that he's retiring from the NBA as a Raptor",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -131,21 +382,13 @@
       "category": "签约",
       "importance": 2,
       "eventKey": "sign:lebron-james:cavaliers",
-      "relatedItems": [
-        {
-          "title": "Cavaliers, Warriors, Sixers, Heat, Wolves, Nuggets All Believe They Can Sign LeBron James",
-          "originalTitle": "Cavaliers, Warriors, Sixers, Heat, Wolves, Nuggets All Believe They Can Sign LeBron James",
-          "source": "RealGM",
-          "url": "https://basketball.realgm.com/wiretap/286568/Cavaliers-Warriors-Sixers-Heat-Wolves-Nuggets-All-Believe-They-Can-Sign-LeBron-James",
-          "publishedAt": "2026-07-06T12:59:42.000Z",
-          "angle": "source"
-        }
-      ],
+      "relatedItems": [],
       "sources": [
         "RealGM"
       ],
       "originalTitles": [
-        "Cavaliers, Warriors, Sixers, Heat, Wolves, Nuggets All Believe They Can Sign LeBron James"
+        "LeBron James' Free Agency Suitors Haven't Heard Anything",
+        "LeBron James Only Considering A 'Handful' Of Teams, Not In Any Rush To Make Decision"
       ],
       "sourceLinks": [
         {
@@ -155,13 +398,9 @@
         {
           "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286589/LeBron-James-Only-Considering-A-Handful-Of-Teams-Not-In-Any-Rush-To-Make-Decision"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286568/Cavaliers-Warriors-Sixers-Heat-Wolves-Nuggets-All-Believe-They-Can-Sign-LeBron-James"
         }
       ],
-      "isMerged": true,
+      "isMerged": false,
       "displayTitle": "LeBron James Only Considering A 'Handful' Of Teams, Not In Any Rush To Make Decision"
     },
     {
@@ -871,14 +1110,6 @@
           "angle": "source"
         },
         {
-          "title": "Celtics president Brad Stevens on if Jaylen Brown trade will make team better next year: 'We'll find out'",
-          "originalTitle": "Celtics president Brad Stevens on if Jaylen Brown trade will make team better next year: 'We'll find out'",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/nba/article/celtics-president-brad-stevens-on-if-jaylen-brown-trade-will-make-team-better-next-year-well-find-out-204509407.html",
-          "publishedAt": "2026-07-06T20:45:09.000Z",
-          "angle": "source"
-        },
-        {
           "title": "Celtics Initial High Asking Price Scared Off Teams Interested In Trading For Jaylen Brown",
           "originalTitle": "Celtics Initial High Asking Price Scared Off Teams Interested In Trading For Jaylen Brown",
           "source": "RealGM",
@@ -895,8 +1126,7 @@
         "Brad Stevens Explains Reasoning Behind Celtics' Jaylen Brown Trade",
         "Celtics Initial High Asking Price Scared Off Teams Interested In Trading For Jaylen Brown",
         "By trading Jaylen Brown, the Celtics are making big bets",
-        "Brad Stevens admits salary cap reason behind Celtics’ shocking Jaylen Brown trade",
-        "Celtics president Brad Stevens on if Jaylen Brown trade will make team better next year: 'We'll find out'"
+        "Brad Stevens admits salary cap reason behind Celtics’ shocking Jaylen Brown trade"
       ],
       "sourceLinks": [
         {
@@ -918,10 +1148,6 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/brad-stevens-admits-salary-cap-031639080.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/nba/article/celtics-president-brad-stevens-on-if-jaylen-brown-trade-will-make-team-better-next-year-well-find-out-204509407.html"
         }
       ],
       "isMerged": true,
@@ -1240,157 +1466,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/luka-don-wanted-lakers-sign-215419186.html",
-      "title": "Luka Dončić wanted the Lakers to re-sign Rui Hachimura",
-      "originalTitle": "Luka Dončić wanted the Lakers to re-sign Rui Hachimura",
-      "headlineZh": "Luka Dončić wanted 湖人 to 续约 Rui Hachimura",
-      "titleZh": "Luka Dončić wanted 湖人 to 续约 Rui Hachimura",
-      "link": "https://sports.yahoo.com/articles/luka-don-wanted-lakers-sign-215419186.html",
-      "url": "https://sports.yahoo.com/articles/luka-don-wanted-lakers-sign-215419186.html",
-      "pubDate": "2026-07-06T21:54:19.000Z",
-      "publishedAt": "2026-07-06T21:54:19.000Z",
-      "summary": "While Luka Dončić wanted Rui Hachimura back on the Lakers, the team moved another direction.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Luka Dončić wanted 湖人 to 续约 Rui Hachimura，原文关注 Luka Don 的合同或自由市场动向。",
-      "oneLineZh": "Luka Dončić wanted 湖人 to 续约 Rui Hachimura",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/wNk0iEW7Lq3Q0zi0H91M2Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04NTc7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/5f61ffb4cb83acf964ffc3513e936e64",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 4,
-      "eventKey": "sign:luka-don:lakers",
-      "relatedItems": [],
-      "displayTitle": "Luka Dončić wanted 湖人 to 续约 Rui Hachimura",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/rui-hachimura-sends-message-lakers-212439664.html",
-      "title": "Rui Hachimura sends message to Lakers fans after signing with Clippers",
-      "originalTitle": "Rui Hachimura sends message to Lakers fans after signing with Clippers",
-      "headlineZh": "Rui Hachimura 签约动向更新",
-      "titleZh": "Rui Hachimura 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/rui-hachimura-sends-message-lakers-212439664.html",
-      "url": "https://sports.yahoo.com/articles/rui-hachimura-sends-message-lakers-212439664.html",
-      "pubDate": "2026-07-06T21:24:39.000Z",
-      "publishedAt": "2026-07-06T21:24:39.000Z",
-      "summary": "Rui Hachimura signed a two-year deal with the Los Angeles Clippers. The Los Angeles Lakers lost another free agent Monday when Rui Hachimura signed a two-year, $28 million deal with...",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Rui Hachimura 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Rui Hachimura 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/cCaweR2WsTzoKdFlkYTocw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/b397e2f3ad440e7aed6f686adecd050b",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:rui-hachimura:lakers:2:2800",
-      "relatedItems": [],
-      "displayTitle": "Rui Hachimura sends message to Lakers fans after signing with Clippers",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/warriors-lebron-james-free-agency-212253894.html",
-      "title": "Warriors’ LeBron James free agency hopes take hit with latest update",
-      "originalTitle": "Warriors’ LeBron James free agency hopes take hit with latest update",
-      "headlineZh": "LeBron James 签约动向更新",
-      "titleZh": "LeBron James 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/warriors-lebron-james-free-agency-212253894.html",
-      "url": "https://sports.yahoo.com/articles/warriors-lebron-james-free-agency-212253894.html",
-      "pubDate": "2026-07-06T21:22:53.000Z",
-      "publishedAt": "2026-07-06T21:22:53.000Z",
-      "summary": "Free agency is happening fast.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，LeBron James 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "LeBron James 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/qQd17FS6VmKqsfzf1Rd0SQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/3eed94065abdc9d118dde1dd48f29a38",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james:warriors",
-      "relatedItems": [],
-      "displayTitle": "Warriors’ LeBron James free agency hopes take hit with latest update",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/kawhi-leonard-reportedly-hires-agent-212247259.html",
-      "title": "Kawhi Leonard reportedly hires new agent for extension negotiations with Raptors",
-      "originalTitle": "Kawhi Leonard reportedly hires new agent for extension negotiations with Raptors",
-      "headlineZh": "猛龙与 Jaden Bradley 达成双向合同",
-      "titleZh": "猛龙与 Jaden Bradley 达成双向合同",
-      "link": "https://sports.yahoo.com/articles/kawhi-leonard-reportedly-hires-agent-212247259.html",
-      "url": "https://sports.yahoo.com/articles/kawhi-leonard-reportedly-hires-agent-212247259.html",
-      "pubDate": "2026-07-06T21:22:47.000Z",
-      "publishedAt": "2026-07-06T21:22:47.000Z",
-      "summary": "After his last contract led to allegations the Clippers circumvented the salary cap, Leonard switched agents.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports / RealGM 报道，猛龙与 Jaden Bradley 达成双向合同，原文关注 Kawhi Leonard 的合同或自由市场动向。",
-      "oneLineZh": "猛龙与 Jaden Bradley 达成双向合同",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/4s2gnkApf8kcZuzSaxTRpA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/3dfd42a47737d1fd06c798791fe1146f",
-      "source": "Yahoo Sports / RealGM",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 5,
-      "sources": [
-        "Yahoo Sports",
-        "RealGM"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/kawhi-leonard-reportedly-hires-agent-212247259.html"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286569/Kawhi-Leonard-Hires-Harrison-Gaines-As-New-Agent-Ahead-Of-Extension-Talks-With-Raptors"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286558/Raptors-Jaden-Bradley-Agree-To-Two-Way-Deal"
-        }
-      ],
-      "originalTitles": [
-        "Kawhi Leonard reportedly hires new agent for extension negotiations with Raptors"
-      ],
-      "isMerged": false,
-      "eventKey": "sign:kawhi-leonard",
-      "relatedItems": [],
-      "displayTitle": "猛龙与 Jaden Bradley 达成双向合同"
-    },
-    {
-      "id": "https://www.yahoo.com/entertainment/celebrity/articles/bucks-center-myles-turner-gets-211246198.html",
-      "title": "Bucks center Myles Turner gets engaged to girlfriend at iconic movie locale: ‘Chosen One’",
-      "originalTitle": "Bucks center Myles Turner gets engaged to girlfriend at iconic movie locale: ‘Chosen One’",
-      "headlineZh": "Myles Turner 相关消息更新",
-      "titleZh": "Myles Turner 相关消息更新",
-      "link": "https://www.yahoo.com/entertainment/celebrity/articles/bucks-center-myles-turner-gets-211246198.html",
-      "url": "https://www.yahoo.com/entertainment/celebrity/articles/bucks-center-myles-turner-gets-211246198.html",
-      "pubDate": "2026-07-06T21:12:46.000Z",
-      "publishedAt": "2026-07-06T21:12:46.000Z",
-      "summary": "Congratulations are in order for Bucks center Myles Turner and his girlfriend Aysia Janelle.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Myles Turner 的最新动态和后续影响。",
-      "oneLineZh": "Myles Turner 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/RCSiEIw2YUj8Q2gWruG.NA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/b56d6bfa465a0efaf45e3beb9f35f667",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Bucks center Myles Turner gets engaged to girlfriend at iconic movie locale: ‘Chosen One’",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286585/Nikola-Jokic-To-Wait-Until-2027-Offseason-To-Sign-New-Contract",
       "title": "Nikola Jokic To Wait Until 2027 Offseason To Sign New Contract",
       "originalTitle": "Nikola Jokic To Wait Until 2027 Offseason To Sign New Contract",
@@ -1653,6 +1728,49 @@
       "isMerged": false
     },
     {
+      "id": "https://basketball.realgm.com/wiretap/286569/Kawhi-Leonard-Hires-Harrison-Gaines-As-New-Agent-Ahead-Of-Extension-Talks-With-Raptors",
+      "title": "Kawhi Leonard Hires Harrison Gaines As New Agent Ahead Of Extension Talks With Raptors",
+      "originalTitle": "Kawhi Leonard Hires Harrison Gaines As New Agent Ahead Of Extension Talks With Raptors",
+      "headlineZh": "猛龙与 Jaden Bradley 达成双向合同",
+      "titleZh": "猛龙与 Jaden Bradley 达成双向合同",
+      "link": "https://basketball.realgm.com/wiretap/286569/Kawhi-Leonard-Hires-Harrison-Gaines-As-New-Agent-Ahead-Of-Extension-Talks-With-Raptors",
+      "url": "https://basketball.realgm.com/wiretap/286569/Kawhi-Leonard-Hires-Harrison-Gaines-As-New-Agent-Ahead-Of-Extension-Talks-With-Raptors",
+      "pubDate": "2026-07-06T13:11:52.000Z",
+      "publishedAt": "2026-07-06T13:11:52.000Z",
+      "summary": "Kawhi Leonard has brought in new representation as he and the Toronto Raptors prepare to open contract extension discussions this week. Harrison Gaines of SLASH Sports will now handle negotiations for Leonard, replacing longtime representatives Mitch Frankel and Dennis Robertson. Gaines, who has served as Leonard's business attorney over the past year, is scheduled to meet with Raptors officials in Toronto in the coming days. Gaines doesn't currently represent any other NBA players , but formerly represented Lonzo Ball and LaMelo Ball. The talks follow the Los Angeles Clippers' agreement to trade Leonard to Toronto on June 30 in exchange for Brandon Ingram, Gradey Dick, unprotected first-round picks in 2031 and 2033, a 2027 first-round swap and two second-round picks. Leonard has one season and $50.3 million remaining on his current deal. Leonard will be eligible for a two-year extension worth up to $123.7 million. Sources said Leonard made clear during trade discussions that he would only sign an extension with Toronto, a stance that discouraged other suitors, including th Minnesota Timberwolves and Detroit Pistons, from pursuing him without assurance of a long-term commitment. Leonard previously led the Raptors to the 2019 championship, earning Finals MVP honors after averaging 28.5 points per game against the Golden State Warriors. Leonard left the Raptors in free agency that summer to sign with the Clippers. Familiarity with Toronto's front office, now overseen by executive vice president Bobby Webster, factored into Leonard's openness to the move. Leonard also values the city and believes the Raptors can compete in the Eastern Conference, with sources adding he envisions finishing his career there. Separately, the Clippers remain under NBA investigation regarding whether the team circumvented the salary cap through Leonard's endorsement arrangement with Aspiration. Leonard and Robertson have both been interviewed by league investigators, sources said.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，猛龙与 Jaden Bradley 达成双向合同，原文关注 Kawhi Leonard Hires 的合同或自由市场动向。",
+      "oneLineZh": "猛龙与 Jaden Bradley 达成双向合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Leonard_Kawhi_lac_260625.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 5,
+      "sources": [
+        "RealGM"
+      ],
+      "sourceLinks": [
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286569/Kawhi-Leonard-Hires-Harrison-Gaines-As-New-Agent-Ahead-Of-Extension-Talks-With-Raptors"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286558/Raptors-Jaden-Bradley-Agree-To-Two-Way-Deal"
+        }
+      ],
+      "originalTitles": [
+        "Kawhi Leonard Hires Harrison Gaines As New Agent Ahead Of Extension Talks With Raptors",
+        "Raptors, Jaden Bradley Agree To Two-Way Deal"
+      ],
+      "isMerged": false,
+      "eventKey": "meeting:kawhi-leonard-hires:warriors",
+      "relatedItems": [],
+      "displayTitle": "猛龙与 Jaden Bradley 达成双向合同"
+    },
+    {
       "id": "https://basketball.realgm.com/wiretap/286566/David-Vanterpool-To-Join-Wizards-Front-Office;-Adam-Caporn-Named-As-Lead-Assistant",
       "title": "David Vanterpool To Join Wizards Front Office; Adam Caporn Named As Lead Assistant",
       "originalTitle": "David Vanterpool To Join Wizards Front Office; Adam Caporn Named As Lead Assistant",
@@ -1858,60 +1976,6 @@
       "eventKey": "sign:lakers-interested-in:lakers:1000",
       "relatedItems": [],
       "displayTitle": "Lakers Interested In Kevon Looney, Jonas Valanciunas; Not Expected To Re-Sign Rui Hachimura",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286553/Growing-Belief-That-LeBron-James-Returning-To-Cavs-Is-Likeliest-Scenario",
-      "title": "'Growing Belief' That LeBron James Returning To Cavs Is Likeliest Scenario",
-      "originalTitle": "'Growing Belief' That LeBron James Returning To Cavs Is Likeliest Scenario",
-      "headlineZh": "Growing Belief' That 相关消息更新",
-      "titleZh": "Growing Belief' That 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286553/Growing-Belief-That-LeBron-James-Returning-To-Cavs-Is-Likeliest-Scenario",
-      "url": "https://basketball.realgm.com/wiretap/286553/Growing-Belief-That-LeBron-James-Returning-To-Cavs-Is-Likeliest-Scenario",
-      "pubDate": "2026-07-04T22:12:42.000Z",
-      "publishedAt": "2026-07-04T22:12:42.000Z",
-      "summary": "There is a \"growing belief\" from people around the league that LeBron James will sign with the Cleveland Cavaliers, according to Marc Stein and Jake Fischer of The Stein Line. There are whispers that the Cavs are delaying offseason transactions, like signing a new deal with James Harden, because they want to have open roster spots in case they need to trade for Bronny James. Rich Paul previously cited the Cavs as a potential landing spot for James on his \"Game Over\" podcast. It was reported late Friday night at the Wolves have also increased their efforts to sign James. The Sixers and Nuggets also believe they still have a chance to land James.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，原文聚焦 Growing Belief' That 的最新动态和后续影响。",
-      "oneLineZh": "Growing Belief' That 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_260502.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
-      "importance": 2,
-      "eventKey": "trade:lebron-james:76ers:cavaliers",
-      "relatedItems": [],
-      "displayTitle": "'Growing Belief' That LeBron James Returning To Cavs Is Likeliest Scenario",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286552/Keyonte-George-To-Join-Jazz-Coaching-Staff-In-Summer-League",
-      "title": "Keyonte George To Join Jazz Coaching Staff In Summer League",
-      "originalTitle": "Keyonte George To Join Jazz Coaching Staff In Summer League",
-      "headlineZh": "Keyonte George To 相关消息更新",
-      "titleZh": "Keyonte George To 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286552/Keyonte-George-To-Join-Jazz-Coaching-Staff-In-Summer-League",
-      "url": "https://basketball.realgm.com/wiretap/286552/Keyonte-George-To-Join-Jazz-Coaching-Staff-In-Summer-League",
-      "pubDate": "2026-07-04T21:58:37.000Z",
-      "publishedAt": "2026-07-04T21:58:37.000Z",
-      "summary": "Keyonte George will be an assistant coach on Steve Wojciechowski's staff for the Utah Jazz's Summer League for one game. George will be on the sideline for the Jazz's opener on July 9 against the Wizards. The Jazz had to clear the process with the NBA, with the league signing off on the idea if it was for one game and George is not compensated. George averaged 23.6 points and 6.1 assists last season.",
-      "dekZh": "George 场均23.6分和6.1助攻 上赛季。",
-      "summaryZh": "据 RealGM 报道，原文聚焦 Keyonte George To 的最新动态和后续影响。",
-      "oneLineZh": "Keyonte George To 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [
-        "George场均23.6分和6.1助攻 上赛季。"
-      ],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/George_Keyonte_uta_241017.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:keyonte-george-to:jazz",
-      "relatedItems": [],
-      "displayTitle": "Keyonte George To Join Jazz Coaching Staff In Summer League",
       "isMerged": false
     }
   ]
