@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-08T06:32:18.995Z",
+  "updatedAt": "2026-07-08T09:28:08.771Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-08T06:32:18.995Z",
-    "updatedAt": "2026-07-08T06:32:18.995Z",
+    "checkedAt": "2026-07-08T09:28:08.771Z",
+    "updatedAt": "2026-07-08T09:28:08.771Z",
     "fetchedItems": 80,
-    "mergedItems": 62,
+    "mergedItems": 63,
     "failedFeeds": [],
     "message": "Fetched 80 usable RSS items from all feeds."
   },
@@ -42,21 +42,47 @@
       "link": "https://sports.yahoo.com/articles/kevon-looney-agrees-join-lakers-215804317.html"
     },
     {
+      "id": "https://sports.yahoo.com/articles/khris-middleton-ex-nets-star-041508402.html",
+      "text": "Khris Middleton 交易影响继续发酵",
+      "category": "交易",
+      "source": "Yahoo Sports",
+      "link": "https://sports.yahoo.com/articles/khris-middleton-ex-nets-star-041508402.html"
+    },
+    {
       "id": "https://basketball.realgm.com/wiretap/286605/Warriors-Dont-Believe-Theyll-Sign-LeBron-James-Unless-They-Trade-For-Anthony-Davis",
       "text": "Don't Believe They'll 交易影响继续发酵",
       "category": "交易",
       "source": "RealGM",
       "link": "https://basketball.realgm.com/wiretap/286605/Warriors-Dont-Believe-Theyll-Sign-LeBron-James-Unless-They-Trade-For-Anthony-Davis"
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/wizards-acquire-khris-middleton-via-020956043.html",
-      "text": "Khris Middleton 交易影响继续发酵",
-      "category": "交易",
-      "source": "Yahoo Sports",
-      "link": "https://sports.yahoo.com/articles/wizards-acquire-khris-middleton-via-020956043.html"
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/nba-free-agency-winners-losers-090025466.html",
+      "title": "NBA free agency winners and losers: Sixers cash in while Celtics pay price",
+      "originalTitle": "NBA free agency winners and losers: Sixers cash in while Celtics pay price",
+      "headlineZh": "凯尔特人自由市场与合同动向",
+      "titleZh": "凯尔特人自由市场与合同动向",
+      "link": "https://sports.yahoo.com/articles/nba-free-agency-winners-losers-090025466.html",
+      "url": "https://sports.yahoo.com/articles/nba-free-agency-winners-losers-090025466.html",
+      "pubDate": "2026-07-08T09:00:25.000Z",
+      "publishedAt": "2026-07-08T09:00:25.000Z",
+      "summary": "From Philly’s blockbuster coup to LeBron James once again dominating the market, here are the early winners and losers from a frantic first week of NBA free agency",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "凯尔特人自由市场与合同动向",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/the_guardian_765/8c1151a76997b0af7a8e4563471e51c4",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james:celtics",
+      "relatedItems": [],
+      "displayTitle": "NBA free agency winners and losers: Sixers cash in while Celtics pay price",
+      "isMerged": false
+    },
     {
       "id": "https://basketball.realgm.com/wiretap/286609/Felix-Okpara-Wizards-Agree-To-Two-Way-Contract",
       "title": "Felix Okpara, Wizards Agree To Two-Way Contract",
@@ -69,37 +95,19 @@
       "publishedAt": "2026-07-08T05:40:04.000Z",
       "summary": "The Washington Wizards agreed to a two-way deal with Felix Okpara, sources told Michael Scotto of HoopsHype. Okpara, who was the 46th pick in the 2026 NBA Draft, was acquired from the Magic.",
       "dekZh": "",
-      "summaryZh": "据 RealGM / Yahoo Sports 报道，签约动态：Felix Okpara，奇才 达成 双向 合同，原文关注 Felix Okpara 的合同或自由市场动向。",
+      "summaryZh": "据 RealGM 报道，签约动态：Felix Okpara，奇才 达成 双向 合同，原文关注 Felix Okpara 的合同或自由市场动向。",
       "oneLineZh": "签约动态：Felix Okpara，奇才 达成 双向 合同",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_washingtonwizards.jpg",
-      "source": "RealGM / Yahoo Sports",
+      "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
-      "importance": 4,
-      "sources": [
-        "RealGM",
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286609/Felix-Okpara-Wizards-Agree-To-Two-Way-Contract"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/wizards-sign-felix-okpara-two-180557548.html"
-        }
-      ],
-      "originalTitles": [
-        "Felix Okpara, Wizards Agree To Two-Way Contract",
-        "Wizards sign Felix Okpara to two-way contract"
-      ],
-      "isMerged": false,
+      "importance": 3,
       "eventKey": "trade:felix-okpara",
       "relatedItems": [],
-      "displayTitle": "签约动态：Felix Okpara，奇才 达成 双向 合同"
+      "displayTitle": "签约动态：Felix Okpara，奇才 达成 双向 合同",
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286608/Bruce-Thornton-Rockets-Agree-To-Four-Year-$93M-Deal",
@@ -154,6 +162,117 @@
       "isMerged": false
     },
     {
+      "id": "https://sports.yahoo.com/articles/utah-jazz-vs-oklahoma-city-044120860.html",
+      "title": "Utah Jazz vs Oklahoma City Thunder recap: final SLC Summer League game",
+      "originalTitle": "Utah Jazz vs Oklahoma City Thunder recap: final SLC Summer League game",
+      "headlineZh": "俄克拉荷马城雷霆相关消息更新",
+      "titleZh": "俄克拉荷马城雷霆相关消息更新",
+      "link": "https://sports.yahoo.com/articles/utah-jazz-vs-oklahoma-city-044120860.html",
+      "url": "https://sports.yahoo.com/articles/utah-jazz-vs-oklahoma-city-044120860.html",
+      "pubDate": "2026-07-08T04:41:20.000Z",
+      "publishedAt": "2026-07-08T04:41:20.000Z",
+      "summary": "The Jazz close out Salt Lake City Summer League with a blowout win, 103-69",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦俄克拉荷马城雷霆的最新动态和后续影响。",
+      "oneLineZh": "俄克拉荷马城雷霆相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/tKsH2tZTDgS_R4uBpp0oow--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03MDY7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/434d4cab943200880f5b65131faef115",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Utah Jazz vs Oklahoma City Thunder recap: final SLC Summer League game",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lakers-officially-signed-quentin-grimes-041702455.html",
+      "title": "The Lakers have officially signed Quentin Grimes, who will be vital offensively",
+      "originalTitle": "The Lakers have officially signed Quentin Grimes, who will be vital offensively",
+      "headlineZh": "Quentin Grimes 签约动向更新",
+      "titleZh": "Quentin Grimes 签约动向更新",
+      "link": "https://sports.yahoo.com/articles/lakers-officially-signed-quentin-grimes-041702455.html",
+      "url": "https://sports.yahoo.com/articles/lakers-officially-signed-quentin-grimes-041702455.html",
+      "pubDate": "2026-07-08T04:17:02.000Z",
+      "publishedAt": "2026-07-08T04:17:02.000Z",
+      "summary": "The Lakers are banking on Quentin Grimes to be great for them to be good next season.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Quentin Grimes 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Quentin Grimes 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/9N2AYoGbWUxgNUVuhYasLw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/6213550a142e13a6d550c5ab8b9d4f7d",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lakers-officially-signed-quentin-grimes-041702455.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lakers-officially-signed-sandro-mamukelashvili-040313948.html"
+        }
+      ],
+      "originalTitles": [
+        "The Lakers have officially signed Quentin Grimes, who will be vital offensively"
+      ],
+      "isMerged": false,
+      "eventKey": "sign:quentin-grimes:lakers",
+      "relatedItems": [],
+      "displayTitle": "The Lakers have officially signed Quentin Grimes, who will be vital offensively"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/khris-middleton-ex-nets-star-041508402.html",
+      "title": "Khris Middleton, ex-Nets star in middle of wild six-team NBA trade",
+      "originalTitle": "Khris Middleton, ex-Nets star in middle of wild six-team NBA trade",
+      "headlineZh": "Khris Middleton 交易影响继续发酵",
+      "titleZh": "Khris Middleton 交易影响继续发酵",
+      "link": "https://sports.yahoo.com/articles/khris-middleton-ex-nets-star-041508402.html",
+      "url": "https://sports.yahoo.com/articles/khris-middleton-ex-nets-star-041508402.html",
+      "pubDate": "2026-07-08T04:15:08.000Z",
+      "publishedAt": "2026-07-08T04:15:08.000Z",
+      "summary": "The maneuvering involved the Pistons, Grizzlies, Clippers, Bucks, Mavericks and Wizards, ESPN’s Shams Charania reported. For Middleton, a member of the Mavericks before the trade, the Wizards sent D'Angelo Russell, a 2029 second-rounder, a 2032 second-round swap and a 2033 second-round pick to the Grizzlies.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Khris Middleton 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "Khris Middleton 交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/BEmfgCPFSQ5dnmQ8.LOoLA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/429d01ef7dbe7f58edcd4292d3e91295",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 4,
+      "eventKey": "trade:khris-middleton:mavericks:grizzlies",
+      "relatedItems": [],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Khris Middleton, ex-Nets star in middle of wild six-team NBA trade",
+        "Wizards acquire Khris Middleton via sign-and-trade"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/khris-middleton-ex-nets-star-041508402.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/wizards-acquire-khris-middleton-via-020956043.html"
+        }
+      ],
+      "isMerged": false,
+      "displayTitle": "Khris Middleton 交易影响继续发酵"
+    },
+    {
       "id": "https://sports.yahoo.com/articles/warriors-don-t-match-grizzlies-040622901.html",
       "title": "Warriors don’t match Grizzlies contract offer for Quinten Post",
       "originalTitle": "Warriors don’t match Grizzlies contract offer for Quinten Post",
@@ -174,51 +293,9 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "签约",
       "importance": 2,
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/warriors-don-t-match-grizzlies-040622901.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/warriors-not-among-teams-lebron-180037787.html"
-        }
-      ],
-      "originalTitles": [
-        "Warriors don’t match Grizzlies contract offer for Quinten Post"
-      ],
-      "isMerged": false,
       "eventKey": "sign:quinten-post:warriors",
       "relatedItems": [],
-      "displayTitle": "Warriors don’t match Grizzlies contract offer for Quinten Post"
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/lakers-officially-signed-sandro-mamukelashvili-040313948.html",
-      "title": "The Lakers have officially signed Sandro Mamukelashvili, who brings a new look to the team",
-      "originalTitle": "The Lakers have officially signed Sandro Mamukelashvili, who brings a new look to the team",
-      "headlineZh": "Sandro Mamukelashvili 签约动向更新",
-      "titleZh": "Sandro Mamukelashvili 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/lakers-officially-signed-sandro-mamukelashvili-040313948.html",
-      "url": "https://sports.yahoo.com/articles/lakers-officially-signed-sandro-mamukelashvili-040313948.html",
-      "pubDate": "2026-07-08T04:03:13.000Z",
-      "publishedAt": "2026-07-08T04:03:13.000Z",
-      "summary": "The Lakers are hoping that Sandro Mamukelashvili can bring a new look and variety to the offense.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Sandro Mamukelashvili 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Sandro Mamukelashvili 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/2027blFqhbqfndrnOEhx8A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/46b56666d2308b8125af733391e010f7",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:the-lakers:lakers",
-      "relatedItems": [],
-      "displayTitle": "The Lakers have officially signed Sandro Mamukelashvili, who brings a new look to the team",
+      "displayTitle": "Warriors don’t match Grizzlies contract offer for Quinten Post",
       "isMerged": false
     },
     {
@@ -321,32 +398,6 @@
       "category": "交易",
       "importance": 3,
       "eventKey": "trade:khris-middleton:mavericks",
-      "relatedItems": [],
-      "displayTitle": "Khris Middleton 交易影响继续发酵",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/wizards-acquire-khris-middleton-via-020956043.html",
-      "title": "Wizards acquire Khris Middleton via sign-and-trade",
-      "originalTitle": "Wizards acquire Khris Middleton via sign-and-trade",
-      "headlineZh": "Khris Middleton 交易影响继续发酵",
-      "titleZh": "Khris Middleton 交易影响继续发酵",
-      "link": "https://sports.yahoo.com/articles/wizards-acquire-khris-middleton-via-020956043.html",
-      "url": "https://sports.yahoo.com/articles/wizards-acquire-khris-middleton-via-020956043.html",
-      "pubDate": "2026-07-08T02:09:56.000Z",
-      "publishedAt": "2026-07-08T02:09:56.000Z",
-      "summary": "The Washington Wizards have acquired Khris Middleton via a sign-and-trade deal with the Dallas Mavericks, ESPN’s Shams Charania reported Tuesday. The deal is part of a larger six-team trade that sends D’Angelo Russell, a 2029 second-round picks (via Lakers) and a 2033 second-round pick swap to the Memphis Grizzlies. Middleton, 34, will sign a three-year, […]",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Khris Middleton 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
-      "oneLineZh": "Khris Middleton 交易影响继续发酵",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Aq.fMI3HZCHqc8pZ2aT8Dw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/6dc0cf31cd76d68e8c2792dda339b39c",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 4,
-      "eventKey": "trade:khris-middleton:mavericks:grizzlies",
       "relatedItems": [],
       "displayTitle": "Khris Middleton 交易影响继续发酵",
       "isMerged": false
@@ -772,8 +823,7 @@
       ],
       "originalTitles": [
         "LeBron James free agency roundup: Teams are still in the dark about James’s plans",
-        "Brian Windhorst walks back previous statement about LeBron James’ future: ‘Just vibes’",
-        "Draymond, LeBron reportedly ‘spending time together' this week amid free agency"
+        "Brian Windhorst walks back previous statement about LeBron James’ future: ‘Just vibes’"
       ],
       "sourceLinks": [
         {
@@ -783,10 +833,6 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/brian-windhorst-walks-back-previous-214854997.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/draymond-lebron-reportedly-spending-time-181114226.html"
         }
       ],
       "isMerged": true,
@@ -1399,32 +1445,6 @@
       "displayTitle": "Celtics reveal jersey numbers for Paul George, Mitchell Robinson, Mike Conley Jr",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/lowry-retires-returning-raptors-one-180415697.html",
-      "title": "Lowry retires after returning to Raptors for one day",
-      "originalTitle": "Lowry retires after returning to Raptors for one day",
-      "headlineZh": "猛龙休赛期后续动向",
-      "titleZh": "猛龙休赛期后续动向",
-      "link": "https://sports.yahoo.com/articles/lowry-retires-returning-raptors-one-180415697.html",
-      "url": "https://sports.yahoo.com/articles/lowry-retires-returning-raptors-one-180415697.html",
-      "pubDate": "2026-07-07T18:04:15.000Z",
-      "publishedAt": "2026-07-07T18:04:15.000Z",
-      "summary": "Fromer NBA champion Kyle Lowry re-signs for his former team Toronto Raptors for one day before retiring at the age of 40.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "猛龙休赛期后续动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/bbc_us_articles_995/b9fa1bea8a91dcef225ed6f864c057ee",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:kyle-lowry",
-      "relatedItems": [],
-      "displayTitle": "Lowry retires after returning to Raptors for one day",
       "isMerged": false
     },
     {
