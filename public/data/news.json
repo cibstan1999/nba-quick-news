@@ -9,11 +9,11 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-08T17:41:36.278Z",
+  "updatedAt": "2026-07-08T19:39:20.152Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-08T17:41:36.278Z",
-    "updatedAt": "2026-07-08T17:41:36.278Z",
+    "checkedAt": "2026-07-08T19:39:20.152Z",
+    "updatedAt": "2026-07-08T19:39:20.152Z",
     "fetchedItems": 80,
     "mergedItems": 67,
     "failedFeeds": [],
@@ -21,11 +21,25 @@
   },
   "highlights": [
     {
-      "id": "https://basketball.realgm.com/wiretap/286586/Brad-Stevens-Explains-Reasoning-Behind-Celtics-Jaylen-Brown-Trade",
+      "id": "https://basketball.realgm.com/wiretap/286616/Warriors-Havent-Been-Told-Anthony-Davis-Trade-Needed-To-Sign-LeBron-James",
+      "text": "Haven't Been Told 交易影响继续发酵",
+      "category": "交易",
+      "source": "RealGM / Yahoo Sports",
+      "link": "https://basketball.realgm.com/wiretap/286616/Warriors-Havent-Been-Told-Anthony-Davis-Trade-Needed-To-Sign-LeBron-James"
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286619/Jayson-Tatum-On-Jaylen-Brown-Trade-Abrupt-Ending-To-Successful-Partnership",
       "text": "Jaylen Brown 被交易至 76 人",
       "category": "交易",
       "source": "RealGM / Yahoo Sports",
-      "link": "https://basketball.realgm.com/wiretap/286586/Brad-Stevens-Explains-Reasoning-Behind-Celtics-Jaylen-Brown-Trade"
+      "link": "https://basketball.realgm.com/wiretap/286619/Jayson-Tatum-On-Jaylen-Brown-Trade-Abrupt-Ending-To-Successful-Partnership"
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286620/Larry-Nance-Jr-Pacers-Agree-To-One-Year-$4M-Deal",
+      "text": "Larry Nance Jr. 与步行者达成一年，400 万美元合同",
+      "category": "签约",
+      "source": "RealGM",
+      "link": "https://basketball.realgm.com/wiretap/286620/Larry-Nance-Jr-Pacers-Agree-To-One-Year-$4M-Deal"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286601/Kevon-Looney-Lakers-Agree-To-One-Year-$39M-Deal",
@@ -35,28 +49,118 @@
       "link": "https://basketball.realgm.com/wiretap/286601/Kevon-Looney-Lakers-Agree-To-One-Year-$39M-Deal"
     },
     {
-      "id": "https://basketball.realgm.com/wiretap/286616/Warriors-Havent-Been-Told-Anthony-Davis-Trade-Needed-To-Sign-LeBron-James",
-      "text": "Haven't Been Told 交易影响继续发酵",
-      "category": "交易",
-      "source": "RealGM",
-      "link": "https://basketball.realgm.com/wiretap/286616/Warriors-Havent-Been-Told-Anthony-Davis-Trade-Needed-To-Sign-LeBron-James"
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286612/Duke-Miles-Sixers-Sign-Exhibit-10-Contract",
       "text": "Duke Miles，76 人签下 Exhibit 10",
       "category": "签约",
       "source": "RealGM",
       "link": "https://basketball.realgm.com/wiretap/286612/Duke-Miles-Sixers-Sign-Exhibit-10-Contract"
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/khris-middleton-ex-nets-star-041508402.html",
-      "text": "Khris Middleton 交易影响继续发酵",
-      "category": "交易",
-      "source": "Yahoo Sports",
-      "link": "https://sports.yahoo.com/articles/khris-middleton-ex-nets-star-041508402.html"
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/larry-nance-jr-leaves-cavs-190226130.html",
+      "title": "Larry Nance Jr. leaves Cavs for division rival",
+      "originalTitle": "Larry Nance Jr. leaves Cavs for division rival",
+      "headlineZh": "Larry Nance Jr 相关消息更新",
+      "titleZh": "Larry Nance Jr 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/larry-nance-jr-leaves-cavs-190226130.html",
+      "url": "https://sports.yahoo.com/articles/larry-nance-jr-leaves-cavs-190226130.html",
+      "pubDate": "2026-07-08T19:02:26.000Z",
+      "publishedAt": "2026-07-08T19:02:26.000Z",
+      "summary": "Nance is leaving Cleveland after a one year reunion.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Larry Nance Jr 的最新动态和后续影响。",
+      "oneLineZh": "Larry Nance Jr 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/4WM82kw3nm15Fjihw58IdA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/b16019fc07eb0f73c632e0413fae1139",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Larry Nance Jr. leaves Cavs for division rival",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286621/Bob-Myers-Pitches-Rich-Paul-On-LeBron-James-Signing-With-76ers-During-Podcast-Appearance",
+      "title": "Bob Myers Pitches Rich Paul On LeBron James Signing With 76ers During Podcast Appearance",
+      "originalTitle": "Bob Myers Pitches Rich Paul On LeBron James Signing With 76ers During Podcast Appearance",
+      "headlineZh": "Bob Myers Pitches 签约动向更新",
+      "titleZh": "Bob Myers Pitches 签约动向更新",
+      "link": "https://basketball.realgm.com/wiretap/286621/Bob-Myers-Pitches-Rich-Paul-On-LeBron-James-Signing-With-76ers-During-Podcast-Appearance",
+      "url": "https://basketball.realgm.com/wiretap/286621/Bob-Myers-Pitches-Rich-Paul-On-LeBron-James-Signing-With-76ers-During-Podcast-Appearance",
+      "pubDate": "2026-07-08T18:36:29.000Z",
+      "publishedAt": "2026-07-08T18:36:29.000Z",
+      "summary": "Bob Myers, president of sports for Harris Blitzer Sports & Entertainment, publicly pitched LeBron James on joining the Philadelphia 76ers during a podcast episode released Wednesday. Myers appeared as a guest on \"Game Over with Max Kellerman and Rich Paul,\" making his case directly to Paul through the platform. \"If he was (on the podcast), I'd say, 'I honestly believe this is your best chance to win,'\" said Myers. \"You have to decide all the other things that are equally important. What I would say is if it's about winning, 'Let's talk about that team because you can win in Philadelphia.'\" James' free agency decision remains one of the league's most closely watched storylines. The Sixers, Cleveland Cavaliers, Denver Nuggets, Golden State Warriors, Miami Heat and Minnesota Timberwolves are considered among his likely landing spots, according to The Athletic. Paul, James' longtime agent and business partner, said on the podcast that he is managing meetings with interested organizations, though James will make the ultimate decision. \"We separate church and state,\" said Paul. \"I enjoy it because he's worked hard enough to do whatever the hell he wants, which is why I'm fine with him doing whatever he chooses to do.\" Paul added that the discussions surrounding James' next destination extend beyond winning alone, describing the conversations as complex. \"All I would say as someone representing a team is win,\" said Myers. \"This is the best chance to win.\" Paul acknowledged that Philadelphia's recent acquisition of Jaylen Brown could factor into James' decision-making process. Paul also represents Sixers guard Tyrese Maxey and former point guard Ben Simmons through Klutch Sports Group. James has been spotted in Cleveland in recent weeks, appearing at workouts, golf outings and social gatherings, though he has not yet met formally with any teams.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，Bob Myers Pitches 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Bob Myers Pitches 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Myers_Bob_phi_260505.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:jaylen-brown:cavaliers",
+      "relatedItems": [],
+      "displayTitle": "Bob Myers Pitches Rich Paul On LeBron James Signing With 76ers During Podcast Appearance",
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286620/Larry-Nance-Jr-Pacers-Agree-To-One-Year-$4M-Deal",
+      "title": "Larry Nance Jr., Pacers Agree To One-Year, $4M Deal",
+      "originalTitle": "Larry Nance Jr., Pacers Agree To One-Year, $4M Deal",
+      "headlineZh": "Larry Nance Jr. 与步行者达成一年，400 万美元合同",
+      "titleZh": "Larry Nance Jr. 与步行者达成一年，400 万美元合同",
+      "link": "https://basketball.realgm.com/wiretap/286620/Larry-Nance-Jr-Pacers-Agree-To-One-Year-$4M-Deal",
+      "url": "https://basketball.realgm.com/wiretap/286620/Larry-Nance-Jr-Pacers-Agree-To-One-Year-$4M-Deal",
+      "pubDate": "2026-07-08T18:31:55.000Z",
+      "publishedAt": "2026-07-08T18:31:55.000Z",
+      "summary": "Larry Nance Jr. has agreed to a one-year, $4 million deal with the Indiana Pacers. Nance appeared in 35 games with the Cleveland Cavaliers last season, averaging 3.7 points, 2.7 rebounds and 1.0 assists in 12.8 minutes. Nance was connected to the potential landing spot of LeBron James, but he will instead sign with the Pacers for slightly above the veteran's minimum.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，Larry Nance Jr. 与步行者达成一年，400 万美元合同，原文关注 Larry Nance Jr 的合同或自由市场动向。",
+      "oneLineZh": "Larry Nance Jr. 与步行者达成一年，400 万美元合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Nance_Larry_cle_180323.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 5,
+      "eventKey": "sign:larry-nance-jr:pacers:1:400",
+      "relatedItems": [],
+      "displayTitle": "Larry Nance Jr. 与步行者达成一年，400 万美元合同",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/michigan-basketball-player-best-rookie-181021523.html",
+      "title": "Which Michigan Basketball player will have the best rookie season in the NBA?",
+      "originalTitle": "Which Michigan Basketball player will have the best rookie season in the NBA?",
+      "headlineZh": "Which Michigan Basketball 相关消息更新",
+      "titleZh": "Which Michigan Basketball 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/michigan-basketball-player-best-rookie-181021523.html",
+      "url": "https://sports.yahoo.com/articles/michigan-basketball-player-best-rookie-181021523.html",
+      "pubDate": "2026-07-08T18:10:21.000Z",
+      "publishedAt": "2026-07-08T18:10:21.000Z",
+      "summary": "Which Michigan Basketball player will have the best rookie season in the NBA? Vote in this edition of SB Nation Reacts.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Which Michigan Basketball 的最新动态和后续影响。",
+      "oneLineZh": "Which Michigan Basketball 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/DR4lG93FTIBtmG4oAruc_Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03MzM7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/de3104d8216c6c0d3f3c82c45dec44f7",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "选秀",
+      "importance": 2,
+      "displayTitle": "Which Michigan Basketball player will have the best rookie season in the NBA?",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/ryan-conwell-already-turning-heads-173411745.html",
       "title": "Ryan Conwell already turning heads in Miami, on and off the court",
@@ -81,6 +185,32 @@
       "displayTitle": "Ryan Conwell already turning heads in Miami, on and off the court",
       "eventKey": "",
       "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/jayson-tatum-discusses-boston-trading-172513164.html",
+      "title": "Jayson Tatum discusses Boston trading Jaylen Brown: 'It’s tough'",
+      "originalTitle": "Jayson Tatum discusses Boston trading Jaylen Brown: 'It’s tough'",
+      "headlineZh": "Jayson Tatum 相关消息更新",
+      "titleZh": "Jayson Tatum 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/jayson-tatum-discusses-boston-trading-172513164.html",
+      "url": "https://sports.yahoo.com/articles/jayson-tatum-discusses-boston-trading-172513164.html",
+      "pubDate": "2026-07-08T17:25:13.000Z",
+      "publishedAt": "2026-07-08T17:25:13.000Z",
+      "summary": "Tatum was not consulted about the trade and tried to focus on the positive times he had with Brown.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Jayson Tatum 的最新动态和后续影响。",
+      "oneLineZh": "Jayson Tatum 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/TQWmBnZrQBMSpaDspcpVrw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/35a9c0777cb04b9e870ec93948346a50",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 2,
+      "eventKey": "trade:jaylen-brown",
+      "relatedItems": [],
+      "displayTitle": "Jayson Tatum discusses Boston trading Jaylen Brown: 'It’s tough'",
       "isMerged": false
     },
     {
@@ -214,6 +344,113 @@
       "isMerged": false
     },
     {
+      "id": "https://basketball.realgm.com/wiretap/286619/Jayson-Tatum-On-Jaylen-Brown-Trade-Abrupt-Ending-To-Successful-Partnership",
+      "title": "Jayson Tatum On Jaylen Brown Trade: 'Abrupt Ending' To Successful Partnership",
+      "originalTitle": "Jayson Tatum On Jaylen Brown Trade: 'Abrupt Ending' To Successful Partnership",
+      "headlineZh": "Jaylen Brown 被交易至 76 人",
+      "titleZh": "Jaylen Brown 被交易至 76 人",
+      "link": "https://basketball.realgm.com/wiretap/286619/Jayson-Tatum-On-Jaylen-Brown-Trade-Abrupt-Ending-To-Successful-Partnership",
+      "url": "https://basketball.realgm.com/wiretap/286619/Jayson-Tatum-On-Jaylen-Brown-Trade-Abrupt-Ending-To-Successful-Partnership",
+      "pubDate": "2026-07-08T15:20:43.000Z",
+      "publishedAt": "2026-07-08T15:20:43.000Z",
+      "summary": "Jayson Tatum addressed the Boston Celtics' trade of longtime teammate Jaylen Brown publicly for the first time Tuesday, calling the situation \"weird\" as he prepares for next season without him. The Philadelphia 76ers acquired Brown last week in exchange for Paul George, two first-round picks and two second-round selections, a deal that surprised much of the league. Tatum spoke about the trade during a Q&A promoting an upcoming book, according to CelticsBlog. \"To be honest, it's weird,\" Tatum said. \"You play on a team with a guy for nine years. I was fortunate enough to go to the finals with him twice, and win a championship, and push each other to be the players that we are today. \"It's tough. But it just makes you appreciate the moments and time that we had. Obviously, it came to an abrupt ending, but it doesn't mean that it wasn't super successful. Great years, obviously, that he gave to the city and to the organization.\" Celtics president of basketball operations Brad Stevens explained Monday that Boston pursued the trade to gain roster flexibility, citing the difficulty of managing the combined salaries of Tatum and Brown. Tatum acknowledged the emotional difficulty of losing a longtime teammate under those circumstances. \"The NBA is an incredible business; it's an incredible job, but there are some downsides to the business and moments like this, where you just kind of feel like you're going to be on the team with somebody, because that's all you know,\" said Tatum. \"And then it's just like, one day you find out that they're no longer on your team anymore. And, we're all humans. We feel all those emotions.\" Tatum said he is prepared to welcome Boston's newly acquired players, including George, Mike Conley and Mitchell Robinson, and move forward with the retooled roster. While the Celtics aggressively shopped Brown, they completely resisted all trade inquiries they received on Tatum .",
+      "dekZh": "",
+      "summaryZh": "据 RealGM / Yahoo Sports 报道，Jaylen Brown 被交易至 76 人，这笔交易继续影响凯尔特人与 76 人的阵容评估。",
+      "oneLineZh": "Jaylen Brown 被交易至 76 人",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Tatum_Jayson_250502.jpg",
+      "source": "RealGM / Yahoo Sports",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "交易",
+      "importance": 4,
+      "eventKey": "trade:jaylen-brown:celtics:76ers",
+      "relatedItems": [
+        {
+          "title": "Where Jayson Tatum, Jaylen Brown relationship stood before shocking Celtics trade",
+          "originalTitle": "Where Jayson Tatum, Jaylen Brown relationship stood before shocking Celtics trade",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/where-jayson-tatum-jaylen-brown-143529604.html",
+          "publishedAt": "2026-07-08T14:35:29.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Jayson Tatum speaks about 'abrupt ending' after Celtics traded away Jaylen Brown: 'It's tough'",
+          "originalTitle": "Jayson Tatum speaks about 'abrupt ending' after Celtics traded away Jaylen Brown: 'It's tough'",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/nba/article/jayson-tatum-speaks-about-abrupt-ending-after-celtics-traded-away-jaylen-brown-its-tough-124812505.html",
+          "publishedAt": "2026-07-08T12:48:12.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process",
+          "originalTitle": "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process",
+          "source": "RealGM",
+          "url": "https://basketball.realgm.com/wiretap/286606/Jaylen-Browns-Value-Went-Down-Due-To-Way-Celtics-Handled-Trade-Process",
+          "publishedAt": "2026-07-08T02:54:40.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Nets, Wolves Had Real Interest In Jaylen Brown But Moved On Before Celtics Reached Deal With Sixers",
+          "originalTitle": "Nets, Wolves Had Real Interest In Jaylen Brown But Moved On Before Celtics Reached Deal With Sixers",
+          "source": "RealGM",
+          "url": "https://basketball.realgm.com/wiretap/286595/Nets-Wolves-Had-Real-Interest-In-Jaylen-Brown-But-Moved-On-Before-Celtics-Reached-Deal-With-Sixers",
+          "publishedAt": "2026-07-07T16:49:25.000Z",
+          "angle": "report"
+        }
+      ],
+      "sources": [
+        "RealGM",
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process",
+        "Nets, Wolves Had Real Interest In Jaylen Brown But Moved On Before Celtics Reached Deal With Sixers",
+        "Where Jayson Tatum, Jaylen Brown relationship stood before shocking Celtics trade",
+        "Jayson Tatum speaks about 'abrupt ending' after Celtics traded away Jaylen Brown: 'It's tough'"
+      ],
+      "sourceLinks": [
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286619/Jayson-Tatum-On-Jaylen-Brown-Trade-Abrupt-Ending-To-Successful-Partnership"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/nba/article/jaylen-brown-vs-brad-stevens-optionality--donovan-mitchell-gets-paid-in-cleveland-190200394.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/jaylen-brown-next-team-odds-210300213.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/might-save-career-charles-barkley-133405939.html"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286618/Warriors-Were-Never-Close-To-Trades-For-Kawhi-Leonard-Jaylen-Brown"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286606/Jaylen-Browns-Value-Went-Down-Due-To-Way-Celtics-Handled-Trade-Process"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286595/Nets-Wolves-Had-Real-Interest-In-Jaylen-Brown-But-Moved-On-Before-Celtics-Reached-Deal-With-Sixers"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/where-jayson-tatum-jaylen-brown-143529604.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/nba/article/jayson-tatum-speaks-about-abrupt-ending-after-celtics-traded-away-jaylen-brown-its-tough-124812505.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "Jaylen Brown 被交易至 76 人"
+    },
+    {
       "id": "https://sports.yahoo.com/articles/lebron-james-free-agency-pursuit-151505084.html",
       "title": "LeBron James’ new free agency pursuit is the saddest dating show",
       "originalTitle": "LeBron James’ new free agency pursuit is the saddest dating show",
@@ -256,14 +493,41 @@
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Davis_Anthony_dal_260109.jpg",
-      "source": "RealGM",
+      "source": "RealGM / Yahoo Sports",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "交易",
-      "importance": 4,
+      "importance": 5,
       "eventKey": "trade:lebron-james:warriors",
-      "relatedItems": [],
-      "displayTitle": "Haven't Been Told 交易影响继续发酵",
-      "isMerged": false
+      "relatedItems": [
+        {
+          "title": "Warriors out of LeBron James sweepstakes after bailing on Anthony Davis trade, per report",
+          "originalTitle": "Warriors out of LeBron James sweepstakes after bailing on Anthony Davis trade, per report",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/warriors-lebron-james-sweepstakes-bailing-180830857.html",
+          "publishedAt": "2026-07-08T18:08:30.000Z",
+          "angle": "report"
+        }
+      ],
+      "sources": [
+        "RealGM",
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Warriors Haven't Been Told Anthony Davis Trade Needed To Sign LeBron James",
+        "Warriors out of LeBron James sweepstakes after bailing on Anthony Davis trade, per report"
+      ],
+      "sourceLinks": [
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286616/Warriors-Havent-Been-Told-Anthony-Davis-Trade-Needed-To-Sign-LeBron-James"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/warriors-lebron-james-sweepstakes-bailing-180830857.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "Haven't Been Told 交易影响继续发酵"
     },
     {
       "id": "https://sports.yahoo.com/articles/bucks-reacts-survey-does-horst-150000700.html",
@@ -421,6 +685,32 @@
       "eventKey": "fantasy:fantasy-basketball",
       "relatedItems": [],
       "displayTitle": "Fantasy Basketball: Players I'm excited to watch at the 2026 Vegas NBA Summer League",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/celtics-fans-know-2026-nba-143155197.html",
+      "title": "What Celtics fans need to know about 2026 NBA Summer League",
+      "originalTitle": "What Celtics fans need to know about 2026 NBA Summer League",
+      "headlineZh": "Summer League 相关消息更新",
+      "titleZh": "Summer League 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/celtics-fans-know-2026-nba-143155197.html",
+      "url": "https://sports.yahoo.com/articles/celtics-fans-know-2026-nba-143155197.html",
+      "pubDate": "2026-07-08T14:31:55.000Z",
+      "publishedAt": "2026-07-08T14:31:55.000Z",
+      "summary": "Hugo Gonzalez headlines an exciting 2026 Celtics Summer League roster going to Las Vegas.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Summer League 的最新动态和后续影响。",
+      "oneLineZh": "Summer League 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/csnne.com/83103378b732dd774e37b06018a4dcfe",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "What Celtics fans need to know about 2026 NBA Summer League",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -673,6 +963,32 @@
       ],
       "isMerged": false,
       "displayTitle": "Several Teams Believe They Have Shot To Sign LeBron James Despite Cleveland 'Vibes'"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/steph-curry-hoping-lebron-james-120436624.html",
+      "title": "Steph Curry hoping LeBron James will sign with the Warriors in NBA offseason",
+      "originalTitle": "Steph Curry hoping LeBron James will sign with the Warriors in NBA offseason",
+      "headlineZh": "Steph Curry 签约动向更新",
+      "titleZh": "Steph Curry 签约动向更新",
+      "link": "https://sports.yahoo.com/articles/steph-curry-hoping-lebron-james-120436624.html",
+      "url": "https://sports.yahoo.com/articles/steph-curry-hoping-lebron-james-120436624.html",
+      "pubDate": "2026-07-08T12:04:36.000Z",
+      "publishedAt": "2026-07-08T12:04:36.000Z",
+      "summary": "Warriors superstar Steph Curry said he hopes superstar free agent LeBron James will sign with Golden State this offseason.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Steph Curry 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Steph Curry 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/7317fb8769ecb4a992eaf21b268ef96c",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james:warriors",
+      "relatedItems": [],
+      "displayTitle": "Steph Curry hoping LeBron James will sign with the Warriors in NBA offseason",
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
@@ -1098,32 +1414,6 @@
       "displayTitle": "Khris Middleton 交易影响继续发酵"
     },
     {
-      "id": "https://sports.yahoo.com/articles/warriors-don-t-match-grizzlies-040622901.html",
-      "title": "Warriors don’t match Grizzlies contract offer for Quinten Post",
-      "originalTitle": "Warriors don’t match Grizzlies contract offer for Quinten Post",
-      "headlineZh": "Quinten Post 签约动向更新",
-      "titleZh": "Quinten Post 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/warriors-don-t-match-grizzlies-040622901.html",
-      "url": "https://sports.yahoo.com/articles/warriors-don-t-match-grizzlies-040622901.html",
-      "pubDate": "2026-07-08T04:06:22.000Z",
-      "publishedAt": "2026-07-08T04:06:22.000Z",
-      "summary": "The big man is headed to Memphis.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Quinten Post 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Quinten Post 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/0yl7iCanA7XLDq95rSoquA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/891a1c6443471d79484c62152fa62709",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:quinten-post:warriors",
-      "relatedItems": [],
-      "displayTitle": "Warriors don’t match Grizzlies contract offer for Quinten Post",
-      "isMerged": false
-    },
-    {
       "id": "https://sports.yahoo.com/articles/lebron-james-next-team-predictions-034844720.html",
       "title": "LeBron James next team predictions: Latest news, rumors on star's decision",
       "originalTitle": "LeBron James next team predictions: Latest news, rumors on star's decision",
@@ -1280,6 +1570,32 @@
       "isMerged": false
     },
     {
+      "id": "https://sports.yahoo.com/articles/detroit-reportedly-trading-caris-levert-013645220.html",
+      "title": "Detroit reportedly trading Caris LeVert, picks to Bucks for Taurean Prince, Gary Harris",
+      "originalTitle": "Detroit reportedly trading Caris LeVert, picks to Bucks for Taurean Prince, Gary Harris",
+      "headlineZh": "Caris LeVert 相关消息更新",
+      "titleZh": "Caris LeVert 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/detroit-reportedly-trading-caris-levert-013645220.html",
+      "url": "https://sports.yahoo.com/articles/detroit-reportedly-trading-caris-levert-013645220.html",
+      "pubDate": "2026-07-08T01:36:45.000Z",
+      "publishedAt": "2026-07-08T01:36:45.000Z",
+      "summary": "Detroit frees up some cap space as they try to work out a deal with restricted free agent Jalen Duren.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Caris LeVert 的最新动态和后续影响。",
+      "oneLineZh": "Caris LeVert 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/MHeYfYC6n2vhaOW7aGhOLw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/dc3f1adf23f5bd731856c1d771f73a64",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 2,
+      "eventKey": "trade:caris-levert",
+      "relatedItems": [],
+      "displayTitle": "Detroit reportedly trading Caris LeVert, picks to Bucks for Taurean Prince, Gary Harris",
+      "isMerged": false
+    },
+    {
       "id": "https://basketball.realgm.com/wiretap/286604/Guerschon-Yabusele-Panathinaikos-Agree-To-Three-Year-Deal",
       "title": "Guerschon Yabusele, Panathinaikos Agree To Three-Year Deal",
       "originalTitle": "Guerschon Yabusele, Panathinaikos Agree To Three-Year Deal",
@@ -1327,32 +1643,6 @@
       "category": "其他",
       "importance": 2,
       "displayTitle": "Vanessa Bryant’s birthday message to Pau Gasol says it all: ‘We love you’",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/bucks-complete-trade-pistons-005714385.html",
-      "title": "Bucks, Pistons feature in six-team trade",
-      "originalTitle": "Bucks, Pistons feature in six-team trade",
-      "headlineZh": "活塞交易与阵容调整",
-      "titleZh": "活塞交易与阵容调整",
-      "link": "https://sports.yahoo.com/articles/bucks-complete-trade-pistons-005714385.html",
-      "url": "https://sports.yahoo.com/articles/bucks-complete-trade-pistons-005714385.html",
-      "pubDate": "2026-07-08T00:57:14.000Z",
-      "publishedAt": "2026-07-08T00:57:14.000Z",
-      "summary": "Milwaukee trades two for one in a deal that brings in draft assets and roster flexibility.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "活塞交易与阵容调整",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/9GjFf2hdRfA3_gWb5Sj5Jg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/a03a6ea0663bf76710c7e76c4bf77baa",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 2,
-      "displayTitle": "Bucks, Pistons feature in six-team trade",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1407,162 +1697,6 @@
       "eventKey": "sign:khris-middleton:wizards:3:1760",
       "relatedItems": [],
       "displayTitle": "Khris Middleton 与奇才达成三年，1760 万美元合同",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/pistons-trade-caris-levert-taurean-003137039.html",
-      "title": "Pistons trade Caris LeVert for Taurean Prince, Gary Harris",
-      "originalTitle": "Pistons trade Caris LeVert for Taurean Prince, Gary Harris",
-      "headlineZh": "Caris LeVert 交易影响继续发酵",
-      "titleZh": "Caris LeVert 交易影响继续发酵",
-      "link": "https://sports.yahoo.com/articles/pistons-trade-caris-levert-taurean-003137039.html",
-      "url": "https://sports.yahoo.com/articles/pistons-trade-caris-levert-taurean-003137039.html",
-      "pubDate": "2026-07-08T00:31:37.000Z",
-      "publishedAt": "2026-07-08T00:31:37.000Z",
-      "summary": "The Detroit Pistons made a trade Tuesday that made me legitimately ask the question — has there ever been a trade of at least three players that all had at least a decade of NBA experience before? If not, then welcome to history, Caris LeVert, Taurean Prince, and Gary Harris! The Pistons traded Caris LeVert, […]",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Caris LeVert 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
-      "oneLineZh": "Caris LeVert 交易影响继续发酵",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/WMRXhY3k7UhZTtPM9rPifA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/2ea42343fb1385e7969347ee90e28a58",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 3,
-      "eventKey": "trade:caris-levert",
-      "relatedItems": [
-        {
-          "title": "Detroit reportedly trading Caris LeVert, picks to Bucks for Taurean Prince, Gary Harris",
-          "originalTitle": "Detroit reportedly trading Caris LeVert, picks to Bucks for Taurean Prince, Gary Harris",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/detroit-reportedly-trading-caris-levert-013645220.html",
-          "publishedAt": "2026-07-08T01:36:45.000Z",
-          "angle": "report"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Detroit reportedly trading Caris LeVert, picks to Bucks for Taurean Prince, Gary Harris",
-        "Pistons trade Caris LeVert for Taurean Prince, Gary Harris"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/detroit-reportedly-trading-caris-levert-013645220.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/pistons-trade-caris-levert-taurean-003137039.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "Caris LeVert 交易影响继续发酵"
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/cleveland-frontrunner-lebron-james-miami-001905908.html",
-      "title": "Is Cleveland the frontrunner for LeBron James? Miami? Philadelphia?",
-      "originalTitle": "Is Cleveland the frontrunner for LeBron James? Miami? Philadelphia?",
-      "headlineZh": "Is Cleveland 相关消息更新",
-      "titleZh": "Is Cleveland 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/cleveland-frontrunner-lebron-james-miami-001905908.html",
-      "url": "https://sports.yahoo.com/articles/cleveland-frontrunner-lebron-james-miami-001905908.html",
-      "pubDate": "2026-07-08T00:19:05.000Z",
-      "publishedAt": "2026-07-08T00:19:05.000Z",
-      "summary": "In the end, only LeBron knows and he is taking his time making a decision.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Is Cleveland 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/bmNnRk6AJfVlt1VgTo6j8A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/8501e1bfa4b67db4385d1d4e6a8ff61f",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Is Cleveland the frontrunner for LeBron James? Miami? Philadelphia?",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/learned-spurs-summer-league-loss-235427291.html",
-      "title": "What we learned from the Spurs Summer League loss to the Lakers",
-      "originalTitle": "What we learned from the Spurs Summer League loss to the Lakers",
-      "headlineZh": "Summer League 相关消息更新",
-      "titleZh": "Summer League 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/learned-spurs-summer-league-loss-235427291.html",
-      "url": "https://sports.yahoo.com/articles/learned-spurs-summer-league-loss-235427291.html",
-      "pubDate": "2026-07-07T23:54:27.000Z",
-      "publishedAt": "2026-07-07T23:54:27.000Z",
-      "summary": "San Antonio loses again, but their rookies played well.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Summer League 的最新动态和后续影响。",
-      "oneLineZh": "Summer League 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/w_dTwJzIwcdJFW3trZJDuQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MTA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/b544a53f616dadc9e520ef5a86c7e439",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 2,
-      "displayTitle": "What we learned from the Spurs Summer League loss to the Lakers",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/dramatic-moment-cops-aim-guns-234802956.html",
-      "title": "Dramatic moment cops aim guns at NBA rookie after highway chase — as his hopeless prediction about basketball future revealed",
-      "originalTitle": "Dramatic moment cops aim guns at NBA rookie after highway chase — as his hopeless prediction about basketball future revealed",
-      "headlineZh": "NBA 年轻球员与选秀话题",
-      "titleZh": "NBA 年轻球员与选秀话题",
-      "link": "https://sports.yahoo.com/articles/dramatic-moment-cops-aim-guns-234802956.html",
-      "url": "https://sports.yahoo.com/articles/dramatic-moment-cops-aim-guns-234802956.html",
-      "pubDate": "2026-07-07T23:48:02.000Z",
-      "publishedAt": "2026-07-07T23:48:02.000Z",
-      "summary": "Pacers rookie Kam Jones questioned his NBA future after he was ordered out of his car at gunpoint following a police chase last year, new body cam footage obtained by The California Post shows.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，NBA 年轻球员与选秀话题，更多背景来自原文报道。",
-      "oneLineZh": "NBA 年轻球员与选秀话题",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/m2Khy7MX8HjbLO.Qj8sACQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/6de9443793e14812f2fcb73bf5d9275d",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 2,
-      "displayTitle": "NBA 年轻球员与选秀话题",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/hawks-vs-grizzlies-summer-league-230003048.html",
-      "title": "Hawks vs. Grizzlies, Summer League: start time, TV, streaming, radio, game thread",
-      "originalTitle": "Hawks vs. Grizzlies, Summer League: start time, TV, streaming, radio, game thread",
-      "headlineZh": "Summer League 相关消息更新",
-      "titleZh": "Summer League 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/hawks-vs-grizzlies-summer-league-230003048.html",
-      "url": "https://sports.yahoo.com/articles/hawks-vs-grizzlies-summer-league-230003048.html",
-      "pubDate": "2026-07-07T23:00:03.000Z",
-      "publishedAt": "2026-07-07T23:00:03.000Z",
-      "summary": "Last game in Utah.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Summer League 的最新动态和后续影响。",
-      "oneLineZh": "Summer League 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/qlflEumi9SgBe7Quvg0Djg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/c08d81312869dfe4e4a982b7b2299a6c",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Hawks vs. Grizzlies, Summer League: start time, TV, streaming, radio, game thread",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -1823,131 +1957,6 @@
       "displayTitle": "Magic Hire Joe Prunty, Greg Buckner, Popeye Jones As Assistant Coaches",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286586/Brad-Stevens-Explains-Reasoning-Behind-Celtics-Jaylen-Brown-Trade",
-      "title": "Brad Stevens Explains Reasoning Behind Celtics' Jaylen Brown Trade",
-      "originalTitle": "Brad Stevens Explains Reasoning Behind Celtics' Jaylen Brown Trade",
-      "headlineZh": "Jaylen Brown 被交易至 76 人",
-      "titleZh": "Jaylen Brown 被交易至 76 人",
-      "link": "https://basketball.realgm.com/wiretap/286586/Brad-Stevens-Explains-Reasoning-Behind-Celtics-Jaylen-Brown-Trade",
-      "url": "https://basketball.realgm.com/wiretap/286586/Brad-Stevens-Explains-Reasoning-Behind-Celtics-Jaylen-Brown-Trade",
-      "pubDate": "2026-07-06T23:40:17.000Z",
-      "publishedAt": "2026-07-06T23:40:17.000Z",
-      "summary": "Boston Celtics president of basketball operations Brad Stevens said Monday the team traded Jaylen Brown to boost roster flexibility and add draft capital, calling the franchise's forward path \"more challenging\" than in recent seasons. Stevens and team owner Bill Chisholm addressed reporters in Boston to discuss the trade, which sent Brown to the Philadelphia 76ers in exchange for Paul George and four draft picks. \"When I looked at our team and where the league was heading, looked at the way that we've finished the last couple years and at the unbelievable way we've played in the regular season in the last couple years, the path looked a little bit more challenging to me,\" said Stevens. \"I might be wrong. I'm not going to stand up here and be defensive about that, but the path looked a little bit more challenging with 70% of our cap and such a high percent of our usage tied into two players [Brown and Jayson Tatum]. \"The reality in this day and age at the NBA... you have to do a great job of building out depth that can hopefully replace the irreplaceable individual.\" Brown, a five-time All-Star and 2024 Finals MVP, was drafted third overall by Boston in 2016. He averaged 28.7 points, 6.9 rebounds and 5.1 assists last season while Tatum recovered from a torn Achilles. Boston previously pursued a trade for Giannis Antetokounmpo before he was dealt to the Miami Heat, leaving Brown's future uncertain for weeks. Chisholm denied the move was financially motivated. \"No, absolutely not,\" said Chisholm. \"This was all about basically trying to win. Really trusting in our process. I think we have the best front office in the NBA, and they put in their work and they came to the conclusion this was the best way for us to win.\" Boston also agreed to a three-year, $47 million deal with center Mitchell Robinson and re-signed Neemias Queta to a four-year, $56 million extension.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM / Yahoo Sports 报道，Jaylen Brown 被交易至 76 人，这笔交易继续影响凯尔特人与 76 人的阵容评估。",
-      "oneLineZh": "Jaylen Brown 被交易至 76 人",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Stevens_Brad_bos_220923.jpg",
-      "source": "RealGM / Yahoo Sports",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
-      "importance": 5,
-      "eventKey": "trade:jaylen-brown:celtics:76ers",
-      "relatedItems": [
-        {
-          "title": "Jayson Tatum speaks about 'abrupt ending' after Celtics traded away Jaylen Brown: 'It's tough'",
-          "originalTitle": "Jayson Tatum speaks about 'abrupt ending' after Celtics traded away Jaylen Brown: 'It's tough'",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/nba/article/jayson-tatum-speaks-about-abrupt-ending-after-celtics-traded-away-jaylen-brown-its-tough-124812505.html",
-          "publishedAt": "2026-07-08T12:48:12.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process",
-          "originalTitle": "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process",
-          "source": "RealGM",
-          "url": "https://basketball.realgm.com/wiretap/286606/Jaylen-Browns-Value-Went-Down-Due-To-Way-Celtics-Handled-Trade-Process",
-          "publishedAt": "2026-07-08T02:54:40.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "Nets, Wolves Had Real Interest In Jaylen Brown But Moved On Before Celtics Reached Deal With Sixers",
-          "originalTitle": "Nets, Wolves Had Real Interest In Jaylen Brown But Moved On Before Celtics Reached Deal With Sixers",
-          "source": "RealGM",
-          "url": "https://basketball.realgm.com/wiretap/286595/Nets-Wolves-Had-Real-Interest-In-Jaylen-Brown-But-Moved-On-Before-Celtics-Reached-Deal-With-Sixers",
-          "publishedAt": "2026-07-07T16:49:25.000Z",
-          "angle": "report"
-        }
-      ],
-      "sources": [
-        "RealGM",
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process",
-        "Nets, Wolves Had Real Interest In Jaylen Brown But Moved On Before Celtics Reached Deal With Sixers",
-        "Brad Stevens Explains Reasoning Behind Celtics' Jaylen Brown Trade",
-        "Jayson Tatum speaks about 'abrupt ending' after Celtics traded away Jaylen Brown: 'It's tough'"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286619/Jayson-Tatum-On-Jaylen-Brown-Trade-Abrupt-Ending-To-Successful-Partnership"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/jaylen-brown-next-team-odds-210300213.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/jayson-tatum-shares-first-reaction-001410221.html"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286618/Warriors-Were-Never-Close-To-Trades-For-Kawhi-Leonard-Jaylen-Brown"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286606/Jaylen-Browns-Value-Went-Down-Due-To-Way-Celtics-Handled-Trade-Process"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286595/Nets-Wolves-Had-Real-Interest-In-Jaylen-Brown-But-Moved-On-Before-Celtics-Reached-Deal-With-Sixers"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286586/Brad-Stevens-Explains-Reasoning-Behind-Celtics-Jaylen-Brown-Trade"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/nba/article/jayson-tatum-speaks-about-abrupt-ending-after-celtics-traded-away-jaylen-brown-its-tough-124812505.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-showing-interest-76ers-235752029.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "Jaylen Brown 被交易至 76 人"
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286585/Nikola-Jokic-To-Wait-Until-2027-Offseason-To-Sign-New-Contract",
-      "title": "Nikola Jokic To Wait Until 2027 Offseason To Sign New Contract",
-      "originalTitle": "Nikola Jokic To Wait Until 2027 Offseason To Sign New Contract",
-      "headlineZh": "Nikola Jokic To Wait Until 2027 Offseason To 签下 New",
-      "titleZh": "Nikola Jokic To Wait Until 2027 Offseason To 签下 New",
-      "link": "https://basketball.realgm.com/wiretap/286585/Nikola-Jokic-To-Wait-Until-2027-Offseason-To-Sign-New-Contract",
-      "url": "https://basketball.realgm.com/wiretap/286585/Nikola-Jokic-To-Wait-Until-2027-Offseason-To-Sign-New-Contract",
-      "pubDate": "2026-07-06T20:45:24.000Z",
-      "publishedAt": "2026-07-06T20:45:24.000Z",
-      "summary": "Nikola Jokic confirmed that he plans on waiting until the 2027 offseason to sign a long-term contract with the Denver Nuggets. Jokic can sign a four-year contract worth $278 million this offseason, or he can sign a five-year, $359.5 million max contract with a no-trade clause if he waits until 2027. Jokic has a player option worth $62.8 million for the 2027-28 season. Jokic has reiterated that he would like to remain with the Nuggets for his entire career despite waiting two consecutive offseasons to sign an extension. In 2025, Jokic could have signed a three-year, $200 million extension. \"My idea and desire is to stay in Denver. I'll probably sign next year,\" Jokic told reporters in Serbian following a FIBA World Cup qualifying game Monday. \"... My desire is to play the rest of my life in Denver.\" Jokic averaged 27.7 points, 12.9 rebounds and 10.7 assists in 34.8 minutes over 65 games in his age-30 season as he finished second in MVP voting. Jokic has finished first or second in MVP voting in six straight seasons dating back to 2021. The Nuggets haven't advanced out of the second round since winning the championship in 2023.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Nikola Jokic To Wait Until 2027 Offseason To 签下 New，原文关注 Nikola Jokic To 的合同或自由市场动向。",
-      "oneLineZh": "Nikola Jokic To Wait Until 2027 Offseason To 签下 New",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Jokic_Nikola_den_260427.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 4,
-      "eventKey": "trade:nikola-jokic-to",
-      "relatedItems": [],
-      "displayTitle": "Nikola Jokic To Wait Until 2027 Offseason To 签下 New",
       "isMerged": false
     }
   ]
