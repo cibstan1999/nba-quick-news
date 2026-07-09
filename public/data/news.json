@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-09T04:32:24.436Z",
+  "updatedAt": "2026-07-09T08:41:33.414Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-09T04:32:24.436Z",
-    "updatedAt": "2026-07-09T04:32:24.436Z",
+    "checkedAt": "2026-07-09T08:41:33.414Z",
+    "updatedAt": "2026-07-09T08:41:33.414Z",
     "fetchedItems": 80,
-    "mergedItems": 68,
+    "mergedItems": 69,
     "failedFeeds": [],
     "message": "Fetched 80 usable RSS items from all feeds."
   },
@@ -57,6 +57,58 @@
     }
   ],
   "items": [
+    {
+      "id": "https://basketball.realgm.com/wiretap/286626/Stephen-Silas-To-Join-Raptors-As-Assistant-Coach",
+      "title": "Stephen Silas To Join Raptors As Assistant Coach",
+      "originalTitle": "Stephen Silas To Join Raptors As Assistant Coach",
+      "headlineZh": "Stephen Silas To 相关消息更新",
+      "titleZh": "Stephen Silas To 相关消息更新",
+      "link": "https://basketball.realgm.com/wiretap/286626/Stephen-Silas-To-Join-Raptors-As-Assistant-Coach",
+      "url": "https://basketball.realgm.com/wiretap/286626/Stephen-Silas-To-Join-Raptors-As-Assistant-Coach",
+      "pubDate": "2026-07-09T06:05:13.000Z",
+      "publishedAt": "2026-07-09T06:05:13.000Z",
+      "summary": "Stephen Silas is set to join Darko Rajakovic's staff with the Toronto Raptors as an assistant coach. Silas was previously the head coach of the Rockets for three seasons and had a stint as a lead assistant on Monty Williams' staff with the Pistons. Mike Batiste nor James Wade are expected to return to Rajakovic's staff this upcoming season.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，原文聚焦 Stephen Silas To 的最新动态和后续影响。",
+      "oneLineZh": "Stephen Silas To 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Silas_Stephen_hou_230209.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Stephen Silas To Join Raptors As Assistant Coach",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/utah-jazz-vs-washington-wizards-035706737.html",
+      "title": "Utah Jazz vs Washington Wizards: Summer League Preview, start time, how to watch",
+      "originalTitle": "Utah Jazz vs Washington Wizards: Summer League Preview, start time, how to watch",
+      "headlineZh": "华盛顿奇才相关消息更新",
+      "titleZh": "华盛顿奇才相关消息更新",
+      "link": "https://sports.yahoo.com/articles/utah-jazz-vs-washington-wizards-035706737.html",
+      "url": "https://sports.yahoo.com/articles/utah-jazz-vs-washington-wizards-035706737.html",
+      "pubDate": "2026-07-09T03:57:06.000Z",
+      "publishedAt": "2026-07-09T03:57:06.000Z",
+      "summary": "Is it hyperbolic to say this is the most exciting Jazz game in 4 years?",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦华盛顿奇才的最新动态和后续影响。",
+      "oneLineZh": "华盛顿奇才相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/EakhBKX12QMye9GKwYVZkw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/d6400d8149925baa44c975ad6e97ee22",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Utah Jazz vs Washington Wizards: Summer League Preview, start time, how to watch",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://basketball.realgm.com/wiretap/286625/Jon-Horst-Trading-Giannis-Antetokounmpo-Was-Best-For-Us-Best-For-Him",
       "title": "Jon Horst: Trading Giannis Antetokounmpo Was 'Best For Us, Best For Him'",
@@ -263,6 +315,58 @@
       "eventKey": "injury:the-brooklyn-podcast",
       "relatedItems": [],
       "displayTitle": "The Brooklyn Podcast: Free Agency News, Summer League Takeaways & the Return of Pooch!",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lebron-james-decision-not-expected-005851298.html",
+      "title": "LeBron James decision not expected soon, says Shams Charania",
+      "originalTitle": "LeBron James decision not expected soon, says Shams Charania",
+      "headlineZh": "LeBron James 相关消息更新",
+      "titleZh": "LeBron James 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/lebron-james-decision-not-expected-005851298.html",
+      "url": "https://sports.yahoo.com/articles/lebron-james-decision-not-expected-005851298.html",
+      "pubDate": "2026-07-09T00:58:51.000Z",
+      "publishedAt": "2026-07-09T00:58:51.000Z",
+      "summary": "LeBron James is still not ready to make his next move.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
+      "oneLineZh": "LeBron James 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/6X85sz32ocDI9k8IjMX60Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/7e1ef7e42990e9ee6ffeb0b8fbef04f2",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "LeBron James decision not expected soon, says Shams Charania",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/tim-bontemps-bolts-espn-writing-004526211.html",
+      "title": "Tim Bontemps bolts ESPN writing gig for Hawks front office job",
+      "originalTitle": "Tim Bontemps bolts ESPN writing gig for Hawks front office job",
+      "headlineZh": "Tim Bontemps 相关消息更新",
+      "titleZh": "Tim Bontemps 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/tim-bontemps-bolts-espn-writing-004526211.html",
+      "url": "https://sports.yahoo.com/articles/tim-bontemps-bolts-espn-writing-004526211.html",
+      "pubDate": "2026-07-09T00:45:26.000Z",
+      "publishedAt": "2026-07-09T00:45:26.000Z",
+      "summary": "From the press box to the executive suite.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Tim Bontemps 的最新动态和后续影响。",
+      "oneLineZh": "Tim Bontemps 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/oRYmHQqpbfbf.iKf3MUUkA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/28d2d4fbe4ed0afe4eae0f104b0bb40b",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Tim Bontemps bolts ESPN writing gig for Hawks front office job",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -1292,58 +1396,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/potential-sixers-veteran-minimum-targets-175706219.html",
-      "title": "Potential Sixers veteran’s minimum targets, non-LeBron edition",
-      "originalTitle": "Potential Sixers veteran’s minimum targets, non-LeBron edition",
-      "headlineZh": "76 人休赛期后续动向",
-      "titleZh": "76 人休赛期后续动向",
-      "link": "https://sports.yahoo.com/articles/potential-sixers-veteran-minimum-targets-175706219.html",
-      "url": "https://sports.yahoo.com/articles/potential-sixers-veteran-minimum-targets-175706219.html",
-      "pubDate": "2026-07-08T17:57:06.000Z",
-      "publishedAt": "2026-07-08T17:57:06.000Z",
-      "summary": "Five league-minimum targets should the Sixers miss out on LeBron James.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "76 人休赛期后续动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/hzDCZ_VT3HvGRGokB9BRJA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/efcef24550e861745a70d3ac7b0db210",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Potential Sixers veteran’s minimum targets, non-LeBron edition",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/kings-waiving-star-demar-derozan-174306841.html",
-      "title": "Kings waiving star DeMar DeRozan was a financial decision, per GM Scott Perry",
-      "originalTitle": "Kings waiving star DeMar DeRozan was a financial decision, per GM Scott Perry",
-      "headlineZh": "DeMar DeRozan 相关消息更新",
-      "titleZh": "DeMar DeRozan 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/kings-waiving-star-demar-derozan-174306841.html",
-      "url": "https://sports.yahoo.com/articles/kings-waiving-star-demar-derozan-174306841.html",
-      "pubDate": "2026-07-08T17:43:06.000Z",
-      "publishedAt": "2026-07-08T17:43:06.000Z",
-      "summary": "Kings GM Scott Perry spoke with media members on Wednesday and explained why the team waiving former All-Star DeMar DeRozan was a financial decision.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 DeMar DeRozan 的最新动态和后续影响。",
-      "oneLineZh": "DeMar DeRozan 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/91dc70951eedb6786c648cf45356e644",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Kings waiving star DeMar DeRozan was a financial decision, per GM Scott Perry",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286619/Jayson-Tatum-On-Jaylen-Brown-Trade-Abrupt-Ending-To-Successful-Partnership",
       "title": "Jayson Tatum On Jaylen Brown Trade: 'Abrupt Ending' To Successful Partnership",
       "originalTitle": "Jayson Tatum On Jaylen Brown Trade: 'Abrupt Ending' To Successful Partnership",
@@ -1888,14 +1940,6 @@
           "url": "https://sports.yahoo.com/articles/lakers-officially-signed-walker-kessler-011434004.html",
           "publishedAt": "2026-07-09T01:14:34.000Z",
           "angle": "source"
-        },
-        {
-          "title": "Luka Dončić ‘pushed hard’ for Lakers to trade for Walker Kessler",
-          "originalTitle": "Luka Dončić ‘pushed hard’ for Lakers to trade for Walker Kessler",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/luka-don-pushed-hard-lakers-174318035.html",
-          "publishedAt": "2026-07-08T17:43:18.000Z",
-          "angle": "source"
         }
       ],
       "sources": [
@@ -1903,8 +1947,7 @@
         "Yahoo Sports"
       ],
       "originalTitles": [
-        "The Lakers have officially signed Walker Kessler, who may determine the success of the Luka Dončić era",
-        "Luka Dončić ‘pushed hard’ for Lakers to trade for Walker Kessler"
+        "The Lakers have officially signed Walker Kessler, who may determine the success of the Luka Dončić era"
       ],
       "sourceLinks": [
         {
@@ -1914,10 +1957,6 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/lakers-officially-signed-walker-kessler-011434004.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/luka-don-pushed-hard-lakers-174318035.html"
         }
       ],
       "isMerged": true,
@@ -1999,32 +2038,6 @@
       "eventKey": "sign:kyle-lowry-signs:heat:20",
       "relatedItems": [],
       "displayTitle": "Kyle Lowry Signs One-Day Deal With Raptors, Retires From NBA",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286591/Donovan-Mitchell-Cavaliers-Agree-To-Four-Year-$273M-Extension",
-      "title": "Donovan Mitchell, Cavaliers Agree To Four-Year, $273M Extension",
-      "originalTitle": "Donovan Mitchell, Cavaliers Agree To Four-Year, $273M Extension",
-      "headlineZh": "签约动态：Donovan Mitchell，骑士 达成 四年，27300 万美元 Extension",
-      "titleZh": "签约动态：Donovan Mitchell，骑士 达成 四年，27300 万美元 Extension",
-      "link": "https://basketball.realgm.com/wiretap/286591/Donovan-Mitchell-Cavaliers-Agree-To-Four-Year-$273M-Extension",
-      "url": "https://basketball.realgm.com/wiretap/286591/Donovan-Mitchell-Cavaliers-Agree-To-Four-Year-$273M-Extension",
-      "pubDate": "2026-07-07T13:07:27.000Z",
-      "publishedAt": "2026-07-07T13:07:27.000Z",
-      "summary": "The Cleveland Cavaliers and guard Donovan Mitchell have agreed to a four-year, $273 million veteran extension. Mitchell's new deal will run through the 2030-31 season. The final season of the deal includes a player option for Mitchell. The Cavs got Mitchell to extend a year earlier than he could have. The superstar guard could have opted out for the 2027-28 season and signed a five-year contract with Cleveland, but chose to lock up a new deal now. Mitchell has reportedly been working with Cavaliers GM Koby Altman this summer by giving input on roster moves. This is now Mitchell's second extension that he's signed with Cleveland since the team acquired him in 2022.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，签约动态：Donovan Mitchell，骑士 达成 四年，27300 万美元 Extension，原文关注 Donovan Mitchell 的合同或自由市场动向。",
-      "oneLineZh": "签约动态：Donovan Mitchell，骑士 达成 四年，27300 万美元 Extension",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Mitchell_Donovan_cle_260501.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 4,
-      "eventKey": "trade:donovan-mitchell:cavaliers",
-      "relatedItems": [],
-      "displayTitle": "签约动态：Donovan Mitchell，骑士 达成 四年，27300 万美元 Extension",
       "isMerged": false
     }
   ]
