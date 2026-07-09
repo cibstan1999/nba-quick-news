@@ -9,29 +9,29 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-09T19:59:56.600Z",
+  "updatedAt": "2026-07-09T21:38:58.480Z",
   "lastFetchStatus": {
     "status": "success",
-    "checkedAt": "2026-07-09T19:59:56.600Z",
-    "updatedAt": "2026-07-09T19:59:56.600Z",
+    "checkedAt": "2026-07-09T21:38:58.480Z",
+    "updatedAt": "2026-07-09T21:38:58.480Z",
     "fetchedItems": 80,
-    "mergedItems": 69,
+    "mergedItems": 64,
     "failedFeeds": [],
     "message": "Fetched 80 usable RSS items from all feeds."
   },
   "highlights": [
     {
-      "id": "https://sports.yahoo.com/articles/raptors-trade-kawhi-leonard-hold-153501713.html",
+      "id": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html",
       "text": "Kawhi Leonard 交易影响继续发酵",
       "category": "交易",
       "source": "Yahoo Sports",
-      "link": "https://sports.yahoo.com/articles/raptors-trade-kawhi-leonard-hold-153501713.html"
+      "link": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286619/Jayson-Tatum-On-Jaylen-Brown-Trade-Abrupt-Ending-To-Successful-Partnership",
       "text": "Jaylen Brown 被交易至 76 人",
       "category": "交易",
-      "source": "RealGM",
+      "source": "RealGM / Yahoo Sports",
       "link": "https://basketball.realgm.com/wiretap/286619/Jayson-Tatum-On-Jaylen-Brown-Trade-Abrupt-Ending-To-Successful-Partnership"
     },
     {
@@ -42,21 +42,269 @@
       "link": "https://basketball.realgm.com/wiretap/286620/Larry-Nance-Jr-Pacers-Agree-To-One-Year-$4M-Deal"
     },
     {
-      "id": "https://basketball.realgm.com/wiretap/286601/Kevon-Looney-Lakers-Agree-To-One-Year-$39M-Deal",
-      "text": "Kevon Looney 与湖人达成一年，390 万美元合同",
+      "id": "https://basketball.realgm.com/wiretap/286639/Charles-Bassey-Warriors-Agree-To-One-Year-Deal",
+      "text": "Charles Bassey 与勇士达成一年合同",
       "category": "签约",
       "source": "RealGM",
-      "link": "https://basketball.realgm.com/wiretap/286601/Kevon-Looney-Lakers-Agree-To-One-Year-$39M-Deal"
+      "link": "https://basketball.realgm.com/wiretap/286639/Charles-Bassey-Warriors-Agree-To-One-Year-Deal"
     },
     {
-      "id": "https://basketball.realgm.com/wiretap/286616/Warriors-Havent-Been-Told-Anthony-Davis-Trade-Needed-To-Sign-LeBron-James",
-      "text": "Haven't Been Told 交易影响继续发酵",
+      "id": "https://sports.yahoo.com/articles/mike-gansey-says-joel-embiid-190756412.html",
+      "text": "Mike Gansey 交易影响继续发酵",
       "category": "交易",
-      "source": "RealGM",
-      "link": "https://basketball.realgm.com/wiretap/286616/Warriors-Havent-Been-Told-Anthony-Davis-Trade-Needed-To-Sign-LeBron-James"
+      "source": "Yahoo Sports",
+      "link": "https://sports.yahoo.com/articles/mike-gansey-says-joel-embiid-190756412.html"
     }
   ],
   "items": [
+    {
+      "id": "https://basketball.realgm.com/wiretap/286639/Charles-Bassey-Warriors-Agree-To-One-Year-Deal",
+      "title": "Charles Bassey, Warriors Agree To One-Year Deal",
+      "originalTitle": "Charles Bassey, Warriors Agree To One-Year Deal",
+      "headlineZh": "Charles Bassey 与勇士达成一年合同",
+      "titleZh": "Charles Bassey 与勇士达成一年合同",
+      "link": "https://basketball.realgm.com/wiretap/286639/Charles-Bassey-Warriors-Agree-To-One-Year-Deal",
+      "url": "https://basketball.realgm.com/wiretap/286639/Charles-Bassey-Warriors-Agree-To-One-Year-Deal",
+      "pubDate": "2026-07-09T21:15:34.000Z",
+      "publishedAt": "2026-07-09T21:15:34.000Z",
+      "summary": "Charles Bassey and the Golden State Warriors have agreed upon a one-year deal. Bassey appeared in 13 games during the 2025-26 season across stops with the Warriors, Boston Celtics, Memphis Grizzlies and Philadelphia 76ers. Bassey finished the season with the Warriors. Bassey was the 53rd overall pick in the 2021 NBA draft out of Western Kentucky.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，Charles Bassey 与勇士达成一年合同，原文关注 Charles Bassey 的合同或自由市场动向。",
+      "oneLineZh": "Charles Bassey 与勇士达成一年合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_goldenstatewarriors.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 4,
+      "eventKey": "sign:charles-bassey:warriors:1",
+      "relatedItems": [],
+      "displayTitle": "Charles Bassey 与勇士达成一年合同",
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286638/Jerry-Colangelo-Leads-New-Las-Vegas-Bid-As-Seattle-Interest-Lags",
+      "title": "Jerry Colangelo Leads New Las Vegas Bid As Seattle Interest Lags",
+      "originalTitle": "Jerry Colangelo Leads New Las Vegas Bid As Seattle Interest Lags",
+      "headlineZh": "Jerry Colangelo Leads 相关消息更新",
+      "titleZh": "Jerry Colangelo Leads 相关消息更新",
+      "link": "https://basketball.realgm.com/wiretap/286638/Jerry-Colangelo-Leads-New-Las-Vegas-Bid-As-Seattle-Interest-Lags",
+      "url": "https://basketball.realgm.com/wiretap/286638/Jerry-Colangelo-Leads-New-Las-Vegas-Bid-As-Seattle-Interest-Lags",
+      "pubDate": "2026-07-09T20:45:22.000Z",
+      "publishedAt": "2026-07-09T20:45:22.000Z",
+      "summary": "A group led by former NBA executive Jerry Colangelo and Horizon Sports & Experiences CEO David Levy announced plans Wednesday to submit an NBA expansion bid for Las Vegas. The group, called the Las Vegas Jacks, claims to have already raised $8 billion. Front Office Sports reported that former Bulls point guard Jay Williams and former Clippers coach Vinny Del Negro are also part of the group. The Jacks intend to build their own arena and an accompanying entertainment district if awarded a franchise. The Jacks join a growing list of Las Vegas suitors that includes Golden Knights owner Bill Foley, former Disney CEO Bob Iger with venture capitalist Josh Kushner, former Bucks owner Marc Lasry and NBA legend Magic Johnson. NBA commissioner Adam Silver confirmed before the Finals that Las Vegas and Seattle remain the league's two expansion targets. \"We're focused on Las Vegas and Seattle,\" said Silver. \"There are multiple groups interested in both cities.\" Seattle's market has moved more slowly by comparison. Only one group, led by Kraken governor Samantha Holloway, has publicly expressed interest in bringing an NBA team back to the city. League sources told Front Office Sports that the ongoing Seattle Seahawks sale may be pulling potential bidders away from a Seattle expansion effort. Holloway's group has spent years preparing, designating multiple rooms at Climate Pledge Arena as \"NBA Locker Room\" space, and holds a majority stake in the arena. Silver has not committed to expansion moving forward and said a decision will come by year's end. \"There is enormous instability in the world at the moment,\" he said in March. \"We may ultimately conclude for reasons completely out of our control that it's not the right time to expand.\" Silver has said expansion bids could reach as high as $10 billion, with proceeds split among the league's 30 current owners.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，原文聚焦 Jerry Colangelo Leads 的最新动态和后续影响。",
+      "oneLineZh": "Jerry Colangelo Leads 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_realgm.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:jerry-colangelo-leads",
+      "relatedItems": [],
+      "displayTitle": "Jerry Colangelo Leads New Las Vegas Bid As Seattle Interest Lags",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html",
+      "title": "Raptors put Kawhi Leonard trade on hold until the NBA probe into the Clippers concludes",
+      "originalTitle": "Raptors put Kawhi Leonard trade on hold until the NBA probe into the Clippers concludes",
+      "headlineZh": "Kawhi Leonard 交易影响继续发酵",
+      "titleZh": "Kawhi Leonard 交易影响继续发酵",
+      "link": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html",
+      "url": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html",
+      "pubDate": "2026-07-09T20:27:16.000Z",
+      "publishedAt": "2026-07-09T20:27:16.000Z",
+      "summary": "The NBA informed Toronto that it would assume any penalties handed down if wrongdoing is found in Leonard's endorsement deal.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Kawhi Leonard 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "Kawhi Leonard 交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/la_times_articles_853/7d043c5174461505f766a031442f89fc",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 5,
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/kawhi-leonard-trade-toronto-hold-210830237.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/kawhi-leonard-raptors-trade-hold-200636309.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/kawhi-leonard-trade-clippers-raptors-200602334.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/raptors-trade-kawhi-leonard-hold-153501713.html"
+        }
+      ],
+      "originalTitles": [
+        "Kawhi Leonard trade to Toronto on hold until Aspiration investigation concludes",
+        "Raptors put Kawhi Leonard trade on hold until the NBA probe into the Clippers concludes",
+        "Raptors trade for Kawhi Leonard can't be completed until NBA's investigation into Clippers ends",
+        "Kawhi Leonard to Raptors trade on hold until NBA finishes cap circumvention investigation",
+        "Kawhi Leonard trade from Clippers to Raptors stalls over NBA investigation",
+        "Raptors' trade for Kawhi Leonard on hold until Clippers investigation is done"
+      ],
+      "isMerged": true,
+      "eventKey": "trade:kawhi-leonard",
+      "relatedItems": [
+        {
+          "title": "Kawhi Leonard trade to Toronto on hold until Aspiration investigation concludes",
+          "originalTitle": "Kawhi Leonard trade to Toronto on hold until Aspiration investigation concludes",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/kawhi-leonard-trade-toronto-hold-210830237.html",
+          "publishedAt": "2026-07-09T21:08:30.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Kawhi Leonard to Raptors trade on hold until NBA finishes cap circumvention investigation",
+          "originalTitle": "Kawhi Leonard to Raptors trade on hold until NBA finishes cap circumvention investigation",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/kawhi-leonard-raptors-trade-hold-200636309.html",
+          "publishedAt": "2026-07-09T20:06:36.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Kawhi Leonard trade from Clippers to Raptors stalls over NBA investigation",
+          "originalTitle": "Kawhi Leonard trade from Clippers to Raptors stalls over NBA investigation",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/kawhi-leonard-trade-clippers-raptors-200602334.html",
+          "publishedAt": "2026-07-09T20:06:02.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Raptors' trade for Kawhi Leonard on hold until Clippers investigation is done",
+          "originalTitle": "Raptors' trade for Kawhi Leonard on hold until Clippers investigation is done",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/raptors-trade-kawhi-leonard-hold-153501713.html",
+          "publishedAt": "2026-07-09T15:35:01.000Z",
+          "angle": "source"
+        }
+      ],
+      "displayTitle": "Kawhi Leonard 交易影响继续发酵"
+    },
+    {
+      "id": "https://www.yahoo.com/news/us/articles/madison-square-garden-alleged-track-201019974.html",
+      "title": "Madison Square Garden alleged to track and assign risk scores to celebrities",
+      "originalTitle": "Madison Square Garden alleged to track and assign risk scores to celebrities",
+      "headlineZh": "Madison Square Garden 签约动向更新",
+      "titleZh": "Madison Square Garden 签约动向更新",
+      "link": "https://www.yahoo.com/news/us/articles/madison-square-garden-alleged-track-201019974.html",
+      "url": "https://www.yahoo.com/news/us/articles/madison-square-garden-alleged-track-201019974.html",
+      "pubDate": "2026-07-09T20:10:19.000Z",
+      "publishedAt": "2026-07-09T20:10:19.000Z",
+      "summary": "Security for Knicks owner James Dolan and Madison Square Garden reportedly tracked celebrities’ race, gender identity, and sexual orientation.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Madison Square Garden 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Madison Square Garden 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/lo/mysterio/api/541358e69d38412766e8faaa2bafd74f87c28c245b7cd9c47b4f16a3d87704c3/lightyear_networkapi/resizefill_w1200;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fusa_today_sports_articles_558%2F6685e9e0634651a6fa02fd15e2c1171d",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:madison-square-garden",
+      "relatedItems": [],
+      "displayTitle": "Madison Square Garden alleged to track and assign risk scores to celebrities",
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286636/Jalen-Brunsons-Game-1-Finals-Jersey-Sold-For-$1024M-At-Auction",
+      "title": "Jalen Brunson's Game 1 Finals Jersey Sold For $1.024M At Auction",
+      "originalTitle": "Jalen Brunson's Game 1 Finals Jersey Sold For $1.024M At Auction",
+      "headlineZh": "Jalen Brunson's Game 相关消息更新",
+      "titleZh": "Jalen Brunson's Game 相关消息更新",
+      "link": "https://basketball.realgm.com/wiretap/286636/Jalen-Brunsons-Game-1-Finals-Jersey-Sold-For-$1024M-At-Auction",
+      "url": "https://basketball.realgm.com/wiretap/286636/Jalen-Brunsons-Game-1-Finals-Jersey-Sold-For-$1024M-At-Auction",
+      "pubDate": "2026-07-09T20:05:16.000Z",
+      "publishedAt": "2026-07-09T20:05:16.000Z",
+      "summary": "Jalen Brunson's game-worn jersey from Game 1 of the 2026 NBA Finals sold for $1.024 million on Wednesday night, setting a new record for New York Knicks memorabilia. The sale came through Sotheby's as part of the auction house's NBA Finals collection. Brunson wore the jersey while scoring 30 points as the Knicks defeated the San Antonio Spurs 105-95 in Game 1 on June 3. The Knicks went on to win the series 4-1 and capture the 2026 title, with Brunson earning Finals MVP honors. The sale marks the largest public sum ever paid for a Brunson item. Still, it falls well short of the top NBA jersey sale on record: Michael Jordan's jersey from his final 1998 Finals game, which brought $10.1 million at Sotheby's in September 2022. Sotheby's is also running a separate auction for a Kobe Bryant jersey from Game 1 of the 2009 Finals, with bidding at $1.25 million as of Wednesday. That auction closes July 20. Brunson's memorabilia surge extends beyond jerseys. His 2018 Panini Prizm Choice Nebula one-of-one card, graded PSA 9, sold for $312,000 on June 19 through Card Ladder, up from a previous high of roughly $97,000 in November 2024. The same card had listed for just $300 in 2019. Other Knicks jerseys from the collection also drew strong bids. Jerseys worn by OG Anunoby and Karl-Anthony Towns each sold for $256,000, while Josh Hart's jersey brought $89,600. On the Spurs' side, Victor Wembanyama's Game 1 jersey led all sales at $217,600, followed by Dylan Harper's at $115,200.",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，原文聚焦 Jalen Brunson's Game 的最新动态和后续影响。",
+      "oneLineZh": "Jalen Brunson's Game 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Brunson_Jalen_nyk_260610.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "季后赛",
+      "importance": 2,
+      "displayTitle": "Jalen Brunson's Game 1 Finals Jersey Sold For $1.024M At Auction",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/nikola-kusturica-potential-no-1-195020400.html",
+      "title": "Nikola Kusturica, potential No. 1 pick in 2028, signs with UCLA basketball",
+      "originalTitle": "Nikola Kusturica, potential No. 1 pick in 2028, signs with UCLA basketball",
+      "headlineZh": "Nikola Kusturica 签约动向更新",
+      "titleZh": "Nikola Kusturica 签约动向更新",
+      "link": "https://sports.yahoo.com/articles/nikola-kusturica-potential-no-1-195020400.html",
+      "url": "https://sports.yahoo.com/articles/nikola-kusturica-potential-no-1-195020400.html",
+      "pubDate": "2026-07-09T19:50:20.000Z",
+      "publishedAt": "2026-07-09T19:50:20.000Z",
+      "summary": "Serbian guard Nikola Kusturica signed with UCLA on July 9, giving the Bruins an early favorite for the No. 1 overall pick in 2028:",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Nikola Kusturica 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Nikola Kusturica 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/FGbJF4kwNj6.vFDHCsS2tw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/e46c9ed81e5310fb1705096bdeb02a96",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:nikola-kusturica",
+      "relatedItems": [],
+      "displayTitle": "Nikola Kusturica, potential No. 1 pick in 2028, signs with UCLA basketball",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "title": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "originalTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "headlineZh": "LeBron James Next 相关消息更新",
+      "titleZh": "LeBron James Next 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "url": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "pubDate": "2026-07-09T19:43:00.000Z",
+      "publishedAt": "2026-07-09T19:43:00.000Z",
+      "summary": "LeBron James' next team odds have tightened, with Cleveland still leading Kalshi's market as Miami surges past Golden State into second.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James Next 的最新动态和后续影响。",
+      "oneLineZh": "LeBron James Next 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/829b52bbdc0f0e73b91edebe6030e0f7",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "eventKey": "odds:lebron-james",
+      "relatedItems": [],
+      "displayTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/marcus-spears-jr-commitment-5-193939434.html",
       "title": "Marcus Spears Jr. commitment: 5-star picks Texas, reclassifies to 2026 class",
@@ -93,7 +341,7 @@
       "url": "https://basketball.realgm.com/wiretap/286635/Raptors-Trade-With-Clippers-For-Kawhi-Leonard-On-Hold-Until-NBA-Concludes-Aspiration-Inquiry",
       "pubDate": "2026-07-09T19:09:03.000Z",
       "publishedAt": "2026-07-09T19:09:03.000Z",
-      "summary": "A trade between the Toronto Raptors and Los Angeles Clippers involving Kawhi Leonard has been put on hold until the NBA concludes its investigation into a potential cap circumvention involving Aspiration. The Raptors agreed to acquire Leonard from the Clippers for Brandon Ingram, Gradey Dick, two first round picks, one pick swap and two second rounders. The two first round picks are unprotected in 2031 and 2033 with the first round pick swap in 2027. The Raptors will send second round picks to the Clippers in 2030 and 2033. The league office informed the Raptors that they would assume any risk for a potential punishment of Leonard that could impact his contract and his availability. The Raptors have also been in extension talks with Leonard, which was a major driving force of the trade as the Clippers had signaled they didn't have interest in a long-term contract. The Clippers released the following statement in response: \"For the past 10 months, our organization has fully cooperated with an NBA investigation, participating in dozens of interviews, providing tens of thousands of documents, and facilitating access to our staff. While the process has been challenging, we have remained committed to transparency. \"On June 30, we reached an agreement in principle to trade Kawhi Leonard to the Toronto Raptors. We have since been informed that the trade can only be finalized if the Raptors' ownership group assumes the risk of penalties related to Kawhi's contract that could theoretically result from the ongoing investigation. The investigation is ongoing, and we expect the trade to be finalized following its conclusion. \"At the heart of this investigation are Joe Sanberg and Aspiration. We did not funnel money to Kawhi Leonard through Aspiration. Like many sophisticated investors, financial institutions, and business partners, we were victims of a fraud initiated by Sanberg, who has been convicted and sentenced to 14 years in prison. \"We recognize the uncertainty this has created and the impact it has had on our team, our fans, the Raptors organization, their fans, and the players whose futures remain affected while this process continues. \"We remain confident that, when the facts are evaluated fairly and thoroughly, the NBA will confirm exactly what we have said from the beginning: We have not done what we are accused of doing.\"",
+      "summary": "A trade between the Toronto Raptors and Los Angeles Clippers involving Kawhi Leonard has been put on hold until the NBA concludes its investigation into a potential cap circumvention involving Aspiration. The Raptors agreed to acquire Leonard from the Clippers for Brandon Ingram, Gradey Dick, two first round picks, one pick swap and two second rounders. The two first round picks are unprotected in 2031 and 2033 with the first round pick swap in 2027. The Raptors will send second round picks to the Clippers in 2030 and 2033. The league office informed the Raptors that they would assume any risk for a potential punishment of Leonard that could impact his contract and his availability. The Raptors have also been in extension talks with Leonard, which was a major driving force of the trade as the Clippers had signaled they didn't have interest in a long-term contract. The Clippers released the following statement in response: \"For the past 10 months, our organization has fully cooperated with an NBA investigation, participating in dozens of interviews, providing tens of thousands of documents, and facilitating access to our staff. While the process has been challenging, we have remained committed to transparency. \"On June 30, we reached an agreement in principle to trade Kawhi Leonard to the Toronto Raptors. We have since been informed that the trade can only be finalized if the Raptors' ownership group assumes the risk of penalties related to Kawhi's contract that could theoretically result from the ongoing investigation. The investigation is ongoing, and we expect the trade to be finalized following its conclusion. \"At the heart of this investigation are Joe Sanberg and Aspiration. We did not funnel money to Kawhi Leonard through Aspiration. Like many sophisticated investors, financial institutions, and business partners, we were victims of a fraud initiated by Sanberg, who has been convicted and sentenced to 14 years in prison. \"We recognize the uncertainty this has created and the impact it has had on our team, our fans, the Raptors organization, their fans, and the players whose futures remain affected while this process continues. \"We remain confident that, when the facts are evaluated fairly and thoroughly, the NBA will confirm exactly what we have said from the beginning: We have not done what we are accused of doing.\" The Raptors said they \"remain eager to bring Kawhi back to Toronto and look forward to a swift resolution for our players, our organization, and our fans.\"",
       "dekZh": "",
       "summaryZh": "据 RealGM 报道，猛龙' Trade With 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
       "oneLineZh": "猛龙' Trade With 交易影响继续发酵",
@@ -110,30 +358,46 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "title": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
-      "originalTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
-      "headlineZh": "LeBron James Next 相关消息更新",
-      "titleZh": "LeBron James Next 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "url": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "pubDate": "2026-07-09T18:50:00.000Z",
-      "publishedAt": "2026-07-09T18:50:00.000Z",
-      "summary": "LeBron James' next team odds have tightened, with Cleveland still leading Kalshi's market as Miami surges past Golden State into second.",
+      "id": "https://sports.yahoo.com/articles/mike-gansey-says-joel-embiid-190756412.html",
+      "title": "Mike Gansey says Joel Embiid ‘fired up’ about Brown trade, upcoming season",
+      "originalTitle": "Mike Gansey says Joel Embiid ‘fired up’ about Brown trade, upcoming season",
+      "headlineZh": "Mike Gansey 交易影响继续发酵",
+      "titleZh": "Mike Gansey 交易影响继续发酵",
+      "link": "https://sports.yahoo.com/articles/mike-gansey-says-joel-embiid-190756412.html",
+      "url": "https://sports.yahoo.com/articles/mike-gansey-says-joel-embiid-190756412.html",
+      "pubDate": "2026-07-09T19:07:56.000Z",
+      "publishedAt": "2026-07-09T19:07:56.000Z",
+      "summary": "Joel Embiid is excited about playing with Jaylen Brown and the 2026-27 season, according to Mike Gansey.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James Next 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James Next 相关消息更新",
+      "summaryZh": "据 Yahoo Sports 报道，Mike Gansey 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "Mike Gansey 交易影响继续发酵",
       "goldenQuoteZh": "",
       "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/829b52bbdc0f0e73b91edebe6030e0f7",
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/cb01OE6Uzgy0BMNkVcPUcw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/b9cb75e54730ff1c195185ce5d979062",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "eventKey": "odds:lebron-james",
+      "category": "交易",
+      "importance": 4,
+      "eventKey": "trade:jaylen-brown",
       "relatedItems": [],
-      "displayTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
-      "isMerged": false
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Optionality, the Walker-Pierce parallels, and 2028"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/mike-gansey-says-joel-embiid-190756412.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/optionality-walker-pierce-parallels-2028-090300185.html"
+        }
+      ],
+      "isMerged": false,
+      "displayTitle": "Mike Gansey 交易影响继续发酵"
     },
     {
       "id": "https://sports.yahoo.com/articles/details-nate-ament-rookie-contract-183928850.html",
@@ -410,61 +674,35 @@
       "category": "签约",
       "importance": 4,
       "eventKey": "sign:jordan-clarkson",
-      "relatedItems": [],
-      "displayTitle": "尼克斯续约 Jordan Clarkson，bolster bench depth",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/raptors-trade-kawhi-leonard-hold-153501713.html",
-      "title": "Raptors' trade for Kawhi Leonard on hold until Clippers investigation is done",
-      "originalTitle": "Raptors' trade for Kawhi Leonard on hold until Clippers investigation is done",
-      "headlineZh": "Kawhi Leonard 交易影响继续发酵",
-      "titleZh": "Kawhi Leonard 交易影响继续发酵",
-      "link": "https://sports.yahoo.com/articles/raptors-trade-kawhi-leonard-hold-153501713.html",
-      "url": "https://sports.yahoo.com/articles/raptors-trade-kawhi-leonard-hold-153501713.html",
-      "pubDate": "2026-07-09T15:35:01.000Z",
-      "publishedAt": "2026-07-09T15:35:01.000Z",
-      "summary": "Toronto said it is still committed to completing the trade after the investigation ends.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Kawhi Leonard 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
-      "oneLineZh": "Kawhi Leonard 交易影响继续发酵",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/c8QDVPehmaVB0Sm9nwZjDA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/csnne.com/dbdc56fde483e6a9a935232e1afe314b",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 5,
+      "relatedItems": [
+        {
+          "title": "Jordan Clarkson re-signs with Knicks after championship run as roster takes shape",
+          "originalTitle": "Jordan Clarkson re-signs with Knicks after championship run as roster takes shape",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/jordan-clarkson-signs-knicks-championship-155208655.html",
+          "publishedAt": "2026-07-09T15:52:08.000Z",
+          "angle": "source"
+        }
+      ],
       "sources": [
         "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Jordan Clarkson re-signs with Knicks after championship run as roster takes shape",
+        "Knicks re-sign Jordan Clarkson, bolster bench depth"
       ],
       "sourceLinks": [
         {
           "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/nba/breaking-news/article/raptors-trade-for-kawhi-leonard-cant-be-completed-until-nbas-investigation-into-clippers-ends-191219537.html"
+          "link": "https://sports.yahoo.com/articles/jordan-clarkson-signs-knicks-championship-155208655.html"
         },
         {
           "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/raptors-trade-kawhi-leonard-hold-153501713.html"
+          "link": "https://sports.yahoo.com/articles/knicks-sign-jordan-clarkson-bolster-154800887.html"
         }
-      ],
-      "originalTitles": [
-        "Raptors trade for Kawhi Leonard can't be completed until NBA's investigation into Clippers ends",
-        "Raptors' trade for Kawhi Leonard on hold until Clippers investigation is done"
       ],
       "isMerged": true,
-      "eventKey": "trade:kawhi-leonard",
-      "relatedItems": [
-        {
-          "title": "Raptors trade for Kawhi Leonard can't be completed until NBA's investigation into Clippers ends",
-          "originalTitle": "Raptors trade for Kawhi Leonard can't be completed until NBA's investigation into Clippers ends",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/nba/breaking-news/article/raptors-trade-for-kawhi-leonard-cant-be-completed-until-nbas-investigation-into-clippers-ends-191219537.html",
-          "publishedAt": "2026-07-09T19:12:19.000Z",
-          "angle": "source"
-        }
-      ],
-      "displayTitle": "Kawhi Leonard 交易影响继续发酵"
+      "displayTitle": "尼克斯续约 Jordan Clarkson，bolster bench depth"
     },
     {
       "id": "https://sports.yahoo.com/nba/article/nba-summer-league-2026-daily-schedule-scores-format-how-to-watch-153417060.html",
@@ -713,35 +951,9 @@
       "category": "签约",
       "importance": 2,
       "eventKey": "sign:jonas-valanciunas",
-      "relatedItems": [
-        {
-          "title": "Nuggets waive center Jonas Valanciunas, making him a free agent",
-          "originalTitle": "Nuggets waive center Jonas Valanciunas, making him a free agent",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/nuggets-waive-center-jonas-valanciunas-015707850.html",
-          "publishedAt": "2026-07-09T01:57:07.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Recently waived Jonas Valanciunas among centers on Knicks’ radar",
-        "Nuggets waive center Jonas Valanciunas, making him a free agent"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/recently-waived-jonas-valanciunas-among-135450034.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/nuggets-waive-center-jonas-valanciunas-015707850.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "Recently waived Jonas Valanciunas among centers on Knicks’ radar"
+      "relatedItems": [],
+      "displayTitle": "Recently waived Jonas Valanciunas among centers on Knicks’ radar",
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/mark-cuban-sues-mavericks-over-134312185.html",
@@ -765,35 +977,9 @@
       "category": "签约",
       "importance": 2,
       "eventKey": "injury:mark-cuban:mavericks",
-      "relatedItems": [
-        {
-          "title": "Mavericks owners froze Mark Cuban out of business opportunities in proposed arena move, lawsuit claims",
-          "originalTitle": "Mavericks owners froze Mark Cuban out of business opportunities in proposed arena move, lawsuit claims",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/mavericks-owners-froze-mark-cuban-235533517.html",
-          "publishedAt": "2026-07-08T23:55:33.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Mavericks owners froze Mark Cuban out of business opportunities in proposed arena move, lawsuit claims",
-        "Mark Cuban sues Mavericks over locking him out of new arena deal"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/mavericks-owners-froze-mark-cuban-235533517.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/mark-cuban-sues-mavericks-over-134312185.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "Mark Cuban sues Mavericks over locking him out of new arena deal"
+      "relatedItems": [],
+      "displayTitle": "Mark Cuban sues Mavericks over locking him out of new arena deal",
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/2026-second-round-pick-jack-130938275.html",
@@ -817,6 +1003,32 @@
       "category": "选秀",
       "importance": 2,
       "displayTitle": "2026 second-round pick Jack Kayil added to Knicks' Summer League roster",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/kings-gm-scott-perry-expects-130207972.html",
+      "title": "Kings GM Scott Perry expects Zach Lavine, Domantas Sabonis to remain with team",
+      "originalTitle": "Kings GM Scott Perry expects Zach Lavine, Domantas Sabonis to remain with team",
+      "headlineZh": "GM Scott Perry 相关消息更新",
+      "titleZh": "GM Scott Perry 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/kings-gm-scott-perry-expects-130207972.html",
+      "url": "https://sports.yahoo.com/articles/kings-gm-scott-perry-expects-130207972.html",
+      "pubDate": "2026-07-09T13:02:07.000Z",
+      "publishedAt": "2026-07-09T13:02:07.000Z",
+      "summary": "Kings GM Scott Perry revealed he is anticipating stars Zach LaVine and Domantas Sabonis to remain with Sacramento ahead of the 2026-27 NBA season.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 GM Scott Perry 的最新动态和后续影响。",
+      "oneLineZh": "GM Scott Perry 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/deea3d2697e6e5a5e8438d1e35ddf982",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Kings GM Scott Perry expects Zach Lavine, Domantas Sabonis to remain with team",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1108,32 +1320,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/optionality-walker-pierce-parallels-2028-090300185.html",
-      "title": "Optionality, the Walker-Pierce parallels, and 2028",
-      "originalTitle": "Optionality, the Walker-Pierce parallels, and 2028",
-      "headlineZh": "交易动态：Optionality，Walker-Pierce parallels，和 2028",
-      "titleZh": "交易动态：Optionality，Walker-Pierce parallels，和 2028",
-      "link": "https://sports.yahoo.com/articles/optionality-walker-pierce-parallels-2028-090300185.html",
-      "url": "https://sports.yahoo.com/articles/optionality-walker-pierce-parallels-2028-090300185.html",
-      "pubDate": "2026-07-09T09:03:00.000Z",
-      "publishedAt": "2026-07-09T09:03:00.000Z",
-      "summary": "Nearly 25 years ago, Danny Ainge made a similar decision to Brad Stevens’ call to trade Jaylen Brown.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "交易动态：Optionality，Walker-Pierce parallels，和 2028",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/aX7IktiH9RrCiJhVl0DpyQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04OTA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/855d15405de06d80540b9a57605f176c",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 2,
-      "eventKey": "trade:jaylen-brown",
-      "relatedItems": [],
-      "displayTitle": "Optionality, the Walker-Pierce parallels, and 2028",
-      "isMerged": false
-    },
-    {
       "id": "https://sports.yahoo.com/articles/thursday-posted-toasted-notes-slam-083000119.html",
       "title": "Thursday Posted & Toasted Notes: SLAM’d OG, Brunson in Chicago, Sidetalk Drummond",
       "originalTitle": "Thursday Posted & Toasted Notes: SLAM’d OG, Brunson in Chicago, Sidetalk Drummond",
@@ -1212,32 +1398,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/utah-jazz-vs-washington-wizards-035706737.html",
-      "title": "Utah Jazz vs Washington Wizards: Summer League Preview, start time, how to watch",
-      "originalTitle": "Utah Jazz vs Washington Wizards: Summer League Preview, start time, how to watch",
-      "headlineZh": "华盛顿奇才相关消息更新",
-      "titleZh": "华盛顿奇才相关消息更新",
-      "link": "https://sports.yahoo.com/articles/utah-jazz-vs-washington-wizards-035706737.html",
-      "url": "https://sports.yahoo.com/articles/utah-jazz-vs-washington-wizards-035706737.html",
-      "pubDate": "2026-07-09T03:57:06.000Z",
-      "publishedAt": "2026-07-09T03:57:06.000Z",
-      "summary": "Is it hyperbolic to say this is the most exciting Jazz game in 4 years?",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦华盛顿奇才的最新动态和后续影响。",
-      "oneLineZh": "华盛顿奇才相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/EakhBKX12QMye9GKwYVZkw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/d6400d8149925baa44c975ad6e97ee22",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Utah Jazz vs Washington Wizards: Summer League Preview, start time, how to watch",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286625/Jon-Horst-Trading-Giannis-Antetokounmpo-Was-Best-For-Us-Best-For-Him",
       "title": "Jon Horst: Trading Giannis Antetokounmpo Was 'Best For Us, Best For Him'",
       "originalTitle": "Jon Horst: Trading Giannis Antetokounmpo Was 'Best For Us, Best For Him'",
@@ -1264,110 +1424,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/nba/article/top-50-players-to-watch-at-nba-summer-league-in-las-vegas-021549727.html",
-      "title": "Top 50 players to watch at NBA Summer League in Las Vegas",
-      "originalTitle": "Top 50 players to watch at NBA Summer League in Las Vegas",
-      "headlineZh": "Summer League 相关消息更新",
-      "titleZh": "Summer League 相关消息更新",
-      "link": "https://sports.yahoo.com/nba/article/top-50-players-to-watch-at-nba-summer-league-in-las-vegas-021549727.html",
-      "url": "https://sports.yahoo.com/nba/article/top-50-players-to-watch-at-nba-summer-league-in-las-vegas-021549727.html",
-      "pubDate": "2026-07-09T02:15:49.000Z",
-      "publishedAt": "2026-07-09T02:15:49.000Z",
-      "summary": "Some are star rookies. Others are second-year guys who need to show something. And a handful are just fighting for a chance in the league.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Summer League 的最新动态和后续影响。",
-      "oneLineZh": "Summer League 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/wpOd8Q.IGZUHki3PpAfvzA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/user-uploaded/ed-070826-koc-s-summerleaguepreview_4323.jpg",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 2,
-      "displayTitle": "Top 50 players to watch at NBA Summer League in Las Vegas",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/wizards-vs-jazz-preview-washington-015324664.html",
-      "title": "Wizards vs. Jazz preview: Washington starts 2026 NBA Summer League on Thursday",
-      "originalTitle": "Wizards vs. Jazz preview: Washington starts 2026 NBA Summer League on Thursday",
-      "headlineZh": "Summer League 相关消息更新",
-      "titleZh": "Summer League 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/wizards-vs-jazz-preview-washington-015324664.html",
-      "url": "https://sports.yahoo.com/articles/wizards-vs-jazz-preview-washington-015324664.html",
-      "pubDate": "2026-07-09T01:53:24.000Z",
-      "publishedAt": "2026-07-09T01:53:24.000Z",
-      "summary": "The Washington Wizards 2026 NBA Summer League tips off tonight at 9 p.m. Eastern with the epic grudge match with the Utah Jazz the world has been anticipating for almost two weeks. That’s when Washington picked BYU forward AJ Dybantsa with the No. 1 overall selection, spurning Kansas guard Darryn Peterson. We all know what […]",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Summer League 的最新动态和后续影响。",
-      "oneLineZh": "Summer League 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/wp14a3gafB33P1kfL7nxLA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/ba7673b8132eb16c90dcbb5a3ff31b37",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 2,
-      "displayTitle": "Wizards vs. Jazz preview: Washington starts 2026 NBA Summer League on Thursday",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/nba/article/mark-cuban-reportedly-takes-dispute-with-mavericks-over-control-of-team-to-court-cites-luka-doncic-trade-014652772.html",
-      "title": "Mark Cuban reportedly takes dispute with Mavericks over control of team to court, cites Luka Dončić trade",
-      "originalTitle": "Mark Cuban reportedly takes dispute with Mavericks over control of team to court, cites Luka Dončić trade",
-      "headlineZh": "Mark Cuban 交易影响继续发酵",
-      "titleZh": "Mark Cuban 交易影响继续发酵",
-      "link": "https://sports.yahoo.com/nba/article/mark-cuban-reportedly-takes-dispute-with-mavericks-over-control-of-team-to-court-cites-luka-doncic-trade-014652772.html",
-      "url": "https://sports.yahoo.com/nba/article/mark-cuban-reportedly-takes-dispute-with-mavericks-over-control-of-team-to-court-cites-luka-doncic-trade-014652772.html",
-      "pubDate": "2026-07-09T01:46:52.000Z",
-      "publishedAt": "2026-07-09T01:46:52.000Z",
-      "summary": "A petition filed by Cuban accuses the Mavericks of reneging on handshake agreements and could complicate the team's arena plans in North Dallas.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Mark Cuban 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
-      "oneLineZh": "Mark Cuban 交易影响继续发酵",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/HoTeBjD0KGRkoHRdmjZzUw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://s.yimg.com/os/creatr-uploaded-images/2025-03/f164c520-f767-11ef-bffb-59a41758f487",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 3,
-      "eventKey": "trade:mark-cuban:mavericks",
-      "relatedItems": [],
-      "displayTitle": "Mark Cuban 交易影响继续发酵",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/utah-signs-center-mo-bamba-012518357.html",
-      "title": "Utah re-signs center Mo Bamba on two-year deal",
-      "originalTitle": "Utah re-signs center Mo Bamba on two-year deal",
-      "headlineZh": "Mo Bamba 签约动向更新",
-      "titleZh": "Mo Bamba 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/utah-signs-center-mo-bamba-012518357.html",
-      "url": "https://sports.yahoo.com/articles/utah-signs-center-mo-bamba-012518357.html",
-      "pubDate": "2026-07-09T01:25:18.000Z",
-      "publishedAt": "2026-07-09T01:25:18.000Z",
-      "summary": "He will play behind Jusuf Nurkić and Jaxson Hayes, but with Walker Kessler traded, it will be some center by committee.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Mo Bamba 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Mo Bamba 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/XEGMxGqIH5Tysj5XJ9uWrA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/3460c6f9060fb73288a89e5465d0f321",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "trade:walker-kessler",
-      "relatedItems": [],
-      "displayTitle": "Utah re-signs center Mo Bamba on two-year deal",
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286624/Mark-Cuban-Accuses-Patrick-Dumont-Of-Business-Freeze-Out",
       "title": "Mark Cuban Accuses Patrick Dumont Of Business Freeze-Out",
       "originalTitle": "Mark Cuban Accuses Patrick Dumont Of Business Freeze-Out",
@@ -1391,84 +1447,6 @@
       "eventKey": "trade:mark-cuban-accuses:mavericks:lakers",
       "relatedItems": [],
       "displayTitle": "Mark Cuban Accuses Patrick Dumont Of Business Freeze-Out",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/brooklyn-podcast-free-agency-news-011045986.html",
-      "title": "The Brooklyn Podcast: Free Agency, Summer League Takeaways and Pooch’s Return!",
-      "originalTitle": "The Brooklyn Podcast: Free Agency, Summer League Takeaways and Pooch’s Return!",
-      "headlineZh": "Brooklyn Podcast 签约动向更新",
-      "titleZh": "Brooklyn Podcast 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/brooklyn-podcast-free-agency-news-011045986.html",
-      "url": "https://sports.yahoo.com/articles/brooklyn-podcast-free-agency-news-011045986.html",
-      "pubDate": "2026-07-09T01:10:45.000Z",
-      "publishedAt": "2026-07-09T01:10:45.000Z",
-      "summary": "MBJ? MBJ! Listen to the guys break down all from the California Classic. Also, welcome back Pooch!",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Brooklyn Podcast 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Brooklyn Podcast 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/SZfbfkkNq.SjyscsHFHfJQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/4043e5a4e30d5116c841c7381ae0bafd",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "injury:the-brooklyn-podcast",
-      "relatedItems": [],
-      "displayTitle": "The Brooklyn Podcast: Free Agency, Summer League Takeaways and Pooch’s Return!",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/lebron-james-decision-not-expected-005851298.html",
-      "title": "LeBron James decision not expected soon, says Shams Charania",
-      "originalTitle": "LeBron James decision not expected soon, says Shams Charania",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/lebron-james-decision-not-expected-005851298.html",
-      "url": "https://sports.yahoo.com/articles/lebron-james-decision-not-expected-005851298.html",
-      "pubDate": "2026-07-09T00:58:51.000Z",
-      "publishedAt": "2026-07-09T00:58:51.000Z",
-      "summary": "LeBron James is still not ready to make his next move.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James 的最新动态和后续影响。",
-      "oneLineZh": "LeBron James 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/6X85sz32ocDI9k8IjMX60Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/7e1ef7e42990e9ee6ffeb0b8fbef04f2",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "LeBron James decision not expected soon, says Shams Charania",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/tim-bontemps-bolts-espn-writing-004526211.html",
-      "title": "Tim Bontemps bolts ESPN writing gig for Hawks front office job",
-      "originalTitle": "Tim Bontemps bolts ESPN writing gig for Hawks front office job",
-      "headlineZh": "Tim Bontemps 相关消息更新",
-      "titleZh": "Tim Bontemps 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/tim-bontemps-bolts-espn-writing-004526211.html",
-      "url": "https://sports.yahoo.com/articles/tim-bontemps-bolts-espn-writing-004526211.html",
-      "pubDate": "2026-07-09T00:45:26.000Z",
-      "publishedAt": "2026-07-09T00:45:26.000Z",
-      "summary": "From the press box to the executive suite.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Tim Bontemps 的最新动态和后续影响。",
-      "oneLineZh": "Tim Bontemps 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/oRYmHQqpbfbf.iKf3MUUkA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/28d2d4fbe4ed0afe4eae0f104b0bb40b",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Tim Bontemps bolts ESPN writing gig for Hawks front office job",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -1587,17 +1565,25 @@
       "publishedAt": "2026-07-08T15:20:43.000Z",
       "summary": "Jayson Tatum addressed the Boston Celtics' trade of longtime teammate Jaylen Brown publicly for the first time Tuesday, calling the situation \"weird\" as he prepares for next season without him. The Philadelphia 76ers acquired Brown last week in exchange for Paul George, two first-round picks and two second-round selections, a deal that surprised much of the league. Tatum spoke about the trade during a Q&A promoting an upcoming book, according to CelticsBlog. \"To be honest, it's weird,\" Tatum said. \"You play on a team with a guy for nine years. I was fortunate enough to go to the finals with him twice, and win a championship, and push each other to be the players that we are today. \"It's tough. But it just makes you appreciate the moments and time that we had. Obviously, it came to an abrupt ending, but it doesn't mean that it wasn't super successful. Great years, obviously, that he gave to the city and to the organization.\" Celtics president of basketball operations Brad Stevens explained Monday that Boston pursued the trade to gain roster flexibility, citing the difficulty of managing the combined salaries of Tatum and Brown. Tatum acknowledged the emotional difficulty of losing a longtime teammate under those circumstances. \"The NBA is an incredible business; it's an incredible job, but there are some downsides to the business and moments like this, where you just kind of feel like you're going to be on the team with somebody, because that's all you know,\" said Tatum. \"And then it's just like, one day you find out that they're no longer on your team anymore. And, we're all humans. We feel all those emotions.\" Tatum said he is prepared to welcome Boston's newly acquired players, including George, Mike Conley and Mitchell Robinson, and move forward with the retooled roster. While the Celtics aggressively shopped Brown, they completely resisted all trade inquiries they received on Tatum .",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Jaylen Brown 被交易至 76 人，这笔交易继续影响凯尔特人与 76 人的阵容评估。",
+      "summaryZh": "据 RealGM / Yahoo Sports 报道，Jaylen Brown 被交易至 76 人，这笔交易继续影响凯尔特人与 76 人的阵容评估。",
       "oneLineZh": "Jaylen Brown 被交易至 76 人",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Tatum_Jayson_250502.jpg",
-      "source": "RealGM",
+      "source": "RealGM / Yahoo Sports",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "交易",
       "importance": 4,
       "eventKey": "trade:jaylen-brown:celtics:76ers",
       "relatedItems": [
+        {
+          "title": "Joe Mazzulla shares reaction to Celtics trading Jaylen Brown to Sixers",
+          "originalTitle": "Joe Mazzulla shares reaction to Celtics trading Jaylen Brown to Sixers",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/joe-mazzulla-shares-reaction-celtics-172718797.html",
+          "publishedAt": "2026-07-09T17:27:18.000Z",
+          "angle": "source"
+        },
         {
           "title": "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process",
           "originalTitle": "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process",
@@ -1608,10 +1594,12 @@
         }
       ],
       "sources": [
-        "RealGM"
+        "RealGM",
+        "Yahoo Sports"
       ],
       "originalTitles": [
-        "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process"
+        "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process",
+        "Joe Mazzulla shares reaction to Celtics trading Jaylen Brown to Sixers"
       ],
       "sourceLinks": [
         {
@@ -1625,6 +1613,10 @@
         {
           "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286606/Jaylen-Browns-Value-Went-Down-Due-To-Way-Celtics-Handled-Trade-Process"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/joe-mazzulla-shares-reaction-celtics-172718797.html"
         }
       ],
       "isMerged": true,
@@ -1943,110 +1935,6 @@
       "relatedItems": [],
       "displayTitle": "Khris Middleton 与奇才达成三年，1760 万美元合同",
       "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286601/Kevon-Looney-Lakers-Agree-To-One-Year-$39M-Deal",
-      "title": "Kevon Looney, Lakers Agree To One-Year, $3.9M Deal",
-      "originalTitle": "Kevon Looney, Lakers Agree To One-Year, $3.9M Deal",
-      "headlineZh": "Kevon Looney 与湖人达成一年，390 万美元合同",
-      "titleZh": "Kevon Looney 与湖人达成一年，390 万美元合同",
-      "link": "https://basketball.realgm.com/wiretap/286601/Kevon-Looney-Lakers-Agree-To-One-Year-$39M-Deal",
-      "url": "https://basketball.realgm.com/wiretap/286601/Kevon-Looney-Lakers-Agree-To-One-Year-$39M-Deal",
-      "pubDate": "2026-07-07T20:41:45.000Z",
-      "publishedAt": "2026-07-07T20:41:45.000Z",
-      "summary": "Kevon Looney and the Los Angeles Lakers have agreed to a one-year, $3.9 million deal. Looney averaged 2.8 points and 5.6 rebounds last year. The Pelicans declined their team option on Looney worth $8 million.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Kevon Looney 与湖人达成一年，390 万美元合同，原文关注 Kevon Looney 的合同或自由市场动向。",
-      "oneLineZh": "Kevon Looney 与湖人达成一年，390 万美元合同",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_neworleanspelicans.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 5,
-      "eventKey": "sign:kevon-looney:lakers:1:390",
-      "relatedItems": [],
-      "displayTitle": "Kevon Looney 与湖人达成一年，390 万美元合同",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286600/Giannis-Antetokounmpo-Admits-Fear-Over-Leaving-Bucks-For-Heat",
-      "title": "Giannis Antetokounmpo Admits Fear Over Leaving Bucks For Heat",
-      "originalTitle": "Giannis Antetokounmpo Admits Fear Over Leaving Bucks For Heat",
-      "headlineZh": "Giannis Antetokounmpo Admits 相关消息更新",
-      "titleZh": "Giannis Antetokounmpo Admits 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286600/Giannis-Antetokounmpo-Admits-Fear-Over-Leaving-Bucks-For-Heat",
-      "url": "https://basketball.realgm.com/wiretap/286600/Giannis-Antetokounmpo-Admits-Fear-Over-Leaving-Bucks-For-Heat",
-      "pubDate": "2026-07-07T20:08:35.000Z",
-      "publishedAt": "2026-07-07T20:08:35.000Z",
-      "summary": "Giannis Antetokounmpo released farewell messages to the Bucks and the city of Milwaukee Monday, expressing gratitude alongside candid admissions of fear about his move to the Miami Heat. The trade became official Monday, sending Tyler Herro, Kel'el Ware, Jaime Jaquez Jr., Kasparas Jakucionis, the No. 13 pick and future draft considerations to Milwaukee in exchange for Antetokounmpo and Bobby Portis. In a YouTube interview with longtime Bucks broadcaster Jim Paschke, Antetokounmpo opened up about the uncertainty of leaving the only NBA home he's known. \"I'm scared,\" said Antetokounmpo. \"I'm scared of change. I'm scared that the grass is not always greener. I'm scared of, like, people love me here. People respect me here. People allow me to be myself in the city and I'm scared that I might never find that again. \"But this is something that I wake up every single day or when I take my showers at night and I think, maybe I've waited too long. I see guys playing deep into the playoffs and I think maybe if I switch teams and I go somewhere else and I have a better opportunity, I can play deep into the playoffs, I can go try to chase another championship because I really want that. \"And I'm scared that if I don't take that decision, that when I'm going to be 37, 38 years old and I'm retiring, I'm going to be like, 'Why? Why didn't you take that risk?' And people don't understand, it's a risk.\" Antetokounmpo spent 13 seasons with Milwaukee, arriving from Greece at 18 years old and leading the franchise to its first championship since 1971 in 2021. Bucks general manager Jon Horst released a statement thanking Antetokounmpo for his contributions to the organization. \"There are few players in the history of professional sports who have elevated a franchise, a city and a fan base the way Giannis Antetokounmpo has for Milwaukee and the Bucks,\" said Horst. Antetokounmpo also released a separate video message directly addressing Milwaukee fans. \"No matter where I am, Milwaukee will always be my city, my team, my family,\" said Antetokounmpo.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，原文聚焦 Giannis Antetokounmpo Admits 的最新动态和后续影响。",
-      "oneLineZh": "Giannis Antetokounmpo Admits 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Antetokounmpo_Giannis_mil_260504.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
-      "importance": 2,
-      "eventKey": "trade:giannis-antetokounmpo-admits:heat",
-      "relatedItems": [],
-      "displayTitle": "Giannis Antetokounmpo Admits Fear Over Leaving Bucks For Heat",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286599/Lakers-In-Active-Pursuit-Of-Jonathan-Kuminga;-Hawks-Cavs-Remain-In-Mix",
-      "title": "Lakers In Active Pursuit Of Jonathan Kuminga; Hawks, Cavs Remain In Mix",
-      "originalTitle": "Lakers In Active Pursuit Of Jonathan Kuminga; Hawks, Cavs Remain In Mix",
-      "headlineZh": "在 Active Pursuit 相关消息更新",
-      "titleZh": "在 Active Pursuit 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286599/Lakers-In-Active-Pursuit-Of-Jonathan-Kuminga;-Hawks-Cavs-Remain-In-Mix",
-      "url": "https://basketball.realgm.com/wiretap/286599/Lakers-In-Active-Pursuit-Of-Jonathan-Kuminga;-Hawks-Cavs-Remain-In-Mix",
-      "pubDate": "2026-07-07T19:19:46.000Z",
-      "publishedAt": "2026-07-07T19:19:46.000Z",
-      "summary": "The Los Angeles Lakers remain in active pursuit of unrestricted free agent Jonathan Kuminga but have yet to present an offer strong enough to secure his commitment, league sources told ESPN on Tuesday. Kuminga became a free agent after the Atlanta Hawks declined his $24.3 million team option on June 29. He met virtually with Lakers general manager Rob Pelinka and coach JJ Redick the following day, who outlined a vision of Kuminga playing significant minutes alongside Luka Doncic. Pelinka and the Lakers subsequently committed most of its available cap space to Walker Kessler, Sandro Mamukelashvili, Quentin Grimes and Collin Sexton, limiting what remains for a Kuminga offer. Despite the financial constraints, the Lakers have continued pursuing him. Pelinka has stayed in contact with Kuminga's agent, Aaron Turner, gradually sweetening the offer while emphasizing Kuminga's potential role and a likely starting spot, sources said. Kuminga and Turner have not committed, believing stronger opportunities may still emerge as free agency progresses. A sign-and-trade involving the Hawks remains possible. Atlanta is open to facilitating a deal that preserves Kuminga's Bird Rights, though Hawks general manager Onsi Saleh would need additional incentive to engage. The Lakers could package contracts belonging to Jarred Vanderbilt, Dalton Knecht or Jaden Hardy to increase their offer, though doing so would likely require attaching draft assets as well. The Cleveland Cavaliers also maintain interest, sources said, given Kuminga's familiarity with Kenny Atkinson from their years together with the Golden State Warriors. Cleveland's focus on pursuing LeBron James has left the Lakers as Kuminga's most aggressive suitor for now. The Sacramento Kings have also checked in on Kuminga's interest but face salary cap restrictions that would require a sign-and-trade to make a deal work.",
-      "dekZh": "",
-      "summaryZh": "据 RealGM / Yahoo Sports 报道，原文聚焦在 Active Pursuit 的最新动态和后续影响。",
-      "oneLineZh": "在 Active Pursuit 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Kuminga_Jonathan_atl_260225.jpg",
-      "source": "RealGM / Yahoo Sports",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
-      "importance": 2,
-      "eventKey": "trade:walker-kessler:jazz:lakers",
-      "relatedItems": [
-        {
-          "title": "The Lakers have officially signed Walker Kessler, who may determine the success of the Luka Dončić era",
-          "originalTitle": "The Lakers have officially signed Walker Kessler, who may determine the success of the Luka Dončić era",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/lakers-officially-signed-walker-kessler-011434004.html",
-          "publishedAt": "2026-07-09T01:14:34.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "RealGM",
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "The Lakers have officially signed Walker Kessler, who may determine the success of the Luka Dončić era"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286599/Lakers-In-Active-Pursuit-Of-Jonathan-Kuminga;-Hawks-Cavs-Remain-In-Mix"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lakers-officially-signed-walker-kessler-011434004.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "Lakers In Active Pursuit Of Jonathan Kuminga; Hawks, Cavs Remain In Mix"
     }
   ]
 }
