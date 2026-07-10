@@ -633,12 +633,12 @@ function inferStoryType(item = {}) {
   const titleText = `${item.originalTitle || item.title || ''}`.toLowerCase();
   const text = `${item.originalTitle || item.title || ''} ${item.summary || ''} ${item.summaryZh || ''}`.toLowerCase();
   if (isRecapAnalysisTitle(titleText)) return 'analysis';
-  if (/\blook to challenge\b/.test(titleText)) return 'analysis';
-  if (/\btrade\b.*\bon hold\b|\btrade\b.*\binquiry\b|\bon hold\b.*\binquiry\b/.test(titleText)) return 'trade';
-  if (/\b(says|said|shares reaction|share thoughts|shares thoughts|thoughts on|believes|thinks|calls|admits|explains|discusses|processing|fired up|accuses)\b/.test(titleText)) return 'opinion';
+  if (/\b(trade (?:on hold|paused|delayed|completed|agreed)|trade\b.*\b(?:on hold|paused|delayed|completed|agreed|inquiry)|pending investigation|until nba concludes inquiry|transaction|finalizing deal|acquired|sent to|dealt to)\b/.test(titleText)) return 'trade';
+  if (/\b(look to challenge|biggest threat|what it means|takeaways|thoughts following|recap|what we learned|winners and losers|outlook|ranking|projection)\b/.test(titleText)) return 'analysis';
+  if (/^.+?\s+\b(says|said|reacts|reaction|share thoughts|shares thoughts|believes|thinks|explains|discusses|calls|criticizes|praises|admits|responds|comments on|processing|fired up|accuses)\b/.test(titleText)) return 'opinion';
   if (/\b(report|reported|rumou?r|sources?|expected|could|may|might|interest|reach out|target|haven't been told|has not been told|aim to|pitches)\b/.test(titleText)) return 'rumor';
   if (/\b(analysis|odds|fantasy|fallout|grades|breakdown|preview|rankings|questions|takeaways|observations|winners and losers|what we learned|reaction to|keys from|recap|look to challenge)\b/.test(text)) return 'analysis';
-  if (/\b(says|said|shares reaction|believes|thinks|calls|admits|explains|discusses|processing|fired up)\b/.test(text)) return 'opinion';
+  if (/^.+?\s+\b(says|said|shares reaction|believes|thinks|calls|admits|explains|discusses|criticizes|praises|responds|comments on|processing|fired up)\b/.test(titleText)) return 'opinion';
   if (/\b(report|reported|rumou?r|sources?|expected|could|may|might|interest|reach out|target)\b/.test(text)) return 'rumor';
   if (item.category === '交易' || /\b(trade|traded|acquire|acquired|deal with|sent to)\b/.test(text)) return 'trade';
   if (item.category === '签约' || /\b(sign|signed|signing|contract|extension|agrees? to .+ deal)\b/.test(text)) return 'signing';
@@ -743,7 +743,12 @@ function isRumorWrittenAsConfirmed(item = {}, summary = '') {
 
 function isAnalysisWrittenAsFact(item = {}, summary = '') {
   if (inferStoryType(item) !== 'analysis') return false;
+  if (hasAnalysisLanguage(summary)) return false;
   return !/(分析|认为|赔率|fantasy|梦幻篮球|预测|评估|排名|观点)/i.test(summary);
+}
+
+function hasAnalysisLanguage(summary = '') {
+  return /(\u5206\u6790|\u8ba4\u4e3a|\u53ef\u80fd|\u6709\u671b|\u88ab\u89c6\u4e3a|\u6216\u5c06|\u6311\u6218|\u529b\u4e89|\u5a01\u80c1|\u4e89\u593a|\u8bc4\u4f30|\u770b\u70b9|\u590d\u76d8|\u89c2\u5bdf|\u524d\u666f|\u5c55\u671b)/.test(summary);
 }
 
 function buildTypedFallbackSummary(item = {}, storyType = inferStoryType(item)) {
@@ -858,13 +863,19 @@ function validateAiSummary(item = {}, aiResult = null) {
   const rawSummaryZh = normalizeChineseText(aiResult.summaryZh || '');
   const summaryZh = compactAiSummary(rawSummaryZh);
   const oneLineZh = normalizeChineseText(aiResult.oneLineZh || summaryZh);
-  const inferredStoryType = inferStoryType(item);
-  const storedStoryType = normalizeWhitespace(item.storyType || '');
-  const storyType = inferredStoryType && inferredStoryType !== 'fact'
-    ? inferredStoryType
-    : (storedStoryType && storedStoryType !== 'unknown'
-      ? storedStoryType
-      : normalizeWhitespace(aiResult.storyType || inferredStoryType));
+  const localStoryType = inferStoryType(item);
+  const modelStoryType = normalizeWhitespace(aiResult.storyType || '');
+  const storyType = localStoryType && localStoryType !== 'unknown'
+    ? localStoryType
+    : modelStoryType;
+  if (modelStoryType && modelStoryType !== storyType) {
+    console.warn('Story type conflict:', JSON.stringify({
+      originalTitle: item.originalTitle || item.title || item.id,
+      localStoryType,
+      modelStoryType,
+      effectiveStoryType: storyType
+    }, null, 2));
+  }
   const sourceText = buildSourceEvidence(item);
   const aiText = `${summaryZh} ${oneLineZh}`;
   const rejectionReasons = [];
@@ -3579,6 +3590,16 @@ function getQualityReport(payload = {}) {
     /\b(share thoughts|shares thoughts|thoughts on|says|said|believes|thinks)\b/i.test(item.originalTitle || item.title || '') &&
     inferStoryType(item) !== 'opinion'
   );
+  const tradeMisclassifiedAsOpinion = items.filter((item) =>
+    /\b(trade (?:on hold|paused|delayed|completed|agreed)|trade\b.*\b(?:on hold|paused|delayed|completed|agreed|inquiry)|pending investigation|until nba concludes inquiry|transaction|finalizing deal|acquired|sent to|dealt to)\b/i.test(item.originalTitle || item.title || '') &&
+    inferStoryType(item) === 'opinion'
+  );
+  const analysisMisclassifiedAsFact = items.filter((item) =>
+    /\b(look to challenge|biggest threat|what it means|takeaways|thoughts following|recap|what we learned|winners and losers|outlook|ranking|projection)\b/i.test(item.originalTitle || item.title || '') &&
+    inferStoryType(item) === 'fact'
+  );
+  const modelStoryTypeOverrodeLocal = [];
+  const opinionValidationAppliedToNonOpinion = [];
   const aiEligibleButNotCandidate = items.filter((item) =>
     needsAiSummary(item) &&
     ['opinion', 'rumor', 'analysis'].includes(inferStoryType(item)) &&
@@ -3715,6 +3736,10 @@ function getQualityReport(payload = {}) {
       unsafeFallbackSummary: unsafeFallbackSummary.length,
       unsafeFallbackShownWithoutAi: unsafeFallbackShownWithoutAi.length,
       opinionMisclassifiedAsSigning: opinionMisclassifiedAsSigning.length,
+      tradeMisclassifiedAsOpinion: tradeMisclassifiedAsOpinion.length,
+      analysisMisclassifiedAsFact: analysisMisclassifiedAsFact.length,
+      modelStoryTypeOverrodeLocal: modelStoryTypeOverrodeLocal.length,
+      opinionValidationAppliedToNonOpinion: opinionValidationAppliedToNonOpinion.length,
       aiEligibleButNotCandidate: aiEligibleButNotCandidate.length,
       summaryMissingMainPerson: summaryMissingMainPerson.length,
       summaryMixedLanguage: summaryMixedLanguage.length,
@@ -3781,6 +3806,10 @@ function getQualityReport(payload = {}) {
       unsafeFallbackSummary,
       unsafeFallbackShownWithoutAi,
       opinionMisclassifiedAsSigning,
+      tradeMisclassifiedAsOpinion,
+      analysisMisclassifiedAsFact,
+      modelStoryTypeOverrodeLocal,
+      opinionValidationAppliedToNonOpinion,
       aiEligibleButNotCandidate,
       summaryMissingMainPerson,
       summaryMixedLanguage,
