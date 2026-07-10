@@ -1,5 +1,16 @@
 {
   "version": 2,
   "promptVersion": "summary-v2",
-  "entries": {}
+  "entries": {
+    "49bbd0ce80fec7f8f179b1018e311214fa2ff5a87a021a147ca98aa492e9d9e7": {
+      "summaryZh": "爵士队新秀达林·彼得森表示，在夏季联赛中他重新找到了乐趣，似乎对自己在堪萨斯大学的角色并不满意。",
+      "oneLineZh": "爵士新秀达林·彼得森在夏季联赛中重拾乐趣。",
+      "confidence": 0.75,
+      "storyType": "fact",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-10T08:14:44.930Z",
+      "sourceHash": "bbe803984fd1162b8f0454a9ab96203fe93573c603db87bf75408ee125f8734f",
+      "promptVersion": "summary-v2"
+    }
+  }
 }
