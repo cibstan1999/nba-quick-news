@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-10T05:39:46.507Z",
+  "updatedAt": "2026-07-10T08:00:22.865Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-10T05:39:46.507Z",
-    "previousUpdatedAt": "2026-07-10T05:31:13.810Z",
-    "updatedAt": "2026-07-10T05:39:46.507Z",
+    "checkedAt": "2026-07-10T08:00:22.865Z",
+    "previousUpdatedAt": "2026-07-10T05:39:46.507Z",
+    "updatedAt": "2026-07-10T08:00:22.865Z",
     "fetchedItems": 80,
-    "mergedItems": 68,
+    "mergedItems": 70,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,32 +31,33 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-10T05:06:29.000Z",
-    "dataAgeHours": 0.5548630555555556,
-    "aiEnabled": false,
-    "aiCandidates": 0,
+    "newestPublishedAt": "2026-07-10T07:17:23.000Z",
+    "dataAgeHours": 0.7166291666666667,
+    "aiEnabled": true,
+    "aiCandidates": 60,
     "aiCacheHits": 0,
-    "aiRequests": 0,
+    "aiRequests": 5,
     "aiAccepted": 0,
-    "aiRejected": 0,
+    "aiRejected": 5,
     "aiFailed": 0,
+    "aiLogicError": false,
     "aiModel": "openai/gpt-4o-mini",
     "message": "Fetched 80 usable RSS items from all feeds."
   },
   "highlights": [
-    {
-      "id": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html",
-      "text": "Kawhi Leonard 交易影响继续发酵",
-      "category": "交易",
-      "source": "Yahoo Sports",
-      "link": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html"
-    },
     {
       "id": "https://basketball.realgm.com/wiretap/286643/Joe-Mazzulla-Still-Processing-Celtics-Trade-Of-Jaylen-Brown-To-76ers",
       "text": "Jaylen Brown 被交易至 76 人",
       "category": "交易",
       "source": "RealGM / Yahoo Sports",
       "link": "https://basketball.realgm.com/wiretap/286643/Joe-Mazzulla-Still-Processing-Celtics-Trade-Of-Jaylen-Brown-To-76ers"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/kawhi-leonard-trade-toronto-hold-210830237.html",
+      "text": "Kawhi Leonard 交易影响继续发酵",
+      "category": "交易",
+      "source": "Yahoo Sports",
+      "link": "https://sports.yahoo.com/articles/kawhi-leonard-trade-toronto-hold-210830237.html"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286639/Charles-Bassey-Warriors-Agree-To-One-Year-Deal",
@@ -66,11 +67,11 @@
       "link": "https://basketball.realgm.com/wiretap/286639/Charles-Bassey-Warriors-Agree-To-One-Year-Deal"
     },
     {
-      "id": "https://sports.yahoo.com/articles/mike-gansey-says-joel-embiid-190756412.html",
-      "text": "Mike Gansey 交易影响继续发酵",
-      "category": "交易",
-      "source": "Yahoo Sports",
-      "link": "https://sports.yahoo.com/articles/mike-gansey-says-joel-embiid-190756412.html"
+      "id": "https://basketball.realgm.com/wiretap/286644/Clippers-Baba-Miller-Agree-To-Four-Year-$961M-Deal",
+      "text": "快船 与 Baba Miller 达成 4 年 961 万美元合同",
+      "category": "签约",
+      "source": "RealGM / Yahoo Sports",
+      "link": "https://basketball.realgm.com/wiretap/286644/Clippers-Baba-Miller-Agree-To-Four-Year-$961M-Deal"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286630/Jordan-Clarkson-Knicks-Agree-To-One-Year-$39M-Deal",
@@ -81,6 +82,137 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/no-1-vs-no-2-071723413.html",
+      "title": "No. 1 vs. No. 2: AJ Dybantsa and Darryn Peterson Summer League showdown gave fans show they wanted",
+      "originalTitle": "No. 1 vs. No. 2: AJ Dybantsa and Darryn Peterson Summer League showdown gave fans show they wanted",
+      "headlineZh": "AJ Dybantsa 相关消息更新",
+      "titleZh": "AJ Dybantsa 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/no-1-vs-no-2-071723413.html",
+      "url": "https://sports.yahoo.com/articles/no-1-vs-no-2-071723413.html",
+      "pubDate": "2026-07-10T07:17:23.000Z",
+      "publishedAt": "2026-07-10T07:17:23.000Z",
+      "summary": "Dybantsa finished the night with 27 points, Peterson 24.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "AJ Dybantsa 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/jVlCrpmYRvJdnaIYwERFvw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/d50107fbe5664c422debfdd627d19645",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "No. 1 vs. No. 2: AJ Dybantsa and Darryn Peterson Summer League showdown gave fans show they wanted",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286645/Team-Executives-Recruiting-LeBron-James-Through-Voice-Notes",
+      "title": "Team Executives Recruiting LeBron James Through Voice Notes",
+      "originalTitle": "Team Executives Recruiting LeBron James Through Voice Notes",
+      "headlineZh": "Team Executives Recruiting 相关消息更新",
+      "titleZh": "Team Executives Recruiting 相关消息更新",
+      "link": "https://basketball.realgm.com/wiretap/286645/Team-Executives-Recruiting-LeBron-James-Through-Voice-Notes",
+      "url": "https://basketball.realgm.com/wiretap/286645/Team-Executives-Recruiting-LeBron-James-Through-Voice-Notes",
+      "pubDate": "2026-07-10T05:46:40.000Z",
+      "publishedAt": "2026-07-10T05:46:40.000Z",
+      "summary": "<p>Team executives are sending LeBron James voices notes in order to pitch him on signing, sources told Shams Charania of ESPN.</p> <p>The voices notes are facilitated through agent Rich Paul.</p> <p>Bob Myers, president of sports for Harris Blitzer Sports & Entertainment, most recently <a href=\"https://basketball.realgm.com/wiretap/286621/Bob-Myers-Pitches-Rich-Paul-On-LeBron-James-Signing-With-76ers-During-Podcast-Appearance\">pitched James</a> to sign with the Sixers on the \"Game Over with Max Kellerman and Rich Paul\" podcast.</p> <p>James is currently believed to <a href=\"https://basketball.realgm.com/wiretap/286627/LeBron-James-Believed-To-Have-Current-Favorite-In-Mind-As-Process-Continues\">have a favorite</a> in mind. </p> <p>Steph Curry also recently <a href=\"https://basketball.realgm.com/wiretap/286642/Stephen-Curry-Says-LeBron-James-Pairing-No-Longer-A-Pipedream\">acknowledged the possibility</a> of playing alongside James.</p> <p>There still remains \"no timetable\" for James' decision. </p>",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，Team Executives Recruiting LeBron James Through Voice Notes。",
+      "oneLineZh": "Team Executives Recruiting 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_260502.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james:76ers",
+      "relatedItems": [],
+      "displayTitle": "Team Executives Recruiting LeBron James Through Voice Notes",
+      "copySource": "fallback",
+      "storyType": "opinion",
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286644/Clippers-Baba-Miller-Agree-To-Four-Year-$961M-Deal",
+      "title": "Clippers, Baba Miller Agree To Four-Year, $9.61M Deal",
+      "originalTitle": "Clippers, Baba Miller Agree To Four-Year, $9.61M Deal",
+      "headlineZh": "快船 与 Baba Miller 达成 4 年 961 万美元合同",
+      "titleZh": "快船 与 Baba Miller 达成 4 年 961 万美元合同",
+      "link": "https://basketball.realgm.com/wiretap/286644/Clippers-Baba-Miller-Agree-To-Four-Year-$961M-Deal",
+      "url": "https://basketball.realgm.com/wiretap/286644/Clippers-Baba-Miller-Agree-To-Four-Year-$961M-Deal",
+      "pubDate": "2026-07-10T05:36:11.000Z",
+      "publishedAt": "2026-07-10T05:36:11.000Z",
+      "summary": "<p>The Los Angeles Clippers signed Baba Miller to a four-year, $9.61 million contract on Thursday, reported Michael Scotto of HoopsHype.</p> <p>It is the largest contract given to any second-round pick in the 2026 draft thus far.</p> <p>Miller averaged 13.0 points and 10.3 rebounds at Cincinnati last season. </p> <p> </p>",
+      "dekZh": "Miller 场均13.0分和10.3篮板 at Cincinnati 上赛季。",
+      "summaryZh": "据 RealGM 报道，快船与 Baba Miller 达成四年，961 万美元合同。",
+      "oneLineZh": "快船 与 Baba Miller 达成 4 年 961 万美元合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [
+        "Miller场均13.0分和10.3篮板 at Cincinnati 上赛季。"
+      ],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_losangelesclippers.jpg",
+      "source": "RealGM / Yahoo Sports",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 5,
+      "sources": [
+        "RealGM",
+        "Yahoo Sports"
+      ],
+      "sourceLinks": [
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286644/Clippers-Baba-Miller-Agree-To-Four-Year-$961M-Deal"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/clippers-kawhi-leonard-trade-frozen-205758688.html"
+        }
+      ],
+      "originalTitles": [
+        "Clippers, Baba Miller Agree To Four-Year, $9.61M Deal"
+      ],
+      "isMerged": false,
+      "eventKey": "sign:clippers:baba-miller:4:961",
+      "relatedItems": [],
+      "displayTitle": "Clippers, Baba Miller Agree To Four-Year, $9.61M Deal",
+      "copySource": "fallback",
+      "storyType": "rumor"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/player-grades-recapping-mavericks-vs-053254187.html",
+      "title": "Player Grades: Recapping the Mavericks vs. the Warriors: Summer League Edition",
+      "originalTitle": "Player Grades: Recapping the Mavericks vs. the Warriors: Summer League Edition",
+      "headlineZh": "Player Grades 相关消息更新",
+      "titleZh": "Player Grades 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/player-grades-recapping-mavericks-vs-053254187.html",
+      "url": "https://sports.yahoo.com/articles/player-grades-recapping-mavericks-vs-053254187.html",
+      "pubDate": "2026-07-10T05:32:54.000Z",
+      "publishedAt": "2026-07-10T05:32:54.000Z",
+      "summary": "Assigning Grades for the Mavericks in their 101-90 loss to the Warriors",
+      "dekZh": "",
+      "summaryZh": "Yahoo Sports 分析了 Player Grades: Recapping 独行侠 vs. 勇士: Summer League Edition，这是一篇观点或数据分析文章，并非球队官方决定。",
+      "oneLineZh": "Player Grades 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/CU2IfkE8FMyew9_wh8P_rQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/10d021f1103d8af7ffa4ff4f3f6de467",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "grades:player-grades:mavericks",
+      "relatedItems": [],
+      "displayTitle": "Player Grades: Recapping the Mavericks vs. the Warriors: Summer League Edition",
+      "copySource": "fallback",
+      "storyType": "analysis",
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/article/kawhi-deal-paused--summer-league-takeaways-with-nekias-duncan--es-baraheni-050629754.html",
       "title": "Kawhi deal paused & Summer League takeaways with Nekias Duncan & Es Baraheni",
@@ -166,6 +298,62 @@
       "isMerged": false
     },
     {
+      "id": "https://sports.yahoo.com/articles/lakers-vs-thunder-summer-league-041057567.html",
+      "title": "Lakers vs. Thunder Summer League Preview: Starting off against top competition",
+      "originalTitle": "Lakers vs. Thunder Summer League Preview: Starting off against top competition",
+      "headlineZh": "雷霆 Summer League 相关消息更新",
+      "titleZh": "雷霆 Summer League 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/lakers-vs-thunder-summer-league-041057567.html",
+      "url": "https://sports.yahoo.com/articles/lakers-vs-thunder-summer-league-041057567.html",
+      "pubDate": "2026-07-10T04:10:57.000Z",
+      "publishedAt": "2026-07-10T04:10:57.000Z",
+      "summary": "The Lakers will start their Las Vegas Summer League campaign against Aday Mara and the Thunder on Friday.",
+      "dekZh": "",
+      "summaryZh": "Yahoo Sports 对湖人 vs. 雷霆 Summer League 进行赛前预览，内容属于比赛信息和走势分析。",
+      "oneLineZh": "雷霆 Summer League 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/YSoW1e8rB2.66ZuAPpTbfg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/715e34fbe6ffb3e5f56e3ddc9736a3cb",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Lakers vs. Thunder Summer League Preview: Starting off against top competition",
+      "copySource": "fallback",
+      "storyType": "analysis",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/summerknicks-game-preview-knicks-vs-040100489.html",
+      "title": "SummerKnicks Game Preview: Knicks vs. Nets, July 10, 2026",
+      "originalTitle": "SummerKnicks Game Preview: Knicks vs. Nets, July 10, 2026",
+      "headlineZh": "Summer 尼克斯 Game Preview 相关消息更新",
+      "titleZh": "Summer 尼克斯 Game Preview 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/summerknicks-game-preview-knicks-vs-040100489.html",
+      "url": "https://sports.yahoo.com/articles/summerknicks-game-preview-knicks-vs-040100489.html",
+      "pubDate": "2026-07-10T04:01:00.000Z",
+      "publishedAt": "2026-07-10T04:01:00.000Z",
+      "summary": "Diawara and Dadiet look to make SummerKnicks their squad in Summer League opener.",
+      "dekZh": "",
+      "summaryZh": "Yahoo Sports 对 Summer 尼克斯 Game 进行赛前预览，内容属于比赛信息和走势分析。",
+      "oneLineZh": "Summer 尼克斯 Game Preview 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/nzywm6wrrn6LVxDIOm.Jzw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/1041d8a0c394a5f87a3bba44fcc45309",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "SummerKnicks Game Preview: Knicks vs. Nets, July 10, 2026",
+      "copySource": "fallback",
+      "storyType": "analysis",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
       "id": "https://sports.yahoo.com/articles/toronto-welcomes-back-former-finals-171712072.html",
       "title": "Toronto welcomes back former Finals MVP, look to challenge the Knicks atop the conference",
       "originalTitle": "Toronto welcomes back former Finals MVP, look to challenge the Knicks atop the conference",
@@ -181,7 +369,7 @@
       "oneLineZh": "Finals MVP 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/SH..rlZGWlCsOkJU9PYPqg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTc7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/55cbbef4e074d01170ab99892187ea9f",
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/G5ro1hRIgMXOhKPft.A.1w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/cc515c06c5555351965eb0126aaa112f",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "季后赛",
@@ -250,6 +438,34 @@
       "isMerged": false
     },
     {
+      "id": "https://sports.yahoo.com/articles/josh-hart-already-over-celtics-031034342.html",
+      "title": "Josh Hart already over Celtics’ Mitchell Robinson signing: ‘Delete this’",
+      "originalTitle": "Josh Hart already over Celtics’ Mitchell Robinson signing: ‘Delete this’",
+      "headlineZh": "Josh Hart 签约动向更新",
+      "titleZh": "Josh Hart 签约动向更新",
+      "link": "https://sports.yahoo.com/articles/josh-hart-already-over-celtics-031034342.html",
+      "url": "https://sports.yahoo.com/articles/josh-hart-already-over-celtics-031034342.html",
+      "pubDate": "2026-07-10T03:10:34.000Z",
+      "publishedAt": "2026-07-10T03:10:34.000Z",
+      "summary": "Josh Hart is still upset over Mitchell Robinson’s departure.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Josh Hart 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Josh Hart 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/tluUrBQnWwVQoNrCqyW2_A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/38f6f41592621383f3a12a53e7f75bf6",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:josh-hart:celtics",
+      "relatedItems": [],
+      "displayTitle": "Josh Hart already over Celtics’ Mitchell Robinson signing: ‘Delete this’",
+      "copySource": "fallback",
+      "storyType": "signing",
+      "isMerged": false
+    },
+    {
       "id": "https://sports.yahoo.com/articles/aj-dybantsa-stats-summer-league-024233083.html",
       "title": "AJ Dybantsa injury update, stats from Summer League showdown with Darryn Peterson, Jazz",
       "originalTitle": "AJ Dybantsa injury update, stats from Summer League showdown with Darryn Peterson, Jazz",
@@ -275,6 +491,34 @@
       "displayTitle": "AJ Dybantsa injury update, stats from Summer League showdown with Darryn Peterson, Jazz",
       "copySource": "fallback",
       "storyType": "injury",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/saquon-barkley-makes-76ers-pitch-023758615.html",
+      "title": "Saquon Barkley makes his 76ers pitch to LeBron James: ‘You’ll be remembered forever’",
+      "originalTitle": "Saquon Barkley makes his 76ers pitch to LeBron James: ‘You’ll be remembered forever’",
+      "headlineZh": "Saquon Barkley 相关消息更新",
+      "titleZh": "Saquon Barkley 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/saquon-barkley-makes-76ers-pitch-023758615.html",
+      "url": "https://sports.yahoo.com/articles/saquon-barkley-makes-76ers-pitch-023758615.html",
+      "pubDate": "2026-07-10T02:37:58.000Z",
+      "publishedAt": "2026-07-10T02:37:58.000Z",
+      "summary": "Philadelphia is putting all hands on deck to get LeBron James to the City of Brotherly Love.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Saquon Barkley 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/ovNHImC7WDB5M54Cx_d3Dw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/8158e779796bc8c4714c46341be46863",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Saquon Barkley makes his 76ers pitch to LeBron James: ‘You’ll be remembered forever’",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -307,14 +551,6 @@
           "url": "https://sports.yahoo.com/articles/76ers-got-away-murder-jaylen-233913781.html",
           "publishedAt": "2026-07-09T23:39:13.000Z",
           "angle": "source"
-        },
-        {
-          "title": "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process",
-          "originalTitle": "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process",
-          "source": "RealGM",
-          "url": "https://basketball.realgm.com/wiretap/286606/Jaylen-Browns-Value-Went-Down-Due-To-Way-Celtics-Handled-Trade-Process",
-          "publishedAt": "2026-07-08T02:54:40.000Z",
-          "angle": "source"
         }
       ],
       "sources": [
@@ -323,7 +559,6 @@
       ],
       "originalTitles": [
         "Joe Mazzulla Still 'Processing' Celtics' Trade Of Jaylen Brown To 76ers",
-        "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process",
         "76ers ‘got away with murder’ in Jaylen Brown stunning trade: Charles Barkley"
       ],
       "sourceLinks": [
@@ -338,10 +573,6 @@
         {
           "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286618/Warriors-Were-Never-Close-To-Trades-For-Kawhi-Leonard-Jaylen-Brown"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286606/Jaylen-Browns-Value-Went-Down-Due-To-Way-Celtics-Handled-Trade-Process"
         },
         {
           "source": "Yahoo Sports",
@@ -1088,6 +1319,86 @@
       "isMerged": false
     },
     {
+      "id": "https://sports.yahoo.com/articles/kawhi-leonard-trade-toronto-hold-210830237.html",
+      "title": "Kawhi Leonard trade to Toronto on hold until Aspiration investigation concludes",
+      "originalTitle": "Kawhi Leonard trade to Toronto on hold until Aspiration investigation concludes",
+      "headlineZh": "Kawhi Leonard 交易影响继续发酵",
+      "titleZh": "Kawhi Leonard 交易影响继续发酵",
+      "link": "https://sports.yahoo.com/articles/kawhi-leonard-trade-toronto-hold-210830237.html",
+      "url": "https://sports.yahoo.com/articles/kawhi-leonard-trade-toronto-hold-210830237.html",
+      "pubDate": "2026-07-09T21:08:30.000Z",
+      "publishedAt": "2026-07-09T21:08:30.000Z",
+      "summary": "When will that investigation into alleged salary cap circumvention end? Good question.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Kawhi Leonard 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "Kawhi Leonard 交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/jA9hkCurr7.svpI8Lf.ndg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/95a1bc1450365df4ceb96519c7a418c5",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 4,
+      "eventKey": "trade:kawhi-leonard",
+      "relatedItems": [
+        {
+          "title": "Raptors put Kawhi Leonard trade on hold until the NBA probe into the Clippers concludes",
+          "originalTitle": "Raptors put Kawhi Leonard trade on hold until the NBA probe into the Clippers concludes",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html",
+          "publishedAt": "2026-07-09T20:27:16.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Kawhi Leonard to Raptors trade on hold until NBA finishes cap circumvention investigation",
+          "originalTitle": "Kawhi Leonard to Raptors trade on hold until NBA finishes cap circumvention investigation",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/kawhi-leonard-raptors-trade-hold-200636309.html",
+          "publishedAt": "2026-07-09T20:06:36.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Kawhi Leonard trade from Clippers to Raptors stalls over NBA investigation",
+          "originalTitle": "Kawhi Leonard trade from Clippers to Raptors stalls over NBA investigation",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/kawhi-leonard-trade-clippers-raptors-200602334.html",
+          "publishedAt": "2026-07-09T20:06:02.000Z",
+          "angle": "source"
+        }
+      ],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Kawhi Leonard trade to Toronto on hold until Aspiration investigation concludes",
+        "Raptors put Kawhi Leonard trade on hold until the NBA probe into the Clippers concludes",
+        "Kawhi Leonard to Raptors trade on hold until NBA finishes cap circumvention investigation",
+        "Kawhi Leonard trade from Clippers to Raptors stalls over NBA investigation"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/kawhi-leonard-trade-toronto-hold-210830237.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/kawhi-leonard-raptors-trade-hold-200636309.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/kawhi-leonard-trade-clippers-raptors-200602334.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "Kawhi Leonard trade to Toronto on hold until Aspiration investigation concludes",
+      "copySource": "fallback",
+      "storyType": "trade"
+    },
+    {
       "id": "https://sports.yahoo.com/articles/dell-curry-shares-steph-seth-210130458.html",
       "title": "Dell Curry shares how Steph, Seth became ‘closer' playing together on Warriors",
       "originalTitle": "Dell Curry shares how Steph, Seth became ‘closer' playing together on Warriors",
@@ -1198,100 +1509,6 @@
       "copySource": "fallback",
       "storyType": "rumor",
       "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html",
-      "title": "Raptors put Kawhi Leonard trade on hold until the NBA probe into the Clippers concludes",
-      "originalTitle": "Raptors put Kawhi Leonard trade on hold until the NBA probe into the Clippers concludes",
-      "headlineZh": "Kawhi Leonard 交易影响继续发酵",
-      "titleZh": "Kawhi Leonard 交易影响继续发酵",
-      "link": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html",
-      "url": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html",
-      "pubDate": "2026-07-09T20:27:16.000Z",
-      "publishedAt": "2026-07-09T20:27:16.000Z",
-      "summary": "The NBA informed Toronto that it would assume any penalties handed down if wrongdoing is found in Leonard's endorsement deal.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Kawhi Leonard 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
-      "oneLineZh": "Kawhi Leonard 交易影响继续发酵",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/la_times_articles_853/7d043c5174461505f766a031442f89fc",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 5,
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/kawhi-leonard-trade-toronto-hold-210830237.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/clippers-kawhi-leonard-trade-frozen-205758688.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/kawhi-leonard-raptors-trade-hold-200636309.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/kawhi-leonard-trade-clippers-raptors-200602334.html"
-        }
-      ],
-      "originalTitles": [
-        "Kawhi Leonard trade to Toronto on hold until Aspiration investigation concludes",
-        "Clippers’ Kawhi Leonard trade frozen as Raptors refuse to absorb Aspiration investigation risk",
-        "Raptors put Kawhi Leonard trade on hold until the NBA probe into the Clippers concludes",
-        "Raptors trade for Kawhi Leonard can't be completed until NBA's investigation into Clippers ends",
-        "Kawhi Leonard to Raptors trade on hold until NBA finishes cap circumvention investigation",
-        "Kawhi Leonard trade from Clippers to Raptors stalls over NBA investigation"
-      ],
-      "isMerged": true,
-      "eventKey": "trade:kawhi-leonard",
-      "relatedItems": [
-        {
-          "title": "Kawhi Leonard trade to Toronto on hold until Aspiration investigation concludes",
-          "originalTitle": "Kawhi Leonard trade to Toronto on hold until Aspiration investigation concludes",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/kawhi-leonard-trade-toronto-hold-210830237.html",
-          "publishedAt": "2026-07-09T21:08:30.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "Clippers’ Kawhi Leonard trade frozen as Raptors refuse to absorb Aspiration investigation risk",
-          "originalTitle": "Clippers’ Kawhi Leonard trade frozen as Raptors refuse to absorb Aspiration investigation risk",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/clippers-kawhi-leonard-trade-frozen-205758688.html",
-          "publishedAt": "2026-07-09T20:57:58.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "Kawhi Leonard to Raptors trade on hold until NBA finishes cap circumvention investigation",
-          "originalTitle": "Kawhi Leonard to Raptors trade on hold until NBA finishes cap circumvention investigation",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/kawhi-leonard-raptors-trade-hold-200636309.html",
-          "publishedAt": "2026-07-09T20:06:36.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "Kawhi Leonard trade from Clippers to Raptors stalls over NBA investigation",
-          "originalTitle": "Kawhi Leonard trade from Clippers to Raptors stalls over NBA investigation",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/kawhi-leonard-trade-clippers-raptors-200602334.html",
-          "publishedAt": "2026-07-09T20:06:02.000Z",
-          "angle": "source"
-        }
-      ],
-      "displayTitle": "Raptors put Kawhi Leonard trade on hold until the NBA probe into the Clippers concludes",
-      "copySource": "fallback",
-      "storyType": "trade"
     },
     {
       "id": "https://sports.yahoo.com/articles/pistons-vs-sixers-summer-league-202207379.html",
@@ -1490,90 +1707,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/boston-celtics-daily-links-7-194625060.html",
-      "title": "Boston Celtics Daily Links 7/9/26",
-      "originalTitle": "Boston Celtics Daily Links 7/9/26",
-      "headlineZh": "NBA 动态：凯尔特人 Daily Links 7/9/26",
-      "titleZh": "NBA 动态：凯尔特人 Daily Links 7/9/26",
-      "link": "https://sports.yahoo.com/articles/boston-celtics-daily-links-7-194625060.html",
-      "url": "https://sports.yahoo.com/articles/boston-celtics-daily-links-7-194625060.html",
-      "pubDate": "2026-07-09T19:46:25.000Z",
-      "publishedAt": "2026-07-09T19:46:25.000Z",
-      "summary": "All the Celtics news you need in one convenient place.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "NBA 动态：凯尔特人 Daily Links 7/9/26",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Oius1WkJcyuwvfkXhLSFiA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/e444ca73ac083961ef8ec4c2a172e861",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Boston Celtics Daily Links 7/9/26",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/observations-philon-broome-help-sixers-194516402.html",
-      "title": "Observations after Philon and Broome help Sixers win summer league opener",
-      "originalTitle": "Observations after Philon and Broome help Sixers win summer league opener",
-      "headlineZh": "76 人年轻球员与选秀话题",
-      "titleZh": "76 人年轻球员与选秀话题",
-      "link": "https://sports.yahoo.com/articles/observations-philon-broome-help-sixers-194516402.html",
-      "url": "https://sports.yahoo.com/articles/observations-philon-broome-help-sixers-194516402.html",
-      "pubDate": "2026-07-09T19:45:16.000Z",
-      "publishedAt": "2026-07-09T19:45:16.000Z",
-      "summary": "Labaron Philon Jr. and Johni Broome helped the Sixers win their summer league opener Thursday night.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "76 人年轻球员与选秀话题",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/31biS5_IP4ioL26Cxkmjhw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/csnphilly.com/c9d8c0b0328d6c4e82f11dcab629a1bc",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Observations after Philon and Broome help Sixers win summer league opener",
-      "copySource": "fallback",
-      "storyType": "analysis",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/marcus-spears-jr-commitment-5-193939434.html",
-      "title": "Marcus Spears Jr. commitment: 5-star picks Texas, reclassifies to 2026 class",
-      "originalTitle": "Marcus Spears Jr. commitment: 5-star picks Texas, reclassifies to 2026 class",
-      "headlineZh": "Marcus Spears Jr 相关消息更新",
-      "titleZh": "Marcus Spears Jr 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/marcus-spears-jr-commitment-5-193939434.html",
-      "url": "https://sports.yahoo.com/articles/marcus-spears-jr-commitment-5-193939434.html",
-      "pubDate": "2026-07-09T19:39:39.000Z",
-      "publishedAt": "2026-07-09T19:39:39.000Z",
-      "summary": "Texas men's basketball landed the commitment of five-star recruit Marcus Spears Jr., son of former NFL defensive end Marcus Spears.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Marcus Spears Jr 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/lEUpBf4s_gNtNrh6iamrVg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04Njk7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/27e483583edc95e249ae244ccedc21fe",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 2,
-      "displayTitle": "Marcus Spears Jr. commitment: 5-star picks Texas, reclassifies to 2026 class",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286635/Raptors-Trade-With-Clippers-For-Kawhi-Leonard-On-Hold-Until-NBA-Concludes-Aspiration-Inquiry",
       "title": "Raptors' Trade With Clippers For Kawhi Leonard On Hold Until NBA Concludes Aspiration Inquiry",
       "originalTitle": "Raptors' Trade With Clippers For Kawhi Leonard On Hold Until NBA Concludes Aspiration Inquiry",
@@ -1599,62 +1732,6 @@
       "displayTitle": "Raptors' Trade With Clippers For Kawhi Leonard On Hold Until NBA Concludes Aspiration Inquiry",
       "copySource": "fallback",
       "storyType": "opinion",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/mike-gansey-says-joel-embiid-190756412.html",
-      "title": "Mike Gansey says Joel Embiid ‘fired up’ about Brown trade, upcoming season",
-      "originalTitle": "Mike Gansey says Joel Embiid ‘fired up’ about Brown trade, upcoming season",
-      "headlineZh": "Mike Gansey 交易影响继续发酵",
-      "titleZh": "Mike Gansey 交易影响继续发酵",
-      "link": "https://sports.yahoo.com/articles/mike-gansey-says-joel-embiid-190756412.html",
-      "url": "https://sports.yahoo.com/articles/mike-gansey-says-joel-embiid-190756412.html",
-      "pubDate": "2026-07-09T19:07:56.000Z",
-      "publishedAt": "2026-07-09T19:07:56.000Z",
-      "summary": "Joel Embiid is excited about playing with Jaylen Brown and the 2026-27 season, according to Mike Gansey.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Mike Gansey 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
-      "oneLineZh": "Mike Gansey 交易影响继续发酵",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/cb01OE6Uzgy0BMNkVcPUcw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/b9cb75e54730ff1c195185ce5d979062",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 4,
-      "eventKey": "trade:jaylen-brown",
-      "relatedItems": [],
-      "displayTitle": "Mike Gansey says Joel Embiid ‘fired up’ about Brown trade, upcoming season",
-      "copySource": "fallback",
-      "storyType": "opinion",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/details-nate-ament-rookie-contract-183928850.html",
-      "title": "Details of Nate Ament’s rookie contract with the Milwaukee Bucks",
-      "originalTitle": "Details of Nate Ament’s rookie contract with the Milwaukee Bucks",
-      "headlineZh": "Nate Ament 签约动向更新",
-      "titleZh": "Nate Ament 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/details-nate-ament-rookie-contract-183928850.html",
-      "url": "https://sports.yahoo.com/articles/details-nate-ament-rookie-contract-183928850.html",
-      "pubDate": "2026-07-09T18:39:28.000Z",
-      "publishedAt": "2026-07-09T18:39:28.000Z",
-      "summary": "Did he make the right decision?",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Nate Ament 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Nate Ament 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/jeqpYL7RM5ZJoEOpje0H9g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/e0510836fc893dfeeaa6cff19411b6a7",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:nate-ament",
-      "relatedItems": [],
-      "displayTitle": "Details of Nate Ament’s rookie contract with the Milwaukee Bucks",
-      "copySource": "fallback",
-      "storyType": "signing",
       "isMerged": false
     },
     {
@@ -2103,34 +2180,6 @@
       "eventKey": "sign:bruce-thornton:rockets:4:930",
       "relatedItems": [],
       "displayTitle": "Bruce Thornton, Rockets Agree To Four-Year, $9.3M Deal",
-      "copySource": "fallback",
-      "storyType": "signing",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286607/Warriors-Will-Not-Match-Quinten-Post-Offer-Sheet-From-Grizzlies",
-      "title": "Warriors Will Not Match Quinten Post Offer Sheet From Grizzlies",
-      "originalTitle": "Warriors Will Not Match Quinten Post Offer Sheet From Grizzlies",
-      "headlineZh": "Will Not Match 相关消息更新",
-      "titleZh": "Will Not Match 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286607/Warriors-Will-Not-Match-Quinten-Post-Offer-Sheet-From-Grizzlies",
-      "url": "https://basketball.realgm.com/wiretap/286607/Warriors-Will-Not-Match-Quinten-Post-Offer-Sheet-From-Grizzlies",
-      "pubDate": "2026-07-08T05:21:36.000Z",
-      "publishedAt": "2026-07-08T05:21:36.000Z",
-      "summary": "<p>The Golden State Warriors will not match the Memphis Grizzlies' <a href=\"https://basketball.realgm.com/wiretap/286571/Quinten-Post-Signs-Three-Year-$30M-Offer-Sheet-With-Grizzlies\">three-year, $30 million offer sheet</a> for Quinten Post.</p> <p>The Warriors were interested in re-signing Post and gave him a $2.6 million qualifying offer, but they are hard-capped at the second apron.</p> <p>Only the first year of the deal is guaranteed at $9 million, with the Grizzlies adding $1.35 million of unlikely incentives. </p> <p>The last two years of the deal are not guaranteed. </p> <p>Post joins the Grizzlies frontcourt alongside Cameron Boozer, Zach Edey, Isaiah Stewart and Jerami Grant.</p>",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，勇士 不会匹配 灰熊 给 Quinten Post 的报价合同。",
-      "oneLineZh": "Will Not Match 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Post_Quinten_gsw_250227.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:warriors-will:warriors:3:3000",
-      "relatedItems": [],
-      "displayTitle": "Warriors Will Not Match Quinten Post Offer Sheet From Grizzlies",
       "copySource": "fallback",
       "storyType": "signing",
       "isMerged": false
