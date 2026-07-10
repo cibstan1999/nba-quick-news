@@ -324,6 +324,9 @@ function getGithubModelsPrompt(item = {}) {
     `extractedFacts: ${JSON.stringify(facts)}`,
     `fallbackSummaryZh: ${item.summaryZh || ''}`,
     '',
+    'confidence 表示“摘要是否忠实覆盖输入中明确存在的信息”，不是表示新闻本身是否已被官方确认。',
+    'confidence 评分标准：0.90-1.00=输入事实完整明确，摘要直接忠实转述；0.75-0.89=输入基本明确，仅有少量细节缺失；0.60-0.74=核心人物和事件明确，但背景或部分细节有限；0.45-0.59=只能确认大致主题，无法完整确认观点或结果；低于0.45=输入不足以生成可靠摘要。',
+    '对于比赛比分、正式签约、明确采访引语、明确交易状态，不要仅因来源是 RSS 就自动给低分。',
     '请严格返回 JSON：{"summaryZh":"","oneLineZh":"","confidence":0.0,"storyType":"fact"}'
   ].join('\n');
 }
@@ -353,6 +356,10 @@ async function summarizeWithGitHubModels(item) {
           {
             role: 'system',
             content: '你是一名严谨的中文 NBA 快讯编辑。请只根据输入标题、摘要和相关报道生成中文新闻摘要，不得添加输入中不存在的事实。英文球员姓名可以保留，球队名使用常见中文名称。语言应简洁、自然、像中文新闻导语，不要使用营销号措辞，不要半中半英拼接。不要生成或改写标题。'
+          },
+          {
+            role: 'system',
+            content: 'confidence means whether the Chinese summary faithfully covers information explicitly present in the input. It does not mean whether the NBA news itself is officially confirmed. Use 0.90-1.00 for clear complete facts, 0.75-0.89 for mostly clear facts with minor missing context, 0.60-0.74 for clear core person/event with limited background, 0.45-0.59 for only a broad topic, and below 0.45 when the input is insufficient. Do not assign low confidence solely because the source is RSS when the input contains a score, signing, clear interview quote, or clear transaction status.'
           },
           {
             role: 'user',
@@ -701,15 +708,38 @@ function validateAiSummary(item = {}, aiResult = null) {
   const storyType = normalizeWhitespace(aiResult.storyType || inferStoryType(item));
   const sourceText = `${item.originalTitle || item.title || ''} ${item.summary || ''} ${item.summaryZh || ''} ${item.headlineZh || ''}`;
   const aiText = `${summaryZh} ${oneLineZh}`;
+  const rejectionReasons = [];
 
-  if (!Number.isFinite(confidence) || confidence < 0.65) return { accepted: false, reason: 'low-confidence' };
-  if (!summaryZh || !isSafeChineseSummary(summaryZh)) return { accepted: false, reason: 'unsafe-summary' };
-  if (compactComparable(summaryZh) === compactComparable(item.originalTitle || item.title || '')) return { accepted: false, reason: 'summary-repeats-title' };
-  if (/相关消息更新|后续动向|继续更新|值得关注|详情请/.test(summaryZh)) return { accepted: false, reason: 'generic-summary' };
-  if (hasAddedFacts(aiText, sourceText)) return { accepted: false, reason: 'added-facts' };
-  if (storyType === 'opinion' && !isOpinionSummaryComplete(summaryZh)) return { accepted: false, reason: 'incomplete-opinion-summary' };
-  if (storyType === 'rumor' && isRumorWrittenAsConfirmed(item, summaryZh)) return { accepted: false, reason: 'rumor-as-fact' };
-  if (storyType === 'analysis' && isAnalysisWrittenAsFact(item, summaryZh)) return { accepted: false, reason: 'analysis-as-fact' };
+  if (!Number.isFinite(confidence) || confidence < 0.5) rejectionReasons.push('low-confidence');
+  if (!summaryZh) rejectionReasons.push('empty-summary');
+  if (summaryZh && !isSafeChineseSummary(summaryZh)) rejectionReasons.push('unsafe-summary');
+  if (compactComparable(summaryZh) === compactComparable(item.originalTitle || item.title || '')) rejectionReasons.push('summary-repeats-title');
+  if (/相关消息更新|后续动向|继续更新|值得关注|详情请/.test(summaryZh)) rejectionReasons.push('generic-summary');
+  if (hasAddedFacts(aiText, sourceText)) rejectionReasons.push('added-facts');
+  if (storyType === 'opinion' && !isOpinionSummaryComplete(summaryZh)) rejectionReasons.push('incomplete-opinion-summary');
+  if (storyType === 'rumor' && isRumorWrittenAsConfirmed(item, summaryZh)) rejectionReasons.push('rumor-as-fact');
+  if (storyType === 'analysis' && isAnalysisWrittenAsFact(item, summaryZh)) rejectionReasons.push('analysis-as-fact');
+
+  if (confidence >= 0.5 && confidence < 0.6) {
+    const player = getEventPlayer(sourceText);
+    const teams = getEventTeams(sourceText);
+    const hasMainPersonOrTeam = !player && !teams.length
+      ? /NBA|球队|比赛|交易|签约|伤病|自由市场|夏季联赛|赛季|阵容/.test(summaryZh)
+      : (!player || slugText(summaryZh).includes(player)) || teams.some((team) => summaryZh.includes(team));
+    if (!hasMainPersonOrTeam) rejectionReasons.push('medium-confidence-missing-subject');
+  }
+
+  if (rejectionReasons.length) {
+    return {
+      accepted: false,
+      reason: rejectionReasons[0],
+      rejectionReasons,
+      confidence,
+      summaryZh,
+      oneLineZh,
+      storyType
+    };
+  }
 
   return {
     accepted: true,
@@ -721,7 +751,8 @@ function validateAiSummary(item = {}, aiResult = null) {
       aiGeneratedAt: new Date().toISOString(),
       aiConfidence: confidence,
       storyType
-    }
+    },
+    confidenceBand: confidence < 0.6 ? 'medium' : 'high'
   };
 }
 
@@ -782,6 +813,11 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     aiAccepted: 0,
     aiRejected: 0,
     aiFailed: 0,
+    rejectedLowConfidenceBelow50: 0,
+    acceptedMediumConfidence: 0,
+    acceptedHighConfidence: 0,
+    aiConfidenceValues: [],
+    acceptedConfidenceValues: [],
     aiLogicError: false,
     fallbackItems: 0,
     aiModel: model
@@ -831,14 +867,35 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     }
 
     const validation = validateAiSummary(item, aiResult);
+    if (Number.isFinite(validation.confidence)) {
+      stats.aiConfidenceValues.push(validation.confidence);
+    } else if (Number.isFinite(Number(aiResult.confidence))) {
+      stats.aiConfidenceValues.push(Number(aiResult.confidence));
+    }
     if (!validation.accepted) {
       stats.aiRejected += 1;
-      console.warn(`GitHub Models result rejected (${validation.reason}): ${item.originalTitle || item.title || item.id}`);
+      if (validation.rejectionReasons?.includes('low-confidence')) {
+        stats.rejectedLowConfidenceBelow50 += 1;
+      }
+      console.warn('GitHub Models result rejected:', JSON.stringify({
+        originalTitle: item.originalTitle || item.title || item.id,
+        confidence: validation.confidence ?? Number(aiResult.confidence || 0),
+        storyType: validation.storyType || aiResult.storyType || inferStoryType(item),
+        summaryZh: validation.summaryZh ?? aiResult.summaryZh ?? '',
+        oneLineZh: validation.oneLineZh ?? aiResult.oneLineZh ?? '',
+        rejectionReasons: validation.rejectionReasons || [validation.reason]
+      }, null, 2));
       enhanced.push({ ...item, copySource: 'fallback' });
       continue;
     }
 
     stats.aiAccepted += 1;
+    stats.acceptedConfidenceValues.push(validation.value.aiConfidence);
+    if (validation.confidenceBand === 'medium') {
+      stats.acceptedMediumConfidence += 1;
+    } else {
+      stats.acceptedHighConfidence += 1;
+    }
     cache.entries[cacheKey] = {
       summaryZh: validation.value.summaryZh,
       oneLineZh: validation.value.oneLineZh,
@@ -866,6 +923,14 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     stats.aiLogicError = true;
     console.error('AI enabled but bad summaries exist and no candidates were selected.');
   }
+  const averageAiConfidence = stats.aiConfidenceValues.length
+    ? stats.aiConfidenceValues.reduce((total, value) => total + value, 0) / stats.aiConfidenceValues.length
+    : null;
+  const minAcceptedConfidence = stats.acceptedConfidenceValues.length ? Math.min(...stats.acceptedConfidenceValues) : null;
+  const maxAcceptedConfidence = stats.acceptedConfidenceValues.length ? Math.max(...stats.acceptedConfidenceValues) : null;
+  stats.averageAiConfidence = averageAiConfidence;
+  stats.minAcceptedConfidence = minAcceptedConfidence;
+  stats.maxAcceptedConfidence = maxAcceptedConfidence;
 
   console.log('GitHub Models summary:', JSON.stringify({
     'GitHub Models enabled': stats.aiEnabled,
@@ -875,6 +940,12 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     'AI accepted': stats.aiAccepted,
     'AI rejected': stats.aiRejected,
     'AI failed': stats.aiFailed,
+    rejectedLowConfidenceBelow50: stats.rejectedLowConfidenceBelow50,
+    acceptedMediumConfidence: stats.acceptedMediumConfidence,
+    acceptedHighConfidence: stats.acceptedHighConfidence,
+    averageAiConfidence,
+    minAcceptedConfidence,
+    maxAcceptedConfidence,
     'AI logic error': stats.aiLogicError,
     'Fallback items': stats.fallbackItems,
     Model: stats.aiModel
@@ -4302,6 +4373,12 @@ async function main() {
         aiAccepted: aiEnhancement.stats.aiAccepted,
         aiRejected: aiEnhancement.stats.aiRejected,
         aiFailed: aiEnhancement.stats.aiFailed,
+        rejectedLowConfidenceBelow50: aiEnhancement.stats.rejectedLowConfidenceBelow50,
+        acceptedMediumConfidence: aiEnhancement.stats.acceptedMediumConfidence,
+        acceptedHighConfidence: aiEnhancement.stats.acceptedHighConfidence,
+        averageAiConfidence: aiEnhancement.stats.averageAiConfidence,
+        minAcceptedConfidence: aiEnhancement.stats.minAcceptedConfidence,
+        maxAcceptedConfidence: aiEnhancement.stats.maxAcceptedConfidence,
         aiLogicError: aiEnhancement.stats.aiLogicError,
         aiModel: aiEnhancement.stats.aiModel,
         message: failedFeeds.length
