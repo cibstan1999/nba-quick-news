@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-10T08:45:32.791Z",
+  "updatedAt": "2026-07-10T09:42:48.476Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-10T08:45:32.791Z",
-    "previousUpdatedAt": "2026-07-10T08:27:36.278Z",
-    "updatedAt": "2026-07-10T08:45:32.791Z",
+    "checkedAt": "2026-07-10T09:42:48.476Z",
+    "previousUpdatedAt": "2026-07-10T08:45:32.791Z",
+    "updatedAt": "2026-07-10T09:42:48.476Z",
     "fetchedItems": 80,
     "mergedItems": 70,
     "successfulFeeds": [
@@ -32,20 +32,20 @@
     ],
     "failedFeeds": [],
     "newestPublishedAt": "2026-07-10T07:17:23.000Z",
-    "dataAgeHours": 1.469386388888889,
-    "aiEnabled": true,
-    "aiCandidates": 55,
-    "aiCacheHits": 4,
-    "aiRequests": 5,
-    "aiAccepted": 5,
+    "dataAgeHours": 2.4237433333333334,
+    "aiEnabled": false,
+    "aiCandidates": 50,
+    "aiCacheHits": 9,
+    "aiRequests": 0,
+    "aiAccepted": 0,
     "aiRejected": 0,
     "aiFailed": 0,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
-    "acceptedHighConfidence": 5,
-    "averageAiConfidence": 0.85,
-    "minAcceptedConfidence": 0.75,
-    "maxAcceptedConfidence": 0.9,
+    "acceptedHighConfidence": 0,
+    "averageAiConfidence": null,
+    "minAcceptedConfidence": null,
+    "maxAcceptedConfidence": null,
     "aiLogicError": false,
     "aiModel": "openai/gpt-4o-mini",
     "message": "Fetched 80 usable RSS items from all feeds."
@@ -303,7 +303,7 @@
       "storyType": "opinion",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T08:45:20.736Z",
+      "aiGeneratedAt": "2026-07-10T09:42:48.440Z",
       "aiConfidence": 0.85
     },
     {
@@ -390,7 +390,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T08:45:22.780Z",
+      "aiGeneratedAt": "2026-07-10T09:42:48.441Z",
       "aiConfidence": 0.75
     },
     {
@@ -449,7 +449,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T08:45:22.781Z",
+      "aiGeneratedAt": "2026-07-10T09:42:48.442Z",
       "aiConfidence": 0.9
     },
     {
@@ -508,7 +508,7 @@
       "storyType": "injury",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T08:45:22.782Z",
+      "aiGeneratedAt": "2026-07-10T09:42:48.443Z",
       "aiConfidence": 0.9
     },
     {
@@ -539,7 +539,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T08:45:25.815Z",
+      "aiGeneratedAt": "2026-07-10T09:42:48.444Z",
       "aiConfidence": 0.85
     },
     {
@@ -717,7 +717,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T08:45:28.342Z",
+      "aiGeneratedAt": "2026-07-10T09:42:48.445Z",
       "aiConfidence": 0.9
     },
     {
@@ -748,7 +748,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T08:45:30.594Z",
+      "aiGeneratedAt": "2026-07-10T09:42:48.446Z",
       "aiConfidence": 0.9
     },
     {
@@ -1761,7 +1761,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T08:45:32.758Z",
+      "aiGeneratedAt": "2026-07-10T09:42:48.447Z",
       "aiConfidence": 0.85
     },
     {
