@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-10T08:27:36.278Z",
+  "updatedAt": "2026-07-10T08:45:32.791Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-10T08:27:36.278Z",
-    "previousUpdatedAt": "2026-07-10T08:14:55.788Z",
-    "updatedAt": "2026-07-10T08:27:36.278Z",
+    "checkedAt": "2026-07-10T08:45:32.791Z",
+    "previousUpdatedAt": "2026-07-10T08:27:36.278Z",
+    "updatedAt": "2026-07-10T08:45:32.791Z",
     "fetchedItems": 80,
     "mergedItems": 70,
     "successfulFeeds": [
@@ -32,19 +32,19 @@
     ],
     "failedFeeds": [],
     "newestPublishedAt": "2026-07-10T07:17:23.000Z",
-    "dataAgeHours": 1.170355,
+    "dataAgeHours": 1.469386388888889,
     "aiEnabled": true,
-    "aiCandidates": 59,
-    "aiCacheHits": 1,
+    "aiCandidates": 55,
+    "aiCacheHits": 4,
     "aiRequests": 5,
-    "aiAccepted": 3,
-    "aiRejected": 2,
+    "aiAccepted": 5,
+    "aiRejected": 0,
     "aiFailed": 0,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
-    "acceptedHighConfidence": 3,
+    "acceptedHighConfidence": 5,
     "averageAiConfidence": 0.85,
-    "minAcceptedConfidence": 0.85,
+    "minAcceptedConfidence": 0.75,
     "maxAcceptedConfidence": 0.9,
     "aiLogicError": false,
     "aiModel": "openai/gpt-4o-mini",
@@ -128,7 +128,7 @@
       "publishedAt": "2026-07-10T05:46:40.000Z",
       "summary": "<p>Team executives are sending LeBron James voices notes in order to pitch him on signing, sources told Shams Charania of ESPN.</p> <p>The voices notes are facilitated through agent Rich Paul.</p> <p>Bob Myers, president of sports for Harris Blitzer Sports & Entertainment, most recently <a href=\"https://basketball.realgm.com/wiretap/286621/Bob-Myers-Pitches-Rich-Paul-On-LeBron-James-Signing-With-76ers-During-Podcast-Appearance\">pitched James</a> to sign with the Sixers on the \"Game Over with Max Kellerman and Rich Paul\" podcast.</p> <p>James is currently believed to <a href=\"https://basketball.realgm.com/wiretap/286627/LeBron-James-Believed-To-Have-Current-Favorite-In-Mind-As-Process-Continues\">have a favorite</a> in mind. </p> <p>Steph Curry also recently <a href=\"https://basketball.realgm.com/wiretap/286642/Stephen-Curry-Says-LeBron-James-Pairing-No-Longer-A-Pipedream\">acknowledged the possibility</a> of playing alongside James.</p> <p>There still remains \"no timetable\" for James' decision. </p>",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Team Executives Recruiting LeBron James Through Voice Notes。",
+      "summaryZh": "据 RealGM 报道，Team Executives Recruiting LeBron James Through Voice Notes，目前仍属于消息或传闻阶段。",
       "oneLineZh": "Team Executives Recruiting 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -141,7 +141,7 @@
       "relatedItems": [],
       "displayTitle": "Team Executives Recruiting LeBron James Through Voice Notes",
       "copySource": "fallback",
-      "storyType": "opinion",
+      "storyType": "rumor",
       "isMerged": false
     },
     {
@@ -263,7 +263,7 @@
       "oneLineZh": "Darryn Peterson 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
-      "imageUrl": "",
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/yNn76kWTYbqWQEwvj5WRcg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/5efa73eb-a0fd-4870-b4df-de2a07188301",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "选秀",
@@ -303,7 +303,7 @@
       "storyType": "opinion",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T08:27:26.532Z",
+      "aiGeneratedAt": "2026-07-10T08:45:20.736Z",
       "aiConfidence": 0.85
     },
     {
@@ -374,7 +374,7 @@
       "publishedAt": "2026-07-10T03:17:00.000Z",
       "summary": "Are the Raptors now the biggest threat to the Knicks?",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "猛龙队迎回前总决赛最有价值球员，力争在季后赛中挑战尼克斯，成为东部最大的威胁。",
       "oneLineZh": "Finals MVP 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -384,11 +384,14 @@
       "category": "季后赛",
       "importance": 2,
       "displayTitle": "Toronto welcomes back former Finals MVP, look to challenge the Knicks atop the conference",
-      "copySource": "fallback",
+      "copySource": "github-models",
       "storyType": "analysis",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-10T08:45:22.780Z",
+      "aiConfidence": 0.75
     },
     {
       "id": "https://sports.yahoo.com/articles/utah-jazz-vs-washington-wizards-031115508.html",
@@ -446,7 +449,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T08:27:32.047Z",
+      "aiGeneratedAt": "2026-07-10T08:45:22.781Z",
       "aiConfidence": 0.9
     },
     {
@@ -505,7 +508,7 @@
       "storyType": "injury",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T08:27:34.192Z",
+      "aiGeneratedAt": "2026-07-10T08:45:22.782Z",
       "aiConfidence": 0.9
     },
     {
@@ -520,7 +523,7 @@
       "publishedAt": "2026-07-10T02:37:58.000Z",
       "summary": "Philadelphia is putting all hands on deck to get LeBron James to the City of Brotherly Love.",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "费城 76 人队全力争取勒布朗·詹姆斯，萨奎恩·巴克利向其发出邀请，称他将被永远铭记。",
       "oneLineZh": "Saquon Barkley 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -530,11 +533,14 @@
       "category": "其他",
       "importance": 2,
       "displayTitle": "Saquon Barkley makes his 76ers pitch to LeBron James: ‘You’ll be remembered forever’",
-      "copySource": "fallback",
+      "copySource": "github-models",
       "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-10T08:45:25.815Z",
+      "aiConfidence": 0.85
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286643/Joe-Mazzulla-Still-Processing-Celtics-Trade-Of-Jaylen-Brown-To-76ers",
@@ -548,7 +554,7 @@
       "publishedAt": "2026-07-10T01:55:30.000Z",
       "summary": "<p>Joe Mazzulla said Thursday he is still processing the Boston Celtics' trade that sent Jaylen Brown to the Philadelphia 76ers. The Celtics acquired Paul George and draft capital in the deal.</p> <p>Mazzulla spoke to reporters following the Celtics' summer league practice. </p> <p>\"There's a feeling that goes into it,\" Mazzulla said. \"There's an emotion that goes into it. There's a processing pattern that goes into it. The quicker you can get to just a level of gratitude - he made me a better coach. I know that for a fact. The way he pushed me, the way he pushed himself, the way he pushed the locker room, he made me a better coach, and that's what you focus on.\"</p> <p>Mazzulla added: \"I think when things happen like this, when it doesn't feel hard, is when you're not in it for the right reasons. And I think that's where Brad is one of the best at, and this organization has been one of the best at. Of course, something like that is going to be difficult. But I think if you could just get through and act as if nothing happened, then that's when I think that you're not in it for the right reasons. So yeah, it was difficult. It will be difficult ... but I think it will be difficult because of what Jaylen did for us as an organization, what he was able to do. You have to be grateful for that.\"</p> <p>Mazzulla emphasized his gratitude for Brown's decade with the franchise.</p> <p>\"The part that I hope gets talked about more, and the part that we really want to focus on the most, is really just the respect, the appreciation and the gratitude for what he did for the Celtics for 10 years,\" said Mazzulla. \"He was a Celtic longer than I have been. He was here before me. He set the tone and started that, and was a part of special things, and continued that, and obviously was one of the biggest reasons why we were able to be as successful as we have been. So that to me is what we have to focus on more: The respect as a competitor and the gratitude for what he's done.\"</p> <p>Brown offered a different perspective on the trade during a livestream with IShowSpeed while watching the World Cup quarterfinal between France and Morocco.</p> <p>\"I just got traded. ... They packed me up, bro. It's a crazy business, bro. Don't become a basketball player,\" said Brown. \"There's no loyalty. There's no love.\"</p> <p>Brown finished sixth in MVP voting this season, averaging career highs of 28.7 points, 6.9 rebounds and 5.1 assists. The Celtics never missed the playoffs during his 10 seasons, reaching the Eastern Conference Finals six times, the NBA Finals twice and winning the 2024 championship.</p> <p>Brad Stevens cited salary cap flexibility as a driving factor behind the trade, noting George carries one fewer year on his contract than Brown despite a similar salary. Mazzulla said he was included in conversations but did not provide direct input on the decision.</p> <p>\"Not input, just Brad comes to you and talks to you and gives you a breakdown and an understanding,\" said Mazzulla. \"And in moments like this, obviously, there's great alignment within the organization, and there's conversations that are always going to be had. But I think in moments like this, this is where you just trust, you listen, you trust, and you have an understanding for what they do.\"</p> <p>The Celtics also signed Mitchell Robinson and Mike Conley in free agency this offseason. <a href=\"https://basketball.realgm.com/nba/teams/Boston-Celtics/2/Playoff-History\">Boston is coming off consecutive early playoff exits</a>, including a blown 3-1 series lead against the 76ers this past postseason.</p>",
       "dekZh": "",
-      "summaryZh": "据 RealGM / Yahoo Sports 报道，Joe Mazzulla 在谈到凯尔特人将 Jaylen Brown 交易至 76 人时表示，他仍在消化这件事带来的变化。",
+      "summaryZh": "据 RealGM / Yahoo Sports 报道，Jaylen Brown 被交易至 76 人，这笔交易继续影响凯尔特人与 76 人的阵容评估。",
       "oneLineZh": "Jaylen Brown 被交易至 76 人",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -597,7 +603,7 @@
       "isMerged": true,
       "displayTitle": "Joe Mazzulla Still 'Processing' Celtics' Trade Of Jaylen Brown To 76ers",
       "copySource": "fallback",
-      "storyType": "opinion"
+      "storyType": "analysis"
     },
     {
       "id": "https://sports.yahoo.com/articles/bucks-sign-pete-nance-014525107.html",
@@ -695,7 +701,7 @@
       "publishedAt": "2026-07-10T00:03:33.000Z",
       "summary": "The pressure will be on Walker Kessler to perform, but Lakers fans can’t wait to see him in action.",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "湖人队的新援沃克·凯斯勒备受期待，球迷们迫不及待想看到他的表现。",
       "oneLineZh": "Walker Kessler 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -705,11 +711,14 @@
       "category": "其他",
       "importance": 2,
       "displayTitle": "Walker Kessler is most exciting addition Lakers have made this offseason",
-      "copySource": "fallback",
+      "copySource": "github-models",
       "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-10T08:45:28.342Z",
+      "aiConfidence": 0.9
     },
     {
       "id": "https://sports.yahoo.com/nba/live/aj-dybantsa-scores-27-points-in-summer-league-debut-darryn-peterson-gets-24-in-matchup-of-nbas-top-draft-picks-000000201.html",
@@ -723,7 +732,7 @@
       "publishedAt": "2026-07-10T00:00:00.000Z",
       "summary": "AJ Dybantsa and Darryn Peterson faced off for the first time as rookies in Thursday's Summer League showdown.",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "在夏季联赛首秀中，AJ Dybantsa 砍下27分，Darryn Peterson 贡献24分，二人首次作为新秀对决。",
       "oneLineZh": "AJ Dybantsa 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -733,11 +742,14 @@
       "category": "选秀",
       "importance": 2,
       "displayTitle": "AJ Dybantsa scores 27 points in Summer League debut, Darryn Peterson gets 24 in matchup of NBA's top draft picks",
-      "copySource": "fallback",
+      "copySource": "github-models",
       "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-10T08:45:30.594Z",
+      "aiConfidence": 0.9
     },
     {
       "id": "https://sports.yahoo.com/articles/wizards-vs-jazz-discussion-000000116.html",
@@ -904,7 +916,7 @@
       "relatedItems": [],
       "displayTitle": "Nets Reacts: Fans vote on who has the most to prove out of the ‘Flatbush Five’",
       "copySource": "fallback",
-      "storyType": "injury",
+      "storyType": "opinion",
       "isMerged": false
     },
     {
@@ -1014,7 +1026,7 @@
       "importance": 1,
       "displayTitle": "Raptors Reacts Survey: Nostalgia trap or bench supercharger?",
       "copySource": "fallback",
-      "storyType": "fact",
+      "storyType": "opinion",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1205,7 +1217,7 @@
       "publishedAt": "2026-07-09T21:24:08.000Z",
       "summary": "<p>Marcus Spears Jr., ranked as the No. 1 prospect in the 2027 class, is reclassifying to 2026 and committing to Texas, he told ESPN on Thursday. Arizona, LSU and Kentucky had also pursued the 6-foot-10 power forward.</p> <p>Spears is a Texas native whose sister, Cari, plays volleyball for the Longhorns. He took an official visit to Arizona in late June and made two unofficial visits to Texas, including a trip to Austin on June 16.</p> <p>\"Texas basketball is becoming a big thing again, and I am excited to be part of it,\" said Spears. \"The Texas fans can expect a worker with a lot of energy. I will be trying to bring Texas a national championship.\"</p> <p>His father, ESPN analyst and former NFL defensive end Marcus Spears, said the decision carried personal meaning.</p> <p>\"Marcus Jr. grew up in Texas, and there's nothing like playing for your home school and winning,\" said the elder Spears. \"I experienced that growing up in Louisiana at LSU. This is his decision and his future.\"</p> <p>Spears, who plays for Dynamic Prep in Texas, averaged 20.9 points and 8.7 rebounds this spring on the Nike EYBL circuit, ranking top 10 nationally in both categories. He also helped Team USA win gold at the 2025 FIBA U16 Men's AmeriCup, averaging a team-high 14.0 points and 6.5 rebounds.</p> <p>Spears turned 17 in April and will need to spend two seasons in Austin before becoming draft eligible. Spears will play collegiately for at least the upcoming 2026-27 season and in 2027-28. </p> <p>His father cited Texas coach Sean Miller's track record developing players like Deandre Ayton and Aaron Gordon as a major factor in the decision.</p> <p>The reclassification process began about a month ago after Spears' mother, former WNBA player Aiysha Spears, suggested the move. Spears will enter the 2026 SC Next 100 at No. 4 and joins a Texas recruiting class now ranked No. 4 nationally, alongside five-star forward Austin Goosby and four others.</p> <p>According to Cerebro, only three other players since 2022 have matched Spears' EYBL production of 20 points, 8.5 rebounds and one block across three straight sessions in Cooper Flagg, Cameron Boozer and Tyran Stokes.</p>",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，No. 1 Recruit Marcus Spears Jr. Reclassifies To 2026，Picks Texas Over Arizona。",
+      "summaryZh": "",
       "oneLineZh": "Recruit Marcus Spears 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -1216,7 +1228,7 @@
       "importance": 2,
       "displayTitle": "No. 1 Recruit Marcus Spears Jr. Reclassifies To 2026, Picks Texas Over Arizona",
       "copySource": "fallback",
-      "storyType": "opinion",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1733,7 +1745,7 @@
       "publishedAt": "2026-07-09T19:09:03.000Z",
       "summary": "<p>A trade between the Toronto Raptors and Los Angeles Clippers involving Kawhi Leonard has been put on hold until the NBA concludes its investigation into a potential cap circumvention involving Aspiration.</p> <p>The Raptors agreed to acquire Leonard from the Clippers for Brandon Ingram, Gradey Dick, two first round picks, one pick swap and two second rounders. The two first round picks are unprotected in 2031 and 2033 with the first round pick swap in 2027. The Raptors will send second round picks to the Clippers in 2030 and 2033.</p> <p>The league office informed the Raptors that they would assume any risk for a potential punishment of Leonard that could impact his contract and his availability. The Raptors have also been in extension talks with Leonard, which was a major driving force of the trade as the Clippers had signaled they didn't have interest in a long-term contract. </p> <p>The Clippers released the following statement in response:</p> <p>\"For the past 10 months, our organization has fully cooperated with an NBA investigation, participating in dozens of interviews, providing tens of thousands of documents, and facilitating access to our staff. While the process has been challenging, we have remained committed to transparency. <br /><br />\"On June 30, we reached an agreement in principle to trade Kawhi Leonard to the Toronto Raptors. We have since been informed that the trade can only be finalized if the Raptors' ownership group assumes the risk of penalties related to Kawhi's contract that could theoretically result from the ongoing investigation. The investigation is ongoing, and we expect the trade to be finalized following its conclusion. <br /><br />\"At the heart of this investigation are Joe Sanberg and Aspiration. We did not funnel money to Kawhi Leonard through Aspiration. Like many sophisticated investors, financial institutions, and business partners, we were victims of a fraud initiated by Sanberg, who has been convicted and sentenced to 14 years in prison. <br /><br />\"We recognize the uncertainty this has created and the impact it has had on our team, our fans, the Raptors organization, their fans, and the players whose futures remain affected while this process continues. <br /><br />\"We remain confident that, when the facts are evaluated fairly and thoroughly, the NBA will confirm exactly what we have said from the beginning: We have not done what we are accused of doing.\"</p> <p>The Raptors said they \"remain eager to bring Kawhi back to Toronto and look forward to a swift resolution for our players, our organization, and our fans.\"</p> <p>The NBA Board of Governors will meet in Las Vegas next week amid Summer League, but a resolution still appears to be a few weeks out.</p> <p>\"We don't have a specific timeline for the conclusion of the investigation but expect the firm to finalize its work in the coming weeks,\" said an NBA spokesperson to ESPN's Shams Charania.</p>",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "多伦多猛龙与洛杉矶快船的交易因 NBA 对 Aspiration 的调查而暂时搁置，猛龙希望尽快解决此事以完成对卡怀·伦纳德的交易。",
       "oneLineZh": "猛龙' Trade With 交易影响继续发酵",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -1745,9 +1757,12 @@
       "eventKey": "trade:raptors-trade-with",
       "relatedItems": [],
       "displayTitle": "Raptors' Trade With Clippers For Kawhi Leonard On Hold Until NBA Concludes Aspiration Inquiry",
-      "copySource": "fallback",
-      "storyType": "opinion",
-      "isMerged": false
+      "copySource": "github-models",
+      "storyType": "trade",
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-10T08:45:32.758Z",
+      "aiConfidence": 0.85
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286631/Possible-2028-NBA-Draft-No-1-Pick-Nikola-Kusturica-Commits-To-UCLA",
@@ -1858,7 +1873,7 @@
       "relatedItems": [],
       "displayTitle": "Jon Horst: Trading Giannis Antetokounmpo Was 'Best For Us, Best For Him'",
       "copySource": "fallback",
-      "storyType": "opinion",
+      "storyType": "rumor",
       "isMerged": false
     },
     {
