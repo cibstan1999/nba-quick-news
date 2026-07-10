@@ -11,6 +11,36 @@
       "generatedAt": "2026-07-10T08:14:44.930Z",
       "sourceHash": "bbe803984fd1162b8f0454a9ab96203fe93573c603db87bf75408ee125f8734f",
       "promptVersion": "summary-v2"
+    },
+    "3d5a2e2e709c3501e26e53f7072e4f5d63cda9a7d00cf701342e037691a3c98d": {
+      "summaryZh": "在2026-27赛季即将到来之际，斯蒂芬·库里和杰伦·布朗分享了他们对与勒布朗·詹姆斯共事的看法，詹姆斯的未来去向仍然不确定。",
+      "oneLineZh": "库里和布朗谈论与詹姆斯的可能性。",
+      "confidence": 0.85,
+      "storyType": "opinion",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-10T08:27:26.532Z",
+      "sourceHash": "68f70672db882de54a0007b9df8551fdbd21aa1344436d549b6d4122e03a1d0b",
+      "promptVersion": "summary-v2"
+    },
+    "840ed81f84703912e4178dfb934364e374da31056b5e4ac4efaa63fb41c387b1": {
+      "summaryZh": "在2026 年拉斯维加斯夏季联赛中，华盛顿奇才以92-88战胜犹他爵士，AJ Dybantsa 迎来奇才首秀。",
+      "oneLineZh": "奇才92-88战胜爵士，Dybantsa 首秀。",
+      "confidence": 0.9,
+      "storyType": "fact",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-10T08:27:32.047Z",
+      "sourceHash": "992130eee27f3fa58f5ac2ac8451745cee930f0636f97ee3b3803884644618a5",
+      "promptVersion": "summary-v2"
+    },
+    "a81b93605f6d345d193cc38a6b9e8bdf8d00fbadd7d4002b0197aa5f06787faa": {
+      "summaryZh": "AJ Dybantsa 于7月9日在拉斯维加斯的 NBA 夏季联赛中首次代表华盛顿奇才出战。",
+      "oneLineZh": "Dybantsa 夏季联赛首秀表现亮眼。",
+      "confidence": 0.9,
+      "storyType": "injury",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-10T08:27:34.192Z",
+      "sourceHash": "f98795a3ec1fc42fea0a0584e704be43f8810149f631752cdaae923d55cbeb1f",
+      "promptVersion": "summary-v2"
     }
   }
 }
