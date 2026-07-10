@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-10T04:26:18.549Z",
+  "updatedAt": "2026-07-10T04:50:22.791Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-10T04:26:18.549Z",
-    "previousUpdatedAt": "2026-07-10T02:55:06.225Z",
-    "updatedAt": "2026-07-10T04:26:18.549Z",
+    "checkedAt": "2026-07-10T04:50:22.791Z",
+    "previousUpdatedAt": "2026-07-10T04:49:23.912Z",
+    "updatedAt": "2026-07-10T04:50:22.791Z",
     "fetchedItems": 80,
     "mergedItems": 65,
     "successfulFeeds": [
@@ -31,8 +31,8 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-10T02:42:33.000Z",
-    "dataAgeHours": 1.7293191666666667,
+    "newestPublishedAt": "2026-07-10T04:47:33.000Z",
+    "dataAgeHours": 0.04716416666666667,
     "aiEnabled": false,
     "aiCandidates": 0,
     "aiCacheHits": 0,
@@ -82,6 +82,62 @@
   ],
   "items": [
     {
+      "id": "https://sports.yahoo.com/nba/article/jazz-rookie-darryn-peterson-says-hes-back-having-fun-in-summer-league-after-kansas-career-044733657.html",
+      "title": "Jazz rookie Darryn Peterson says he's 'back having fun' in Summer League after Kansas career",
+      "originalTitle": "Jazz rookie Darryn Peterson says he's 'back having fun' in Summer League after Kansas career",
+      "headlineZh": "Darryn Peterson 相关消息更新",
+      "titleZh": "Darryn Peterson 相关消息更新",
+      "link": "https://sports.yahoo.com/nba/article/jazz-rookie-darryn-peterson-says-hes-back-having-fun-in-summer-league-after-kansas-career-044733657.html",
+      "url": "https://sports.yahoo.com/nba/article/jazz-rookie-darryn-peterson-says-hes-back-having-fun-in-summer-league-after-kansas-career-044733657.html",
+      "pubDate": "2026-07-10T04:47:33.000Z",
+      "publishedAt": "2026-07-10T04:47:33.000Z",
+      "summary": "Darryn Peterson did not like his role on the Jayhawks.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，爵士 新秀 Darryn Peterson 表示，he's 'back having fun' 在 Summer League after Kansas career。",
+      "oneLineZh": "Darryn Peterson 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/yNn76kWTYbqWQEwvj5WRcg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/5efa73eb-a0fd-4870-b4df-de2a07188301",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "选秀",
+      "importance": 2,
+      "displayTitle": "Jazz rookie Darryn Peterson says he's 'back having fun' in Summer League after Kansas career",
+      "copySource": "fallback",
+      "storyType": "opinion",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/steph-curry-jaylen-brown-share-041554469.html",
+      "title": "Steph Curry, Jaylen Brown share thoughts on possibility of playing with LeBron James",
+      "originalTitle": "Steph Curry, Jaylen Brown share thoughts on possibility of playing with LeBron James",
+      "headlineZh": "Steph Curry 相关消息更新",
+      "titleZh": "Steph Curry 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/steph-curry-jaylen-brown-share-041554469.html",
+      "url": "https://sports.yahoo.com/articles/steph-curry-jaylen-brown-share-041554469.html",
+      "pubDate": "2026-07-10T04:15:54.000Z",
+      "publishedAt": "2026-07-10T04:15:54.000Z",
+      "summary": "LeBron James' next destination remains the biggest uncertainty ahead of the 2026-27 NBA season as he continues to explore free agency.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Steph Curry 的最新动态和后续影响。",
+      "oneLineZh": "Steph Curry 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/q8FwopWyDYWEMqHBxDTU3Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/4bbeaacdf6ab7119a78d82ce658aef7c",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:jaylen-brown",
+      "relatedItems": [],
+      "displayTitle": "Steph Curry, Jaylen Brown share thoughts on possibility of playing with LeBron James",
+      "copySource": "fallback",
+      "storyType": "signing",
+      "isMerged": false
+    },
+    {
       "id": "https://sports.yahoo.com/articles/aj-dybantsa-stats-summer-league-024233083.html",
       "title": "AJ Dybantsa injury update, stats from Summer League showdown with Darryn Peterson, Jazz",
       "originalTitle": "AJ Dybantsa injury update, stats from Summer League showdown with Darryn Peterson, Jazz",
@@ -106,6 +162,7 @@
       "relatedItems": [],
       "displayTitle": "AJ Dybantsa injury update, stats from Summer League showdown with Darryn Peterson, Jazz",
       "copySource": "fallback",
+      "storyType": "injury",
       "isMerged": false
     },
     {
@@ -120,7 +177,7 @@
       "publishedAt": "2026-07-10T01:55:30.000Z",
       "summary": "<p>Joe Mazzulla said Thursday he is still processing the Boston Celtics' trade that sent Jaylen Brown to the Philadelphia 76ers. The Celtics acquired Paul George and draft capital in the deal.</p> <p>Mazzulla spoke to reporters following the Celtics' summer league practice. </p> <p>\"There's a feeling that goes into it,\" Mazzulla said. \"There's an emotion that goes into it. There's a processing pattern that goes into it. The quicker you can get to just a level of gratitude - he made me a better coach. I know that for a fact. The way he pushed me, the way he pushed himself, the way he pushed the locker room, he made me a better coach, and that's what you focus on.\"</p> <p>Mazzulla added: \"I think when things happen like this, when it doesn't feel hard, is when you're not in it for the right reasons. And I think that's where Brad is one of the best at, and this organization has been one of the best at. Of course, something like that is going to be difficult. But I think if you could just get through and act as if nothing happened, then that's when I think that you're not in it for the right reasons. So yeah, it was difficult. It will be difficult ... but I think it will be difficult because of what Jaylen did for us as an organization, what he was able to do. You have to be grateful for that.\"</p> <p>Mazzulla emphasized his gratitude for Brown's decade with the franchise.</p> <p>\"The part that I hope gets talked about more, and the part that we really want to focus on the most, is really just the respect, the appreciation and the gratitude for what he did for the Celtics for 10 years,\" said Mazzulla. \"He was a Celtic longer than I have been. He was here before me. He set the tone and started that, and was a part of special things, and continued that, and obviously was one of the biggest reasons why we were able to be as successful as we have been. So that to me is what we have to focus on more: The respect as a competitor and the gratitude for what he's done.\"</p> <p>Brown offered a different perspective on the trade during a livestream with IShowSpeed while watching the World Cup quarterfinal between France and Morocco.</p> <p>\"I just got traded. ... They packed me up, bro. It's a crazy business, bro. Don't become a basketball player,\" said Brown. \"There's no loyalty. There's no love.\"</p> <p>Brown finished sixth in MVP voting this season, averaging career highs of 28.7 points, 6.9 rebounds and 5.1 assists. The Celtics never missed the playoffs during his 10 seasons, reaching the Eastern Conference Finals six times, the NBA Finals twice and winning the 2024 championship.</p> <p>Brad Stevens cited salary cap flexibility as a driving factor behind the trade, noting George carries one fewer year on his contract than Brown despite a similar salary. Mazzulla said he was included in conversations but did not provide direct input on the decision.</p> <p>\"Not input, just Brad comes to you and talks to you and gives you a breakdown and an understanding,\" said Mazzulla. \"And in moments like this, obviously, there's great alignment within the organization, and there's conversations that are always going to be had. But I think in moments like this, this is where you just trust, you listen, you trust, and you have an understanding for what they do.\"</p> <p>The Celtics also signed Mitchell Robinson and Mike Conley in free agency this offseason. <a href=\"https://basketball.realgm.com/nba/teams/Boston-Celtics/2/Playoff-History\">Boston is coming off consecutive early playoff exits</a>, including a blown 3-1 series lead against the 76ers this past postseason.</p>",
       "dekZh": "",
-      "summaryZh": "据 RealGM / Yahoo Sports 报道，Jaylen Brown 被交易至 76 人，这笔交易继续影响凯尔特人与 76 人的阵容评估。",
+      "summaryZh": "据 RealGM / Yahoo Sports 报道，Joe Mazzulla 在谈到凯尔特人将 Jaylen Brown 交易至 76 人时表示，他仍在消化这件事带来的变化。",
       "oneLineZh": "Jaylen Brown 被交易至 76 人",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -193,8 +250,9 @@
         }
       ],
       "isMerged": true,
-      "displayTitle": "Jaylen Brown 被交易至 76 人",
-      "copySource": "fallback"
+      "displayTitle": "Joe Mazzulla Still 'Processing' Celtics' Trade Of Jaylen Brown To 76ers",
+      "copySource": "fallback",
+      "storyType": "opinion"
     },
     {
       "id": "https://sports.yahoo.com/articles/bucks-sign-pete-nance-014525107.html",
@@ -219,8 +277,9 @@
       "importance": 3,
       "eventKey": "sign:pete-nance",
       "relatedItems": [],
-      "displayTitle": "雄鹿续约 Pete Nance",
+      "displayTitle": "Bucks re-sign Pete Nance",
       "copySource": "fallback",
+      "storyType": "signing",
       "isMerged": false
     },
     {
@@ -244,8 +303,9 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "displayTitle": "NBA 动态：4 thoughts following 独行侠’ loss to 勇士，101-90",
+      "displayTitle": "4 thoughts following the Mavericks’ loss to the Warriors, 101-90",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -273,6 +333,7 @@
       "importance": 2,
       "displayTitle": "Walker Kessler is most exciting addition Lakers have made this offseason",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -300,6 +361,7 @@
       "importance": 2,
       "displayTitle": "AJ Dybantsa scores 27 points in Summer League debut, Darryn Peterson gets 24 in matchup of NBA's top draft picks",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -316,7 +378,7 @@
       "publishedAt": "2026-07-10T00:00:00.000Z",
       "summary": "The Washington Wizards play the Utah Jazz in the 2026 NBA Summer League in Las Vegas at 9 p.m. ET tonight. Watch it on ESPN or Monumenal Sports Network. Kevin has the preview (yes, he previews games too!) here. Go Wizards.",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "Yahoo Sports 分析了奇才 vs. 爵士 discussion，这是一篇观点或数据分析文章，并非球队官方决定。",
       "oneLineZh": "爵士休赛期后续动向",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -327,6 +389,7 @@
       "importance": 1,
       "displayTitle": "Wizards vs. Jazz discussion",
       "copySource": "fallback",
+      "storyType": "analysis",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -354,6 +417,7 @@
       "importance": 2,
       "displayTitle": "Sixers win first Summer League game over Pistons; Philon, Broome, 2 newcomers shine",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -383,6 +447,7 @@
       "relatedItems": [],
       "displayTitle": "Check out Lakers' awesome practice court setup in Las Vegas ballroom",
       "copySource": "fallback",
+      "storyType": "signing",
       "isMerged": false
     },
     {
@@ -397,7 +462,7 @@
       "publishedAt": "2026-07-09T23:13:00.000Z",
       "summary": "LeBron James' next team odds have tightened, with Cleveland still leading Kalshi's market as Miami surges past Golden State into second.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 LeBron James Next 的最新动态和后续影响。",
+      "summaryZh": "Yahoo Sports 分析了2026 LeBron James Next Team 相关赔率变化，文章属于赔率和前景分析。",
       "oneLineZh": "LeBron James Next 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -410,6 +475,7 @@
       "relatedItems": [],
       "displayTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
       "copySource": "fallback",
+      "storyType": "analysis",
       "isMerged": false
     },
     {
@@ -433,8 +499,9 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 1,
-      "displayTitle": "NBA 动态：森林狼 105，鹈鹕 92: Welcome to Sloppy Summer",
+      "displayTitle": "Timberwolves 105, Pelicans 92: Welcome to a Sloppy Summer",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -464,6 +531,7 @@
       "relatedItems": [],
       "displayTitle": "Nets Reacts: Fans vote on who has the most to prove out of the ‘Flatbush Five’",
       "copySource": "fallback",
+      "storyType": "injury",
       "isMerged": false
     },
     {
@@ -489,6 +557,7 @@
       "importance": 2,
       "displayTitle": "Warriors having ‘internal conversations’ about DeMar DeRozan while waiting on LeBron James",
       "copySource": "fallback",
+      "storyType": "rumor",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -516,8 +585,9 @@
       "importance": 4,
       "eventKey": "sign:dalano-banton:celtics",
       "relatedItems": [],
-      "displayTitle": "签约动态：凯尔特人 waive Dalano Banton",
+      "displayTitle": "Celtics waive Dalano Banton",
       "copySource": "fallback",
+      "storyType": "signing",
       "isMerged": false
     },
     {
@@ -543,6 +613,7 @@
       "importance": 2,
       "displayTitle": "Steph Curry reveals his Warriors pitch to LeBron James",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -570,6 +641,7 @@
       "importance": 1,
       "displayTitle": "Raptors Reacts Survey: Nostalgia trap or bench supercharger?",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -599,6 +671,7 @@
       "relatedItems": [],
       "displayTitle": "LeBron James golfing with Draymond Green in Puerto Rico amid Warriors rumors",
       "copySource": "fallback",
+      "storyType": "rumor",
       "isMerged": false
     },
     {
@@ -624,6 +697,7 @@
       "importance": 1,
       "displayTitle": "Dwyane Wade’s son Zaire charged with felony domestic violence after Burbank arrest",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -640,7 +714,7 @@
       "publishedAt": "2026-07-09T22:00:00.000Z",
       "summary": "We’ll get our first look at Meleek Thomas in a Cavs uniform.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Summer League 的最新动态和后续影响。",
+      "summaryZh": "Yahoo Sports 对骑士 vs. 步行者 Summer League:进行赛前预览，内容属于比赛信息和走势分析。",
       "oneLineZh": "Summer League 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -653,6 +727,7 @@
       "relatedItems": [],
       "displayTitle": "Cavs vs. Pacers Summer League: Preview, how to watch, odds, and game thread",
       "copySource": "fallback",
+      "storyType": "analysis",
       "isMerged": false
     },
     {
@@ -667,7 +742,7 @@
       "publishedAt": "2026-07-09T21:47:19.000Z",
       "summary": "<p>Stephen Curry acknowledged the possibility of teaming up with LeBron James as the Golden State Warriors pursue the unrestricted free agent. Curry spoke during a press availability Thursday at the American Century Championship in Stateline, Nevada.</p> <p>\"Up until probably two, three years ago, that was like a pipedream question or even a thought,\" said Curry. \"But that's part of the allure. Him going into his 24th season, me going into my 18th, the battles we've had, that would be such a unique story in NBA history, in sports history. But a little premature right now to talk about it.\"</p> <p>League sources confirmed Curry and James have exchanged text messages over the past week. Draymond Green, Curry's longtime teammate, is currently vacationing with James in Puerto Rico and was seen golfing alongside him Thursday.</p> <p>Warriors sources have maintained modest optimism about landing James, viewing the Cleveland Cavaliers as their toughest competition for his services. Golden State's pitch centers on the relationships James holds with Curry, Green and head coach Steve Kerr, who coached both stars at the 2024 Olympics.</p> <p>\"I don't have a percentage,\" said Curry. \"It's kinda up to him. I feel like any place he calls and says I want to play there, you move mountains to make it happen.\"</p> <p>Curry described the Warriors' appeal in simple terms.</p> <p>\"The pitch is: Do you want to play good basketball and be around people that know how to play the game?\" said Curry. \"Hopefully raise our floor and our competitiveness this year. There's good golf in the Bay. We're an organization that's been there. He knows that. That's really self-explanatory. It's a matter of where he sees himself fitting. At the end of the day, that's up to him.\"</p> <p>Golden State has already re-signed Kristaps Porzingis, Al Horford and De'Anthony Melton this offseason, with Green expected to follow after opting out of his player option.</p>",
       "dekZh": "",
-      "summaryZh": "据 RealGM / Yahoo Sports 报道，原文聚焦 Stephen Curry Says 的最新动态和后续影响。",
+      "summaryZh": "据 RealGM / Yahoo Sports 报道，Stephen Curry 表示，LeBron James Pairing No Longer 'Pipedream'。",
       "oneLineZh": "Stephen Curry Says 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -714,7 +789,8 @@
       ],
       "isMerged": true,
       "displayTitle": "Stephen Curry Says LeBron James Pairing No Longer A 'Pipedream'",
-      "copySource": "fallback"
+      "copySource": "fallback",
+      "storyType": "opinion"
     },
     {
       "id": "https://sports.yahoo.com/articles/mavericks-vs-warriors-preview-injury-213000103.html",
@@ -728,7 +804,7 @@
       "publishedAt": "2026-07-09T21:30:00.000Z",
       "summary": "Mavericks basketball is back, Las Vegas Summer League edition",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Injury Update 的最新动态和后续影响。",
+      "summaryZh": "Yahoo Sports 对独行侠 vs 勇士进行赛前预览，内容属于比赛信息和走势分析。",
       "oneLineZh": "Injury Update 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -741,6 +817,7 @@
       "relatedItems": [],
       "displayTitle": "Mavericks vs Warriors Preview and Injury Update",
       "copySource": "fallback",
+      "storyType": "analysis",
       "isMerged": false
     },
     {
@@ -755,7 +832,7 @@
       "publishedAt": "2026-07-09T21:24:08.000Z",
       "summary": "<p>Marcus Spears Jr., ranked as the No. 1 prospect in the 2027 class, is reclassifying to 2026 and committing to Texas, he told ESPN on Thursday. Arizona, LSU and Kentucky had also pursued the 6-foot-10 power forward.</p> <p>Spears is a Texas native whose sister, Cari, plays volleyball for the Longhorns. He took an official visit to Arizona in late June and made two unofficial visits to Texas, including a trip to Austin on June 16.</p> <p>\"Texas basketball is becoming a big thing again, and I am excited to be part of it,\" said Spears. \"The Texas fans can expect a worker with a lot of energy. I will be trying to bring Texas a national championship.\"</p> <p>His father, ESPN analyst and former NFL defensive end Marcus Spears, said the decision carried personal meaning.</p> <p>\"Marcus Jr. grew up in Texas, and there's nothing like playing for your home school and winning,\" said the elder Spears. \"I experienced that growing up in Louisiana at LSU. This is his decision and his future.\"</p> <p>Spears, who plays for Dynamic Prep in Texas, averaged 20.9 points and 8.7 rebounds this spring on the Nike EYBL circuit, ranking top 10 nationally in both categories. He also helped Team USA win gold at the 2025 FIBA U16 Men's AmeriCup, averaging a team-high 14.0 points and 6.5 rebounds.</p> <p>Spears turned 17 in April and will need to spend two seasons in Austin before becoming draft eligible. Spears will play collegiately for at least the upcoming 2026-27 season and in 2027-28. </p> <p>His father cited Texas coach Sean Miller's track record developing players like Deandre Ayton and Aaron Gordon as a major factor in the decision.</p> <p>The reclassification process began about a month ago after Spears' mother, former WNBA player Aiysha Spears, suggested the move. Spears will enter the 2026 SC Next 100 at No. 4 and joins a Texas recruiting class now ranked No. 4 nationally, alongside five-star forward Austin Goosby and four others.</p> <p>According to Cerebro, only three other players since 2022 have matched Spears' EYBL production of 20 points, 8.5 rebounds and one block across three straight sessions in Cooper Flagg, Cameron Boozer and Tyran Stokes.</p>",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，原文聚焦 Recruit Marcus Spears 的最新动态和后续影响。",
+      "summaryZh": "据 RealGM 报道，No. 1 Recruit Marcus Spears Jr. Reclassifies To 2026，Picks Texas Over Arizona。",
       "oneLineZh": "Recruit Marcus Spears 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -766,6 +843,7 @@
       "importance": 2,
       "displayTitle": "No. 1 Recruit Marcus Spears Jr. Reclassifies To 2026, Picks Texas Over Arizona",
       "copySource": "fallback",
+      "storyType": "opinion",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -793,8 +871,9 @@
       "importance": 3,
       "eventKey": "sign:pete-nance:2",
       "relatedItems": [],
-      "displayTitle": "Pete Nance 与雄鹿达成两年合同",
+      "displayTitle": "Pete Nance, Bucks Agree To Two-Year Deal",
       "copySource": "fallback",
+      "storyType": "signing",
       "isMerged": false
     },
     {
@@ -820,8 +899,9 @@
       "importance": 4,
       "eventKey": "sign:charles-bassey:warriors:1",
       "relatedItems": [],
-      "displayTitle": "Charles Bassey 与勇士达成一年合同",
+      "displayTitle": "Charles Bassey, Warriors Agree To One-Year Deal",
       "copySource": "fallback",
+      "storyType": "signing",
       "isMerged": false
     },
     {
@@ -847,6 +927,7 @@
       "importance": 2,
       "displayTitle": "Sixers-Pistons, Summer League: Game Discussion Thread",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -863,7 +944,7 @@
       "publishedAt": "2026-07-09T21:14:22.000Z",
       "summary": "After spending more than a quarter-billion dollars on Wednesday, the Lakers appear to have no more salary-cap space.",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "Yahoo Sports 分析了湖人’ 2026-27在 first wave of 自由市场之后的薪资空间情况。",
       "oneLineZh": "湖人自由市场与合同动向",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -876,6 +957,7 @@
       "relatedItems": [],
       "displayTitle": "The Lakers’ 2026-27 salary-cap sheet after the first wave of free agency",
       "copySource": "fallback",
+      "storyType": "signing",
       "isMerged": false
     },
     {
@@ -901,6 +983,7 @@
       "importance": 2,
       "displayTitle": "Dell Curry shares how Steph, Seth became ‘closer' playing together on Warriors",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -930,6 +1013,7 @@
       "relatedItems": [],
       "displayTitle": "Jerry Colangelo Leads New Las Vegas Bid As Seattle Interest Lags",
       "copySource": "fallback",
+      "storyType": "rumor",
       "isMerged": false
     },
     {
@@ -955,6 +1039,7 @@
       "importance": 2,
       "displayTitle": "Yaxel Lendeborg, LJ Cryer put on Las Vegas show in Warriors' summer league win",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1010,7 +1095,8 @@
       ],
       "isMerged": true,
       "displayTitle": "NBA teams forced to leave voice notes to contact LeBron James in free agency",
-      "copySource": "fallback"
+      "copySource": "fallback",
+      "storyType": "rumor"
     },
     {
       "id": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html",
@@ -1102,8 +1188,9 @@
           "angle": "source"
         }
       ],
-      "displayTitle": "Kawhi Leonard 交易影响继续发酵",
-      "copySource": "fallback"
+      "displayTitle": "Raptors put Kawhi Leonard trade on hold until the NBA probe into the Clippers concludes",
+      "copySource": "fallback",
+      "storyType": "trade"
     },
     {
       "id": "https://sports.yahoo.com/articles/pistons-vs-sixers-summer-league-202207379.html",
@@ -1128,6 +1215,7 @@
       "importance": 2,
       "displayTitle": "Pistons vs. Sixers: Summer League Begins!",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1157,6 +1245,7 @@
       "relatedItems": [],
       "displayTitle": "Madison Square Garden alleged to track and assign risk scores to celebrities",
       "copySource": "fallback",
+      "storyType": "signing",
       "isMerged": false
     },
     {
@@ -1171,7 +1260,7 @@
       "publishedAt": "2026-07-09T20:09:18.000Z",
       "summary": "Dell Curry believes LeBron James could be the Golden State Warriors' missing piece to another NBA title.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Why Dell Curry 的最新动态和后续影响。",
+      "summaryZh": "据 Yahoo Sports 报道，Why Dell Curry believes 勇士 need LeBron James to win another championship。",
       "oneLineZh": "Why Dell Curry 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -1182,6 +1271,7 @@
       "importance": 2,
       "displayTitle": "Why Dell Curry believes Warriors need LeBron James to win another championship",
       "copySource": "fallback",
+      "storyType": "opinion",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1209,6 +1299,7 @@
       "importance": 2,
       "displayTitle": "Jalen Brunson's Game 1 Finals Jersey Sold For $1.024M At Auction",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1236,6 +1327,7 @@
       "importance": 1,
       "displayTitle": "It’s time for Summer League Basketball: San Antonio Spurs vs Atlanta Hawks",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1252,7 +1344,7 @@
       "publishedAt": "2026-07-09T19:53:14.000Z",
       "summary": "Send in your questions now for this week’s episode of The Pindown: A Detroit Pistons Podcast to discuss everything Pistons. Submit your question to the comments section here or on X/Twitter to @TheRealWesD3 and/or @blakesilverman. Join us live on Friday evening for the show where DBB’s own Robbie Bettelon will join the show to discuss the Pistons’ offseason, Detroit’s first […]",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Pindown 的最新动态和后续影响。",
+      "summaryZh": "Yahoo Sports 分析了 Submit your questions for Pindown: 底特律活塞 Podcast，这是一篇观点或数据分析文章，并非球队官方决定。",
       "oneLineZh": "Pindown 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -1263,6 +1355,7 @@
       "importance": 1,
       "displayTitle": "Submit your questions for The Pindown: A Detroit Pistons Podcast",
       "copySource": "fallback",
+      "storyType": "analysis",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1292,6 +1385,7 @@
       "relatedItems": [],
       "displayTitle": "Nikola Kusturica, potential No. 1 pick in 2028, signs with UCLA basketball",
       "copySource": "fallback",
+      "storyType": "signing",
       "isMerged": false
     },
     {
@@ -1315,8 +1409,9 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "displayTitle": "NBA 动态：凯尔特人 Daily Links 7/9/26",
+      "displayTitle": "Boston Celtics Daily Links 7/9/26",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1342,8 +1437,9 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "displayTitle": "76 人年轻球员与选秀话题",
+      "displayTitle": "Observations after Philon and Broome help Sixers win summer league opener",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1371,6 +1467,7 @@
       "importance": 2,
       "displayTitle": "Marcus Spears Jr. commitment: 5-star picks Texas, reclassifies to 2026 class",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1400,6 +1497,7 @@
       "relatedItems": [],
       "displayTitle": "Raptors' Trade With Clippers For Kawhi Leonard On Hold Until NBA Concludes Aspiration Inquiry",
       "copySource": "fallback",
+      "storyType": "opinion",
       "isMerged": false
     },
     {
@@ -1414,7 +1512,7 @@
       "publishedAt": "2026-07-09T19:07:56.000Z",
       "summary": "Joel Embiid is excited about playing with Jaylen Brown and the 2026-27 season, according to Mike Gansey.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Mike Gansey 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "summaryZh": "据 Yahoo Sports 报道，Mike Gansey 表示，Joel Embiid ‘fired up’ about Brown trade，upcoming season。",
       "oneLineZh": "Mike Gansey 交易影响继续发酵",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -1425,8 +1523,9 @@
       "importance": 4,
       "eventKey": "trade:jaylen-brown",
       "relatedItems": [],
-      "displayTitle": "Mike Gansey 交易影响继续发酵",
+      "displayTitle": "Mike Gansey says Joel Embiid ‘fired up’ about Brown trade, upcoming season",
       "copySource": "fallback",
+      "storyType": "opinion",
       "isMerged": false
     },
     {
@@ -1454,6 +1553,7 @@
       "relatedItems": [],
       "displayTitle": "Details of Nate Ament’s rookie contract with the Milwaukee Bucks",
       "copySource": "fallback",
+      "storyType": "signing",
       "isMerged": false
     },
     {
@@ -1468,7 +1568,7 @@
       "publishedAt": "2026-07-09T17:11:05.000Z",
       "summary": "Every player matters, and the Lakers are trying to build the best team possible with the spots they have left.",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，湖人认为剩余名单席位对球队成败很关键。",
       "oneLineZh": "湖人休赛期后续动向",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -1479,6 +1579,7 @@
       "importance": 2,
       "displayTitle": "Lakers view remaining roster spots as ‘critical’ to team success",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1506,6 +1607,7 @@
       "importance": 1,
       "displayTitle": "How to watch every former UVA basketball player in the NBA Summer League",
       "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1552,62 +1654,9 @@
       "isMerged": false,
       "eventKey": "sign:jordan-clarkson:1:390",
       "relatedItems": [],
-      "displayTitle": "Jordan Clarkson 与尼克斯达成 1 年 390 万美元合同",
-      "copySource": "fallback"
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/sources-jacob-tobey-spurs-play-161153870.html",
-      "title": "Sources: Jacob Tobey out as Spurs play-by-play announcer",
-      "originalTitle": "Sources: Jacob Tobey out as Spurs play-by-play announcer",
-      "headlineZh": "Jacob Tobey 相关消息更新",
-      "titleZh": "Jacob Tobey 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/sources-jacob-tobey-spurs-play-161153870.html",
-      "url": "https://sports.yahoo.com/articles/sources-jacob-tobey-spurs-play-161153870.html",
-      "pubDate": "2026-07-09T16:11:53.000Z",
-      "publishedAt": "2026-07-09T16:11:53.000Z",
-      "summary": "The report has yet to be confirmed by the Spurs or Tobey.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Jacob Tobey 的最新动态和后续影响。",
-      "oneLineZh": "Jacob Tobey 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/0qNee.TJYddBngmnpzhQBQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/1b194cb08581d5234d8364b891801a5f",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "eventKey": "injury:jacob-tobey:spurs",
-      "relatedItems": [],
-      "displayTitle": "Sources: Jacob Tobey out as Spurs play-by-play announcer",
+      "displayTitle": "Jordan Clarkson returning to Knicks on one-year minimum contract",
       "copySource": "fallback",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/summer-league-preview-timberwolves-vs-160000421.html",
-      "title": "Summer League Preview: Timberwolves vs. Pelicans",
-      "originalTitle": "Summer League Preview: Timberwolves vs. Pelicans",
-      "headlineZh": "Summer League Preview 相关消息更新",
-      "titleZh": "Summer League Preview 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/summer-league-preview-timberwolves-vs-160000421.html",
-      "url": "https://sports.yahoo.com/articles/summer-league-preview-timberwolves-vs-160000421.html",
-      "pubDate": "2026-07-09T16:00:00.000Z",
-      "publishedAt": "2026-07-09T16:00:00.000Z",
-      "summary": "Minnesota Timberwolves vs. New Orleans PelicansDate: July 9th, 2026Time: 2:30 PM CDTLocation: Cox PavilionTelevision Coverage: Prime Video The Minnesota Timberwolves kick off their Las Vegas Summer League slate today against the New Orleans Pelicans, which means we have officially reached that strange portion of the NBA calendar where every fan base convinces itself that a […]",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Summer League Preview 的最新动态和后续影响。",
-      "oneLineZh": "Summer League Preview 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/5V7SnCP.Lt99Pd9TFTZOXw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/bee409bfa9e3f93e775c6854c73e87c8",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Summer League Preview: Timberwolves vs. Pelicans",
-      "copySource": "fallback",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
+      "storyType": "signing"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286631/Possible-2028-NBA-Draft-No-1-Pick-Nikola-Kusturica-Commits-To-UCLA",
@@ -1632,6 +1681,7 @@
       "importance": 2,
       "displayTitle": "Possible 2028 NBA Draft No. 1 Pick Nikola Kusturica Commits To UCLA",
       "copySource": "fallback",
+      "storyType": "rumor",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1659,6 +1709,7 @@
       "importance": 1,
       "displayTitle": "Stephen Silas To Join Raptors As Assistant Coach",
       "copySource": "fallback",
+      "storyType": "rumor",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1688,6 +1739,7 @@
       "relatedItems": [],
       "displayTitle": "Jon Horst: Trading Giannis Antetokounmpo Was 'Best For Us, Best For Him'",
       "copySource": "fallback",
+      "storyType": "opinion",
       "isMerged": false
     },
     {
@@ -1702,7 +1754,7 @@
       "publishedAt": "2026-07-09T01:13:24.000Z",
       "summary": "<p>Mark Cuban has accused Dallas Mavericks governor Patrick Dumont of freezing him out of business opportunities related to a proposed arena move, according to a Dallas Morning News report published Wednesday.</p> <p>Cuban alleges Dumont engaged in \"adversarial business practices\" while pursuing a plan to relocate the franchise roughly 10 miles north of downtown to a former mall site. A Mavericks spokeswoman and Cuban both declined to comment to The Associated Press.</p> <p>Cuban sold his majority stake in the franchise in 2023 to the families of Miriam Adelson and Dumont, who is Adelson's son-in-law. He retains 27 percent ownership, though the purchase agreement includes a clause allowing the Adelson and Dumont families to acquire an additional 20 percent of his stake.</p> <p>According to the report, Cuban claims he had an agreement to continue overseeing basketball operations after the sale. Dumont instead granted full control to former general manager Nico Harrison.</p> <p>Cuban also stated in the filing that he was unaware of Harrison's plan to trade Luka Doncic to the Los Angeles Lakers in February 2025 until it was too late to intervene. The trade drew significant backlash across the league, and Harrison was fired in November following a slow start to the 2025-26 season.</p> <p>The filing arrives roughly a month after the Mavericks signed an option agreement to purchase approximately 104 acres in north Dallas as part of a plan for a new arena opening in 2031.</p> <p>Dallas has played downtown since entering the NBA as an expansion franchise in 1980. The team's current lease at American Airlines Center expires in 2031.</p> <p>Cuban said his businesses were contractually entitled to participate in the new site, which the filing describes as a unique investment opportunity.</p>",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，原文聚焦 Mark Cuban Accuses 的最新动态和后续影响。",
+      "summaryZh": "据 RealGM 报道，Mark Cuban 指责 Patrick Dumont 涉及 Business Freeze-Out。",
       "oneLineZh": "Mark Cuban Accuses 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -1715,6 +1767,7 @@
       "relatedItems": [],
       "displayTitle": "Mark Cuban Accuses Patrick Dumont Of Business Freeze-Out",
       "copySource": "fallback",
+      "storyType": "opinion",
       "isMerged": false
     },
     {
@@ -1742,6 +1795,7 @@
       "relatedItems": [],
       "displayTitle": "Jonas Valanciunas Waived By Nuggets, Expected To Receive Interest To Stay In NBA",
       "copySource": "fallback",
+      "storyType": "rumor",
       "isMerged": false
     },
     {
@@ -1767,8 +1821,9 @@
       "importance": 3,
       "eventKey": "sign:mo-bamba:jazz:2",
       "relatedItems": [],
-      "displayTitle": "Mo Bamba 与爵士达成两年合同",
+      "displayTitle": "Mo Bamba, Jazz Agree To Two-Year Deal",
       "copySource": "fallback",
+      "storyType": "signing",
       "isMerged": false
     },
     {
@@ -1796,6 +1851,7 @@
       "relatedItems": [],
       "displayTitle": "Bob Myers Pitches Rich Paul On LeBron James Signing With 76ers During Podcast Appearance",
       "copySource": "fallback",
+      "storyType": "rumor",
       "isMerged": false
     },
     {
@@ -1821,8 +1877,9 @@
       "importance": 5,
       "eventKey": "sign:larry-nance-jr:pacers:1:400",
       "relatedItems": [],
-      "displayTitle": "Larry Nance Jr. 与步行者达成一年，400 万美元合同",
+      "displayTitle": "Larry Nance Jr., Pacers Agree To One-Year, $4M Deal",
       "copySource": "fallback",
+      "storyType": "trade",
       "isMerged": false
     },
     {
@@ -1837,7 +1894,7 @@
       "publishedAt": "2026-07-08T15:04:57.000Z",
       "summary": "<p>The Golden State Warriors have not been informed that a trade for Anthony Davis is necessary to sign LeBron James, and have not engaged the Washington Wizards on a potential deal, team sources told ESPN.</p> <p>But some league sources believe an asset-dependent trade for Davis <a href=\"https://basketball.realgm.com/wiretap/286605/Warriors-Dont-Believe-Theyll-Sign-LeBron-James-Unless-They-Trade-For-Anthony-Davis\">could be required</a> to make their situation appealing enough to James to sign with the team over other options. However, the Warriors have received no such directive from Rich Paul and have not pursued talks with Washington regarding Davis.</p> <p>Part of James' appeal to Golden State stems from the low-risk nature of a potential signing. A short-term deal would not require sacrificing draft capital, unlike a trade scenario involving Davis.</p> <p>The Warriors have spent recent weeks signaling comfort with largely running back last season's roster. The team remains protective of its future draft picks while working to clean up its long-term salary structure during this later stage of Stephen Curry's career.</p> <p>Golden State finished last season 37-45. Steve Kerr has publicly acknowledged the team fell short of championship-level play and said expectations should be tempered heading into this season.</p> <p>The Warriors are expected to add a small number of newcomers through free agency, though available options continue to narrow as the market progresses as they wait on James to make a decision.</p>",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "据 RealGM 报道，勇士尚未被告知必须交易 Anthony Davis 才能签下 LeBron James，目前这仍是围绕球队补强路径的消息。",
       "oneLineZh": "Haven't Been Told 交易影响继续发酵",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -1848,8 +1905,9 @@
       "importance": 4,
       "eventKey": "trade:lebron-james:warriors",
       "relatedItems": [],
-      "displayTitle": "Haven't Been Told 交易影响继续发酵",
+      "displayTitle": "Warriors Haven't Been Told Anthony Davis Trade Needed To Sign LeBron James",
       "copySource": "fallback",
+      "storyType": "rumor",
       "isMerged": false
     },
     {
@@ -1879,6 +1937,7 @@
       "relatedItems": [],
       "displayTitle": "Clippers Aim To Re-Sign Bennedict Mathurin",
       "copySource": "fallback",
+      "storyType": "rumor",
       "isMerged": false
     },
     {
@@ -1893,7 +1952,7 @@
       "publishedAt": "2026-07-08T14:46:42.000Z",
       "summary": "<p>The Atlanta Hawks have hired former ESPN senior NBA writer Tim Bontemps for a front office position, the team announced. Bontemps will serve as a strategic adviser, reporting directly to president of basketball operations Onsi Saleh.</p> <p>Bontemps, 41, spent the last eight seasons covering the NBA for ESPN after joining the network in 2018. </p> <p>At ESPN, Bontemps focused primarily on team strategy, player movement and broader league trends. He also co-hosted \"The Hoop Collective\" podcast, earning a reputation for direct, straightforward analysis.</p> <p>Bontemps began his journalism career at the New York Post following his 2007 graduation from St. Bonaventure. He was promoted in 2012 to cover the Brooklyn Nets beat, a role he held for three years before departing for The Washington Post.</p> <p>Atlanta finished last season 46-36 under Saleh's first year as the franchise's lead basketball executive, falling in the first round of the playoffs to the eventual champion New York Knicks. Saleh orchestrated several roster changes during the year, including a midseason trade sending four-time All-Star Trae Young to the Washington Wizards for C.J. McCollum and Corey Kispert.</p>",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，原文聚焦 Tim Bontemps Leaves 的最新动态和后续影响。",
+      "summaryZh": "RealGM 分析了 Tim Bontemps Leaves ESPN To Join 老鹰 Front Office，这是一篇观点或数据分析文章，并非球队官方决定。",
       "oneLineZh": "Tim Bontemps Leaves 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -1906,6 +1965,7 @@
       "relatedItems": [],
       "displayTitle": "Tim Bontemps Leaves ESPN To Join Hawks Front Office",
       "copySource": "fallback",
+      "storyType": "analysis",
       "isMerged": false
     },
     {
@@ -1931,8 +1991,9 @@
       "importance": 4,
       "eventKey": "sign:duke-miles:76ers",
       "relatedItems": [],
-      "displayTitle": "Duke Miles，76 人签下 Exhibit 10",
+      "displayTitle": "Duke Miles, Sixers Sign Exhibit 10 Contract",
       "copySource": "fallback",
+      "storyType": "signing",
       "isMerged": false
     },
     {
@@ -1958,8 +2019,9 @@
       "importance": 3,
       "eventKey": "sign:hunter-dickinson",
       "relatedItems": [],
-      "displayTitle": "Hunter Dickinson，鹈鹕签下双向",
+      "displayTitle": "Hunter Dickinson, Pelicans Sign Two-Way Contract",
       "copySource": "fallback",
+      "storyType": "signing",
       "isMerged": false
     },
     {
@@ -1985,8 +2047,9 @@
       "importance": 3,
       "eventKey": "trade:felix-okpara",
       "relatedItems": [],
-      "displayTitle": "签约动态：Felix Okpara，奇才 达成 双向 合同",
+      "displayTitle": "Felix Okpara, Wizards Agree To Two-Way Contract",
       "copySource": "fallback",
+      "storyType": "rumor",
       "isMerged": false
     },
     {
@@ -2012,8 +2075,9 @@
       "importance": 4,
       "eventKey": "sign:bruce-thornton:rockets:4:930",
       "relatedItems": [],
-      "displayTitle": "Bruce Thornton 与火箭达成四年，930 万美元合同",
+      "displayTitle": "Bruce Thornton, Rockets Agree To Four-Year, $9.3M Deal",
       "copySource": "fallback",
+      "storyType": "signing",
       "isMerged": false
     },
     {
@@ -2028,7 +2092,7 @@
       "publishedAt": "2026-07-08T05:21:36.000Z",
       "summary": "<p>The Golden State Warriors will not match the Memphis Grizzlies' <a href=\"https://basketball.realgm.com/wiretap/286571/Quinten-Post-Signs-Three-Year-$30M-Offer-Sheet-With-Grizzlies\">three-year, $30 million offer sheet</a> for Quinten Post.</p> <p>The Warriors were interested in re-signing Post and gave him a $2.6 million qualifying offer, but they are hard-capped at the second apron.</p> <p>Only the first year of the deal is guaranteed at $9 million, with the Grizzlies adding $1.35 million of unlikely incentives. </p> <p>The last two years of the deal are not guaranteed. </p> <p>Post joins the Grizzlies frontcourt alongside Cameron Boozer, Zach Edey, Isaiah Stewart and Jerami Grant.</p>",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "据 RealGM 报道，勇士 不会匹配 灰熊 给 Quinten Post 的报价合同。",
       "oneLineZh": "Will Not Match 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -2041,6 +2105,7 @@
       "relatedItems": [],
       "displayTitle": "Warriors Will Not Match Quinten Post Offer Sheet From Grizzlies",
       "copySource": "fallback",
+      "storyType": "signing",
       "isMerged": false
     }
   ]

@@ -73,7 +73,7 @@ function getFilteredItems() {
   return state.items.filter((item) => {
     const matchesCategory = state.category === '最新' || item.category === state.category;
     const haystack =
-      `${item.displayTitle} ${item.originalTitle} ${item.headlineZh} ${item.dekZh} ${item.summaryZh} ${item.oneLineZh} ${item.category}`.toLowerCase();
+      `${item.originalTitle} ${item.summaryZh} ${item.oneLineZh} ${item.category} ${item.source}`.toLowerCase();
     const matchesQuery = !query || haystack.includes(query);
     return matchesCategory && matchesQuery;
   });
@@ -242,12 +242,10 @@ function renderHighlights() {
 }
 
 function renderCard(item) {
-  const displayTitle = item.displayTitle || item.originalTitle || item.title || 'Untitled';
+  const displayTitle = item.originalTitle || item.title || 'Untitled';
   const dekZh = item.dekZh || '';
   const summaryZh = item.summaryZh || item.summary || '暂无摘要。';
   const goldenQuoteZh = item.goldenQuoteZh || '';
-  const originalTitle = item.originalTitle || item.title || '';
-  const showOriginalTitle = originalTitle && originalTitle !== displayTitle;
   const source = item.source || 'Original source';
   const url = item.url || item.link;
   const publishedAt = item.publishedAt || item.pubDate;
@@ -275,14 +273,6 @@ function renderCard(item) {
           ${item.isMerged ? '<span class="merged-note">多源报道</span>' : ''}
           ${item.importance ? `<span class="importance">重要度 ${escapeHtml(item.importance)}</span>` : ''}
         </div>
-        ${
-          showOriginalTitle
-            ? `<details class="original-title">
-                <summary>英文原题</summary>
-                <p>${escapeHtml(originalTitle)}</p>
-              </details>`
-            : ''
-        }
         ${renderRelatedItems(relatedItems)}
         <div class="card-footer">
           <span>${escapeHtml(source)} 原文${item.imageUrl ? ' / 图片预览来自原站元数据' : ''}</span>

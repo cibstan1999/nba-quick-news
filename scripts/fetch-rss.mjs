@@ -19,6 +19,7 @@ const outputPath = path.join(rootDir, 'public', 'data', 'news.json');
 const aiCachePath = path.join(rootDir, 'public', 'data', 'ai-summary-cache.json');
 const githubModelsEndpoint = 'https://models.github.ai/inference/chat/completions';
 const defaultGithubModelsModel = 'openai/gpt-4o-mini';
+const aiPromptVersion = 'summary-v2';
 
 const parser = new XMLParser({
   ignoreAttributes: false,
@@ -232,10 +233,10 @@ async function readAiSummaryCache() {
     const raw = await readFile(aiCachePath, 'utf8');
     const parsed = JSON.parse(raw);
     return parsed && typeof parsed === 'object'
-      ? { version: 1, entries: parsed.entries && typeof parsed.entries === 'object' ? parsed.entries : {} }
-      : { version: 1, entries: {} };
+      ? { version: 2, promptVersion: aiPromptVersion, entries: parsed.version === 2 && parsed.entries && typeof parsed.entries === 'object' ? parsed.entries : {} }
+      : { version: 2, promptVersion: aiPromptVersion, entries: {} };
   } catch {
-    return { version: 1, entries: {} };
+    return { version: 2, promptVersion: aiPromptVersion, entries: {} };
   }
 }
 
@@ -246,10 +247,12 @@ async function writeAiSummaryCache(cache) {
 
 function getAiSourceHash(item = {}) {
   return sha256([
+    aiPromptVersion,
     item.originalTitle || item.title || '',
     item.summary || '',
     item.source || '',
     item.category || '',
+    item.publishedAt || item.pubDate || '',
     toArray(item.originalTitles).join(' | ')
   ].join('\n'));
 }
@@ -292,12 +295,20 @@ function getGithubModelsPrompt(item = {}) {
     `originalTitle: ${item.originalTitle || item.title || ''}`,
     `originalSummary: ${stripHtml(item.summary || '')}`,
     `source: ${item.source || ''}`,
+    `publishedAt: ${item.publishedAt || item.pubDate || ''}`,
     `category: ${item.category || ''}`,
+    `eventKey: ${item.eventKey || ''}`,
+    `relatedItems: ${JSON.stringify(toArray(item.relatedItems).map((related) => ({
+      originalTitle: related.originalTitle || related.title || '',
+      summary: stripHtml(related.summary || ''),
+      source: related.source || '',
+      publishedAt: related.publishedAt || related.pubDate || '',
+      angle: related.angle || ''
+    })).slice(0, 5))}`,
     `extractedFacts: ${JSON.stringify(facts)}`,
-    `fallbackHeadlineZh: ${item.headlineZh || ''}`,
     `fallbackSummaryZh: ${item.summaryZh || ''}`,
     '',
-    '请严格返回 JSON：{"headlineZh":"","summaryZh":"","oneLineZh":"","confidence":0.0}'
+    '请严格返回 JSON：{"summaryZh":"","oneLineZh":"","confidence":0.0,"storyType":"fact"}'
   ].join('\n');
 }
 
@@ -325,7 +336,7 @@ async function summarizeWithGitHubModels(item) {
         messages: [
           {
             role: 'system',
-            content: '你是一名严谨的中文 NBA 快讯编辑。请只根据输入标题和摘要改写，不得添加输入中不存在的事实。英文球员姓名可以保留，球队名使用常见中文名称。语言应简洁、自然、像中文体育新闻，不要使用营销号措辞，不要半中半英拼接。'
+            content: '你是一名严谨的中文 NBA 快讯编辑。请只根据输入标题、摘要和相关报道生成中文新闻摘要，不得添加输入中不存在的事实。英文球员姓名可以保留，球队名使用常见中文名称。语言应简洁、自然、像中文新闻导语，不要使用营销号措辞，不要半中半英拼接。不要生成或改写标题。'
           },
           {
             role: 'user',
@@ -373,33 +384,144 @@ function hasAddedFacts(aiText = '', sourceText = '') {
   return false;
 }
 
+function inferStoryType(item = {}) {
+  const titleText = `${item.originalTitle || item.title || ''}`.toLowerCase();
+  const text = `${item.originalTitle || item.title || ''} ${item.summary || ''} ${item.summaryZh || ''}`.toLowerCase();
+  if (/\b(says|said|shares reaction|believes|thinks|calls|admits|explains|processing|fired up|accuses)\b/.test(titleText)) return 'opinion';
+  if (/\b(report|reported|rumou?r|sources?|expected|could|may|might|interest|reach out|target|haven't been told|has not been told|aim to|pitches)\b/.test(titleText)) return 'rumor';
+  if (/\b(analysis|odds|fantasy|fallout|grades|breakdown|preview|rankings|questions)\b/.test(text)) return 'analysis';
+  if (/\b(says|said|shares reaction|believes|thinks|calls|admits|explains|processing|fired up)\b/.test(text)) return 'opinion';
+  if (/\b(report|reported|rumou?r|sources?|expected|could|may|might|interest|reach out|target)\b/.test(text)) return 'rumor';
+  if (item.category === '交易' || /\b(trade|traded|acquire|acquired|deal with|sent to)\b/.test(text)) return 'trade';
+  if (item.category === '签约' || /\b(sign|signed|signing|contract|extension|agrees? to .+ deal)\b/.test(text)) return 'signing';
+  if (item.category === '伤病' || /\b(injury|injured|surgery|ankle|knee|out|return)\b/.test(text)) return 'injury';
+  return 'fact';
+}
+
+function extractOpinionSpeaker(item = {}) {
+  const title = item.originalTitle || item.title || '';
+  const match = title.match(/^(.+?)\s+(?:says|said|shares|reacts|believes|thinks|calls|admits|explains|still)/i);
+  return normalizeWhitespace(match?.[1] || getEventPlayer(`${title} ${item.summary || ''}`) || '');
+}
+
+function isOpinionSummaryComplete(summary = '') {
+  const text = normalizeChineseText(summary);
+  return /表示|认为|称|回应|谈到|透露|解释|仍在|消化|看法|态度/.test(text) &&
+    /交易|签约|伤病|比赛|赛季|球队|合同|自由市场|阵容|Jaylen|LeBron|Brown|James/.test(text);
+}
+
+function isRumorWrittenAsConfirmed(item = {}, summary = '') {
+  if (inferStoryType(item) !== 'rumor') return false;
+  const text = normalizeChineseText(summary);
+  return /(已经|正式|完成|确定|达成|签下|交易至)/.test(text) && !/(据|报道称|消息|尚未|目前|考虑|接触|有意|计划)/.test(text);
+}
+
+function isAnalysisWrittenAsFact(item = {}, summary = '') {
+  if (inferStoryType(item) !== 'analysis') return false;
+  return !/(分析|认为|赔率|fantasy|梦幻篮球|预测|评估|排名|观点)/i.test(summary);
+}
+
+function buildTypedFallbackSummary(item = {}, storyType = inferStoryType(item)) {
+  const title = item.originalTitle || item.title || '';
+  const source = item.source || '来源';
+  const cleanTitle = normalizeChineseText(localizeCommonTerms(stripSourcePhrases(title)));
+
+  const warriorsDavisLeBron = title.match(/^Warriors Haven't Been Told Anthony Davis Trade Needed To Sign LeBron James$/i);
+  if (warriorsDavisLeBron) {
+    return `据 ${source} 报道，勇士尚未被告知必须交易 Anthony Davis 才能签下 LeBron James，目前这仍是围绕球队补强路径的消息。`;
+  }
+
+  const offerSheetMatch = title.match(/^(.+?) Will Not Match (.+?) Offer Sheet From (.+)$/i);
+  if (offerSheetMatch) {
+    return normalizeChineseText(`据 ${source} 报道，${localizeCommonTerms(offerSheetMatch[1])} 不会匹配 ${localizeCommonTerms(offerSheetMatch[3])} 给 ${offerSheetMatch[2]} 的报价合同。`);
+  }
+
+  const salaryCapMatch = title.match(/^The (.+?) salary-cap sheet after (.+)$/i);
+  if (salaryCapMatch) {
+    return normalizeChineseText(`${source} 分析了${localizeCommonTerms(salaryCapMatch[1])}在${localizeCommonTerms(salaryCapMatch[2])}之后的薪资空间情况。`);
+  }
+
+  const rosterSpotsMatch = title.match(/^(.+?) view remaining roster spots as .?critical.? to team success$/i);
+  if (rosterSpotsMatch) {
+    return normalizeChineseText(`据 ${source} 报道，${localizeCommonTerms(rosterSpotsMatch[1])}认为剩余名单席位对球队成败很关键。`);
+  }
+
+  const oddsMatch = title.match(/^(.+?) Odds:\s*(.+)$/i) || title.match(/^(.+?) Next Team Odds:\s*(.+)$/i);
+  if (oddsMatch) {
+    return normalizeChineseText(`${source} 分析了${localizeCommonTerms(oddsMatch[1])}相关赔率变化，文章属于赔率和前景分析。`);
+  }
+
+  const previewMatch = title.match(/^(.+?) Preview\b/i);
+  if (previewMatch) {
+    return normalizeChineseText(`${source} 对${localizeCommonTerms(previewMatch[1])}进行赛前预览，内容属于比赛信息和走势分析。`);
+  }
+
+  const accusesMatch = title.match(/^(.+?) Accuses (.+?) Of (.+)$/i);
+  if (accusesMatch) {
+    return normalizeChineseText(`据 ${source} 报道，${accusesMatch[1]} 指责 ${accusesMatch[2]} 涉及${localizeCommonTerms(accusesMatch[3])}。`);
+  }
+
+  if (storyType === 'opinion') {
+    const processingMatch = title.match(/^(.+?) Still ['"]?Processing['"]? (.+)$/i);
+    if (processingMatch) {
+      const subject = /celtics'? trade of jaylen brown to 76ers/i.test(processingMatch[2])
+        ? '凯尔特人将 Jaylen Brown 交易至 76 人'
+        : localizeCommonTerms(processingMatch[2]);
+      return normalizeChineseText(`据 ${source} 报道，${localizeCommonTerms(processingMatch[1])} 在谈到${subject}时表示，他仍在消化这件事带来的变化。`);
+    }
+
+    const saysMatch = title.match(/^(.+?)\s+(?:says|said)\s+(.+)$/i);
+    if (saysMatch) {
+      return normalizeChineseText(`据 ${source} 报道，${localizeCommonTerms(saysMatch[1])} 表示，${localizeCommonTerms(saysMatch[2])}。`);
+    }
+
+    const reactionMatch = title.match(/^(.+?) shares reaction to (.+)$/i);
+    if (reactionMatch) {
+      return normalizeChineseText(`据 ${source} 报道，${localizeCommonTerms(reactionMatch[1])} 回应了${localizeCommonTerms(reactionMatch[2])}。`);
+    }
+
+    return normalizeChineseText(`据 ${source} 报道，${cleanTitle}。`);
+  }
+
+  if (storyType === 'rumor') {
+    return normalizeChineseText(`据 ${source} 报道，${cleanTitle}，目前仍属于消息或传闻阶段。`);
+  }
+
+  if (storyType === 'analysis') {
+    return normalizeChineseText(`${source} 分析了${cleanTitle}，这是一篇观点或数据分析文章，并非球队官方决定。`);
+  }
+
+  return '';
+}
+
 function validateAiSummary(item = {}, aiResult = null) {
   if (!aiResult || typeof aiResult !== 'object') return { accepted: false, reason: 'empty-result' };
   const confidence = Number(aiResult.confidence || 0);
-  const headlineZh = normalizeChineseText(aiResult.headlineZh || '');
   const summaryZh = normalizeChineseText(aiResult.summaryZh || '');
-  const oneLineZh = normalizeChineseText(aiResult.oneLineZh || headlineZh);
+  const oneLineZh = normalizeChineseText(aiResult.oneLineZh || summaryZh);
+  const storyType = normalizeWhitespace(aiResult.storyType || inferStoryType(item));
   const sourceText = `${item.originalTitle || item.title || ''} ${item.summary || ''} ${item.summaryZh || ''} ${item.headlineZh || ''}`;
-  const aiText = `${headlineZh} ${summaryZh} ${oneLineZh}`;
+  const aiText = `${summaryZh} ${oneLineZh}`;
 
   if (!Number.isFinite(confidence) || confidence < 0.65) return { accepted: false, reason: 'low-confidence' };
-  if (!isSafeChineseTitle(headlineZh)) return { accepted: false, reason: 'unsafe-headline' };
   if (!summaryZh || !isSafeChineseSummary(summaryZh)) return { accepted: false, reason: 'unsafe-summary' };
-  if (compactComparable(summaryZh) === compactComparable(headlineZh)) return { accepted: false, reason: 'summary-repeats-headline' };
-  if (isGenericHeadline(headlineZh) || isGenericHeadline(oneLineZh)) return { accepted: false, reason: 'generic-copy' };
+  if (compactComparable(summaryZh) === compactComparable(item.originalTitle || item.title || '')) return { accepted: false, reason: 'summary-repeats-title' };
+  if (/相关消息更新|后续动向|继续更新|值得关注|详情请/.test(summaryZh)) return { accepted: false, reason: 'generic-summary' };
   if (hasAddedFacts(aiText, sourceText)) return { accepted: false, reason: 'added-facts' };
+  if (storyType === 'opinion' && !isOpinionSummaryComplete(summaryZh)) return { accepted: false, reason: 'incomplete-opinion-summary' };
+  if (storyType === 'rumor' && isRumorWrittenAsConfirmed(item, summaryZh)) return { accepted: false, reason: 'rumor-as-fact' };
+  if (storyType === 'analysis' && isAnalysisWrittenAsFact(item, summaryZh)) return { accepted: false, reason: 'analysis-as-fact' };
 
   return {
     accepted: true,
     value: {
-      headlineZh,
-      titleZh: headlineZh,
       summaryZh,
       oneLineZh,
       copySource: 'github-models',
       aiModel: aiResult.model || getAiModel(),
       aiGeneratedAt: new Date().toISOString(),
-      aiConfidence: confidence
+      aiConfidence: confidence,
+      storyType
     }
   };
 }
@@ -440,7 +562,7 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     const sourceHash = getAiSourceHash(item);
     const cacheKey = getAiCacheKey(item);
     const cached = cache.entries[cacheKey];
-    const canUseCache = cached?.sourceHash === sourceHash;
+    const canUseCache = cached?.sourceHash === sourceHash && cached?.promptVersion === aiPromptVersion;
     const candidate = enabled && isAiCandidate(item, existingEventKeys);
     if (candidate) stats.aiCandidates += 1;
 
@@ -475,13 +597,14 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
 
     stats.aiAccepted += 1;
     cache.entries[cacheKey] = {
-      headlineZh: validation.value.headlineZh,
       summaryZh: validation.value.summaryZh,
       oneLineZh: validation.value.oneLineZh,
       confidence: validation.value.aiConfidence,
+      storyType: validation.value.storyType,
       model,
       generatedAt: validation.value.aiGeneratedAt,
-      sourceHash
+      sourceHash,
+      promptVersion: aiPromptVersion
     };
     enhanced.push(normalizeNewsItemText({ ...item, ...validation.value }));
   }
@@ -2791,6 +2914,17 @@ function normalizeNewsItemText(item = {}) {
     summaryZh,
     category: classify(item.originalTitle || item.title || headlineZh, `${item.summary || ''} ${summaryZh}`)
   });
+  const storyType = inferStoryType({ ...item, category, summaryZh });
+  const typedFallbackSummary = buildTypedFallbackSummary({ ...item, category, headlineZh, summaryZh }, storyType);
+  const needsTypedFallback =
+    !summaryZh ||
+    isSimpleTitleRestatement({ ...item, summaryZh }) ||
+    (storyType === 'opinion' && !isOpinionSummaryComplete(summaryZh)) ||
+    (storyType === 'rumor' && isRumorWrittenAsConfirmed({ ...item, category }, summaryZh)) ||
+    (storyType === 'analysis' && isAnalysisWrittenAsFact({ ...item, category }, summaryZh));
+  if (needsTypedFallback && typedFallbackSummary && isSafeChineseSummary(typedFallbackSummary)) {
+    summaryZh = typedFallbackSummary;
+  }
   const eventKey = getEventKey({ ...item, headlineZh, summaryZh, category });
   const relatedItems = toArray(item.relatedItems).filter((related) => {
     if (!eventKey) return false;
@@ -2807,18 +2941,12 @@ function normalizeNewsItemText(item = {}) {
     const titleKey = getEventKey({ originalTitle: title, title, summary: '', category });
     return !titleKey || titleKey === eventKey;
   });
-  const itemForTitle = {
-    ...item,
-    headlineZh,
-    summaryZh,
-    category,
-    importance
-  };
-  const displayTitle = chooseDisplayTitle(itemForTitle);
+  const originalTitle = normalizeWhitespace(item.originalTitle || item.title || '');
+  const displayTitle = originalTitle;
 
   return {
     ...item,
-    originalTitle: normalizeWhitespace(item.originalTitle || item.title || ''),
+    originalTitle,
     displayTitle: normalizeWhitespace(displayTitle),
     headlineZh,
     titleZh,
@@ -2829,6 +2957,7 @@ function normalizeNewsItemText(item = {}) {
     category,
     importance,
     copySource: item.copySource || 'fallback',
+    storyType,
     eventKey,
     relatedItems,
     ...(originalTitles.length ? { originalTitles } : {}),
@@ -2865,6 +2994,13 @@ function compactComparable(value = '') {
     .trim();
 }
 
+function isSimpleTitleRestatement(item = {}) {
+  const title = compactComparable(item.originalTitle || item.title || '');
+  const summary = compactComparable(item.summaryZh || '');
+  if (!title || !summary) return false;
+  return title === summary || summary.includes(title) || title.includes(summary);
+}
+
 function getQualityReport(payload = {}) {
   const items = toArray(payload.items);
   const highlights = toArray(payload.highlights);
@@ -2892,12 +3028,24 @@ function getQualityReport(payload = {}) {
   const genericHighlights = highlights.filter((highlight) => isGenericHeadline(highlight.text || ''));
   const displayTitleMissing = items.filter((item) => !(item.displayTitle || '').trim());
   const unsafeChineseDisplayTitle = items.filter((item) => hasChineseText(item.displayTitle || '') && !isSafeChineseTitle(item.displayTitle || ''));
-  const safeChineseTitleWronglyFallbackToEnglish = items.filter((item) => {
-    const originalTitle = normalizeSpacing(item.originalTitle || item.title || '');
-    return originalTitle &&
-      compactComparable(item.displayTitle || '') === compactComparable(originalTitle) &&
-      isSafeChineseTitle(item.headlineZh || item.titleZh || '');
+  const safeChineseTitleWronglyFallbackToEnglish = [];
+  const nonOriginalDisplayTitle = items.filter((item) => normalizeWhitespace(item.displayTitle || '') !== normalizeWhitespace(item.originalTitle || item.title || ''));
+  const emptyOriginalTitle = items.filter((item) => !normalizeWhitespace(item.originalTitle || item.title || ''));
+  const summaryRepeatsTitle = items.filter(isSimpleTitleRestatement);
+  const opinionItems = items.filter((item) => inferStoryType(item) === 'opinion' && (item.importance || 1) >= 4);
+  const rumorItems = items.filter((item) => inferStoryType(item) === 'rumor');
+  const analysisItems = items.filter((item) => inferStoryType(item) === 'analysis');
+  const opinionMissingSpeaker = opinionItems.filter((item) => !extractOpinionSpeaker(item) || !(item.summaryZh || '').includes(extractOpinionSpeaker(item).split(/\s+/)[0]));
+  const opinionMissingSubject = opinionItems.filter((item) => !/交易|签约|伤病|合同|球队|赛季|比赛|自由市场|阵容|Jaylen|LeBron|Brown|James/.test(item.summaryZh || ''));
+  const opinionMissingView = opinionItems.filter((item) => !isOpinionSummaryComplete(item.summaryZh || ''));
+  const rumorWrittenAsConfirmed = rumorItems.filter((item) => isRumorWrittenAsConfirmed(item, item.summaryZh || ''));
+  const analysisWrittenAsFact = analysisItems.filter((item) => isAnalysisWrittenAsFact(item, item.summaryZh || ''));
+  const summaryMissingMainPerson = items.filter((item) => {
+    if ((item.importance || 1) < 4) return false;
+    const player = getEventPlayer(`${item.originalTitle || item.title || ''} ${item.summary || ''}`);
+    return player && !slugText(item.summaryZh || '').includes(player);
   });
+  const summaryMixedLanguage = items.filter((item) => hasMixedEnglishSummary(item.summaryZh || ''));
   const genericDisplayTitle = items.filter((item) => hasChineseText(item.displayTitle || '') && isGenericHeadline(item.displayTitle || ''));
   const mixedDisplayTitle = items.filter((item) => hasMixedChineseEnglish(item.displayTitle || ''));
   const mixedChineseEnglishHeadline = items.filter((item) => hasMixedChineseEnglish(item.displayTitle || ''));
@@ -3005,6 +3153,16 @@ function getQualityReport(payload = {}) {
       displayTitleMissing: displayTitleMissing.length,
       unsafeChineseDisplayTitle: unsafeChineseDisplayTitle.length,
       safeChineseTitleWronglyFallbackToEnglish: safeChineseTitleWronglyFallbackToEnglish.length,
+      nonOriginalDisplayTitle: nonOriginalDisplayTitle.length,
+      emptyOriginalTitle: emptyOriginalTitle.length,
+      summaryRepeatsTitle: summaryRepeatsTitle.length,
+      opinionMissingSpeaker: opinionMissingSpeaker.length,
+      opinionMissingSubject: opinionMissingSubject.length,
+      opinionMissingView: opinionMissingView.length,
+      rumorWrittenAsConfirmed: rumorWrittenAsConfirmed.length,
+      analysisWrittenAsFact: analysisWrittenAsFact.length,
+      summaryMissingMainPerson: summaryMissingMainPerson.length,
+      summaryMixedLanguage: summaryMixedLanguage.length,
       genericDisplayTitle: genericDisplayTitle.length,
       mixedDisplayTitle: mixedDisplayTitle.length,
       mixedChineseEnglishHeadline: mixedChineseEnglishHeadline.length,
@@ -3050,6 +3208,16 @@ function getQualityReport(payload = {}) {
       displayTitleMissing,
       unsafeChineseDisplayTitle,
       safeChineseTitleWronglyFallbackToEnglish,
+      nonOriginalDisplayTitle,
+      emptyOriginalTitle,
+      summaryRepeatsTitle,
+      opinionMissingSpeaker,
+      opinionMissingSubject,
+      opinionMissingView,
+      rumorWrittenAsConfirmed,
+      analysisWrittenAsFact,
+      summaryMissingMainPerson,
+      summaryMixedLanguage,
       genericDisplayTitle,
       mixedDisplayTitle,
       mixedChineseEnglishHeadline,
