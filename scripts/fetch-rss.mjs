@@ -270,14 +270,28 @@ function getExistingAiEventKeys(existingPayload = null) {
   );
 }
 
-function isAiCandidate(item = {}, existingEventKeys = new Set()) {
-  const eventIdentity = item.eventKey || getEventKey(item) || `${item.originalTitle || item.title || ''}`;
-  if (eventIdentity && existingEventKeys.has(eventIdentity)) return false;
+function hasValidAiSummaryCache(cached = null, sourceHash = '') {
+  return Boolean(cached?.sourceHash === sourceHash && cached?.promptVersion === aiPromptVersion);
+}
+
+function isAiCandidate(item = {}, { hasValidCache = false } = {}) {
+  if (hasValidCache) return false;
   const storyType = inferStoryType(item);
+  if (!(item.summaryZh || '').trim()) return true;
+  if (needsAiSummary(item)) return true;
   if (['opinion', 'rumor', 'analysis'].includes(storyType) && needsAiSummary(item)) return true;
   if ((item.importance || 1) < 4) return false;
   if (!isCoreNewsCategory(item.category) && !isImportantRumor(item)) return false;
   return hasConcreteStructure(item) || isImportantRumor(item);
+}
+
+function getAiCandidateRejectionReason(item = {}, { hasValidCache = false, candidate = false, priority = 0 } = {}) {
+  if (hasValidCache) return 'valid-summary-v2-cache';
+  if (candidate && priority > 0) return '';
+  const summary = item.summaryZh || '';
+  if (!summary.trim()) return 'empty-summary-but-priority-zero';
+  if (!needsAiSummary(item)) return 'summary-does-not-need-ai';
+  return 'needs-ai-but-priority-zero';
 }
 
 function getExtractedFactsForPrompt(item = {}) {
@@ -563,7 +577,8 @@ function isAnalysisSummaryBad(item = {}) {
 
 function needsAiSummary(item = {}) {
   const summary = item.summaryZh || '';
-  return isGenericFallbackSummary(summary) ||
+  return !summary.trim() ||
+    isGenericFallbackSummary(summary) ||
     !isSafeChineseSummary(summary) ||
     containsRawEnglishSummaryPhrase(summary) ||
     /更多背景来自原文报道/.test(summary) ||
@@ -578,10 +593,15 @@ function needsAiSummary(item = {}) {
 
 function getAiCandidatePriority(item = {}) {
   const storyType = inferStoryType(item);
-  if (storyType === 'opinion' && isOpinionSummaryBad(item)) return 100;
-  if (storyType === 'rumor' && isRumorSummaryBad(item)) return 90;
-  if (storyType === 'analysis' && isAnalysisSummaryBad(item)) return 80;
-  if (['opinion', 'rumor', 'analysis'].includes(storyType) && needsAiSummary(item)) return 75;
+  const summary = item.summaryZh || '';
+  if (!summary.trim()) return 1000;
+  if (!isSafeChineseSummary(summary) || hasMixedEnglishSummary(summary) || containsRawEnglishSummaryPhrase(summary)) return 900;
+  if (isGenericFallbackSummary(summary)) return 800;
+  if (storyType === 'opinion' && isOpinionSummaryBad(item)) return 700;
+  if (storyType === 'rumor' && isRumorSummaryBad(item)) return 600;
+  if (storyType === 'analysis' && isAnalysisSummaryBad(item)) return 500;
+  if (['opinion', 'rumor', 'analysis'].includes(storyType) && needsAiSummary(item)) return 400;
+  if (needsAiSummary(item)) return 300;
   if ((item.importance || 1) >= 4 && ['交易', '签约', '伤病'].includes(item.category)) return 70;
   if ((item.importance || 1) >= 4) return 60;
   return 0;
@@ -712,12 +732,48 @@ function applyCachedAiSummary(item = {}, cached = null) {
   return normalizeNewsItemText({ ...item, ...validation.value });
 }
 
+function buildAiCandidateEvaluations(items = [], existingPayload = null, cache = { entries: {} }, { log = false } = {}) {
+  return items.map((item, index) => {
+    const cacheKey = getAiCacheKey(item);
+    const sourceHash = getAiSourceHash(item);
+    const cached = cache.entries?.[cacheKey];
+    const hasValidCache = hasValidAiSummaryCache(cached, sourceHash);
+    const storyType = inferStoryType(item);
+    const priority = isAiCandidate(item, { hasValidCache }) ? getAiCandidatePriority(item) : 0;
+    const candidate = priority > 0;
+    const evaluation = {
+      item,
+      index,
+      cacheKey,
+      sourceHash,
+      cached,
+      hasValidCache,
+      storyType,
+      priority,
+      candidate,
+      rejectionReason: getAiCandidateRejectionReason(item, { hasValidCache, candidate, priority })
+    };
+    if (log) {
+      console.log('AI candidate evaluation:', JSON.stringify({
+        originalTitle: item.originalTitle || item.title || '',
+        storyType,
+        importance: item.importance || 1,
+        isNew: !toArray(existingPayload?.items).some((existing) => (existing.eventKey || existing.originalTitle || existing.title) === (item.eventKey || item.originalTitle || item.title)),
+        needsAiSummary: needsAiSummary(item),
+        hasCache: hasValidCache,
+        eligibleCategory: isCoreNewsCategory(item.category) || isImportantRumor(item) || ['opinion', 'rumor', 'analysis'].includes(storyType),
+        rejectionReason: evaluation.rejectionReason || ''
+      }, null, 2));
+    }
+    return evaluation;
+  });
+}
+
 async function applyGitHubModelsEnhancements(items = [], existingPayload = null) {
   const requestedEnabled = isGitHubModelsEnabled();
   const enabled = requestedEnabled && Boolean(process.env.GITHUB_MODELS_TOKEN);
   const model = getAiModel();
   const cache = await readAiSummaryCache();
-  const existingEventKeys = getExistingAiEventKeys(existingPayload);
   const stats = {
     aiEnabled: enabled,
     aiCandidates: 0,
@@ -726,6 +782,7 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     aiAccepted: 0,
     aiRejected: 0,
     aiFailed: 0,
+    aiLogicError: false,
     fallbackItems: 0,
     aiModel: model
   };
@@ -737,23 +794,20 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     console.warn('GitHub Models enabled but GITHUB_MODELS_TOKEN is missing; using fallback copy.');
   }
 
-  const candidateEntries = items
-    .map((item, index) => ({
-      item,
-      index,
-      cacheKey: getAiCacheKey(item),
-      priority: enabled && isAiCandidate(item, existingEventKeys) ? getAiCandidatePriority(item) : 0
-    }))
+  const evaluatedEntries = buildAiCandidateEvaluations(items, existingPayload, cache, { log: requestedEnabled });
+
+  const candidateEntries = evaluatedEntries
     .filter((entry) => entry.priority > 0)
     .sort((a, b) => b.priority - a.priority || (b.item.importance || 0) - (a.item.importance || 0) || new Date(b.item.publishedAt || b.item.pubDate || 0).getTime() - new Date(a.item.publishedAt || a.item.pubDate || 0).getTime());
   stats.aiCandidates = candidateEntries.length;
   const candidateKeys = new Set(candidateEntries.slice(0, getGithubModelsMaxItems()).map((entry) => entry.cacheKey));
 
   for (const item of items) {
-    const sourceHash = getAiSourceHash(item);
     const cacheKey = getAiCacheKey(item);
-    const cached = cache.entries[cacheKey];
-    const canUseCache = cached?.sourceHash === sourceHash && cached?.promptVersion === aiPromptVersion;
+    const evaluated = evaluatedEntries.find((entry) => entry.cacheKey === cacheKey);
+    const sourceHash = evaluated?.sourceHash || getAiSourceHash(item);
+    const cached = evaluated?.cached || cache.entries[cacheKey];
+    const canUseCache = evaluated?.hasValidCache || hasValidAiSummaryCache(cached, sourceHash);
     const candidate = enabled && candidateKeys.has(cacheKey);
     if (canUseCache) {
       stats.aiCacheHits += 1;
@@ -802,6 +856,17 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     await writeAiSummaryCache(cache);
   }
 
+  const qualityAfterAi = getQualityReport({ items: enhanced, highlights: [] });
+  const badSummaryCount =
+    (qualityAfterAi.counts.badFallbackOpinionSummary || 0) +
+    (qualityAfterAi.counts.badFallbackRumorSummary || 0) +
+    (qualityAfterAi.counts.badFallbackAnalysisSummary || 0) +
+    (qualityAfterAi.counts.unsafeFallbackSummary || 0);
+  if (requestedEnabled && badSummaryCount > 0 && stats.aiCandidates === 0) {
+    stats.aiLogicError = true;
+    console.error('AI enabled but bad summaries exist and no candidates were selected.');
+  }
+
   console.log('GitHub Models summary:', JSON.stringify({
     'GitHub Models enabled': stats.aiEnabled,
     'AI candidates': stats.aiCandidates,
@@ -810,6 +875,7 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     'AI accepted': stats.aiAccepted,
     'AI rejected': stats.aiRejected,
     'AI failed': stats.aiFailed,
+    'AI logic error': stats.aiLogicError,
     'Fallback items': stats.fallbackItems,
     Model: stats.aiModel
   }, null, 2));
@@ -3614,6 +3680,37 @@ async function rebuildFromExistingFeed() {
   console.log(`Rebuilt ${toArray(writtenPayload.items).length} cached stories in ${path.relative(rootDir, outputPath)}`);
 }
 
+async function debugAiCandidatesFromCache() {
+  const existingFeed = await readExistingFeed();
+  if (!existingFeed) {
+    throw new Error('No existing public/data/news.json file found.');
+  }
+  const existing = JSON.parse(existingFeed);
+  const cache = await readAiSummaryCache();
+  const items = preparePayloadForWrite({ items: toArray(existing.items) }).items;
+  const evaluatedEntries = buildAiCandidateEvaluations(items, existing, cache, { log: isGitHubModelsEnabled() });
+  const candidates = evaluatedEntries
+    .filter((entry) => entry.priority > 0)
+    .sort((a, b) => b.priority - a.priority || (b.item.importance || 0) - (a.item.importance || 0) || new Date(b.item.publishedAt || b.item.pubDate || 0).getTime() - new Date(a.item.publishedAt || a.item.pubDate || 0).getTime());
+  const maxItems = getGithubModelsMaxItems();
+  console.log('AI candidate debug summary:', JSON.stringify({
+    aiEnabledRequested: isGitHubModelsEnabled(),
+    model: getAiModel(),
+    maxItems,
+    items: items.length,
+    aiCandidates: candidates.length,
+    aiRequestsIfTokenPresent: Math.min(maxItems, candidates.length),
+    aiCacheHits: evaluatedEntries.filter((entry) => entry.hasValidCache).length,
+    topCandidates: candidates.slice(0, maxItems).map((entry) => ({
+      originalTitle: entry.item.originalTitle || entry.item.title || '',
+      storyType: entry.storyType,
+      priority: entry.priority,
+      summaryBefore: entry.item.summaryZh || '',
+      rejectionReason: entry.rejectionReason || ''
+    }))
+  }, null, 2));
+}
+
 async function fetchWithRetry(url, options = {}, retries = 3) {
   let lastError;
 
@@ -4073,6 +4170,11 @@ function buildHighlights(items) {
 }
 
 async function main() {
+  if (process.argv.includes('--debug-ai-candidates-from-cache')) {
+    await debugAiCandidatesFromCache();
+    return;
+  }
+
   if (process.argv.includes('--from-cache')) {
     await rebuildFromExistingFeed();
     return;
@@ -4200,6 +4302,7 @@ async function main() {
         aiAccepted: aiEnhancement.stats.aiAccepted,
         aiRejected: aiEnhancement.stats.aiRejected,
         aiFailed: aiEnhancement.stats.aiFailed,
+        aiLogicError: aiEnhancement.stats.aiLogicError,
         aiModel: aiEnhancement.stats.aiModel,
         message: failedFeeds.length
           ? `Fetched ${fetchedItems} usable RSS items with ${failedFeeds.length} failed feed(s).`
