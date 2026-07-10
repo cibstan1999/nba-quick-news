@@ -271,10 +271,12 @@ function getExistingAiEventKeys(existingPayload = null) {
 }
 
 function isAiCandidate(item = {}, existingEventKeys = new Set()) {
-  if ((item.importance || 1) < 4) return false;
-  if (!isCoreNewsCategory(item.category) && !isImportantRumor(item)) return false;
   const eventIdentity = item.eventKey || getEventKey(item) || `${item.originalTitle || item.title || ''}`;
   if (eventIdentity && existingEventKeys.has(eventIdentity)) return false;
+  const storyType = inferStoryType(item);
+  if (['opinion', 'rumor', 'analysis'].includes(storyType) && needsAiSummary(item)) return true;
+  if ((item.importance || 1) < 4) return false;
+  if (!isCoreNewsCategory(item.category) && !isImportantRumor(item)) return false;
   return hasConcreteStructure(item) || isImportantRumor(item);
 }
 
@@ -387,7 +389,7 @@ function hasAddedFacts(aiText = '', sourceText = '') {
 function inferStoryType(item = {}) {
   const titleText = `${item.originalTitle || item.title || ''}`.toLowerCase();
   const text = `${item.originalTitle || item.title || ''} ${item.summary || ''} ${item.summaryZh || ''}`.toLowerCase();
-  if (/\b(says|said|shares reaction|believes|thinks|calls|admits|explains|processing|fired up|accuses)\b/.test(titleText)) return 'opinion';
+  if (/\b(says|said|shares reaction|share thoughts|shares thoughts|thoughts on|believes|thinks|calls|admits|explains|processing|fired up|accuses)\b/.test(titleText)) return 'opinion';
   if (/\b(report|reported|rumou?r|sources?|expected|could|may|might|interest|reach out|target|haven't been told|has not been told|aim to|pitches)\b/.test(titleText)) return 'rumor';
   if (/\b(analysis|odds|fantasy|fallout|grades|breakdown|preview|rankings|questions)\b/.test(text)) return 'analysis';
   if (/\b(says|said|shares reaction|believes|thinks|calls|admits|explains|processing|fired up)\b/.test(text)) return 'opinion';
@@ -408,6 +410,70 @@ function isOpinionSummaryComplete(summary = '') {
   const text = normalizeChineseText(summary);
   return /表示|认为|称|回应|谈到|透露|解释|仍在|消化|看法|态度/.test(text) &&
     /交易|签约|伤病|比赛|赛季|球队|合同|自由市场|阵容|Jaylen|LeBron|Brown|James/.test(text);
+}
+
+function summaryHasMainPerson(item = {}) {
+  const player = getEventPlayer(`${item.originalTitle || item.title || ''} ${item.summary || ''}`);
+  return !player || slugText(item.summaryZh || '').includes(player);
+}
+
+function isGenericFallbackSummary(value = '') {
+  return /最新动态和后续影响|相关消息更新|原文聚焦|详情请|后续动向|继续更新/.test(value);
+}
+
+function isOpinionSummaryBad(item = {}) {
+  if (inferStoryType(item) !== 'opinion') return false;
+  const summary = item.summaryZh || '';
+  return !summary ||
+    isGenericFallbackSummary(summary) ||
+    hasMixedEnglishSummary(summary) ||
+    !isOpinionSummaryComplete(summary) ||
+    !summaryHasMainPerson(item) ||
+    isSimpleTitleRestatement(item);
+}
+
+function isRumorSummaryBad(item = {}) {
+  if (inferStoryType(item) !== 'rumor') return false;
+  const summary = item.summaryZh || '';
+  return !summary ||
+    isGenericFallbackSummary(summary) ||
+    hasMixedEnglishSummary(summary) ||
+    !/(据|报道称|消息|目前|尚未|考虑|接触|有意|计划|传闻|流言)/.test(summary) ||
+    isRumorWrittenAsConfirmed(item, summary) ||
+    !summaryHasMainPerson(item) ||
+    isSimpleTitleRestatement(item);
+}
+
+function isAnalysisSummaryBad(item = {}) {
+  if (inferStoryType(item) !== 'analysis') return false;
+  const summary = item.summaryZh || '';
+  return !summary ||
+    isGenericFallbackSummary(summary) ||
+    hasMixedEnglishSummary(summary) ||
+    isAnalysisWrittenAsFact(item, summary) ||
+    isSimpleTitleRestatement(item);
+}
+
+function needsAiSummary(item = {}) {
+  const summary = item.summaryZh || '';
+  return isGenericFallbackSummary(summary) ||
+    hasMixedEnglishSummary(summary) ||
+    isOpinionSummaryBad(item) ||
+    isRumorSummaryBad(item) ||
+    isAnalysisSummaryBad(item) ||
+    !summaryHasMainPerson(item) ||
+    isSimpleTitleRestatement(item);
+}
+
+function getAiCandidatePriority(item = {}) {
+  const storyType = inferStoryType(item);
+  if (storyType === 'opinion' && isOpinionSummaryBad(item)) return 100;
+  if (storyType === 'rumor' && isRumorSummaryBad(item)) return 90;
+  if (storyType === 'analysis' && isAnalysisSummaryBad(item)) return 80;
+  if (['opinion', 'rumor', 'analysis'].includes(storyType) && needsAiSummary(item)) return 75;
+  if ((item.importance || 1) >= 4 && ['交易', '签约', '伤病'].includes(item.category)) return 70;
+  if ((item.importance || 1) >= 4) return 60;
+  return 0;
 }
 
 function isRumorWrittenAsConfirmed(item = {}, summary = '') {
@@ -558,14 +624,24 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     console.warn('GitHub Models enabled but GITHUB_MODELS_TOKEN is missing; using fallback copy.');
   }
 
+  const candidateEntries = items
+    .map((item, index) => ({
+      item,
+      index,
+      cacheKey: getAiCacheKey(item),
+      priority: enabled && isAiCandidate(item, existingEventKeys) ? getAiCandidatePriority(item) : 0
+    }))
+    .filter((entry) => entry.priority > 0)
+    .sort((a, b) => b.priority - a.priority || (b.item.importance || 0) - (a.item.importance || 0) || new Date(b.item.publishedAt || b.item.pubDate || 0).getTime() - new Date(a.item.publishedAt || a.item.pubDate || 0).getTime());
+  stats.aiCandidates = candidateEntries.length;
+  const candidateKeys = new Set(candidateEntries.slice(0, getGithubModelsMaxItems()).map((entry) => entry.cacheKey));
+
   for (const item of items) {
     const sourceHash = getAiSourceHash(item);
     const cacheKey = getAiCacheKey(item);
     const cached = cache.entries[cacheKey];
     const canUseCache = cached?.sourceHash === sourceHash && cached?.promptVersion === aiPromptVersion;
-    const candidate = enabled && isAiCandidate(item, existingEventKeys);
-    if (candidate) stats.aiCandidates += 1;
-
+    const candidate = enabled && candidateKeys.has(cacheKey);
     if (canUseCache) {
       stats.aiCacheHits += 1;
       enhanced.push(applyCachedAiSummary(item, cached));
@@ -3040,6 +3116,18 @@ function getQualityReport(payload = {}) {
   const opinionMissingView = opinionItems.filter((item) => !isOpinionSummaryComplete(item.summaryZh || ''));
   const rumorWrittenAsConfirmed = rumorItems.filter((item) => isRumorWrittenAsConfirmed(item, item.summaryZh || ''));
   const analysisWrittenAsFact = analysisItems.filter((item) => isAnalysisWrittenAsFact(item, item.summaryZh || ''));
+  const badFallbackOpinionSummary = items.filter(isOpinionSummaryBad);
+  const badFallbackRumorSummary = items.filter(isRumorSummaryBad);
+  const badFallbackAnalysisSummary = items.filter(isAnalysisSummaryBad);
+  const opinionMisclassifiedAsSigning = items.filter((item) =>
+    /\b(share thoughts|shares thoughts|thoughts on|says|said|believes|thinks)\b/i.test(item.originalTitle || item.title || '') &&
+    inferStoryType(item) !== 'opinion'
+  );
+  const aiEligibleButNotCandidate = items.filter((item) =>
+    needsAiSummary(item) &&
+    ['opinion', 'rumor', 'analysis'].includes(inferStoryType(item)) &&
+    getAiCandidatePriority(item) <= 0
+  );
   const summaryMissingMainPerson = items.filter((item) => {
     if ((item.importance || 1) < 4) return false;
     const player = getEventPlayer(`${item.originalTitle || item.title || ''} ${item.summary || ''}`);
@@ -3161,6 +3249,11 @@ function getQualityReport(payload = {}) {
       opinionMissingView: opinionMissingView.length,
       rumorWrittenAsConfirmed: rumorWrittenAsConfirmed.length,
       analysisWrittenAsFact: analysisWrittenAsFact.length,
+      badFallbackOpinionSummary: badFallbackOpinionSummary.length,
+      badFallbackRumorSummary: badFallbackRumorSummary.length,
+      badFallbackAnalysisSummary: badFallbackAnalysisSummary.length,
+      opinionMisclassifiedAsSigning: opinionMisclassifiedAsSigning.length,
+      aiEligibleButNotCandidate: aiEligibleButNotCandidate.length,
       summaryMissingMainPerson: summaryMissingMainPerson.length,
       summaryMixedLanguage: summaryMixedLanguage.length,
       genericDisplayTitle: genericDisplayTitle.length,
@@ -3216,6 +3309,11 @@ function getQualityReport(payload = {}) {
       opinionMissingView,
       rumorWrittenAsConfirmed,
       analysisWrittenAsFact,
+      badFallbackOpinionSummary,
+      badFallbackRumorSummary,
+      badFallbackAnalysisSummary,
+      opinionMisclassifiedAsSigning,
+      aiEligibleButNotCandidate,
       summaryMissingMainPerson,
       summaryMixedLanguage,
       genericDisplayTitle,
