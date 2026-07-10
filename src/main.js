@@ -8,6 +8,7 @@ const state = {
   items: [],
   highlights: [],
   updatedAt: '',
+  lastFetchStatus: {},
   query: '',
   category: '最新',
   loading: true,
@@ -37,6 +38,35 @@ function formatDate(value, options = {}) {
   }).format(date);
 }
 
+function getAgeHours(value) {
+  const time = new Date(value || '').getTime();
+  if (!Number.isFinite(time)) return null;
+  return Math.max(0, (Date.now() - time) / 36e5);
+}
+
+function getFreshnessState() {
+  const ageHours = getAgeHours(state.updatedAt);
+  const status = state.lastFetchStatus?.status || 'unknown';
+
+  if (ageHours === null) {
+    return { level: 'danger', label: '暂无成功更新时间', detail: '新闻数据状态未知。' };
+  }
+
+  if (ageHours > 24) {
+    return { level: 'danger', label: '新闻数据已超过 24 小时未更新', detail: `约 ${Math.round(ageHours)} 小时未成功更新。` };
+  }
+
+  if (ageHours > 6) {
+    return { level: 'warning', label: '新闻数据可能延迟', detail: `约 ${Math.round(ageHours)} 小时未成功更新。` };
+  }
+
+  if (ageHours > 2) {
+    return { level: 'soft', label: '更新稍有延迟', detail: `约 ${Math.round(ageHours)} 小时前更新。` };
+  }
+
+  return { level: 'ok', label: status === 'partial-success' ? '部分源更新成功' : '更新正常', detail: '新闻数据仍然新鲜。' };
+}
+
 function getFilteredItems() {
   const query = state.query.trim().toLowerCase();
 
@@ -54,6 +84,11 @@ function render() {
   const updatedLabel = state.updatedAt
     ? formatDate(state.updatedAt, { year: 'numeric', second: '2-digit' })
     : 'Waiting for first update';
+  const checkedLabel = state.lastFetchStatus?.checkedAt
+    ? formatDate(state.lastFetchStatus.checkedAt, { year: 'numeric', second: '2-digit' })
+    : '尚未检查';
+  const fetchStatus = state.lastFetchStatus?.status || 'unknown';
+  const freshness = getFreshnessState();
 
   app.innerHTML = `
     <main class="shell">
@@ -63,9 +98,14 @@ function render() {
           <h1>NBA Quick News</h1>
           <p class="subtitle">3 分钟刷完 NBA 今日流言、签约与交易。</p>
         </div>
-        <div class="status-card" aria-label="Feed status">
-          <span>最后更新</span>
+        <div class="status-card ${escapeHtml(freshness.level)}" aria-label="Feed status">
+          <span>最近成功更新</span>
           <strong>${escapeHtml(updatedLabel)}</strong>
+          <dl>
+            <div><dt>最近检查</dt><dd>${escapeHtml(checkedLabel)}</dd></div>
+            <div><dt>状态</dt><dd>${escapeHtml(fetchStatus)}</dd></div>
+          </dl>
+          <p>${escapeHtml(freshness.label)} · ${escapeHtml(freshness.detail)}</p>
         </div>
       </header>
 
@@ -121,26 +161,28 @@ function render() {
 }
 
 function renderHighlights() {
-  if (!state.highlights.length) return '';
-
   return `
     <section class="highlights" aria-label="今日速览">
       <div class="section-heading">
         <h2>今日速览</h2>
         <span>打开就知道重点</span>
       </div>
-      <ul>
-        ${state.highlights
-          .map(
-            (item) => `
-              <li>
-                <span class="mini-pill">${escapeHtml(item.category || 'NBA')}</span>
-                <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.text)}</a>
-              </li>
-            `
-          )
-          .join('')}
-      </ul>
+      ${
+        state.highlights.length
+          ? `<ul>
+              ${state.highlights
+                .map(
+                  (item) => `
+                    <li>
+                      <span class="mini-pill">${escapeHtml(item.category || 'NBA')}</span>
+                      <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.text)}</a>
+                    </li>
+                  `
+                )
+                .join('')}
+            </ul>`
+          : '<p class="empty-highlight">暂无今日重点</p>'
+      }
     </section>
   `;
 }
@@ -155,6 +197,7 @@ function renderCard(item) {
   const source = item.source || 'Original source';
   const url = item.url || item.link;
   const publishedAt = item.publishedAt || item.pubDate;
+  const relatedItems = Array.isArray(item.relatedItems) ? item.relatedItems : [];
 
   return `
     <article class="news-card ${item.imageUrl ? 'has-image' : ''}">
@@ -186,12 +229,35 @@ function renderCard(item) {
               </details>`
             : ''
         }
+        ${renderRelatedItems(relatedItems)}
         <div class="card-footer">
           <span>${escapeHtml(source)} 原文${item.imageUrl ? ' / 图片预览来自原站元数据' : ''}</span>
           <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">查看原文</a>
         </div>
       </div>
     </article>
+  `;
+}
+
+function renderRelatedItems(relatedItems) {
+  if (!relatedItems.length) return '';
+
+  return `
+    <details class="related-items">
+      <summary>相关报道 ${relatedItems.length} 条</summary>
+      <ul>
+        ${relatedItems
+          .map(
+            (item) => `
+              <li>
+                <a href="${escapeHtml(item.url || item.link || '#')}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title || item.originalTitle || 'Related report')}</a>
+                <span>${escapeHtml(item.source || 'Source')} · ${escapeHtml(formatDate(item.publishedAt || item.pubDate))}${item.angle ? ` · ${escapeHtml(item.angle)}` : ''}</span>
+              </li>
+            `
+          )
+          .join('')}
+      </ul>
+    </details>
   `;
 }
 
@@ -206,6 +272,7 @@ async function loadNews() {
     state.items = Array.isArray(data.items) ? data.items : [];
     state.highlights = Array.isArray(data.highlights) ? data.highlights : [];
     state.updatedAt = data.updatedAt || '';
+    state.lastFetchStatus = data.lastFetchStatus || {};
   } catch (error) {
     state.error = '无法读取本地新闻数据。请运行 npm run fetch 后重试。';
     console.error(error);

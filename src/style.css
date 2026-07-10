@@ -106,6 +106,52 @@ h1 {
   font-size: 0.98rem;
 }
 
+.status-card dl {
+  display: grid;
+  gap: 7px;
+  margin: 12px 0 0;
+}
+
+.status-card div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.status-card dt,
+.status-card dd,
+.status-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.status-card dd {
+  text-align: right;
+  font-weight: 750;
+}
+
+.status-card p {
+  margin-top: 12px;
+  line-height: 1.45;
+}
+
+.status-card.warning {
+  border-color: #d89b1d;
+}
+
+.status-card.danger {
+  border-color: #d13a3a;
+}
+
+.status-card.warning p {
+  color: #a56700;
+}
+
+.status-card.danger p {
+  color: var(--accent-strong);
+}
+
 .controls {
   display: grid;
   gap: 16px;
@@ -239,6 +285,12 @@ h1 {
   color: var(--accent);
 }
 
+.empty-highlight {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
 .mini-pill {
   border-radius: 999px;
   padding: 3px 8px;
@@ -344,6 +396,44 @@ h1 {
 
 .original-title p {
   margin: 8px 0 0;
+}
+
+.related-items {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.related-items summary {
+  width: fit-content;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.related-items ul {
+  display: grid;
+  gap: 10px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.related-items li {
+  display: grid;
+  gap: 3px;
+  border-left: 2px solid var(--line);
+  padding-left: 10px;
+}
+
+.related-items a {
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.related-items span {
+  color: var(--muted);
+  font-size: 0.82rem;
 }
 
 .summary {

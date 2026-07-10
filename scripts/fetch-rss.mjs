@@ -18,7 +18,8 @@ const outputPath = path.join(rootDir, 'public', 'data', 'news.json');
 
 const parser = new XMLParser({
   ignoreAttributes: false,
-  trimValues: true
+  trimValues: true,
+  processEntities: false
 });
 
 const FETCH_HEADERS = {
@@ -162,6 +163,47 @@ function normalizeWhitespace(value = '') {
     .replace(/[\n\r\t]+/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+function normalizeJsonStrings(value) {
+  if (typeof value === 'string') return normalizeWhitespace(value);
+  if (Array.isArray(value)) return value.map(normalizeJsonStrings);
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, entry]) => [key, normalizeJsonStrings(entry)])
+    );
+  }
+  return value;
+}
+
+function getLatestPublishedAt(items = []) {
+  const timestamps = toArray(items)
+    .map((item) => new Date(item.publishedAt || item.pubDate || '').getTime())
+    .filter((time) => Number.isFinite(time));
+  if (!timestamps.length) return '';
+  return new Date(Math.max(...timestamps)).toISOString();
+}
+
+function getAgeHours(value, now = new Date()) {
+  const time = new Date(value || '').getTime();
+  if (!Number.isFinite(time)) return null;
+  return Math.max(0, (now.getTime() - time) / 36e5);
+}
+
+function logFetchDiagnostics(status = {}) {
+  const diagnostics = {
+    fetchMode: status.fetchMode || 'fresh',
+    checkedAt: status.checkedAt || '',
+    previousUpdatedAt: status.previousUpdatedAt || '',
+    newUpdatedAt: status.updatedAt || '',
+    fetchedItems: status.fetchedItems ?? 0,
+    mergedItems: status.mergedItems ?? 0,
+    successfulFeeds: status.successfulFeeds || [],
+    failedFeeds: status.failedFeeds || [],
+    newestPublishedAt: status.newestPublishedAt || '',
+    dataAgeHours: status.dataAgeHours ?? null
+  };
+  console.log('Fetch diagnostics:', JSON.stringify(diagnostics, null, 2));
 }
 
 function stripSourcePhrases(value = '') {
@@ -2765,7 +2807,7 @@ function printQualityReport(payload = {}) {
 }
 
 async function writePayload(payload) {
-  const normalizedPayload = preparePayloadForWrite(payload);
+  const normalizedPayload = normalizeJsonStrings(preparePayloadForWrite(payload));
   if (normalizedPayload.lastFetchStatus) {
     normalizedPayload.lastFetchStatus = {
       ...normalizedPayload.lastFetchStatus,
@@ -3289,10 +3331,16 @@ function toHighlightText(item) {
 }
 
 function buildHighlights(items) {
+  const cutoff = Date.now() - 24 * 60 * 60 * 1000;
   return [...items]
     .map((item) => ({ item, score: scoreHighlight(item) }))
     .sort((a, b) => b.score - a.score || new Date(b.item.pubDate).getTime() - new Date(a.item.pubDate).getTime())
-    .filter(({ item }) => isHighQualityChineseHeadline(item, toHighlightText(item)))
+    .filter(({ item }) => {
+      const publishedAt = new Date(item.publishedAt || item.pubDate || '').getTime();
+      return Number.isFinite(publishedAt) &&
+        publishedAt >= cutoff &&
+        isHighQualityChineseHeadline(item, toHighlightText(item));
+    })
     .slice(0, 5)
     .map(({ item }) => ({
       id: item.id,
@@ -3332,6 +3380,13 @@ async function main() {
     );
 
     const failedFeeds = feedResults.filter((result) => result.error);
+    const successfulFeeds = feedResults
+      .filter((result) => !result.error && result.items.length)
+      .map((result) => ({
+        source: result.feedConfig.source,
+        feed: result.feedConfig.feed,
+        items: result.items.length
+      }));
     const fetchedItems = feedResults.reduce((total, result) => total + result.items.length, 0);
     for (const result of failedFeeds) {
       console.error(`${result.feedConfig.source} fetch failed: ${result.error instanceof Error ? result.error.message : result.error}`);
@@ -3342,13 +3397,14 @@ async function main() {
 
     const items = dedupeAndSort(feedResults.flatMap((result) => result.items));
 
-    if (!items.length) {
+    if (!items.length || fetchedItems === 0 || !successfulFeeds.length) {
       const existingPayload = parseExistingPayload(existingFeed);
       if (existingPayload === null) {
         throw new Error('No RSS items were fetched from any source.');
       }
 
       const checkedAt = new Date().toISOString();
+      const previousUpdatedAt = existingPayload.updatedAt || '';
       const failedFeedDetails = failedFeeds.map((result) => ({
         source: result.feedConfig.source,
         feed: result.feedConfig.feed,
@@ -3360,21 +3416,31 @@ async function main() {
         updatedAt: existingPayload.updatedAt || '',
         lastFetchStatus: {
           status: 'fetch-failed',
+          fetchMode: 'fresh',
           checkedAt,
-          updatedAt: existingPayload.updatedAt || '',
+          previousUpdatedAt,
+          updatedAt: previousUpdatedAt,
           message: 'All RSS feeds failed or returned no usable items. Kept existing news items.',
           fetchedItems: 0,
           mergedItems: toArray(existingPayload.items).length,
-          failedFeeds: failedFeedDetails
+          successfulFeeds,
+          failedFeeds: failedFeedDetails,
+          newestPublishedAt: getLatestPublishedAt(existingPayload.items),
+          dataAgeHours: getAgeHours(previousUpdatedAt, new Date(checkedAt))
         }
       };
 
       const writtenPayload = await writePayload(payload);
+      logFetchDiagnostics(writtenPayload.lastFetchStatus);
       console.error(`No RSS items were fetched. Kept ${toArray(writtenPayload.items).length} existing news items and wrote per-feed failure details.`);
+      process.exitCode = 1;
       return;
     }
 
     const updatedAt = new Date().toISOString();
+    const previousUpdatedAt = parseExistingPayload(existingFeed)?.updatedAt || '';
+    const newestPublishedAt = getLatestPublishedAt(items);
+    const dataAgeHours = getAgeHours(newestPublishedAt, new Date(updatedAt));
     const failedFeedDetails = failedFeeds.map((result) => ({
       source: result.feedConfig.source,
       feed: result.feedConfig.feed,
@@ -3385,11 +3451,16 @@ async function main() {
       updatedAt,
       lastFetchStatus: {
         status: failedFeeds.length ? 'partial-success' : 'success',
+        fetchMode: 'fresh',
         checkedAt: updatedAt,
+        previousUpdatedAt,
         updatedAt,
         fetchedItems,
         mergedItems: items.length,
+        successfulFeeds,
         failedFeeds: failedFeedDetails,
+        newestPublishedAt,
+        dataAgeHours,
         message: failedFeeds.length
           ? `Fetched ${fetchedItems} usable RSS items with ${failedFeeds.length} failed feed(s).`
           : `Fetched ${fetchedItems} usable RSS items from all feeds.`
@@ -3399,6 +3470,10 @@ async function main() {
     };
 
     const writtenPayload = await writePayload(payload);
+    logFetchDiagnostics(writtenPayload.lastFetchStatus);
+    if (!newestPublishedAt || dataAgeHours === null || dataAgeHours > 24) {
+      console.warn(`Fresh fetch succeeded, but newest publishedAt appears stale: ${newestPublishedAt || 'unknown'} (${dataAgeHours ?? 'unknown'} hours old).`);
+    }
     console.log(`Wrote ${toArray(writtenPayload.items).length} stories to ${path.relative(rootDir, outputPath)}`);
   } catch (error) {
     console.error(error instanceof Error ? error.message : error);
@@ -3409,26 +3484,34 @@ async function main() {
     }
 
     const checkedAt = new Date().toISOString();
+    const previousUpdatedAt = existingPayload.updatedAt || '';
     const payload = {
       ...existingPayload,
-      updatedAt: existingPayload.updatedAt || '',
+      updatedAt: previousUpdatedAt,
       lastFetchStatus: {
         status: 'fetch-failed',
+        fetchMode: 'fresh',
         checkedAt,
-        updatedAt: existingPayload.updatedAt || '',
+        previousUpdatedAt,
+        updatedAt: previousUpdatedAt,
         message: 'RSS fetch failed. Kept existing news items and updated fetch status.',
         fetchedItems: 0,
         mergedItems: toArray(existingPayload.items).length,
+        successfulFeeds: [],
         failedFeeds: FEEDS.map((feedConfig) => ({
           source: feedConfig.source,
           feed: feedConfig.feed,
           error: error instanceof Error ? error.message : String(error)
-        }))
+        })),
+        newestPublishedAt: getLatestPublishedAt(existingPayload.items),
+        dataAgeHours: getAgeHours(previousUpdatedAt, new Date(checkedAt))
       }
     };
 
     const writtenPayload = await writePayload(payload);
+    logFetchDiagnostics(writtenPayload.lastFetchStatus);
     console.error(`Fetch failed. Kept ${toArray(writtenPayload.items).length} existing news items and wrote lastFetchStatus to public/data/news.json.`);
+    process.exitCode = 1;
   }
 }
 
