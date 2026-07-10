@@ -386,12 +386,116 @@ function hasAddedFacts(aiText = '', sourceText = '') {
   return false;
 }
 
+function isRecapAnalysisTitle(value = '') {
+  return /\b(?:\d+\s+thoughts\s+following|\d+\s+takeaways\s+from|what we learned from|observations after|reaction to|winners and losers from|keys from)\b/i.test(String(value));
+}
+
+function localizeRecapTeam(value = '') {
+  const normalized = String(value)
+    .replace(/^the\s+/i, '')
+    .replace(/[’']s$/i, '')
+    .trim();
+  const teams = new Map([
+    ['mavericks', '独行侠'],
+    ['dallas mavericks', '独行侠'],
+    ['warriors', '勇士'],
+    ['golden state warriors', '勇士'],
+    ['lakers', '湖人'],
+    ['los angeles lakers', '湖人'],
+    ['celtics', '凯尔特人'],
+    ['boston celtics', '凯尔特人'],
+    ['76ers', '76 人'],
+    ['sixers', '76 人'],
+    ['philadelphia 76ers', '76 人'],
+    ['knicks', '尼克斯'],
+    ['new york knicks', '尼克斯'],
+    ['timberwolves', '森林狼'],
+    ['minnesota timberwolves', '森林狼'],
+    ['pelicans', '鹈鹕'],
+    ['new orleans pelicans', '鹈鹕'],
+    ['grizzlies', '灰熊'],
+    ['memphis grizzlies', '灰熊'],
+    ['jazz', '爵士'],
+    ['utah jazz', '爵士'],
+    ['bucks', '雄鹿'],
+    ['milwaukee bucks', '雄鹿'],
+    ['heat', '热火'],
+    ['miami heat', '热火'],
+    ['cavaliers', '骑士'],
+    ['cavs', '骑士'],
+    ['cleveland cavaliers', '骑士']
+  ]);
+  const key = normalized.toLowerCase();
+  return teams.get(key) || localizeCommonTerms(normalized);
+}
+
+function chineseCount(value = '') {
+  const number = Number(value);
+  return {
+    1: '一',
+    2: '两',
+    3: '三',
+    4: '四',
+    5: '五',
+    6: '六',
+    7: '七',
+    8: '八',
+    9: '九',
+    10: '十'
+  }[number] || String(value);
+}
+
+function formatGameResult(subject = '', result = '', opponent = '', scoreA = '', scoreB = '') {
+  const team = localizeRecapTeam(subject);
+  const other = localizeRecapTeam(opponent);
+  if (scoreA && scoreB) {
+    const first = Number(scoreA);
+    const second = Number(scoreB);
+    if (Number.isFinite(first) && Number.isFinite(second)) {
+      const subjectScore = /loss/i.test(result) ? Math.min(first, second) : Math.max(first, second);
+      const opponentScore = /loss/i.test(result) ? Math.max(first, second) : Math.min(first, second);
+      return `${team}以 ${subjectScore} 比 ${opponentScore} ${/loss/i.test(result) ? `负于${other}` : `击败${other}`}`;
+    }
+  }
+  return `${team}${/loss/i.test(result) ? `负于${other}` : `击败${other}`}`;
+}
+
+function buildRecapAnalysisSummary({ title = '', source = '' } = {}) {
+  const cleanTitle = stripSourcePhrases(title).replace(/[’]/g, "'");
+  const thoughtsMatch = cleanTitle.match(/^(\d+)\s+(?:thoughts|takeaways|keys)\s+(?:following|from|after)\s+(?:the\s+)?(.+?)'?\s+(win|loss)\s+(?:to|over|against)\s+(?:the\s+)?(.+?)(?:,\s*(\d+)\s*-\s*(\d+))?$/i);
+  if (thoughtsMatch) {
+    const [, count, team, result, opponent, scoreA, scoreB] = thoughtsMatch;
+    return normalizeChineseText(`${source || '媒体'} 在${formatGameResult(team, result, opponent, scoreA, scoreB)}后复盘比赛，并总结了${chineseCount(count)}点观察。`);
+  }
+
+  const learnedMatch = cleanTitle.match(/^(?:what we learned from|observations after|reaction to|winners and losers from|keys from)\s+(.+)$/i);
+  if (learnedMatch) {
+    return normalizeChineseText(`${source || '媒体'} 围绕${localizeCommonTerms(learnedMatch[1])}进行复盘分析。`);
+  }
+
+  return '';
+}
+
+function containsRawEnglishSummaryPhrase(text = '') {
+  const value = String(text);
+  return /thoughts following|takeaways from|what we learned|observations after|reaction to|winners and losers from|keys from|more background|following .+ loss to|following .+ win over|loss to [\u4e00-\u9fa5]|win over [\u4e00-\u9fa5]|pairing no longer|reclassifies to|picks .+ over|leaves espn to join|aim to|to join|waived by|expected to|possible \d{4} nba draft|business freeze-out/i.test(value);
+}
+
+function hasAnalysisSummarySubject(summary = '') {
+  return /复盘|分析|观察|看点|赔率|梦幻篮球|fantasy basketball|交易|比赛|赛后|影响|评估|总结/.test(summary || '');
+}
+
+function hasAnalysisSummaryEvent(summary = '') {
+  return /负于|击败|战胜|不敌|交易|签约|合同|赔率|比赛|夏季联赛|阵容|自由市场|赛后|以\s*\d+\s*比\s*\d+/.test(summary || '');
+}
+
 function inferStoryType(item = {}) {
   const titleText = `${item.originalTitle || item.title || ''}`.toLowerCase();
   const text = `${item.originalTitle || item.title || ''} ${item.summary || ''} ${item.summaryZh || ''}`.toLowerCase();
+  if (isRecapAnalysisTitle(titleText)) return 'analysis';
   if (/\b(says|said|shares reaction|share thoughts|shares thoughts|thoughts on|believes|thinks|calls|admits|explains|processing|fired up|accuses)\b/.test(titleText)) return 'opinion';
   if (/\b(report|reported|rumou?r|sources?|expected|could|may|might|interest|reach out|target|haven't been told|has not been told|aim to|pitches)\b/.test(titleText)) return 'rumor';
-  if (/\b(analysis|odds|fantasy|fallout|grades|breakdown|preview|rankings|questions)\b/.test(text)) return 'analysis';
+  if (/\b(analysis|odds|fantasy|fallout|grades|breakdown|preview|rankings|questions|takeaways|observations|winners and losers|what we learned|reaction to|keys from)\b/.test(text)) return 'analysis';
   if (/\b(says|said|shares reaction|believes|thinks|calls|admits|explains|processing|fired up)\b/.test(text)) return 'opinion';
   if (/\b(report|reported|rumou?r|sources?|expected|could|may|might|interest|reach out|target)\b/.test(text)) return 'rumor';
   if (item.category === '交易' || /\b(trade|traded|acquire|acquired|deal with|sent to)\b/.test(text)) return 'trade';
@@ -418,7 +522,7 @@ function summaryHasMainPerson(item = {}) {
 }
 
 function isGenericFallbackSummary(value = '') {
-  return /最新动态和后续影响|相关消息更新|原文聚焦|详情请|后续动向|继续更新/.test(value);
+  return /最新动态和后续影响|相关消息更新|原文聚焦|详情请|后续动向|继续更新|更多背景来自原文报道|NBA 动态：|这篇文章讨论了/.test(value);
 }
 
 function isOpinionSummaryBad(item = {}) {
@@ -449,6 +553,9 @@ function isAnalysisSummaryBad(item = {}) {
   const summary = item.summaryZh || '';
   return !summary ||
     isGenericFallbackSummary(summary) ||
+    !isSafeChineseSummary(summary) ||
+    containsRawEnglishSummaryPhrase(summary) ||
+    (isRecapAnalysisTitle(item.originalTitle || item.title || '') && !hasAnalysisSummaryEvent(summary)) ||
     hasMixedEnglishSummary(summary) ||
     isAnalysisWrittenAsFact(item, summary) ||
     isSimpleTitleRestatement(item);
@@ -457,6 +564,10 @@ function isAnalysisSummaryBad(item = {}) {
 function needsAiSummary(item = {}) {
   const summary = item.summaryZh || '';
   return isGenericFallbackSummary(summary) ||
+    !isSafeChineseSummary(summary) ||
+    containsRawEnglishSummaryPhrase(summary) ||
+    /更多背景来自原文报道/.test(summary) ||
+    (inferStoryType(item) === 'analysis' && (!hasAnalysisSummarySubject(summary) || !hasAnalysisSummaryEvent(summary))) ||
     hasMixedEnglishSummary(summary) ||
     isOpinionSummaryBad(item) ||
     isRumorSummaryBad(item) ||
@@ -491,6 +602,8 @@ function buildTypedFallbackSummary(item = {}, storyType = inferStoryType(item)) 
   const title = item.originalTitle || item.title || '';
   const source = item.source || '来源';
   const cleanTitle = normalizeChineseText(localizeCommonTerms(stripSourcePhrases(title)));
+  const recapSummary = buildRecapAnalysisSummary({ title, source });
+  if (recapSummary) return recapSummary;
 
   const warriorsDavisLeBron = title.match(/^Warriors Haven't Been Told Anthony Davis Trade Needed To Sign LeBron James$/i);
   if (warriorsDavisLeBron) {
@@ -1579,6 +1692,9 @@ function summarizeFactFromTitle(title = '') {
 }
 
 function buildFallbackSummaryZh({ source, headlineZh, title, sentences }) {
+  const recapSummary = buildRecapAnalysisSummary({ title, source });
+  if (recapSummary) return recapSummary;
+
   const factSentences = [
     summarizeFactFromTitle(title),
     ...sentences.slice(0, 6).map(summarizeFactSentence)
@@ -1916,6 +2032,21 @@ function isSafeChineseSummary(text = '') {
   const value = normalizeChineseText(text);
   if (!value) return true;
   if (!hasChineseText(value)) return false;
+  if (isGenericFallbackSummary(value) || containsRawEnglishSummaryPhrase(value)) return false;
+  if (/['’]s\b|[\u4e00-\u9fa5][’']\s|更多背景来自原文报道|NBA 动态：|原文聚焦|这篇文章讨论了/i.test(value)) return false;
+  if (/中文标点包裹未翻译英文标题片段/.test(value)) return false;
+  const allowedEnglish = new Set(['NBA', 'MSG', 'LA', 'L.A', 'Jr', 'Sr', 'II', 'III', 'IV']);
+  const englishWords = value.match(/\b[A-Za-z][A-Za-z.'-]*\b/g) || [];
+  let ordinaryRun = 0;
+  for (const word of englishWords) {
+    const clean = word.replace(/\.$/, '');
+    const isAllowed =
+      allowedEnglish.has(clean) ||
+      /^[A-Z][a-zA-Z.'-]*$/.test(clean) ||
+      /^[A-Z]{2,5}$/.test(clean);
+    ordinaryRun = isAllowed ? 0 : ordinaryRun + 1;
+    if (ordinaryRun >= 2) return false;
+  }
   if (hasMixedEnglishSummary(value) || hasUntranslatedContractTerm(value)) return false;
   if (/Fantasy Fallout|Championship Odds|Trade Grades/i.test(value)) return false;
   return true;
@@ -2625,6 +2756,9 @@ function extractFactFromEnglish({ title = '', summary = '', source = '' } = {}) 
 }
 
 function fallbackNonEmptySummary({ headlineZh = '', title = '', summary = '', source = '' } = {}) {
+  const recapSummary = buildRecapAnalysisSummary({ title, source });
+  if (recapSummary) return recapSummary;
+
   if (!headlineZh) return '';
   if (isGenericHeadline(headlineZh)) return '';
   const sourcePrefix = source ? `据 ${source} 报道，` : '';
@@ -3001,6 +3135,9 @@ function normalizeNewsItemText(item = {}) {
   if (needsTypedFallback && typedFallbackSummary && isSafeChineseSummary(typedFallbackSummary)) {
     summaryZh = typedFallbackSummary;
   }
+  if (!isSafeChineseSummary(summaryZh)) {
+    summaryZh = '';
+  }
   const eventKey = getEventKey({ ...item, headlineZh, summaryZh, category });
   const relatedItems = toArray(item.relatedItems).filter((related) => {
     if (!eventKey) return false;
@@ -3119,6 +3256,12 @@ function getQualityReport(payload = {}) {
   const badFallbackOpinionSummary = items.filter(isOpinionSummaryBad);
   const badFallbackRumorSummary = items.filter(isRumorSummaryBad);
   const badFallbackAnalysisSummary = items.filter(isAnalysisSummaryBad);
+  const summaryContainsRawEnglishPhrase = items.filter((item) => containsRawEnglishSummaryPhrase(item.summaryZh || ''));
+  const summaryContainsMoreBackgroundTemplate = items.filter((item) => /更多背景来自原文报道|more background from the original report/i.test(item.summaryZh || ''));
+  const analysisSummaryMissingSubject = analysisItems.filter((item) => (item.summaryZh || '').trim() && !hasAnalysisSummarySubject(item.summaryZh || ''));
+  const analysisSummaryMissingEvent = analysisItems.filter((item) => (item.summaryZh || '').trim() && isRecapAnalysisTitle(item.originalTitle || item.title || '') && !hasAnalysisSummaryEvent(item.summaryZh || ''));
+  const unsafeFallbackSummary = items.filter((item) => (item.summaryZh || '').trim() && item.copySource !== 'github-models' && !isSafeChineseSummary(item.summaryZh || ''));
+  const unsafeFallbackShownWithoutAi = unsafeFallbackSummary;
   const opinionMisclassifiedAsSigning = items.filter((item) =>
     /\b(share thoughts|shares thoughts|thoughts on|says|said|believes|thinks)\b/i.test(item.originalTitle || item.title || '') &&
     inferStoryType(item) !== 'opinion'
@@ -3252,6 +3395,12 @@ function getQualityReport(payload = {}) {
       badFallbackOpinionSummary: badFallbackOpinionSummary.length,
       badFallbackRumorSummary: badFallbackRumorSummary.length,
       badFallbackAnalysisSummary: badFallbackAnalysisSummary.length,
+      summaryContainsRawEnglishPhrase: summaryContainsRawEnglishPhrase.length,
+      summaryContainsMoreBackgroundTemplate: summaryContainsMoreBackgroundTemplate.length,
+      analysisSummaryMissingSubject: analysisSummaryMissingSubject.length,
+      analysisSummaryMissingEvent: analysisSummaryMissingEvent.length,
+      unsafeFallbackSummary: unsafeFallbackSummary.length,
+      unsafeFallbackShownWithoutAi: unsafeFallbackShownWithoutAi.length,
       opinionMisclassifiedAsSigning: opinionMisclassifiedAsSigning.length,
       aiEligibleButNotCandidate: aiEligibleButNotCandidate.length,
       summaryMissingMainPerson: summaryMissingMainPerson.length,
@@ -3312,6 +3461,12 @@ function getQualityReport(payload = {}) {
       badFallbackOpinionSummary,
       badFallbackRumorSummary,
       badFallbackAnalysisSummary,
+      summaryContainsRawEnglishPhrase,
+      summaryContainsMoreBackgroundTemplate,
+      analysisSummaryMissingSubject,
+      analysisSummaryMissingEvent,
+      unsafeFallbackSummary,
+      unsafeFallbackShownWithoutAi,
       opinionMisclassifiedAsSigning,
       aiEligibleButNotCandidate,
       summaryMissingMainPerson,
