@@ -633,6 +633,8 @@ function inferStoryType(item = {}) {
   const titleText = `${item.originalTitle || item.title || ''}`.toLowerCase();
   const text = `${item.originalTitle || item.title || ''} ${item.summary || ''} ${item.summaryZh || ''}`.toLowerCase();
   if (isRecapAnalysisTitle(titleText)) return 'analysis';
+  if (/\blook to challenge\b/.test(titleText)) return 'analysis';
+  if (/\btrade\b.*\bon hold\b|\btrade\b.*\binquiry\b|\bon hold\b.*\binquiry\b/.test(titleText)) return 'trade';
   if (/\b(says|said|shares reaction|share thoughts|shares thoughts|thoughts on|believes|thinks|calls|admits|explains|discusses|processing|fired up|accuses)\b/.test(titleText)) return 'opinion';
   if (/\b(report|reported|rumou?r|sources?|expected|could|may|might|interest|reach out|target|haven't been told|has not been told|aim to|pitches)\b/.test(titleText)) return 'rumor';
   if (/\b(analysis|odds|fantasy|fallout|grades|breakdown|preview|rankings|questions|takeaways|observations|winners and losers|what we learned|reaction to|keys from|recap|look to challenge)\b/.test(text)) return 'analysis';
@@ -856,10 +858,13 @@ function validateAiSummary(item = {}, aiResult = null) {
   const rawSummaryZh = normalizeChineseText(aiResult.summaryZh || '');
   const summaryZh = compactAiSummary(rawSummaryZh);
   const oneLineZh = normalizeChineseText(aiResult.oneLineZh || summaryZh);
-  const localStoryType = normalizeWhitespace(item.storyType || inferStoryType(item));
-  const storyType = localStoryType && localStoryType !== 'unknown'
-    ? localStoryType
-    : normalizeWhitespace(aiResult.storyType || inferStoryType(item));
+  const inferredStoryType = inferStoryType(item);
+  const storedStoryType = normalizeWhitespace(item.storyType || '');
+  const storyType = inferredStoryType && inferredStoryType !== 'fact'
+    ? inferredStoryType
+    : (storedStoryType && storedStoryType !== 'unknown'
+      ? storedStoryType
+      : normalizeWhitespace(aiResult.storyType || inferredStoryType));
   const sourceText = buildSourceEvidence(item);
   const aiText = `${summaryZh} ${oneLineZh}`;
   const rejectionReasons = [];
@@ -874,7 +879,7 @@ function validateAiSummary(item = {}, aiResult = null) {
   if (addedFacts.length) rejectionReasons.push('added-facts');
   if (storyType === 'opinion' && !isOpinionSummaryComplete(summaryZh)) rejectionReasons.push('incomplete-opinion-summary');
   if (storyType === 'rumor' && isRumorWrittenAsConfirmed(item, summaryZh)) rejectionReasons.push('rumor-as-fact');
-  if (storyType === 'analysis' && isAnalysisWrittenAsFact(item, summaryZh)) rejectionReasons.push('analysis-as-fact');
+  if (storyType === 'analysis' && isAnalysisWrittenAsFact(item, summaryZh) && !/(分析|可能|可能性|前景|挑战|力争|威胁|争夺|评估|看点|复盘|观察)/.test(summaryZh)) rejectionReasons.push('analysis-as-fact');
 
   if (confidence >= 0.5 && confidence < 0.6) {
     const player = getEventPlayer(sourceText);
