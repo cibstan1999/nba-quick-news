@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-10T02:52:49.455Z",
+  "updatedAt": "2026-07-10T02:55:06.225Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-10T02:52:49.455Z",
-    "previousUpdatedAt": "2026-07-10T02:52:19.215Z",
-    "updatedAt": "2026-07-10T02:52:49.455Z",
+    "checkedAt": "2026-07-10T02:55:06.225Z",
+    "previousUpdatedAt": "",
+    "updatedAt": "2026-07-10T02:55:06.225Z",
     "fetchedItems": 80,
     "mergedItems": 62,
     "successfulFeeds": [
@@ -32,7 +32,7 @@
     ],
     "failedFeeds": [],
     "newestPublishedAt": "2026-07-10T02:42:33.000Z",
-    "dataAgeHours": 0.1712375,
+    "dataAgeHours": 0.20922916666666666,
     "message": "Fetched 80 usable RSS items from all feeds."
   },
   "highlights": [
