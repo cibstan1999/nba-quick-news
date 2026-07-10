@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-10T02:55:06.225Z",
+  "updatedAt": "2026-07-10T04:26:18.549Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-10T02:55:06.225Z",
-    "previousUpdatedAt": "",
-    "updatedAt": "2026-07-10T02:55:06.225Z",
+    "checkedAt": "2026-07-10T04:26:18.549Z",
+    "previousUpdatedAt": "2026-07-10T02:55:06.225Z",
+    "updatedAt": "2026-07-10T04:26:18.549Z",
     "fetchedItems": 80,
-    "mergedItems": 62,
+    "mergedItems": 65,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -32,7 +32,15 @@
     ],
     "failedFeeds": [],
     "newestPublishedAt": "2026-07-10T02:42:33.000Z",
-    "dataAgeHours": 0.20922916666666666,
+    "dataAgeHours": 1.7293191666666667,
+    "aiEnabled": false,
+    "aiCandidates": 0,
+    "aiCacheHits": 0,
+    "aiRequests": 0,
+    "aiAccepted": 0,
+    "aiRejected": 0,
+    "aiFailed": 0,
+    "aiModel": "openai/gpt-4o-mini",
     "message": "Fetched 80 usable RSS items from all feeds."
   },
   "highlights": [
@@ -75,8 +83,8 @@
   "items": [
     {
       "id": "https://sports.yahoo.com/articles/aj-dybantsa-stats-summer-league-024233083.html",
-      "title": "AJ Dybantsa stats from Summer League showdown with Darryn Peterson, Jazz",
-      "originalTitle": "AJ Dybantsa stats from Summer League showdown with Darryn Peterson, Jazz",
+      "title": "AJ Dybantsa injury update, stats from Summer League showdown with Darryn Peterson, Jazz",
+      "originalTitle": "AJ Dybantsa injury update, stats from Summer League showdown with Darryn Peterson, Jazz",
       "headlineZh": "AJ Dybantsa 相关消息更新",
       "titleZh": "AJ Dybantsa 相关消息更新",
       "link": "https://sports.yahoo.com/articles/aj-dybantsa-stats-summer-league-024233083.html",
@@ -92,11 +100,12 @@
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/mj2NijR3Jsij3nMbLhDD1A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xNzk0O2NmPXdlYnA-/https://media.zenfs.com/en/usa_today_sports_articles_558/6d1860f9abb479a48f09ad2483f9942f",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "AJ Dybantsa stats from Summer League showdown with Darryn Peterson, Jazz",
-      "eventKey": "",
+      "category": "伤病",
+      "importance": 2,
+      "eventKey": "injury:aj-dybantsa:jazz",
       "relatedItems": [],
+      "displayTitle": "AJ Dybantsa injury update, stats from Summer League showdown with Darryn Peterson, Jazz",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -123,6 +132,14 @@
       "eventKey": "trade:jaylen-brown:celtics:76ers",
       "relatedItems": [
         {
+          "title": "76ers ‘got away with murder’ in Jaylen Brown stunning trade: Charles Barkley",
+          "originalTitle": "76ers ‘got away with murder’ in Jaylen Brown stunning trade: Charles Barkley",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/76ers-got-away-murder-jaylen-233913781.html",
+          "publishedAt": "2026-07-09T23:39:13.000Z",
+          "angle": "source"
+        },
+        {
           "title": "Joe Mazzulla shares reaction to Celtics trading Jaylen Brown to Sixers",
           "originalTitle": "Joe Mazzulla shares reaction to Celtics trading Jaylen Brown to Sixers",
           "source": "Yahoo Sports",
@@ -146,6 +163,7 @@
       "originalTitles": [
         "Joe Mazzulla Still 'Processing' Celtics' Trade Of Jaylen Brown To 76ers",
         "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process",
+        "76ers ‘got away with murder’ in Jaylen Brown stunning trade: Charles Barkley",
         "Joe Mazzulla shares reaction to Celtics trading Jaylen Brown to Sixers"
       ],
       "sourceLinks": [
@@ -167,11 +185,70 @@
         },
         {
           "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/76ers-got-away-murder-jaylen-233913781.html"
+        },
+        {
+          "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/joe-mazzulla-shares-reaction-celtics-172718797.html"
         }
       ],
       "isMerged": true,
-      "displayTitle": "Jaylen Brown 被交易至 76 人"
+      "displayTitle": "Jaylen Brown 被交易至 76 人",
+      "copySource": "fallback"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/bucks-sign-pete-nance-014525107.html",
+      "title": "Bucks re-sign Pete Nance",
+      "originalTitle": "Bucks re-sign Pete Nance",
+      "headlineZh": "雄鹿续约 Pete Nance",
+      "titleZh": "雄鹿续约 Pete Nance",
+      "link": "https://sports.yahoo.com/articles/bucks-sign-pete-nance-014525107.html",
+      "url": "https://sports.yahoo.com/articles/bucks-sign-pete-nance-014525107.html",
+      "pubDate": "2026-07-10T01:45:25.000Z",
+      "publishedAt": "2026-07-10T01:45:25.000Z",
+      "summary": "The contract is for two years and is non-guaranteed.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，雄鹿续约 Pete Nance，原文关注 Pete Nance 的合同或自由市场动向。",
+      "oneLineZh": "雄鹿续约 Pete Nance",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/aZlH2R6crrP2gL7DYq2O9g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/27ce5a7c1deeb1b52751fef2c2d69e41",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 3,
+      "eventKey": "sign:pete-nance",
+      "relatedItems": [],
+      "displayTitle": "雄鹿续约 Pete Nance",
+      "copySource": "fallback",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/4-thoughts-following-mavericks-loss-011652875.html",
+      "title": "4 thoughts following the Mavericks’ loss to the Warriors, 101-90",
+      "originalTitle": "4 thoughts following the Mavericks’ loss to the Warriors, 101-90",
+      "headlineZh": "NBA 动态：4 thoughts following 独行侠’ loss to 勇士，101-90",
+      "titleZh": "NBA 动态：4 thoughts following 独行侠’ loss to 勇士，101-90",
+      "link": "https://sports.yahoo.com/articles/4-thoughts-following-mavericks-loss-011652875.html",
+      "url": "https://sports.yahoo.com/articles/4-thoughts-following-mavericks-loss-011652875.html",
+      "pubDate": "2026-07-10T01:16:52.000Z",
+      "publishedAt": "2026-07-10T01:16:52.000Z",
+      "summary": "Dallas lost, but plenty to like about that performance",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，NBA 动态：4 thoughts following 独行侠’ loss to 勇士，101-90，更多背景来自原文报道。",
+      "oneLineZh": "NBA 动态：4 thoughts following 独行侠’ loss to 勇士，101-90",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/9oz8xKnk4yHaT4RNr9ohNQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MzY7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/bd9d90b5f8e2f23e351991f5f4babdb2",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "NBA 动态：4 thoughts following 独行侠’ loss to 勇士，101-90",
+      "copySource": "fallback",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/walker-kessler-most-exciting-addition-000333924.html",
@@ -195,32 +272,34 @@
       "category": "其他",
       "importance": 2,
       "displayTitle": "Walker Kessler is most exciting addition Lakers have made this offseason",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/nba/live/aj-dybantsa-vs-darryn-peterson-score-stats-live-updates-wizards-vs-jazz-summer-league-000000201.html",
-      "title": "AJ Dybantsa vs. Darryn Peterson live updates: NBA's top draft picks face off in Wizards-Jazz Summer League matchup",
-      "originalTitle": "AJ Dybantsa vs. Darryn Peterson live updates: NBA's top draft picks face off in Wizards-Jazz Summer League matchup",
+      "id": "https://sports.yahoo.com/nba/live/aj-dybantsa-scores-27-points-in-summer-league-debut-darryn-peterson-gets-24-in-matchup-of-nbas-top-draft-picks-000000201.html",
+      "title": "AJ Dybantsa scores 27 points in Summer League debut, Darryn Peterson gets 24 in matchup of NBA's top draft picks",
+      "originalTitle": "AJ Dybantsa scores 27 points in Summer League debut, Darryn Peterson gets 24 in matchup of NBA's top draft picks",
       "headlineZh": "AJ Dybantsa 相关消息更新",
       "titleZh": "AJ Dybantsa 相关消息更新",
-      "link": "https://sports.yahoo.com/nba/live/aj-dybantsa-vs-darryn-peterson-score-stats-live-updates-wizards-vs-jazz-summer-league-000000201.html",
-      "url": "https://sports.yahoo.com/nba/live/aj-dybantsa-vs-darryn-peterson-score-stats-live-updates-wizards-vs-jazz-summer-league-000000201.html",
+      "link": "https://sports.yahoo.com/nba/live/aj-dybantsa-scores-27-points-in-summer-league-debut-darryn-peterson-gets-24-in-matchup-of-nbas-top-draft-picks-000000201.html",
+      "url": "https://sports.yahoo.com/nba/live/aj-dybantsa-scores-27-points-in-summer-league-debut-darryn-peterson-gets-24-in-matchup-of-nbas-top-draft-picks-000000201.html",
       "pubDate": "2026-07-10T00:00:00.000Z",
       "publishedAt": "2026-07-10T00:00:00.000Z",
-      "summary": "AJ Dybantsa and Darryn Peterson face off for the first time as rookies in Thursday's Summer League showdown.",
+      "summary": "AJ Dybantsa and Darryn Peterson faced off for the first time as rookies in Thursday's Summer League showdown.",
       "dekZh": "",
       "summaryZh": "据 Yahoo Sports 报道，原文聚焦 AJ Dybantsa 的最新动态和后续影响。",
       "oneLineZh": "AJ Dybantsa 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/1Cmq3RDtqA8tnHt1P87B8A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTg7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/29ac2b78-fc73-4ff5-a3e3-2b2d9cca397d",
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/lO1sMCVq3wphmXVBp1jpaw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04Nzg7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/5f9aa763-0db8-46ab-8e7e-4bf6a55c2577",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "选秀",
       "importance": 2,
-      "displayTitle": "AJ Dybantsa vs. Darryn Peterson live updates: NBA's top draft picks face off in Wizards-Jazz Summer League matchup",
+      "displayTitle": "AJ Dybantsa scores 27 points in Summer League debut, Darryn Peterson gets 24 in matchup of NBA's top draft picks",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -247,6 +326,7 @@
       "category": "其他",
       "importance": 1,
       "displayTitle": "Wizards vs. Jazz discussion",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -273,6 +353,7 @@
       "category": "其他",
       "importance": 2,
       "displayTitle": "Sixers win first Summer League game over Pistons; Philon, Broome, 2 newcomers shine",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -301,6 +382,7 @@
       "eventKey": "injury:las-vegas:lakers",
       "relatedItems": [],
       "displayTitle": "Check out Lakers' awesome practice court setup in Las Vegas ballroom",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -327,6 +409,7 @@
       "eventKey": "odds:lebron-james",
       "relatedItems": [],
       "displayTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -351,6 +434,7 @@
       "category": "其他",
       "importance": 1,
       "displayTitle": "NBA 动态：森林狼 105，鹈鹕 92: Welcome to Sloppy Summer",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -379,6 +463,34 @@
       "eventKey": "injury:nets-reacts:nets",
       "relatedItems": [],
       "displayTitle": "Nets Reacts: Fans vote on who has the most to prove out of the ‘Flatbush Five’",
+      "copySource": "fallback",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/warriors-having-internal-conversations-demar-224915811.html",
+      "title": "Warriors having ‘internal conversations’ about DeMar DeRozan while waiting on LeBron James",
+      "originalTitle": "Warriors having ‘internal conversations’ about DeMar DeRozan while waiting on LeBron James",
+      "headlineZh": "DeMar DeRozan 相关消息更新",
+      "titleZh": "DeMar DeRozan 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/warriors-having-internal-conversations-demar-224915811.html",
+      "url": "https://sports.yahoo.com/articles/warriors-having-internal-conversations-demar-224915811.html",
+      "pubDate": "2026-07-09T22:49:15.000Z",
+      "publishedAt": "2026-07-09T22:49:15.000Z",
+      "summary": "The Golden State Warriors’ Plan B may already have a name.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 DeMar DeRozan 的最新动态和后续影响。",
+      "oneLineZh": "DeMar DeRozan 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/OsJ5Q74NSmgGAIWu5ysY.Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/aca1097007f2b0609437c8d1959077d5",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Warriors having ‘internal conversations’ about DeMar DeRozan while waiting on LeBron James",
+      "copySource": "fallback",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -405,6 +517,7 @@
       "eventKey": "sign:dalano-banton:celtics",
       "relatedItems": [],
       "displayTitle": "签约动态：凯尔特人 waive Dalano Banton",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -429,6 +542,7 @@
       "category": "其他",
       "importance": 2,
       "displayTitle": "Steph Curry reveals his Warriors pitch to LeBron James",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -455,6 +569,7 @@
       "category": "其他",
       "importance": 1,
       "displayTitle": "Raptors Reacts Survey: Nostalgia trap or bench supercharger?",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -483,6 +598,7 @@
       "eventKey": "sign:lebron-james:warriors",
       "relatedItems": [],
       "displayTitle": "LeBron James golfing with Draymond Green in Puerto Rico amid Warriors rumors",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -507,6 +623,7 @@
       "category": "其他",
       "importance": 1,
       "displayTitle": "Dwyane Wade’s son Zaire charged with felony domestic violence after Burbank arrest",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -535,6 +652,7 @@
       "eventKey": "odds:meleek-thomas:pacers",
       "relatedItems": [],
       "displayTitle": "Cavs vs. Pacers Summer League: Preview, how to watch, odds, and game thread",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -595,7 +713,8 @@
         }
       ],
       "isMerged": true,
-      "displayTitle": "Stephen Curry Says LeBron James Pairing No Longer A 'Pipedream'"
+      "displayTitle": "Stephen Curry Says LeBron James Pairing No Longer A 'Pipedream'",
+      "copySource": "fallback"
     },
     {
       "id": "https://sports.yahoo.com/articles/mavericks-vs-warriors-preview-injury-213000103.html",
@@ -621,6 +740,7 @@
       "eventKey": "injury:warriors-preview:mavericks",
       "relatedItems": [],
       "displayTitle": "Mavericks vs Warriors Preview and Injury Update",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -645,6 +765,7 @@
       "category": "选秀",
       "importance": 2,
       "displayTitle": "No. 1 Recruit Marcus Spears Jr. Reclassifies To 2026, Picks Texas Over Arizona",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -673,6 +794,7 @@
       "eventKey": "sign:pete-nance:2",
       "relatedItems": [],
       "displayTitle": "Pete Nance 与雄鹿达成两年合同",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -699,6 +821,7 @@
       "eventKey": "sign:charles-bassey:warriors:1",
       "relatedItems": [],
       "displayTitle": "Charles Bassey 与勇士达成一年合同",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -723,6 +846,7 @@
       "category": "选秀",
       "importance": 2,
       "displayTitle": "Sixers-Pistons, Summer League: Game Discussion Thread",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -751,6 +875,34 @@
       "eventKey": "sign:the-lakers:lakers",
       "relatedItems": [],
       "displayTitle": "The Lakers’ 2026-27 salary-cap sheet after the first wave of free agency",
+      "copySource": "fallback",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/dell-curry-shares-steph-seth-210130458.html",
+      "title": "Dell Curry shares how Steph, Seth became ‘closer' playing together on Warriors",
+      "originalTitle": "Dell Curry shares how Steph, Seth became ‘closer' playing together on Warriors",
+      "headlineZh": "Dell Curry 相关消息更新",
+      "titleZh": "Dell Curry 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/dell-curry-shares-steph-seth-210130458.html",
+      "url": "https://sports.yahoo.com/articles/dell-curry-shares-steph-seth-210130458.html",
+      "pubDate": "2026-07-09T21:01:30.000Z",
+      "publishedAt": "2026-07-09T21:01:30.000Z",
+      "summary": "Dell Curry spoke with NBC Sports Bay Area's Monte Poole and reflected on his sons, Seth and Steph playing together on the Warriors last season.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Dell Curry 的最新动态和后续影响。",
+      "oneLineZh": "Dell Curry 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/d235a9822603a51648529db12e94b61e",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Dell Curry shares how Steph, Seth became ‘closer' playing together on Warriors",
+      "copySource": "fallback",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -777,6 +929,34 @@
       "eventKey": "sign:jerry-colangelo-leads:celtics",
       "relatedItems": [],
       "displayTitle": "Jerry Colangelo Leads New Las Vegas Bid As Seattle Interest Lags",
+      "copySource": "fallback",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/yaxel-lendeborg-lj-cryer-put-204138262.html",
+      "title": "Yaxel Lendeborg, LJ Cryer put on Las Vegas show in Warriors' summer league win",
+      "originalTitle": "Yaxel Lendeborg, LJ Cryer put on Las Vegas show in Warriors' summer league win",
+      "headlineZh": "Yaxel Lendeborg 相关消息更新",
+      "titleZh": "Yaxel Lendeborg 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/yaxel-lendeborg-lj-cryer-put-204138262.html",
+      "url": "https://sports.yahoo.com/articles/yaxel-lendeborg-lj-cryer-put-204138262.html",
+      "pubDate": "2026-07-09T20:41:38.000Z",
+      "publishedAt": "2026-07-09T20:41:38.000Z",
+      "summary": "Dalton Johnson breaks down the Golden State Warriors' NBA Summer League win over the Dallas Mavericks on Thursday in Las Vegas.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Yaxel Lendeborg 的最新动态和后续影响。",
+      "oneLineZh": "Yaxel Lendeborg 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/df5a125c3270226afac221ea5c545bd1",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Yaxel Lendeborg, LJ Cryer put on Las Vegas show in Warriors' summer league win",
+      "copySource": "fallback",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -829,7 +1009,8 @@
         }
       ],
       "isMerged": true,
-      "displayTitle": "NBA teams forced to leave voice notes to contact LeBron James in free agency"
+      "displayTitle": "NBA teams forced to leave voice notes to contact LeBron James in free agency",
+      "copySource": "fallback"
     },
     {
       "id": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html",
@@ -875,10 +1056,6 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/kawhi-leonard-trade-clippers-raptors-200602334.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/raptors-trade-kawhi-leonard-hold-153501713.html"
         }
       ],
       "originalTitles": [
@@ -887,8 +1064,7 @@
         "Raptors put Kawhi Leonard trade on hold until the NBA probe into the Clippers concludes",
         "Raptors trade for Kawhi Leonard can't be completed until NBA's investigation into Clippers ends",
         "Kawhi Leonard to Raptors trade on hold until NBA finishes cap circumvention investigation",
-        "Kawhi Leonard trade from Clippers to Raptors stalls over NBA investigation",
-        "Raptors' trade for Kawhi Leonard on hold until Clippers investigation is done"
+        "Kawhi Leonard trade from Clippers to Raptors stalls over NBA investigation"
       ],
       "isMerged": true,
       "eventKey": "trade:kawhi-leonard",
@@ -924,17 +1100,10 @@
           "url": "https://sports.yahoo.com/articles/kawhi-leonard-trade-clippers-raptors-200602334.html",
           "publishedAt": "2026-07-09T20:06:02.000Z",
           "angle": "source"
-        },
-        {
-          "title": "Raptors' trade for Kawhi Leonard on hold until Clippers investigation is done",
-          "originalTitle": "Raptors' trade for Kawhi Leonard on hold until Clippers investigation is done",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/raptors-trade-kawhi-leonard-hold-153501713.html",
-          "publishedAt": "2026-07-09T15:35:01.000Z",
-          "angle": "source"
         }
       ],
-      "displayTitle": "Kawhi Leonard 交易影响继续发酵"
+      "displayTitle": "Kawhi Leonard 交易影响继续发酵",
+      "copySource": "fallback"
     },
     {
       "id": "https://sports.yahoo.com/articles/pistons-vs-sixers-summer-league-202207379.html",
@@ -958,6 +1127,7 @@
       "category": "选秀",
       "importance": 2,
       "displayTitle": "Pistons vs. Sixers: Summer League Begins!",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -986,6 +1156,34 @@
       "eventKey": "sign:madison-square-garden",
       "relatedItems": [],
       "displayTitle": "Madison Square Garden alleged to track and assign risk scores to celebrities",
+      "copySource": "fallback",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/why-dell-curry-believes-warriors-200918921.html",
+      "title": "Why Dell Curry believes Warriors need LeBron James to win another championship",
+      "originalTitle": "Why Dell Curry believes Warriors need LeBron James to win another championship",
+      "headlineZh": "Why Dell Curry 相关消息更新",
+      "titleZh": "Why Dell Curry 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/why-dell-curry-believes-warriors-200918921.html",
+      "url": "https://sports.yahoo.com/articles/why-dell-curry-believes-warriors-200918921.html",
+      "pubDate": "2026-07-09T20:09:18.000Z",
+      "publishedAt": "2026-07-09T20:09:18.000Z",
+      "summary": "Dell Curry believes LeBron James could be the Golden State Warriors' missing piece to another NBA title.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Why Dell Curry 的最新动态和后续影响。",
+      "oneLineZh": "Why Dell Curry 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/e95624f3bdc2b4e5a5c4fd8f9b7b829f",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "季后赛",
+      "importance": 2,
+      "displayTitle": "Why Dell Curry believes Warriors need LeBron James to win another championship",
+      "copySource": "fallback",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -1010,6 +1208,7 @@
       "category": "季后赛",
       "importance": 2,
       "displayTitle": "Jalen Brunson's Game 1 Finals Jersey Sold For $1.024M At Auction",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1036,6 +1235,7 @@
       "category": "其他",
       "importance": 1,
       "displayTitle": "It’s time for Summer League Basketball: San Antonio Spurs vs Atlanta Hawks",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1062,6 +1262,7 @@
       "category": "其他",
       "importance": 1,
       "displayTitle": "Submit your questions for The Pindown: A Detroit Pistons Podcast",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1090,6 +1291,7 @@
       "eventKey": "sign:nikola-kusturica",
       "relatedItems": [],
       "displayTitle": "Nikola Kusturica, potential No. 1 pick in 2028, signs with UCLA basketball",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1114,6 +1316,7 @@
       "category": "其他",
       "importance": 2,
       "displayTitle": "NBA 动态：凯尔特人 Daily Links 7/9/26",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1140,6 +1343,7 @@
       "category": "其他",
       "importance": 2,
       "displayTitle": "76 人年轻球员与选秀话题",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1166,6 +1370,7 @@
       "category": "选秀",
       "importance": 2,
       "displayTitle": "Marcus Spears Jr. commitment: 5-star picks Texas, reclassifies to 2026 class",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1194,6 +1399,7 @@
       "eventKey": "trade:raptors-trade-with",
       "relatedItems": [],
       "displayTitle": "Raptors' Trade With Clippers For Kawhi Leonard On Hold Until NBA Concludes Aspiration Inquiry",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1220,6 +1426,7 @@
       "eventKey": "trade:jaylen-brown",
       "relatedItems": [],
       "displayTitle": "Mike Gansey 交易影响继续发酵",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1246,6 +1453,7 @@
       "eventKey": "sign:nate-ament",
       "relatedItems": [],
       "displayTitle": "Details of Nate Ament’s rookie contract with the Milwaukee Bucks",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1270,6 +1478,7 @@
       "category": "其他",
       "importance": 2,
       "displayTitle": "Lakers view remaining roster spots as ‘critical’ to team success",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1296,6 +1505,7 @@
       "category": "其他",
       "importance": 1,
       "displayTitle": "How to watch every former UVA basketball player in the NBA Summer League",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1327,23 +1537,23 @@
       ],
       "sourceLinks": [
         {
-          "source": "Yahoo Sports / RealGM",
+          "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/jordan-clarkson-returning-knicks-one-161352021.html"
         },
         {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/jordan-clarkson-signing-knicks-one-155732419.html"
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286630/Jordan-Clarkson-Knicks-Agree-To-One-Year-$39M-Deal"
         }
       ],
       "originalTitles": [
         "Jordan Clarkson returning to Knicks on one-year minimum contract",
-        "Jordan Clarkson, Knicks Agree To One-Year, $3.9M Deal",
-        "Jordan Clarkson re-signing with Knicks on one-year deal"
+        "Jordan Clarkson, Knicks Agree To One-Year, $3.9M Deal"
       ],
       "isMerged": false,
       "eventKey": "sign:jordan-clarkson:1:390",
       "relatedItems": [],
-      "displayTitle": "Jordan Clarkson 与尼克斯达成 1 年 390 万美元合同"
+      "displayTitle": "Jordan Clarkson 与尼克斯达成 1 年 390 万美元合同",
+      "copySource": "fallback"
     },
     {
       "id": "https://sports.yahoo.com/articles/sources-jacob-tobey-spurs-play-161153870.html",
@@ -1369,6 +1579,7 @@
       "eventKey": "injury:jacob-tobey:spurs",
       "relatedItems": [],
       "displayTitle": "Sources: Jacob Tobey out as Spurs play-by-play announcer",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1393,6 +1604,7 @@
       "category": "其他",
       "importance": 1,
       "displayTitle": "Summer League Preview: Timberwolves vs. Pelicans",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1419,110 +1631,7 @@
       "category": "选秀",
       "importance": 2,
       "displayTitle": "Possible 2028 NBA Draft No. 1 Pick Nikola Kusturica Commits To UCLA",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/knicks-sign-jordan-clarkson-bolster-154800887.html",
-      "title": "Knicks re-sign Jordan Clarkson, bolster bench depth",
-      "originalTitle": "Knicks re-sign Jordan Clarkson, bolster bench depth",
-      "headlineZh": "尼克斯续约 Jordan Clarkson，bolster bench depth",
-      "titleZh": "尼克斯续约 Jordan Clarkson，bolster bench depth",
-      "link": "https://sports.yahoo.com/articles/knicks-sign-jordan-clarkson-bolster-154800887.html",
-      "url": "https://sports.yahoo.com/articles/knicks-sign-jordan-clarkson-bolster-154800887.html",
-      "pubDate": "2026-07-09T15:48:00.000Z",
-      "publishedAt": "2026-07-09T15:48:00.000Z",
-      "summary": "Jordan Clarkson is back for his second season with the New York Knicks.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，尼克斯续约 Jordan Clarkson，bolster bench depth，原文关注 Jordan Clarkson 的合同或自由市场动向。",
-      "oneLineZh": "尼克斯续约 Jordan Clarkson，bolster bench depth",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/MfWZeSMlCWkRDV9ELqdpVA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/5946369d5229ac1fa3d5affb1712bbc2",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 4,
-      "eventKey": "sign:jordan-clarkson",
-      "relatedItems": [
-        {
-          "title": "Jordan Clarkson re-signs with Knicks after championship run as roster takes shape",
-          "originalTitle": "Jordan Clarkson re-signs with Knicks after championship run as roster takes shape",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/jordan-clarkson-signs-knicks-championship-155208655.html",
-          "publishedAt": "2026-07-09T15:52:08.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Jordan Clarkson re-signs with Knicks after championship run as roster takes shape",
-        "Knicks re-sign Jordan Clarkson, bolster bench depth"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/jordan-clarkson-signs-knicks-championship-155208655.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/knicks-sign-jordan-clarkson-bolster-154800887.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "尼克斯续约 Jordan Clarkson，bolster bench depth"
-    },
-    {
-      "id": "https://sports.yahoo.com/nba/article/nba-summer-league-2026-daily-schedule-scores-format-how-to-watch-153417060.html",
-      "title": "NBA Summer League 2026: Daily schedule, scores, format, how to watch",
-      "originalTitle": "NBA Summer League 2026: Daily schedule, scores, format, how to watch",
-      "headlineZh": "Summer League 相关消息更新",
-      "titleZh": "Summer League 相关消息更新",
-      "link": "https://sports.yahoo.com/nba/article/nba-summer-league-2026-daily-schedule-scores-format-how-to-watch-153417060.html",
-      "url": "https://sports.yahoo.com/nba/article/nba-summer-league-2026-daily-schedule-scores-format-how-to-watch-153417060.html",
-      "pubDate": "2026-07-09T15:34:17.000Z",
-      "publishedAt": "2026-07-09T15:34:17.000Z",
-      "summary": "Here's everything you need to know about the 2026 NBA Summer League in Las Vegas.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Summer League 的最新动态和后续影响。",
-      "oneLineZh": "Summer League 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/1Cmq3RDtqA8tnHt1P87B8A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTg7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/29ac2b78-fc73-4ff5-a3e3-2b2d9cca397d",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "NBA Summer League 2026: Daily schedule, scores, format, how to watch",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/bucks-reveal-2026-vegas-summer-153000841.html",
-      "title": "Bucks reveal 2026 Vegas Summer League roster",
-      "originalTitle": "Bucks reveal 2026 Vegas Summer League roster",
-      "headlineZh": "Vegas Summer League 相关消息更新",
-      "titleZh": "Vegas Summer League 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/bucks-reveal-2026-vegas-summer-153000841.html",
-      "url": "https://sports.yahoo.com/articles/bucks-reveal-2026-vegas-summer-153000841.html",
-      "pubDate": "2026-07-09T15:30:00.000Z",
-      "publishedAt": "2026-07-09T15:30:00.000Z",
-      "summary": "The Milwaukee Bucks are heading from the California Classic to the Las Vegas Summer League.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Vegas Summer League 的最新动态和后续影响。",
-      "oneLineZh": "Vegas Summer League 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/C1vXior2b_wFlJ4ZreTzVQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/7ea77db59910c38d78662ab402f109c0",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Bucks reveal 2026 Vegas Summer League roster",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1549,6 +1658,7 @@
       "category": "其他",
       "importance": 1,
       "displayTitle": "Stephen Silas To Join Raptors As Assistant Coach",
+      "copySource": "fallback",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1577,6 +1687,7 @@
       "eventKey": "trade:jon-horst:heat",
       "relatedItems": [],
       "displayTitle": "Jon Horst: Trading Giannis Antetokounmpo Was 'Best For Us, Best For Him'",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1603,6 +1714,7 @@
       "eventKey": "trade:mark-cuban-accuses:mavericks:lakers",
       "relatedItems": [],
       "displayTitle": "Mark Cuban Accuses Patrick Dumont Of Business Freeze-Out",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1629,6 +1741,7 @@
       "eventKey": "sign:jonas-valanciunas-waived:1000",
       "relatedItems": [],
       "displayTitle": "Jonas Valanciunas Waived By Nuggets, Expected To Receive Interest To Stay In NBA",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1655,6 +1768,7 @@
       "eventKey": "sign:mo-bamba:jazz:2",
       "relatedItems": [],
       "displayTitle": "Mo Bamba 与爵士达成两年合同",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1681,6 +1795,7 @@
       "eventKey": "sign:jaylen-brown:cavaliers",
       "relatedItems": [],
       "displayTitle": "Bob Myers Pitches Rich Paul On LeBron James Signing With 76ers During Podcast Appearance",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1707,6 +1822,7 @@
       "eventKey": "sign:larry-nance-jr:pacers:1:400",
       "relatedItems": [],
       "displayTitle": "Larry Nance Jr. 与步行者达成一年，400 万美元合同",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1733,6 +1849,7 @@
       "eventKey": "trade:lebron-james:warriors",
       "relatedItems": [],
       "displayTitle": "Haven't Been Told 交易影响继续发酵",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1761,6 +1878,7 @@
       "eventKey": "trade:clippers-aim-to:pacers",
       "relatedItems": [],
       "displayTitle": "Clippers Aim To Re-Sign Bennedict Mathurin",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1787,6 +1905,7 @@
       "eventKey": "trade:tim-bontemps-leaves:nets",
       "relatedItems": [],
       "displayTitle": "Tim Bontemps Leaves ESPN To Join Hawks Front Office",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1813,6 +1932,7 @@
       "eventKey": "sign:duke-miles:76ers",
       "relatedItems": [],
       "displayTitle": "Duke Miles，76 人签下 Exhibit 10",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1839,6 +1959,7 @@
       "eventKey": "sign:hunter-dickinson",
       "relatedItems": [],
       "displayTitle": "Hunter Dickinson，鹈鹕签下双向",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1865,6 +1986,7 @@
       "eventKey": "trade:felix-okpara",
       "relatedItems": [],
       "displayTitle": "签约动态：Felix Okpara，奇才 达成 双向 合同",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1891,6 +2013,7 @@
       "eventKey": "sign:bruce-thornton:rockets:4:930",
       "relatedItems": [],
       "displayTitle": "Bruce Thornton 与火箭达成四年，930 万美元合同",
+      "copySource": "fallback",
       "isMerged": false
     },
     {
@@ -1917,6 +2040,7 @@
       "eventKey": "sign:warriors-will:warriors:3:3000",
       "relatedItems": [],
       "displayTitle": "Warriors Will Not Match Quinten Post Offer Sheet From Grizzlies",
+      "copySource": "fallback",
       "isMerged": false
     }
   ]

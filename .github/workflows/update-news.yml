@@ -4,9 +4,23 @@ on:
   schedule:
     - cron: '*/30 * * * *'
   workflow_dispatch:
+    inputs:
+      github_models_enabled:
+        description: 'Enable GitHub Models copy editing for new priority events'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+      github_models_max_items:
+        description: 'Maximum AI items to process'
+        required: false
+        default: '5'
 
 permissions:
   contents: write
+  models: read
   pages: write
   id-token: write
 
@@ -32,6 +46,10 @@ jobs:
 
       - name: Fetch NBA RSS feeds
         run: npm run fetch
+        env:
+          GITHUB_MODELS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_MODELS_ENABLED: ${{ github.event.inputs.github_models_enabled || 'false' }}
+          GITHUB_MODELS_MAX_ITEMS: ${{ github.event.inputs.github_models_max_items || '5' }}
 
       - name: Check news freshness
         run: node scripts/check-freshness.mjs
@@ -42,14 +60,14 @@ jobs:
 
       - name: Commit updated news
         run: |
-          if git diff --quiet -- public/data/news.json; then
+          if git diff --quiet -- public/data/news.json public/data/ai-summary-cache.json; then
             echo "No news changes to commit."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/news.json
+          git add public/data/news.json public/data/ai-summary-cache.json
           git commit -m "chore: update NBA news feed"
           git push
 

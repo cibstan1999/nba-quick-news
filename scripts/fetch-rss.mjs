@@ -1,4 +1,5 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { XMLParser } from 'fast-xml-parser';
@@ -15,6 +16,9 @@ const FEEDS = [
 ];
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outputPath = path.join(rootDir, 'public', 'data', 'news.json');
+const aiCachePath = path.join(rootDir, 'public', 'data', 'ai-summary-cache.json');
+const githubModelsEndpoint = 'https://models.github.ai/inference/chat/completions';
+const defaultGithubModelsModel = 'openai/gpt-4o-mini';
 
 const parser = new XMLParser({
   ignoreAttributes: false,
@@ -204,6 +208,301 @@ function logFetchDiagnostics(status = {}) {
     dataAgeHours: status.dataAgeHours ?? null
   };
   console.log('Fetch diagnostics:', JSON.stringify(diagnostics, null, 2));
+}
+
+function sha256(value = '') {
+  return createHash('sha256').update(String(value)).digest('hex');
+}
+
+function getAiModel() {
+  return process.env.GITHUB_MODELS_MODEL || defaultGithubModelsModel;
+}
+
+function isGitHubModelsEnabled() {
+  return /^true$/i.test(process.env.GITHUB_MODELS_ENABLED || '');
+}
+
+function getGithubModelsMaxItems() {
+  const parsed = Number(process.env.GITHUB_MODELS_MAX_ITEMS || 5);
+  return Number.isFinite(parsed) && parsed > 0 ? Math.min(parsed, 5) : 5;
+}
+
+async function readAiSummaryCache() {
+  try {
+    const raw = await readFile(aiCachePath, 'utf8');
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object'
+      ? { version: 1, entries: parsed.entries && typeof parsed.entries === 'object' ? parsed.entries : {} }
+      : { version: 1, entries: {} };
+  } catch {
+    return { version: 1, entries: {} };
+  }
+}
+
+async function writeAiSummaryCache(cache) {
+  await mkdir(path.dirname(aiCachePath), { recursive: true });
+  await writeFile(aiCachePath, `${JSON.stringify(normalizeJsonStrings(cache), null, 2)}\n`, 'utf8');
+}
+
+function getAiSourceHash(item = {}) {
+  return sha256([
+    item.originalTitle || item.title || '',
+    item.summary || '',
+    item.source || '',
+    item.category || '',
+    toArray(item.originalTitles).join(' | ')
+  ].join('\n'));
+}
+
+function getAiCacheKey(item = {}) {
+  const base = `${item.eventKey || item.id || item.link || ''} ${item.originalTitle || item.title || ''}`.trim();
+  return sha256(base);
+}
+
+function getExistingAiEventKeys(existingPayload = null) {
+  return new Set(
+    toArray(existingPayload?.items)
+      .map((item) => item.eventKey || getEventKey(item) || `${item.originalTitle || item.title || ''}`)
+      .filter(Boolean)
+  );
+}
+
+function isAiCandidate(item = {}, existingEventKeys = new Set()) {
+  if ((item.importance || 1) < 4) return false;
+  if (!isCoreNewsCategory(item.category) && !isImportantRumor(item)) return false;
+  const eventIdentity = item.eventKey || getEventKey(item) || `${item.originalTitle || item.title || ''}`;
+  if (eventIdentity && existingEventKeys.has(eventIdentity)) return false;
+  return hasConcreteStructure(item) || isImportantRumor(item);
+}
+
+function getExtractedFactsForPrompt(item = {}) {
+  const text = `${item.originalTitle || item.title || ''} ${item.summary || ''} ${item.headlineZh || ''} ${item.summaryZh || ''}`;
+  return {
+    players: getEventPlayer(text) ? [getEventPlayer(text)] : [],
+    teams: getEventTeams(text),
+    money: getMoneyTokens(text),
+    duration: getDurationTokens(text),
+    tradeAssets: (text.match(/(?:first[-\s]+round|second[-\s]+round|protected|pick|首轮签|次轮签|受保护)[^,.。;；]*/gi) || []).slice(0, 5)
+  };
+}
+
+function getGithubModelsPrompt(item = {}) {
+  const facts = getExtractedFactsForPrompt(item);
+  return [
+    `originalTitle: ${item.originalTitle || item.title || ''}`,
+    `originalSummary: ${stripHtml(item.summary || '')}`,
+    `source: ${item.source || ''}`,
+    `category: ${item.category || ''}`,
+    `extractedFacts: ${JSON.stringify(facts)}`,
+    `fallbackHeadlineZh: ${item.headlineZh || ''}`,
+    `fallbackSummaryZh: ${item.summaryZh || ''}`,
+    '',
+    '请严格返回 JSON：{"headlineZh":"","summaryZh":"","oneLineZh":"","confidence":0.0}'
+  ].join('\n');
+}
+
+async function summarizeWithGitHubModels(item) {
+  const token = process.env.GITHUB_MODELS_TOKEN;
+  if (!token) return null;
+
+  const model = getAiModel();
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15000);
+
+  try {
+    const response = await fetch(githubModelsEndpoint, {
+      method: 'POST',
+      signal: controller.signal,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model,
+        temperature: 0.2,
+        max_tokens: 500,
+        messages: [
+          {
+            role: 'system',
+            content: '你是一名严谨的中文 NBA 快讯编辑。请只根据输入标题和摘要改写，不得添加输入中不存在的事实。英文球员姓名可以保留，球队名使用常见中文名称。语言应简洁、自然、像中文体育新闻，不要使用营销号措辞，不要半中半英拼接。'
+          },
+          {
+            role: 'user',
+            content: getGithubModelsPrompt(item)
+          }
+        ]
+      })
+    });
+
+    if (!response.ok) {
+      console.warn(`GitHub Models request failed: ${response.status} ${response.statusText}`);
+      return null;
+    }
+
+    const data = await response.json();
+    const content = data?.choices?.[0]?.message?.content;
+    if (!content) return null;
+    const jsonText = String(content).replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```$/i, '').trim();
+    return { ...JSON.parse(jsonText), model };
+  } catch (error) {
+    console.warn(`GitHub Models request skipped: ${error instanceof Error ? error.message : String(error)}`);
+    return null;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function getFactTokensForValidation(value = '') {
+  const text = normalizeChineseText(value);
+  return {
+    money: new Set(getMoneyTokens(text)),
+    duration: new Set(getDurationTokens(text)),
+    teams: new Set(getEventTeams(text)),
+    player: getEventPlayer(text)
+  };
+}
+
+function hasAddedFacts(aiText = '', sourceText = '') {
+  const ai = getFactTokensForValidation(aiText);
+  const source = getFactTokensForValidation(sourceText);
+  if ([...ai.money].some((token) => !source.money.has(token))) return true;
+  if ([...ai.duration].some((token) => !source.duration.has(token))) return true;
+  if ([...ai.teams].some((token) => !source.teams.has(token))) return true;
+  if (ai.player && !source.player) return true;
+  return false;
+}
+
+function validateAiSummary(item = {}, aiResult = null) {
+  if (!aiResult || typeof aiResult !== 'object') return { accepted: false, reason: 'empty-result' };
+  const confidence = Number(aiResult.confidence || 0);
+  const headlineZh = normalizeChineseText(aiResult.headlineZh || '');
+  const summaryZh = normalizeChineseText(aiResult.summaryZh || '');
+  const oneLineZh = normalizeChineseText(aiResult.oneLineZh || headlineZh);
+  const sourceText = `${item.originalTitle || item.title || ''} ${item.summary || ''} ${item.summaryZh || ''} ${item.headlineZh || ''}`;
+  const aiText = `${headlineZh} ${summaryZh} ${oneLineZh}`;
+
+  if (!Number.isFinite(confidence) || confidence < 0.65) return { accepted: false, reason: 'low-confidence' };
+  if (!isSafeChineseTitle(headlineZh)) return { accepted: false, reason: 'unsafe-headline' };
+  if (!summaryZh || !isSafeChineseSummary(summaryZh)) return { accepted: false, reason: 'unsafe-summary' };
+  if (compactComparable(summaryZh) === compactComparable(headlineZh)) return { accepted: false, reason: 'summary-repeats-headline' };
+  if (isGenericHeadline(headlineZh) || isGenericHeadline(oneLineZh)) return { accepted: false, reason: 'generic-copy' };
+  if (hasAddedFacts(aiText, sourceText)) return { accepted: false, reason: 'added-facts' };
+
+  return {
+    accepted: true,
+    value: {
+      headlineZh,
+      titleZh: headlineZh,
+      summaryZh,
+      oneLineZh,
+      copySource: 'github-models',
+      aiModel: aiResult.model || getAiModel(),
+      aiGeneratedAt: new Date().toISOString(),
+      aiConfidence: confidence
+    }
+  };
+}
+
+function applyCachedAiSummary(item = {}, cached = null) {
+  if (!cached) return item;
+  const validation = validateAiSummary(item, { ...cached, confidence: cached.confidence ?? 1 });
+  if (!validation.accepted) return item;
+  return normalizeNewsItemText({ ...item, ...validation.value });
+}
+
+async function applyGitHubModelsEnhancements(items = [], existingPayload = null) {
+  const requestedEnabled = isGitHubModelsEnabled();
+  const enabled = requestedEnabled && Boolean(process.env.GITHUB_MODELS_TOKEN);
+  const model = getAiModel();
+  const cache = await readAiSummaryCache();
+  const existingEventKeys = getExistingAiEventKeys(existingPayload);
+  const stats = {
+    aiEnabled: enabled,
+    aiCandidates: 0,
+    aiCacheHits: 0,
+    aiRequests: 0,
+    aiAccepted: 0,
+    aiRejected: 0,
+    aiFailed: 0,
+    fallbackItems: 0,
+    aiModel: model
+  };
+
+  let remainingRequests = getGithubModelsMaxItems();
+  const enhanced = [];
+
+  if (requestedEnabled && !enabled) {
+    console.warn('GitHub Models enabled but GITHUB_MODELS_TOKEN is missing; using fallback copy.');
+  }
+
+  for (const item of items) {
+    const sourceHash = getAiSourceHash(item);
+    const cacheKey = getAiCacheKey(item);
+    const cached = cache.entries[cacheKey];
+    const canUseCache = cached?.sourceHash === sourceHash;
+    const candidate = enabled && isAiCandidate(item, existingEventKeys);
+    if (candidate) stats.aiCandidates += 1;
+
+    if (canUseCache) {
+      stats.aiCacheHits += 1;
+      enhanced.push(applyCachedAiSummary(item, cached));
+      continue;
+    }
+
+    if (!candidate || remainingRequests <= 0) {
+      stats.fallbackItems += 1;
+      enhanced.push({ ...item, copySource: item.copySource || 'fallback' });
+      continue;
+    }
+
+    stats.aiRequests += 1;
+    remainingRequests -= 1;
+    const aiResult = await summarizeWithGitHubModels(item);
+    if (!aiResult) {
+      stats.aiFailed += 1;
+      enhanced.push({ ...item, copySource: 'fallback' });
+      continue;
+    }
+
+    const validation = validateAiSummary(item, aiResult);
+    if (!validation.accepted) {
+      stats.aiRejected += 1;
+      console.warn(`GitHub Models result rejected (${validation.reason}): ${item.originalTitle || item.title || item.id}`);
+      enhanced.push({ ...item, copySource: 'fallback' });
+      continue;
+    }
+
+    stats.aiAccepted += 1;
+    cache.entries[cacheKey] = {
+      headlineZh: validation.value.headlineZh,
+      summaryZh: validation.value.summaryZh,
+      oneLineZh: validation.value.oneLineZh,
+      confidence: validation.value.aiConfidence,
+      model,
+      generatedAt: validation.value.aiGeneratedAt,
+      sourceHash
+    };
+    enhanced.push(normalizeNewsItemText({ ...item, ...validation.value }));
+  }
+
+  if (stats.aiAccepted > 0) {
+    await writeAiSummaryCache(cache);
+  }
+
+  console.log('GitHub Models summary:', JSON.stringify({
+    'GitHub Models enabled': stats.aiEnabled,
+    'AI candidates': stats.aiCandidates,
+    'AI cache hits': stats.aiCacheHits,
+    'AI requests': stats.aiRequests,
+    'AI accepted': stats.aiAccepted,
+    'AI rejected': stats.aiRejected,
+    'AI failed': stats.aiFailed,
+    'Fallback items': stats.fallbackItems,
+    Model: stats.aiModel
+  }, null, 2));
+
+  return { items: enhanced, stats };
 }
 
 function stripSourcePhrases(value = '') {
@@ -843,7 +1142,7 @@ function getMoneyTokens(value = '') {
 }
 
 function getDurationTokens(value = '') {
-  return value.match(/(?:\d+|[一二三四五六七八九十两]+)年/g) || [];
+  return value.match(/(?:\d+|[一二三四五六七八九十两]+)\s*年/g) || [];
 }
 
 function getLeadName(value = '') {
@@ -2529,6 +2828,7 @@ function normalizeNewsItemText(item = {}) {
     goldenQuoteZh,
     category,
     importance,
+    copySource: item.copySource || 'fallback',
     eventKey,
     relatedItems,
     ...(originalTitles.length ? { originalTitles } : {}),
@@ -3396,6 +3696,7 @@ async function main() {
     }
 
     const items = dedupeAndSort(feedResults.flatMap((result) => result.items));
+    const existingPayloadForAi = parseExistingPayload(existingFeed);
 
     if (!items.length || fetchedItems === 0 || !successfulFeeds.length) {
       const existingPayload = parseExistingPayload(existingFeed);
@@ -3426,7 +3727,14 @@ async function main() {
           successfulFeeds,
           failedFeeds: failedFeedDetails,
           newestPublishedAt: getLatestPublishedAt(existingPayload.items),
-          dataAgeHours: getAgeHours(previousUpdatedAt, new Date(checkedAt))
+          dataAgeHours: getAgeHours(previousUpdatedAt, new Date(checkedAt)),
+          aiEnabled: isGitHubModelsEnabled(),
+          aiCandidates: 0,
+          aiRequests: 0,
+          aiAccepted: 0,
+          aiRejected: 0,
+          aiFailed: 0,
+          aiModel: getAiModel()
         }
       };
 
@@ -3437,9 +3745,12 @@ async function main() {
       return;
     }
 
+    const preparedItems = preparePayloadForWrite({ items }).items;
+    const aiEnhancement = await applyGitHubModelsEnhancements(preparedItems, existingPayloadForAi);
+    const finalItems = aiEnhancement.items;
     const updatedAt = new Date().toISOString();
-    const previousUpdatedAt = parseExistingPayload(existingFeed)?.updatedAt || '';
-    const newestPublishedAt = getLatestPublishedAt(items);
+    const previousUpdatedAt = existingPayloadForAi?.updatedAt || '';
+    const newestPublishedAt = getLatestPublishedAt(finalItems);
     const dataAgeHours = getAgeHours(newestPublishedAt, new Date(updatedAt));
     const failedFeedDetails = failedFeeds.map((result) => ({
       source: result.feedConfig.source,
@@ -3456,17 +3767,25 @@ async function main() {
         previousUpdatedAt,
         updatedAt,
         fetchedItems,
-        mergedItems: items.length,
+        mergedItems: finalItems.length,
         successfulFeeds,
         failedFeeds: failedFeedDetails,
         newestPublishedAt,
         dataAgeHours,
+        aiEnabled: aiEnhancement.stats.aiEnabled,
+        aiCandidates: aiEnhancement.stats.aiCandidates,
+        aiCacheHits: aiEnhancement.stats.aiCacheHits,
+        aiRequests: aiEnhancement.stats.aiRequests,
+        aiAccepted: aiEnhancement.stats.aiAccepted,
+        aiRejected: aiEnhancement.stats.aiRejected,
+        aiFailed: aiEnhancement.stats.aiFailed,
+        aiModel: aiEnhancement.stats.aiModel,
         message: failedFeeds.length
           ? `Fetched ${fetchedItems} usable RSS items with ${failedFeeds.length} failed feed(s).`
           : `Fetched ${fetchedItems} usable RSS items from all feeds.`
       },
-      highlights: buildHighlights(items),
-      items
+      highlights: buildHighlights(finalItems),
+      items: finalItems
     };
 
     const writtenPayload = await writePayload(payload);
@@ -3504,7 +3823,14 @@ async function main() {
           error: error instanceof Error ? error.message : String(error)
         })),
         newestPublishedAt: getLatestPublishedAt(existingPayload.items),
-        dataAgeHours: getAgeHours(previousUpdatedAt, new Date(checkedAt))
+        dataAgeHours: getAgeHours(previousUpdatedAt, new Date(checkedAt)),
+        aiEnabled: isGitHubModelsEnabled(),
+        aiCandidates: 0,
+        aiRequests: 0,
+        aiAccepted: 0,
+        aiRejected: 0,
+        aiFailed: 0,
+        aiModel: getAiModel()
       }
     };
 
