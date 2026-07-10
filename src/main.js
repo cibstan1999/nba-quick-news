@@ -79,8 +79,7 @@ function getFilteredItems() {
   });
 }
 
-function render() {
-  const filteredItems = getFilteredItems();
+function renderStatusCard() {
   const updatedLabel = state.updatedAt
     ? formatDate(state.updatedAt, { year: 'numeric', second: '2-digit' })
     : 'Waiting for first update';
@@ -90,6 +89,85 @@ function render() {
   const fetchStatus = state.lastFetchStatus?.status || 'unknown';
   const freshness = getFreshnessState();
 
+  return `
+    <div class="status-card ${escapeHtml(freshness.level)}" aria-label="Feed status">
+      <span>最近成功更新</span>
+      <strong>${escapeHtml(updatedLabel)}</strong>
+      <dl>
+        <div><dt>最近检查</dt><dd>${escapeHtml(checkedLabel)}</dd></div>
+        <div><dt>状态</dt><dd>${escapeHtml(fetchStatus)}</dd></div>
+      </dl>
+      <p>${escapeHtml(freshness.label)} · ${escapeHtml(freshness.detail)}</p>
+    </div>
+  `;
+}
+
+function renderResults() {
+  const filteredItems = getFilteredItems();
+  const count = document.querySelector('#newsCount');
+  const list = document.querySelector('#newsList');
+
+  if (count) {
+    count.textContent = state.loading ? '正在加载...' : `${filteredItems.length} 条新闻`;
+  }
+
+  if (list) {
+    list.innerHTML = filteredItems.length
+      ? filteredItems.map(renderCard).join('')
+      : '<article class="empty-state"><h2>没有找到相关新闻</h2><p>换个关键词或分类试试。</p></article>';
+  }
+}
+
+function updateCategoryTabs() {
+  document.querySelectorAll('[data-category]').forEach((button) => {
+    const active = button.dataset.category === state.category;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-selected', String(active));
+  });
+}
+
+function refreshDynamicSections() {
+  const status = document.querySelector('#feedStatus');
+  const notice = document.querySelector('#noticeSlot');
+  const highlights = document.querySelector('#highlightsSlot');
+
+  if (status) status.innerHTML = renderStatusCard();
+  if (notice) notice.innerHTML = state.error ? `<p class="notice">${escapeHtml(state.error)}</p>` : '';
+  if (highlights) highlights.innerHTML = renderHighlights();
+  renderResults();
+}
+
+function bindControls() {
+  const searchInput = document.querySelector('#searchInput');
+  let isComposing = false;
+
+  searchInput?.addEventListener('compositionstart', () => {
+    isComposing = true;
+  });
+
+  searchInput?.addEventListener('compositionend', (event) => {
+    isComposing = false;
+    state.query = event.target.value;
+    renderResults();
+  });
+
+  searchInput?.addEventListener('input', (event) => {
+    state.query = event.target.value;
+    if (!isComposing) {
+      renderResults();
+    }
+  });
+
+  document.querySelectorAll('[data-category]').forEach((button) => {
+    button.addEventListener('click', () => {
+      state.category = button.dataset.category;
+      updateCategoryTabs();
+      renderResults();
+    });
+  });
+}
+
+function render() {
   app.innerHTML = `
     <main class="shell">
       <header class="site-header">
@@ -98,15 +176,7 @@ function render() {
           <h1>NBA Quick News</h1>
           <p class="subtitle">3 分钟刷完 NBA 今日流言、签约与交易。</p>
         </div>
-        <div class="status-card ${escapeHtml(freshness.level)}" aria-label="Feed status">
-          <span>最近成功更新</span>
-          <strong>${escapeHtml(updatedLabel)}</strong>
-          <dl>
-            <div><dt>最近检查</dt><dd>${escapeHtml(checkedLabel)}</dd></div>
-            <div><dt>状态</dt><dd>${escapeHtml(fetchStatus)}</dd></div>
-          </dl>
-          <p>${escapeHtml(freshness.label)} · ${escapeHtml(freshness.detail)}</p>
-        </div>
+        <div id="feedStatus">${renderStatusCard()}</div>
       </header>
 
       <section class="controls" aria-label="News filters">
@@ -127,37 +197,21 @@ function render() {
         </div>
       </section>
 
-      ${state.error ? `<p class="notice">${escapeHtml(state.error)}</p>` : ''}
+      <div id="noticeSlot">${state.error ? `<p class="notice">${escapeHtml(state.error)}</p>` : ''}</div>
 
-      ${renderHighlights()}
+      <div id="highlightsSlot">${renderHighlights()}</div>
 
       <section class="news-meta" aria-live="polite">
-        <span>${state.loading ? '正在加载...' : `${filteredItems.length} 条新闻`}</span>
+        <span id="newsCount">${state.loading ? '正在加载...' : `${getFilteredItems().length} 条新闻`}</span>
         <span>来源：RealGM / Yahoo Sports</span>
       </section>
 
-      <section class="news-list" aria-label="NBA news stories">
-        ${
-          filteredItems.length
-            ? filteredItems.map(renderCard).join('')
-            : `<article class="empty-state"><h2>没有找到相关新闻</h2><p>换个关键词或分类试试。</p></article>`
-        }
-      </section>
+      <section id="newsList" class="news-list" aria-label="NBA news stories"></section>
     </main>
   `;
 
-  document.querySelector('#searchInput')?.addEventListener('input', (event) => {
-    state.query = event.target.value;
-    render();
-    document.querySelector('#searchInput')?.focus();
-  });
-
-  document.querySelectorAll('[data-category]').forEach((button) => {
-    button.addEventListener('click', () => {
-      state.category = button.dataset.category;
-      render();
-    });
-  });
+  bindControls();
+  renderResults();
 }
 
 function renderHighlights() {
@@ -278,7 +332,7 @@ async function loadNews() {
     console.error(error);
   } finally {
     state.loading = false;
-    render();
+    refreshDynamicSections();
   }
 }
 
