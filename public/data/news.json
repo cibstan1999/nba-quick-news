@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-10T05:19:10.768Z",
+  "updatedAt": "2026-07-10T05:31:13.810Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-10T05:19:10.768Z",
-    "previousUpdatedAt": "2026-07-10T04:50:22.791Z",
-    "updatedAt": "2026-07-10T05:19:10.768Z",
+    "checkedAt": "2026-07-10T05:31:13.810Z",
+    "previousUpdatedAt": "2026-07-10T05:19:10.768Z",
+    "updatedAt": "2026-07-10T05:31:13.810Z",
     "fetchedItems": 80,
-    "mergedItems": 66,
+    "mergedItems": 68,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -32,8 +32,8 @@
     ],
     "failedFeeds": [],
     "newestPublishedAt": "2026-07-10T05:06:29.000Z",
-    "dataAgeHours": 0.21160222222222222,
-    "aiEnabled": false,
+    "dataAgeHours": 0.41244722222222224,
+    "aiEnabled": true,
     "aiCandidates": 0,
     "aiCacheHits": 0,
     "aiRequests": 0,
@@ -166,6 +166,90 @@
       "isMerged": false
     },
     {
+      "id": "https://sports.yahoo.com/articles/toronto-welcomes-back-former-finals-171712072.html",
+      "title": "Toronto welcomes back former Finals MVP, look to challenge the Knicks atop the conference",
+      "originalTitle": "Toronto welcomes back former Finals MVP, look to challenge the Knicks atop the conference",
+      "headlineZh": "Finals MVP 相关消息更新",
+      "titleZh": "Finals MVP 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/toronto-welcomes-back-former-finals-171712072.html",
+      "url": "https://sports.yahoo.com/articles/toronto-welcomes-back-former-finals-171712072.html",
+      "pubDate": "2026-07-10T03:17:00.000Z",
+      "publishedAt": "2026-07-10T03:17:00.000Z",
+      "summary": "Are the Raptors now the biggest threat to the Knicks?",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦 Finals MVP 的最新动态和后续影响。",
+      "oneLineZh": "Finals MVP 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/SH..rlZGWlCsOkJU9PYPqg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTc7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/55cbbef4e074d01170ab99892187ea9f",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "季后赛",
+      "importance": 2,
+      "displayTitle": "Toronto welcomes back former Finals MVP, look to challenge the Knicks atop the conference",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/utah-jazz-vs-washington-wizards-031115508.html",
+      "title": "Utah Jazz vs Washington Wizards recap: Darryn Peterson is only a man",
+      "originalTitle": "Utah Jazz vs Washington Wizards recap: Darryn Peterson is only a man",
+      "headlineZh": "华盛顿奇才相关消息更新",
+      "titleZh": "华盛顿奇才相关消息更新",
+      "link": "https://sports.yahoo.com/articles/utah-jazz-vs-washington-wizards-031115508.html",
+      "url": "https://sports.yahoo.com/articles/utah-jazz-vs-washington-wizards-031115508.html",
+      "pubDate": "2026-07-10T03:11:15.000Z",
+      "publishedAt": "2026-07-10T03:11:15.000Z",
+      "summary": "Mortality afflicts even the greatest among us.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，原文聚焦华盛顿奇才的最新动态和后续影响。",
+      "oneLineZh": "华盛顿奇才相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/_JDyeH25wvMJqU1XPwBtOg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03Mzk7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/e440c997ef971cbd2fc618d72de70a67",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Utah Jazz vs Washington Wizards recap: Darryn Peterson is only a man",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/wizards-vs-jazz-final-score-031113813.html",
+      "title": "Wizards vs. Jazz final score: Dybantsa dominates as Washington wins, 92-88",
+      "originalTitle": "Wizards vs. Jazz final score: Dybantsa dominates as Washington wins, 92-88",
+      "headlineZh": "爵士休赛期后续动向",
+      "titleZh": "爵士休赛期后续动向",
+      "link": "https://sports.yahoo.com/articles/wizards-vs-jazz-final-score-031113813.html",
+      "url": "https://sports.yahoo.com/articles/wizards-vs-jazz-final-score-031113813.html",
+      "pubDate": "2026-07-10T03:11:13.000Z",
+      "publishedAt": "2026-07-10T03:11:13.000Z",
+      "summary": "AJ Dybantsa made his Wizards debut as Washington defeated the Utah Jazz 92-88 to open 2026 Las Vegas Summer League play. The Wizards’ starting lineup — Will Riley, Tre Johnson, Dybantsa, Jamir Watkins and Felix Okpara — was comprised of all five of their selections from the previous two NBA Drafts. Riley opened the game […]",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "爵士休赛期后续动向",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/g8gJAuqWdUd9JkgEff0qWw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04NTc7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/6692cdb345f55511373fe45318ce97b8",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "选秀",
+      "importance": 2,
+      "displayTitle": "Wizards vs. Jazz final score: Dybantsa dominates as Washington wins, 92-88",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
       "id": "https://sports.yahoo.com/articles/aj-dybantsa-stats-summer-league-024233083.html",
       "title": "AJ Dybantsa injury update, stats from Summer League showdown with Darryn Peterson, Jazz",
       "originalTitle": "AJ Dybantsa injury update, stats from Summer League showdown with Darryn Peterson, Jazz",
@@ -225,14 +309,6 @@
           "angle": "source"
         },
         {
-          "title": "Joe Mazzulla shares reaction to Celtics trading Jaylen Brown to Sixers",
-          "originalTitle": "Joe Mazzulla shares reaction to Celtics trading Jaylen Brown to Sixers",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/joe-mazzulla-shares-reaction-celtics-172718797.html",
-          "publishedAt": "2026-07-09T17:27:18.000Z",
-          "angle": "source"
-        },
-        {
           "title": "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process",
           "originalTitle": "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process",
           "source": "RealGM",
@@ -248,8 +324,7 @@
       "originalTitles": [
         "Joe Mazzulla Still 'Processing' Celtics' Trade Of Jaylen Brown To 76ers",
         "Jaylen Brown's Value Went Down Due To Way Celtics Handled Trade Process",
-        "76ers ‘got away with murder’ in Jaylen Brown stunning trade: Charles Barkley",
-        "Joe Mazzulla shares reaction to Celtics trading Jaylen Brown to Sixers"
+        "76ers ‘got away with murder’ in Jaylen Brown stunning trade: Charles Barkley"
       ],
       "sourceLinks": [
         {
@@ -271,10 +346,6 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/76ers-got-away-murder-jaylen-233913781.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/joe-mazzulla-shares-reaction-celtics-172718797.html"
         }
       ],
       "isMerged": true,
@@ -1122,37 +1193,11 @@
       "category": "签约",
       "importance": 2,
       "eventKey": "sign:lebron-james",
-      "relatedItems": [
-        {
-          "title": "LeBron James free agent rumors: What is LeBron's timeline for making a decision?",
-          "originalTitle": "LeBron James free agent rumors: What is LeBron's timeline for making a decision?",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/lebron-james-free-agent-rumors-171206069.html",
-          "publishedAt": "2026-07-09T17:12:06.000Z",
-          "angle": "rumor"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "NBA teams forced to leave voice notes to contact LeBron James in free agency",
-        "LeBron James free agent rumors: What is LeBron's timeline for making a decision?"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/nba-teams-forced-leave-voice-203617838.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-free-agent-rumors-171206069.html"
-        }
-      ],
-      "isMerged": true,
+      "relatedItems": [],
       "displayTitle": "NBA teams forced to leave voice notes to contact LeBron James in free agency",
       "copySource": "fallback",
-      "storyType": "rumor"
+      "storyType": "rumor",
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html",
@@ -1610,34 +1655,6 @@
       "displayTitle": "Details of Nate Ament’s rookie contract with the Milwaukee Bucks",
       "copySource": "fallback",
       "storyType": "signing",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/lakers-view-remaining-roster-spots-171105401.html",
-      "title": "Lakers view remaining roster spots as ‘critical’ to team success",
-      "originalTitle": "Lakers view remaining roster spots as ‘critical’ to team success",
-      "headlineZh": "湖人休赛期后续动向",
-      "titleZh": "湖人休赛期后续动向",
-      "link": "https://sports.yahoo.com/articles/lakers-view-remaining-roster-spots-171105401.html",
-      "url": "https://sports.yahoo.com/articles/lakers-view-remaining-roster-spots-171105401.html",
-      "pubDate": "2026-07-09T17:11:05.000Z",
-      "publishedAt": "2026-07-09T17:11:05.000Z",
-      "summary": "Every player matters, and the Lakers are trying to build the best team possible with the spots they have left.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，湖人认为剩余名单席位对球队成败很关键。",
-      "oneLineZh": "湖人休赛期后续动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/B7IGxsPG9Ee96jw9oAYZLQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/dc031f31770de23ff10e35fd0e57e829",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Lakers view remaining roster spots as ‘critical’ to team success",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
