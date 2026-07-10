@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-10T12:28:08.998Z",
+  "updatedAt": "2026-07-10T15:15:48.376Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-10T12:28:08.998Z",
-    "previousUpdatedAt": "2026-07-10T09:42:48.476Z",
-    "updatedAt": "2026-07-10T12:28:08.998Z",
+    "checkedAt": "2026-07-10T15:15:48.376Z",
+    "previousUpdatedAt": "2026-07-10T12:28:08.998Z",
+    "updatedAt": "2026-07-10T15:15:48.376Z",
     "fetchedItems": 80,
-    "mergedItems": 71,
+    "mergedItems": 73,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,10 +31,10 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-10T12:00:00.000Z",
-    "dataAgeHours": 0.4691661111111111,
+    "newestPublishedAt": "2026-07-10T13:00:00.000Z",
+    "dataAgeHours": 2.263437777777778,
     "aiEnabled": false,
-    "aiCandidates": 54,
+    "aiCandidates": 56,
     "aiCacheHits": 9,
     "aiRequests": 0,
     "aiAccepted": 0,
@@ -59,13 +59,6 @@
       "link": "https://basketball.realgm.com/wiretap/286643/Joe-Mazzulla-Still-Processing-Celtics-Trade-Of-Jaylen-Brown-To-76ers"
     },
     {
-      "id": "https://sports.yahoo.com/articles/kawhi-leonard-trade-toronto-hold-210830237.html",
-      "text": "Kawhi Leonard 交易影响继续发酵",
-      "category": "交易",
-      "source": "Yahoo Sports",
-      "link": "https://sports.yahoo.com/articles/kawhi-leonard-trade-toronto-hold-210830237.html"
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286639/Charles-Bassey-Warriors-Agree-To-One-Year-Deal",
       "text": "Charles Bassey 与勇士达成一年合同",
       "category": "签约",
@@ -73,21 +66,105 @@
       "link": "https://basketball.realgm.com/wiretap/286639/Charles-Bassey-Warriors-Agree-To-One-Year-Deal"
     },
     {
-      "id": "https://basketball.realgm.com/wiretap/286644/Clippers-Baba-Miller-Agree-To-Four-Year-$961M-Deal",
-      "text": "快船 与 Baba Miller 达成 4 年 961 万美元合同",
-      "category": "签约",
-      "source": "RealGM / Yahoo Sports",
-      "link": "https://basketball.realgm.com/wiretap/286644/Clippers-Baba-Miller-Agree-To-Four-Year-$961M-Deal"
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286630/Jordan-Clarkson-Knicks-Agree-To-One-Year-$39M-Deal",
       "text": "Jordan Clarkson 与尼克斯达成一年，390 万美元合同",
       "category": "签约",
       "source": "RealGM",
       "link": "https://basketball.realgm.com/wiretap/286630/Jordan-Clarkson-Knicks-Agree-To-One-Year-$39M-Deal"
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286644/Clippers-Baba-Miller-Agree-To-Four-Year-$961M-Deal",
+      "text": "快船与 Baba Miller 达成四年，961 万美元合同",
+      "category": "签约",
+      "source": "RealGM",
+      "link": "https://basketball.realgm.com/wiretap/286644/Clippers-Baba-Miller-Agree-To-Four-Year-$961M-Deal"
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/bucks-reacts-survey-results-majority-130000474.html",
+      "title": "Bucks Reacts Survey Results: Majority of fans want a more balanced roster",
+      "originalTitle": "Bucks Reacts Survey Results: Majority of fans want a more balanced roster",
+      "headlineZh": "雄鹿 Reacts Survey 相关消息更新",
+      "titleZh": "雄鹿 Reacts Survey 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/bucks-reacts-survey-results-majority-130000474.html",
+      "url": "https://sports.yahoo.com/articles/bucks-reacts-survey-results-majority-130000474.html",
+      "pubDate": "2026-07-10T13:00:00.000Z",
+      "publishedAt": "2026-07-10T13:00:00.000Z",
+      "summary": "More wings and bigs, fewer guards, say the fans.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "雄鹿 Reacts Survey 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Q1allD19H5G_sFwZ6uRoTA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/21da8e2411e92b6d826517752a4a34b2",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Bucks Reacts Survey Results: Majority of fans want a more balanced roster",
+      "copySource": "fallback",
+      "storyType": "opinion",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/morez-johnson-jr-dominates-nba-125959544.html",
+      "title": "Morez Johnson Jr. dominates in NBA Summer League debut",
+      "originalTitle": "Morez Johnson Jr. dominates in NBA Summer League debut",
+      "headlineZh": "Morez Johnson Jr 相关消息更新",
+      "titleZh": "Morez Johnson Jr 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/morez-johnson-jr-dominates-nba-125959544.html",
+      "url": "https://sports.yahoo.com/articles/morez-johnson-jr-dominates-nba-125959544.html",
+      "pubDate": "2026-07-10T12:59:59.000Z",
+      "publishedAt": "2026-07-10T12:59:59.000Z",
+      "summary": "A monster night for Morez.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Morez Johnson Jr 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/QCwQZ2D..330jUEeQ.FFmw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/d5c37e47fee19b49689488181c21f1ed",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Morez Johnson Jr. dominates in NBA Summer League debut",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286646/Rich-Paul-Not-Expected-To-Have-Any-Additional-Teams-Pitch-On-Podcast",
+      "title": "Rich Paul Not Expected To Have Any Additional Teams Pitch On Podcast",
+      "originalTitle": "Rich Paul Not Expected To Have Any Additional Teams Pitch On Podcast",
+      "headlineZh": "Rich Paul Not 相关消息更新",
+      "titleZh": "Rich Paul Not 相关消息更新",
+      "link": "https://basketball.realgm.com/wiretap/286646/Rich-Paul-Not-Expected-To-Have-Any-Additional-Teams-Pitch-On-Podcast",
+      "url": "https://basketball.realgm.com/wiretap/286646/Rich-Paul-Not-Expected-To-Have-Any-Additional-Teams-Pitch-On-Podcast",
+      "pubDate": "2026-07-10T12:49:52.000Z",
+      "publishedAt": "2026-07-10T12:49:52.000Z",
+      "summary": "<p>Bob Myers' appearance on Rich Paul's podcast to make a public pitch for the Philadelphia 76ers to sign LeBron James was scheduled before James' free agency began. Multiple league sources with direct knowledge of the situation said the same appearances are not expected from other teams pursuing James.</p> <p>The 76ers' chief executive sat alongside Paul on the agent's \"Game Over\" podcast with Max Kellerman. Myers made the case directly for Philadelphia to land James.</p> <p>\"If (LeBron) was here, I'd say, 'I honestly believe this is your best chance to win,'\" said Myers.</p> <p>The appearance drew attention across league circles because such pitches are typically made privately.</p> <p>\"Awkward,\" said one executive of a potential James suitor, speaking on condition of anonymity to discuss Paul's show freely.</p> <p>Another league source offered a different view of the strategy.</p> <p>\"The podcast is a brilliant idea by them because it regains a narrative for them they may have lost,\" said the source, who also spoke anonymously.</p> <p>Sources ruled out speculation that Paul is staging a rotating series of executive appearances leading to a final announcement. Brandon Weems, a Cleveland Cavaliers front office staffer and childhood friend of James, remains the only known team executive with direct contact with James this offseason.</p> <p>Teams cited by Paul as contenders, including the Cavaliers, Golden State Warriors, Miami Heat, Minnesota Timberwolves, Denver Nuggets and Dallas Mavericks, said they remained without information on James' plans as of Thursday.</p> <p>\"We really don't know, we just know what we read,\" said one executive of a potential suitor.</p> <p>James can no longer pursue a sign-and-trade after the Los Angeles Lakers renounced his rights. His next contract will be limited to the nontaxpayer midlevel exception, the taxpayer midlevel exception or the veteran's minimum.</p>",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，Rich Paul Not Expected To Have Any Additional Teams Pitch On Podcast，目前仍属于消息或传闻阶段。",
+      "oneLineZh": "Rich Paul Not 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Paul_Rich_nba_210628.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "交易",
+      "importance": 2,
+      "eventKey": "trade:lebron-james:76ers:mavericks",
+      "relatedItems": [],
+      "displayTitle": "Rich Paul Not Expected To Have Any Additional Teams Pitch On Podcast",
+      "copySource": "fallback",
+      "storyType": "rumor",
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/6-arizona-wildcats-competing-nba-120000758.html",
       "title": "6 Arizona Wildcats competing at NBA Summer League in Las Vegas",
@@ -140,6 +217,118 @@
       "displayTitle": "NBA Power Rankings for all 30 teams after a wild start to 2026 offseason",
       "copySource": "fallback",
       "storyType": "analysis",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/sbn-reacts-suns-chasing-progress-120000522.html",
+      "title": "SBN Reacts: The Suns are chasing progress, not highlights, in Las Vegas",
+      "originalTitle": "SBN Reacts: The Suns are chasing progress, not highlights, in Las Vegas",
+      "headlineZh": "SBN Reacts 相关消息更新",
+      "titleZh": "SBN Reacts 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/sbn-reacts-suns-chasing-progress-120000522.html",
+      "url": "https://sports.yahoo.com/articles/sbn-reacts-suns-chasing-progress-120000522.html",
+      "pubDate": "2026-07-10T12:00:00.000Z",
+      "publishedAt": "2026-07-10T12:00:00.000Z",
+      "summary": "Honest evaluation isn't negativity. It's an essential part of player development.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "SBN Reacts 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/0.M.5xmmNJTC4lK4EkmdMg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xODAwO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/82a81eedece0e10f036d511c3dcc92c1",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "SBN Reacts: The Suns are chasing progress, not highlights, in Las Vegas",
+      "copySource": "fallback",
+      "storyType": "opinion",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/sb-nation-reacts-wizards-fan-120000644.html",
+      "title": "SB Nation Reacts: Wizards fan give good marks on coaching staff changes",
+      "originalTitle": "SB Nation Reacts: Wizards fan give good marks on coaching staff changes",
+      "headlineZh": "SB Nation Reacts 相关消息更新",
+      "titleZh": "SB Nation Reacts 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/sb-nation-reacts-wizards-fan-120000644.html",
+      "url": "https://sports.yahoo.com/articles/sb-nation-reacts-wizards-fan-120000644.html",
+      "pubDate": "2026-07-10T12:00:00.000Z",
+      "publishedAt": "2026-07-10T12:00:00.000Z",
+      "summary": "Good morning Washington Wizards fans. In this week’s survey, we asked you to grade the Wizards’ coaching staff changes for the 2026-27 season. They dealt with shuffling of assistant positions, NOT Brian Keefe. Anyway, about half of our respondents gave a B grade, which is solid. The As and Cs were nearly identical. The promotion […]",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "SB Nation Reacts 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/_VFlpBpmxfM3at7gZ7XZeQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/e9fc229e09eefad4d2d9c4988a476195",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "grades:sb-nation-reacts",
+      "relatedItems": [],
+      "displayTitle": "SB Nation Reacts: Wizards fan give good marks on coaching staff changes",
+      "copySource": "fallback",
+      "storyType": "opinion",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/open-thread-carter-bryant-buys-110000694.html",
+      "title": "Open Thread: Carter Bryant buys his mom a car",
+      "originalTitle": "Open Thread: Carter Bryant buys his mom a car",
+      "headlineZh": "Open Thread 相关消息更新",
+      "titleZh": "Open Thread 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/open-thread-carter-bryant-buys-110000694.html",
+      "url": "https://sports.yahoo.com/articles/open-thread-carter-bryant-buys-110000694.html",
+      "pubDate": "2026-07-10T11:00:00.000Z",
+      "publishedAt": "2026-07-10T11:00:00.000Z",
+      "summary": "The Spurs forward celebrated completing his rookie season by honoring his biggest fan",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Open Thread 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/r1Dt4vl9oSmsqhWMw6WZ6Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/be790b7eab07a304f9d2a509a9953939",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "选秀",
+      "importance": 2,
+      "displayTitle": "Open Thread: Carter Bryant buys his mom a car",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/celtics-summer-league-crash-course-102800218.html",
+      "title": "The Celtics Summer League Crash Course",
+      "originalTitle": "The Celtics Summer League Crash Course",
+      "headlineZh": "Summer League Crash 相关消息更新",
+      "titleZh": "Summer League Crash 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/celtics-summer-league-crash-course-102800218.html",
+      "url": "https://sports.yahoo.com/articles/celtics-summer-league-crash-course-102800218.html",
+      "pubDate": "2026-07-10T10:28:00.000Z",
+      "publishedAt": "2026-07-10T10:28:00.000Z",
+      "summary": "Get to know the 2026 Summer League Celtics.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Summer League Crash 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/sYG4xYhDrIh33dxPG89WzQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/e19e2552893bcbac10473cffa0cfbd5e",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "The Celtics Summer League Crash Course",
+      "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -252,11 +441,11 @@
       "eventKey": "sign:lebron-james",
       "relatedItems": [
         {
-          "title": "NBA teams forced to leave voice notes to contact LeBron James in free agency",
-          "originalTitle": "NBA teams forced to leave voice notes to contact LeBron James in free agency",
+          "title": "NBA teams courting LeBron James via voice memos to agent, per report",
+          "originalTitle": "NBA teams courting LeBron James via voice memos to agent, per report",
           "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/nba-teams-forced-leave-voice-203617838.html",
-          "publishedAt": "2026-07-09T20:36:17.000Z",
+          "url": "https://sports.yahoo.com/articles/nba-teams-courting-lebron-james-131048999.html",
+          "publishedAt": "2026-07-10T13:10:48.000Z",
           "angle": "report"
         }
       ],
@@ -264,16 +453,16 @@
         "Yahoo Sports"
       ],
       "originalTitles": [
-        "NBA teams forced to leave voice notes to contact LeBron James in free agency"
+        "NBA teams courting LeBron James via voice memos to agent, per report"
       ],
       "sourceLinks": [
         {
           "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-watch-2026-everyone-northeast-100000648.html"
+          "link": "https://sports.yahoo.com/articles/nba-teams-courting-lebron-james-131048999.html"
         },
         {
           "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/nba-teams-forced-leave-voice-203617838.html"
+          "link": "https://sports.yahoo.com/articles/lebron-watch-2026-everyone-northeast-100000648.html"
         }
       ],
       "isMerged": true,
@@ -397,48 +586,31 @@
       "id": "https://basketball.realgm.com/wiretap/286644/Clippers-Baba-Miller-Agree-To-Four-Year-$961M-Deal",
       "title": "Clippers, Baba Miller Agree To Four-Year, $9.61M Deal",
       "originalTitle": "Clippers, Baba Miller Agree To Four-Year, $9.61M Deal",
-      "headlineZh": "快船 与 Baba Miller 达成 4 年 961 万美元合同",
-      "titleZh": "快船 与 Baba Miller 达成 4 年 961 万美元合同",
+      "headlineZh": "快船与 Baba Miller 达成四年，961 万美元合同",
+      "titleZh": "快船与 Baba Miller 达成四年，961 万美元合同",
       "link": "https://basketball.realgm.com/wiretap/286644/Clippers-Baba-Miller-Agree-To-Four-Year-$961M-Deal",
       "url": "https://basketball.realgm.com/wiretap/286644/Clippers-Baba-Miller-Agree-To-Four-Year-$961M-Deal",
       "pubDate": "2026-07-10T05:36:11.000Z",
       "publishedAt": "2026-07-10T05:36:11.000Z",
       "summary": "<p>The Los Angeles Clippers signed Baba Miller to a four-year, $9.61 million contract on Thursday, reported Michael Scotto of HoopsHype.</p> <p>It is the largest contract given to any second-round pick in the 2026 draft thus far.</p> <p>Miller averaged 13.0 points and 10.3 rebounds at Cincinnati last season. </p> <p> </p>",
       "dekZh": "Miller 场均13.0分和10.3篮板 at Cincinnati 上赛季。",
-      "summaryZh": "据 RealGM 报道，快船与 Baba Miller 达成四年，961 万美元合同。",
-      "oneLineZh": "快船 与 Baba Miller 达成 4 年 961 万美元合同",
+      "summaryZh": "据 RealGM 报道，快船与 Baba Miller 达成四年，961 万美元合同，原文关注 Baba Miller Agree 的合同或自由市场动向。",
+      "oneLineZh": "快船与 Baba Miller 达成四年，961 万美元合同",
       "goldenQuoteZh": "",
       "keyPoints": [
         "Miller场均13.0分和10.3篮板 at Cincinnati 上赛季。"
       ],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_losangelesclippers.jpg",
-      "source": "RealGM / Yahoo Sports",
+      "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
-      "importance": 5,
-      "sources": [
-        "RealGM",
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286644/Clippers-Baba-Miller-Agree-To-Four-Year-$961M-Deal"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/clippers-kawhi-leonard-trade-frozen-205758688.html"
-        }
-      ],
-      "originalTitles": [
-        "Clippers, Baba Miller Agree To Four-Year, $9.61M Deal"
-      ],
-      "isMerged": false,
+      "importance": 4,
       "eventKey": "sign:clippers:baba-miller:4:961",
       "relatedItems": [],
       "displayTitle": "Clippers, Baba Miller Agree To Four-Year, $9.61M Deal",
       "copySource": "fallback",
-      "storyType": "rumor"
+      "storyType": "rumor",
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/player-grades-recapping-mavericks-vs-053254187.html",
@@ -552,7 +724,7 @@
       "storyType": "opinion",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T12:28:08.962Z",
+      "aiGeneratedAt": "2026-07-10T15:15:48.339Z",
       "aiConfidence": 0.85
     },
     {
@@ -639,7 +811,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T12:28:08.962Z",
+      "aiGeneratedAt": "2026-07-10T15:15:48.340Z",
       "aiConfidence": 0.75
     },
     {
@@ -698,7 +870,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T12:28:08.963Z",
+      "aiGeneratedAt": "2026-07-10T15:15:48.341Z",
       "aiConfidence": 0.9
     },
     {
@@ -757,7 +929,7 @@
       "storyType": "injury",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T12:28:08.964Z",
+      "aiGeneratedAt": "2026-07-10T15:15:48.342Z",
       "aiConfidence": 0.9
     },
     {
@@ -788,7 +960,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T12:28:08.965Z",
+      "aiGeneratedAt": "2026-07-10T15:15:48.343Z",
       "aiConfidence": 0.85
     },
     {
@@ -966,7 +1138,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T12:28:08.966Z",
+      "aiGeneratedAt": "2026-07-10T15:15:48.343Z",
       "aiConfidence": 0.9
     },
     {
@@ -997,7 +1169,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T12:28:08.967Z",
+      "aiGeneratedAt": "2026-07-10T15:15:48.344Z",
       "aiConfidence": 0.9
     },
     {
@@ -1406,11 +1578,11 @@
       "sourceLinks": [
         {
           "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286627/LeBron-James-Believed-To-Have-Current-Favorite-In-Mind-As-Process-Continues"
+          "link": "https://basketball.realgm.com/wiretap/286642/Stephen-Curry-Says-LeBron-James-Pairing-No-Longer-A-Pipedream"
         },
         {
           "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286642/Stephen-Curry-Says-LeBron-James-Pairing-No-Longer-A-Pipedream"
+          "link": "https://basketball.realgm.com/wiretap/286627/LeBron-James-Believed-To-Have-Current-Favorite-In-Mind-As-Process-Continues"
         },
         {
           "source": "RealGM",
@@ -1567,116 +1739,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/where-lakers-stand-financially-free-200715249.html",
-      "title": "The Lakers’ 2026-27 salary-cap sheet after the first wave of free agency",
-      "originalTitle": "The Lakers’ 2026-27 salary-cap sheet after the first wave of free agency",
-      "headlineZh": "湖人自由市场与合同动向",
-      "titleZh": "湖人自由市场与合同动向",
-      "link": "https://sports.yahoo.com/articles/where-lakers-stand-financially-free-200715249.html",
-      "url": "https://sports.yahoo.com/articles/where-lakers-stand-financially-free-200715249.html",
-      "pubDate": "2026-07-09T21:14:22.000Z",
-      "publishedAt": "2026-07-09T21:14:22.000Z",
-      "summary": "After spending more than a quarter-billion dollars on Wednesday, the Lakers appear to have no more salary-cap space.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "湖人自由市场与合同动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/2HwRfHKdmFkEjHjKsEw1rg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/88cdb9b9b6c5800902bda9f306c042b2",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:the-lakers:lakers",
-      "relatedItems": [],
-      "displayTitle": "The Lakers’ 2026-27 salary-cap sheet after the first wave of free agency",
-      "copySource": "fallback",
-      "storyType": "signing",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/kawhi-leonard-trade-toronto-hold-210830237.html",
-      "title": "Kawhi Leonard trade to Toronto on hold until Aspiration investigation concludes",
-      "originalTitle": "Kawhi Leonard trade to Toronto on hold until Aspiration investigation concludes",
-      "headlineZh": "Kawhi Leonard 交易影响继续发酵",
-      "titleZh": "Kawhi Leonard 交易影响继续发酵",
-      "link": "https://sports.yahoo.com/articles/kawhi-leonard-trade-toronto-hold-210830237.html",
-      "url": "https://sports.yahoo.com/articles/kawhi-leonard-trade-toronto-hold-210830237.html",
-      "pubDate": "2026-07-09T21:08:30.000Z",
-      "publishedAt": "2026-07-09T21:08:30.000Z",
-      "summary": "When will that investigation into alleged salary cap circumvention end? Good question.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Kawhi Leonard 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
-      "oneLineZh": "Kawhi Leonard 交易影响继续发酵",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/jA9hkCurr7.svpI8Lf.ndg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/95a1bc1450365df4ceb96519c7a418c5",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 4,
-      "eventKey": "trade:kawhi-leonard",
-      "relatedItems": [
-        {
-          "title": "Raptors put Kawhi Leonard trade on hold until the NBA probe into the Clippers concludes",
-          "originalTitle": "Raptors put Kawhi Leonard trade on hold until the NBA probe into the Clippers concludes",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html",
-          "publishedAt": "2026-07-09T20:27:16.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Kawhi Leonard trade to Toronto on hold until Aspiration investigation concludes",
-        "Raptors put Kawhi Leonard trade on hold until the NBA probe into the Clippers concludes"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/kawhi-leonard-trade-toronto-hold-210830237.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/raptors-put-kawhi-leonard-trade-202716252.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "Kawhi Leonard trade to Toronto on hold until Aspiration investigation concludes",
-      "copySource": "fallback",
-      "storyType": "trade"
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/dell-curry-shares-steph-seth-210130458.html",
-      "title": "Dell Curry shares how Steph, Seth became ‘closer' playing together on Warriors",
-      "originalTitle": "Dell Curry shares how Steph, Seth became ‘closer' playing together on Warriors",
-      "headlineZh": "Dell Curry 相关消息更新",
-      "titleZh": "Dell Curry 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/dell-curry-shares-steph-seth-210130458.html",
-      "url": "https://sports.yahoo.com/articles/dell-curry-shares-steph-seth-210130458.html",
-      "pubDate": "2026-07-09T21:01:30.000Z",
-      "publishedAt": "2026-07-09T21:01:30.000Z",
-      "summary": "Dell Curry spoke with NBC Sports Bay Area's Monte Poole and reflected on his sons, Seth and Steph playing together on the Warriors last season.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Dell Curry 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/d235a9822603a51648529db12e94b61e",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Dell Curry shares how Steph, Seth became ‘closer' playing together on Warriors",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286638/Jerry-Colangelo-Leads-New-Las-Vegas-Bid-As-Seattle-Interest-Lags",
       "title": "Jerry Colangelo Leads New Las Vegas Bid As Seattle Interest Lags",
       "originalTitle": "Jerry Colangelo Leads New Las Vegas Bid As Seattle Interest Lags",
@@ -1702,34 +1764,6 @@
       "displayTitle": "Jerry Colangelo Leads New Las Vegas Bid As Seattle Interest Lags",
       "copySource": "fallback",
       "storyType": "rumor",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/yaxel-lendeborg-lj-cryer-put-204138262.html",
-      "title": "Yaxel Lendeborg, LJ Cryer put on Las Vegas show in Warriors' summer league win",
-      "originalTitle": "Yaxel Lendeborg, LJ Cryer put on Las Vegas show in Warriors' summer league win",
-      "headlineZh": "Yaxel Lendeborg 相关消息更新",
-      "titleZh": "Yaxel Lendeborg 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/yaxel-lendeborg-lj-cryer-put-204138262.html",
-      "url": "https://sports.yahoo.com/articles/yaxel-lendeborg-lj-cryer-put-204138262.html",
-      "pubDate": "2026-07-09T20:41:38.000Z",
-      "publishedAt": "2026-07-09T20:41:38.000Z",
-      "summary": "Dalton Johnson breaks down the Golden State Warriors' NBA Summer League win over the Dallas Mavericks on Thursday in Las Vegas.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Yaxel Lendeborg 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/df5a125c3270226afac221ea5c545bd1",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Yaxel Lendeborg, LJ Cryer put on Las Vegas show in Warriors' summer league win",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -1788,7 +1822,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-10T12:28:08.968Z",
+      "aiGeneratedAt": "2026-07-10T15:15:48.346Z",
       "aiConfidence": 0.85
     },
     {
@@ -2211,34 +2245,6 @@
       "displayTitle": "Felix Okpara, Wizards Agree To Two-Way Contract",
       "copySource": "fallback",
       "storyType": "rumor",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286608/Bruce-Thornton-Rockets-Agree-To-Four-Year-$93M-Deal",
-      "title": "Bruce Thornton, Rockets Agree To Four-Year, $9.3M Deal",
-      "originalTitle": "Bruce Thornton, Rockets Agree To Four-Year, $9.3M Deal",
-      "headlineZh": "Bruce Thornton 与火箭达成四年，930 万美元合同",
-      "titleZh": "Bruce Thornton 与火箭达成四年，930 万美元合同",
-      "link": "https://basketball.realgm.com/wiretap/286608/Bruce-Thornton-Rockets-Agree-To-Four-Year-$93M-Deal",
-      "url": "https://basketball.realgm.com/wiretap/286608/Bruce-Thornton-Rockets-Agree-To-Four-Year-$93M-Deal",
-      "pubDate": "2026-07-08T05:27:21.000Z",
-      "publishedAt": "2026-07-08T05:27:21.000Z",
-      "summary": "<p>The Houston Rockets signed Bruce Thornton to a four-year, $9.3 million deal on Tuesday.</p> <p>The first year of the deal is fully guaranteed.</p> <p>Thornton was the 31st pick of the 2026 NBA Draft.</p>",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Bruce Thornton 与火箭达成四年，930 万美元合同，原文关注 Bruce Thornton 的合同或自由市场动向。",
-      "oneLineZh": "Bruce Thornton 与火箭达成四年，930 万美元合同",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_houstonrockets.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 4,
-      "eventKey": "sign:bruce-thornton:rockets:4:930",
-      "relatedItems": [],
-      "displayTitle": "Bruce Thornton, Rockets Agree To Four-Year, $9.3M Deal",
-      "copySource": "fallback",
-      "storyType": "signing",
       "isMerged": false
     }
   ]
