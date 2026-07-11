@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-11T10:00:15.990Z",
+  "updatedAt": "2026-07-11T11:15:28.638Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-11T10:00:15.990Z",
-    "previousUpdatedAt": "2026-07-11T08:02:38.263Z",
-    "updatedAt": "2026-07-11T10:00:15.990Z",
+    "checkedAt": "2026-07-11T11:15:28.638Z",
+    "previousUpdatedAt": "2026-07-11T10:00:15.990Z",
+    "updatedAt": "2026-07-11T11:15:28.638Z",
     "fetchedItems": 80,
-    "mergedItems": 69,
+    "mergedItems": 70,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,10 +31,10 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-11T06:47:37.000Z",
-    "dataAgeHours": 3.2108305555555554,
+    "newestPublishedAt": "2026-07-11T10:40:00.000Z",
+    "dataAgeHours": 0.5912883333333333,
     "aiEnabled": false,
-    "aiCandidates": 62,
+    "aiCandidates": 63,
     "aiCacheHits": 1,
     "aiRequests": 0,
     "aiAccepted": 0,
@@ -67,6 +67,62 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/pope-discusses-importance-developmental-minutes-104000342.html",
+      "title": "Pope discusses importance of “developmental minutes” during regular season",
+      "originalTitle": "Pope discusses importance of “developmental minutes” during regular season",
+      "headlineZh": "NBA 休赛期后续动向",
+      "titleZh": "NBA 休赛期后续动向",
+      "link": "https://sports.yahoo.com/articles/pope-discusses-importance-developmental-minutes-104000342.html",
+      "url": "https://sports.yahoo.com/articles/pope-discusses-importance-developmental-minutes-104000342.html",
+      "pubDate": "2026-07-11T10:40:00.000Z",
+      "publishedAt": "2026-07-11T10:40:00.000Z",
+      "summary": "Pope spoke about his substitution patterns",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "NBA 休赛期后续动向",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/jEMC9mt.8n481Rr1kWCMKg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/8761c53f4c7727f645caefedf97aed73",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Pope discusses importance of “developmental minutes” during regular season",
+      "copySource": "fallback",
+      "storyType": "opinion",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/knicks-bulletin-hey-listen-got-080500342.html",
+      "title": "Knicks Bulletin: ‘Hey, listen, they got roles in the league, man’",
+      "originalTitle": "Knicks Bulletin: ‘Hey, listen, they got roles in the league, man’",
+      "headlineZh": "尼克斯 Bulletin 相关消息更新",
+      "titleZh": "尼克斯 Bulletin 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/knicks-bulletin-hey-listen-got-080500342.html",
+      "url": "https://sports.yahoo.com/articles/knicks-bulletin-hey-listen-got-080500342.html",
+      "pubDate": "2026-07-11T08:05:00.000Z",
+      "publishedAt": "2026-07-11T08:05:00.000Z",
+      "summary": "We so back the Knicks even played basketball yesterday. It was a Summerbeating at the hands of the Neighbor Nets, but that’s the only place Brooklyn can beat New York these days. Here’s the latest from Las Vegas. T.J. Saint On Tyler Nickel: “I’ve been most impressed with Nickel’s defense.” On Mohamed Diawara, Pacome Dadiet, […]",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "尼克斯 Bulletin 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/3HSx8D3wkLsgU1AwnIn9rg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/7409da150d7209685b1008928f00a340",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Knicks Bulletin: ‘Hey, listen, they got roles in the league, man’",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/adou-thiero-turned-promise-production-064737772.html",
       "title": "Adou Thiero turned his promise into production against Thunder in Summer League",
@@ -918,10 +974,6 @@
         {
           "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286655/Victor-Wembanyama-Spurs-Agree-To-Discounted-Five-Year-$252M-Extension"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/victor-wembanyama-hints-may-less-214534045.html"
         }
       ],
       "originalTitles": [
@@ -1371,34 +1423,6 @@
       "displayTitle": "Bam Adebayo Struck Tyler Herro In Response To Social Media Comments",
       "copySource": "fallback",
       "storyType": "rumor",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/cavs-fans-believe-sixers-improved-214000993.html",
-      "title": "Cavs fans believe that the Sixers improved the most this offseason",
-      "originalTitle": "Cavs fans believe that the Sixers improved the most this offseason",
-      "headlineZh": "骑士休赛期后续动向",
-      "titleZh": "骑士休赛期后续动向",
-      "link": "https://sports.yahoo.com/articles/cavs-fans-believe-sixers-improved-214000993.html",
-      "url": "https://sports.yahoo.com/articles/cavs-fans-believe-sixers-improved-214000993.html",
-      "pubDate": "2026-07-10T21:40:00.000Z",
-      "publishedAt": "2026-07-10T21:40:00.000Z",
-      "summary": "The Cavs will need to find their place in a more competitive conference.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "骑士休赛期后续动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/4MduhThGV0kr6cX6B1q8FQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05NjA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/c4d4542fd6efcfb1c7a9d941493a0a33",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Cavs fans believe that the Sixers improved the most this offseason",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -1925,7 +1949,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-11T10:00:15.962Z",
+      "aiGeneratedAt": "2026-07-11T11:15:28.606Z",
       "aiConfidence": 0.85
     },
     {
