@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-11T08:02:38.263Z",
+  "updatedAt": "2026-07-11T10:00:15.990Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-11T08:02:38.263Z",
-    "previousUpdatedAt": "2026-07-11T05:46:44.447Z",
-    "updatedAt": "2026-07-11T08:02:38.263Z",
+    "checkedAt": "2026-07-11T10:00:15.990Z",
+    "previousUpdatedAt": "2026-07-11T08:02:38.263Z",
+    "updatedAt": "2026-07-11T10:00:15.990Z",
     "fetchedItems": 80,
     "mergedItems": 69,
     "successfulFeeds": [
@@ -31,8 +31,8 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-11T06:10:52.000Z",
-    "dataAgeHours": 1.8628508333333333,
+    "newestPublishedAt": "2026-07-11T06:47:37.000Z",
+    "dataAgeHours": 3.2108305555555554,
     "aiEnabled": false,
     "aiCandidates": 62,
     "aiCacheHits": 1,
@@ -67,6 +67,34 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/adou-thiero-turned-promise-production-064737772.html",
+      "title": "Adou Thiero turned his promise into production against Thunder in Summer League",
+      "originalTitle": "Adou Thiero turned his promise into production against Thunder in Summer League",
+      "headlineZh": "Adou Thiero 相关消息更新",
+      "titleZh": "Adou Thiero 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/adou-thiero-turned-promise-production-064737772.html",
+      "url": "https://sports.yahoo.com/articles/adou-thiero-turned-promise-production-064737772.html",
+      "pubDate": "2026-07-11T06:47:37.000Z",
+      "publishedAt": "2026-07-11T06:47:37.000Z",
+      "summary": "Adou Thiero was brilliant in his Las Vegas Summer League debut for the Lakers.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Adou Thiero 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/GVNG3rAuusmsOvi0ke1W2Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDg7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/75cba925b093f9a56c15b75ecc6540d8",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Adou Thiero turned his promise into production against Thunder in Summer League",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/chicagos-caleb-wilson-sets-las-061052020.html",
       "title": "Chicago's Caleb Wilson sets Las Vegas Summer League debut record, scoring 35 on Grizzlies",
@@ -261,6 +289,62 @@
       "displayTitle": "Bam Adebayo-Tyler Herro incident underscores one of NBA's great truths: 'It's a business. Sometimes tensions come up from that'",
       "copySource": "fallback",
       "storyType": "rumor",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/mikel-brown-jr-promising-nets-040328454.html",
+      "title": "Mikel Brown Jr.’s promising Nets Summer League debut had it all",
+      "originalTitle": "Mikel Brown Jr.’s promising Nets Summer League debut had it all",
+      "headlineZh": "Mikel Brown Jr 相关消息更新",
+      "titleZh": "Mikel Brown Jr 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/mikel-brown-jr-promising-nets-040328454.html",
+      "url": "https://sports.yahoo.com/articles/mikel-brown-jr-promising-nets-040328454.html",
+      "pubDate": "2026-07-11T04:03:28.000Z",
+      "publishedAt": "2026-07-11T04:03:28.000Z",
+      "summary": "Mikel Brown Jr.’s Las Vegas Summer League debut featured a slow start, a strong finish and all kinds of spectacular plays in between Friday night.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Mikel Brown Jr 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/osqYZ45KOyMiHVE7ihztbw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/3b29c08046c1a0878522a2e65d87c30e",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Mikel Brown Jr.’s promising Nets Summer League debut had it all",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/mohamed-diawara-doesn-t-sugarcoat-034840813.html",
+      "title": "Mohamed Diawara doesn’t sugarcoat Summer League dud as he fights for Knicks rotation spot",
+      "originalTitle": "Mohamed Diawara doesn’t sugarcoat Summer League dud as he fights for Knicks rotation spot",
+      "headlineZh": "Mohamed Diawara 相关消息更新",
+      "titleZh": "Mohamed Diawara 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/mohamed-diawara-doesn-t-sugarcoat-034840813.html",
+      "url": "https://sports.yahoo.com/articles/mohamed-diawara-doesn-t-sugarcoat-034840813.html",
+      "pubDate": "2026-07-11T03:48:40.000Z",
+      "publishedAt": "2026-07-11T03:48:40.000Z",
+      "summary": "Mohamed Diawara wasn’t in the mood to talk about his new contract. Or his potential.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Mohamed Diawara 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/hFrq2HO6bdSMPl2.qwZM9A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/1ab8f4c155a72aedcdf38d566138f554",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:mohamed-diawara",
+      "relatedItems": [],
+      "displayTitle": "Mohamed Diawara doesn’t sugarcoat Summer League dud as he fights for Knicks rotation spot",
+      "copySource": "fallback",
+      "storyType": "signing",
       "isMerged": false
     },
     {
@@ -878,18 +962,19 @@
       ],
       "sourceLinks": [
         {
-          "source": "Yahoo Sports",
+          "source": "Yahoo Sports / RealGM",
           "link": "https://sports.yahoo.com/articles/victor-wembanyama-signs-maximum-contract-231743418.html"
         },
         {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286651/Victor-Wembanyama-Considering-Discount-Extension-With-Spurs"
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/wembanyama-signs-long-term-deal-081505361.html"
         }
       ],
       "originalTitles": [
-        "Victor Wembanyama signs maximum contract extension with Spurs, waives super max escalator"
+        "Victor Wembanyama signs maximum contract extension with Spurs, waives super max escalator",
+        "Wembanyama signs long-term deal with Spurs"
       ],
-      "isMerged": false,
+      "isMerged": true,
       "eventKey": "sign:victor-wembanyama:spurs",
       "relatedItems": [],
       "displayTitle": "Victor Wembanyama signs maximum contract extension with Spurs, waives super max escalator",
@@ -1317,90 +1402,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/game-thread-summerknicks-vs-summernets-213000168.html",
-      "title": "Game Thread: SummerKnicks vs. SummerNets, July 10, 2026",
-      "originalTitle": "Game Thread: SummerKnicks vs. SummerNets, July 10, 2026",
-      "headlineZh": "Game Thread 相关消息更新",
-      "titleZh": "Game Thread 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/game-thread-summerknicks-vs-summernets-213000168.html",
-      "url": "https://sports.yahoo.com/articles/game-thread-summerknicks-vs-summernets-213000168.html",
-      "pubDate": "2026-07-10T21:30:00.000Z",
-      "publishedAt": "2026-07-10T21:30:00.000Z",
-      "summary": "First return to Vegas since winning the NBA Cup.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Game Thread 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/764TMiaBOZW_3T4oKEpGwA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/7e5e25b5477218c7e3dfe4d4833995d1",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Game Thread: SummerKnicks vs. SummerNets, July 10, 2026",
-      "copySource": "fallback",
-      "storyType": "injury",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/nba-summer-league-live-discussion-213000199.html",
-      "title": "NBA Summer League Live Discussion: Brooklyn Nets vs. New York Knicks, 6:00 PM ET",
-      "originalTitle": "NBA Summer League Live Discussion: Brooklyn Nets vs. New York Knicks, 6:00 PM ET",
-      "headlineZh": "Summer League Live 相关消息更新",
-      "titleZh": "Summer League Live 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/nba-summer-league-live-discussion-213000199.html",
-      "url": "https://sports.yahoo.com/articles/nba-summer-league-live-discussion-213000199.html",
-      "pubDate": "2026-07-10T21:30:00.000Z",
-      "publishedAt": "2026-07-10T21:30:00.000Z",
-      "summary": "We got a look in Cali. Now, the Nets kick off Las Vegas portion of Summer League against the Knicks.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Summer League Live 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/tz3psUXDmbpRr61oMPNRXA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xODAwO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/32f386f0f18a555cdc7a462f39c7cab8",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "NBA Summer League Live Discussion: Brooklyn Nets vs. New York Knicks, 6:00 PM ET",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/summer-league-jerseys-don-t-211141829.html",
-      "title": "Summer League jerseys don’t disappoint",
-      "originalTitle": "Summer League jerseys don’t disappoint",
-      "headlineZh": "Summer League 相关消息更新",
-      "titleZh": "Summer League 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/summer-league-jerseys-don-t-211141829.html",
-      "url": "https://sports.yahoo.com/articles/summer-league-jerseys-don-t-211141829.html",
-      "pubDate": "2026-07-10T21:11:41.000Z",
-      "publishedAt": "2026-07-10T21:11:41.000Z",
-      "summary": "When you go to see NBA Summer League, you look at top draft picks, and weird jerseys",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Summer League 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/wykVWcH_rJLBhF_JbI7XvQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xODAyO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/d204ea5c1805b5afa2cc82c2b98ee5de",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 2,
-      "displayTitle": "Summer League jerseys don’t disappoint",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286653/Duncd-On-Darryn-vs-AJ;-Kawhi-On-Hold;-LeBron-Annoys",
       "title": "Dunc'd On: Darryn vs AJ; Kawhi On Hold; LeBron Annoys",
       "originalTitle": "Dunc'd On: Darryn vs AJ; Kawhi On Hold; LeBron Annoys",
@@ -1728,20 +1729,18 @@
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Curry_Stephen_gsw_260416.jpg",
-      "source": "RealGM / Yahoo Sports",
+      "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
       "importance": 2,
       "eventKey": "sign:lebron-james:cavaliers",
       "relatedItems": [],
       "sources": [
-        "RealGM",
-        "Yahoo Sports"
+        "RealGM"
       ],
       "originalTitles": [
         "Stephen Curry Says LeBron James Pairing No Longer A 'Pipedream'",
-        "LeBron James Believed To Have Current Favorite In Mind As Process Continues",
-        "NBA insider also hearing rumors about LeBron James signing in cities besides Cleveland"
+        "LeBron James Believed To Have Current Favorite In Mind As Process Continues"
       ],
       "sourceLinks": [
         {
@@ -1751,10 +1750,6 @@
         {
           "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286627/LeBron-James-Believed-To-Have-Current-Favorite-In-Mind-As-Process-Continues"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/nba-insider-hearing-rumors-lebron-212126060.html"
         }
       ],
       "isMerged": false,
@@ -1930,7 +1925,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-11T08:02:38.242Z",
+      "aiGeneratedAt": "2026-07-11T10:00:15.962Z",
       "aiConfidence": 0.85
     },
     {
