@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-12T22:58:31.211Z",
+  "updatedAt": "2026-07-13T00:03:46.928Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-12T22:58:31.211Z",
-    "previousUpdatedAt": "2026-07-12T21:56:57.914Z",
-    "updatedAt": "2026-07-12T22:58:31.211Z",
+    "checkedAt": "2026-07-13T00:03:46.928Z",
+    "previousUpdatedAt": "2026-07-12T22:58:31.211Z",
+    "updatedAt": "2026-07-13T00:03:46.928Z",
     "fetchedItems": 80,
     "mergedItems": 77,
     "successfulFeeds": [
@@ -31,10 +31,10 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-12T22:33:44.000Z",
-    "dataAgeHours": 0.41311416666666667,
+    "newestPublishedAt": "2026-07-12T22:36:00.000Z",
+    "dataAgeHours": 1.4630355555555556,
     "aiEnabled": false,
-    "aiCandidates": 69,
+    "aiCandidates": 68,
     "aiCacheHits": 0,
     "aiRequests": 0,
     "aiAccepted": 0,
@@ -67,7 +67,7 @@
     },
     {
       "id": "https://sports.yahoo.com/articles/bucks-retain-key-piece-64-005336144.html",
-      "text": "Bucks 与雄鹿达成 6400 万美元合同",
+      "text": "Giannis Antetokounmpo 交易影响继续发酵",
       "category": "交易",
       "source": "Yahoo Sports",
       "link": "https://sports.yahoo.com/articles/bucks-retain-key-piece-64-005336144.html"
@@ -88,6 +88,34 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "title": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "originalTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "headlineZh": "LeBron James Next 相关消息更新",
+      "titleZh": "LeBron James Next 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "url": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "pubDate": "2026-07-12T22:36:00.000Z",
+      "publishedAt": "2026-07-12T22:36:00.000Z",
+      "summary": "LeBron James' next team odds have tightened, with Cleveland still leading Kalshi's market as Miami surges past Golden State into second.",
+      "dekZh": "",
+      "summaryZh": "Yahoo Sports 分析了2026 LeBron James Next Team 相关赔率变化，文章属于赔率和前景分析。",
+      "oneLineZh": "LeBron James Next 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/829b52bbdc0f0e73b91edebe6030e0f7",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "eventKey": "odds:lebron-james",
+      "relatedItems": [],
+      "displayTitle": "2026 LeBron James Next Team Odds: Latest Movement as 'The King' Eyes Championship Fit",
+      "copySource": "fallback",
+      "storyType": "analysis",
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/dbr-podcast-834-nba-dukies-223344337.html",
       "title": "DBR Podcast # 834 – NBA Dukies Showing Out In Summer League",
@@ -284,6 +312,34 @@
       "displayTitle": "Alpha Diallo, Nuggets Agree To One-Year, $1.4M Deal",
       "copySource": "fallback",
       "storyType": "signing",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/nba-summer-league-sickos-good-204905985.html",
+      "title": "NBA Summer League is for sickos — good thing it’s in Las Vegas, where sickos of all sorts gather",
+      "originalTitle": "NBA Summer League is for sickos — good thing it’s in Las Vegas, where sickos of all sorts gather",
+      "headlineZh": "Summer League 相关消息更新",
+      "titleZh": "Summer League 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/nba-summer-league-sickos-good-204905985.html",
+      "url": "https://sports.yahoo.com/articles/nba-summer-league-sickos-good-204905985.html",
+      "pubDate": "2026-07-12T20:49:05.000Z",
+      "publishedAt": "2026-07-12T20:49:05.000Z",
+      "summary": "A dispatch from Las Vegas from the first weekend of NBA Summer League, where Mavericks’ rookie Morez Johnson Jr. debuted.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Summer League 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Bs3izjrPe79PmVO1BsfGAw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05NjA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/e5f4b6327bb814a16d55b267e4b3f192",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "选秀",
+      "importance": 2,
+      "displayTitle": "NBA Summer League is for sickos — good thing it’s in Las Vegas, where sickos of all sorts gather",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -1464,16 +1520,16 @@
       "id": "https://sports.yahoo.com/articles/bucks-retain-key-piece-64-005336144.html",
       "title": "Bucks retain key piece on $64 million after Giannis Antetokounmpo trade",
       "originalTitle": "Bucks retain key piece on $64 million after Giannis Antetokounmpo trade",
-      "headlineZh": "Bucks 与雄鹿达成 6400 万美元合同",
-      "titleZh": "Bucks 与雄鹿达成 6400 万美元合同",
+      "headlineZh": "Giannis Antetokounmpo 交易影响继续发酵",
+      "titleZh": "Giannis Antetokounmpo 交易影响继续发酵",
       "link": "https://sports.yahoo.com/articles/bucks-retain-key-piece-64-005336144.html",
       "url": "https://sports.yahoo.com/articles/bucks-retain-key-piece-64-005336144.html",
       "pubDate": "2026-07-12T00:53:36.000Z",
       "publishedAt": "2026-07-12T00:53:36.000Z",
       "summary": "The Bucks are making moves after trading Giannis Antetokounmpo late last month.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Bucks 与雄鹿达成 6400 万美元合同，原文关注 Giannis Antetokounmpo 相关交易的后续影响。",
-      "oneLineZh": "Bucks 与雄鹿达成 6400 万美元合同",
+      "summaryZh": "据 Yahoo Sports 报道，Giannis Antetokounmpo 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "Giannis Antetokounmpo 交易影响继续发酵",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/04e6XoPsl0h4jVraax0hTA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/adb86b476bde9397f2cad94541840a37",
@@ -1481,28 +1537,12 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "交易",
       "importance": 5,
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/bucks-retain-key-piece-64-005336144.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/bucks-sign-gary-trent-jr-232149701.html"
-        }
-      ],
-      "originalTitles": [
-        "Bucks retain key piece on $64 million after Giannis Antetokounmpo trade"
-      ],
-      "isMerged": false,
       "eventKey": "trade:giannis-antetokounmpo",
       "relatedItems": [],
       "displayTitle": "Bucks retain key piece on $64 million after Giannis Antetokounmpo trade",
       "copySource": "fallback",
-      "storyType": "trade"
+      "storyType": "trade",
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/nba/article/paolo-banchero-qa-magic-star-rejuvenated-with-new-coaching-staff-004353596.html",
@@ -1586,34 +1626,6 @@
       "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/philon-broome-stand-again-summer-233706281.html",
-      "title": "Philon, Broome stand out again as Summer Sixers hang on to beat Pacers in OT",
-      "originalTitle": "Philon, Broome stand out again as Summer Sixers hang on to beat Pacers in OT",
-      "headlineZh": "步行者休赛期后续动向",
-      "titleZh": "步行者休赛期后续动向",
-      "link": "https://sports.yahoo.com/articles/philon-broome-stand-again-summer-233706281.html",
-      "url": "https://sports.yahoo.com/articles/philon-broome-stand-again-summer-233706281.html",
-      "pubDate": "2026-07-11T23:37:06.000Z",
-      "publishedAt": "2026-07-11T23:37:06.000Z",
-      "summary": "Labaron Philon and Johni Broome led the way as the Summer Sixers held on to the beat the Pacers in OT.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "步行者休赛期后续动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/YJ70PCehEx13V1Ep_3emSA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04OTI7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/e68956678d8f5b70176afae1c3f0d12f",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "eventKey": "injury:summer-sixers:76ers",
-      "relatedItems": [],
-      "displayTitle": "Philon, Broome stand out again as Summer Sixers hang on to beat Pacers in OT",
-      "copySource": "fallback",
-      "storyType": "injury",
       "isMerged": false
     },
     {
@@ -2174,11 +2186,21 @@
       "category": "交易",
       "importance": 5,
       "eventKey": "trade:jaylen-brown:celtics:76ers",
-      "relatedItems": [],
+      "relatedItems": [
+        {
+          "title": "Joe Mazzulla Says Celtics Need 'Grieving Process' For Jaylen Brown",
+          "originalTitle": "Joe Mazzulla Says Celtics Need 'Grieving Process' For Jaylen Brown",
+          "source": "RealGM",
+          "url": "https://basketball.realgm.com/wiretap/286676/Joe-Mazzulla-Says-Celtics-Need-Grieving-Process-For-Jaylen-Brown",
+          "publishedAt": "2026-07-12T22:30:19.000Z",
+          "angle": "analysis"
+        }
+      ],
       "sources": [
         "RealGM"
       ],
       "originalTitles": [
+        "Joe Mazzulla Says Celtics Need 'Grieving Process' For Jaylen Brown",
         "Joe Mazzulla Still 'Processing' Celtics' Trade Of Jaylen Brown To 76ers"
       ],
       "sourceLinks": [
@@ -2188,10 +2210,14 @@
         },
         {
           "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286676/Joe-Mazzulla-Says-Celtics-Need-Grieving-Process-For-Jaylen-Brown"
+        },
+        {
+          "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286643/Joe-Mazzulla-Still-Processing-Celtics-Trade-Of-Jaylen-Brown-To-76ers"
         }
       ],
-      "isMerged": false,
+      "isMerged": true,
       "displayTitle": "Joe Mazzulla Still 'Processing' Celtics' Trade Of Jaylen Brown To 76ers",
       "copySource": "fallback",
       "storyType": "analysis"
@@ -2276,34 +2302,6 @@
       "eventKey": "sign:pete-nance:2",
       "relatedItems": [],
       "displayTitle": "Pete Nance, Bucks Agree To Two-Year Deal",
-      "copySource": "fallback",
-      "storyType": "signing",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286639/Charles-Bassey-Warriors-Agree-To-One-Year-Deal",
-      "title": "Charles Bassey, Warriors Agree To One-Year Deal",
-      "originalTitle": "Charles Bassey, Warriors Agree To One-Year Deal",
-      "headlineZh": "Charles Bassey 与勇士达成一年合同",
-      "titleZh": "Charles Bassey 与勇士达成一年合同",
-      "link": "https://basketball.realgm.com/wiretap/286639/Charles-Bassey-Warriors-Agree-To-One-Year-Deal",
-      "url": "https://basketball.realgm.com/wiretap/286639/Charles-Bassey-Warriors-Agree-To-One-Year-Deal",
-      "pubDate": "2026-07-09T21:15:34.000Z",
-      "publishedAt": "2026-07-09T21:15:34.000Z",
-      "summary": "<p>Charles Bassey and the Golden State Warriors have agreed upon a one-year deal.</p> <p>Bassey appeared in 13 games during the 2025-26 season across stops with the Warriors, Boston Celtics, Memphis Grizzlies and Philadelphia 76ers. Bassey finished the season with the Warriors.</p> <p>Bassey was the 53rd overall pick in the 2021 NBA draft out of Western Kentucky. </p>",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Charles Bassey 与勇士达成一年合同，原文关注 Charles Bassey 的合同或自由市场动向。",
-      "oneLineZh": "Charles Bassey 与勇士达成一年合同",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_goldenstatewarriors.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 4,
-      "eventKey": "sign:charles-bassey:warriors:1",
-      "relatedItems": [],
-      "displayTitle": "Charles Bassey, Warriors Agree To One-Year Deal",
       "copySource": "fallback",
       "storyType": "signing",
       "isMerged": false
