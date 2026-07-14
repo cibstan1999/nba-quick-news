@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-14T10:18:17.450Z",
+  "updatedAt": "2026-07-14T11:56:14.446Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-14T10:18:17.450Z",
-    "previousUpdatedAt": "2026-07-14T08:15:04.033Z",
-    "updatedAt": "2026-07-14T10:18:17.450Z",
+    "checkedAt": "2026-07-14T11:56:14.446Z",
+    "previousUpdatedAt": "2026-07-14T10:18:17.450Z",
+    "updatedAt": "2026-07-14T11:56:14.446Z",
     "fetchedItems": 80,
-    "mergedItems": 70,
+    "mergedItems": 69,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -32,9 +32,9 @@
     ],
     "failedFeeds": [],
     "newestPublishedAt": "2026-07-14T06:11:05.000Z",
-    "dataAgeHours": 4.120125,
+    "dataAgeHours": 5.7526238888888885,
     "aiEnabled": false,
-    "aiCandidates": 61,
+    "aiCandidates": 60,
     "aiCacheHits": 0,
     "aiRequests": 0,
     "aiAccepted": 0,
@@ -175,6 +175,10 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/lebron-james-reportedly-information-needed-021638807.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/latest-lebron-james-decision-time-000203525.html"
         },
         {
           "source": "RealGM",
@@ -798,34 +802,6 @@
       "displayTitle": "Celtics fall 102-90 to Hawks in first Summer League loss",
       "copySource": "fallback",
       "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/latest-lebron-james-decision-time-000203525.html",
-      "title": "Latest on LeBron James: 'It's decision time,' says NBA insider",
-      "originalTitle": "Latest on LeBron James: 'It's decision time,' says NBA insider",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/latest-lebron-james-decision-time-000203525.html",
-      "url": "https://sports.yahoo.com/articles/latest-lebron-james-decision-time-000203525.html",
-      "pubDate": "2026-07-14T00:02:03.000Z",
-      "publishedAt": "2026-07-14T00:02:03.000Z",
-      "summary": "The Cleveland Cavaliers appear to be the leading suitor as LeBron James looks for what figures to be the last destination of his celebrated NBA career.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "LeBron James 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/9hKagqH4zdSuaufW3Si27w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/c821b2dde6ce11530ec8f2b5b5d2a419",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Latest on LeBron James: 'It's decision time,' says NBA insider",
-      "copySource": "fallback",
-      "storyType": "opinion",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1513,8 +1489,8 @@
     },
     {
       "id": "https://sports.yahoo.com/articles/nba-defensive-player-odds-victor-155428817.html",
-      "title": "2026-27 NBA Defensive Player of the Year Odds: Wembanyama Heavily Favored to Repeat",
-      "originalTitle": "2026-27 NBA Defensive Player of the Year Odds: Wembanyama Heavily Favored to Repeat",
+      "title": "2027 NBA Defensive Player of the Year Odds: Wembanyama Heavily Favored to Repeat",
+      "originalTitle": "2027 NBA Defensive Player of the Year Odds: Wembanyama Heavily Favored to Repeat",
       "headlineZh": "Defensive Player 相关消息更新",
       "titleZh": "Defensive Player 相关消息更新",
       "link": "https://sports.yahoo.com/articles/nba-defensive-player-odds-victor-155428817.html",
@@ -1523,7 +1499,7 @@
       "publishedAt": "2026-07-13T20:34:00.000Z",
       "summary": "Victor Wembanyama has been tabbed as the -335 favorite in the 2026-27 NBA Defensive Player of the Year odds.",
       "dekZh": "",
-      "summaryZh": "Yahoo Sports 分析了2026-27 NBA Defensive Player of Year 相关赔率变化，文章属于赔率和前景分析。",
+      "summaryZh": "Yahoo Sports 分析了2027 NBA Defensive Player of Year 相关赔率变化，文章属于赔率和前景分析。",
       "oneLineZh": "Defensive Player 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -1534,7 +1510,7 @@
       "importance": 1,
       "eventKey": "odds:defensive-player",
       "relatedItems": [],
-      "displayTitle": "2026-27 NBA Defensive Player of the Year Odds: Wembanyama Heavily Favored to Repeat",
+      "displayTitle": "2027 NBA Defensive Player of the Year Odds: Wembanyama Heavily Favored to Repeat",
       "copySource": "fallback",
       "storyType": "analysis",
       "isMerged": false
