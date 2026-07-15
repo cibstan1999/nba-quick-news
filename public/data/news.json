@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-15T08:55:26.401Z",
+  "updatedAt": "2026-07-15T10:54:53.603Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-15T08:55:26.401Z",
-    "previousUpdatedAt": "2026-07-15T06:18:56.961Z",
-    "updatedAt": "2026-07-15T08:55:26.401Z",
+    "checkedAt": "2026-07-15T10:54:53.603Z",
+    "previousUpdatedAt": "2026-07-15T08:55:26.401Z",
+    "updatedAt": "2026-07-15T10:54:53.603Z",
     "fetchedItems": 80,
-    "mergedItems": 71,
+    "mergedItems": 70,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,8 +31,8 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-15T06:13:16.000Z",
-    "dataAgeHours": 2.7028891666666666,
+    "newestPublishedAt": "2026-07-15T10:08:34.000Z",
+    "dataAgeHours": 0.7721119444444444,
     "aiEnabled": false,
     "aiCandidates": 61,
     "aiCacheHits": 0,
@@ -60,6 +60,99 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/lebron-james-close-choosing-next-100834431.html",
+      "title": "Is LeBron James close choosing his next team? What we're hearing",
+      "originalTitle": "Is LeBron James close choosing his next team? What we're hearing",
+      "headlineZh": "Is LeBron James 相关消息更新",
+      "titleZh": "Is LeBron James 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/lebron-james-close-choosing-next-100834431.html",
+      "url": "https://sports.yahoo.com/articles/lebron-james-close-choosing-next-100834431.html",
+      "pubDate": "2026-07-15T10:08:34.000Z",
+      "publishedAt": "2026-07-15T10:08:34.000Z",
+      "summary": "Multiple teams have made their pitches to LeBron James. Here's what we are hearing and the latest updates about his free agency.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Is LeBron James 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/kNhI9BSrE1D5V2c9gZU0gw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/53219c2155203dc0764de69509b07c07",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james",
+      "relatedItems": [
+        {
+          "title": "LeBron James has surprise golf outing with NBA star before free agency decision",
+          "originalTitle": "LeBron James has surprise golf outing with NBA star before free agency decision",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/lebron-james-surprise-golf-outing-001318105.html",
+          "publishedAt": "2026-07-15T00:13:18.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Bronny James’ future not ‘linked’ to LeBron James’ free agency decision",
+          "originalTitle": "Bronny James’ future not ‘linked’ to LeBron James’ free agency decision",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/bronny-james-future-not-linked-233437037.html",
+          "publishedAt": "2026-07-14T23:34:37.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "LeBron James has comedic response to ‘non-factor’ statement about upcoming season",
+          "originalTitle": "LeBron James has comedic response to ‘non-factor’ statement about upcoming season",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/lebron-james-comedic-response-non-231659639.html",
+          "publishedAt": "2026-07-14T23:16:59.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "LeBron James landing spots: Which team has emerged star's top choice?",
+          "originalTitle": "LeBron James landing spots: Which team has emerged star's top choice?",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/lebron-james-landing-spots-team-213010610.html",
+          "publishedAt": "2026-07-14T21:30:10.000Z",
+          "angle": "report"
+        }
+      ],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Is LeBron James close choosing his next team? What we're hearing",
+        "LeBron James has surprise golf outing with NBA star before free agency decision",
+        "Bronny James’ future not ‘linked’ to LeBron James’ free agency decision",
+        "LeBron James has comedic response to ‘non-factor’ statement about upcoming season",
+        "LeBron James landing spots: Which team has emerged star's top choice?"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-close-choosing-next-100834431.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-surprise-golf-outing-001318105.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/bronny-james-future-not-linked-233437037.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-comedic-response-non-231659639.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-landing-spots-team-213010610.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "Is LeBron James close choosing his next team? What we're hearing",
+      "copySource": "fallback",
+      "storyType": "signing"
+    },
     {
       "id": "https://basketball.realgm.com/wiretap/286710/Adam-Silver-Kawhi-Leonard-Investigation-Will-Be-Completed-By-Start-Of-Next-Season",
       "title": "Adam Silver: Kawhi Leonard Investigation Will Be Completed By Start Of Next Season",
@@ -613,86 +706,6 @@
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/lebron-james-surprise-golf-outing-001318105.html",
-      "title": "LeBron James has surprise golf outing with NBA star before free agency decision",
-      "originalTitle": "LeBron James has surprise golf outing with NBA star before free agency decision",
-      "headlineZh": "LeBron James 签约动向更新",
-      "titleZh": "LeBron James 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/lebron-james-surprise-golf-outing-001318105.html",
-      "url": "https://sports.yahoo.com/articles/lebron-james-surprise-golf-outing-001318105.html",
-      "pubDate": "2026-07-15T00:13:18.000Z",
-      "publishedAt": "2026-07-15T00:13:18.000Z",
-      "summary": "LeBron James is spending his time golfing with Draymond Green and Kevin Hart before making his NBA free agency decision.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，LeBron James 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "LeBron James 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/V3KHwEenZev3liz0UZxAgw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/41ad116f354da718b422ef2af0b1017d",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james",
-      "relatedItems": [
-        {
-          "title": "Bronny James’ future not ‘linked’ to LeBron James’ free agency decision",
-          "originalTitle": "Bronny James’ future not ‘linked’ to LeBron James’ free agency decision",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/bronny-james-future-not-linked-233437037.html",
-          "publishedAt": "2026-07-14T23:34:37.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "LeBron James has comedic response to ‘non-factor’ statement about upcoming season",
-          "originalTitle": "LeBron James has comedic response to ‘non-factor’ statement about upcoming season",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/lebron-james-comedic-response-non-231659639.html",
-          "publishedAt": "2026-07-14T23:16:59.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "LeBron James landing spots: Which team has emerged star's top choice?",
-          "originalTitle": "LeBron James landing spots: Which team has emerged star's top choice?",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/lebron-james-landing-spots-team-213010610.html",
-          "publishedAt": "2026-07-14T21:30:10.000Z",
-          "angle": "report"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "LeBron James has surprise golf outing with NBA star before free agency decision",
-        "Bronny James’ future not ‘linked’ to LeBron James’ free agency decision",
-        "LeBron James has comedic response to ‘non-factor’ statement about upcoming season",
-        "LeBron James landing spots: Which team has emerged star's top choice?"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-surprise-golf-outing-001318105.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/bronny-james-future-not-linked-233437037.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-comedic-response-non-231659639.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-landing-spots-team-213010610.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "LeBron James has surprise golf outing with NBA star before free agency decision",
-      "copySource": "fallback",
-      "storyType": "signing"
     },
     {
       "id": "https://sports.yahoo.com/articles/nets-dunk-over-kings-d-000634836.html",
@@ -1698,34 +1711,6 @@
       "displayTitle": "Ranking the top-4 picks from the 2026 NBA Draft at Las Vegas Summer League for fantasy basketball",
       "copySource": "fallback",
       "storyType": "analysis",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/observations-sixers-suffer-first-summer-180308574.html",
-      "title": "Observations after Sixers suffer first summer loss despite more Philon highlights",
-      "originalTitle": "Observations after Sixers suffer first summer loss despite more Philon highlights",
-      "headlineZh": "76 人休赛期后续动向",
-      "titleZh": "76 人休赛期后续动向",
-      "link": "https://sports.yahoo.com/articles/observations-sixers-suffer-first-summer-180308574.html",
-      "url": "https://sports.yahoo.com/articles/observations-sixers-suffer-first-summer-180308574.html",
-      "pubDate": "2026-07-14T18:03:08.000Z",
-      "publishedAt": "2026-07-14T18:03:08.000Z",
-      "summary": "The Sixers lost their first summer league game despite Labaron Philon Jr.'s 17-point outing.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "76 人休赛期后续动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/R0WbC_zu_iTsC0ft.LPSlg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/csnphilly.com/f8d6f40433f5f93450135e783d45a5b0",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Observations after Sixers suffer first summer loss despite more Philon highlights",
-      "copySource": "fallback",
-      "storyType": "analysis",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
