@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-16T10:28:10.392Z",
+  "updatedAt": "2026-07-16T12:04:58.320Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-16T10:28:10.392Z",
-    "previousUpdatedAt": "2026-07-16T08:20:49.246Z",
-    "updatedAt": "2026-07-16T10:28:10.392Z",
+    "checkedAt": "2026-07-16T12:04:58.320Z",
+    "previousUpdatedAt": "2026-07-16T10:28:10.392Z",
+    "updatedAt": "2026-07-16T12:04:58.320Z",
     "fetchedItems": 79,
     "mergedItems": 75,
     "successfulFeeds": [
@@ -32,7 +32,7 @@
     ],
     "failedFeeds": [],
     "newestPublishedAt": "2026-07-16T05:42:00.000Z",
-    "dataAgeHours": 4.7695533333333335,
+    "dataAgeHours": 6.382866666666667,
     "aiEnabled": false,
     "aiCandidates": 67,
     "aiCacheHits": 0,
