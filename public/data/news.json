@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-16T17:46:59.838Z",
+  "updatedAt": "2026-07-16T19:18:37.886Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-16T17:46:59.838Z",
-    "previousUpdatedAt": "2026-07-16T16:20:05.610Z",
-    "updatedAt": "2026-07-16T17:46:59.838Z",
+    "checkedAt": "2026-07-16T19:18:37.886Z",
+    "previousUpdatedAt": "2026-07-16T17:46:59.838Z",
+    "updatedAt": "2026-07-16T19:18:37.886Z",
     "fetchedItems": 79,
     "mergedItems": 74,
     "successfulFeeds": [
@@ -31,8 +31,8 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-16T17:44:10.000Z",
-    "dataAgeHours": 0.047177222222222225,
+    "newestPublishedAt": "2026-07-16T19:13:21.000Z",
+    "dataAgeHours": 0.08802388888888889,
     "aiEnabled": false,
     "aiCandidates": 64,
     "aiCacheHits": 0,
@@ -52,6 +52,212 @@
   },
   "highlights": [],
   "items": [
+    {
+      "id": "https://basketball.realgm.com/wiretap/286725/LeBron-James-Declines-To-Reveal-Free-Agency-Decision-At-Fanatics-Fest",
+      "title": "LeBron James Declines To Reveal Free Agency Decision At Fanatics Fest",
+      "originalTitle": "LeBron James Declines To Reveal Free Agency Decision At Fanatics Fest",
+      "headlineZh": "LeBron James Declines 签约动向更新",
+      "titleZh": "LeBron James Declines 签约动向更新",
+      "link": "https://basketball.realgm.com/wiretap/286725/LeBron-James-Declines-To-Reveal-Free-Agency-Decision-At-Fanatics-Fest",
+      "url": "https://basketball.realgm.com/wiretap/286725/LeBron-James-Declines-To-Reveal-Free-Agency-Decision-At-Fanatics-Fest",
+      "pubDate": "2026-07-16T19:13:21.000Z",
+      "publishedAt": "2026-07-16T19:13:21.000Z",
+      "summary": "<p>LeBron James gave no indication of where he plans to sign during a live taping of his \"Mind the Game\" podcast Thursday at Fanatics Fest. James took audience suggestions naming the Golden State Warriors and Philadelphia 76ers but did not otherwise identify potential destinations.</p> <p>James emphasized that he expects to remain productive wherever he lands for his 24th NBA season.</p> <p>\"Looking forward to what's next as I wind down the final stages of my journey,\" said James. \"Wherever I land in the fall, hopefully, you know, if you're a ride-or-die LeBron fan, you've been down with me since Day 1. Hopefully, you ride with me here. If you're a ride-or-die LeBron hater, that's what you do anyway, so looking forward to seeing you as well. But it's going to be pretty fun. It's going to be pretty fun wherever I land. I'm going to do what I do best.\"</p> <p>James announced last month that he would not return to the Los Angeles Lakers after eight seasons with the franchise. James is weighing offers from the 76ers, Warriors, Miami Heat, Minnesota Timberwolves, Denver Nuggets and Cleveland Cavaliers.</p> <p>James thanked the Lakers and team governor Jeanie Buss for his tenure in Los Angeles, calling it an unbelievable ride. He also addressed recent criticism questioning his impact at 41, ahead of turning 42 in December.</p> <p>\"I'm seeing something on social media the other day that, wherever I go, we may be in the Play-In or some stuff like that and I'm not a factor anymore,\" said James. \"So maybe that as well, too, is a little motivation.\"</p> <p>Asked which team he enjoyed playing for most during his career, James paused before naming several, including his championship-winning Heat and Cavaliers teams, the 2020 Lakers and the 2008 U.S. Olympic team.</p> <p>Tyrese Haliburton, who co-hosted the podcast taping, attempted to get James to reveal more details on stage but was reminded by James that the two had agreed beforehand he would not be making any announcements. Haliburton previously tried to recruit James to Indiana last month and received only a pair of crying-laughing emojis in response.</p> <p>Teams have received very little information from James or Rich Paul throughout the process and there is no anticipated date of when he will make his decision.</p>",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，LeBron James Declines 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "LeBron James Declines 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_260502.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james:cavaliers",
+      "relatedItems": [
+        {
+          "title": "LeBron James Believed To Be Focused On Cavaliers, Heat, 76ers",
+          "originalTitle": "LeBron James Believed To Be Focused On Cavaliers, Heat, 76ers",
+          "source": "RealGM",
+          "url": "https://basketball.realgm.com/wiretap/286708/LeBron-James-Believed-To-Be-Focused-On-Cavaliers-Heat-76ers",
+          "publishedAt": "2026-07-15T02:50:14.000Z",
+          "angle": "report"
+        },
+        {
+          "title": "LeBron James Signing With Cavs Seen As 'Scenario To Beat'; Warriors Remain In Pursuit",
+          "originalTitle": "LeBron James Signing With Cavs Seen As 'Scenario To Beat'; Warriors Remain In Pursuit",
+          "source": "RealGM",
+          "url": "https://basketball.realgm.com/wiretap/286694/LeBron-James-Signing-With-Cavs-Seen-As-Scenario-To-Beat;-Warriors-Remain-In-Pursuit",
+          "publishedAt": "2026-07-14T05:55:05.000Z",
+          "angle": "report"
+        }
+      ],
+      "sources": [
+        "RealGM"
+      ],
+      "originalTitles": [
+        "LeBron James Believed To Be Focused On Cavaliers, Heat, 76ers",
+        "LeBron James Signing With Cavs Seen As 'Scenario To Beat'; Warriors Remain In Pursuit"
+      ],
+      "sourceLinks": [
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286725/LeBron-James-Declines-To-Reveal-Free-Agency-Decision-At-Fanatics-Fest"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286708/LeBron-James-Believed-To-Be-Focused-On-Cavaliers-Heat-76ers"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286694/LeBron-James-Signing-With-Cavs-Seen-As-Scenario-To-Beat;-Warriors-Remain-In-Pursuit"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "LeBron James Declines To Reveal Free Agency Decision At Fanatics Fest",
+      "copySource": "fallback",
+      "storyType": "rumor"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lebron-james-isn-t-announcing-185610955.html",
+      "title": "LeBron James isn’t announcing his decision… yet",
+      "originalTitle": "LeBron James isn’t announcing his decision… yet",
+      "headlineZh": "LeBron James 相关消息更新",
+      "titleZh": "LeBron James 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/lebron-james-isn-t-announcing-185610955.html",
+      "url": "https://sports.yahoo.com/articles/lebron-james-isn-t-announcing-185610955.html",
+      "pubDate": "2026-07-16T18:56:10.000Z",
+      "publishedAt": "2026-07-16T18:56:10.000Z",
+      "summary": "Everyone is still waiting for James to make his decision after a pump-fake in New York.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "LeBron James 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/bL1lQdyIPFzhDDcd.x27qg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/23b3ba7ba99b5e8520a835997ecfca47",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "LeBron James isn’t announcing his decision… yet",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/nba-wont-action-bam-adebayo-182309349.html",
+      "title": "NBA won't take action in Bam Adebayo-Tyler Herro incident",
+      "originalTitle": "NBA won't take action in Bam Adebayo-Tyler Herro incident",
+      "headlineZh": "Bam Adebayo-Tyler Herro 相关消息更新",
+      "titleZh": "Bam Adebayo-Tyler Herro 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/nba-wont-action-bam-adebayo-182309349.html",
+      "url": "https://sports.yahoo.com/articles/nba-wont-action-bam-adebayo-182309349.html",
+      "pubDate": "2026-07-16T18:23:09.000Z",
+      "publishedAt": "2026-07-16T18:23:09.000Z",
+      "summary": "The NBA announced it will not take action against Bam Adebayo after reports emerged that he hit former teammate Tyler Herro in Las Vegas.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Bam Adebayo-Tyler Herro 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/gyQz_bkb20xQM7ePYKxiSw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/e21ce4224c28e888686c7a8d0f3aeda2",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "NBA won't take action in Bam Adebayo-Tyler Herro incident",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/got-him-steve-kerrs-viral-181350043.html",
+      "title": "'We got him': Steve Kerr's viral roadside comment on LeBron James",
+      "originalTitle": "'We got him': Steve Kerr's viral roadside comment on LeBron James",
+      "headlineZh": "Steve Kerr's 相关消息更新",
+      "titleZh": "Steve Kerr's 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/got-him-steve-kerrs-viral-181350043.html",
+      "url": "https://sports.yahoo.com/articles/got-him-steve-kerrs-viral-181350043.html",
+      "pubDate": "2026-07-16T18:13:50.000Z",
+      "publishedAt": "2026-07-16T18:13:50.000Z",
+      "summary": "Golden State's head coach made a bold statement to a fan at a stoplight on Wednesday.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Steve Kerr's 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/BWlzC_GCb2Y8.OBGm47QFQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDI7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/efe9faf930eec3b52c941bedb6d6fee8",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "'We got him': Steve Kerr's viral roadside comment on LeBron James",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/nba-summer-league-notebook-thoughts-175108119.html",
+      "title": "NBA Summer League notebook: Thoughts on AJ Dybantsa, Darryn Peterson, hot topics in Las Vegas",
+      "originalTitle": "NBA Summer League notebook: Thoughts on AJ Dybantsa, Darryn Peterson, hot topics in Las Vegas",
+      "headlineZh": "Summer League 相关消息更新",
+      "titleZh": "Summer League 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/nba-summer-league-notebook-thoughts-175108119.html",
+      "url": "https://sports.yahoo.com/articles/nba-summer-league-notebook-thoughts-175108119.html",
+      "pubDate": "2026-07-16T17:51:08.000Z",
+      "publishedAt": "2026-07-16T17:51:08.000Z",
+      "summary": "After nine days of watching Summer League games across two cities, I had a lot of notes.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Summer League 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/K_JzdhNqEQEka50PGvYSXw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/b4479767e6ed1d55cb8c958f6464663e",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "NBA Summer League notebook: Thoughts on AJ Dybantsa, Darryn Peterson, hot topics in Las Vegas",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/nba/article/waiting-on-lebron-phillys-upside--harden-in-limbo--more-offseason-updates-with-tom-haberstroh-175043475.html",
+      "title": "Waiting on LeBron, Philly’s upside & Harden in limbo + more offseason updates with Tom Haberstroh",
+      "originalTitle": "Waiting on LeBron, Philly’s upside & Harden in limbo + more offseason updates with Tom Haberstroh",
+      "headlineZh": "Tom Haberstroh 相关消息更新",
+      "titleZh": "Tom Haberstroh 相关消息更新",
+      "link": "https://sports.yahoo.com/nba/article/waiting-on-lebron-phillys-upside--harden-in-limbo--more-offseason-updates-with-tom-haberstroh-175043475.html",
+      "url": "https://sports.yahoo.com/nba/article/waiting-on-lebron-phillys-upside--harden-in-limbo--more-offseason-updates-with-tom-haberstroh-175043475.html",
+      "pubDate": "2026-07-16T17:50:43.000Z",
+      "publishedAt": "2026-07-16T17:50:43.000Z",
+      "summary": "Kevin O'Connor breaks down the latest news of the NBA offseason with Tom Haberstroh.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Tom Haberstroh 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/GXBQASr.WDnCkO_6UFGKHQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/user-uploaded/koc-lebron-harden-thumb_9330.png",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Waiting on LeBron, Philly’s upside & Harden in limbo + more offseason updates with Tom Haberstroh",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/nba/article/lebron-james-mum-on-free-agency-destination-after-tyrese-haliburton-inquires-about-decision-at-fanatics-fest-174410964.html",
       "title": "LeBron James mum on free-agency destination after Tyrese Haliburton inquires about decision at Fanatics Fest",
@@ -258,7 +464,7 @@
       "originalTitles": [
         "LeBron James decision live updates, rumors on when star chooses next team",
         "Kevin Durant weighs in on LeBron James sweepstakes",
-        "Way too early NBA power rankings for 2026-27: Can the Knicks repeat?"
+        "Way-too-early NBA power rankings for 2026-27: Can the Knicks repeat?"
       ],
       "sourceLinks": [
         {
@@ -1428,118 +1634,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/game-recap-summer-suns-down-003549580.html",
-      "title": "Game Recap: Summer Suns take down Pistons, 100-88",
-      "originalTitle": "Game Recap: Summer Suns take down Pistons, 100-88",
-      "headlineZh": "Game Recap 相关消息更新",
-      "titleZh": "Game Recap 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/game-recap-summer-suns-down-003549580.html",
-      "url": "https://sports.yahoo.com/articles/game-recap-summer-suns-down-003549580.html",
-      "pubDate": "2026-07-16T00:35:49.000Z",
-      "publishedAt": "2026-07-16T00:35:49.000Z",
-      "summary": "The Phoenix Suns secured their third win in four games in Las Vegas today.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Game Recap 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/CM6QiFBl2QmJSuMqY0ET8A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/dc924b2a7c74ca03895c8172a494586c",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Game Recap: Summer Suns take down Pistons, 100-88",
-      "copySource": "fallback",
-      "storyType": "analysis",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/darryn-peterson-listed-available-utah-002910266.html",
-      "title": "Darryn Peterson listed as available for Utah’s Summer League game vs. SAS",
-      "originalTitle": "Darryn Peterson listed as available for Utah’s Summer League game vs. SAS",
-      "headlineZh": "Darryn Peterson 相关消息更新",
-      "titleZh": "Darryn Peterson 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/darryn-peterson-listed-available-utah-002910266.html",
-      "url": "https://sports.yahoo.com/articles/darryn-peterson-listed-available-utah-002910266.html",
-      "pubDate": "2026-07-16T00:29:10.000Z",
-      "publishedAt": "2026-07-16T00:29:10.000Z",
-      "summary": "Quickly, flip the TV back on!",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Darryn Peterson 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/vsze1uMDQYbynTfI0xNrDQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/bc8fbc0dacd954f9287af0dcaa38ca49",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Darryn Peterson listed as available for Utah’s Summer League game vs. SAS",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/steph-curry-makes-desperate-last-002137766.html",
-      "title": "Steph Curry makes desperate last-ditch push to land LeBron James",
-      "originalTitle": "Steph Curry makes desperate last-ditch push to land LeBron James",
-      "headlineZh": "Steph Curry 相关消息更新",
-      "titleZh": "Steph Curry 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/steph-curry-makes-desperate-last-002137766.html",
-      "url": "https://sports.yahoo.com/articles/steph-curry-makes-desperate-last-002137766.html",
-      "pubDate": "2026-07-16T00:21:37.000Z",
-      "publishedAt": "2026-07-16T00:21:37.000Z",
-      "summary": "Whether James views Golden State as the right way to finish — or merely another flattering option —remains entirely up to him.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Steph Curry 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/KIHdYOpB4WRyU0xl2JyAKw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/8e2c2a343c0606aedc2e4103190c18ad",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Steph Curry makes desperate last-ditch push to land LeBron James",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/wizards-vs-clippers-discussion-000000110.html",
-      "title": "Wizards vs. Clippers discussion",
-      "originalTitle": "Wizards vs. Clippers discussion",
-      "headlineZh": "快船休赛期后续动向",
-      "titleZh": "快船休赛期后续动向",
-      "link": "https://sports.yahoo.com/articles/wizards-vs-clippers-discussion-000000110.html",
-      "url": "https://sports.yahoo.com/articles/wizards-vs-clippers-discussion-000000110.html",
-      "pubDate": "2026-07-16T00:00:00.000Z",
-      "publishedAt": "2026-07-16T00:00:00.000Z",
-      "summary": "The Washington Wizards play the Los Angeles Clippers tonight at 10:30 p.m. ET or so. Let’s get one more win!",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "快船休赛期后续动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/4rXdr5QV87XG1d7KQKYf1g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/77183c840d0479dced8e887d297c5dad",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Wizards vs. Clippers discussion",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286716/Tim-Connelly-LaMelo-Ball-Wolves-Can-Elevate-Each-Other",
       "title": "Tim Connelly: LaMelo Ball, Wolves Can 'Elevate' Each Other",
       "originalTitle": "Tim Connelly: LaMelo Ball, Wolves Can 'Elevate' Each Other",
@@ -1659,17 +1753,17 @@
         "RealGM"
       ],
       "originalTitles": [
-        "Adam Silver: Kawhi Leonard Investigation Will Be Completed By Start Of Next Season",
-        "Adam Silver: Apron System 'Working Very Well' From 'Competitive Standpoint'"
+        "Adam Silver: Apron System 'Working Very Well' From 'Competitive Standpoint'",
+        "Adam Silver: Kawhi Leonard Investigation Will Be Completed By Start Of Next Season"
       ],
       "sourceLinks": [
         {
           "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286710/Adam-Silver-Kawhi-Leonard-Investigation-Will-Be-Completed-By-Start-Of-Next-Season"
+          "link": "https://basketball.realgm.com/wiretap/286714/Adam-Silver-Apron-System-Working-Very-Well-From-Competitive-Standpoint"
         },
         {
           "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286714/Adam-Silver-Apron-System-Working-Very-Well-From-Competitive-Standpoint"
+          "link": "https://basketball.realgm.com/wiretap/286710/Adam-Silver-Kawhi-Leonard-Investigation-Will-Be-Completed-By-Start-Of-Next-Season"
         }
       ],
       "isMerged": true,
@@ -1773,47 +1867,21 @@
       "publishedAt": "2026-07-15T01:51:53.000Z",
       "summary": "<p>Tyrese Maxey, Joel Embiid and Jaylen Brown have all been communicating with LeBron James as the Philadelphia 76ers continue pursuing the 41-year-old free agent. </p> <p>Maxey is also represented by Rich Paul and has trained alongside James during previous offseasons, previously referring to the future Hall of Famer as a \"big brother.\" Embiid won a gold medal with James on Team USA at the 2024 Paris Olympics.</p> <p>Brown, who battled James in playoff series while playing for the Boston Celtics against James' Cleveland Cavaliers teams, received a public MVP endorsement from James in February.</p> <p>\"He's playing great basketball, man,\" James said at the time. \"This whole MVP thing, I don't understand why his name is not getting talked about some, as well. Like, nobody gave them a shot to start the season.\"</p> <p>James has also spoken favorably about Philadelphia's fan base in the past, including after a December game in which he scored 12 of his 29 points in the fourth quarter to lead the Los Angeles Lakers past the 76ers.</p> <p>\"One thing you know about Philly fans, they don't care about anybody besides their home teams, and I respect and I love that,\" said James. \"I've played here, for obviously 23 years, a lot more when I was in Eastern Conference. But to be able to have an appreciation for the City of Brotherly Love and for me to go out and still play the game that I love and them respect it, whatever the case may be, if they do, it's pretty cool.\"</p> <p>Sources told ESPN's Shams Charania that Philadelphia remains one of James' top potential destinations, alongside the Cavaliers and Miami Heat. Bob Myers, president of Harris Blitzer Sports and Entertainment, made Philadelphia's case directly during a recent appearance on the \"Game Over\" podcast hosted by Rich Paul, James' agent.</p> <p>\"If he was here, I'd say, 'I honestly believe this is your best chance to win. You have to decide all the other things that are equally important,'\" said Myers. \"What I would just say is, if it's about winning, let's talk about this team. Because you can win here in Philadelphia.\"</p> <p>76ers president of basketball operations Mike Gansey, who previously worked with the Cavaliers during James' second stint with Cleveland, echoed that sentiment Monday.</p> <p>\"We've had conversations with Rich, really, since the Jaylen trade,\" said Gansey. \"LeBron and his camp have kept quiet, and there has been speculation for different teams. But we'd obviously love to have LeBron. I respect the heck out of him. In my opinion, he's the best player of all time.\"</p>",
       "dekZh": "",
-      "summaryZh": "据 RealGM / Yahoo Sports 报道，Tyrese Maxey，Joel Embiid，Jaylen Brown Communicating With LeBron James，目前仍属于消息或传闻阶段。",
+      "summaryZh": "据 RealGM 报道，Tyrese Maxey，Joel Embiid，Jaylen Brown Communicating With LeBron James，目前仍属于消息或传闻阶段。",
       "oneLineZh": "Tyrese Maxey 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_251120.jpg",
-      "source": "RealGM / Yahoo Sports",
+      "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "交易",
       "importance": 2,
       "eventKey": "trade:jaylen-brown:celtics:76ers",
-      "relatedItems": [
-        {
-          "title": "Celtics' Jayson Tatum gets 'transparent' about Jaylen Brown trade: 'It's weird'",
-          "originalTitle": "Celtics' Jayson Tatum gets 'transparent' about Jaylen Brown trade: 'It's weird'",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/celtics-jayson-tatum-gets-transparent-002149150.html",
-          "publishedAt": "2026-07-16T00:21:49.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "RealGM",
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Celtics' Jayson Tatum gets 'transparent' about Jaylen Brown trade: 'It's weird'"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286705/Tyrese-Maxey-Joel-Embiid-Jaylen-Brown-Communicating-With-LeBron-James"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/celtics-jayson-tatum-gets-transparent-002149150.html"
-        }
-      ],
-      "isMerged": true,
+      "relatedItems": [],
       "displayTitle": "Tyrese Maxey, Joel Embiid, Jaylen Brown Communicating With LeBron James",
       "copySource": "fallback",
-      "storyType": "rumor"
+      "storyType": "rumor",
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286703/Pelicans-Gave-DeAndre-Jordan-Two-Year-Deal-Due-To-Competition-From-Another-Team-On-One-Year-Pact",
@@ -2012,60 +2080,6 @@
       "isMerged": false
     },
     {
-      "id": "https://basketball.realgm.com/wiretap/286694/LeBron-James-Signing-With-Cavs-Seen-As-Scenario-To-Beat;-Warriors-Remain-In-Pursuit",
-      "title": "LeBron James Signing With Cavs Seen As 'Scenario To Beat'; Warriors Remain In Pursuit",
-      "originalTitle": "LeBron James Signing With Cavs Seen As 'Scenario To Beat'; Warriors Remain In Pursuit",
-      "headlineZh": "LeBron James Signing 签约动向更新",
-      "titleZh": "LeBron James Signing 签约动向更新",
-      "link": "https://basketball.realgm.com/wiretap/286694/LeBron-James-Signing-With-Cavs-Seen-As-Scenario-To-Beat;-Warriors-Remain-In-Pursuit",
-      "url": "https://basketball.realgm.com/wiretap/286694/LeBron-James-Signing-With-Cavs-Seen-As-Scenario-To-Beat;-Warriors-Remain-In-Pursuit",
-      "pubDate": "2026-07-14T05:55:05.000Z",
-      "publishedAt": "2026-07-14T05:55:05.000Z",
-      "summary": "<p>LeBron James returning to the Cleveland Cavaliers for a third time remains the \"scenario to beat,\" according to Marc Stein of The Stein Line.</p> <p>Despite the Cavs being the supposed leader in the race, the Warriors still continue to pursue James.</p> <p><a href=\"https://basketball.realgm.com/wiretap/286678/Draymond-Green-Talks-About-Recruiting-LeBron-James-To-Warriors\">Draymond Green</a> said on Monday that he has spent the last few days recruiting James.</p> <p>The Heat and Sixers are also continuing to recruit James, with Wolves head coach Chris Finch saying he believes his team are still in the running.</p> <p>It was also reported on Monday that <a href=\"https://basketball.realgm.com/wiretap/286686/LeBron-James-Getting-Closer-To-Free-Agency-Decision\">James is getting closer</a> to making a decision. </p>",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，LeBron James Signing 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "LeBron James Signing 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_260502.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james:cavaliers",
-      "relatedItems": [
-        {
-          "title": "LeBron James Believed To Be Focused On Cavaliers, Heat, 76ers",
-          "originalTitle": "LeBron James Believed To Be Focused On Cavaliers, Heat, 76ers",
-          "source": "RealGM",
-          "url": "https://basketball.realgm.com/wiretap/286708/LeBron-James-Believed-To-Be-Focused-On-Cavaliers-Heat-76ers",
-          "publishedAt": "2026-07-15T02:50:14.000Z",
-          "angle": "report"
-        }
-      ],
-      "sources": [
-        "RealGM"
-      ],
-      "originalTitles": [
-        "LeBron James Believed To Be Focused On Cavaliers, Heat, 76ers",
-        "LeBron James Signing With Cavs Seen As 'Scenario To Beat'; Warriors Remain In Pursuit"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286708/LeBron-James-Believed-To-Be-Focused-On-Cavaliers-Heat-76ers"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286694/LeBron-James-Signing-With-Cavs-Seen-As-Scenario-To-Beat;-Warriors-Remain-In-Pursuit"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "LeBron James Signing With Cavs Seen As 'Scenario To Beat'; Warriors Remain In Pursuit",
-      "copySource": "fallback",
-      "storyType": "rumor"
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286693/Trevon-Brazile-Nuggets-Agree-To-Four-Year-$93M-Deal",
       "title": "Trevon Brazile, Nuggets Agree To Four-Year, $9.3M Deal",
       "originalTitle": "Trevon Brazile, Nuggets Agree To Four-Year, $9.3M Deal",
@@ -2203,36 +2217,6 @@
       "displayTitle": "Austin Reaves Took $5M Discount Off Originally Agreed Deal With Lakers",
       "copySource": "fallback",
       "storyType": "rumor",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286688/Ziaire-Williams-Lakers-Agree-To-One-Year-$3M-Deal",
-      "title": "Ziaire Williams, Lakers Agree To One-Year, $3M Deal",
-      "originalTitle": "Ziaire Williams, Lakers Agree To One-Year, $3M Deal",
-      "headlineZh": "Ziaire Williams 与湖人达成一年，300 万美元合同",
-      "titleZh": "Ziaire Williams 与湖人达成一年，300 万美元合同",
-      "link": "https://basketball.realgm.com/wiretap/286688/Ziaire-Williams-Lakers-Agree-To-One-Year-$3M-Deal",
-      "url": "https://basketball.realgm.com/wiretap/286688/Ziaire-Williams-Lakers-Agree-To-One-Year-$3M-Deal",
-      "pubDate": "2026-07-13T21:17:54.000Z",
-      "publishedAt": "2026-07-13T21:17:54.000Z",
-      "summary": "<p>Ziaire Williams has agreed to a one-year, $3 million deal with the Los Angeles Lakers.</p> <p>Williams spent the past two seasons with the Brooklyn Nets. Last season, Williams averaged 10.2 points, 2.4 rebounds, 1.1 assists and 1.4 steals in 22.9 minutes across 56 games.</p> <p>Williams was the 10th overall pick in the 2021 NBA draft by the Memphis Grizzlies after one season with Stanford.</p> <p>The Lakers are continuing to pursue pathways to acquire Jonathan Kuminga despite the signing of Williams.</p>",
-      "dekZh": "上赛季，Williams 场均10.2分，2.4篮板，1.1助攻和1.4抢断 在22.9分钟 across 56场。",
-      "summaryZh": "据 RealGM 报道，Ziaire Williams 与湖人达成一年，300 万美元合同，原文关注 Ziaire Williams 的合同或自由市场动向。",
-      "oneLineZh": "Ziaire Williams 与湖人达成一年，300 万美元合同",
-      "goldenQuoteZh": "",
-      "keyPoints": [
-        "上赛季，Williams场均10.2分，2.4篮板，1.1助攻和1.4抢断 在22.9分钟 across 56场。"
-      ],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Williams_Ziaire_bkn_241028.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 5,
-      "eventKey": "sign:ziaire-williams:lakers:1:300",
-      "relatedItems": [],
-      "displayTitle": "Ziaire Williams, Lakers Agree To One-Year, $3M Deal",
-      "copySource": "fallback",
-      "storyType": "trade",
       "isMerged": false
     }
   ]
