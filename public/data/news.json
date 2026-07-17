@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-17T22:23:43.142Z",
+  "updatedAt": "2026-07-17T23:25:41.142Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-17T22:23:43.142Z",
-    "previousUpdatedAt": "2026-07-17T21:24:43.137Z",
-    "updatedAt": "2026-07-17T22:23:43.142Z",
+    "checkedAt": "2026-07-17T23:25:41.142Z",
+    "previousUpdatedAt": "2026-07-17T22:23:43.142Z",
+    "updatedAt": "2026-07-17T23:25:41.142Z",
     "fetchedItems": 80,
-    "mergedItems": 71,
+    "mergedItems": 72,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,10 +31,10 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-17T22:00:00.000Z",
-    "dataAgeHours": 0.3953172222222222,
+    "newestPublishedAt": "2026-07-17T22:41:32.000Z",
+    "dataAgeHours": 0.7358727777777778,
     "aiEnabled": false,
-    "aiCandidates": 64,
+    "aiCandidates": 65,
     "aiCacheHits": 0,
     "aiRequests": 0,
     "aiAccepted": 0,
@@ -52,6 +52,34 @@
   },
   "highlights": [],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/lebron-james-reminisces-2021-fight-224132878.html",
+      "title": "LeBron James reminisces about 2021 fight, ejection with Isaiah Stewart",
+      "originalTitle": "LeBron James reminisces about 2021 fight, ejection with Isaiah Stewart",
+      "headlineZh": "LeBron James 相关消息更新",
+      "titleZh": "LeBron James 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/lebron-james-reminisces-2021-fight-224132878.html",
+      "url": "https://sports.yahoo.com/articles/lebron-james-reminisces-2021-fight-224132878.html",
+      "pubDate": "2026-07-17T22:41:32.000Z",
+      "publishedAt": "2026-07-17T22:41:32.000Z",
+      "summary": "During a live episode of \"The Shop\", LeBron James looked back at one of the rare times he was ejected from an NBA game.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "LeBron James 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/0vjZYQrY.RcnMNCOgH5LPg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/b3b979c95b8038e2208f533c4bdbea89",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "LeBron James reminisces about 2021 fight, ejection with Isaiah Stewart",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/csr-weekend-warriors-7-17-220000346.html",
       "title": "CSR Weekend Warriors: 7/17-7/19",
@@ -1208,14 +1236,6 @@
           "url": "https://sports.yahoo.com/articles/lebron-james-decision-live-updates-112709831.html",
           "publishedAt": "2026-07-17T11:27:09.000Z",
           "angle": "rumor"
-        },
-        {
-          "title": "LeBron James’ free agency is becoming problem for NBA",
-          "originalTitle": "LeBron James’ free agency is becoming problem for NBA",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/adam-silver-says-lebron-james-003637978.html",
-          "publishedAt": "2026-07-17T00:36:37.000Z",
-          "angle": "source"
         }
       ],
       "sources": [
@@ -1224,8 +1244,7 @@
       ],
       "originalTitles": [
         "Why is LeBron James' free agency decision taking so long? Because he's earned this | Opinion",
-        "LeBron James decision: Live updates, rumors on which team star picks",
-        "LeBron James’ free agency is becoming problem for NBA"
+        "LeBron James decision: Live updates, rumors on which team star picks"
       ],
       "sourceLinks": [
         {
@@ -1235,10 +1254,6 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/lebron-james-decision-live-updates-112709831.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/adam-silver-says-lebron-james-003637978.html"
         },
         {
           "source": "RealGM",
