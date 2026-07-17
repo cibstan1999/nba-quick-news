@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-17T17:39:35.672Z",
+  "updatedAt": "2026-07-17T19:16:33.465Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-17T17:39:35.672Z",
-    "previousUpdatedAt": "2026-07-17T16:18:16.632Z",
-    "updatedAt": "2026-07-17T17:39:35.672Z",
+    "checkedAt": "2026-07-17T19:16:33.465Z",
+    "previousUpdatedAt": "2026-07-17T17:39:35.672Z",
+    "updatedAt": "2026-07-17T19:16:33.465Z",
     "fetchedItems": 80,
-    "mergedItems": 73,
+    "mergedItems": 72,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,10 +31,10 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-17T17:00:00.000Z",
-    "dataAgeHours": 0.6599088888888889,
+    "newestPublishedAt": "2026-07-17T18:00:41.000Z",
+    "dataAgeHours": 1.2645736111111112,
     "aiEnabled": false,
-    "aiCandidates": 65,
+    "aiCandidates": 64,
     "aiCacheHits": 0,
     "aiRequests": 0,
     "aiAccepted": 0,
@@ -52,6 +52,62 @@
   },
   "highlights": [],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/nba/article/salute-to-caleb-wilson-summer-league-standouts--how-will-giannis-fit-in-miami--keys-to-valkyries-hot-streak-180041495.html",
+      "title": "Salute to Caleb Wilson, Summer League standouts & how will Giannis fit in Miami? + keys to Valkyries’ hot streak",
+      "originalTitle": "Salute to Caleb Wilson, Summer League standouts & how will Giannis fit in Miami? + keys to Valkyries’ hot streak",
+      "headlineZh": "Caleb Wilson 相关消息更新",
+      "titleZh": "Caleb Wilson 相关消息更新",
+      "link": "https://sports.yahoo.com/nba/article/salute-to-caleb-wilson-summer-league-standouts--how-will-giannis-fit-in-miami--keys-to-valkyries-hot-streak-180041495.html",
+      "url": "https://sports.yahoo.com/nba/article/salute-to-caleb-wilson-summer-league-standouts--how-will-giannis-fit-in-miami--keys-to-valkyries-hot-streak-180041495.html",
+      "pubDate": "2026-07-17T18:00:41.000Z",
+      "publishedAt": "2026-07-17T18:00:41.000Z",
+      "summary": "Nekias Duncan and Steve Jones salute Caleb Wilson, discuss how Giannis will fit in Miami and deep dive on the Golden State Valkyries' success.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Caleb Wilson 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/JEJ7PGOqa0QsDUM69kiX5A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/user-uploaded/071726-wilson-thumb_4512.png",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Salute to Caleb Wilson, Summer League standouts & how will Giannis fit in Miami? + keys to Valkyries’ hot streak",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/nba/article/12-big-takeaways-from-nba-summer-league-174138778.html",
+      "title": "12 big takeaways from NBA Summer League",
+      "originalTitle": "12 big takeaways from NBA Summer League",
+      "headlineZh": "Summer League 相关消息更新",
+      "titleZh": "Summer League 相关消息更新",
+      "link": "https://sports.yahoo.com/nba/article/12-big-takeaways-from-nba-summer-league-174138778.html",
+      "url": "https://sports.yahoo.com/nba/article/12-big-takeaways-from-nba-summer-league-174138778.html",
+      "pubDate": "2026-07-17T17:41:38.000Z",
+      "publishedAt": "2026-07-17T17:41:38.000Z",
+      "summary": "Caleb Wilson's competitive level has raised eyebrows, AJ Dybantsa's drives look smooth, and more observations.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Summer League 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/WBadAlsDE3y2L7a_sBkPOw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MTA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/85ba9f87-2983-452f-bb81-965305e6d956",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "12 big takeaways from NBA Summer League",
+      "copySource": "fallback",
+      "storyType": "analysis",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/tar-heels-nba-las-vegas-170000408.html",
       "title": "Tar Heels in the NBA: Las Vegas Summer League Recap 2.0",
@@ -275,6 +331,60 @@
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lebron-james-marvels-way-knicks-143019994.html",
+      "title": "LeBron James marvels at way Knicks won championship as he figures out next team to dethrone them",
+      "originalTitle": "LeBron James marvels at way Knicks won championship as he figures out next team to dethrone them",
+      "headlineZh": "LeBron James 相关消息更新",
+      "titleZh": "LeBron James 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/lebron-james-marvels-way-knicks-143019994.html",
+      "url": "https://sports.yahoo.com/articles/lebron-james-marvels-way-knicks-143019994.html",
+      "pubDate": "2026-07-17T14:30:19.000Z",
+      "publishedAt": "2026-07-17T14:30:19.000Z",
+      "summary": "LeBron James gave the Knicks their flowers on Thursday and pinpointed the changes that helped them win the NBA Finals.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "LeBron James 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/P82dCUZlDsiQJQYcvE9BIA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/b326d395c35f62ff945b14f6b86e8190",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "季后赛",
+      "importance": 2,
+      "eventKey": "injury:lebron-james",
+      "relatedItems": [
+        {
+          "title": "LeBron James shouts out Bronny, USC medical staff in TIME 100 speech",
+          "originalTitle": "LeBron James shouts out Bronny, USC medical staff in TIME 100 speech",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/lebron-james-shouts-bronny-usc-040047208.html",
+          "publishedAt": "2026-07-17T04:00:47.000Z",
+          "angle": "source"
+        }
+      ],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "LeBron James marvels at way Knicks won championship as he figures out next team to dethrone them",
+        "LeBron James shouts out Bronny, USC medical staff in TIME 100 speech"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-marvels-way-knicks-143019994.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-shouts-bronny-usc-040047208.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "LeBron James marvels at way Knicks won championship as he figures out next team to dethrone them",
+      "copySource": "fallback",
+      "storyType": "injury"
     },
     {
       "id": "https://sports.yahoo.com/articles/lakers-viral-summer-league-star-141411993.html",
@@ -840,11 +950,11 @@
           "angle": "rumor"
         },
         {
-          "title": "LeBron James details what is important to him in free agency decision",
-          "originalTitle": "LeBron James details what is important to him in free agency decision",
+          "title": "LeBron James’ free agency is becoming problem for NBA",
+          "originalTitle": "LeBron James’ free agency is becoming problem for NBA",
           "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/lebron-james-details-important-him-214110747.html",
-          "publishedAt": "2026-07-16T21:41:10.000Z",
+          "url": "https://sports.yahoo.com/articles/adam-silver-says-lebron-james-003637978.html",
+          "publishedAt": "2026-07-17T00:36:37.000Z",
           "angle": "source"
         }
       ],
@@ -854,7 +964,7 @@
       ],
       "originalTitles": [
         "LeBron James decision: Live updates, rumors on which team star picks",
-        "LeBron James details what is important to him in free agency decision"
+        "LeBron James’ free agency is becoming problem for NBA"
       ],
       "sourceLinks": [
         {
@@ -863,7 +973,7 @@
         },
         {
           "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-details-important-him-214110747.html"
+          "link": "https://sports.yahoo.com/articles/adam-silver-says-lebron-james-003637978.html"
         },
         {
           "source": "RealGM",
@@ -929,34 +1039,6 @@
       "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/lebron-james-shouts-bronny-usc-040047208.html",
-      "title": "LeBron James shouts out Bronny, USC medical staff in TIME 100 speech",
-      "originalTitle": "LeBron James shouts out Bronny, USC medical staff in TIME 100 speech",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/lebron-james-shouts-bronny-usc-040047208.html",
-      "url": "https://sports.yahoo.com/articles/lebron-james-shouts-bronny-usc-040047208.html",
-      "pubDate": "2026-07-17T04:00:47.000Z",
-      "publishedAt": "2026-07-17T04:00:47.000Z",
-      "summary": "LeBron James stresses the importance of health and cardiovascular devices which ultimately saved his son, Bronny, in 2023.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "LeBron James 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/2TY2SuAnzUaGtpxsv6vxzQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/c6d8d3e3a5915f3548659136abc62a2a",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "eventKey": "injury:lebron-james",
-      "relatedItems": [],
-      "displayTitle": "LeBron James shouts out Bronny, USC medical staff in TIME 100 speech",
-      "copySource": "fallback",
-      "storyType": "injury",
       "isMerged": false
     },
     {
@@ -1318,34 +1400,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/adam-silver-says-lebron-james-003637978.html",
-      "title": "LeBron James’ free-agency is becoming a problem for NBA",
-      "originalTitle": "LeBron James’ free-agency is becoming a problem for NBA",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/adam-silver-says-lebron-james-003637978.html",
-      "url": "https://sports.yahoo.com/articles/adam-silver-says-lebron-james-003637978.html",
-      "pubDate": "2026-07-17T00:36:37.000Z",
-      "publishedAt": "2026-07-17T00:36:37.000Z",
-      "summary": "The NBA hasn't released its official schedule for the upcoming season — and it's because of LeBron James.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "LeBron James 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/I39V2FiwvLVnusV7S7sPtw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/5ae1a2b2df9c7222f9bf009cba6ddff5",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "LeBron James’ free-agency is becoming a problem for NBA",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://sports.yahoo.com/articles/draymond-green-shuts-down-steve-002141091.html",
       "title": "Draymond Green shuts down Steve Kerr’s viral LeBron James statement",
       "originalTitle": "Draymond Green shuts down Steve Kerr’s viral LeBron James statement",
@@ -1626,34 +1680,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/nba/article/adam-silver-pat-riley-among-the-many-people-waiting-for-lebron-james-free-agent-decision-221048188.html",
-      "title": "Adam Silver, Pat Riley among the many people waiting for LeBron James' free-agent decision",
-      "originalTitle": "Adam Silver, Pat Riley among the many people waiting for LeBron James' free-agent decision",
-      "headlineZh": "Adam Silver 相关消息更新",
-      "titleZh": "Adam Silver 相关消息更新",
-      "link": "https://sports.yahoo.com/nba/article/adam-silver-pat-riley-among-the-many-people-waiting-for-lebron-james-free-agent-decision-221048188.html",
-      "url": "https://sports.yahoo.com/nba/article/adam-silver-pat-riley-among-the-many-people-waiting-for-lebron-james-free-agent-decision-221048188.html",
-      "pubDate": "2026-07-16T22:10:48.000Z",
-      "publishedAt": "2026-07-16T22:10:48.000Z",
-      "summary": "The NBA commissioner and Miami Heat president confirmed that the basketball world is waiting for James to make his big decision.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Adam Silver 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/1ThFieYzEerSflKw1s3keg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/7c2fe2fc-1268-4726-bb0b-ee4f0a8cca85",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Adam Silver, Pat Riley among the many people waiting for LeBron James' free-agent decision",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286733/Vlad-Goldin-Heat-Sign-Two-Way-Deal",
       "title": "Vlad Goldin, Heat Sign Two-Way Deal",
       "originalTitle": "Vlad Goldin, Heat Sign Two-Way Deal",
@@ -1681,34 +1707,6 @@
       "displayTitle": "Vlad Goldin, Heat Sign Two-Way Deal",
       "copySource": "fallback",
       "storyType": "signing",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/4-notable-moments-mavericks-97-215641969.html",
-      "title": "4 notable moments from the Mavericks’ 97-87 Summer League win over the Oklahoma City Thunder",
-      "originalTitle": "4 notable moments from the Mavericks’ 97-87 Summer League win over the Oklahoma City Thunder",
-      "headlineZh": "Summer League 相关消息更新",
-      "titleZh": "Summer League 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/4-notable-moments-mavericks-97-215641969.html",
-      "url": "https://sports.yahoo.com/articles/4-notable-moments-mavericks-97-215641969.html",
-      "pubDate": "2026-07-16T21:56:41.000Z",
-      "publishedAt": "2026-07-16T21:56:41.000Z",
-      "summary": "Sergio de Larrea is turning heads in Las Vegas.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Summer League 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/3YEICkvGxQsJd3W12PWIJw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDE7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/29e3a92d1f746c7b9d97889889945a60",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "4 notable moments from the Mavericks’ 97-87 Summer League win over the Oklahoma City Thunder",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
