@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-17T11:07:47.227Z",
+  "updatedAt": "2026-07-17T12:43:16.521Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-17T11:07:47.227Z",
-    "previousUpdatedAt": "2026-07-17T09:27:50.967Z",
-    "updatedAt": "2026-07-17T11:07:47.227Z",
+    "checkedAt": "2026-07-17T12:43:16.521Z",
+    "previousUpdatedAt": "2026-07-17T11:07:47.227Z",
+    "updatedAt": "2026-07-17T12:43:16.521Z",
     "fetchedItems": 80,
     "mergedItems": 72,
     "successfulFeeds": [
@@ -31,8 +31,8 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-17T10:35:00.000Z",
-    "dataAgeHours": 0.5464519444444444,
+    "newestPublishedAt": "2026-07-17T12:00:00.000Z",
+    "dataAgeHours": 0.7212558333333333,
     "aiEnabled": false,
     "aiCandidates": 64,
     "aiCacheHits": 0,
@@ -52,6 +52,34 @@
   },
   "highlights": [],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/nba-11-best-rookies-las-120000060.html",
+      "title": "NBA’s 11 best rookies in Las Vegas Summer League, ranked",
+      "originalTitle": "NBA’s 11 best rookies in Las Vegas Summer League, ranked",
+      "headlineZh": "拉斯维加斯 Summer 相关消息更新",
+      "titleZh": "拉斯维加斯 Summer 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/nba-11-best-rookies-las-120000060.html",
+      "url": "https://sports.yahoo.com/articles/nba-11-best-rookies-las-120000060.html",
+      "pubDate": "2026-07-17T12:00:00.000Z",
+      "publishedAt": "2026-07-17T12:00:00.000Z",
+      "summary": "Let’s rank the best rookies in NBA Summer League.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "拉斯维加斯 Summer 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/ID7zOEhB3SNkkJsPRK__FQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04OTE7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/aa1f251b7d78b2fc506c6e6e524179a1",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "选秀",
+      "importance": 2,
+      "displayTitle": "NBA’s 11 best rookies in Las Vegas Summer League, ranked",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/youtube-gold-genius-dennis-johnson-103500680.html",
       "title": "YouTube Gold: The Genius Of Dennis Johnson",
@@ -165,6 +193,34 @@
       "isMerged": false
     },
     {
+      "id": "https://sports.yahoo.com/articles/wizards-vs-hawks-preview-washington-095313551.html",
+      "title": "Wizards vs. Hawks preview: Washington finishes Summer League on Saturday",
+      "originalTitle": "Wizards vs. Hawks preview: Washington finishes Summer League on Saturday",
+      "headlineZh": "Summer League 相关消息更新",
+      "titleZh": "Summer League 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/wizards-vs-hawks-preview-washington-095313551.html",
+      "url": "https://sports.yahoo.com/articles/wizards-vs-hawks-preview-washington-095313551.html",
+      "pubDate": "2026-07-17T09:53:13.000Z",
+      "publishedAt": "2026-07-17T09:53:13.000Z",
+      "summary": "The Washington Wizards play the Atlanta Hawks tomorrow night in the NBA Summer League. Let’s preview one last game before we have no more Wizards games until the preseason. Game info When: Saturday, July 17 at about 7 p.m. ET Where: Cox Pavilion, Las Vegas How to watch: ESPN, Monumental Sports Network What to watch for The Wizards […]",
+      "dekZh": "",
+      "summaryZh": "Yahoo Sports 对奇才 vs. 老鹰进行赛前预览，内容属于比赛信息和走势分析。",
+      "oneLineZh": "Summer League 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/jPXqw.nooGscDRbGLWwjiA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/f6175655cf094af22c30d8cee91773a1",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Wizards vs. Hawks preview: Washington finishes Summer League on Saturday",
+      "copySource": "fallback",
+      "storyType": "analysis",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
       "id": "https://sports.yahoo.com/articles/why-clemson-coach-dabo-swinneys-093138908.html",
       "title": "Why Clemson coach Dabo Swinney's next college football job will be his best job",
       "originalTitle": "Why Clemson coach Dabo Swinney's next college football job will be his best job",
@@ -190,6 +246,34 @@
       "storyType": "rumor",
       "eventKey": "",
       "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/friday-posted-toasted-notes-free-090000179.html",
+      "title": "Friday Posted & Toasted Notes: Free agency remnants, SummerLoss, Brunson talks",
+      "originalTitle": "Friday Posted & Toasted Notes: Free agency remnants, SummerLoss, Brunson talks",
+      "headlineZh": "周五 Posted 签约动向更新",
+      "titleZh": "周五 Posted 签约动向更新",
+      "link": "https://sports.yahoo.com/articles/friday-posted-toasted-notes-free-090000179.html",
+      "url": "https://sports.yahoo.com/articles/friday-posted-toasted-notes-free-090000179.html",
+      "pubDate": "2026-07-17T09:00:00.000Z",
+      "publishedAt": "2026-07-17T09:00:00.000Z",
+      "summary": "The SummerKnicks wrapped up their scheduled Las Vegas slate with an 87-77 loss to the SummerWarriors, ending their Sin City run with a 1-3 record and a consolation game against the SummerMavs later today. No recap nor scenes, so here’s a kinda sorta summary of the most important performances we watched, along with a bunch […]",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，周五 Posted 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "周五 Posted 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/q7vWsNwn8h3QsoUrqTOk9A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDI7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/43b33f02e168459f92e9e6f0bf4c68f1",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:friday-posted",
+      "relatedItems": [],
+      "displayTitle": "Friday Posted & Toasted Notes: Free agency remnants, SummerLoss, Brunson talks",
+      "copySource": "fallback",
+      "storyType": "analysis",
       "isMerged": false
     },
     {
@@ -272,6 +356,14 @@
       "eventKey": "sign:lebron-james",
       "relatedItems": [
         {
+          "title": "LeBron James decision: Live updates, rumors on which team star picks",
+          "originalTitle": "LeBron James decision: Live updates, rumors on which team star picks",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/lebron-james-decision-live-updates-112709831.html",
+          "publishedAt": "2026-07-17T11:27:09.000Z",
+          "angle": "rumor"
+        },
+        {
           "title": "LeBron James details what is important to him in free agency decision",
           "originalTitle": "LeBron James details what is important to him in free agency decision",
           "source": "Yahoo Sports",
@@ -293,10 +385,15 @@
         "RealGM"
       ],
       "originalTitles": [
+        "LeBron James decision: Live updates, rumors on which team star picks",
         "LeBron James details what is important to him in free agency decision",
         "LeBron James on free agency: ‘Won’t hold you guys up too much longer’"
       ],
       "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-decision-live-updates-112709831.html"
+        },
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/lebron-james-details-important-him-214110747.html"
@@ -759,10 +856,10 @@
     },
     {
       "id": "https://sports.yahoo.com/articles/adam-silver-says-lebron-james-003637978.html",
-      "title": "Adam Silver says LeBron James free-agency stall affects NBA schedule",
-      "originalTitle": "Adam Silver says LeBron James free-agency stall affects NBA schedule",
-      "headlineZh": "Adam Silver 相关消息更新",
-      "titleZh": "Adam Silver 相关消息更新",
+      "title": "LeBron James’ free-agency is becoming a problem for NBA",
+      "originalTitle": "LeBron James’ free-agency is becoming a problem for NBA",
+      "headlineZh": "LeBron James 相关消息更新",
+      "titleZh": "LeBron James 相关消息更新",
       "link": "https://sports.yahoo.com/articles/adam-silver-says-lebron-james-003637978.html",
       "url": "https://sports.yahoo.com/articles/adam-silver-says-lebron-james-003637978.html",
       "pubDate": "2026-07-17T00:36:37.000Z",
@@ -770,7 +867,7 @@
       "summary": "The NBA hasn't released its official schedule for the upcoming season — and it's because of LeBron James.",
       "dekZh": "",
       "summaryZh": "",
-      "oneLineZh": "Adam Silver 相关消息更新",
+      "oneLineZh": "LeBron James 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/I39V2FiwvLVnusV7S7sPtw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/5ae1a2b2df9c7222f9bf009cba6ddff5",
@@ -778,9 +875,9 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "displayTitle": "Adam Silver says LeBron James free-agency stall affects NBA schedule",
+      "displayTitle": "LeBron James’ free-agency is becoming a problem for NBA",
       "copySource": "fallback",
-      "storyType": "opinion",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1397,37 +1494,11 @@
       "category": "签约",
       "importance": 2,
       "eventKey": "sign:lebron-james:warriors",
-      "relatedItems": [
-        {
-          "title": "Brian Windhorst dismisses Steve Kerr’s comment on LeBron James joining Warriors",
-          "originalTitle": "Brian Windhorst dismisses Steve Kerr’s comment on LeBron James joining Warriors",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/brian-windhorst-dismisses-steve-kerr-184518625.html",
-          "publishedAt": "2026-07-16T18:45:18.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Latest LeBron James rumor is horrible news for Warriors",
-        "Brian Windhorst dismisses Steve Kerr’s comment on LeBron James joining Warriors"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/latest-lebron-james-rumor-horrible-195222523.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/brian-windhorst-dismisses-steve-kerr-184518625.html"
-        }
-      ],
-      "isMerged": true,
+      "relatedItems": [],
       "displayTitle": "Latest LeBron James rumor is horrible news for Warriors",
       "copySource": "fallback",
-      "storyType": "rumor"
+      "storyType": "rumor",
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/nba-looking-gary-trent-jr-193750503.html",
@@ -1622,90 +1693,6 @@
       "displayTitle": "Steve Kerr jokes about LeBron James: ‘Oh, we got him’",
       "copySource": "fallback",
       "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/mavericks-reacts-survey-summer-league-185735546.html",
-      "title": "Mavericks Reacts Survey: Summer League Reactions",
-      "originalTitle": "Mavericks Reacts Survey: Summer League Reactions",
-      "headlineZh": "Reacts Survey 相关消息更新",
-      "titleZh": "Reacts Survey 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/mavericks-reacts-survey-summer-league-185735546.html",
-      "url": "https://sports.yahoo.com/articles/mavericks-reacts-survey-summer-league-185735546.html",
-      "pubDate": "2026-07-16T18:57:35.000Z",
-      "publishedAt": "2026-07-16T18:57:35.000Z",
-      "summary": "Welcome to SB Nation Reacts, a survey of fans across the NBA. Throughout the year we ask questions of the most plugged-in Mavs fans and fans across the country. Sign up here to participate in the weekly emailed surveys. Please take our survey Let us know, we’ll talk more about it this week or weekend.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，独行侠 Reacts Survey: Summer League Reactions。",
-      "oneLineZh": "Reacts Survey 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Tko7Cz1GNe_KLQ0_nHhQDw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/3b6b815236983f8642712c80db05354d",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:mavericks-reacts-survey:mavericks",
-      "relatedItems": [],
-      "displayTitle": "Mavericks Reacts Survey: Summer League Reactions",
-      "copySource": "fallback",
-      "storyType": "opinion",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/lebron-james-isn-t-announcing-185610955.html",
-      "title": "LeBron James isn’t announcing his decision… yet",
-      "originalTitle": "LeBron James isn’t announcing his decision… yet",
-      "headlineZh": "LeBron James 相关消息更新",
-      "titleZh": "LeBron James 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/lebron-james-isn-t-announcing-185610955.html",
-      "url": "https://sports.yahoo.com/articles/lebron-james-isn-t-announcing-185610955.html",
-      "pubDate": "2026-07-16T18:56:10.000Z",
-      "publishedAt": "2026-07-16T18:56:10.000Z",
-      "summary": "Everyone is still waiting for James to make his decision after a pump-fake in New York.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "LeBron James 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/bL1lQdyIPFzhDDcd.x27qg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/23b3ba7ba99b5e8520a835997ecfca47",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "LeBron James isn’t announcing his decision… yet",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/game-preview-nets-continue-las-183720801.html",
-      "title": "Game Preview: Nets continue Las Vegas Summer League vs. the Rockets",
-      "originalTitle": "Game Preview: Nets continue Las Vegas Summer League vs. the Rockets",
-      "headlineZh": "Game Preview 相关消息更新",
-      "titleZh": "Game Preview 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/game-preview-nets-continue-las-183720801.html",
-      "url": "https://sports.yahoo.com/articles/game-preview-nets-continue-las-183720801.html",
-      "pubDate": "2026-07-16T18:37:20.000Z",
-      "publishedAt": "2026-07-16T18:37:20.000Z",
-      "summary": "The Nets hit the hardwood for an afternoon affair against the Rockets.",
-      "dekZh": "",
-      "summaryZh": "Yahoo Sports 对 Game 进行赛前预览，内容属于比赛信息和走势分析。",
-      "oneLineZh": "Game Preview 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Y1JGuvi4T0z8FcspYklYWA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xODAwO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/a432ed64007217b931a1d36df2ad5879",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Game Preview: Nets continue Las Vegas Summer League vs. the Rockets",
-      "copySource": "fallback",
-      "storyType": "analysis",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
