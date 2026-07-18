@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-18T12:29:32.724Z",
+  "updatedAt": "2026-07-18T14:02:15.745Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-18T12:29:32.724Z",
-    "previousUpdatedAt": "2026-07-18T11:13:54.474Z",
-    "updatedAt": "2026-07-18T12:29:32.724Z",
+    "checkedAt": "2026-07-18T14:02:15.745Z",
+    "previousUpdatedAt": "2026-07-18T12:29:32.724Z",
+    "updatedAt": "2026-07-18T14:02:15.745Z",
     "fetchedItems": 80,
-    "mergedItems": 73,
+    "mergedItems": 74,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,8 +31,8 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-18T11:42:34.000Z",
-    "dataAgeHours": 0.7829788888888889,
+    "newestPublishedAt": "2026-07-18T13:55:19.000Z",
+    "dataAgeHours": 0.1157625,
     "aiEnabled": false,
     "aiCandidates": 65,
     "aiCacheHits": 0,
@@ -60,6 +60,34 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/lebron-james-free-agency-frontrunner-135519441.html",
+      "title": "LeBron James’ free agency frontrunner might actually be the 76ers",
+      "originalTitle": "LeBron James’ free agency frontrunner might actually be the 76ers",
+      "headlineZh": "LeBron James 签约动向更新",
+      "titleZh": "LeBron James 签约动向更新",
+      "link": "https://sports.yahoo.com/articles/lebron-james-free-agency-frontrunner-135519441.html",
+      "url": "https://sports.yahoo.com/articles/lebron-james-free-agency-frontrunner-135519441.html",
+      "pubDate": "2026-07-18T13:55:19.000Z",
+      "publishedAt": "2026-07-18T13:55:19.000Z",
+      "summary": "LeBron the Sixers? It really might happen.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，LeBron James 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "LeBron James 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/N3QWImEljwx2.uGznY5Uew--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/dd9fb2c87d800d8c903c7c58e94ef9a3",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james:76ers",
+      "relatedItems": [],
+      "displayTitle": "LeBron James’ free agency frontrunner might actually be the 76ers",
+      "copySource": "fallback",
+      "storyType": "rumor",
+      "isMerged": false
+    },
     {
       "id": "https://basketball.realgm.com/wiretap/286750/NBAs-Local-Streaming-Hub-Draws-Interest-From-YouTube-ESPN",
       "title": "NBA's Local Streaming Hub Draws Interest From YouTube, ESPN",
@@ -166,6 +194,34 @@
       "category": "选秀",
       "importance": 2,
       "displayTitle": "Where will LeBron James play this season? Picks, predictions for next team",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/open-thread-lebron-james-single-110000143.html",
+      "title": "Open Thread: LeBron James is single-handedly holding up the NBA’s nationally televised schedule",
+      "originalTitle": "Open Thread: LeBron James is single-handedly holding up the NBA’s nationally televised schedule",
+      "headlineZh": "Open Thread 相关消息更新",
+      "titleZh": "Open Thread 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/open-thread-lebron-james-single-110000143.html",
+      "url": "https://sports.yahoo.com/articles/open-thread-lebron-james-single-110000143.html",
+      "pubDate": "2026-07-18T11:00:00.000Z",
+      "publishedAt": "2026-07-18T11:00:00.000Z",
+      "summary": "The first domino has yet to budge",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Open Thread 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Bm0EeC8.r28rhpbR5D8oRg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/c0b51ddbc92f5ed59dbe3f885f740625",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Open Thread: LeBron James is single-handedly holding up the NBA’s nationally televised schedule",
       "copySource": "fallback",
       "storyType": "fact",
       "eventKey": "",
@@ -454,8 +510,8 @@
     },
     {
       "id": "https://sports.yahoo.com/articles/bucks-reacts-survey-results-majority-003015561.html",
-      "title": "Bucks Reacts Survey Results: Majority of fans feel the same as they did about the Giannis trade",
-      "originalTitle": "Bucks Reacts Survey Results: Majority of fans feel the same as they did about the Giannis trade",
+      "title": "Bucks Reacts Survey Results: Majority of fans still feel the same about the Giannis trade",
+      "originalTitle": "Bucks Reacts Survey Results: Majority of fans still feel the same about the Giannis trade",
       "headlineZh": "雄鹿 Reacts Survey 交易影响继续发酵",
       "titleZh": "雄鹿 Reacts Survey 交易影响继续发酵",
       "link": "https://sports.yahoo.com/articles/bucks-reacts-survey-results-majority-003015561.html",
@@ -475,7 +531,7 @@
       "importance": 4,
       "eventKey": "trade:bucks-reacts-survey",
       "relatedItems": [],
-      "displayTitle": "Bucks Reacts Survey Results: Majority of fans feel the same as they did about the Giannis trade",
+      "displayTitle": "Bucks Reacts Survey Results: Majority of fans still feel the same about the Giannis trade",
       "copySource": "fallback",
       "storyType": "opinion",
       "isMerged": false
@@ -1545,34 +1601,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/open-thread-players-aren-t-110000110.html",
-      "title": "Open Thread: Players aren’t the only ones being observed through Summer League",
-      "originalTitle": "Open Thread: Players aren’t the only ones being observed through Summer League",
-      "headlineZh": "Open Thread 相关消息更新",
-      "titleZh": "Open Thread 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/open-thread-players-aren-t-110000110.html",
-      "url": "https://sports.yahoo.com/articles/open-thread-players-aren-t-110000110.html",
-      "pubDate": "2026-07-17T11:00:00.000Z",
-      "publishedAt": "2026-07-17T11:00:00.000Z",
-      "summary": "Spurs assistants seize the moment in the Las Vegas heat",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Open Thread 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/PCrqCACRt.CYBd9Wf4cq.w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MjE7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/cf4f14e63c0fa336a3efd0c4320d27f2",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Open Thread: Players aren’t the only ones being observed through Summer League",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286741/Dave-Joerger-Likely-To-Join-Nuggets-Staff-As-Top-Assistant",
       "title": "Dave Joerger Likely To Join Nuggets Staff As Top Assistant",
       "originalTitle": "Dave Joerger Likely To Join Nuggets Staff As Top Assistant",
@@ -1638,14 +1666,6 @@
           "url": "https://sports.yahoo.com/articles/lebron-james-reveals-daughter-zhuri-200332607.html",
           "publishedAt": "2026-07-17T20:03:32.000Z",
           "angle": "source"
-        },
-        {
-          "title": "LeBron James decision: Live updates, rumors on which team star picks",
-          "originalTitle": "LeBron James decision: Live updates, rumors on which team star picks",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/lebron-james-decision-live-updates-112709831.html",
-          "publishedAt": "2026-07-17T11:27:09.000Z",
-          "angle": "rumor"
         }
       ],
       "sources": [
@@ -1654,8 +1674,7 @@
       ],
       "originalTitles": [
         "Why is LeBron James' free agency decision taking so long? Because he's earned this | Opinion",
-        "LeBron James reveals daughter Zhuri is driving force in NBA free agency decision",
-        "LeBron James decision: Live updates, rumors on which team star picks"
+        "LeBron James reveals daughter Zhuri is driving force in NBA free agency decision"
       ],
       "sourceLinks": [
         {
@@ -1665,10 +1684,6 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/lebron-james-reveals-daughter-zhuri-200332607.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-decision-live-updates-112709831.html"
         },
         {
           "source": "RealGM",
