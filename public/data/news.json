@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-19T19:46:01.706Z",
+  "updatedAt": "2026-07-19T20:55:45.696Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-19T19:46:01.706Z",
-    "previousUpdatedAt": "2026-07-19T18:29:00.836Z",
-    "updatedAt": "2026-07-19T19:46:01.706Z",
+    "checkedAt": "2026-07-19T20:55:45.696Z",
+    "previousUpdatedAt": "2026-07-19T19:46:01.706Z",
+    "updatedAt": "2026-07-19T20:55:45.696Z",
     "fetchedItems": 80,
-    "mergedItems": 74,
+    "mergedItems": 73,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,10 +31,10 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-19T17:50:00.000Z",
-    "dataAgeHours": 1.9338072222222222,
+    "newestPublishedAt": "2026-07-19T18:22:22.000Z",
+    "dataAgeHours": 2.556582222222222,
     "aiEnabled": false,
-    "aiCandidates": 64,
+    "aiCandidates": 63,
     "aiCacheHits": 0,
     "aiRequests": 0,
     "aiAccepted": 0,
@@ -52,6 +52,13 @@
   },
   "highlights": [
     {
+      "id": "https://sports.yahoo.com/articles/hawks-trade-lu-dort-ryan-182222598.html",
+      "text": "Lu Dort 交易影响继续发酵",
+      "category": "交易",
+      "source": "Yahoo Sports",
+      "link": "https://sports.yahoo.com/articles/hawks-trade-lu-dort-ryan-182222598.html"
+    },
+    {
       "id": "https://basketball.realgm.com/wiretap/286753/Hawks-Acquire-Lu-Dort-Ryan-Nembhard;-Mavs-Receive-Zaccharie-Risacher-In-Three-Team-Trade-With-Thunder",
       "text": "老鹰 Acquire Lu 交易影响继续发酵",
       "category": "交易",
@@ -60,6 +67,61 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/hawks-trade-lu-dort-ryan-182222598.html",
+      "title": "Hawks trade for Lu Dort and Ryan Nembhard, still have work to do",
+      "originalTitle": "Hawks trade for Lu Dort and Ryan Nembhard, still have work to do",
+      "headlineZh": "Lu Dort 交易影响继续发酵",
+      "titleZh": "Lu Dort 交易影响继续发酵",
+      "link": "https://sports.yahoo.com/articles/hawks-trade-lu-dort-ryan-182222598.html",
+      "url": "https://sports.yahoo.com/articles/hawks-trade-lu-dort-ryan-182222598.html",
+      "pubDate": "2026-07-19T18:22:22.000Z",
+      "publishedAt": "2026-07-19T18:22:22.000Z",
+      "summary": "The Hawks improved, but still have very clear flaws that need addressing",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Lu Dort 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "Lu Dort 交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/VA.IVgJlJ_FRPtzMoItZCw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/baddabd516cbb7c640d81aa61cd6a33e",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 4,
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/hawks-trade-lu-dort-ryan-182222598.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/thunder-reportedly-trading-lu-dort-165531811.html"
+        }
+      ],
+      "originalTitles": [
+        "Hawks trade for Lu Dort and Ryan Nembhard, still have work to do",
+        "NBA trade grades for Lu Dort 3-team deal with Hawks, Mavs, and Thunder",
+        "Thunder reportedly trading Lu Dort to Atlanta in three-team deal with Dallas"
+      ],
+      "isMerged": true,
+      "eventKey": "trade:lu-dort",
+      "relatedItems": [
+        {
+          "title": "Thunder reportedly trading Lu Dort to Atlanta in three-team deal with Dallas",
+          "originalTitle": "Thunder reportedly trading Lu Dort to Atlanta in three-team deal with Dallas",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/thunder-reportedly-trading-lu-dort-165531811.html",
+          "publishedAt": "2026-07-19T16:55:31.000Z",
+          "angle": "report"
+        }
+      ],
+      "displayTitle": "Hawks trade for Lu Dort and Ryan Nembhard, still have work to do",
+      "copySource": "fallback",
+      "storyType": "trade"
+    },
     {
       "id": "https://sports.yahoo.com/articles/warriors-vs-grizzlies-predictions-odds-175000324.html",
       "title": "Warriors vs Grizzlies Predictions & Odds for Tonight's NBA Summer League Championship",
@@ -217,60 +279,6 @@
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/nba-trade-grades-lu-dort-170926820.html",
-      "title": "NBA trade grades for Lu Dort 3-team deal with Hawks, Mavs, and Thunder",
-      "originalTitle": "NBA trade grades for Lu Dort 3-team deal with Hawks, Mavs, and Thunder",
-      "headlineZh": "Lu Dort 交易影响继续发酵",
-      "titleZh": "Lu Dort 交易影响继续发酵",
-      "link": "https://sports.yahoo.com/articles/nba-trade-grades-lu-dort-170926820.html",
-      "url": "https://sports.yahoo.com/articles/nba-trade-grades-lu-dort-170926820.html",
-      "pubDate": "2026-07-19T17:09:26.000Z",
-      "publishedAt": "2026-07-19T17:09:26.000Z",
-      "summary": "Let’s grade the 3-team Lu Dort trade from every side.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Lu Dort 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
-      "oneLineZh": "Lu Dort 交易影响继续发酵",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/ninsg5i9xr2cKhYMDRg3sg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/8371e39077c39066458c0578305707b8",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 3,
-      "eventKey": "trade:lu-dort",
-      "relatedItems": [
-        {
-          "title": "Thunder reportedly trading Lu Dort to Atlanta in three-team deal with Dallas",
-          "originalTitle": "Thunder reportedly trading Lu Dort to Atlanta in three-team deal with Dallas",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/thunder-reportedly-trading-lu-dort-165531811.html",
-          "publishedAt": "2026-07-19T16:55:31.000Z",
-          "angle": "report"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "NBA trade grades for Lu Dort 3-team deal with Hawks, Mavs, and Thunder",
-        "Thunder reportedly trading Lu Dort to Atlanta in three-team deal with Dallas"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/nba-trade-grades-lu-dort-170926820.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/thunder-reportedly-trading-lu-dort-165531811.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "NBA trade grades for Lu Dort 3-team deal with Hawks, Mavs, and Thunder",
-      "copySource": "fallback",
-      "storyType": "analysis"
     },
     {
       "id": "https://sports.yahoo.com/articles/report-risacher-traded-mavs-hawks-164256920.html",
@@ -1474,34 +1482,6 @@
       "displayTitle": "Mavericks match Knicks' offer sheet to restricted free agent C Moussa Cisse for 2-year, $4.7 million deal",
       "copySource": "fallback",
       "storyType": "signing",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/raptors-fans-allen-graves-changed-181750602.html",
-      "title": "Raptors fans say Allen Graves changed minds with his play this summer",
-      "originalTitle": "Raptors fans say Allen Graves changed minds with his play this summer",
-      "headlineZh": "Allen Graves 相关消息更新",
-      "titleZh": "Allen Graves 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/raptors-fans-allen-graves-changed-181750602.html",
-      "url": "https://sports.yahoo.com/articles/raptors-fans-allen-graves-changed-181750602.html",
-      "pubDate": "2026-07-18T18:17:50.000Z",
-      "publishedAt": "2026-07-18T18:17:50.000Z",
-      "summary": "The face of Spreadsheet FC is proving he may be one of the steals of the 2026 NBA Draft.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Allen Graves 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/cyDqRYhL4yTHmbwV.sshkg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/4423f76a722fd07492d72e5083051bba",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 2,
-      "displayTitle": "Raptors fans say Allen Graves changed minds with his play this summer",
-      "copySource": "fallback",
-      "storyType": "rumor",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
