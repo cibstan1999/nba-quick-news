@@ -41,6 +41,56 @@
       "generatedAt": "2026-07-10T08:27:34.192Z",
       "sourceHash": "f98795a3ec1fc42fea0a0584e704be43f8810149f631752cdaae923d55cbeb1f",
       "promptVersion": "summary-v2"
+    },
+    "9fcc4fa68e85db1b31f98fe34a76235fa93c5deac964860a49c663212f8e5a36": {
+      "summaryZh": "猛龙队迎回前总决赛最有价值球员，力争在季后赛中挑战尼克斯，成为东部最大的威胁。",
+      "oneLineZh": "猛龙队力争挑战尼克斯。",
+      "confidence": 0.75,
+      "storyType": "analysis",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-10T08:45:22.780Z",
+      "sourceHash": "b0c76434230725441c5af4a1c2d62e1101df075e971234b5e283cc084cbbedc7",
+      "promptVersion": "summary-v2"
+    },
+    "bd8c084e3a1e07bb44490f3d621480b6cbc5abeddbe5b1e3776aa098efcb3afe": {
+      "summaryZh": "费城 76 人队全力争取勒布朗·詹姆斯，萨奎恩·巴克利向其发出邀请，称他将被永远铭记。",
+      "oneLineZh": "巴克利向詹姆斯发出邀请。",
+      "confidence": 0.85,
+      "storyType": "fact",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-10T08:45:25.815Z",
+      "sourceHash": "1dfb2c18b316a78ebf501dfe5f73f18cdd69d59f270c3db74aef1e3bbb723206",
+      "promptVersion": "summary-v2"
+    },
+    "65e7e5156bff7ba56f40c642631a9d6b9888b2920d21b75c838daf7fa7d7ce8c": {
+      "summaryZh": "湖人队的新援沃克·凯斯勒备受期待，球迷们迫不及待想看到他的表现。",
+      "oneLineZh": "沃克·凯斯勒成为湖人新援，备受期待。",
+      "confidence": 0.9,
+      "storyType": "fact",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-10T08:45:28.342Z",
+      "sourceHash": "7d8ed6eaac1cf27473f70c76500cb0201fa05262e98cfd78b559e7acc0e85257",
+      "promptVersion": "summary-v2"
+    },
+    "4aba8d80611c0aab25750b437798075730abfe860d39df9aadcc422cccb984a1": {
+      "summaryZh": "在夏季联赛首秀中，AJ Dybantsa 砍下27分，Darryn Peterson 贡献24分，二人首次作为新秀对决。",
+      "oneLineZh": "AJ Dybantsa 夏季联赛首秀得27分。",
+      "confidence": 0.9,
+      "storyType": "fact",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-10T08:45:30.594Z",
+      "sourceHash": "81907e8e68c7dac7eff1189d5581e6fde085f11b59982bc8e7dd003f5eaf084c",
+      "promptVersion": "summary-v2"
+    },
+    "0e265bddbc2ecf686c8c97410a35ee1fe4d076f8ef6f411d0d8110031f8ac669": {
+      "summaryZh": "多伦多猛龙与洛杉矶快船的交易因 NBA 对 Aspiration 的调查而暂时搁置，猛龙希望尽快解决此事以完成对卡怀·伦纳德的交易。",
+      "oneLineZh": "猛龙与快船的交易因调查搁置。",
+      "confidence": 0.85,
+      "storyType": "trade",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-10T08:45:32.758Z",
+      "sourceHash": "eb0d295fdf780a842d07fbcfc87f556b5b92d1994bca2d6f6850aea412e98b48",
+      "promptVersion": "summary-v2"
     }
   }
 }
