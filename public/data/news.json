@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-19T23:01:53.562Z",
+  "updatedAt": "2026-07-20T01:05:39.092Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-19T23:01:53.562Z",
-    "previousUpdatedAt": "2026-07-19T21:58:31.395Z",
-    "updatedAt": "2026-07-19T23:01:53.562Z",
+    "checkedAt": "2026-07-20T01:05:39.092Z",
+    "previousUpdatedAt": "2026-07-19T23:01:53.562Z",
+    "updatedAt": "2026-07-20T01:05:39.092Z",
     "fetchedItems": 80,
     "mergedItems": 72,
     "successfulFeeds": [
@@ -31,8 +31,8 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-19T20:00:00.000Z",
-    "dataAgeHours": 3.031545,
+    "newestPublishedAt": "2026-07-19T22:00:00.000Z",
+    "dataAgeHours": 3.094192222222222,
     "aiEnabled": false,
     "aiCandidates": 63,
     "aiCacheHits": 0,
@@ -67,6 +67,34 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/rat-line-220000449.html",
+      "title": "The Year of the Rat-line",
+      "originalTitle": "The Year of the Rat-line",
+      "headlineZh": "NBA 动态：Year of Rat-line",
+      "titleZh": "NBA 动态：Year of Rat-line",
+      "link": "https://sports.yahoo.com/articles/rat-line-220000449.html",
+      "url": "https://sports.yahoo.com/articles/rat-line-220000449.html",
+      "pubDate": "2026-07-19T22:00:00.000Z",
+      "publishedAt": "2026-07-19T22:00:00.000Z",
+      "summary": "You dirty rat-line, you killed my parlay, you dirty rat-line!",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "NBA 动态：Year of Rat-line",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/rq_g.6ZlfoRoXry5we0xcw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xODAwO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/f501b9549444ea20c8a4d38af864e83d",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "The Year of the Rat-line",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/karl-anthony-towns-talks-knicks-200000428.html",
       "title": "Karl-Anthony Towns talks Knicks, Call of Duty, and why he’s already chasing another championship",
@@ -160,18 +188,18 @@
       "originalTitles": [
         "Hawks trade for Lu Dort and Ryan Nembhard, still have work to do",
         "NBA trade grades for Lu Dort 3-team deal with Hawks, Mavs, and Thunder",
-        "Thunder reportedly trading Lu Dort to Atlanta in three-team deal with Dallas"
+        "Thunder trade Lu Dort to Atlanta in three-team deal with Dallas"
       ],
       "isMerged": true,
       "eventKey": "trade:lu-dort",
       "relatedItems": [
         {
-          "title": "Thunder reportedly trading Lu Dort to Atlanta in three-team deal with Dallas",
-          "originalTitle": "Thunder reportedly trading Lu Dort to Atlanta in three-team deal with Dallas",
+          "title": "Thunder trade Lu Dort to Atlanta in three-team deal with Dallas",
+          "originalTitle": "Thunder trade Lu Dort to Atlanta in three-team deal with Dallas",
           "source": "Yahoo Sports",
           "url": "https://sports.yahoo.com/articles/thunder-reportedly-trading-lu-dort-165531811.html",
           "publishedAt": "2026-07-19T16:55:31.000Z",
-          "angle": "report"
+          "angle": "source"
         }
       ],
       "displayTitle": "Hawks trade for Lu Dort and Ryan Nembhard, still have work to do",
@@ -1428,34 +1456,6 @@
       "displayTitle": "Mavericks match Knicks’ offer sheet to Moussa Cisse",
       "copySource": "fallback",
       "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/observations-sixers-wrap-summer-league-191519080.html",
-      "title": "Observations after Sixers wrap up summer league with tight loss to Bucks",
-      "originalTitle": "Observations after Sixers wrap up summer league with tight loss to Bucks",
-      "headlineZh": "雄鹿年轻球员与选秀话题",
-      "titleZh": "雄鹿年轻球员与选秀话题",
-      "link": "https://sports.yahoo.com/articles/observations-sixers-wrap-summer-league-191519080.html",
-      "url": "https://sports.yahoo.com/articles/observations-sixers-wrap-summer-league-191519080.html",
-      "pubDate": "2026-07-18T19:15:19.000Z",
-      "publishedAt": "2026-07-18T19:15:19.000Z",
-      "summary": "The Sixers wrapped up their 2026 summer league Saturday with a 96-94 loss to the Bucks.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "雄鹿年轻球员与选秀话题",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/ldKI9ofROpLP3iKkKAet7w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/csnphilly.com/4bd820bb0a4cf0d06de568045d293ee7",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Observations after Sixers wrap up summer league with tight loss to Bucks",
-      "copySource": "fallback",
-      "storyType": "analysis",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
