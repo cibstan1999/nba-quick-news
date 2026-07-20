@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-20T21:44:21.981Z",
+  "updatedAt": "2026-07-20T23:03:42.722Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-20T21:44:21.981Z",
-    "previousUpdatedAt": "2026-07-20T20:07:39.405Z",
-    "updatedAt": "2026-07-20T21:44:21.981Z",
+    "checkedAt": "2026-07-20T23:03:42.722Z",
+    "previousUpdatedAt": "2026-07-20T21:44:21.981Z",
+    "updatedAt": "2026-07-20T23:03:42.722Z",
     "fetchedItems": 80,
     "mergedItems": 68,
     "successfulFeeds": [
@@ -32,7 +32,7 @@
     ],
     "failedFeeds": [],
     "newestPublishedAt": "2026-07-20T21:38:11.000Z",
-    "dataAgeHours": 0.10305027777777778,
+    "dataAgeHours": 1.4254783333333334,
     "aiEnabled": false,
     "aiCandidates": 48,
     "aiCacheHits": 0,
@@ -85,12 +85,28 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "签约",
       "importance": 2,
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lakers-add-matisse-thybulle-fill-213811844.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lakers-add-defensive-wing-matisse-183113146.html"
+        }
+      ],
+      "originalTitles": [
+        "Lakers add Matisse Thybulle to fill weak spot, but create roster crunch"
+      ],
+      "isMerged": false,
       "eventKey": "sign:matisse-thybulle:lakers",
       "relatedItems": [],
       "displayTitle": "Lakers add Matisse Thybulle to fill weak spot, but create roster crunch",
       "copySource": "fallback",
-      "storyType": "signing",
-      "isMerged": false
+      "storyType": "signing"
     },
     {
       "id": "https://sports.yahoo.com/articles/lebron-james-still-hasn-t-211425746.html",
@@ -146,6 +162,34 @@
       "displayTitle": "A List Of NBA Draft Picks Out Of Villanova",
       "copySource": "fallback",
       "storyType": "injury",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/boston-celtics-daily-links-7-195343678.html",
+      "title": "Boston Celtics Daily Links 7/20/26",
+      "originalTitle": "Boston Celtics Daily Links 7/20/26",
+      "headlineZh": "NBA 动态：凯尔特人 Daily Links 7/20/26",
+      "titleZh": "NBA 动态：凯尔特人 Daily Links 7/20/26",
+      "link": "https://sports.yahoo.com/articles/boston-celtics-daily-links-7-195343678.html",
+      "url": "https://sports.yahoo.com/articles/boston-celtics-daily-links-7-195343678.html",
+      "pubDate": "2026-07-20T19:53:43.000Z",
+      "publishedAt": "2026-07-20T19:53:43.000Z",
+      "summary": "All the Celtics news you need in one convenient place.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "NBA 动态：凯尔特人 Daily Links 7/20/26",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/uupwZ8H.JUTQFxYvEDxH1Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/fa93a43b0d0b53b54a15239376aee948",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Boston Celtics Daily Links 7/20/26",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -273,6 +317,34 @@
       "displayTitle": "NetsDaily Off-Season Report – No. 14",
       "copySource": "fallback",
       "storyType": "rumor",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/klay-thompson-gives-eye-opening-174352451.html",
+      "title": "Klay Thompson gives eye-opening answer when asked about Warriors reunion",
+      "originalTitle": "Klay Thompson gives eye-opening answer when asked about Warriors reunion",
+      "headlineZh": "Klay Thompson 相关消息更新",
+      "titleZh": "Klay Thompson 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/klay-thompson-gives-eye-opening-174352451.html",
+      "url": "https://sports.yahoo.com/articles/klay-thompson-gives-eye-opening-174352451.html",
+      "pubDate": "2026-07-20T17:43:52.000Z",
+      "publishedAt": "2026-07-20T17:43:52.000Z",
+      "summary": "Klay Thompson wouldn't turn his nose up at a reunion with the Golden State Warriors.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Klay Thompson 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/hJwC_rv3aSnjgK7v0XVrrA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/dbbc311530295d6969d3e2d633e33ab7",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Klay Thompson gives eye-opening answer when asked about Warriors reunion",
+      "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1387,62 +1459,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/survey-results-jazz-fans-think-035537724.html",
-      "title": "Survey Results: Jazz fans say who they think will have the best career",
-      "originalTitle": "Survey Results: Jazz fans say who they think will have the best career",
-      "headlineZh": "Survey Results 相关消息更新",
-      "titleZh": "Survey Results 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/survey-results-jazz-fans-think-035537724.html",
-      "url": "https://sports.yahoo.com/articles/survey-results-jazz-fans-think-035537724.html",
-      "pubDate": "2026-07-20T03:55:37.000Z",
-      "publishedAt": "2026-07-20T03:55:37.000Z",
-      "summary": "Jazz fans made it clear who they thought would have the best career of all the new rookies",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Survey Results 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Lj_MNDzSsh40RXbx7vmR7w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xMjQyO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/07f02fc1f09c6c78ca6baa79363afedb",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 2,
-      "displayTitle": "Survey Results: Jazz fans say who they think will have the best career",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/dillon-brooks-calls-luka-doncic-031735212.html",
-      "title": "Dillon Brooks calls out Luka Doncic, Steph Curry and LeBron James",
-      "originalTitle": "Dillon Brooks calls out Luka Doncic, Steph Curry and LeBron James",
-      "headlineZh": "狄龙·布鲁克斯相关消息更新",
-      "titleZh": "狄龙·布鲁克斯相关消息更新",
-      "link": "https://sports.yahoo.com/articles/dillon-brooks-calls-luka-doncic-031735212.html",
-      "url": "https://sports.yahoo.com/articles/dillon-brooks-calls-luka-doncic-031735212.html",
-      "pubDate": "2026-07-20T03:17:35.000Z",
-      "publishedAt": "2026-07-20T03:17:35.000Z",
-      "summary": "Dillon Brooks didn’t hesitate to call out Luka Doncic, LeBron James and Steph Curry. Brooks, who plays for the Suns, was asked who are the top-five complainers in basketball and...",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "狄龙·布鲁克斯相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/sl86ZB4kksD1hIzt5YSEyA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/d355901b28115c9f3d9ad3fa2fc5f2ac",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "eventKey": "injury:lebron-james:suns",
-      "relatedItems": [],
-      "displayTitle": "Dillon Brooks calls out Luka Doncic, Steph Curry and LeBron James",
-      "copySource": "fallback",
-      "storyType": "opinion",
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286753/Hawks-Acquire-Lu-Dort-Ryan-Nembhard;-Mavs-Receive-Zaccharie-Risacher-In-Three-Team-Trade-With-Thunder",
       "title": "Hawks Acquire Lu Dort, Ryan Nembhard; Mavs Receive Zaccharie Risacher In Three-Team Trade With Thunder",
       "originalTitle": "Hawks Acquire Lu Dort, Ryan Nembhard; Mavs Receive Zaccharie Risacher In Three-Team Trade With Thunder",
@@ -1459,20 +1475,12 @@
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Dort_Luguentz_okc_210318.jpg",
-      "source": "Yahoo Sports / RealGM",
+      "source": "RealGM / Yahoo Sports",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "交易",
       "importance": 5,
       "eventKey": "trade:lu-dort:hawks:thunder:mavericks",
       "relatedItems": [
-        {
-          "title": "Winners, losers from Lu Dort trade to Atlanta in three-team deal",
-          "originalTitle": "Winners, losers from Lu Dort trade to Atlanta in three-team deal",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/winners-losers-lu-dort-trade-031530672.html",
-          "publishedAt": "2026-07-20T03:15:30.000Z",
-          "angle": "source"
-        },
         {
           "title": "Thunder Acquire Bulls' 2027 2nd Rounder, Additional 2nds In 2031, 2032 In Lu Dort Trade",
           "originalTitle": "Thunder Acquire Bulls' 2027 2nd Rounder, Additional 2nds In 2031, 2032 In Lu Dort Trade",
@@ -1483,19 +1491,14 @@
         }
       ],
       "sources": [
-        "Yahoo Sports",
-        "RealGM"
+        "RealGM",
+        "Yahoo Sports"
       ],
       "originalTitles": [
-        "Winners, losers from Lu Dort trade to Atlanta in three-team deal",
         "Thunder Acquire Bulls' 2027 2nd Rounder, Additional 2nds In 2031, 2032 In Lu Dort Trade",
         "Hawks Acquire Lu Dort, Ryan Nembhard; Mavs Receive Zaccharie Risacher In Three-Team Trade With Thunder"
       ],
       "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/winners-losers-lu-dort-trade-031530672.html"
-        },
         {
           "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286754/Thunder-Acquire-Bulls-2027-2nd-Rounder-Additional-2nds-In-2031-2032-In-Lu-Dort-Trade"
