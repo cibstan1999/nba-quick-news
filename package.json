@@ -7,7 +7,9 @@
     "dev": "vite --host 127.0.0.1 --base=/nba-quick-news/",
     "build": "vite build --base=/nba-quick-news/",
     "preview": "vite preview --host 127.0.0.1 --base=/nba-quick-news/",
-    "fetch": "node scripts/fetch-rss.mjs"
+    "fetch": "node scripts/fetch-rss.mjs",
+    "backfill-ai": "node scripts/fetch-rss.mjs --backfill-ai",
+    "test": "node scripts/fetch-rss.mjs --self-test"
   },
   "dependencies": {
     "fast-xml-parser": "^4.5.0",

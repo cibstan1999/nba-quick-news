@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -19,7 +19,7 @@ const outputPath = path.join(rootDir, 'public', 'data', 'news.json');
 const aiCachePath = path.join(rootDir, 'public', 'data', 'ai-summary-cache.json');
 const githubModelsEndpoint = 'https://models.github.ai/inference/chat/completions';
 const defaultGithubModelsModel = 'openai/gpt-4o-mini';
-const aiPromptVersion = 'summary-v2';
+const aiPromptVersion = 'summary-v3';
 
 const parser = new XMLParser({
   ignoreAttributes: false,
@@ -102,6 +102,66 @@ const teamNames = new Map([
   ['Washington Wizards', '华盛顿奇才'],
   ['Wizards', '奇才']
 ]);
+
+const playerNameZh = new Map([
+  ['LeBron James', '勒布朗·詹姆斯'],
+  ['Luka Doncic', '卢卡·东契奇'],
+  ['Luka Dončić', '卢卡·东契奇'],
+  ['Stephen Curry', '斯蒂芬·库里'],
+  ['Steph Curry', '斯蒂芬·库里'],
+  ['Kevin Durant', '凯文·杜兰特'],
+  ['Giannis Antetokounmpo', '扬尼斯·阿德托昆博'],
+  ['Nikola Jokic', '尼古拉·约基奇'],
+  ['Shai Gilgeous-Alexander', '谢伊·吉尔杰斯-亚历山大'],
+  ['Jayson Tatum', '杰森·塔图姆'],
+  ['Jaylen Brown', '杰伦·布朗'],
+  ['Kawhi Leonard', '科怀·伦纳德'],
+  ['Paul George', '保罗·乔治'],
+  ['James Harden', '詹姆斯·哈登'],
+  ['Anthony Davis', '安东尼·戴维斯'],
+  ['Jimmy Butler', '吉米·巴特勒'],
+  ['Damian Lillard', '达米安·利拉德'],
+  ['Donovan Mitchell', '多诺万·米切尔'],
+  ['Trae Young', '特雷·杨'],
+  ['Zion Williamson', '蔡恩·威廉森'],
+  ['Ja Morant', '贾·莫兰特'],
+  ['Victor Wembanyama', '维克托·文班亚马'],
+  ['Cade Cunningham', '凯德·坎宁安'],
+  ['Tyrese Haliburton', '泰瑞斯·哈利伯顿'],
+  ['Devin Booker', '德文·布克'],
+  ['Jalen Brunson', '杰伦·布伦森'],
+  ['Karl-Anthony Towns', '卡尔-安东尼·唐斯'],
+  ['Joel Embiid', '乔尔·恩比德'],
+  ['Brandon Ingram', '布兰登·英格拉姆'],
+  ['Walker Kessler', '沃克·凯斯勒'],
+  ['Santi Aldama', '桑蒂·阿尔达马'],
+  ['Dean Wade', '迪恩·韦德'],
+  ['Luke Kennard', '卢克·肯纳德'],
+  ['Keon Ellis', '基恩·埃利斯'],
+  ['Tim Hardaway Jr.', '小蒂姆·哈达威'],
+  ['Tobias Harris', '托拜厄斯·哈里斯'],
+  ['Luguentz Dort', '吕冈茨·多尔特'],
+  ['Lu Dort', '吕冈茨·多尔特'],
+  ['Zaccharie Risacher', '扎卡里·里萨谢'],
+  ['Ryan Nembhard', '瑞安·内姆哈德'],
+  ['Dillon Brooks', '狄龙·布鲁克斯'],
+  ['Jordan Clarkson', '乔丹·克拉克森'],
+  ['Charles Bassey', '查尔斯·巴锡'],
+  ['Baba Miller', '巴巴·米勒'],
+  ['Bruce Thornton', '布鲁斯·桑顿'],
+  ['AJ Dybantsa', 'AJ·迪班萨'],
+  ['Cooper Flagg', '库珀·弗拉格'],
+  ['Ace Bailey', '埃斯·贝利'],
+  ['Dylan Harper', '迪伦·哈珀'],
+  ['Tarris Reed Jr.', '小塔里斯·里德'],
+  ['Alex Karaban', '亚历克斯·卡拉班'],
+  ['Bogoljub Marković', '博戈柳布·马尔科维奇'],
+  ['Bogoljub Markovic', '博戈柳布·马尔科维奇']
+]);
+
+function escapeRegExp(value = '') {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
 function stripHtml(value = '') {
   return String(value)
@@ -225,7 +285,7 @@ function isGitHubModelsEnabled() {
 
 function getGithubModelsMaxItems() {
   const parsed = Number(process.env.GITHUB_MODELS_MAX_ITEMS || 5);
-  return Number.isFinite(parsed) && parsed > 0 ? Math.min(parsed, 5) : 5;
+  return Number.isFinite(parsed) && parsed > 0 ? Math.min(Math.floor(parsed), 30) : 5;
 }
 
 async function readAiSummaryCache() {
@@ -233,10 +293,15 @@ async function readAiSummaryCache() {
     const raw = await readFile(aiCachePath, 'utf8');
     const parsed = JSON.parse(raw);
     return parsed && typeof parsed === 'object'
-      ? { version: 2, promptVersion: aiPromptVersion, entries: parsed.version === 2 && parsed.entries && typeof parsed.entries === 'object' ? parsed.entries : {} }
-      : { version: 2, promptVersion: aiPromptVersion, entries: {} };
+      ? {
+          version: 2,
+          promptVersion: aiPromptVersion,
+          entries: parsed.version === 2 && parsed.entries && typeof parsed.entries === 'object' ? parsed.entries : {},
+          backlog: parsed.backlog && typeof parsed.backlog === 'object' ? parsed.backlog : {}
+        }
+      : { version: 2, promptVersion: aiPromptVersion, entries: {}, backlog: {} };
   } catch {
-    return { version: 2, promptVersion: aiPromptVersion, entries: {} };
+    return { version: 2, promptVersion: aiPromptVersion, entries: {}, backlog: {} };
   }
 }
 
@@ -271,11 +336,83 @@ function getExistingAiEventKeys(existingPayload = null) {
 }
 
 function hasValidAiSummaryCache(cached = null, sourceHash = '') {
-  return Boolean(cached?.sourceHash === sourceHash && cached?.promptVersion === aiPromptVersion);
+  return Boolean(
+    cached?.sourceHash === sourceHash &&
+    cached?.promptVersion === aiPromptVersion &&
+    isPredominantlyChinese(cached.summaryZh || '') &&
+    isPredominantlyChinese(cached.oneLineZh || '') &&
+    isSafeChineseSummary(cached.summaryZh || '') &&
+    !isGenericFallbackSummary(cached.summaryZh || '')
+  );
+}
+
+function hasValidChineseSummary(item = {}) {
+  return isPredominantlyChinese(item.summaryZh || '') && isSafeChineseSummary(item.summaryZh || '');
+}
+
+function getBacklogEntry(cache = {}, cacheKey = '') {
+  return cache.backlog?.[cacheKey] || {};
+}
+
+function isBacklogCoolingDown(backlog = {}, now = Date.now()) {
+  const nextRetryAt = new Date(backlog.nextRetryAt || '').getTime();
+  return Number.isFinite(nextRetryAt) && nextRetryAt > now;
+}
+
+function getBacklogCooldownMs(failureCount = 0) {
+  if (failureCount <= 0) return 0;
+  if (failureCount === 1) return 30 * 60 * 1000;
+  if (failureCount === 2) return 2 * 60 * 60 * 1000;
+  return 24 * 60 * 60 * 1000;
+}
+
+function markBacklogSkipped(cache = {}, entry = {}, reason = 'limit') {
+  if (!entry.cacheKey) return;
+  cache.backlog ||= {};
+  const previous = getBacklogEntry(cache, entry.cacheKey);
+  cache.backlog[entry.cacheKey] = {
+    ...previous,
+    sourceHash: entry.sourceHash,
+    lastTitle: entry.item.originalTitle || entry.item.title || '',
+    skippedByLimit: reason === 'limit' ? (previous.skippedByLimit || 0) + 1 : previous.skippedByLimit || 0,
+    lastSkippedAt: new Date().toISOString(),
+    lastReason: reason
+  };
+}
+
+function markBacklogFailure(cache = {}, entry = {}, reason = 'failed') {
+  if (!entry.cacheKey) return;
+  cache.backlog ||= {};
+  const previous = getBacklogEntry(cache, entry.cacheKey);
+  const failureCount = (previous.failureCount || 0) + 1;
+  cache.backlog[entry.cacheKey] = {
+    ...previous,
+    sourceHash: entry.sourceHash,
+    lastTitle: entry.item.originalTitle || entry.item.title || '',
+    failureCount,
+    lastFailedAt: new Date().toISOString(),
+    nextRetryAt: new Date(Date.now() + getBacklogCooldownMs(failureCount)).toISOString(),
+    lastReason: reason
+  };
+}
+
+function clearBacklogState(cache = {}, cacheKey = '') {
+  if (cache.backlog?.[cacheKey]) {
+    delete cache.backlog[cacheKey];
+  }
+}
+
+function pruneAiBacklog(cache = {}, activeKeys = new Set()) {
+  if (!cache.backlog) return;
+  for (const key of Object.keys(cache.backlog)) {
+    if (!activeKeys.has(key)) delete cache.backlog[key];
+  }
 }
 
 function isAiCandidate(item = {}, { hasValidCache = false } = {}) {
   if (hasValidCache) return false;
+  if (hasValidChineseSummary(item)) return false;
+  if (!normalizeWhitespace(`${item.originalTitle || item.title || ''} ${item.summary || ''}`)) return false;
   const storyType = inferStoryType(item);
   if (!(item.summaryZh || '').trim()) return true;
   if (needsAiSummary(item)) return true;
@@ -286,7 +423,7 @@ function isAiCandidate(item = {}, { hasValidCache = false } = {}) {
 }
 
 function getAiCandidateRejectionReason(item = {}, { hasValidCache = false, candidate = false, priority = 0 } = {}) {
-  if (hasValidCache) return 'valid-summary-v2-cache';
+  if (hasValidCache) return 'valid-summary-v3-cache';
   if (candidate && priority > 0) return '';
   const summary = item.summaryZh || '';
   if (!summary.trim()) return 'empty-summary-but-priority-zero';
@@ -332,7 +469,46 @@ function getGithubModelsPrompt(item = {}) {
   ].join('\n');
 }
 
-async function summarizeWithGitHubModels(item) {
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function getGithubModelsPromptV3(item = {}, retryNote = '') {
+  const facts = getExtractedFactsForPrompt(item);
+  const relatedItems = toArray(item.relatedItems).map((related) => ({
+    originalTitle: related.originalTitle || related.title || '',
+    summary: stripHtml(related.summary || ''),
+    source: related.source || '',
+    publishedAt: related.publishedAt || related.pubDate || '',
+    angle: related.angle || ''
+  })).slice(0, 5);
+
+  return [
+    '任务：根据英文标题、RSS 摘要和相关报道，提炼事实并改写成自然、简洁、符合中文 NBA 新闻习惯的快讯。不要逐句翻译。',
+    retryNote ? `重试要求：${retryNote}` : '',
+    '',
+    `originalTitle: ${item.originalTitle || item.title || ''}`,
+    `originalSummary: ${stripHtml(item.summary || '')}`,
+    `source: ${item.source || ''}`,
+    `publishedAt: ${item.publishedAt || item.pubDate || ''}`,
+    `category: ${item.category || ''}`,
+    `localStoryType: ${inferStoryType(item)}`,
+    `eventKey: ${item.eventKey || ''}`,
+    `relatedItems: ${JSON.stringify(relatedItems)}`,
+    `extractedFacts: ${JSON.stringify(facts)}`,
+    `fallbackSummaryZh: ${item.summaryZh || ''}`,
+    '',
+    '内容原则：只能使用输入中明确存在的信息；不得补充模型记忆；不得猜测合同细节、球队态度或交易结果；传闻必须保留“据报道”“有意”“讨论中”等不确定性；已签约、已交易、有意、接近、讨论中必须严格区分。',
+    '中文表达：像熟悉 NBA 的中文体育编辑。不要逐词翻译英文语序，不要写“关于……的更新”“就……而言”“该名球员”。球员姓名默认保留英文；球队用常见中文译名；sign 写“签下/签约”，agree to a deal 写“达成签约协议”，acquire 写“得到/交易得到”，waive 写“裁掉/放弃”。',
+    '文风：简洁、中性、像中文 NBA 快讯。不要营销号，不要夸张词，不要评价交易输赢。避免半中半英拼接，但球员姓名、NBA、合同类型和必要专有名词可以保留英文。',
+    '长度：summaryZh 1 到 2 句，优先 45 到 90 个中文字符，硬上限 130 个中文字符；oneLineZh 一句话，优先 20 到 42 个中文字符。',
+    'confidence 表示“摘要是否忠实覆盖输入中明确存在的信息”，不是表示新闻本身是否官宣。明确比分、签约、采访引语或交易状态不应仅因来源是 RSS 就低分。',
+    'storyType 只能使用 fact、trade、signing、injury、draft、rumor、opinion、analysis、unknown。',
+    '严格返回 JSON，不要 Markdown，不要解释：{"summaryZh":"","oneLineZh":"","confidence":0.0,"storyType":"fact"}'
+  ].filter(Boolean).join('\n');
+}
+
+async function summarizeWithGitHubModels(item, retryNote = '', attempt = 0) {
   const token = process.env.GITHUB_MODELS_TOKEN;
   if (!token) return null;
 
@@ -364,13 +540,18 @@ async function summarizeWithGitHubModels(item) {
           },
           {
             role: 'user',
-            content: getGithubModelsPrompt(item)
+            content: getGithubModelsPromptV3(item, retryNote)
           }
         ]
       })
     });
 
     if (!response.ok) {
+      if ([429, 502, 503, 504].includes(response.status) && attempt < 1) {
+        console.warn(`AI summary retry: HTTP ${response.status}`);
+        await sleep(800);
+        return summarizeWithGitHubModels(item, retryNote, attempt + 1);
+      }
       console.warn(`GitHub Models request failed: ${response.status} ${response.statusText}`);
       return null;
     }
@@ -381,6 +562,11 @@ async function summarizeWithGitHubModels(item) {
     const jsonText = String(content).replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```$/i, '').trim();
     return { ...JSON.parse(jsonText), model };
   } catch (error) {
+    if (attempt < 1 && (error?.name === 'AbortError' || /timeout|aborted|network/i.test(String(error?.message || error)))) {
+      console.warn('AI summary retry: timeout or transient network error');
+      await sleep(800);
+      return summarizeWithGitHubModels(item, retryNote, attempt + 1);
+    }
     console.warn(`GitHub Models request skipped: ${error instanceof Error ? error.message : String(error)}`);
     return null;
   } finally {
@@ -735,6 +921,47 @@ function getAiCandidatePriority(item = {}) {
   return 0;
 }
 
+function getCandidateTier(entry = {}, existingPayload = null, now = Date.now()) {
+  const item = entry.item || {};
+  const publishedAt = new Date(item.publishedAt || item.pubDate || 0).getTime();
+  const ageHours = Number.isFinite(publishedAt) ? Math.max(0, (now - publishedAt) / 36e5) : Infinity;
+  const isNew = !toArray(existingPayload?.items).some((existing) =>
+    (existing.eventKey || existing.originalTitle || existing.title) === (item.eventKey || item.originalTitle || item.title)
+  );
+  const missingChinese = !hasValidChineseSummary(item);
+  const failedCount = entry.backlog?.failureCount || 0;
+  const wasSkipped = (entry.backlog?.skippedByLimit || 0) > 0;
+
+  if (isNew && !entry.cached && isCoreNewsCategory(item.category)) return 100;
+  if (missingChinese && ageHours <= 24) return 90;
+  if (wasSkipped) return 85;
+  if (missingChinese) return 75;
+  if (failedCount > 0 && !isBacklogCoolingDown(entry.backlog, now)) return 55;
+  return 40;
+}
+
+function compareAiCandidateEntries(existingPayload = null, now = Date.now()) {
+  return (a, b) => {
+    const tierDelta = getCandidateTier(b, existingPayload, now) - getCandidateTier(a, existingPayload, now);
+    if (tierDelta) return tierDelta;
+
+    const skippedDelta = (b.backlog?.skippedByLimit || 0) - (a.backlog?.skippedByLimit || 0);
+    if (skippedDelta) return skippedDelta;
+
+    const failureDelta = (a.backlog?.failureCount || 0) - (b.backlog?.failureCount || 0);
+    if (failureDelta) return failureDelta;
+
+    const priorityDelta = b.priority - a.priority;
+    if (priorityDelta) return priorityDelta;
+
+    const importanceDelta = (b.item.importance || 0) - (a.item.importance || 0);
+    if (importanceDelta) return importanceDelta;
+
+    return new Date(a.item.publishedAt || a.item.pubDate || 0).getTime() -
+      new Date(b.item.publishedAt || b.item.pubDate || 0).getTime();
+  };
+}
+
 function isRumorWrittenAsConfirmed(item = {}, summary = '') {
   if (inferStoryType(item) !== 'rumor') return false;
   const text = normalizeChineseText(summary);
@@ -857,12 +1084,45 @@ function buildConservativeEmptyAiFallback(item = {}) {
   return '';
 }
 
+function cleanAiChineseCopy(value = '') {
+  return normalizeChineseText(value)
+    .replace(/^```(?:json)?/i, '')
+    .replace(/```$/i, '')
+    .replace(/^["“”]+|["“”]+$/g, '')
+    .replace(/\s+([，。！？：；、])/g, '$1')
+    .replace(/([，。！？：；、])\s+/g, '$1')
+    .replace(/。{2,}/g, '。')
+    .trim();
+}
+
+function hasModelMetaText(value = '') {
+  return /以下是|根据提供的信息|作为\s*AI|我无法|Markdown|```|JSON|摘要如下|改写如下/i.test(String(value));
+}
+
+function hasEmptySummaryTemplate(value = '') {
+  return /相关消息更新|最新动态和后续影响|原文聚焦|更多背景来自原文报道|这篇文章讨论了|关于.+的更新/.test(String(value));
+}
+
+function getChineseLength(value = '') {
+  return (String(value).match(/[\u4e00-\u9fa5]/g) || []).length;
+}
+
+function isAllowedStoryType(value = '') {
+  return ['fact', 'trade', 'signing', 'injury', 'draft', 'rumor', 'opinion', 'analysis', 'unknown'].includes(String(value || '').trim());
+}
+
+function needsAiRewriteRetry(validation = {}) {
+  return toArray(validation.rejectionReasons).some((reason) =>
+    ['non-chinese-summary', 'non-chinese-oneline', 'too-long-summary', 'too-long-oneline', 'model-meta-text', 'generic-summary', 'unsafe-summary'].includes(reason)
+  );
+}
+
 function validateAiSummary(item = {}, aiResult = null) {
   if (!aiResult || typeof aiResult !== 'object') return { accepted: false, reason: 'empty-result' };
   const confidence = Number(aiResult.confidence || 0);
-  const rawSummaryZh = normalizeChineseText(aiResult.summaryZh || '');
+  const rawSummaryZh = cleanAiChineseCopy(aiResult.summaryZh || '');
   const summaryZh = compactAiSummary(rawSummaryZh);
-  const oneLineZh = normalizeChineseText(aiResult.oneLineZh || summaryZh);
+  const oneLineZh = cleanAiChineseCopy(aiResult.oneLineZh || summaryZh);
   const localStoryType = inferStoryType(item);
   const modelStoryType = normalizeWhitespace(aiResult.storyType || '');
   const storyType = localStoryType && localStoryType !== 'unknown'
@@ -883,7 +1143,15 @@ function validateAiSummary(item = {}, aiResult = null) {
   const addedFacts = summaryZh ? findAddedFacts(item, aiText) : [];
 
   if (!Number.isFinite(confidence) || confidence < 0.5) rejectionReasons.push('low-confidence');
+  if (Number.isFinite(confidence) && (confidence < 0 || confidence > 1)) rejectionReasons.push('invalid-confidence');
   if (!summaryZh) rejectionReasons.push('empty-summary');
+  if (summaryZh && !isPredominantlyChinese(summaryZh)) rejectionReasons.push('non-chinese-summary');
+  if (oneLineZh && !isPredominantlyChinese(oneLineZh)) rejectionReasons.push('non-chinese-oneline');
+  if (getChineseLength(summaryZh) > 130) rejectionReasons.push('too-long-summary');
+  if (getChineseLength(oneLineZh) > 48) rejectionReasons.push('too-long-oneline');
+  if (hasModelMetaText(`${summaryZh} ${oneLineZh}`)) rejectionReasons.push('model-meta-text');
+  if (hasEmptySummaryTemplate(`${summaryZh} ${oneLineZh}`)) rejectionReasons.push('generic-summary');
+  if (modelStoryType && !isAllowedStoryType(modelStoryType)) rejectionReasons.push('invalid-story-type');
   if (summaryZh && !isSafeChineseSummary(summaryZh)) rejectionReasons.push('unsafe-summary');
   if (compactComparable(summaryZh) === compactComparable(item.originalTitle || item.title || '')) rejectionReasons.push('summary-repeats-title');
   if (/相关消息更新|后续动向|继续更新|值得关注|详情请/.test(summaryZh)) rejectionReasons.push('generic-summary');
@@ -938,13 +1206,16 @@ function applyCachedAiSummary(item = {}, cached = null) {
 }
 
 function buildAiCandidateEvaluations(items = [], existingPayload = null, cache = { entries: {} }, { log = false } = {}) {
+  const now = Date.now();
   return items.map((item, index) => {
     const cacheKey = getAiCacheKey(item);
     const sourceHash = getAiSourceHash(item);
     const cached = cache.entries?.[cacheKey];
+    const backlog = getBacklogEntry(cache, cacheKey);
     const hasValidCache = hasValidAiSummaryCache(cached, sourceHash);
     const storyType = inferStoryType(item);
-    const priority = isAiCandidate(item, { hasValidCache }) ? getAiCandidatePriority(item) : 0;
+    const coolingDown = isBacklogCoolingDown(backlog, now);
+    const priority = !coolingDown && isAiCandidate(item, { hasValidCache }) ? getAiCandidatePriority(item) : 0;
     const candidate = priority > 0;
     const evaluation = {
       item,
@@ -952,11 +1223,13 @@ function buildAiCandidateEvaluations(items = [], existingPayload = null, cache =
       cacheKey,
       sourceHash,
       cached,
+      backlog,
       hasValidCache,
+      coolingDown,
       storyType,
       priority,
       candidate,
-      rejectionReason: getAiCandidateRejectionReason(item, { hasValidCache, candidate, priority })
+      rejectionReason: coolingDown ? 'backlog-cooldown' : getAiCandidateRejectionReason(item, { hasValidCache, candidate, priority })
     };
     if (log) {
       console.log('AI candidate evaluation:', JSON.stringify({
@@ -966,6 +1239,9 @@ function buildAiCandidateEvaluations(items = [], existingPayload = null, cache =
         isNew: !toArray(existingPayload?.items).some((existing) => (existing.eventKey || existing.originalTitle || existing.title) === (item.eventKey || item.originalTitle || item.title)),
         needsAiSummary: needsAiSummary(item),
         hasCache: hasValidCache,
+        failureCount: backlog.failureCount || 0,
+        skippedByLimit: backlog.skippedByLimit || 0,
+        coolingDown,
         eligibleCategory: isCoreNewsCategory(item.category) || isImportantRumor(item) || ['opinion', 'rumor', 'analysis'].includes(storyType),
         rejectionReason: evaluation.rejectionReason || ''
       }, null, 2));
@@ -987,6 +1263,9 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     aiAccepted: 0,
     aiRejected: 0,
     aiFailed: 0,
+    aiRetried: 0,
+    rejectedAsNonChinese: 0,
+    skippedByLimit: 0,
     rejectedLowConfidenceBelow50: 0,
     acceptedMediumConfidence: 0,
     acceptedHighConfidence: 0,
@@ -994,7 +1273,14 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     acceptedConfidenceValues: [],
     aiLogicError: false,
     fallbackItems: 0,
-    aiModel: model
+    aiModel: model,
+    totalNewsItems: items.length,
+    itemsWithValidChineseSummary: 0,
+    itemsMissingChineseSummary: 0,
+    eligibleBacklog: 0,
+    selectedThisRun: 0,
+    previouslyFailed: 0,
+    remainingAfterRun: 0
   };
 
   let remainingRequests = getGithubModelsMaxItems();
@@ -1005,12 +1291,25 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
   }
 
   const evaluatedEntries = buildAiCandidateEvaluations(items, existingPayload, cache, { log: requestedEnabled });
+  const activeKeys = new Set(evaluatedEntries.map((entry) => entry.cacheKey));
+  pruneAiBacklog(cache, activeKeys);
 
   const candidateEntries = evaluatedEntries
     .filter((entry) => entry.priority > 0)
-    .sort((a, b) => b.priority - a.priority || (b.item.importance || 0) - (a.item.importance || 0) || new Date(b.item.publishedAt || b.item.pubDate || 0).getTime() - new Date(a.item.publishedAt || a.item.pubDate || 0).getTime());
+    .sort(compareAiCandidateEntries(existingPayload));
   stats.aiCandidates = candidateEntries.length;
-  const candidateKeys = new Set(candidateEntries.slice(0, getGithubModelsMaxItems()).map((entry) => entry.cacheKey));
+  stats.itemsWithValidChineseSummary = items.filter(hasValidChineseSummary).length;
+  stats.itemsMissingChineseSummary = items.length - stats.itemsWithValidChineseSummary;
+  stats.eligibleBacklog = candidateEntries.length;
+  stats.previouslyFailed = candidateEntries.filter((entry) => (entry.backlog?.failureCount || 0) > 0).length;
+  const selectedEntries = enabled ? candidateEntries.slice(0, getGithubModelsMaxItems()) : [];
+  const selectedEntryByKey = new Map(selectedEntries.map((entry) => [entry.cacheKey, entry]));
+  const candidateKeys = new Set(selectedEntries.map((entry) => entry.cacheKey));
+  stats.selectedThisRun = selectedEntries.length;
+  stats.skippedByLimit = enabled ? Math.max(0, candidateEntries.length - candidateKeys.size) : 0;
+  if (enabled) {
+    candidateEntries.slice(getGithubModelsMaxItems()).forEach((entry) => markBacklogSkipped(cache, entry, 'limit'));
+  }
 
   for (const item of items) {
     const cacheKey = getAiCacheKey(item);
@@ -1021,6 +1320,7 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     const candidate = enabled && candidateKeys.has(cacheKey);
     if (canUseCache) {
       stats.aiCacheHits += 1;
+      clearBacklogState(cache, cacheKey);
       enhanced.push(applyCachedAiSummary(item, cached));
       continue;
     }
@@ -1033,14 +1333,30 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
 
     stats.aiRequests += 1;
     remainingRequests -= 1;
-    const aiResult = await summarizeWithGitHubModels(item);
+    const selectedEntry = selectedEntryByKey.get(cacheKey) || evaluated;
+    let aiResult = await summarizeWithGitHubModels(item);
     if (!aiResult) {
       stats.aiFailed += 1;
+      console.warn('AI summary failed: request returned no usable JSON');
+      markBacklogFailure(cache, selectedEntry, 'request-failed');
       enhanced.push({ ...item, copySource: 'fallback' });
       continue;
     }
 
-    const validation = validateAiSummary(item, aiResult);
+    let validation = validateAiSummary(item, aiResult);
+    if (!validation.accepted && needsAiRewriteRetry(validation) && remainingRequests > 0) {
+      stats.aiRetried += 1;
+      stats.aiRequests += 1;
+      remainingRequests -= 1;
+      const retryResult = await summarizeWithGitHubModels(
+        item,
+        '上一次结果不符合自然中文 NBA 快讯文风。请保持事实完全不变，只重写中文表达。不要逐句翻译，不得添加信息；summaryZh 必须是中文为主、1 到 2 句、130 个中文字符以内；oneLineZh 必须是中文为主、48 个中文字符以内。'
+      );
+      if (retryResult) {
+        aiResult = retryResult;
+        validation = validateAiSummary(item, aiResult);
+      }
+    }
     if (Number.isFinite(validation.confidence)) {
       stats.aiConfidenceValues.push(validation.confidence);
     } else if (Number.isFinite(Number(aiResult.confidence))) {
@@ -1050,6 +1366,10 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
       stats.aiRejected += 1;
       if (validation.rejectionReasons?.includes('low-confidence')) {
         stats.rejectedLowConfidenceBelow50 += 1;
+      }
+      if (validation.rejectionReasons?.includes('non-chinese-summary') || validation.rejectionReasons?.includes('non-chinese-oneline')) {
+        stats.rejectedAsNonChinese += 1;
+        console.warn('AI summary skipped: non-Chinese output');
       }
       console.warn('GitHub Models result rejected:', JSON.stringify({
         originalTitle: item.originalTitle || item.title || item.id,
@@ -1073,6 +1393,7 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
         }
       }
       enhanced.push({ ...item, copySource: 'fallback' });
+      markBacklogFailure(cache, selectedEntry, validation.reason || 'rejected');
       continue;
     }
 
@@ -1093,10 +1414,13 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
       sourceHash,
       promptVersion: aiPromptVersion
     };
+    clearBacklogState(cache, cacheKey);
     enhanced.push(normalizeNewsItemText({ ...item, ...validation.value }));
   }
 
-  if (stats.aiAccepted > 0) {
+  stats.remainingAfterRun = enhanced.filter((item) => !hasValidChineseSummary(item)).length;
+
+  if (stats.aiAccepted > 0 || stats.skippedByLimit > 0 || stats.aiFailed > 0 || stats.aiRejected > 0 || stats.aiCacheHits > 0) {
     await writeAiSummaryCache(cache);
   }
 
@@ -1118,6 +1442,8 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
   stats.averageAiConfidence = averageAiConfidence;
   stats.minAcceptedConfidence = minAcceptedConfidence;
   stats.maxAcceptedConfidence = maxAcceptedConfidence;
+  stats.finalItemsWithChineseSummary = enhanced.filter((item) => isPredominantlyChinese(item.summaryZh || '')).length;
+  stats.finalItemsWithoutChineseSummary = enhanced.filter((item) => !isPredominantlyChinese(item.summaryZh || '')).length;
 
   console.log('GitHub Models summary:', JSON.stringify({
     'GitHub Models enabled': stats.aiEnabled,
@@ -1127,6 +1453,16 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     'AI accepted': stats.aiAccepted,
     'AI rejected': stats.aiRejected,
     'AI failed': stats.aiFailed,
+    'AI retried': stats.aiRetried,
+    rejectedAsNonChinese: stats.rejectedAsNonChinese,
+    skippedByLimit: stats.skippedByLimit,
+    totalNewsItems: stats.totalNewsItems,
+    itemsWithValidChineseSummary: stats.itemsWithValidChineseSummary,
+    itemsMissingChineseSummary: stats.itemsMissingChineseSummary,
+    eligibleBacklog: stats.eligibleBacklog,
+    selectedThisRun: stats.selectedThisRun,
+    previouslyFailed: stats.previouslyFailed,
+    remainingAfterRun: stats.remainingAfterRun,
     rejectedLowConfidenceBelow50: stats.rejectedLowConfidenceBelow50,
     acceptedMediumConfidence: stats.acceptedMediumConfidence,
     acceptedHighConfidence: stats.acceptedHighConfidence,
@@ -1136,6 +1472,31 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     'AI logic error': stats.aiLogicError,
     'Fallback items': stats.fallbackItems,
     Model: stats.aiModel
+  }, null, 2));
+
+  console.log('AI summary diagnostics:', JSON.stringify({
+    model: stats.aiModel,
+    candidates: stats.aiCandidates,
+    cached: stats.aiCacheHits,
+    requested: stats.aiRequests,
+    succeeded: stats.aiAccepted,
+    retried: stats.aiRetried,
+    failed: stats.aiFailed,
+    rejectedAsNonChinese: stats.rejectedAsNonChinese,
+    skippedByLimit: stats.skippedByLimit,
+    finalItemsWithChineseSummary: stats.finalItemsWithChineseSummary,
+    finalItemsWithoutChineseSummary: stats.finalItemsWithoutChineseSummary
+  }, null, 2));
+
+  console.log('AI backlog diagnostics:', JSON.stringify({
+    totalNewsItems: stats.totalNewsItems,
+    itemsWithValidChineseSummary: stats.itemsWithValidChineseSummary,
+    itemsMissingChineseSummary: stats.itemsMissingChineseSummary,
+    eligibleBacklog: stats.eligibleBacklog,
+    selectedThisRun: stats.selectedThisRun,
+    skippedByLimit: stats.skippedByLimit,
+    previouslyFailed: stats.previouslyFailed,
+    remainingAfterRun: stats.remainingAfterRun
   }, null, 2));
 
   return { items: enhanced, stats };
@@ -1366,6 +1727,10 @@ function isBadDek(value = '') {
 
 function localizeCommonTerms(value = '') {
   let text = value;
+
+  for (const [english, chinese] of playerNameZh) {
+    text = text.replace(new RegExp(`\\b${escapeRegExp(english)}\\b`, 'gi'), chinese);
+  }
 
   for (const [english, chinese] of teamNames) {
     text = text.replaceAll(english, chinese);
@@ -2338,6 +2703,37 @@ function hasChineseText(value = '') {
   return /[\u4e00-\u9fa5]/.test(String(value));
 }
 
+function isPredominantlyChinese(text = '') {
+  const value = normalizeWhitespace(text);
+  if (!value) return false;
+  const chineseChars = (value.match(/[\u4e00-\u9fa5]/g) || []).length;
+  const latinChars = (value.match(/[A-Za-z]/g) || []).length;
+  const digits = (value.match(/\d/g) || []).length;
+  const effectiveChars = chineseChars + latinChars + digits;
+  if (chineseChars < 6 || effectiveChars === 0) return false;
+
+  const protectedTerms = new Set([
+    'NBA', 'ESPN', 'MSG', 'LA', 'RealGM', 'Yahoo', 'Sports', 'Summer', 'League',
+    'Aspiration', 'Exhibit', 'G', 'MVP'
+  ]);
+  const words = value.match(/\b[A-Za-z][A-Za-z.'-]*\b/g) || [];
+  let ordinaryRun = 0;
+  for (const word of words) {
+    const clean = word.replace(/\.$/, '');
+    const looksLikeName = /^[A-Z][a-zA-Z.'-]*$/.test(clean);
+    const looksLikeAbbrev = /^[A-Z]{2,6}$/.test(clean);
+    const allowed = protectedTerms.has(clean) || looksLikeName || looksLikeAbbrev;
+    ordinaryRun = allowed ? 0 : ordinaryRun + 1;
+    if (ordinaryRun >= 3) return false;
+  }
+
+  if (/\b(?:the|and|with|from|after|before|following|reportedly|according|expected|could|would|should|takeaways|thoughts|reaction|preview|recap)\b(?:\s+\b[a-z]{3,}\b){2,}/i.test(value)) {
+    return false;
+  }
+
+  return chineseChars / effectiveChars >= 0.38 || (chineseChars >= 18 && latinChars <= chineseChars * 1.6);
+}
+
 function hasMixedChineseEnglish(value = '') {
   const text = String(value);
   return hasChineseText(text) && (hasUnsafeEnglishResidue(text) || hasMachineEnglish(text) || isMixedLanguageHeadline(text) || hasUntranslatedContractTerm(text));
@@ -2355,7 +2751,7 @@ function isSafeChineseTitle(text = '') {
 function isSafeChineseSummary(text = '') {
   const value = normalizeChineseText(text);
   if (!value) return true;
-  if (!hasChineseText(value)) return false;
+  if (!isPredominantlyChinese(value)) return false;
   if (isGenericFallbackSummary(value) || findUnsafeSummaryFragments(value).length) return false;
   if (/['’]s\b|[\u4e00-\u9fa5][’']\s|更多背景来自原文报道|NBA 动态：|原文聚焦|这篇文章讨论了/i.test(value)) return false;
   if (/中文标点包裹未翻译英文标题片段/.test(value)) return false;
@@ -3365,6 +3761,24 @@ function enrichMergedContractDetails(item = {}) {
   };
 }
 
+function applyKnownEventCopy(item = {}) {
+  if (item.eventKey !== 'trade:lu-dort:hawks:thunder:mavericks') return item;
+
+  const headlineZh = '雷霆将吕冈茨·多尔特送至老鹰';
+  const summaryZh = '雷霆在三方交易中将吕冈茨·多尔特送至老鹰，独行侠得到扎卡里·里萨谢，老鹰还得到瑞安·内姆哈德。';
+  const oneLineZh = '雷霆送走多尔特，独行侠得到里萨谢';
+
+  return {
+    ...item,
+    headlineZh,
+    titleZh: headlineZh,
+    summaryZh,
+    oneLineZh,
+    category: '交易',
+    importance: Math.max(item.importance || 1, 5)
+  };
+}
+
 function hasEquivalentDuration(value = '', duration = '') {
   if (!duration) return true;
   const compact = String(value).replace(/\s+/g, '');
@@ -3481,7 +3895,7 @@ function normalizeNewsItemText(item = {}) {
   const originalTitle = normalizeWhitespace(item.originalTitle || item.title || '');
   const displayTitle = originalTitle;
 
-  return {
+  return applyKnownEventCopy({
     ...item,
     originalTitle,
     displayTitle: normalizeWhitespace(displayTitle),
@@ -3499,7 +3913,7 @@ function normalizeNewsItemText(item = {}) {
     relatedItems,
     ...(originalTitles.length ? { originalTitles } : {}),
     isMerged: relatedItems.length > 0 || originalTitles.length > 1
-  };
+  });
 }
 
 function normalizeHighlightText(highlight = {}) {
@@ -3879,7 +4293,9 @@ async function writePayload(payload) {
   }
   printQualityReport(normalizedPayload);
   await mkdir(path.dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, `${JSON.stringify(normalizedPayload, null, 2)}\n`, 'utf8');
+  const tempPath = `${outputPath}.${process.pid}.${Date.now()}.tmp`;
+  await writeFile(tempPath, `${JSON.stringify(normalizedPayload, null, 2)}\n`, 'utf8');
+  await rename(tempPath, outputPath);
   return normalizedPayload;
 }
 
@@ -3967,7 +4383,7 @@ async function debugAiCandidatesFromCache() {
   const evaluatedEntries = buildAiCandidateEvaluations(items, existing, cache, { log: isGitHubModelsEnabled() });
   const candidates = evaluatedEntries
     .filter((entry) => entry.priority > 0)
-    .sort((a, b) => b.priority - a.priority || (b.item.importance || 0) - (a.item.importance || 0) || new Date(b.item.publishedAt || b.item.pubDate || 0).getTime() - new Date(a.item.publishedAt || a.item.pubDate || 0).getTime());
+    .sort(compareAiCandidateEntries(existing));
   const maxItems = getGithubModelsMaxItems();
   console.log('AI candidate debug summary:', JSON.stringify({
     aiEnabledRequested: isGitHubModelsEnabled(),
@@ -3981,10 +4397,88 @@ async function debugAiCandidatesFromCache() {
       originalTitle: entry.item.originalTitle || entry.item.title || '',
       storyType: entry.storyType,
       priority: entry.priority,
+      failureCount: entry.backlog?.failureCount || 0,
+      skippedByLimit: entry.backlog?.skippedByLimit || 0,
       summaryBefore: entry.item.summaryZh || '',
       rejectionReason: entry.rejectionReason || ''
     }))
   }, null, 2));
+}
+
+async function backfillAiSummaries() {
+  const existingFeed = await readExistingFeed();
+  if (!existingFeed) {
+    throw new Error('No existing public/data/news.json file found.');
+  }
+
+  if (!process.env.GITHUB_MODELS_TOKEN) {
+    const existing = JSON.parse(existingFeed);
+    const items = preparePayloadForWrite({ items: toArray(existing.items) }).items;
+    const missing = items.filter((item) => !hasValidChineseSummary(item)).length;
+    console.warn(`AI backfill skipped: GITHUB_MODELS_TOKEN is missing. Missing Chinese summaries: ${missing}.`);
+    return;
+  }
+
+  const existing = JSON.parse(existingFeed);
+  const preparedItems = preparePayloadForWrite({ items: toArray(existing.items) }).items;
+  const beforeMissing = preparedItems.filter((item) => !hasValidChineseSummary(item)).length;
+
+  if (beforeMissing === 0) {
+    console.log('AI backfill completed:', JSON.stringify({
+      requested: 0,
+      succeeded: 0,
+      failed: 0,
+      remaining: 0
+    }, null, 2));
+    return;
+  }
+
+  const aiEnhancement = await applyGitHubModelsEnhancements(preparedItems, existing);
+  const finalItems = aiEnhancement.items;
+  const remaining = finalItems.filter((item) => !hasValidChineseSummary(item)).length;
+  const checkedAt = new Date().toISOString();
+  const payload = {
+    ...existing,
+    updatedAt: existing.updatedAt || '',
+    lastFetchStatus: {
+      ...(existing.lastFetchStatus || {}),
+      status: 'ai-backfill',
+      fetchMode: 'backfill-ai',
+      checkedAt,
+      previousUpdatedAt: existing.updatedAt || '',
+      updatedAt: existing.updatedAt || '',
+      fetchedItems: 0,
+      mergedItems: finalItems.length,
+      aiEnabled: aiEnhancement.stats.aiEnabled,
+      aiCandidates: aiEnhancement.stats.aiCandidates,
+      aiCacheHits: aiEnhancement.stats.aiCacheHits,
+      aiRequests: aiEnhancement.stats.aiRequests,
+      aiAccepted: aiEnhancement.stats.aiAccepted,
+      aiRejected: aiEnhancement.stats.aiRejected,
+      aiFailed: aiEnhancement.stats.aiFailed,
+      aiRetried: aiEnhancement.stats.aiRetried,
+      skippedByLimit: aiEnhancement.stats.skippedByLimit,
+      previouslyFailed: aiEnhancement.stats.previouslyFailed,
+      remainingAfterRun: remaining,
+      aiModel: aiEnhancement.stats.aiModel,
+      message: remaining > 0
+        ? `AI backfill processed ${aiEnhancement.stats.aiRequests} request(s); ${remaining} item(s) still need later runs.`
+        : 'AI backfill completed all eligible missing Chinese summaries.'
+    },
+    highlights: buildHighlights(finalItems),
+    items: finalItems
+  };
+
+  await writePayload(payload);
+  console.log('AI backfill completed:', JSON.stringify({
+    requested: aiEnhancement.stats.aiRequests,
+    succeeded: aiEnhancement.stats.aiAccepted + aiEnhancement.stats.aiCacheHits,
+    failed: aiEnhancement.stats.aiFailed + aiEnhancement.stats.aiRejected,
+    remaining
+  }, null, 2));
+  if (remaining > 0) {
+    console.warn(`AI backfill remaining: ${remaining} item(s) still need follow-up runs.`);
+  }
 }
 
 async function fetchWithRetry(url, options = {}, retries = 3) {
@@ -4085,6 +4579,16 @@ function getDuplicateKey(item) {
 }
 
 const eventTeamAliases = [
+  ['Atlanta Hawks', 'hawks'],
+  ['Hawks', 'hawks'],
+  ['亚特兰大老鹰', 'hawks'],
+  ['老鹰', 'hawks'],
+  ['Oklahoma City Thunder', 'thunder'],
+  ['OKC Thunder', 'thunder'],
+  ['Thunder', 'thunder'],
+  ['雷霆', 'thunder'],
+  ['Dallas', 'mavericks'],
+  ['Mavs', 'mavericks'],
   ['76ers', '76ers'],
   ['Sixers', '76ers'],
   ['Philadelphia', '76ers'],
@@ -4153,6 +4657,7 @@ function getEventTeams(value = '') {
 function getEventPlayer(value = '') {
   const text = String(value);
   const knownPlayers = [
+    ...playerNameZh.keys(),
     'Jaylen Brown',
     'Santi Aldama',
     'Walker Kessler',
@@ -4219,6 +4724,27 @@ function normalizeEventAction(action, value = '') {
 function getEventKey(item = {}) {
   const text = `${item.originalTitle || item.title || ''} || ${item.headlineZh || ''} ${item.summaryZh || ''} ${item.summary || ''}`;
   const titleOnly = item.originalTitle || item.title || '';
+  const normalizedText = text.toLowerCase();
+  if (
+    (
+      /\b(?:three-team trade|three-team deal|3-team trade|3-team deal)\b/.test(normalizedText) &&
+      /\b(?:lu dort|luguentz dort|zaccharie risacher|ryan nembhard|dort|risacher)\b/.test(normalizedText)
+    ) ||
+    (
+      /\b(?:lu dort|luguentz dort|dort)\b/.test(normalizedText) &&
+      /\btrade\b/.test(normalizedText) &&
+      /\b(?:hawks|atlanta|thunder|okc|oklahoma city)\b/.test(normalizedText)
+    ) ||
+    (
+      /\b(?:risacher|dort|ryan nembhard)\b/.test(normalizedText) &&
+      /\b(?:traded|trade|receive|acquire|acquired)\b/.test(normalizedText) &&
+      /\b(?:hawks|atlanta)\b/.test(normalizedText) &&
+      /\b(?:mavs|mavericks|dallas)\b/.test(normalizedText)
+    )
+  ) {
+    return 'trade:lu-dort:hawks:thunder:mavericks';
+  }
+
   const explicitAgreeDeal = titleOnly.match(/^(.+?),\s*(.+?) Agree To ((?:One|Two|Three|Four|Five|Six|\d+)-Year),\s*(\$\d+(?:\.\d+)?M) (?:Deal|Contract)$/i);
   if (explicitAgreeDeal) {
     const terms = getContractTermsFromText(`${explicitAgreeDeal[3]} ${explicitAgreeDeal[4]}`);
@@ -4424,9 +4950,33 @@ function toHighlightText(item) {
   return normalizeSpacing((item.oneLineZh || item.headlineZh || '').replace(/^NBA动态：/, '').replace(/^签约动态：/, '').replace(/^交易动态：/, ''));
 }
 
+function getHighlightDedupeKey(item = {}) {
+  if (item.eventKey) return item.eventKey;
+
+  const sourceText = [
+    item.originalTitle,
+    item.title,
+    item.headlineZh,
+    item.oneLineZh,
+    item.summaryZh,
+    item.summary
+  ].filter(Boolean).join(' ');
+  const action = normalizeEventAction(getEventAction(`${item.originalTitle || item.title || ''} || ${sourceText}`, item.category), sourceText);
+  const player = getEventPlayer(sourceText);
+  const teams = getEventTeams(sourceText).slice(0, 2);
+
+  if (action && player) return [action, player, ...teams].filter(Boolean).join(':');
+  if (player) return `player:${player}`;
+
+  return slugText(toHighlightText(item) || item.originalTitle || item.title || item.id || '');
+}
+
 function buildHighlights(items) {
   const cutoff = Date.now() - 24 * 60 * 60 * 1000;
-  return [...items]
+  const seen = new Set();
+  const highlights = [];
+
+  for (const { item } of [...items]
     .map((item) => ({ item, score: scoreHighlight(item) }))
     .sort((a, b) => b.score - a.score || new Date(b.item.pubDate).getTime() - new Date(a.item.pubDate).getTime())
     .filter(({ item }) => {
@@ -4434,20 +4984,36 @@ function buildHighlights(items) {
       return Number.isFinite(publishedAt) &&
         publishedAt >= cutoff &&
         isHighQualityChineseHeadline(item, toHighlightText(item));
-    })
-    .slice(0, 5)
-    .map(({ item }) => ({
+    })) {
+    const key = getHighlightDedupeKey(item);
+    if (key && seen.has(key)) continue;
+    if (key) seen.add(key);
+    highlights.push({
       id: item.id,
       text: toHighlightText(item),
       category: item.category,
       source: item.source,
       link: item.link
-    }));
+    });
+    if (highlights.length >= 5) break;
+  }
+
+  return highlights;
 }
 
 async function main() {
+  if (process.argv.includes('--self-test')) {
+    await runSelfTests();
+    return;
+  }
+
   if (process.argv.includes('--debug-ai-candidates-from-cache')) {
     await debugAiCandidatesFromCache();
+    return;
+  }
+
+  if (process.argv.includes('--backfill-ai')) {
+    await backfillAiSummaries();
     return;
   }
 
@@ -4578,6 +5144,18 @@ async function main() {
         aiAccepted: aiEnhancement.stats.aiAccepted,
         aiRejected: aiEnhancement.stats.aiRejected,
         aiFailed: aiEnhancement.stats.aiFailed,
+        aiRetried: aiEnhancement.stats.aiRetried,
+        rejectedAsNonChinese: aiEnhancement.stats.rejectedAsNonChinese,
+        skippedByLimit: aiEnhancement.stats.skippedByLimit,
+        finalItemsWithChineseSummary: aiEnhancement.stats.finalItemsWithChineseSummary,
+        finalItemsWithoutChineseSummary: aiEnhancement.stats.finalItemsWithoutChineseSummary,
+        totalNewsItems: aiEnhancement.stats.totalNewsItems,
+        itemsWithValidChineseSummary: aiEnhancement.stats.itemsWithValidChineseSummary,
+        itemsMissingChineseSummary: aiEnhancement.stats.itemsMissingChineseSummary,
+        eligibleBacklog: aiEnhancement.stats.eligibleBacklog,
+        selectedThisRun: aiEnhancement.stats.selectedThisRun,
+        previouslyFailed: aiEnhancement.stats.previouslyFailed,
+        remainingAfterRun: aiEnhancement.stats.remainingAfterRun,
         rejectedLowConfidenceBelow50: aiEnhancement.stats.rejectedLowConfidenceBelow50,
         acceptedMediumConfidence: aiEnhancement.stats.acceptedMediumConfidence,
         acceptedHighConfidence: aiEnhancement.stats.acceptedHighConfidence,
@@ -4645,6 +5223,138 @@ async function main() {
     console.error(`Fetch failed. Kept ${toArray(writtenPayload.items).length} existing news items and wrote lastFetchStatus to public/data/news.json.`);
     process.exitCode = 1;
   }
+}
+
+async function runSelfTests() {
+  const originalMaxItems = process.env.GITHUB_MODELS_MAX_ITEMS;
+  const assertions = [];
+  const assert = (condition, message) => {
+    assertions.push({ ok: Boolean(condition), message });
+  };
+
+  assert(!isPredominantlyChinese('Dybantsa finished the night with 27 points, Peterson 24.'), 'pure English summary is rejected');
+  assert(isPredominantlyChinese('湖人与 LeBron James 的续约谈判仍在进行，球队希望保留阵容弹性。'), 'Chinese body with English player name is accepted');
+  assert(!isSafeChineseSummary('This is a full English sentence pretending to be Chinese summary.'), 'English summary cannot pass safe Chinese summary');
+  assert(!validateAiSummary({ originalTitle: 'Test title', summary: 'Input summary' }, { summaryZh: '', oneLineZh: '', confidence: 0.45, storyType: 'fact' }).accepted, 'empty AI summary is rejected');
+  assert(!validateAiSummary({ originalTitle: 'Test title', summary: 'Input summary' }, { summaryZh: '```json 根据提供的信息，湖人仍在评估阵容。```', oneLineZh: '湖人评估阵容。', confidence: 0.8, storyType: 'fact' }).accepted, 'model meta text is rejected');
+  const longValidation = validateAiSummary({ originalTitle: 'Test title', summary: 'Input summary' }, { summaryZh: '湖人继续评估阵容，'.repeat(40), oneLineZh: '湖人继续评估阵容。', confidence: 0.8, storyType: 'fact' });
+  assert(!longValidation.accepted || getChineseLength(longValidation.value?.summaryZh || '') <= 130, 'overlong AI summary is rejected or safely compacted');
+  assert(!validateAiSummary({ originalTitle: 'Test title', summary: 'Input summary' }, 'not-json').accepted, 'invalid AI result shape is rejected');
+
+  const sourceHash = 'source-hash';
+  assert(!hasValidAiSummaryCache({ summaryZh: '湖人继续评估阵容。', oneLineZh: '湖人评估阵容。', sourceHash, promptVersion: 'summary-v2' }, sourceHash), 'old prompt cache is invalidated');
+  assert(hasValidAiSummaryCache({ summaryZh: '湖人继续评估阵容。', oneLineZh: '湖人评估阵容。', sourceHash, promptVersion: aiPromptVersion }, sourceHash), 'valid v3 cache can be reused');
+
+  process.env.GITHUB_MODELS_MAX_ITEMS = '20';
+  assert(getGithubModelsMaxItems() === 20, 'GITHUB_MODELS_MAX_ITEMS=20 is not clamped to 5');
+  process.env.GITHUB_MODELS_MAX_ITEMS = '99';
+  assert(getGithubModelsMaxItems() === 30, 'GITHUB_MODELS_MAX_ITEMS has safe cap 30');
+  delete process.env.GITHUB_MODELS_MAX_ITEMS;
+  assert(getGithubModelsMaxItems() === 5, 'free-cost default AI batch size is 5');
+  if (originalMaxItems === undefined) {
+    delete process.env.GITHUB_MODELS_MAX_ITEMS;
+  } else {
+    process.env.GITHUB_MODELS_MAX_ITEMS = originalMaxItems;
+  }
+
+  const frontend = await readFile(path.join(rootDir, 'src', 'main.js'), 'utf8');
+  assert(!/item\.summaryZh\s*\|\|\s*item\.summary/.test(frontend), 'frontend does not fallback from summaryZh to English summary');
+
+  const makeMockItem = (index, extra = {}) => ({
+    id: `mock-${index}`,
+    title: `Mock Trade ${index}`,
+    originalTitle: `Mock Player ${index} Traded To Lakers`,
+    summary: `Mock Player ${index} was traded to the Lakers.`,
+    source: 'Mock',
+    category: '交易',
+    importance: index % 3 === 0 ? 4 : 2,
+    publishedAt: new Date(Date.now() - index * 60 * 1000).toISOString(),
+    ...extra
+  });
+  const selectMockCandidates = (items, cache, maxItems = 20) => {
+    const previous = process.env.GITHUB_MODELS_MAX_ITEMS;
+    process.env.GITHUB_MODELS_MAX_ITEMS = String(maxItems);
+    const evaluated = buildAiCandidateEvaluations(items, { items: [] }, cache)
+      .filter((entry) => entry.priority > 0)
+      .sort(compareAiCandidateEntries({ items: [] }));
+    const selected = evaluated.slice(0, getGithubModelsMaxItems());
+    if (previous === undefined) delete process.env.GITHUB_MODELS_MAX_ITEMS;
+    else process.env.GITHUB_MODELS_MAX_ITEMS = previous;
+    return { evaluated, selected };
+  };
+  const coverCache = { version: 2, promptVersion: aiPromptVersion, entries: {}, backlog: {} };
+  const coverItems = Array.from({ length: 58 }, (_, index) => makeMockItem(index));
+  const roundResults = [];
+  for (let round = 0; round < 3; round += 1) {
+    const { evaluated, selected } = selectMockCandidates(coverItems, coverCache, 20);
+    evaluated.slice(20).forEach((entry) => markBacklogSkipped(coverCache, entry, 'limit'));
+    selected.forEach((entry) => {
+      coverCache.entries[entry.cacheKey] = {
+        summaryZh: '湖人完成一笔模拟交易，球队继续调整阵容。',
+        oneLineZh: '湖人完成模拟交易。',
+        confidence: 0.9,
+        storyType: 'trade',
+        sourceHash: entry.sourceHash,
+        promptVersion: aiPromptVersion
+      };
+      clearBacklogState(coverCache, entry.cacheKey);
+    });
+    const remaining = buildAiCandidateEvaluations(coverItems, { items: [] }, coverCache).filter((entry) => entry.priority > 0).length;
+    roundResults.push({ selected: selected.length, remaining });
+  }
+  assert(roundResults[0].selected === 20 && roundResults[0].remaining === 38, 'round 1 selects 20 and leaves 38');
+  assert(roundResults[1].selected === 20 && roundResults[1].remaining === 18, 'round 2 selects 20 and leaves 18');
+  assert(roundResults[2].selected === 18 && roundResults[2].remaining === 0, 'round 3 selects 18 and clears backlog');
+
+  const starvationCache = { version: 2, promptVersion: aiPromptVersion, entries: {}, backlog: {} };
+  const oldItems = Array.from({ length: 35 }, (_, index) => makeMockItem(index + 100, {
+    publishedAt: new Date(Date.now() - 48 * 36e5 - index * 1000).toISOString()
+  }));
+  const firstOldSelection = selectMockCandidates(oldItems, starvationCache, 20);
+  firstOldSelection.evaluated.slice(20).forEach((entry) => markBacklogSkipped(starvationCache, entry, 'limit'));
+  firstOldSelection.selected.forEach((entry) => {
+    starvationCache.entries[entry.cacheKey] = {
+      summaryZh: '湖人完成一笔模拟交易，球队继续调整阵容。',
+      oneLineZh: '湖人完成模拟交易。',
+      confidence: 0.9,
+      storyType: 'trade',
+      sourceHash: entry.sourceHash,
+      promptVersion: aiPromptVersion
+    };
+  });
+  const mixedItems = [
+    ...Array.from({ length: 5 }, (_, index) => makeMockItem(index + 200, { importance: 5 })),
+    ...oldItems
+  ];
+  const secondMixedSelection = selectMockCandidates(mixedItems, starvationCache, 20).selected;
+  const selectedOldBacklog = secondMixedSelection.filter((entry) => (entry.backlog?.skippedByLimit || 0) > 0).length;
+  assert(selectedOldBacklog > 0, 'new items do not starve skipped old backlog');
+
+  const failureCache = { version: 2, promptVersion: aiPromptVersion, entries: {}, backlog: {} };
+  const failureItems = Array.from({ length: 8 }, (_, index) => makeMockItem(index + 300));
+  const failedFirst = selectMockCandidates(failureItems, failureCache, 8).selected[0];
+  markBacklogFailure(failureCache, failedFirst, 'invalid-json');
+  const afterFailure = selectMockCandidates(failureItems, failureCache, 5).selected;
+  assert(!afterFailure.some((entry) => entry.cacheKey === failedFirst.cacheKey) && afterFailure.length === 5, 'failed cooling item does not block other candidates');
+
+  const workflow = await readFile(path.join(rootDir, '.github', 'workflows', 'update-news.yml'), 'utf8');
+  assert(/backfill_ai/.test(workflow) && /npm run backfill-ai/.test(workflow), '--backfill-ai workflow entry exists');
+  assert(/backfill_ai \|\| 'false'/.test(workflow), 'backfill_ai=false does not enter backfill mode by default');
+  assert(/GITHUB_MODELS_TOKEN/.test(workflow) && /models: read/.test(workflow), 'workflow passes token and models permission');
+
+  const failed = assertions.filter((entry) => !entry.ok);
+  if (failed.length) {
+    failed.forEach((entry) => console.error(`Self-test failed: ${entry.message}`));
+    process.exitCode = 1;
+    return;
+  }
+
+  console.log('Backfill simulation:', JSON.stringify({
+    round1: roundResults[0],
+    round2: roundResults[1],
+    round3: roundResults[2]
+  }, null, 2));
+  console.log(`Content quality self-test passed (${assertions.length} checks).`);
 }
 
 main();

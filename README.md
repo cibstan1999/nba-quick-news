@@ -53,3 +53,14 @@ The workflow:
 4. Commits changes back to the repository with `chore: update NBA news feed`.
 
 The frontend reads `data/news.json` under the configured Vite base path, so it works both locally and on the GitHub Pages project URL.
+
+## Free-First AI Policy
+
+The scheduled workflow keeps GitHub Models disabled by default to avoid background usage of AI quota. RSS fetching, GitHub Actions for this public repository, and GitHub Pages deployment are intended to stay on free GitHub services.
+
+To manually fill missing Chinese summaries, run the workflow with:
+
+- `backfill_ai=true` (this enables GitHub Models only for that manual run)
+- `github_models_max_items=5` by default
+
+The script still enforces a hard safety cap of 30 items per run. If GitHub Models free quota or rate limits are exhausted, the workflow logs the issue and keeps existing news data instead of writing English text into Chinese summary fields.

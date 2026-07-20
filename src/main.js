@@ -11,6 +11,7 @@ const state = {
   lastFetchStatus: {},
   query: '',
   category: '最新',
+  visibleCount: 15,
   loading: true,
   error: ''
 };
@@ -67,13 +68,85 @@ function getFreshnessState() {
   return { level: 'ok', label: status === 'partial-success' ? '部分源更新成功' : '更新正常', detail: '新闻数据仍然新鲜。' };
 }
 
+function getPrimaryTitle(item = {}) {
+  return item.titleZh ||
+    item.headlineZh ||
+    item.oneLineZh ||
+    item.originalTitle ||
+    item.title ||
+    '无标题';
+}
+
+function getOriginalTitle(item = {}) {
+  return item.originalTitle || item.title || '';
+}
+
+function isSameText(a = '', b = '') {
+  return String(a).trim().toLowerCase() === String(b).trim().toLowerCase();
+}
+
+function isChineseSnippet(value = '') {
+  const text = String(value).trim();
+  const chineseChars = (text.match(/[\u4e00-\u9fa5]/g) || []).length;
+  const latinChars = (text.match(/[A-Za-z]/g) || []).length;
+  return chineseChars >= 6 && chineseChars >= latinChars * 0.35;
+}
+
+function isLowInfoHighlight(text = '') {
+  return /open thread|game thread|podcast|odds|championship odds|fantasy|trade grades|preview|discussion|survey|reacts|mailbag|questions/i.test(text);
+}
+
+function getHighlightItems() {
+  const byId = new Map();
+  const byLink = new Map();
+  state.items.forEach((item) => {
+    if (item.id) byId.set(item.id, item);
+    if (item.link) byLink.set(item.link, item);
+    if (item.url) byLink.set(item.url, item);
+  });
+
+  const fromFeed = state.highlights
+    .map((highlight) => {
+      const matched = byId.get(highlight.id) || byLink.get(highlight.link);
+      return {
+        ...highlight,
+        matched,
+        text: matched ? getPrimaryTitle(matched) : highlight.text
+      };
+    });
+
+  const fromItems = state.items
+    .filter((item) => (item.importance || 1) >= 4)
+    .filter((item) => ['交易', '签约', '伤病', '选秀', '重要流言'].includes(item.category) || item.sourceCount > 1)
+    .map((item) => ({
+      id: item.id,
+      link: item.url || item.link,
+      category: item.category,
+      source: item.source,
+      text: getPrimaryTitle(item),
+      matched: item
+    }));
+
+  const seen = new Set();
+  return [...fromFeed, ...fromItems]
+    .filter((item) => item.text && !isLowInfoHighlight(`${item.text} ${item.matched?.originalTitle || ''}`))
+    .filter((item) => {
+      const key = item.matched?.eventKey || item.id || item.link || item.text;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .sort((a, b) => (b.matched?.importance || 0) - (a.matched?.importance || 0))
+    .slice(0, 3);
+}
+
 function getFilteredItems() {
   const query = state.query.trim().toLowerCase();
 
   return state.items.filter((item) => {
     const matchesCategory = state.category === '最新' || item.category === state.category;
     const haystack =
-      `${item.originalTitle} ${item.summaryZh} ${item.oneLineZh} ${item.category} ${item.source}`.toLowerCase();
+      `${getPrimaryTitle(item)} ${item.originalTitle} ${item.summaryZh} ${item.oneLineZh} ${item.category} ${item.source}`.toLowerCase();
     const matchesQuery = !query || haystack.includes(query);
     return matchesCategory && matchesQuery;
   });
@@ -91,21 +164,22 @@ function renderStatusCard() {
 
   return `
     <div class="status-card ${escapeHtml(freshness.level)}" aria-label="Feed status">
-      <span>最近成功更新</span>
-      <strong>${escapeHtml(updatedLabel)}</strong>
-      <dl>
-        <div><dt>最近检查</dt><dd>${escapeHtml(checkedLabel)}</dd></div>
-        <div><dt>状态</dt><dd>${escapeHtml(fetchStatus)}</dd></div>
-      </dl>
-      <p>${escapeHtml(freshness.label)} · ${escapeHtml(freshness.detail)}</p>
+      <p class="status-line">
+        <span>更新于 ${escapeHtml(updatedLabel)}</span>
+        <span>${escapeHtml(freshness.label)}</span>
+        <span>最近检查 ${escapeHtml(checkedLabel)}</span>
+      </p>
+      <p class="status-detail">${escapeHtml(fetchStatus)} · ${escapeHtml(freshness.detail)}</p>
     </div>
   `;
 }
 
 function renderResults() {
   const filteredItems = getFilteredItems();
+  const visibleItems = filteredItems.slice(0, state.visibleCount);
   const count = document.querySelector('#newsCount');
   const list = document.querySelector('#newsList');
+  const loadMore = document.querySelector('#loadMoreSlot');
 
   if (count) {
     count.textContent = state.loading ? '正在加载...' : `${filteredItems.length} 条新闻`;
@@ -113,8 +187,19 @@ function renderResults() {
 
   if (list) {
     list.innerHTML = filteredItems.length
-      ? filteredItems.map(renderCard).join('')
+      ? visibleItems.map(renderCard).join('')
       : '<article class="empty-state"><h2>没有找到相关新闻</h2><p>换个关键词或分类试试。</p></article>';
+  }
+
+  if (loadMore) {
+    const hasMore = filteredItems.length > state.visibleCount;
+    loadMore.innerHTML = hasMore
+      ? `<button class="load-more" type="button">加载更多</button>`
+      : '';
+    loadMore.querySelector('button')?.addEventListener('click', () => {
+      state.visibleCount += 15;
+      renderResults();
+    });
   }
 }
 
@@ -148,12 +233,14 @@ function bindControls() {
   searchInput?.addEventListener('compositionend', (event) => {
     isComposing = false;
     state.query = event.target.value;
+    state.visibleCount = 15;
     renderResults();
   });
 
   searchInput?.addEventListener('input', (event) => {
     state.query = event.target.value;
     if (!isComposing) {
+      state.visibleCount = 15;
       renderResults();
     }
   });
@@ -161,6 +248,7 @@ function bindControls() {
   document.querySelectorAll('[data-category]').forEach((button) => {
     button.addEventListener('click', () => {
       state.category = button.dataset.category;
+      state.visibleCount = 15;
       updateCategoryTabs();
       renderResults();
     });
@@ -207,6 +295,7 @@ function render() {
       </section>
 
       <section id="newsList" class="news-list" aria-label="NBA news stories"></section>
+      <div id="loadMoreSlot" class="load-more-slot"></div>
     </main>
   `;
 
@@ -215,36 +304,39 @@ function render() {
 }
 
 function renderHighlights() {
+  const highlights = getHighlightItems();
+  if (!highlights.length) return '';
+
   return `
     <section class="highlights" aria-label="今日速览">
       <div class="section-heading">
         <h2>今日速览</h2>
-        <span>打开就知道重点</span>
+        <span>3 条重点</span>
       </div>
-      ${
-        state.highlights.length
-          ? `<ul>
-              ${state.highlights
-                .map(
-                  (item) => `
-                    <li>
-                      <span class="mini-pill">${escapeHtml(item.category || 'NBA')}</span>
-                      <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.text)}</a>
-                    </li>
-                  `
-                )
-                .join('')}
-            </ul>`
-          : '<p class="empty-highlight">暂无今日重点</p>'
-      }
+      <ol>
+        ${highlights
+          .map(
+            (item, index) => `
+              <li>
+                <span class="highlight-index">${String(index + 1).padStart(2, '0')}</span>
+                <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.text)}</a>
+              </li>
+            `
+          )
+          .join('')}
+      </ol>
     </section>
   `;
 }
 
 function renderCard(item) {
-  const displayTitle = item.originalTitle || item.title || 'Untitled';
+  const displayTitle = getPrimaryTitle(item);
+  const originalTitle = getOriginalTitle(item);
+  const showOriginalTitle = originalTitle && !isSameText(originalTitle, displayTitle);
   const dekZh = item.dekZh || '';
-  const summaryZh = item.summaryZh || item.summary || '暂无摘要。';
+  const summaryZh = isChineseSnippet(item.summaryZh)
+    ? item.summaryZh
+    : (isChineseSnippet(item.oneLineZh) ? item.oneLineZh : '');
   const goldenQuoteZh = item.goldenQuoteZh || '';
   const source = item.source || 'Original source';
   const url = item.url || item.link;
@@ -256,26 +348,27 @@ function renderCard(item) {
       ${
         item.imageUrl
           ? `<a class="thumb" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" aria-label="Open original image source">
-              <img src="${escapeHtml(item.imageUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer" />
+              <img src="${escapeHtml(item.imageUrl)}" alt="${escapeHtml(displayTitle)} 缩略图" loading="lazy" referrerpolicy="no-referrer" />
             </a>`
           : ''
       }
       <div class="card-body">
         <div class="card-topline">
           <time datetime="${escapeHtml(publishedAt || '')}">${escapeHtml(formatDate(publishedAt))}</time>
+          <span>${escapeHtml(source)}</span>
         </div>
         <h2><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(displayTitle)}</a></h2>
+        ${showOriginalTitle ? `<p class="original-title">${escapeHtml(originalTitle)}</p>` : ''}
         ${dekZh ? `<p class="dek">${escapeHtml(dekZh)}</p>` : ''}
-        <p class="summary">${escapeHtml(summaryZh)}</p>
+        ${summaryZh ? `<p class="summary">${escapeHtml(summaryZh)}</p>` : ''}
         ${goldenQuoteZh ? `<blockquote class="golden-quote">${escapeHtml(goldenQuoteZh)}</blockquote>` : ''}
         <div class="card-tags">
           <span class="pill">${escapeHtml(item.category || '其他')}</span>
           ${item.isMerged ? '<span class="merged-note">多源报道</span>' : ''}
-          ${item.importance ? `<span class="importance">重要度 ${escapeHtml(item.importance)}</span>` : ''}
         </div>
         ${renderRelatedItems(relatedItems)}
         <div class="card-footer">
-          <span>${escapeHtml(source)} 原文${item.imageUrl ? ' / 图片预览来自原站元数据' : ''}</span>
+          <span>${relatedItems.length ? `相关报道 ${relatedItems.length} 条` : '原站链接'}</span>
           <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">查看原文</a>
         </div>
       </div>

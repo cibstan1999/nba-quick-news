@@ -17,6 +17,15 @@ on:
         description: 'Maximum AI items to process'
         required: false
         default: '5'
+      github_models_model:
+        description: 'GitHub Models model ID'
+        required: false
+        default: 'openai/gpt-4o-mini'
+      backfill_ai:
+        description: 'Backfill missing Chinese summaries'
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -45,13 +54,20 @@ jobs:
         run: npm ci
 
       - name: Fetch NBA RSS feeds
-        run: npm run fetch
+        run: |
+          if [ "${{ github.event.inputs.backfill_ai || 'false' }}" = "true" ]; then
+            npm run backfill-ai
+          else
+            npm run fetch
+          fi
         env:
           GITHUB_MODELS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_MODELS_ENABLED: ${{ github.event.inputs.github_models_enabled || 'false' }}
+          GITHUB_MODELS_ENABLED: ${{ github.event.inputs.backfill_ai == 'true' && 'true' || github.event.inputs.github_models_enabled || 'false' }}
+          GITHUB_MODELS_MODEL: ${{ github.event.inputs.github_models_model || 'openai/gpt-4o-mini' }}
           GITHUB_MODELS_MAX_ITEMS: ${{ github.event.inputs.github_models_max_items || '5' }}
 
       - name: Check news freshness
+        if: ${{ github.event.inputs.backfill_ai != 'true' }}
         run: node scripts/check-freshness.mjs
 
       - name: Print fetch status
