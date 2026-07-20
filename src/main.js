@@ -69,11 +69,12 @@ function getFreshnessState() {
 }
 
 function getPrimaryTitle(item = {}) {
-  return item.titleZh ||
+  return item.originalTitle ||
+    item.title ||
+    item.displayTitle ||
+    item.titleZh ||
     item.headlineZh ||
     item.oneLineZh ||
-    item.originalTitle ||
-    item.title ||
     '无标题';
 }
 
