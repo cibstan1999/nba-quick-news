@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-21T21:14:37.853Z",
+  "updatedAt": "2026-07-21T22:27:55.307Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-21T21:14:37.853Z",
-    "previousUpdatedAt": "2026-07-21T19:37:06.512Z",
-    "updatedAt": "2026-07-21T21:14:37.853Z",
+    "checkedAt": "2026-07-21T22:27:55.307Z",
+    "previousUpdatedAt": "2026-07-21T21:14:37.853Z",
+    "updatedAt": "2026-07-21T22:27:55.307Z",
     "fetchedItems": 80,
-    "mergedItems": 72,
+    "mergedItems": 71,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,10 +31,10 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-21T19:43:09.000Z",
-    "dataAgeHours": 1.5246813888888888,
+    "newestPublishedAt": "2026-07-21T22:00:00.000Z",
+    "dataAgeHours": 0.46536305555555557,
     "aiEnabled": false,
-    "aiCandidates": 58,
+    "aiCandidates": 53,
     "aiCacheHits": 0,
     "aiRequests": 0,
     "aiAccepted": 0,
@@ -43,15 +43,15 @@
     "aiRetried": 0,
     "rejectedAsNonChinese": 0,
     "skippedByLimit": 0,
-    "finalItemsWithChineseSummary": 14,
-    "finalItemsWithoutChineseSummary": 58,
-    "totalNewsItems": 72,
-    "itemsWithValidChineseSummary": 14,
-    "itemsMissingChineseSummary": 58,
-    "eligibleBacklog": 58,
+    "finalItemsWithChineseSummary": 18,
+    "finalItemsWithoutChineseSummary": 53,
+    "totalNewsItems": 71,
+    "itemsWithValidChineseSummary": 18,
+    "itemsMissingChineseSummary": 53,
+    "eligibleBacklog": 53,
     "selectedThisRun": 0,
     "previouslyFailed": 0,
-    "remainingAfterRun": 58,
+    "remainingAfterRun": 53,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
     "acceptedHighConfidence": 0,
@@ -80,6 +80,152 @@
   ],
   "items": [
     {
+      "id": "https://sports.yahoo.com/articles/cavaliers-reacts-survey-recent-draft-220000035.html",
+      "title": "Cavaliers Reacts Survey: Which recent draft pick has the brightest future?",
+      "originalTitle": "Cavaliers Reacts Survey: Which recent draft pick has the brightest future?",
+      "headlineZh": "骑士 Reacts Survey 相关消息更新",
+      "titleZh": "骑士 Reacts Survey 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/cavaliers-reacts-survey-recent-draft-220000035.html",
+      "url": "https://sports.yahoo.com/articles/cavaliers-reacts-survey-recent-draft-220000035.html",
+      "pubDate": "2026-07-21T22:00:00.000Z",
+      "publishedAt": "2026-07-21T22:00:00.000Z",
+      "summary": "Does Meleek Thomas have the most potential of any of the Cavs’ young players?",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "骑士 Reacts Survey 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/g9Km7PxjbkqR2OMH6zWpCQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/23eda591516c981e24530371c410956d",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "选秀",
+      "importance": 2,
+      "displayTitle": "Cavaliers Reacts Survey: Which recent draft pick has the brightest future?",
+      "copySource": "fallback",
+      "storyType": "opinion",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286776/Jamarion-Sharp-Clippers-Agree-To-Two-Way-Deal",
+      "title": "Jamarion Sharp, Clippers Agree To Two-Way Deal",
+      "originalTitle": "Jamarion Sharp, Clippers Agree To Two-Way Deal",
+      "headlineZh": "Jamarion Sharp 与快船达成双向合同",
+      "titleZh": "Jamarion Sharp 与快船达成双向合同",
+      "link": "https://basketball.realgm.com/wiretap/286776/Jamarion-Sharp-Clippers-Agree-To-Two-Way-Deal",
+      "url": "https://basketball.realgm.com/wiretap/286776/Jamarion-Sharp-Clippers-Agree-To-Two-Way-Deal",
+      "pubDate": "2026-07-21T20:39:17.000Z",
+      "publishedAt": "2026-07-21T20:39:17.000Z",
+      "summary": "<p>Jamarion Sharp and the Los Angeles Clippers have agreed to a two-way deal.</p> <p>Sharp was the <a href=\"https://basketball.realgm.com/gleague/awards/by-type/Defensive-Player-of-the-Year/3\">G League Defensive Player of the Year</a> last season, averaging 7.7 points, 7.3 rebounds and 3.9 blocks in 25.1 minutes over 39 games with the Texas Legends.</p> <p>Sharp went undrafted out of Ole Miss in 2024.</p>",
+      "dekZh": "Jamarion Sharp 与洛杉矶快船达成双向合同。",
+      "summaryZh": "据 RealGM 报道，Jamarion Sharp 与快船达成双向合同，原文关注 Jamarion Sharp 的合同或自由市场动向。",
+      "oneLineZh": "Jamarion Sharp 与快船达成双向合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [
+        "Jamarion Sharp与洛杉矶快船达成双向合同。"
+      ],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_losangelesclippers.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 3,
+      "eventKey": "sign:jamarion-sharp",
+      "relatedItems": [],
+      "displayTitle": "Jamarion Sharp, Clippers Agree To Two-Way Deal",
+      "copySource": "fallback",
+      "storyType": "signing",
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286775/Jalen-Slawson-Pacers-Agree-To-Two-Way-Deal",
+      "title": "Jalen Slawson, Pacers Agree To Two-Way Deal",
+      "originalTitle": "Jalen Slawson, Pacers Agree To Two-Way Deal",
+      "headlineZh": "Jalen Slawson 与步行者达成双向合同",
+      "titleZh": "Jalen Slawson 与步行者达成双向合同",
+      "link": "https://basketball.realgm.com/wiretap/286775/Jalen-Slawson-Pacers-Agree-To-Two-Way-Deal",
+      "url": "https://basketball.realgm.com/wiretap/286775/Jalen-Slawson-Pacers-Agree-To-Two-Way-Deal",
+      "pubDate": "2026-07-21T20:31:42.000Z",
+      "publishedAt": "2026-07-21T20:31:42.000Z",
+      "summary": "<p>Jalen Slawson and the Indiana Pacers have agreed to a two-way deal. Slawson is represented by <a href=\"https://basketball.realgm.com/info/agent_clients/Aaron-Turner/759\">Aaron Turner</a> and was the 54th overall pick in the 2023 NBA draft out of Furman by the Sacramento Kings. </p> <p>Slawson appeared in 13 games with the Pacers last season while on a two-way, <a href=\"https://basketball.realgm.com/player/Jalen-Slawson/NBA/140024/2026\">averaging 7.3 points, 4.4 rebounds and 2.8 assists in 23.9 minutes</a>. </p> <p><a href=\"https://basketball.realgm.com/player/Jalen-Slawson/D-League/140024/2026\">Lawson also appeared in 37 G League games</a>, averaging 19.3 points, 7.3 rebounds, 5.4 assists, 1.3 steals and 2.3 blocks. </p>",
+      "dekZh": "Jalen Slawson 与印第安纳步行者达成双向合同。",
+      "summaryZh": "据 RealGM 报道，Jalen Slawson 与步行者达成双向合同，原文关注 Jalen Slawson 的合同或自由市场动向。",
+      "oneLineZh": "Jalen Slawson 与步行者达成双向合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [
+        "Jalen Slawson与印第安纳步行者达成双向合同。"
+      ],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_indianapacers.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 3,
+      "eventKey": "sign:jalen-slawson:pacers",
+      "relatedItems": [],
+      "displayTitle": "Jalen Slawson, Pacers Agree To Two-Way Deal",
+      "copySource": "fallback",
+      "storyType": "signing",
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286774/Yaxel-Lendeborg-Caleb-Wilson-Cameron-Boozer-Headline-2026-NBA-All-Sumer-League-Teams",
+      "title": "Yaxel Lendeborg, Caleb Wilson, Cameron Boozer Headline 2026 NBA All-Sumer League Teams",
+      "originalTitle": "Yaxel Lendeborg, Caleb Wilson, Cameron Boozer Headline 2026 NBA All-Sumer League Teams",
+      "headlineZh": "Yaxel Lendeborg 相关消息更新",
+      "titleZh": "Yaxel Lendeborg 相关消息更新",
+      "link": "https://basketball.realgm.com/wiretap/286774/Yaxel-Lendeborg-Caleb-Wilson-Cameron-Boozer-Headline-2026-NBA-All-Sumer-League-Teams",
+      "url": "https://basketball.realgm.com/wiretap/286774/Yaxel-Lendeborg-Caleb-Wilson-Cameron-Boozer-Headline-2026-NBA-All-Sumer-League-Teams",
+      "pubDate": "2026-07-21T20:23:12.000Z",
+      "publishedAt": "2026-07-21T20:23:12.000Z",
+      "summary": "<p>Memphis Grizzlies rookie Cameron Boozer, Milwaukee Bucks guard Brayden Burries, Golden State Warriors forward Yaxel Lendeborg, Cleveland Cavaliers guard Meleek Thomas and Chicago Bulls forward Caleb Wilson earned First Team honors.</p> <p>Lendeborg was also <a href=\"https://basketball.realgm.com/nba/summer/1/Summer_League/0/awards\">Summer League MVP</a> as he led the Warriors to the Summer League championship.</p> <p>In six Vegas Summer League games, Boozer averaged 18.5 points, 8.0 rebounds, 3.7 assists and 1.8 steals in 29.5 minutes. Wilson appeared in four Summer League games, averaging 23.5 points, 7.2 rebounds, 1.8 assists, 1.2 steals and 2.5 blocks. Lendeborg averaged 14.9 points, 6.8 rebounds, 4.0 assists and 1.4 steals in 26.9 minutes.</p> <p>The Second Team includes Memphis Grizzlies forward Cedric Coward, Brooklyn Nets guard Egor Demin, Phoenix Suns center Khaman Maluach, Charlotte Hornets forward Liam McNeeley and Minnesota Timberwolves guard Zyon Pullin.</p>",
+      "dekZh": "Lendeborg 场均14.9分，6.8篮板，4.0助攻和1.4抢断，出场26.9分钟。",
+      "summaryZh": "",
+      "oneLineZh": "Yaxel Lendeborg 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [
+        "Lendeborg场均14.9分，6.8篮板，4.0助攻和1.4抢断，出场26.9分钟。"
+      ],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Lendeborg_Yaxel_mich_260321.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "选秀",
+      "importance": 2,
+      "displayTitle": "Yaxel Lendeborg, Caleb Wilson, Cameron Boozer Headline 2026 NBA All-Sumer League Teams",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/nets-reacts-grade-nets-trade-201345904.html",
+      "title": "Nets Reacts: How would you grade the Nets’ trade for Julius Randle & No. 28 pick?",
+      "originalTitle": "Nets Reacts: How would you grade the Nets’ trade for Julius Randle & No. 28 pick?",
+      "headlineZh": "篮网 Reacts 交易影响继续发酵",
+      "titleZh": "篮网 Reacts 交易影响继续发酵",
+      "link": "https://sports.yahoo.com/articles/nets-reacts-grade-nets-trade-201345904.html",
+      "url": "https://sports.yahoo.com/articles/nets-reacts-grade-nets-trade-201345904.html",
+      "pubDate": "2026-07-21T20:13:45.000Z",
+      "publishedAt": "2026-07-21T20:13:45.000Z",
+      "summary": "How would you grade the trade for Julius Randle + No. 28?",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，篮网 Reacts 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "篮网 Reacts 交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/hEoffQoJZM3FQNlJZy48Rw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/cec8e9b80b1e2b24805baba6dca4a133",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 2,
+      "eventKey": "trade:nets-reacts:nets",
+      "relatedItems": [],
+      "displayTitle": "Nets Reacts: How would you grade the Nets’ trade for Julius Randle & No. 28 pick?",
+      "copySource": "fallback",
+      "storyType": "opinion",
+      "isMerged": false
+    },
+    {
       "id": "https://sports.yahoo.com/articles/warriors-rookie-yaxel-lendeborg-named-194309429.html",
       "title": "Warriors rookie Yaxel Lendeborg named Summer League MVP, All Summer-League teams announced",
       "originalTitle": "Warriors rookie Yaxel Lendeborg named Summer League MVP, All Summer-League teams announced",
@@ -106,6 +252,117 @@
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lakers-still-monitoring-center-market-191351421.html",
+      "title": "Lakers still monitoring center market, could make trade for big",
+      "originalTitle": "Lakers still monitoring center market, could make trade for big",
+      "headlineZh": "湖人交易与阵容调整",
+      "titleZh": "湖人交易与阵容调整",
+      "link": "https://sports.yahoo.com/articles/lakers-still-monitoring-center-market-191351421.html",
+      "url": "https://sports.yahoo.com/articles/lakers-still-monitoring-center-market-191351421.html",
+      "pubDate": "2026-07-21T19:13:51.000Z",
+      "publishedAt": "2026-07-21T19:13:51.000Z",
+      "summary": "Even though the Lakers roster is full, there is a possibility that more center help is on the way.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "湖人交易与阵容调整",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/65v6rO6GW8pYMTPuoUOWQw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xNTAwO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/cf39827b050d7fe845b6c6a683693c6a",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 2,
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lakers-still-monitoring-center-market-191351421.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lakers-adding-summer-league-standout-025519688.html"
+        }
+      ],
+      "originalTitles": [
+        "Lakers still monitoring center market, could make trade for big",
+        "Lakers adding summer league standout Arthur Kaluma on two-way deal"
+      ],
+      "isMerged": false,
+      "displayTitle": "Lakers still monitoring center market, could make trade for big",
+      "copySource": "fallback",
+      "storyType": "rumor",
+      "eventKey": "",
+      "relatedItems": []
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lebron-james-free-agency-decision-191255855.html",
+      "title": "LeBron James’ free agency decision remains without a timetable, per report",
+      "originalTitle": "LeBron James’ free agency decision remains without a timetable, per report",
+      "headlineZh": "勒布朗·詹姆斯签约动向更新",
+      "titleZh": "勒布朗·詹姆斯签约动向更新",
+      "link": "https://sports.yahoo.com/articles/lebron-james-free-agency-decision-191255855.html",
+      "url": "https://sports.yahoo.com/articles/lebron-james-free-agency-decision-191255855.html",
+      "pubDate": "2026-07-21T19:12:55.000Z",
+      "publishedAt": "2026-07-21T19:12:55.000Z",
+      "summary": "Rounding up all Warriors and NBA related news for Tuesday, July 21st.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，勒布朗·詹姆斯的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "勒布朗·詹姆斯签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/7_kTyrwnsMeGmrff7fEi7w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/8d7d72d55d1861b562c59609ed27d9ee",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james:warriors",
+      "relatedItems": [
+        {
+          "title": "How would Warriors fans feel about adding LeBron James",
+          "originalTitle": "How would Warriors fans feel about adding LeBron James",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/warriors-fans-feel-adding-lebron-142933624.html",
+          "publishedAt": "2026-07-21T14:29:33.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Draymond Green clarifies comments about Warriors' offense with LeBron James",
+          "originalTitle": "Draymond Green clarifies comments about Warriors' offense with LeBron James",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/draymond-green-clarifies-comments-warriors-102346847.html",
+          "publishedAt": "2026-07-21T10:23:46.000Z",
+          "angle": "source"
+        }
+      ],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "How would Warriors fans feel about adding LeBron James",
+        "Draymond Green clarifies comments about Warriors' offense with LeBron James"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-free-agency-decision-191255855.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/warriors-fans-feel-adding-lebron-142933624.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/draymond-green-clarifies-comments-warriors-102346847.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "LeBron James’ free agency decision remains without a timetable, per report",
+      "copySource": "fallback",
+      "storyType": "rumor"
     },
     {
       "id": "https://sports.yahoo.com/articles/next-knicks-failed-moussa-cisse-190000099.html",
@@ -304,6 +561,73 @@
       "isMerged": false
     },
     {
+      "id": "https://sports.yahoo.com/articles/rich-paul-updates-timeframe-lebron-165900675.html",
+      "title": "Rich Paul updates timeframe for LeBron James’ free-agency decision",
+      "originalTitle": "Rich Paul updates timeframe for LeBron James’ free-agency decision",
+      "headlineZh": "Rich Paul 相关消息更新",
+      "titleZh": "Rich Paul 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/rich-paul-updates-timeframe-lebron-165900675.html",
+      "url": "https://sports.yahoo.com/articles/rich-paul-updates-timeframe-lebron-165900675.html",
+      "pubDate": "2026-07-21T16:59:00.000Z",
+      "publishedAt": "2026-07-21T16:59:00.000Z",
+      "summary": "The timeframe for when LeBron James will make his free agency decision does not appear to be imminent. James’ longtime friend and agent, Rich Paul of Klutch Sports, said Monday...",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Rich Paul 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/kV.e0a0hp5lN7BfddYj_qw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/5b1b1144d023c401a6625d0c54c1b5c2",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james",
+      "relatedItems": [
+        {
+          "title": "LeBron James Decision 4.0 live updates: Latest rumors on next team",
+          "originalTitle": "LeBron James Decision 4.0 live updates: Latest rumors on next team",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/lebron-james-selects-next-team-103911861.html",
+          "publishedAt": "2026-07-21T10:39:11.000Z",
+          "angle": "rumor"
+        },
+        {
+          "title": "LeBron James' agent stresses patience amid client's ongoing NBA free agency saga",
+          "originalTitle": "LeBron James' agent stresses patience amid client's ongoing NBA free agency saga",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/lebron-james-agent-stresses-patience-093810013.html",
+          "publishedAt": "2026-07-21T09:38:10.000Z",
+          "angle": "source"
+        }
+      ],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Rich Paul updates timeframe for LeBron James’ free-agency decision",
+        "LeBron James Decision 4.0 live updates: Latest rumors on next team",
+        "LeBron James' agent stresses patience amid client's ongoing NBA free agency saga"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/rich-paul-updates-timeframe-lebron-165900675.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-selects-next-team-103911861.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-agent-stresses-patience-093810013.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "Rich Paul updates timeframe for LeBron James’ free-agency decision",
+      "copySource": "fallback",
+      "storyType": "signing"
+    },
+    {
       "id": "https://basketball.realgm.com/wiretap/286771/Cameron-Boozer-Says-Versatility-Sets-Him-Apart-Cites-Knicks-As-Model",
       "title": "Cameron Boozer Says Versatility Sets Him Apart, Cites Knicks As Model",
       "originalTitle": "Cameron Boozer Says Versatility Sets Him Apart, Cites Knicks As Model",
@@ -498,60 +822,6 @@
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/warriors-fans-feel-adding-lebron-142933624.html",
-      "title": "How would Warriors fans feel about adding LeBron James",
-      "originalTitle": "How would Warriors fans feel about adding LeBron James",
-      "headlineZh": "勒布朗·詹姆斯相关消息更新",
-      "titleZh": "勒布朗·詹姆斯相关消息更新",
-      "link": "https://sports.yahoo.com/articles/warriors-fans-feel-adding-lebron-142933624.html",
-      "url": "https://sports.yahoo.com/articles/warriors-fans-feel-adding-lebron-142933624.html",
-      "pubDate": "2026-07-21T14:29:33.000Z",
-      "publishedAt": "2026-07-21T14:29:33.000Z",
-      "summary": "A survey about Dub Nation’s potential reaction to signing James.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "勒布朗·詹姆斯相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/G0rSpbr5dhYJiLIwMtmPiA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTY7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/3db710b386d8842e8ebec54e70132335",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james:warriors",
-      "relatedItems": [
-        {
-          "title": "Draymond Green clarifies comments about Warriors' offense with LeBron James",
-          "originalTitle": "Draymond Green clarifies comments about Warriors' offense with LeBron James",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/draymond-green-clarifies-comments-warriors-102346847.html",
-          "publishedAt": "2026-07-21T10:23:46.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "How would Warriors fans feel about adding LeBron James",
-        "Draymond Green clarifies comments about Warriors' offense with LeBron James"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/warriors-fans-feel-adding-lebron-142933624.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/draymond-green-clarifies-comments-warriors-102346847.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "How would Warriors fans feel about adding LeBron James",
-      "copySource": "fallback",
-      "storyType": "analysis"
     },
     {
       "id": "https://sports.yahoo.com/articles/warriors-rookie-yaxel-lendeborgs-defense-134604620.html",
@@ -946,60 +1216,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/lebron-james-selects-next-team-103911861.html",
-      "title": "LeBron James Decision 4.0 live updates: Latest rumors on next team",
-      "originalTitle": "LeBron James Decision 4.0 live updates: Latest rumors on next team",
-      "headlineZh": "勒布朗·詹姆斯 Decision 相关消息更新",
-      "titleZh": "勒布朗·詹姆斯 Decision 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/lebron-james-selects-next-team-103911861.html",
-      "url": "https://sports.yahoo.com/articles/lebron-james-selects-next-team-103911861.html",
-      "pubDate": "2026-07-21T10:39:11.000Z",
-      "publishedAt": "2026-07-21T10:39:11.000Z",
-      "summary": "Here's the latest LeBron James news, rumors and live updates as his free agency decision continues into Tuesday, July 21.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "勒布朗·詹姆斯 Decision 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/UbakgXXElq4Z48.Hjg.Dxw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/41be6bd1f56d1090aa6eccc0b5f6ca9c",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james",
-      "relatedItems": [
-        {
-          "title": "LeBron James' agent stresses patience amid client's ongoing NBA free agency saga",
-          "originalTitle": "LeBron James' agent stresses patience amid client's ongoing NBA free agency saga",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/lebron-james-agent-stresses-patience-093810013.html",
-          "publishedAt": "2026-07-21T09:38:10.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "LeBron James Decision 4.0 live updates: Latest rumors on next team",
-        "LeBron James' agent stresses patience amid client's ongoing NBA free agency saga"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-selects-next-team-103911861.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-agent-stresses-patience-093810013.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "LeBron James Decision 4.0 live updates: Latest rumors on next team",
-      "copySource": "fallback",
-      "storyType": "signing"
-    },
-    {
       "id": "https://sports.yahoo.com/articles/mavericks-consistency-morez-johnson-jr-100000572.html",
       "title": "Mavericks need consistency from Morez Johnson Jr.",
       "originalTitle": "Mavericks need consistency from Morez Johnson Jr.",
@@ -1336,31 +1552,21 @@
       ],
       "sourceLinks": [
         {
-          "source": "Yahoo Sports / RealGM",
+          "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/arthur-kaluma-signed-lakers-two-025322742.html"
         },
         {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lakers-adding-summer-league-standout-025519688.html"
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286763/Arthur-Kaluma-Lakers-Agree-To-Two-Way-Deal"
         }
       ],
       "originalTitles": [
         "Arthur Kaluma signed by Lakers to two-way contract",
-        "Arthur Kaluma, Lakers Agree To Two-Way Deal",
-        "Lakers adding summer league standout Arthur Kaluma on two-way deal"
+        "Arthur Kaluma, Lakers Agree To Two-Way Deal"
       ],
       "isMerged": true,
       "eventKey": "sign:arthur-kaluma:lakers",
-      "relatedItems": [
-        {
-          "title": "Lakers adding summer league standout Arthur Kaluma on two-way deal",
-          "originalTitle": "Lakers adding summer league standout Arthur Kaluma on two-way deal",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/lakers-adding-summer-league-standout-025519688.html",
-          "publishedAt": "2026-07-21T02:55:19.000Z",
-          "angle": "source"
-        }
-      ],
+      "relatedItems": [],
       "displayTitle": "Arthur Kaluma signed by Lakers to two-way contract",
       "copySource": "fallback",
       "storyType": "signing"
@@ -1529,118 +1735,6 @@
       "displayTitle": "Yaxel Lendeborg puts Grizzlies on blast after NBA Summer League Championship",
       "copySource": "fallback",
       "storyType": "injury",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/khaman-maluach-earns-widespread-summer-231512264.html",
-      "title": "Khaman Maluach earns widespread Summer League praise",
-      "originalTitle": "Khaman Maluach earns widespread Summer League praise",
-      "headlineZh": "Khaman Maluach 相关消息更新",
-      "titleZh": "Khaman Maluach 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/khaman-maluach-earns-widespread-summer-231512264.html",
-      "url": "https://sports.yahoo.com/articles/khaman-maluach-earns-widespread-summer-231512264.html",
-      "pubDate": "2026-07-20T23:15:12.000Z",
-      "publishedAt": "2026-07-20T23:15:12.000Z",
-      "summary": "National praise followed a dominant four-game stretch that reinforced Maluach's second-year growth.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Khaman Maluach 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/n33u9ZLd9oOhXJYy4SIRxg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xODAwO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/f4cc71eb2087d26e775366a8ee3637f6",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Khaman Maluach earns widespread Summer League praise",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/5-reasons-why-lebron-james-214522689.html",
-      "title": "The 5 reasons why LeBron James is taking so long to make his decision",
-      "originalTitle": "The 5 reasons why LeBron James is taking so long to make his decision",
-      "headlineZh": "勒布朗·詹姆斯相关消息更新",
-      "titleZh": "勒布朗·詹姆斯相关消息更新",
-      "link": "https://sports.yahoo.com/articles/5-reasons-why-lebron-james-214522689.html",
-      "url": "https://sports.yahoo.com/articles/5-reasons-why-lebron-james-214522689.html",
-      "pubDate": "2026-07-20T21:45:22.000Z",
-      "publishedAt": "2026-07-20T21:45:22.000Z",
-      "summary": "lebron james at fanatics fan fest and with lakersThe World Cup is over. But LeBron James watch continues. Why is this taking so long, you may be asking. Speculation...",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "勒布朗·詹姆斯相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/KnrGROok37XnL2y0ddMHxg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/633d257fe62743e786fd082fba059d22",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "The 5 reasons why LeBron James is taking so long to make his decision",
-      "copySource": "fallback",
-      "storyType": "rumor",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/charles-barkley-proclaims-draymond-green-213129189.html",
-      "title": "Charles Barkley proclaims Draymond Green isn't ‘same level' as he was in NBA",
-      "originalTitle": "Charles Barkley proclaims Draymond Green isn't ‘same level' as he was in NBA",
-      "headlineZh": "Charles Barkley 相关消息更新",
-      "titleZh": "Charles Barkley 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/charles-barkley-proclaims-draymond-green-213129189.html",
-      "url": "https://sports.yahoo.com/articles/charles-barkley-proclaims-draymond-green-213129189.html",
-      "pubDate": "2026-07-20T21:31:29.000Z",
-      "publishedAt": "2026-07-20T21:31:29.000Z",
-      "summary": "NBA legend Charles Barkley fired back at Draymond Green for his comments about the final seasons of his career.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Charles Barkley 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/a80fcc4356f94069915470fc3e01176c",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Charles Barkley proclaims Draymond Green isn't ‘same level' as he was in NBA",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/lebron-james-still-hasn-t-211425746.html",
-      "title": "LeBron James still hasn’t made a decision; Cleveland remains in the race",
-      "originalTitle": "LeBron James still hasn’t made a decision; Cleveland remains in the race",
-      "headlineZh": "勒布朗·詹姆斯相关消息更新",
-      "titleZh": "勒布朗·詹姆斯相关消息更新",
-      "link": "https://sports.yahoo.com/articles/lebron-james-still-hasn-t-211425746.html",
-      "url": "https://sports.yahoo.com/articles/lebron-james-still-hasn-t-211425746.html",
-      "pubDate": "2026-07-20T21:14:25.000Z",
-      "publishedAt": "2026-07-20T21:14:25.000Z",
-      "summary": "There is no timetable for when James will make his decision.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "勒布朗·詹姆斯相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/dfOYV6OcUInzN8VHjJ9oWw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04NTg7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/349ac3bbaccb82b3da992ab86e169e25",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "LeBron James still hasn’t made a decision; Cleveland remains in the race",
-      "copySource": "fallback",
-      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -2134,90 +2228,6 @@
       "displayTitle": "LeBron James Genuinely Nearing Free Agency Decision",
       "copySource": "fallback",
       "storyType": "analysis",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286743/Nuggets-Confident-Of-Retaining-Peyton-Watson-Amid-Interest-From-Bucks-Clippers-Hawks",
-      "title": "Nuggets Confident Of Retaining Peyton Watson Amid Interest From Bucks, Clippers, Hawks",
-      "originalTitle": "Nuggets Confident Of Retaining Peyton Watson Amid Interest From Bucks, Clippers, Hawks",
-      "headlineZh": "掘金 Confident Of 相关消息更新",
-      "titleZh": "掘金 Confident Of 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286743/Nuggets-Confident-Of-Retaining-Peyton-Watson-Amid-Interest-From-Bucks-Clippers-Hawks",
-      "url": "https://basketball.realgm.com/wiretap/286743/Nuggets-Confident-Of-Retaining-Peyton-Watson-Amid-Interest-From-Bucks-Clippers-Hawks",
-      "pubDate": "2026-07-17T16:24:50.000Z",
-      "publishedAt": "2026-07-17T16:24:50.000Z",
-      "summary": "<p>The Denver Nuggets feel confident in its position to retain restricted free agent Peyton Watson despite growing interest from the Milwaukee Bucks, LA Clippers and Atlanta Hawks. League sources told The Athletic that Denver believes it simply needs to let the restricted free agency process play out.</p> <p>The Bucks have emerged as a team exploring a potential sign-and-trade for the 23-year-old forward. The Clippers, currently in a holding pattern after their paused Kawhi Leonard trade with the Toronto Raptors, and the Hawks, who recently declined a team option on Jonathan Kuminga, have also expressed interest.</p> <p>Watson broke out this past season, averaging nearly 15 points per game before a recurring hamstring strain sidelined him in February and ended his season in April. His absence exposed Denver's lack of athleticism during a first-round playoff loss to the Minnesota Timberwolves.</p> <p>Watson has become one of the best recent <a href=\"https://basketball.realgm.com/nba/teams/Denver-Nuggets/7/draft-history\">Nuggets draft picks</a>, giving Denver a young wing archetype that is difficult to find across the league. </p> <p>Any of the three interested teams would likely need to pursue a sign-and-trade given Watson's restricted free agent status. Denver faces its own financial constraints in any potential re-signing, sitting above the luxury tax threshold and risking the $222 million second apron with an eight-figure contract for Watson.</p> <p>The Nuggets have already committed significant money to Nikola Jokic, Jamal Murray and Aaron Gordon, along with a five-year, $125 million extension for Christian Braun last summer that has yet to match expectations. Denver also acquired Cam Johnson last summer in a deal sending Michael Porter Jr. to Brooklyn, a trade that has similarly underperformed, and lost Tim Hardaway Jr. to Miami in free agency this offseason.</p> <p>Despite those financial pressures, sources say none of it will prevent Denver from ultimately re-signing Watson to a substantial deal. Watson is represented by <a href=\"https://basketball.realgm.com/info/agent_clients/Rich-Paul/258\">Rich Paul</a>, <a href=\"https://basketball.realgm.com/info/agent_clients/Calvin-Andrews/64\">Calvin Andrews</a> and <a href=\"https://basketball.realgm.com/info/agent_clients/Lucas-Newton/1161\">Lucas Newton</a> of Klutch Sports.</p>",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "掘金 Confident Of 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Watson_Peyton_den_250112.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
-      "importance": 2,
-      "eventKey": "trade:nikola-jokic:hawks",
-      "relatedItems": [],
-      "displayTitle": "Nuggets Confident Of Retaining Peyton Watson Amid Interest From Bucks, Clippers, Hawks",
-      "copySource": "fallback",
-      "storyType": "rumor",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286742/NBPA-Believes-NBA-Revenue-Would-Be-Growing-More-Without-Second-Apron",
-      "title": "NBPA Believes NBA Revenue Would Be 'Growing More' Without Second Apron",
-      "originalTitle": "NBPA Believes NBA Revenue Would Be 'Growing More' Without Second Apron",
-      "headlineZh": "NBPA Believes Revenue 相关消息更新",
-      "titleZh": "NBPA Believes Revenue 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286742/NBPA-Believes-NBA-Revenue-Would-Be-Growing-More-Without-Second-Apron",
-      "url": "https://basketball.realgm.com/wiretap/286742/NBPA-Believes-NBA-Revenue-Would-Be-Growing-More-Without-Second-Apron",
-      "pubDate": "2026-07-17T15:35:50.000Z",
-      "publishedAt": "2026-07-17T15:35:50.000Z",
-      "summary": "<p>New NBPA executive director David Kelly said the league's second apron system has gone too far and needs to be addressed, speaking in a July 10 interview with The Athletic. Kelly and union president Fred VanVleet made clear their opposition to the system during last weekend's events in Las Vegas.</p> <p>\"It's not good for fans. Not good for players,\" said Kelly. \"I don't think the (general managers) love it, although they may not say it on the record. Coaches don't love it. The only people who really seem to really love it are the owners. Then, I think it's gone too far. So whether it's an unwinding of it, or a softening of the apron, or tweaking it, we can call it whatever we will. But ... I do think it's gone too far.\"</p> <p>The current collective bargaining agreement guarantees players between 49 and 51 percent of basketball-related income, which totaled $11.676 billion for the 2025-26 season. Players actually exceeded that share this past season by $317 million, according to a league memo sent to teams.</p> <p>Kelly argued the second apron creates problems beyond cost control, pointing to its impact on roster stability and free agency. Only the Oklahoma City Thunder currently carry a payroll above the threshold, set at just under $222 million for next season, and they are expected to eventually drop below it.</p> <p>\"I think those teams would generate more revenue, would grow the game, would have more fan interest, if they could invest (in their rosters),\" said Kelly. \"So you're preventing teams from investing in an investment that would actually generate more revenue for the owners, for the league and for the players. ... So 51 percent of what? I think the game would be growing more.\"</p> <p>Kelly pushed back on the league's argument that the apron system has driven competitive parity, noting that five different teams won championships in the five years preceding the 2023 CBA.</p> <p>\"If you look at the points in time when the game really grew, you had some dynasties and then you had some competition,\" said Kelly. \"New teams that that came up. It was all about competition. You did not have an artificial sort of, like, break or gate on spending. And the game grew.\"</p> <p>The current CBA runs through the 2029-30 season but allows either side to opt out a year early. NBA commissioner <a href=\"https://basketball.realgm.com/wiretap/286714/Adam-Silver-Apron-System-Working-Very-Well-From-Competitive-Standpoint\">Adam Silver said this week that the second apron's effects were not an unintended consequence of the agreement</a>.</p> <p>Kelly took over as executive director on July 1 after being appointed in February, following Andre Iguodala's tenure as interim leader. The union has adopted a more assertive public posture recently, criticizing the league's 65-game rule and the Milwaukee Bucks' handling of Giannis Antetokounmpo's trade request.</p> <p>Kelly said the union will attempt to resolve issues privately first but will not hesitate to go public if necessary.</p> <p>\"I think you have to be willing to fight,\" said Kelly. \"Will we look for ways to partner with the league? Yes. Do we need the league? Yes. Does the league need the players? Yes. Does sometimes the league maybe forget that they need the players? Yes. In those instances, we'll have to fight.\"</p> <p>Kelly also identified player health investment as a priority, citing a wave of Achilles injuries during the 2024-25 season as an area requiring better data and prevention. He said the union would consider allowing in-game wearable technology, currently prohibited under the CBA, if used appropriately.</p> <p>\"Not wearables for the sake of gambling. Not wearables and data that's for the sake of exploiting it, monetizing it, necessarily,\" said Kelly. \"But wearables for the sake of improving player health so we have better games and better players.\"</p> <p>VanVleet indicated the union is already preparing for negotiations on the next CBA, regardless of the 2029 opt-out timeline.</p> <p>\"We're getting ready for the next CBA,\" said VanVleet. \"Like today.\"</p>",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "NBPA Believes Revenue 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_realgm.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
-      "importance": 2,
-      "eventKey": "trade:giannis-antetokounmpo:thunder",
-      "relatedItems": [],
-      "displayTitle": "NBPA Believes NBA Revenue Would Be 'Growing More' Without Second Apron",
-      "copySource": "fallback",
-      "storyType": "opinion",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286741/Dave-Joerger-Likely-To-Join-Nuggets-Staff-As-Top-Assistant",
-      "title": "Dave Joerger Likely To Join Nuggets Staff As Top Assistant",
-      "originalTitle": "Dave Joerger Likely To Join Nuggets Staff As Top Assistant",
-      "headlineZh": "Dave Joerger Likely 相关消息更新",
-      "titleZh": "Dave Joerger Likely 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286741/Dave-Joerger-Likely-To-Join-Nuggets-Staff-As-Top-Assistant",
-      "url": "https://basketball.realgm.com/wiretap/286741/Dave-Joerger-Likely-To-Join-Nuggets-Staff-As-Top-Assistant",
-      "pubDate": "2026-07-17T06:02:03.000Z",
-      "publishedAt": "2026-07-17T06:02:03.000Z",
-      "summary": "<p>The Denver Nuggets are likely to land Dave Joerger as the team's top assistant, sources told Marc Stein of The Stein Line.</p> <p>Joerger was previously linked to the head coach job with Paris Basketball, though the team is struggling to recruit Joerger to Europe.</p> <p>Joerger was most recently an assistant with the Bucks under Doc Rivers.</p> <p> </p>",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Dave Joerger Likely 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Joerger_Dave_sac_181130.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Dave Joerger Likely To Join Nuggets Staff As Top Assistant",
-      "copySource": "fallback",
-      "storyType": "rumor",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     }
   ]
