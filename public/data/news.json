@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-21T16:25:35.334Z",
+  "updatedAt": "2026-07-21T17:54:36.136Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-21T16:25:35.334Z",
-    "previousUpdatedAt": "2026-07-21T14:35:58.242Z",
-    "updatedAt": "2026-07-21T16:25:35.334Z",
+    "checkedAt": "2026-07-21T17:54:36.136Z",
+    "previousUpdatedAt": "2026-07-21T16:25:35.334Z",
+    "updatedAt": "2026-07-21T17:54:36.136Z",
     "fetchedItems": 80,
-    "mergedItems": 68,
+    "mergedItems": 67,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,8 +31,8 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-21T15:54:25.000Z",
-    "dataAgeHours": 0.5195372222222222,
+    "newestPublishedAt": "2026-07-21T17:49:14.000Z",
+    "dataAgeHours": 0.08948222222222223,
     "aiEnabled": false,
     "aiCandidates": 50,
     "aiCacheHits": 0,
@@ -43,10 +43,10 @@
     "aiRetried": 0,
     "rejectedAsNonChinese": 0,
     "skippedByLimit": 0,
-    "finalItemsWithChineseSummary": 18,
+    "finalItemsWithChineseSummary": 17,
     "finalItemsWithoutChineseSummary": 50,
-    "totalNewsItems": 68,
-    "itemsWithValidChineseSummary": 18,
+    "totalNewsItems": 67,
+    "itemsWithValidChineseSummary": 17,
     "itemsMissingChineseSummary": 50,
     "eligibleBacklog": 50,
     "selectedThisRun": 0,
@@ -86,6 +86,90 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/nba/breaking-news/article/yaxel-lendeborg-named-mvp-cameron-boozer-caleb-wilson-make-nba-all-summer-league-first-team-174914523.html",
+      "title": "Yaxel Lendeborg named MVP, Cameron Boozer, Caleb Wilson make NBA All-Summer League first team",
+      "originalTitle": "Yaxel Lendeborg named MVP, Cameron Boozer, Caleb Wilson make NBA All-Summer League first team",
+      "headlineZh": "Yaxel Lendeborg 相关消息更新",
+      "titleZh": "Yaxel Lendeborg 相关消息更新",
+      "link": "https://sports.yahoo.com/nba/breaking-news/article/yaxel-lendeborg-named-mvp-cameron-boozer-caleb-wilson-make-nba-all-summer-league-first-team-174914523.html",
+      "url": "https://sports.yahoo.com/nba/breaking-news/article/yaxel-lendeborg-named-mvp-cameron-boozer-caleb-wilson-make-nba-all-summer-league-first-team-174914523.html",
+      "pubDate": "2026-07-21T17:49:14.000Z",
+      "publishedAt": "2026-07-21T17:49:14.000Z",
+      "summary": "On the heels of a loaded NBA Draft, there was heightened interest in this year’s Summer League. It didn’t disappoint.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Yaxel Lendeborg 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/yT7eyWFlCoIcG3bhWqzsgg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/0c2c8a07-efa0-4fa7-9bc8-d54a513fe817",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "选秀",
+      "importance": 2,
+      "displayTitle": "Yaxel Lendeborg named MVP, Cameron Boozer, Caleb Wilson make NBA All-Summer League first team",
+      "copySource": "fallback",
+      "storyType": "rumor",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/nba/article/hawks-trade-zaccharie-risacher-best-free-agents-available--new-york-liberty-check-in-173218664.html",
+      "title": "Hawks trade Zaccharie Risacher, best free agents available + New York Liberty check-in",
+      "originalTitle": "Hawks trade Zaccharie Risacher, best free agents available + New York Liberty check-in",
+      "headlineZh": "扎卡里·里萨谢交易影响继续发酵",
+      "titleZh": "扎卡里·里萨谢交易影响继续发酵",
+      "link": "https://sports.yahoo.com/nba/article/hawks-trade-zaccharie-risacher-best-free-agents-available--new-york-liberty-check-in-173218664.html",
+      "url": "https://sports.yahoo.com/nba/article/hawks-trade-zaccharie-risacher-best-free-agents-available--new-york-liberty-check-in-173218664.html",
+      "pubDate": "2026-07-21T17:32:18.000Z",
+      "publishedAt": "2026-07-21T17:32:18.000Z",
+      "summary": "Nekias Duncan and Steve Jones catch up on the latest transaction news in the NBA, discuss the most interesting free agents available and discuss the historic Fever offense.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，扎卡里·里萨谢相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "扎卡里·里萨谢交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/5NPsJMc0JAJlk4VdSbp_Vw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/user-uploaded/tds-risacher-thumb_4754.jpg",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 2,
+      "eventKey": "trade:zaccharie-risacher:hawks",
+      "relatedItems": [],
+      "displayTitle": "Hawks trade Zaccharie Risacher, best free agents available + New York Liberty check-in",
+      "copySource": "fallback",
+      "storyType": "trade",
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286771/Cameron-Boozer-Says-Versatility-Sets-Him-Apart-Cites-Knicks-As-Model",
+      "title": "Cameron Boozer Says Versatility Sets Him Apart, Cites Knicks As Model",
+      "originalTitle": "Cameron Boozer Says Versatility Sets Him Apart, Cites Knicks As Model",
+      "headlineZh": "Cameron Boozer Says 相关消息更新",
+      "titleZh": "Cameron Boozer Says 相关消息更新",
+      "link": "https://basketball.realgm.com/wiretap/286771/Cameron-Boozer-Says-Versatility-Sets-Him-Apart-Cites-Knicks-As-Model",
+      "url": "https://basketball.realgm.com/wiretap/286771/Cameron-Boozer-Says-Versatility-Sets-Him-Apart-Cites-Knicks-As-Model",
+      "pubDate": "2026-07-21T16:50:55.000Z",
+      "publishedAt": "2026-07-21T16:50:55.000Z",
+      "summary": "<p>Cameron Boozer said his ability to fill multiple roles on the floor is what sets him apart, pointing to the New York Knicks' championship run as a blueprint for the kind of versatile play teams now covet. The Memphis Grizzlies' first round draft pick spoke to The Athletic about his approach following a standout summer league performance.</p> <p>\"Versatility is the name of the game. That's what teams are looking for,\" said Boozer. \"Teams want five guys who can make plays. Look at the Knicks this year. Everyone on that team was capable of doing more than one thing. Everyone was capable of playing on or off the basketball. That's what I feel like I can do best. I can screen. I can handle it. You can put me in a lot of different scenarios.\"</p> <p>Boozer closely studied New York's title run, taking note of how the team shared the ball, moved cohesively on both ends of the floor, and relied on players capable of multiple skill sets rather than a single dominant scorer. Those observations shaped his own vision for how he wants to impact games as a professional.</p> <p>That approach was on full display during a dominant 10-day stretch at summer league, where Boozer averaged 18.5 points, eight rebounds, 3.7 assists and 1.8 steals per game. His performance helped lead Memphis to the Las Vegas Summer League championship game, a narrow loss to the Golden State Warriors.</p> <p>Selected third overall in the 2026 draft behind AJ Dybantsa and Darryn Peterson, Boozer is expected to be a day-one starter for the Grizzlies alongside Cedric Coward, last season's All-Rookie First Team selection. His combination of playmaking, physicality and positional flexibility as a 6-foot-10 forward has drawn comparisons to the multi-skilled roster construction that defined New York's championship approach.</p>",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Cameron Boozer Says 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Boozer_Cameron_duke_251105.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "选秀",
+      "importance": 2,
+      "displayTitle": "Cameron Boozer Says Versatility Sets Him Apart, Cites Knicks As Model",
+      "copySource": "fallback",
+      "storyType": "opinion",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://basketball.realgm.com/wiretap/286769/Walmart-Heiress-Nancy-Walton-Laurie-Explores-Las-Vegas-NBA-Bid",
       "title": "Walmart Heiress Nancy Walton Laurie Explores Las Vegas NBA Bid",
@@ -197,6 +281,60 @@
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/warriors-fans-feel-adding-lebron-142933624.html",
+      "title": "How would Warriors fans feel about adding LeBron James",
+      "originalTitle": "How would Warriors fans feel about adding LeBron James",
+      "headlineZh": "勒布朗·詹姆斯相关消息更新",
+      "titleZh": "勒布朗·詹姆斯相关消息更新",
+      "link": "https://sports.yahoo.com/articles/warriors-fans-feel-adding-lebron-142933624.html",
+      "url": "https://sports.yahoo.com/articles/warriors-fans-feel-adding-lebron-142933624.html",
+      "pubDate": "2026-07-21T14:29:33.000Z",
+      "publishedAt": "2026-07-21T14:29:33.000Z",
+      "summary": "A survey about Dub Nation’s potential reaction to signing James.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "勒布朗·詹姆斯相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/G0rSpbr5dhYJiLIwMtmPiA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTY7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/3db710b386d8842e8ebec54e70132335",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james:warriors",
+      "relatedItems": [
+        {
+          "title": "Draymond Green clarifies comments about Warriors' offense with LeBron James",
+          "originalTitle": "Draymond Green clarifies comments about Warriors' offense with LeBron James",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/draymond-green-clarifies-comments-warriors-102346847.html",
+          "publishedAt": "2026-07-21T10:23:46.000Z",
+          "angle": "source"
+        }
+      ],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "How would Warriors fans feel about adding LeBron James",
+        "Draymond Green clarifies comments about Warriors' offense with LeBron James"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/warriors-fans-feel-adding-lebron-142933624.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/draymond-green-clarifies-comments-warriors-102346847.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "How would Warriors fans feel about adding LeBron James",
+      "copySource": "fallback",
+      "storyType": "analysis"
     },
     {
       "id": "https://sports.yahoo.com/articles/jalen-wilson-hawks-ziaire-williams-134243513.html",
@@ -1359,118 +1497,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/warriors-yaxel-lendeborg-named-nba-182512604.html",
-      "title": "Warriors’ Yaxel Lendeborg named NBA Summer League Championship Game MVP",
-      "originalTitle": "Warriors’ Yaxel Lendeborg named NBA Summer League Championship Game MVP",
-      "headlineZh": "Yaxel Lendeborg 相关消息更新",
-      "titleZh": "Yaxel Lendeborg 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/warriors-yaxel-lendeborg-named-nba-182512604.html",
-      "url": "https://sports.yahoo.com/articles/warriors-yaxel-lendeborg-named-nba-182512604.html",
-      "pubDate": "2026-07-20T18:25:12.000Z",
-      "publishedAt": "2026-07-20T18:25:12.000Z",
-      "summary": "Rounding up all Warriors and NBA related news for Monday, July 20th.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Yaxel Lendeborg 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/AN7YwA6Pd4CLurqA10mxKw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/f0fd9e0b5ff05e93735f11250a1f174f",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "季后赛",
-      "importance": 2,
-      "displayTitle": "Warriors’ Yaxel Lendeborg named NBA Summer League Championship Game MVP",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/netsdaily-off-season-report-no-175106825.html",
-      "title": "NetsDaily Off-Season Report – No. 14",
-      "originalTitle": "NetsDaily Off-Season Report – No. 14",
-      "headlineZh": "篮网 Daily Off-Season 相关消息更新",
-      "titleZh": "篮网 Daily Off-Season 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/netsdaily-off-season-report-no-175106825.html",
-      "url": "https://sports.yahoo.com/articles/netsdaily-off-season-report-no-175106825.html",
-      "pubDate": "2026-07-20T17:51:06.000Z",
-      "publishedAt": "2026-07-20T17:51:06.000Z",
-      "summary": "Every weekend, we update the Nets off-season with information, gossip, etc. to help fans get ready for … whatever.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "篮网 Daily Off-Season 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/XLRxiOK4WZjcKaGFaGGkcQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/1b0bce4ee181578f1d2c876321326c07",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "NetsDaily Off-Season Report – No. 14",
-      "copySource": "fallback",
-      "storyType": "rumor",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/klay-thompson-gives-eye-opening-174352451.html",
-      "title": "Klay Thompson gives eye-opening answer when asked about Warriors reunion",
-      "originalTitle": "Klay Thompson gives eye-opening answer when asked about Warriors reunion",
-      "headlineZh": "Klay Thompson 相关消息更新",
-      "titleZh": "Klay Thompson 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/klay-thompson-gives-eye-opening-174352451.html",
-      "url": "https://sports.yahoo.com/articles/klay-thompson-gives-eye-opening-174352451.html",
-      "pubDate": "2026-07-20T17:43:52.000Z",
-      "publishedAt": "2026-07-20T17:43:52.000Z",
-      "summary": "Klay Thompson wouldn't turn his nose up at a reunion with the Golden State Warriors.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Klay Thompson 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/hJwC_rv3aSnjgK7v0XVrrA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/dbbc311530295d6969d3e2d633e33ab7",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Klay Thompson gives eye-opening answer when asked about Warriors reunion",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/nba-offseason-trade-free-agent-174341298.html",
-      "title": "NBA Offseason Trade/Free Agent Rumors 2026: Lakers, Hawks not close to Kuminga deal, Jalen Duren latest",
-      "originalTitle": "NBA Offseason Trade/Free Agent Rumors 2026: Lakers, Hawks not close to Kuminga deal, Jalen Duren latest",
-      "headlineZh": "Offseason Trade 交易影响继续发酵",
-      "titleZh": "Offseason Trade 交易影响继续发酵",
-      "link": "https://sports.yahoo.com/articles/nba-offseason-trade-free-agent-174341298.html",
-      "url": "https://sports.yahoo.com/articles/nba-offseason-trade-free-agent-174341298.html",
-      "pubDate": "2026-07-20T17:43:41.000Z",
-      "publishedAt": "2026-07-20T17:43:41.000Z",
-      "summary": "Also, what is New Orleans doing? Or, for that matter, what is Trail Blazers owner Tom Dundon doing?",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Offseason Trade 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
-      "oneLineZh": "Offseason Trade 交易影响继续发酵",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/hBKewygACF0mN3x2oNavcg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/a8673e760c6aacaea2147e2b685f8cb7",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 4,
-      "eventKey": "trade:offseason-trade:hawks:lakers",
-      "relatedItems": [],
-      "displayTitle": "NBA Offseason Trade/Free Agent Rumors 2026: Lakers, Hawks not close to Kuminga deal, Jalen Duren latest",
-      "copySource": "fallback",
-      "storyType": "trade",
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286760/Luka-Doncic-I-Think-We-Have-A-Really-Good-Team-Excited-To-Start-New-Season",
       "title": "Luka Doncic: I Think We Have A Really Good Team, Excited To Start New Season",
       "originalTitle": "Luka Doncic: I Think We Have A Really Good Team, Excited To Start New Season",
@@ -1904,38 +1930,21 @@
       "publishedAt": "2026-07-17T23:28:02.000Z",
       "summary": "<p>LeBron James is genuinely close to reaching a decision on his next team, sources tell ESPN, with many league and team personnel hopeful an announcement will come next week. The update followed James' fourth public appearance around Fanatics Fest, where he again declined to reveal his choice.</p> <p>James is choosing between the Miami Heat, Cleveland Cavaliers, Philadelphia 76ers, Golden State Warriors and Minnesota Timberwolves.</p> <p>James closed out the event Friday with a live taping of \"The Shop,\" his talk show that concluded an eight-year run with longtime co-host Maverick Carter. The episode marked a transition in hosting duties to actor Travis Bennett and comedian Steelo Brim, who pressed James for an answer in front of roughly 5,000 fans.</p> <p>\"We don't have an announcement to make just yet,\" said James, smiling as the crowd groaned.</p> <p>Bennett referenced the growing pressure surrounding James' decision, including comments from NBA commissioner Adam Silver at a separate Fanatics Fest event Thursday.</p> <p>\"The whole world is waiting on this,\" said Bennett. \"They're waiting to schedule the games.\"</p> <p>Silver had addressed the scheduling implications of James' pending decision during a summit hosted by CNBC Sport and Boardroom.</p> <p>James offered some insight into his decision-making criteria while sharing the stage with tennis star Novak Djokovic, referencing organizational culture as a key factor.</p> <p>\"Most important is I want to compete,\" said James. \"I want to compete at a high level. I want to join a franchise that kind of shares the same motto as myself and that's practicing championship habits every day, but trusting the process more than anything.\"</p> <p>His use of the phrase \"trust the process,\" historically associated with the Philadelphia 76ers' rebuild under Sam Hinkie, drew a mixed reaction from the crowd. James later joked about the phrase's origins.</p> <p>\"I've been saying 'trust the process' since I was drafted in, like, 2003,\" said James. \"I don't know if Embiid was even born yet.\"</p> <p>James also addressed ongoing questions about retirement, pushing back on the idea that his age should dictate his next move.</p> <p>\"In sports, there's always conversations, like, 'When is he going to retire? He needs to retire. He's this age. He's that age,'\" said James. \"But, why? Why are we trying to force people that are still doing what they do at a high level, why are we trying to force a narrative of it's time to retire? You look at guys like Bruce Springsteen and some of the greatest musicians, the [Rolling] Stones, they've been on tour for 50, 60 years! So, I'm just trying to squeeze as much of the juice out of it as possible.\"</p>",
       "dekZh": "",
-      "summaryZh": "RealGM / Yahoo Sports 分析了勒布朗·詹姆斯 Genuinely Nearing 自由市场 Decision，这是一篇观点或数据分析文章，并非球队官方决定。",
+      "summaryZh": "RealGM 分析了勒布朗·詹姆斯 Genuinely Nearing 自由市场 Decision，这是一篇观点或数据分析文章，并非球队官方决定。",
       "oneLineZh": "签约动态：勒布朗·詹姆斯 Genuinely Nearing 自由市场 Decision",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_260419.jpg",
-      "source": "RealGM / Yahoo Sports",
+      "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
       "importance": 2,
       "eventKey": "sign:lebron-james:cavaliers",
       "relatedItems": [],
-      "sources": [
-        "RealGM",
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Cavs and Lakers are ‘connected’ to another free agent small forward"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286744/LeBron-James-Genuinely-Nearing-Free-Agency-Decision"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/cavs-lakers-connected-another-free-174002422.html"
-        }
-      ],
-      "isMerged": false,
       "displayTitle": "LeBron James Genuinely Nearing Free Agency Decision",
       "copySource": "fallback",
-      "storyType": "analysis"
+      "storyType": "analysis",
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286743/Nuggets-Confident-Of-Retaining-Peyton-Watson-Amid-Interest-From-Bucks-Clippers-Hawks",
@@ -2051,6 +2060,14 @@
           "url": "https://sports.yahoo.com/articles/lebron-james-selects-next-team-103911861.html",
           "publishedAt": "2026-07-21T10:39:11.000Z",
           "angle": "rumor"
+        },
+        {
+          "title": "LeBron James' agent stresses patience amid client's ongoing NBA free agency saga",
+          "originalTitle": "LeBron James' agent stresses patience amid client's ongoing NBA free agency saga",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/lebron-james-agent-stresses-patience-093810013.html",
+          "publishedAt": "2026-07-21T09:38:10.000Z",
+          "angle": "source"
         }
       ],
       "sources": [
@@ -2058,12 +2075,17 @@
         "RealGM"
       ],
       "originalTitles": [
-        "LeBron James Decision 4.0 live updates: Latest rumors and team buzz"
+        "LeBron James Decision 4.0 live updates: Latest rumors and team buzz",
+        "LeBron James' agent stresses patience amid client's ongoing NBA free agency saga"
       ],
       "sourceLinks": [
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/lebron-james-selects-next-team-103911861.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-agent-stresses-patience-093810013.html"
         },
         {
           "source": "RealGM",
@@ -2074,34 +2096,6 @@
       "displayTitle": "Pistons Still Could Pursue DeMar DeRozan",
       "copySource": "fallback",
       "storyType": "rumor"
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286738/Pistons-Remain-Confident-In-Re-Signing-Jalen-Duren",
-      "title": "Pistons Remain Confident In Re-Signing Jalen Duren",
-      "originalTitle": "Pistons Remain Confident In Re-Signing Jalen Duren",
-      "headlineZh": "Remain Confident 在签约动向更新",
-      "titleZh": "Remain Confident 在签约动向更新",
-      "link": "https://basketball.realgm.com/wiretap/286738/Pistons-Remain-Confident-In-Re-Signing-Jalen-Duren",
-      "url": "https://basketball.realgm.com/wiretap/286738/Pistons-Remain-Confident-In-Re-Signing-Jalen-Duren",
-      "pubDate": "2026-07-17T05:14:51.000Z",
-      "publishedAt": "2026-07-17T05:14:51.000Z",
-      "summary": "<p>The Detroit Pistons are confident that they will be able to re-sign Jalen Duren, sources told Hunter Patterson of The Athletic.</p> <p>Re-signing Duren is the team's top priority this summer, with both sides looking for a deal that makes sense for everyone.</p> <p>Duren has already met with the Lakers and Kings, though no contract came to fruition. </p> <p>Duren could accept the team's $9.6 million qualifying offer and become an unrestricted free agent next summer.</p> <p>The Pistons also attempted to upgrade their roster this offseason, though asking prices for star players were too high.</p> <p> </p>",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Remain Confident 在的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Remain Confident 在签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Duren_Jalen_det_251210.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:pistons-remain-confident:lakers:960",
-      "relatedItems": [],
-      "displayTitle": "Pistons Remain Confident In Re-Signing Jalen Duren",
-      "copySource": "fallback",
-      "storyType": "rumor",
-      "isMerged": false
     }
   ]
 }
