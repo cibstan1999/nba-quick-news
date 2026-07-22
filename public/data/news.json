@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-22T03:24:17.200Z",
+  "updatedAt": "2026-07-22T03:26:37.084Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-22T03:24:17.200Z",
-    "previousUpdatedAt": "2026-07-22T03:22:38.988Z",
-    "updatedAt": "2026-07-22T03:24:17.200Z",
+    "checkedAt": "2026-07-22T03:26:37.084Z",
+    "previousUpdatedAt": "2026-07-22T03:24:17.200Z",
+    "updatedAt": "2026-07-22T03:26:37.084Z",
     "fetchedItems": 80,
-    "mergedItems": 74,
+    "mergedItems": 72,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -32,37 +32,97 @@
     ],
     "failedFeeds": [],
     "newestPublishedAt": "2026-07-22T02:19:55.000Z",
-    "dataAgeHours": 1.0728333333333333,
-    "aiEnabled": false,
+    "dataAgeHours": 1.11169,
+    "aiEnabled": true,
     "aiScope": "latest-items",
-    "aiCandidates": 24,
+    "aiCandidates": 23,
     "aiCacheHits": 6,
-    "aiRequests": 0,
-    "aiAccepted": 0,
-    "aiRejected": 0,
+    "aiRequests": 5,
+    "aiAccepted": 4,
+    "aiRejected": 1,
     "aiFailed": 0,
     "aiRetried": 0,
     "rejectedAsNonChinese": 0,
-    "skippedByLimit": 0,
-    "finalItemsWithChineseSummary": 48,
-    "finalItemsWithoutChineseSummary": 26,
-    "totalNewsItems": 74,
-    "itemsWithValidChineseSummary": 44,
-    "itemsMissingChineseSummary": 30,
-    "eligibleBacklog": 24,
-    "selectedThisRun": 0,
+    "skippedByLimit": 18,
+    "finalItemsWithChineseSummary": 51,
+    "finalItemsWithoutChineseSummary": 21,
+    "totalNewsItems": 72,
+    "itemsWithValidChineseSummary": 43,
+    "itemsMissingChineseSummary": 29,
+    "eligibleBacklog": 23,
+    "selectedThisRun": 5,
     "previouslyFailed": 0,
-    "remainingAfterRun": 26,
+    "remainingAfterRun": 21,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
-    "acceptedHighConfidence": 0,
-    "averageAiConfidence": null,
-    "minAcceptedConfidence": null,
-    "maxAcceptedConfidence": null,
+    "acceptedHighConfidence": 4,
+    "averageAiConfidence": 0.89,
+    "minAcceptedConfidence": 0.85,
+    "maxAcceptedConfidence": 0.9,
     "aiLogicError": false,
     "aiModel": "openai/gpt-4o-mini",
-    "aiSelectedItems": [],
-    "aiUpdatedItems": [],
+    "aiSelectedItems": [
+      {
+        "title": "Valkyries Janelle Salaün to compete in 3-point contest",
+        "publishedAt": "2026-07-22T01:09:54.000Z",
+        "source": "Yahoo Sports",
+        "reason": "needs-ai-summary"
+      },
+      {
+        "title": "Lakers still monitoring center market, could make trade for big",
+        "publishedAt": "2026-07-21T19:13:51.000Z",
+        "source": "Yahoo Sports",
+        "reason": "needs-ai-summary"
+      },
+      {
+        "title": "What’s next for the Knicks after failed Moussa Cisse pursuit?",
+        "publishedAt": "2026-07-21T19:00:00.000Z",
+        "source": "Yahoo Sports",
+        "reason": "needs-ai-summary"
+      },
+      {
+        "title": "Suns Reacts: The next big Suns move isn’t a trade",
+        "publishedAt": "2026-07-21T19:00:00.000Z",
+        "source": "Yahoo Sports",
+        "reason": "needs-ai-summary"
+      },
+      {
+        "title": "Report: Hawks add Jalen Wilson as two-way player",
+        "publishedAt": "2026-07-21T18:54:34.000Z",
+        "source": "Yahoo Sports",
+        "reason": "needs-ai-summary"
+      }
+    ],
+    "aiUpdatedItems": [
+      {
+        "title": "Valkyries Janelle Salaün to compete in 3-point contest",
+        "publishedAt": "2026-07-22T01:09:54.000Z",
+        "source": "Yahoo Sports",
+        "summaryZh": "Valkyries 的 Janelle Salaün 将参加即将在芝加哥举行的三分球大赛。",
+        "oneLineZh": "Janelle Salaün 将参加芝加哥三分球大赛。"
+      },
+      {
+        "title": "Lakers still monitoring center market, could make trade for big",
+        "publishedAt": "2026-07-21T19:13:51.000Z",
+        "source": "Yahoo Sports",
+        "summaryZh": "尽管湖人队的阵容已满，但据报道他们仍在关注中锋市场，可能会进行交易以增加内线深度。",
+        "oneLineZh": "湖人队有意在中锋市场寻求交易。"
+      },
+      {
+        "title": "What’s next for the Knicks after failed Moussa Cisse pursuit?",
+        "publishedAt": "2026-07-21T19:00:00.000Z",
+        "source": "Yahoo Sports",
+        "summaryZh": "纽约尼克斯在追求穆萨·西塞未果后，面临新的挑战。由于达拉斯的阻碍，西塞未能加盟纽约，球队目前正在考虑备选方案。",
+        "oneLineZh": "尼克斯追求穆萨·西塞失败，正寻求备选方案。"
+      },
+      {
+        "title": "Report: Hawks add Jalen Wilson as two-way player",
+        "publishedAt": "2026-07-21T18:54:34.000Z",
+        "source": "Yahoo Sports",
+        "summaryZh": "据报道，亚特兰大老鹰队签下了 Jalen Wilson，作为一名双向球员。这是老鹰队签下的第三名双向球员。",
+        "oneLineZh": "老鹰队签下双向球员 Jalen Wilson。"
+      }
+    ],
     "message": "Fetched 80 usable RSS items from all feeds."
   },
   "highlights": [],
@@ -88,12 +148,29 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "displayTitle": "Warriors' Yaxel Lendeborg earns Summer League MVP, first team honors",
-      "copySource": "fallback",
-      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Yaxel Lendeborg adds to trophy collection with Summer League MVP",
+        "Warriors' Yaxel Lendeborg earns Summer League MVP, first team honors"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/yaxel-lendeborg-adds-trophy-collection-010132088.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/warriors-yaxel-lendeborg-earns-summer-021955478.html"
+        }
+      ],
+      "isMerged": false,
+      "displayTitle": "Warriors' Yaxel Lendeborg earns Summer League MVP, first team honors",
+      "copySource": "fallback",
+      "storyType": "fact"
     },
     {
       "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
@@ -135,7 +212,7 @@
       "publishedAt": "2026-07-22T01:09:54.000Z",
       "summary": "See you in Chicago!",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "Valkyries 的 Janelle Salaün 将参加即将在芝加哥举行的三分球大赛。",
       "oneLineZh": "Valkyries Janelle Sala 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -143,41 +220,16 @@
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
-      "importance": 1,
-      "displayTitle": "Valkyries Janelle Salaün to compete in 3-point contest",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/yaxel-lendeborg-adds-trophy-collection-010132088.html",
-      "title": "Yaxel Lendeborg adds to trophy collection with Summer League MVP",
-      "originalTitle": "Yaxel Lendeborg adds to trophy collection with Summer League MVP",
-      "headlineZh": "亚克塞尔·伦德伯格相关消息更新",
-      "titleZh": "亚克塞尔·伦德伯格相关消息更新",
-      "link": "https://sports.yahoo.com/articles/yaxel-lendeborg-adds-trophy-collection-010132088.html",
-      "url": "https://sports.yahoo.com/articles/yaxel-lendeborg-adds-trophy-collection-010132088.html",
-      "pubDate": "2026-07-22T01:01:32.000Z",
-      "publishedAt": "2026-07-22T01:01:32.000Z",
-      "summary": "The Warriors’ first-round pick became the first-ever dual winner of both Summer League MVP trophies",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，这篇文章围绕夏季联赛表现展开，重点是年轻球员、球队阵容和赛事结果带来的后续观察。",
-      "oneLineZh": "亚克塞尔·伦德伯格相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/4Ch7rqwi8gRuPDcUnfn0QA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04ODk7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/ad8ab8c112b14e727e53c83fce4fb546",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
       "importance": 2,
-      "displayTitle": "Yaxel Lendeborg adds to trophy collection with Summer League MVP",
-      "copySource": "fallback",
-      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "displayTitle": "Valkyries Janelle Salaün to compete in 3-point contest",
+      "copySource": "github-models",
+      "storyType": "fact",
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-22T03:26:29.064Z",
+      "aiConfidence": 0.9
     },
     {
       "id": "https://sports.yahoo.com/articles/stephen-curry-become-first-active-005907528.html",
@@ -200,11 +252,11 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
+      "eventKey": "",
+      "relatedItems": [],
       "displayTitle": "Stephen Curry to become first active player with exhibit in Basketball Hall of Fame",
       "copySource": "fallback",
       "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -284,11 +336,11 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "选秀",
       "importance": 2,
+      "eventKey": "",
+      "relatedItems": [],
       "displayTitle": "Meleek Thomas recognized for impressive Summer League performance",
       "copySource": "fallback",
       "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -598,11 +650,11 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "选秀",
       "importance": 2,
+      "eventKey": "",
+      "relatedItems": [],
       "displayTitle": "Yaxel Lendeborg, Caleb Wilson, Cameron Boozer Headline 2026 NBA All-Sumer League Teams",
       "copySource": "fallback",
       "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -665,6 +717,14 @@
           "angle": "source"
         },
         {
+          "title": "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
+          "originalTitle": "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/nba/article/rich-paul-says-lebron-james-has-no-timetable-to-make-free-agent-decision-were-not-going-to-be-rushed-125104126.html",
+          "publishedAt": "2026-07-21T12:51:04.000Z",
+          "angle": "source"
+        },
+        {
           "title": "LeBron James Decision 4.0 live updates: Latest rumors on next team",
           "originalTitle": "LeBron James Decision 4.0 live updates: Latest rumors on next team",
           "source": "Yahoo Sports",
@@ -679,6 +739,7 @@
       "originalTitles": [
         "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
         "Rich Paul updates timeframe for LeBron James’ free-agency decision",
+        "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
         "LeBron James Decision 4.0 live updates: Latest rumors on next team"
       ],
       "sourceLinks": [
@@ -689,6 +750,10 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/rich-paul-updates-timeframe-lebron-165900675.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/nba/article/rich-paul-says-lebron-james-has-no-timetable-to-make-free-agent-decision-were-not-going-to-be-rushed-125104126.html"
         },
         {
           "source": "Yahoo Sports",
@@ -740,7 +805,7 @@
       "publishedAt": "2026-07-21T19:13:51.000Z",
       "summary": "Even though the Lakers roster is full, there is a possibility that more center help is on the way.",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "尽管湖人队的阵容已满，但据报道他们仍在关注中锋市场，可能会进行交易以增加内线深度。",
       "oneLineZh": "湖人交易与阵容调整",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -750,11 +815,14 @@
       "category": "交易",
       "importance": 2,
       "displayTitle": "Lakers still monitoring center market, could make trade for big",
-      "copySource": "fallback",
+      "copySource": "github-models",
       "storyType": "rumor",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-22T03:26:30.485Z",
+      "aiConfidence": 0.85
     },
     {
       "id": "https://sports.yahoo.com/articles/lebron-james-free-agency-decision-191255855.html",
@@ -821,7 +889,7 @@
       "publishedAt": "2026-07-21T19:00:00.000Z",
       "summary": "Dallas’s resentment over the past blocked the final piece from coming to New York. What’s the backup plan?",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "纽约尼克斯在追求穆萨·西塞未果后，面临新的挑战。由于达拉斯的阻碍，西塞未能加盟纽约，球队目前正在考虑备选方案。",
       "oneLineZh": "Moussa Cisse 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -831,11 +899,14 @@
       "category": "其他",
       "importance": 2,
       "displayTitle": "What’s next for the Knicks after failed Moussa Cisse pursuit?",
-      "copySource": "fallback",
+      "copySource": "github-models",
       "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-22T03:26:32.698Z",
+      "aiConfidence": 0.9
     },
     {
       "id": "https://sports.yahoo.com/articles/suns-reacts-next-big-suns-190000445.html",
@@ -877,21 +948,24 @@
       "publishedAt": "2026-07-21T18:54:34.000Z",
       "summary": "Third of three two-ways.",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "据报道，亚特兰大老鹰队签下了 Jalen Wilson，作为一名双向球员。这是老鹰队签下的第三名双向球员。",
       "oneLineZh": "Jalen Wilson 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/iNIo3fY74YzUJ2yOEve9pw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05NjA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/ac9523130f064e19a02744061005be6d",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
+      "category": "签约",
       "importance": 1,
       "displayTitle": "Report: Hawks add Jalen Wilson as two-way player",
-      "copySource": "fallback",
+      "copySource": "github-models",
       "storyType": "rumor",
-      "eventKey": "",
+      "eventKey": "sign:jalen-wilson:hawks",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-22T03:26:37.036Z",
+      "aiConfidence": 0.9
     },
     {
       "id": "https://sports.yahoo.com/articles/draymond-green-reveals-shaq-why-183421633.html",
@@ -1082,11 +1156,11 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "选秀",
       "importance": 2,
+      "eventKey": "",
+      "relatedItems": [],
       "displayTitle": "Cameron Boozer Says Versatility Sets Him Apart, Cites Knicks As Model",
       "copySource": "fallback",
       "storyType": "opinion",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -1229,7 +1303,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:24:17.157Z",
+      "aiGeneratedAt": "2026-07-22T03:26:37.038Z",
       "aiConfidence": 0.9
     },
     {
@@ -1260,7 +1334,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:24:17.158Z",
+      "aiGeneratedAt": "2026-07-22T03:26:37.040Z",
       "aiConfidence": 0.9
     },
     {
@@ -1291,7 +1365,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:24:17.160Z",
+      "aiGeneratedAt": "2026-07-22T03:26:37.042Z",
       "aiConfidence": 0.9
     },
     {
@@ -1350,7 +1424,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:24:17.161Z",
+      "aiGeneratedAt": "2026-07-22T03:26:37.043Z",
       "aiConfidence": 0.9
     },
     {
@@ -1409,7 +1483,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:24:17.162Z",
+      "aiGeneratedAt": "2026-07-22T03:26:37.044Z",
       "aiConfidence": 0.9
     },
     {
@@ -1440,7 +1514,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:24:17.164Z",
+      "aiGeneratedAt": "2026-07-22T03:26:37.045Z",
       "aiConfidence": 0.9
     },
     {
@@ -1467,34 +1541,6 @@
       "displayTitle": "Wilt Chamberlain Lakers jacket found by teen at thrift store fetches over $89,000",
       "copySource": "fallback",
       "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/nba/article/rich-paul-says-lebron-james-has-no-timetable-to-make-free-agent-decision-were-not-going-to-be-rushed-125104126.html",
-      "title": "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
-      "originalTitle": "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
-      "headlineZh": "Rich Paul 相关消息更新",
-      "titleZh": "Rich Paul 相关消息更新",
-      "link": "https://sports.yahoo.com/nba/article/rich-paul-says-lebron-james-has-no-timetable-to-make-free-agent-decision-were-not-going-to-be-rushed-125104126.html",
-      "url": "https://sports.yahoo.com/nba/article/rich-paul-says-lebron-james-has-no-timetable-to-make-free-agent-decision-were-not-going-to-be-rushed-125104126.html",
-      "pubDate": "2026-07-21T12:51:04.000Z",
-      "publishedAt": "2026-07-21T12:51:04.000Z",
-      "summary": "LeBron James will make his decision when he's ready.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Rich Paul 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/gFGp4VmYZz5fGhMj3vymGA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/3f7d6fc3-44a9-4e0f-80b5-cb36d5010a62",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
-      "copySource": "fallback",
-      "storyType": "opinion",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1671,8 +1717,8 @@
       "id": "https://basketball.realgm.com/wiretap/286765/Pacers-Waive-Taelon-Peter",
       "title": "Pacers Waive Taelon Peter",
       "originalTitle": "Pacers Waive Taelon Peter",
-      "headlineZh": "签约动态：步行者 Waive Taelon Peter",
-      "titleZh": "签约动态：步行者 Waive Taelon Peter",
+      "headlineZh": "交易动态：步行者 Waive Taelon Peter",
+      "titleZh": "交易动态：步行者 Waive Taelon Peter",
       "link": "https://basketball.realgm.com/wiretap/286765/Pacers-Waive-Taelon-Peter",
       "url": "https://basketball.realgm.com/wiretap/286765/Pacers-Waive-Taelon-Peter",
       "pubDate": "2026-07-21T05:29:02.000Z",
@@ -1680,7 +1726,7 @@
       "summary": "<p>The Indiana Pacers waived Taelon Peter on Monday, sources told Michael Scotto of HoopsHype.</p> <p>Peter, who was selected with the No. 54 pick in the 2025 NBA Draft, averaged 4.5 points in 38 games for the Pacers last season.</p>",
       "dekZh": "",
       "summaryZh": "据 RealGM 报道，步行者 Waive Taelon Peter，目前仍属于消息或传闻阶段。",
-      "oneLineZh": "签约动态：步行者 Waive Taelon Peter",
+      "oneLineZh": "交易动态：步行者 Waive Taelon Peter",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_indianapacers.jpg",
