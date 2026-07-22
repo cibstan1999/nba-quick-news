@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-22T02:56:01.783Z",
+  "updatedAt": "2026-07-22T02:56:54.771Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-22T02:56:01.783Z",
-    "previousUpdatedAt": "2026-07-21T23:32:16.257Z",
-    "updatedAt": "2026-07-22T02:56:01.783Z",
+    "checkedAt": "2026-07-22T02:56:54.771Z",
+    "previousUpdatedAt": "2026-07-22T02:56:01.783Z",
+    "updatedAt": "2026-07-22T02:56:54.771Z",
     "fetchedItems": 80,
-    "mergedItems": 72,
+    "mergedItems": 73,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -32,32 +32,32 @@
     ],
     "failedFeeds": [],
     "newestPublishedAt": "2026-07-22T02:19:55.000Z",
-    "dataAgeHours": 0.6018841666666667,
-    "aiEnabled": true,
-    "aiCandidates": 52,
-    "aiCacheHits": 0,
-    "aiRequests": 5,
-    "aiAccepted": 2,
-    "aiRejected": 2,
+    "dataAgeHours": 0.6166030555555555,
+    "aiEnabled": false,
+    "aiCandidates": 49,
+    "aiCacheHits": 2,
+    "aiRequests": 0,
+    "aiAccepted": 0,
+    "aiRejected": 0,
     "aiFailed": 0,
-    "aiRetried": 1,
-    "rejectedAsNonChinese": 1,
-    "skippedByLimit": 47,
+    "aiRetried": 0,
+    "rejectedAsNonChinese": 0,
+    "skippedByLimit": 0,
     "finalItemsWithChineseSummary": 22,
-    "finalItemsWithoutChineseSummary": 50,
-    "totalNewsItems": 72,
+    "finalItemsWithoutChineseSummary": 51,
+    "totalNewsItems": 73,
     "itemsWithValidChineseSummary": 20,
-    "itemsMissingChineseSummary": 52,
-    "eligibleBacklog": 52,
-    "selectedThisRun": 5,
+    "itemsMissingChineseSummary": 53,
+    "eligibleBacklog": 49,
+    "selectedThisRun": 0,
     "previouslyFailed": 0,
-    "remainingAfterRun": 50,
+    "remainingAfterRun": 51,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
-    "acceptedHighConfidence": 2,
-    "averageAiConfidence": 0.9125,
-    "minAcceptedConfidence": 0.9,
-    "maxAcceptedConfidence": 0.9,
+    "acceptedHighConfidence": 0,
+    "averageAiConfidence": null,
+    "minAcceptedConfidence": null,
+    "maxAcceptedConfidence": null,
     "aiLogicError": false,
     "aiModel": "openai/gpt-4o-mini",
     "message": "Fetched 80 usable RSS items from all feeds."
@@ -93,11 +93,11 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "eventKey": "",
-      "relatedItems": [],
       "displayTitle": "Warriors' Yaxel Lendeborg earns Summer League MVP, first team honors",
       "copySource": "fallback",
       "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -149,11 +149,11 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "eventKey": "",
-      "relatedItems": [],
       "displayTitle": "Stephen Curry to become first active player with exhibit in Basketball Hall of Fame",
       "copySource": "fallback",
       "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -205,11 +205,11 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "eventKey": "",
-      "relatedItems": [],
       "displayTitle": "Did Rob Pelinka improve the Lakers this offseason?",
       "copySource": "fallback",
       "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -233,11 +233,11 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "选秀",
       "importance": 2,
-      "eventKey": "",
-      "relatedItems": [],
       "displayTitle": "Meleek Thomas recognized for impressive Summer League performance",
       "copySource": "fallback",
       "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -261,11 +261,11 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "选秀",
       "importance": 2,
-      "eventKey": "",
-      "relatedItems": [],
       "displayTitle": "Cavaliers Reacts Survey: Which recent draft pick has the brightest future?",
       "copySource": "fallback",
       "storyType": "opinion",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -345,11 +345,11 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "选秀",
       "importance": 2,
-      "eventKey": "",
-      "relatedItems": [],
       "displayTitle": "Gonzaga Bulldogs in the NBA Summer League: A Wrap-Up",
       "copySource": "fallback",
       "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -401,11 +401,11 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "eventKey": "",
-      "relatedItems": [],
       "displayTitle": "The NBA robbed the Summer League Lakers",
       "copySource": "fallback",
       "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -547,11 +547,11 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "选秀",
       "importance": 2,
-      "eventKey": "",
-      "relatedItems": [],
       "displayTitle": "Yaxel Lendeborg, Caleb Wilson, Cameron Boozer Headline 2026 NBA All-Sumer League Teams",
       "copySource": "fallback",
       "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -756,6 +756,10 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/lebron-james-free-agency-decision-191255855.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/warriors-fans-feel-adding-lebron-142933624.html"
         },
         {
           "source": "Yahoo Sports",
@@ -1040,11 +1044,11 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "选秀",
       "importance": 2,
-      "eventKey": "",
-      "relatedItems": [],
       "displayTitle": "Cameron Boozer Says Versatility Sets Him Apart, Cites Knicks As Model",
       "copySource": "fallback",
       "storyType": "opinion",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -1439,8 +1443,36 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T02:55:59.472Z",
+      "aiGeneratedAt": "2026-07-22T02:56:54.735Z",
       "aiConfidence": 0.9
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286767/Rich-Paul-Says-LeBron-James-Wont-Be-Rushed-Into-Making-Decsion",
+      "title": "Rich Paul Says LeBron James 'Won't Be Rushed' Into Making Decsion",
+      "originalTitle": "Rich Paul Says LeBron James 'Won't Be Rushed' Into Making Decsion",
+      "headlineZh": "Rich Paul Says 相关消息更新",
+      "titleZh": "Rich Paul Says 相关消息更新",
+      "link": "https://basketball.realgm.com/wiretap/286767/Rich-Paul-Says-LeBron-James-Wont-Be-Rushed-Into-Making-Decsion",
+      "url": "https://basketball.realgm.com/wiretap/286767/Rich-Paul-Says-LeBron-James-Wont-Be-Rushed-Into-Making-Decsion",
+      "pubDate": "2026-07-21T12:43:29.000Z",
+      "publishedAt": "2026-07-21T12:43:29.000Z",
+      "summary": "<p>On the latest episode of the Game Over podcast, Klutch Sports leader Rich Paul said that he doesn't know which team his friend and client LeBron James will play for next season. Paul made one thing clear about the process however, by saying that it won't be a snap decision.</p> <p>\"We're not going to be rushed,\" Paul said about James choosing his next team. \"We're not going to be rushed. It's his choice to make and when he makes the choice, he'll make it.\"</p> <p>Paul went on to say that James has all the information he needs to make his decision.</p> <p>\"There's been several people to call and say, 'Hey, Rich, is there anything more we should be doing? We could be doing?'\" Paul said. \"And my answer is, 'No. We don't need you to go above and beyond about anything. We understand it. It's clear. All the messages have been sent.'\"</p> <p>James said in recent public appearances that, \"I won't hold you guys up too much longer.\" NBA commissioner Adam Silver weighed in to say that he hopes the NBA's all-time leading scorer decides soon, so that the league can finish next season's schedule.</p> <p>\"I saw Adam in New York and we discussed it,\" Paul said about speaking with Silver. \"And like I said, it's still his choice. So, if he doesn't really know, you can't rush it. You can't rush it.\"</p>",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Rich Paul Says 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_260502.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Rich Paul Says LeBron James 'Won't Be Rushed' Into Making Decsion",
+      "copySource": "fallback",
+      "storyType": "opinion",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/draymond-green-respect-warriors-rookie-123829203.html",
@@ -1470,7 +1502,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T02:56:01.753Z",
+      "aiGeneratedAt": "2026-07-22T02:56:54.737Z",
       "aiConfidence": 0.9
     },
     {
@@ -1617,8 +1649,8 @@
       "id": "https://basketball.realgm.com/wiretap/286765/Pacers-Waive-Taelon-Peter",
       "title": "Pacers Waive Taelon Peter",
       "originalTitle": "Pacers Waive Taelon Peter",
-      "headlineZh": "交易动态：步行者 Waive Taelon Peter",
-      "titleZh": "交易动态：步行者 Waive Taelon Peter",
+      "headlineZh": "签约动态：步行者 Waive Taelon Peter",
+      "titleZh": "签约动态：步行者 Waive Taelon Peter",
       "link": "https://basketball.realgm.com/wiretap/286765/Pacers-Waive-Taelon-Peter",
       "url": "https://basketball.realgm.com/wiretap/286765/Pacers-Waive-Taelon-Peter",
       "pubDate": "2026-07-21T05:29:02.000Z",
@@ -1626,7 +1658,7 @@
       "summary": "<p>The Indiana Pacers waived Taelon Peter on Monday, sources told Michael Scotto of HoopsHype.</p> <p>Peter, who was selected with the No. 54 pick in the 2025 NBA Draft, averaged 4.5 points in 38 games for the Pacers last season.</p>",
       "dekZh": "",
       "summaryZh": "据 RealGM 报道，步行者 Waive Taelon Peter，目前仍属于消息或传闻阶段。",
-      "oneLineZh": "交易动态：步行者 Waive Taelon Peter",
+      "oneLineZh": "签约动态：步行者 Waive Taelon Peter",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_indianapacers.jpg",
@@ -1805,37 +1837,11 @@
       "category": "交易",
       "importance": 5,
       "eventKey": "trade:lebron-james",
-      "relatedItems": [
-        {
-          "title": "Rich Paul Says LeBron James 'Won't Be Rushed' Into Making Decsion",
-          "originalTitle": "Rich Paul Says LeBron James 'Won't Be Rushed' Into Making Decsion",
-          "source": "RealGM",
-          "url": "https://basketball.realgm.com/wiretap/286767/Rich-Paul-Says-LeBron-James-Wont-Be-Rushed-Into-Making-Decsion",
-          "publishedAt": "2026-07-21T12:43:29.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "RealGM"
-      ],
-      "originalTitles": [
-        "Rich Paul Says LeBron James 'Won't Be Rushed' Into Making Decsion",
-        "Trey Murphy Trade Talks Could Pick Up After LeBron James' Decision"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286767/Rich-Paul-Says-LeBron-James-Wont-Be-Rushed-Into-Making-Decsion"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286759/Trey-Murphy-Trade-Talks-Could-Pick-Up-After-LeBron-James-Decision"
-        }
-      ],
-      "isMerged": true,
+      "relatedItems": [],
       "displayTitle": "Trey Murphy Trade Talks Could Pick Up After LeBron James' Decision",
       "copySource": "fallback",
-      "storyType": "rumor"
+      "storyType": "rumor",
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286758/Jonathan-Kumingas-Talks-With-Lakers-Stall-Over-Contract",
