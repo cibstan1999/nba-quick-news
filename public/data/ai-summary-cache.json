@@ -254,13 +254,6 @@
     }
   },
   "backlog": {
-    "cdaf9d7e0358fc8fc5e6deab098313609d580aa4996ca9c3c32fee061fa98162": {
-      "sourceHash": "d6e901933fdeda1f7b67eaa4a662624a6a071cfb7254a6fc4aca3f7875ff3d1c",
-      "lastTitle": "Wilt Chamberlain Lakers jacket found by teen at thrift store fetches over $89,000",
-      "skippedByLimit": 3,
-      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
-      "lastReason": "limit"
-    },
     "e10f840cf4c3d6fc529b524787e3bcd0e998da5f6a3050b157d22bb833513df6": {
       "sourceHash": "fa16a76aece5619c3fc423fa7f08517da0284d43cec9f5a07419bfd414e5324a",
       "lastTitle": "Jalen Wilson to Hawks, Ziaire Williams with Lakers as Tyson Etienne, Trevon Scott go overseas",
@@ -401,27 +394,6 @@
       "lastTitle": "Warriors' Yaxel Lendeborg earns Summer League MVP, first team honors",
       "skippedByLimit": 2,
       "lastSkippedAt": "2026-07-22T03:02:11.409Z",
-      "lastReason": "limit"
-    },
-    "d08791210f30b50476212517fd45eea98c084ca05f272909a4523826ea66ab55": {
-      "sourceHash": "cd76914289f5cfd8fe092db6fe1e12a4f748ef9bf26598305e3c99bcea47779d",
-      "lastTitle": "The Good, The Bad, and The Ugly of the Spurs Summer League",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
-      "lastReason": "limit"
-    },
-    "4dda34a9b5f3c0c4fc6e38a2f6d3e72d338e79b3477b16ddd270d13553834b5e": {
-      "sourceHash": "a2679f48d3bd6879ad462fbf1d3040588c1b9fdce07a5aa7cce9b3cd98c1644e",
-      "lastTitle": "Zach Guthrie Promoted To Lakers Coaching Staff As Assistant, Head Of Player Development",
-      "skippedByLimit": 4,
-      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
-      "lastReason": "limit"
-    },
-    "71e04cbb4adf36871d6f8cfac0f46a1e6a2e39ac76e244f0f8575c1b5afe39f6": {
-      "sourceHash": "ee3249e007909a0eb361b45a42807d22a3d5ba6bc6f33c550c38db49a40b5c3d",
-      "lastTitle": "Giannis Antetokounmpo's Motivation 'At A Million Percent' Joining Heat",
-      "skippedByLimit": 4,
-      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
       "lastReason": "limit"
     },
     "e4a0ba1d22dd017254d978010cec663cfd472c2c77350f8b290ed55c4ce44f4b": {
