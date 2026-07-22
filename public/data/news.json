@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-22T04:22:42.118Z",
+  "updatedAt": "2026-07-22T04:24:28.264Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-22T04:22:42.118Z",
-    "previousUpdatedAt": "2026-07-22T03:24:17.200Z",
-    "updatedAt": "2026-07-22T04:22:42.118Z",
+    "checkedAt": "2026-07-22T04:24:28.264Z",
+    "previousUpdatedAt": "2026-07-22T04:22:42.118Z",
+    "updatedAt": "2026-07-22T04:24:28.264Z",
     "fetchedItems": 80,
     "mergedItems": 75,
     "successfulFeeds": [
@@ -32,11 +32,11 @@
     ],
     "failedFeeds": [],
     "newestPublishedAt": "2026-07-22T03:59:55.000Z",
-    "dataAgeHours": 0.379755,
+    "dataAgeHours": 0.40924,
     "aiEnabled": false,
     "aiScope": "latest-items",
-    "aiCandidates": 26,
-    "aiCacheHits": 6,
+    "aiCandidates": 22,
+    "aiCacheHits": 10,
     "aiRequests": 0,
     "aiAccepted": 0,
     "aiRejected": 0,
@@ -44,15 +44,15 @@
     "aiRetried": 0,
     "rejectedAsNonChinese": 0,
     "skippedByLimit": 0,
-    "finalItemsWithChineseSummary": 49,
-    "finalItemsWithoutChineseSummary": 26,
+    "finalItemsWithChineseSummary": 53,
+    "finalItemsWithoutChineseSummary": 22,
     "totalNewsItems": 75,
     "itemsWithValidChineseSummary": 45,
     "itemsMissingChineseSummary": 30,
-    "eligibleBacklog": 26,
+    "eligibleBacklog": 22,
     "selectedThisRun": 0,
-    "previouslyFailed": 2,
-    "remainingAfterRun": 26,
+    "previouslyFailed": 3,
+    "remainingAfterRun": 22,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
     "acceptedHighConfidence": 0,
@@ -227,7 +227,7 @@
       "publishedAt": "2026-07-22T01:09:54.000Z",
       "summary": "See you in Chicago!",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "Valkyries 的 Janelle Salaün 将参加即将在芝加哥举行的三分球大赛。",
       "oneLineZh": "Valkyries Janelle Sala 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -237,11 +237,14 @@
       "category": "其他",
       "importance": 1,
       "displayTitle": "Valkyries Janelle Salaün to compete in 3-point contest",
-      "copySource": "fallback",
+      "copySource": "github-models",
       "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-22T04:24:28.212Z",
+      "aiConfidence": 0.9
     },
     {
       "id": "https://sports.yahoo.com/articles/yaxel-lendeborg-adds-trophy-collection-010132088.html",
@@ -847,7 +850,7 @@
       "publishedAt": "2026-07-21T19:13:51.000Z",
       "summary": "Even though the Lakers roster is full, there is a possibility that more center help is on the way.",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "尽管湖人队的阵容已满，但据报道他们仍在关注中锋市场，可能会进行交易以增加内线深度。",
       "oneLineZh": "湖人交易与阵容调整",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -857,11 +860,14 @@
       "category": "交易",
       "importance": 2,
       "displayTitle": "Lakers still monitoring center market, could make trade for big",
-      "copySource": "fallback",
+      "copySource": "github-models",
       "storyType": "rumor",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-22T04:24:28.213Z",
+      "aiConfidence": 0.85
     },
     {
       "id": "https://sports.yahoo.com/articles/lebron-james-free-agency-decision-191255855.html",
@@ -928,7 +934,7 @@
       "publishedAt": "2026-07-21T19:00:00.000Z",
       "summary": "Dallas’s resentment over the past blocked the final piece from coming to New York. What’s the backup plan?",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "纽约尼克斯在追求穆萨·西塞未果后，面临新的挑战。由于达拉斯的阻碍，西塞未能加盟纽约，球队目前正在考虑备选方案。",
       "oneLineZh": "Moussa Cisse 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -938,11 +944,14 @@
       "category": "其他",
       "importance": 2,
       "displayTitle": "What’s next for the Knicks after failed Moussa Cisse pursuit?",
-      "copySource": "fallback",
+      "copySource": "github-models",
       "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-22T04:24:28.214Z",
+      "aiConfidence": 0.9
     },
     {
       "id": "https://sports.yahoo.com/articles/suns-reacts-next-big-suns-190000445.html",
@@ -984,21 +993,24 @@
       "publishedAt": "2026-07-21T18:54:34.000Z",
       "summary": "Third of three two-ways.",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "据报道，亚特兰大老鹰队签下了 Jalen Wilson，作为一名双向球员。这是老鹰队签下的第三名双向球员。",
       "oneLineZh": "Jalen Wilson 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://s.yimg.com/ny/api/res/1.2/iNIo3fY74YzUJ2yOEve9pw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05NjA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/ac9523130f064e19a02744061005be6d",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
+      "category": "签约",
       "importance": 1,
       "displayTitle": "Report: Hawks add Jalen Wilson as two-way player",
-      "copySource": "fallback",
+      "copySource": "github-models",
       "storyType": "rumor",
-      "eventKey": "",
+      "eventKey": "sign:jalen-wilson:hawks",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-22T04:24:28.215Z",
+      "aiConfidence": 0.9
     },
     {
       "id": "https://sports.yahoo.com/articles/draymond-green-reveals-shaq-why-183421633.html",
@@ -1336,7 +1348,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T04:22:41.995Z",
+      "aiGeneratedAt": "2026-07-22T04:24:28.217Z",
       "aiConfidence": 0.9
     },
     {
@@ -1367,7 +1379,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T04:22:42.000Z",
+      "aiGeneratedAt": "2026-07-22T04:24:28.219Z",
       "aiConfidence": 0.9
     },
     {
@@ -1398,7 +1410,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T04:22:42.005Z",
+      "aiGeneratedAt": "2026-07-22T04:24:28.220Z",
       "aiConfidence": 0.9
     },
     {
@@ -1457,7 +1469,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T04:22:42.008Z",
+      "aiGeneratedAt": "2026-07-22T04:24:28.222Z",
       "aiConfidence": 0.9
     },
     {
@@ -1516,7 +1528,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T04:22:42.012Z",
+      "aiGeneratedAt": "2026-07-22T04:24:28.223Z",
       "aiConfidence": 0.9
     },
     {
@@ -1547,7 +1559,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T04:22:42.015Z",
+      "aiGeneratedAt": "2026-07-22T04:24:28.224Z",
       "aiConfidence": 0.9
     },
     {
