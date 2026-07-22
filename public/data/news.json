@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-22T03:22:38.988Z",
+  "updatedAt": "2026-07-22T03:24:17.200Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-22T03:22:38.988Z",
-    "previousUpdatedAt": "2026-07-22T03:02:30.383Z",
-    "updatedAt": "2026-07-22T03:22:38.988Z",
+    "checkedAt": "2026-07-22T03:24:17.200Z",
+    "previousUpdatedAt": "2026-07-22T03:22:38.988Z",
+    "updatedAt": "2026-07-22T03:24:17.200Z",
     "fetchedItems": 80,
     "mergedItems": 74,
     "successfulFeeds": [
@@ -32,7 +32,7 @@
     ],
     "failedFeeds": [],
     "newestPublishedAt": "2026-07-22T02:19:55.000Z",
-    "dataAgeHours": 1.0455522222222222,
+    "dataAgeHours": 1.0728333333333333,
     "aiEnabled": false,
     "aiScope": "latest-items",
     "aiCandidates": 24,
@@ -1229,7 +1229,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:22:38.943Z",
+      "aiGeneratedAt": "2026-07-22T03:24:17.157Z",
       "aiConfidence": 0.9
     },
     {
@@ -1260,7 +1260,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:22:38.945Z",
+      "aiGeneratedAt": "2026-07-22T03:24:17.158Z",
       "aiConfidence": 0.9
     },
     {
@@ -1291,7 +1291,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:22:38.946Z",
+      "aiGeneratedAt": "2026-07-22T03:24:17.160Z",
       "aiConfidence": 0.9
     },
     {
@@ -1350,7 +1350,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:22:38.947Z",
+      "aiGeneratedAt": "2026-07-22T03:24:17.161Z",
       "aiConfidence": 0.9
     },
     {
@@ -1409,7 +1409,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:22:38.949Z",
+      "aiGeneratedAt": "2026-07-22T03:24:17.162Z",
       "aiConfidence": 0.9
     },
     {
@@ -1440,7 +1440,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:22:38.950Z",
+      "aiGeneratedAt": "2026-07-22T03:24:17.164Z",
       "aiConfidence": 0.9
     },
     {
