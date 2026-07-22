@@ -156,7 +156,13 @@ const playerNameZh = new Map([
   ['Tarris Reed Jr.', '小塔里斯·里德'],
   ['Alex Karaban', '亚历克斯·卡拉班'],
   ['Bogoljub Marković', '博戈柳布·马尔科维奇'],
-  ['Bogoljub Markovic', '博戈柳布·马尔科维奇']
+  ['Bogoljub Markovic', '博戈柳布·马尔科维奇'],
+  ['Yaxel Lendeborg', '亚克塞尔·伦德伯格'],
+  ['Meleek Thomas', '梅利克·托马斯'],
+  ['Cameron Boozer', '卡梅伦·布泽尔'],
+  ['Graham Ike', '格雷厄姆·艾克'],
+  ['Deivon Smith', '戴维恩·史密斯'],
+  ['Rob Pelinka', '罗勃·佩林卡']
 ]);
 
 function escapeRegExp(value = '') {
@@ -2801,7 +2807,7 @@ function isSafeChineseSummary(text = '') {
   if (isGenericFallbackSummary(value) || findUnsafeSummaryFragments(value).length) return false;
   if (/['’]s\b|[\u4e00-\u9fa5][’']\s|更多背景来自原文报道|NBA 动态：|原文聚焦|这篇文章讨论了/i.test(value)) return false;
   if (/中文标点包裹未翻译英文标题片段/.test(value)) return false;
-  const allowedEnglish = new Set(['NBA', 'MSG', 'LA', 'L.A', 'Jr', 'Sr', 'II', 'III', 'IV', 'ESPN', 'Yahoo', 'Sports', 'RealGM', 'Summer', 'League', 'Aspiration']);
+  const allowedEnglish = new Set(['NBA', 'MVP', 'MSG', 'LA', 'L.A', 'Jr', 'Sr', 'II', 'III', 'IV', 'ESPN', 'Yahoo', 'Sports', 'RealGM', 'Summer', 'League', 'Aspiration']);
   const englishWords = value.match(/\b[A-Za-z][A-Za-z.'-]*\b/g) || [];
   let ordinaryRun = 0;
   for (const word of englishWords) {
@@ -3521,9 +3527,122 @@ function extractFactFromEnglish({ title = '', summary = '', source = '' } = {}) 
   return null;
 }
 
+function buildConservativeFactSummary({ title = '', summary = '', source = '' } = {}) {
+  const cleanTitle = stripSourcePhrases(title);
+  const cleanSummary = stripHtml(summary);
+  const sourcePrefix = source ? `据 ${source} 报道，` : '据原文报道，';
+  const titleAndSummary = `${cleanTitle} ${cleanSummary}`;
+
+  const twoWayDealMatch = cleanTitle.match(/^(.+?),\s*(.+?) Agree To Two-Way Deal$/i);
+  if (twoWayDealMatch) {
+    const player = localizeCommonTerms(twoWayDealMatch[1]);
+    const team = localizeCommonTerms(twoWayDealMatch[2]);
+    return normalizeChineseText(`${sourcePrefix}${team}与 ${player} 达成双向合同。对于球队来说，这类操作通常用于补充训练营和发展联盟轮换深度。`);
+  }
+
+  const preseasonScheduleMatch = cleanTitle.match(/^(.+?) preseason home schedule headlined by opener against (.+)$/i);
+  if (preseasonScheduleMatch) {
+    const team = localizeCommonTerms(preseasonScheduleMatch[1].replace(/[’']s?$/i, ''));
+    const opponent = localizeCommonTerms(preseasonScheduleMatch[2]);
+    return normalizeChineseText(`${sourcePrefix}${team}公布季前赛主场赛程，首个主场看点是对阵${opponent}。这条新闻主要涉及新赛季开始前的赛程安排。`);
+  }
+
+  const reactsDraftSurveyMatch = cleanTitle.match(/^(.+?) Reacts Survey: Which recent draft pick has the brightest future\??$/i);
+  if (reactsDraftSurveyMatch) {
+    const team = localizeCommonTerms(reactsDraftSurveyMatch[1]);
+    return normalizeChineseText(`${sourcePrefix}这是一项面向球迷的调查，讨论${team}近期选秀球员中谁最具长期发展前景。原文重点是球迷对年轻球员未来的判断。`);
+  }
+
+  const favoriteTradeMatch = cleanTitle.match(/^Which (.+?) trade is your favorite\??$/i);
+  if (favoriteTradeMatch) {
+    const team = localizeCommonTerms(favoriteTradeMatch[1]);
+    return normalizeChineseText(`${sourcePrefix}原文围绕${team}近期交易展开讨论，询问读者最认可哪一笔操作。它更像球迷投票和观点讨论，不是新的交易完成消息。`);
+  }
+
+  const reactsTradeGradeMatch = cleanTitle.match(/^(.+?) Reacts: How would you grade the (.+?) trade for (.+)$/i);
+  if (reactsTradeGradeMatch) {
+    const team = localizeCommonTerms(reactsTradeGradeMatch[2].replace(/[’']s?$/i, ''));
+    return normalizeChineseText(`${sourcePrefix}这是一篇球迷评分和观点讨论文章，主题是${team}相关交易是否值得认可。原文重点是读者如何评价这笔操作，而不是新的交易消息。`);
+  }
+
+  if (/^The Knicks can do something bigger & bolder than winning the 2026 NBA title$/i.test(cleanTitle)) {
+    return normalizeChineseText(`${sourcePrefix}文章从观点角度讨论尼克斯未来目标，认为球队追求的影响力可能不只是一座 2026 年 NBA 总冠军。原文属于前景讨论，并非具体交易或签约消息。`);
+  }
+
+  const summerMvpMatch =
+    cleanTitle.match(/^(?:.+?['’]\s*)?(.+?) earns Summer League MVP, first team honors$/i) ||
+    cleanSummary.match(/^(.+?) was named NBA Summer League MVP/i);
+  if (summerMvpMatch) {
+    const player = localizeCommonTerms(summerMvpMatch[1]);
+    const team = getEventTeam(`${cleanTitle} ${cleanSummary}`);
+    return normalizeChineseText(`${sourcePrefix}${player}被评为夏季联赛最有价值球员，并入选夏季联赛最佳阵容一队。${team ? `这条新闻重点是${team}年轻球员在拉斯维加斯夏季联赛的表现获得认可。` : '这条新闻重点是他在夏季联赛的表现获得官方认可。'}`);
+  }
+
+  const hallOfFameExhibitMatch =
+    cleanTitle.match(/^(.+?) to become first active player with exhibit in Basketball Hall of Fame$/i) ||
+    cleanTitle.match(/^(.+?) becomes first current player to receive exhibit at the Naismith Basketball Hall of Fame$/i);
+  if (hallOfFameExhibitMatch) {
+    const player = localizeCommonTerms(hallOfFameExhibitMatch[1]);
+    return normalizeChineseText(`${sourcePrefix}${player}将成为首位在篮球名人堂拥有个人展览的现役球员。展览聚焦他从大学时期不被看好，到成长为冠军和最有价值球员的职业轨迹。`);
+  }
+
+  const recognizedSummerLeagueMatch = cleanTitle.match(/^(.+?) recognized for impressive Summer League performance$/i);
+  if (recognizedSummerLeagueMatch) {
+    const player = localizeCommonTerms(recognizedSummerLeagueMatch[1]);
+    const scoringMatch = cleanSummary.match(/led all scorers.*?with\s+([\d.]+)\s+points per game/i);
+    return normalizeChineseText(`${sourcePrefix}${player}因夏季联赛表现受到认可。${scoringMatch ? `原文提到他在拉斯维加斯场均得到 ${scoringMatch[1]} 分，领跑所有得分手。` : '原文重点是他在夏季联赛中的个人表现。'}`);
+  }
+
+  const firstTeamMatch = cleanTitle.match(/^(.+?) named to All-NBA Summer League First Team$/i);
+  if (firstTeamMatch) {
+    return normalizeChineseText(`${sourcePrefix}${localizeCommonTerms(firstTeamMatch[1])}入选夏季联赛最佳阵容一队。原文将这视为他夏季联赛表现获得认可的积极信号。`);
+  }
+
+  if (/All-Sum+er League Teams|All Summer-League teams|All-Summer League first team/i.test(cleanTitle)) {
+    const mentions = [];
+    for (const name of ['Yaxel Lendeborg', 'Cameron Boozer', 'Caleb Wilson', 'Meleek Thomas', 'Brayden Burries']) {
+      if (new RegExp(name, 'i').test(titleAndSummary)) mentions.push(localizeCommonTerms(name));
+    }
+    const namesText = mentions.length ? mentions.slice(0, 4).join('、') : '多名新秀';
+    return normalizeChineseText(`${sourcePrefix}${namesText}等球员入选夏季联赛最佳阵容相关名单。原文重点是这些年轻球员在夏季联赛中的表现获得认可。`);
+  }
+
+  const warriorsChampionshipMatch = cleanTitle.match(/^Warriors Win Summer League Championship; Yaxel Lendeborg Named MVP$/i);
+  if (warriorsChampionshipMatch) {
+    return normalizeChineseText(`${sourcePrefix}勇士击败灰熊夺得夏季联赛冠军，亚克塞尔·伦德伯格被评为本场最有价值球员。原文提到他拿到 21 分和 10 个篮板。`);
+  }
+
+  const lakersRecognitionMatch = cleanTitle.match(/^The NBA robbed the Summer League Lakers$/i);
+  if (lakersRecognitionMatch) {
+    return normalizeChineseText(`${sourcePrefix}文章认为湖人夏季联赛表现出色却没有得到联盟官方奖项认可。原文重点讨论这支夏联阵容的表现与最终荣誉之间的落差。`);
+  }
+
+  const pelinkaMatch = cleanTitle.match(/^Did Rob Pelinka improve the Lakers this offseason\?$/i);
+  if (pelinkaMatch) {
+    return normalizeChineseText(`${sourcePrefix}文章讨论罗勃·佩林卡今夏对湖人阵容的调整是否真正提升了球队。原文把问题放在休赛期操作成效上，而不是单一签约或交易结论。`);
+  }
+
+  const firstSentence = cleanSummary.split(/(?<=[.!?])\s+/)[0] || '';
+  if (firstSentence && firstSentence.length >= 24) {
+    const localized = normalizeChineseText(localizeCommonTerms(firstSentence));
+    if (isSafeChineseSummary(localized) && !hasMachineEnglish(localized) && !isGenericFallbackSummary(localized)) {
+      return normalizeChineseText(`${sourcePrefix}${localized}`);
+    }
+  }
+
+  if (/Summer League/i.test(titleAndSummary)) {
+    return normalizeChineseText(`${sourcePrefix}这篇文章围绕夏季联赛表现展开，重点是年轻球员、球队阵容和赛事结果带来的后续观察。`);
+  }
+
+  return '';
+}
+
 function fallbackNonEmptySummary({ headlineZh = '', title = '', summary = '', source = '' } = {}) {
   const recapSummary = buildRecapAnalysisSummary({ title, source });
   if (recapSummary) return recapSummary;
+
+  const conservativeSummary = buildConservativeFactSummary({ title, summary, source });
+  if (conservativeSummary) return conservativeSummary;
 
   if (!headlineZh) return '';
   if (isGenericHeadline(headlineZh)) return '';
@@ -3548,6 +3667,25 @@ function fallbackNonEmptySummary({ headlineZh = '', title = '', summary = '', so
   }
 
   return normalizeChineseText(`${sourcePrefix}${headlineZh}，更多背景来自原文报道。`);
+}
+
+function isMachineTemplateSummary(value = '') {
+  return /(?:Which\s+[A-Za-z]+|Reacts)\s+相关交易成为焦点/i.test(String(value));
+}
+
+function getSafeFallbackSummary({ item = {}, headlineZh = '', extractedFact = null } = {}) {
+  const extractedSummary = extractedFact?.summaryZh
+    ? normalizeChineseText(`${item.source ? `据 ${item.source} 报道，` : ''}${extractedFact.summaryZh}`)
+    : '';
+  if (isSafeChineseSummary(extractedSummary) && !isMachineTemplateSummary(extractedSummary)) return extractedSummary;
+
+  const fallbackSummary = fallbackNonEmptySummary({
+    headlineZh,
+    title: item.originalTitle || item.title || '',
+    summary: item.summary || '',
+    source: item.source || ''
+  });
+  return isSafeChineseSummary(fallbackSummary) ? fallbackSummary : '';
 }
 
 function scoreImportance({ title = '', summary = '', category = '其他', isMerged = false }) {
@@ -3886,15 +4024,16 @@ function normalizeNewsItemText(item = {}) {
     });
   }
   if (hasMixedEnglishSummary(summaryZh) || hasUntranslatedContractTerm(summaryZh)) {
-    summaryZh = extractedFact?.summaryZh
-      ? normalizeChineseText(`${item.source ? `据 ${item.source} 报道，` : ''}${extractedFact.summaryZh}`)
-      : '';
+    summaryZh = getSafeFallbackSummary({ item, headlineZh, extractedFact });
   }
   if (!isSafeChineseSummary(summaryZh)) {
-    const fallbackSummary = extractedFact?.summaryZh
-      ? normalizeChineseText(`${item.source ? `据 ${item.source} 报道，` : ''}${extractedFact.summaryZh}`)
-      : '';
-    summaryZh = isSafeChineseSummary(fallbackSummary) ? fallbackSummary : '';
+    summaryZh = getSafeFallbackSummary({ item, headlineZh, extractedFact });
+  }
+  if (summaryZh && (isGenericFallbackSummary(summaryZh) || isMachineTemplateSummary(summaryZh))) {
+    const safeFallbackSummary = getSafeFallbackSummary({ item, headlineZh, extractedFact });
+    if (safeFallbackSummary && !isGenericFallbackSummary(safeFallbackSummary)) {
+      summaryZh = safeFallbackSummary;
+    }
   }
 
   const rawImportance = Number(item.importance || 1);
