@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-22T11:12:16.257Z",
+  "updatedAt": "2026-07-22T13:00:57.855Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-22T11:12:16.257Z",
-    "previousUpdatedAt": "2026-07-22T08:38:25.882Z",
-    "updatedAt": "2026-07-22T11:12:16.257Z",
+    "checkedAt": "2026-07-22T13:00:57.855Z",
+    "previousUpdatedAt": "2026-07-22T11:12:16.257Z",
+    "updatedAt": "2026-07-22T13:00:57.855Z",
     "fetchedItems": 80,
     "mergedItems": 72,
     "successfulFeeds": [
@@ -31,12 +31,12 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-22T10:15:00.000Z",
-    "dataAgeHours": 0.9545158333333333,
+    "newestPublishedAt": "2026-07-22T11:40:43.000Z",
+    "dataAgeHours": 1.3374597222222222,
     "aiEnabled": false,
     "aiScope": "latest-items",
-    "aiCandidates": 22,
-    "aiCacheHits": 10,
+    "aiCandidates": 24,
+    "aiCacheHits": 8,
     "aiRequests": 0,
     "aiAccepted": 0,
     "aiRejected": 0,
@@ -44,15 +44,15 @@
     "aiRetried": 0,
     "rejectedAsNonChinese": 0,
     "skippedByLimit": 0,
-    "finalItemsWithChineseSummary": 50,
-    "finalItemsWithoutChineseSummary": 22,
+    "finalItemsWithChineseSummary": 48,
+    "finalItemsWithoutChineseSummary": 24,
     "totalNewsItems": 72,
-    "itemsWithValidChineseSummary": 41,
-    "itemsMissingChineseSummary": 31,
-    "eligibleBacklog": 22,
+    "itemsWithValidChineseSummary": 40,
+    "itemsMissingChineseSummary": 32,
+    "eligibleBacklog": 24,
     "selectedThisRun": 0,
     "previouslyFailed": 2,
-    "remainingAfterRun": 22,
+    "remainingAfterRun": 24,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
     "acceptedHighConfidence": 0,
@@ -88,21 +88,185 @@
       "link": "https://sports.yahoo.com/articles/meleek-thomas-recognized-impressive-summer-222300052.html"
     },
     {
-      "id": "https://sports.yahoo.com/articles/espn-names-caleb-wilson-most-150000193.html",
-      "text": "在 NBA 夏季联赛中，Caleb Wilson 表现出色，成为 ESPN 评选的“最具电力的新秀”",
-      "category": "选秀",
-      "source": "Yahoo Sports",
-      "link": "https://sports.yahoo.com/articles/espn-names-caleb-wilson-most-150000193.html"
-    },
-    {
       "id": "https://sports.yahoo.com/articles/naismith-basketball-hall-fame-announces-032249860.html",
       "text": "斯蒂芬·库里成为首位在奈史密斯篮球名人堂展出个人展览的现役 NBA 球员",
       "category": "其他",
       "source": "Yahoo Sports",
       "link": "https://sports.yahoo.com/articles/naismith-basketball-hall-fame-announces-032249860.html"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/report-hawks-add-jalen-wilson-185434351.html",
+      "text": "据报道，亚特兰大老鹰队签下了 Jalen Wilson，作为一名双向球员",
+      "category": "签约",
+      "source": "Yahoo Sports",
+      "link": "https://sports.yahoo.com/articles/report-hawks-add-jalen-wilson-185434351.html"
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/latest-lebron-james-free-agency-114043602.html",
+      "title": "Latest LeBron James free agency news, rumors, updates on 'Decision'",
+      "originalTitle": "Latest LeBron James free agency news, rumors, updates on 'Decision'",
+      "headlineZh": "Latest 勒布朗·詹姆斯签约动向更新",
+      "titleZh": "Latest 勒布朗·詹姆斯签约动向更新",
+      "link": "https://sports.yahoo.com/articles/latest-lebron-james-free-agency-114043602.html",
+      "url": "https://sports.yahoo.com/articles/latest-lebron-james-free-agency-114043602.html",
+      "pubDate": "2026-07-22T11:40:43.000Z",
+      "publishedAt": "2026-07-22T11:40:43.000Z",
+      "summary": "Here's the latest on LeBron James and which team he plans to sign with for the 2026-27 NBA season.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Latest 勒布朗·詹姆斯的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Latest 勒布朗·詹姆斯签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/SdCSGKgidI5qiUGa7N9PQQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03NjE7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/cb7c1ce54a6c6cb7cea914071b950172",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james",
+      "relatedItems": [
+        {
+          "title": "Did a YouTube account spoil LeBron James’ free agency decision?",
+          "originalTitle": "Did a YouTube account spoil LeBron James’ free agency decision?",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/did-youtube-account-spoil-lebron-044032853.html",
+          "publishedAt": "2026-07-22T04:40:32.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
+          "originalTitle": "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/adam-silver-pushing-lebron-james-194954211.html",
+          "publishedAt": "2026-07-21T19:49:54.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Rich Paul updates timeframe for LeBron James’ free-agency decision",
+          "originalTitle": "Rich Paul updates timeframe for LeBron James’ free-agency decision",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/rich-paul-updates-timeframe-lebron-165900675.html",
+          "publishedAt": "2026-07-21T16:59:00.000Z",
+          "angle": "source"
+        }
+      ],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Latest LeBron James free agency news, rumors, updates on 'Decision'",
+        "Did a YouTube account spoil LeBron James’ free agency decision?",
+        "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
+        "Rich Paul updates timeframe for LeBron James’ free-agency decision"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/latest-lebron-james-free-agency-114043602.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/did-youtube-account-spoil-lebron-044032853.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/adam-silver-pushing-lebron-james-194954211.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/rich-paul-updates-timeframe-lebron-165900675.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "Latest LeBron James free agency news, rumors, updates on 'Decision'",
+      "copySource": "fallback",
+      "storyType": "signing"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "title": "2026 LeBron James Next Team Odds: Tension Grows As The Decision is Near",
+      "originalTitle": "2026 LeBron James Next Team Odds: Tension Grows As The Decision is Near",
+      "headlineZh": "勒布朗·詹姆斯 Next 相关消息更新",
+      "titleZh": "勒布朗·詹姆斯 Next 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "url": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "pubDate": "2026-07-22T11:40:00.000Z",
+      "publishedAt": "2026-07-22T11:40:00.000Z",
+      "summary": "LeBron James' next team odds have seen the Miami Heat take the lead over the Golden State Warriors, Cleveland Cavaliers, and Philadelphia 76ers.",
+      "dekZh": "",
+      "summaryZh": "Yahoo Sports 分析了2026 勒布朗·詹姆斯 Next Team 相关赔率变化，文章属于赔率和前景分析。",
+      "oneLineZh": "勒布朗·詹姆斯 Next 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/c60086aeffed51230e4bf3c57270744f",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "eventKey": "odds:lebron-james:76ers",
+      "relatedItems": [],
+      "displayTitle": "2026 LeBron James Next Team Odds: Tension Grows As The Decision is Near",
+      "copySource": "fallback",
+      "storyType": "analysis",
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/swanson-lebron-james-taking-time-110000403.html",
+      "title": "Swanson: LeBron James is taking his time team-hunting, but why are the Warriors an option?",
+      "originalTitle": "Swanson: LeBron James is taking his time team-hunting, but why are the Warriors an option?",
+      "headlineZh": "勒布朗·詹姆斯相关消息更新",
+      "titleZh": "勒布朗·詹姆斯相关消息更新",
+      "link": "https://sports.yahoo.com/articles/swanson-lebron-james-taking-time-110000403.html",
+      "url": "https://sports.yahoo.com/articles/swanson-lebron-james-taking-time-110000403.html",
+      "pubDate": "2026-07-22T11:00:00.000Z",
+      "publishedAt": "2026-07-22T11:00:00.000Z",
+      "summary": "The all-time great has every right to take his time in deciding on what NBA team to join, but if he wants to play for a contender, it's not Golden State.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "勒布朗·詹姆斯相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/la_times_articles_853/8692ae80fc31205209fc8d6ebcddae62",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Swanson: LeBron James is taking his time team-hunting, but why are the Warriors an option?",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/wednesday-posted-toasted-notes-white-103000356.html",
+      "title": "Wednesday Posted & Toasted Notes: White House trip, hot YouTube leak, big people",
+      "originalTitle": "Wednesday Posted & Toasted Notes: White House trip, hot YouTube leak, big people",
+      "headlineZh": "周三 Posted 相关消息更新",
+      "titleZh": "周三 Posted 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/wednesday-posted-toasted-notes-white-103000356.html",
+      "url": "https://sports.yahoo.com/articles/wednesday-posted-toasted-notes-white-103000356.html",
+      "pubDate": "2026-07-22T10:30:00.000Z",
+      "publishedAt": "2026-07-22T10:30:00.000Z",
+      "summary": "The Heat might have screwed LeBron’s delusions of grandeur and I cannot be happier about it. Read on for more in today’s links and notes. “I was more in pain when I wasn’t in the game versus when we were actually playing. I feel like the adrenaline took over. But yeah, it was definitely an […]",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "周三 Posted 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/wHo5kKhsLFgzVNVwAsxONQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTU7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/9718c01c915713258c9aa37afe9f0943",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Wednesday Posted & Toasted Notes: White House trip, hot YouTube leak, big people",
+      "copySource": "fallback",
+      "storyType": "rumor",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/mark-pope-provides-practice-report-101500199.html",
       "title": "Mark Pope provides a practice report recapping the Las Vegas trip",
@@ -334,73 +498,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/did-youtube-account-spoil-lebron-044032853.html",
-      "title": "Did a YouTube account spoil LeBron James’ free agency decision?",
-      "originalTitle": "Did a YouTube account spoil LeBron James’ free agency decision?",
-      "headlineZh": "勒布朗·詹姆斯签约动向更新",
-      "titleZh": "勒布朗·詹姆斯签约动向更新",
-      "link": "https://sports.yahoo.com/articles/did-youtube-account-spoil-lebron-044032853.html",
-      "url": "https://sports.yahoo.com/articles/did-youtube-account-spoil-lebron-044032853.html",
-      "pubDate": "2026-07-22T04:40:32.000Z",
-      "publishedAt": "2026-07-22T04:40:32.000Z",
-      "summary": "Is LeBron James taking his talents back to South Beach?",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，勒布朗·詹姆斯的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "勒布朗·詹姆斯签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/_e4Be_v7cGX3jdhocpJVfg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/6f9952477fdfd74b53ce29dab77dd134",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james",
-      "relatedItems": [
-        {
-          "title": "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
-          "originalTitle": "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/adam-silver-pushing-lebron-james-194954211.html",
-          "publishedAt": "2026-07-21T19:49:54.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "Rich Paul updates timeframe for LeBron James’ free-agency decision",
-          "originalTitle": "Rich Paul updates timeframe for LeBron James’ free-agency decision",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/rich-paul-updates-timeframe-lebron-165900675.html",
-          "publishedAt": "2026-07-21T16:59:00.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Did a YouTube account spoil LeBron James’ free agency decision?",
-        "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
-        "Rich Paul updates timeframe for LeBron James’ free-agency decision"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/did-youtube-account-spoil-lebron-044032853.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/adam-silver-pushing-lebron-james-194954211.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/rich-paul-updates-timeframe-lebron-165900675.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "Did a YouTube account spoil LeBron James’ free agency decision?",
-      "copySource": "fallback",
-      "storyType": "signing"
-    },
-    {
       "id": "https://sports.yahoo.com/nba/article/heat-confirm-the-lebron-james-introductory-press-conference-youtube-video-was-published-accidentally-after-latest-rumors-043327502.html",
       "title": "Heat confirm the LeBron James introductory press conference YouTube video was published accidentally after latest rumors",
       "originalTitle": "Heat confirm the LeBron James introductory press conference YouTube video was published accidentally after latest rumors",
@@ -484,7 +581,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T11:12:16.211Z",
+      "aiGeneratedAt": "2026-07-22T13:00:57.812Z",
       "aiConfidence": 0.9
     },
     {
@@ -515,7 +612,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T11:12:16.212Z",
+      "aiGeneratedAt": "2026-07-22T13:00:57.814Z",
       "aiConfidence": 0.9
     },
     {
@@ -603,34 +700,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "title": "2026 LeBron James Next Team Odds: Tension Grows As The Decision is Near",
-      "originalTitle": "2026 LeBron James Next Team Odds: Tension Grows As The Decision is Near",
-      "headlineZh": "勒布朗·詹姆斯 Next 相关消息更新",
-      "titleZh": "勒布朗·詹姆斯 Next 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "url": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "pubDate": "2026-07-22T01:57:00.000Z",
-      "publishedAt": "2026-07-22T01:57:00.000Z",
-      "summary": "LeBron James' next team odds have seen the Miami Heat take the lead over the Golden State Warriors, Cleveland Cavaliers, and Philadelphia 76ers.",
-      "dekZh": "",
-      "summaryZh": "Yahoo Sports 分析了2026 勒布朗·詹姆斯 Next Team 相关赔率变化，文章属于赔率和前景分析。",
-      "oneLineZh": "勒布朗·詹姆斯 Next 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/b25b2b369ed99da599c202e71f2ea5fa",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "eventKey": "odds:lebron-james:76ers",
-      "relatedItems": [],
-      "displayTitle": "2026 LeBron James Next Team Odds: Tension Grows As The Decision is Near",
-      "copySource": "fallback",
-      "storyType": "analysis",
-      "isMerged": false
-    },
-    {
       "id": "https://sports.yahoo.com/articles/valkyries-janelle-sala-n-compete-010954722.html",
       "title": "Valkyries Janelle Salaün to compete in 3-point contest",
       "originalTitle": "Valkyries Janelle Salaün to compete in 3-point contest",
@@ -658,7 +727,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T11:12:16.213Z",
+      "aiGeneratedAt": "2026-07-22T13:00:57.815Z",
       "aiConfidence": 0.9
     },
     {
@@ -1221,36 +1290,11 @@
       "category": "签约",
       "importance": 2,
       "eventKey": "sign:lebron-james:warriors",
-      "relatedItems": [
-        {
-          "title": "How would Warriors fans feel about adding LeBron James",
-          "originalTitle": "How would Warriors fans feel about adding LeBron James",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/warriors-fans-feel-adding-lebron-142933624.html",
-          "publishedAt": "2026-07-21T14:29:33.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "How would Warriors fans feel about adding LeBron James"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-free-agency-decision-191255855.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/warriors-fans-feel-adding-lebron-142933624.html"
-        }
-      ],
-      "isMerged": true,
+      "relatedItems": [],
       "displayTitle": "LeBron James’ free agency decision remains without a timetable, per report",
       "copySource": "fallback",
-      "storyType": "rumor"
+      "storyType": "rumor",
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/next-knicks-failed-moussa-cisse-190000099.html",
@@ -1280,7 +1324,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T11:12:16.215Z",
+      "aiGeneratedAt": "2026-07-22T13:00:57.816Z",
       "aiConfidence": 0.9
     },
     {
@@ -1339,7 +1383,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T11:12:16.216Z",
+      "aiGeneratedAt": "2026-07-22T13:00:57.817Z",
       "aiConfidence": 0.9
     },
     {
@@ -1370,7 +1414,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T11:12:16.217Z",
+      "aiGeneratedAt": "2026-07-22T13:00:57.818Z",
       "aiConfidence": 0.9
     },
     {
@@ -1429,7 +1473,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T11:12:16.218Z",
+      "aiGeneratedAt": "2026-07-22T13:00:57.819Z",
       "aiConfidence": 0.9
     },
     {
@@ -1657,68 +1701,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/espn-names-caleb-wilson-most-150000193.html",
-      "title": "ESPN names Caleb Wilson “most electric rookie” from NBA Summer League",
-      "originalTitle": "ESPN names Caleb Wilson “most electric rookie” from NBA Summer League",
-      "headlineZh": "Caleb Wilson 相关消息更新",
-      "titleZh": "Caleb Wilson 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/espn-names-caleb-wilson-most-150000193.html",
-      "url": "https://sports.yahoo.com/articles/espn-names-caleb-wilson-most-150000193.html",
-      "pubDate": "2026-07-21T15:00:00.000Z",
-      "publishedAt": "2026-07-21T15:00:00.000Z",
-      "summary": "After missing out on the last leg of his Carolina season, Wilson made every second of the NBA Summer League count.",
-      "dekZh": "",
-      "summaryZh": "在 NBA 夏季联赛中，Caleb Wilson 表现出色，成为 ESPN 评选的“最具电力的新秀”。在缺席了卡罗来纳大学赛季最后阶段后，他充分利用了夏季联赛的每一秒。",
-      "oneLineZh": "Caleb Wilson 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/x57BhNg8oT.D5PhyEp.OFQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/47d8af7f482840cdf34f570bd0baa91a",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 2,
-      "displayTitle": "ESPN names Caleb Wilson “most electric rookie” from NBA Summer League",
-      "copySource": "github-models",
-      "storyType": "injury",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false,
-      "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T11:12:16.219Z",
-      "aiConfidence": 0.9
-    },
-    {
-      "id": "https://sports.yahoo.com/nba/article/jalen-brunson-says-knicks-have-not-talked-about-whether-team-will-attend-white-house-after-championship-144310295.html",
-      "title": "Jalen Brunson says Knicks have not talked about whether team will attend White House after championship",
-      "originalTitle": "Jalen Brunson says Knicks have not talked about whether team will attend White House after championship",
-      "headlineZh": "杰伦·布伦森相关消息更新",
-      "titleZh": "杰伦·布伦森相关消息更新",
-      "link": "https://sports.yahoo.com/nba/article/jalen-brunson-says-knicks-have-not-talked-about-whether-team-will-attend-white-house-after-championship-144310295.html",
-      "url": "https://sports.yahoo.com/nba/article/jalen-brunson-says-knicks-have-not-talked-about-whether-team-will-attend-white-house-after-championship-144310295.html",
-      "pubDate": "2026-07-21T14:43:10.000Z",
-      "publishedAt": "2026-07-21T14:43:10.000Z",
-      "summary": "James Dolan said the team accepted an invite from the White House shortly after winning the NBA championship.",
-      "dekZh": "",
-      "summaryZh": "尼克斯球员 Jalen Brunson 表示，球队尚未讨论是否会在夺冠后前往白宫。球队老板詹姆斯·多兰曾表示，球队在赢得 NBA 冠军后接受了白宫的邀请。",
-      "oneLineZh": "杰伦·布伦森相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/1jLnuiqqhx0AzGO9hZT_lA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/cb8669af-c151-4aea-963e-efa308837e14",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "季后赛",
-      "importance": 2,
-      "displayTitle": "Jalen Brunson says Knicks have not talked about whether team will attend White House after championship",
-      "copySource": "github-models",
-      "storyType": "opinion",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false,
-      "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T11:12:16.220Z",
-      "aiConfidence": 0.9
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286768/Cam-Christie-Pushed-Back-Guarantee-Date-For-Second-Time",
       "title": "Cam Christie Pushed Back Guarantee Date For Second Time",
       "originalTitle": "Cam Christie Pushed Back Guarantee Date For Second Time",
@@ -1746,7 +1728,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T11:12:16.221Z",
+      "aiGeneratedAt": "2026-07-22T13:00:57.820Z",
       "aiConfidence": 0.9
     },
     {
