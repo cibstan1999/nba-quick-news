@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-22T15:20:21.785Z",
+  "updatedAt": "2026-07-22T16:56:56.205Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-22T15:20:21.785Z",
-    "previousUpdatedAt": "2026-07-22T13:00:57.855Z",
-    "updatedAt": "2026-07-22T15:20:21.785Z",
+    "checkedAt": "2026-07-22T16:56:56.205Z",
+    "previousUpdatedAt": "2026-07-22T15:20:21.785Z",
+    "updatedAt": "2026-07-22T16:56:56.205Z",
     "fetchedItems": 80,
-    "mergedItems": 74,
+    "mergedItems": 73,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,11 +31,11 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-22T14:50:03.000Z",
-    "dataAgeHours": 0.5052180555555555,
+    "newestPublishedAt": "2026-07-22T16:40:46.000Z",
+    "dataAgeHours": 0.2695013888888889,
     "aiEnabled": false,
     "aiScope": "latest-items",
-    "aiCandidates": 32,
+    "aiCandidates": 35,
     "aiCacheHits": 4,
     "aiRequests": 0,
     "aiAccepted": 0,
@@ -44,15 +44,15 @@
     "aiRetried": 0,
     "rejectedAsNonChinese": 0,
     "skippedByLimit": 0,
-    "finalItemsWithChineseSummary": 42,
-    "finalItemsWithoutChineseSummary": 32,
-    "totalNewsItems": 74,
-    "itemsWithValidChineseSummary": 38,
-    "itemsMissingChineseSummary": 36,
-    "eligibleBacklog": 32,
+    "finalItemsWithChineseSummary": 38,
+    "finalItemsWithoutChineseSummary": 35,
+    "totalNewsItems": 73,
+    "itemsWithValidChineseSummary": 34,
+    "itemsMissingChineseSummary": 39,
+    "eligibleBacklog": 35,
     "selectedThisRun": 0,
     "previouslyFailed": 0,
-    "remainingAfterRun": 32,
+    "remainingAfterRun": 35,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
     "acceptedHighConfidence": 0,
@@ -67,11 +67,18 @@
   },
   "highlights": [
     {
-      "id": "https://sports.yahoo.com/articles/warriors-rookie-yaxel-lendeborg-named-194309429.html",
-      "text": "亚克塞尔·伦德伯格等球员入选夏季联赛最佳阵容相关名单",
+      "id": "https://basketball.realgm.com/wiretap/286774/Yaxel-Lendeborg-Caleb-Wilson-Cameron-Boozer-Headline-2026-NBA-All-Sumer-League-Teams",
+      "text": "亚克塞尔·伦德伯格、卡梅伦·布泽尔、Caleb Wilson、梅利克·托马斯等球员入选夏季联赛最佳阵容相关名单",
       "category": "选秀",
-      "source": "Yahoo Sports",
-      "link": "https://sports.yahoo.com/articles/warriors-rookie-yaxel-lendeborg-named-194309429.html"
+      "source": "RealGM",
+      "link": "https://basketball.realgm.com/wiretap/286774/Yaxel-Lendeborg-Caleb-Wilson-Cameron-Boozer-Headline-2026-NBA-All-Sumer-League-Teams"
+    },
+    {
+      "id": "https://sports.yahoo.com/nba/article/victor-wembanyama-explains-decision-to-take-less-money-from-spurs-in-252-million-extension-164046566.html",
+      "text": "据 Yahoo Sports / RealGM 报道，Victor Wembanyama 与马刺达成 25200 万美元合同，原文关注维克托·文班亚马的合同或自由市场动向",
+      "category": "签约",
+      "source": "Yahoo Sports / RealGM",
+      "link": "https://sports.yahoo.com/nba/article/victor-wembanyama-explains-decision-to-take-less-money-from-spurs-in-252-million-extension-164046566.html"
     },
     {
       "id": "https://sports.yahoo.com/articles/meleek-thomas-recognized-impressive-summer-222300052.html",
@@ -93,16 +100,170 @@
       "category": "其他",
       "source": "Yahoo Sports",
       "link": "https://sports.yahoo.com/articles/lebron-james-miami-heat-youtube-035955195.html"
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/did-rob-pelinka-improve-lakers-000616252.html",
-      "text": "文章讨论罗勃·佩林卡今夏对湖人阵容的调整是否真正提升了球队",
-      "category": "其他",
-      "source": "Yahoo Sports",
-      "link": "https://sports.yahoo.com/articles/did-rob-pelinka-improve-lakers-000616252.html"
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/nba/article/victor-wembanyama-explains-decision-to-take-less-money-from-spurs-in-252-million-extension-164046566.html",
+      "title": "Victor Wembanyama explains decision to take less money from Spurs in $252 million extension",
+      "originalTitle": "Victor Wembanyama explains decision to take less money from Spurs in $252 million extension",
+      "headlineZh": "Victor Wembanyama 与马刺达成 25200 万美元合同",
+      "titleZh": "Victor Wembanyama 与马刺达成 25200 万美元合同",
+      "link": "https://sports.yahoo.com/nba/article/victor-wembanyama-explains-decision-to-take-less-money-from-spurs-in-252-million-extension-164046566.html",
+      "url": "https://sports.yahoo.com/nba/article/victor-wembanyama-explains-decision-to-take-less-money-from-spurs-in-252-million-extension-164046566.html",
+      "pubDate": "2026-07-22T16:40:46.000Z",
+      "publishedAt": "2026-07-22T16:40:46.000Z",
+      "summary": "Victor Wembanyama is saving the Spurs roughly $50 million during his extension.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports / RealGM 报道，Victor Wembanyama 与马刺达成 25200 万美元合同，原文关注维克托·文班亚马的合同或自由市场动向。",
+      "oneLineZh": "Victor Wembanyama 与马刺达成 25200 万美元合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/nqhW7VvvFMwMv8k7_ekfRg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/375d3318-6c89-4ebe-bca3-46680e35c27d",
+      "source": "Yahoo Sports / RealGM",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 5,
+      "sources": [
+        "Yahoo Sports",
+        "RealGM"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/nba/article/victor-wembanyama-explains-decision-to-take-less-money-from-spurs-in-252-million-extension-164046566.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/victor-wembanyama-discusses-contract-discount-161308482.html"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286781/Victor-Wembanyama-Discount-Meant-To-Keep-Money-From-Limiting-Spurs-Title-Chances"
+        }
+      ],
+      "originalTitles": [
+        "Victor Wembanyama explains decision to take less money from Spurs in $252 million extension"
+      ],
+      "isMerged": false,
+      "eventKey": "sign:victor-wembanyama:spurs:25200",
+      "relatedItems": [],
+      "displayTitle": "Victor Wembanyama explains decision to take less money from Spurs in $252 million extension",
+      "copySource": "fallback",
+      "storyType": "opinion"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/photo-indiana-fevers-caitlin-clark-154317511.html",
+      "title": "PHOTO: Indiana Fever's Caitlin Clark featured on NBA 2K27 cover",
+      "originalTitle": "PHOTO: Indiana Fever's Caitlin Clark featured on NBA 2K27 cover",
+      "headlineZh": "Indiana Fever's Caitlin 相关消息更新",
+      "titleZh": "Indiana Fever's Caitlin 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/photo-indiana-fevers-caitlin-clark-154317511.html",
+      "url": "https://sports.yahoo.com/articles/photo-indiana-fevers-caitlin-clark-154317511.html",
+      "pubDate": "2026-07-22T15:43:17.000Z",
+      "publishedAt": "2026-07-22T15:43:17.000Z",
+      "summary": "Caitlin Clark is the first WNBA player to be featured on a global NBA 2K cover.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Indiana Fever's Caitlin 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/1Yg3VRleA2b63NrDd2CQaQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/b1c85738af2909a61d91eaa08d882814",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "PHOTO: Indiana Fever's Caitlin Clark featured on NBA 2K27 cover",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/caitlin-clark-scores-historic-nba-153108165.html",
+      "title": "Caitlin Clark scores historic NBA 2K27 Deluxe Edition cover honor",
+      "originalTitle": "Caitlin Clark scores historic NBA 2K27 Deluxe Edition cover honor",
+      "headlineZh": "Caitlin Clark 相关消息更新",
+      "titleZh": "Caitlin Clark 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/caitlin-clark-scores-historic-nba-153108165.html",
+      "url": "https://sports.yahoo.com/articles/caitlin-clark-scores-historic-nba-153108165.html",
+      "pubDate": "2026-07-22T15:31:08.000Z",
+      "publishedAt": "2026-07-22T15:31:08.000Z",
+      "summary": "NBA 2K27 is giving the deluxe edition cover spotlight to Caitlin Clark. See the historic cover.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Caitlin Clark 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Ue4ITSk3Xeo1z8YxXBz6wg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04NDE7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/4527a6fc28d9b53ca8a1b1905470e3d4",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Caitlin Clark scores historic NBA 2K27 Deluxe Edition cover honor",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/nba/article/nba-power-rankings-how-does-the-east-stack-up-after-major-offseason-moves-153102915.html",
+      "title": "NBA Power Rankings: How does the East stack up after major offseason moves?",
+      "originalTitle": "NBA Power Rankings: How does the East stack up after major offseason moves?",
+      "headlineZh": "Power Rankings 相关消息更新",
+      "titleZh": "Power Rankings 相关消息更新",
+      "link": "https://sports.yahoo.com/nba/article/nba-power-rankings-how-does-the-east-stack-up-after-major-offseason-moves-153102915.html",
+      "url": "https://sports.yahoo.com/nba/article/nba-power-rankings-how-does-the-east-stack-up-after-major-offseason-moves-153102915.html",
+      "pubDate": "2026-07-22T15:31:02.000Z",
+      "publishedAt": "2026-07-22T15:31:02.000Z",
+      "summary": "Let's project what could happen in the East if everyone were healthy, and if LeBron James chooses a certain (hometown) team.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Power Rankings 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/WMj0u02Z6..ynqA0stqq6Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/user-uploaded/ed-072226-nba-east-power-rankings_5092.jpg",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "NBA Power Rankings: How does the East stack up after major offseason moves?",
+      "copySource": "fallback",
+      "storyType": "analysis",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/kalshi-takes-nearly-200m-trades-151600621.html",
+      "title": "Kalshi Takes Nearly $200M in Trades on LeBron's Next Team",
+      "originalTitle": "Kalshi Takes Nearly $200M in Trades on LeBron's Next Team",
+      "headlineZh": "Kalshi Takes Nearly 交易影响继续发酵",
+      "titleZh": "Kalshi Takes Nearly 交易影响继续发酵",
+      "link": "https://sports.yahoo.com/articles/kalshi-takes-nearly-200m-trades-151600621.html",
+      "url": "https://sports.yahoo.com/articles/kalshi-takes-nearly-200m-trades-151600621.html",
+      "pubDate": "2026-07-22T15:16:00.000Z",
+      "publishedAt": "2026-07-22T15:16:00.000Z",
+      "summary": "The Miami Heat have surged to the top of the market after the team's apparent YouTube mishap, while the Cleveland Cavaliers have fallen sharply.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Kalshi Takes Nearly 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "Kalshi Takes Nearly 交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/b25b2b369ed99da599c202e71f2ea5fa",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 5,
+      "eventKey": "trade:kalshi-takes-nearly:heat:cavaliers",
+      "relatedItems": [],
+      "displayTitle": "Kalshi Takes Nearly $200M in Trades on LeBron's Next Team",
+      "copySource": "fallback",
+      "storyType": "trade",
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/victor-wembanyama-derrick-rose-revealed-145003726.html",
       "title": "Victor Wembanyama, Derrick Rose revealed as NBA 2K27 cover athletes",
@@ -160,32 +321,57 @@
       "isMerged": false
     },
     {
-      "id": "https://basketball.realgm.com/wiretap/286781/Victor-Wembanyama-Discount-Meant-To-Keep-Money-From-Limiting-Spurs-Title-Chances",
-      "title": "Victor Wembanyama: Discount Meant To Keep Money From Limiting Spurs' Title Chances",
-      "originalTitle": "Victor Wembanyama: Discount Meant To Keep Money From Limiting Spurs' Title Chances",
-      "headlineZh": "维克托·文班亚马相关消息更新",
-      "titleZh": "维克托·文班亚马相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286781/Victor-Wembanyama-Discount-Meant-To-Keep-Money-From-Limiting-Spurs-Title-Chances",
-      "url": "https://basketball.realgm.com/wiretap/286781/Victor-Wembanyama-Discount-Meant-To-Keep-Money-From-Limiting-Spurs-Title-Chances",
-      "pubDate": "2026-07-22T14:34:10.000Z",
-      "publishedAt": "2026-07-22T14:34:10.000Z",
-      "summary": "<p>Victor Wembanyama explained his decision to sign a five-year, $252 million extension below supermax value, saying the choice was designed to preserve the San Antonio Spurs' championship contention window. The Spurs announced the deal July 10, which begins with the 2027-28 season and starts at 25 percent of the salary cap rather than the 30 percent supermax figure Wembanyama was eligible to receive.</p> <p>Wembanyama addressed his reasoning in an interview with The Athletic, tied to his announcement as a cover athlete for NBA 2K27.</p> <p>\"We have a good team, we had a very good playoff run, and we had a very good regular season. But what's even better and greater is our potential,\" said Wembanyama. \"The reality of today's NBA is that often, the potential of teams is not fulfilled because of money. I just want to make sure it's never our case.\"</p> <p>The decision could save San Antonio roughly $50 million over the life of the extension, offering the front office added flexibility for trades or additional signings as the team looks to build around its young core. Wembanyama, a two-time All-Star and the NBA's first unanimous Defensive Player of the Year, averaged career highs of 25 points and 11.5 rebounds last season while leading the league with 3.1 blocks per game, helping San Antonio reach its first NBA Finals appearance during his tenure. He earned First-Team All-NBA honors and finished third in MVP voting.</p> <p>Wembanyama acknowledged the rapid pace of his accomplishments while insisting he remains unsatisfied.</p> <p>\"Just like every achievement in my career, I wish it happened sooner,\" said Wembanyama. \"It's all happening very quick, but I am not satisfied and I want it to happen quicker. It's definitely a big milestone, something good. That's done.\"</p> <p>According to The Athletic's John Hollinger, maintaining Wembanyama's cap figure at 25 percent rather than supermax level would also allow the Spurs to use their full nontaxpayer midlevel exception in the 2027 offseason while remaining below the first luxury tax apron, an option that would otherwise require trading a rotation piece. That flexibility becomes increasingly important as San Antonio looks to extend young players like Stephon Castle and Dylan Harper in the coming years.</p> <p>Wembanyama also addressed the growing attention surrounding his game, both on the court and in broader basketball culture.</p> <p>\"I see it, and I feel it with people around me,\" said Wembanyama. \"Whether it's fans or interactions, even haters, you know it's everywhere. But mentally, it's not taking a toll on me, I'm just living my career. I hear it the most with journalists and media. But, yeah, it comes with it. I guess it's only a good thing.\"</p> <p>Wembanyama joins previous 2K cover athletes including Michael Jordan, Shaquille O'Neal, LeBron James, Kobe Bryant, Allen Iverson and Luka Doncic. He recalled playing the game growing up in France with his brother and uncle.</p> <p>\"I know it means a lot culturally, too,\" said Wembanyama. \"It's hard to realize for me that I'm taking more and more space, more real estate in the world of basketball, in what basketball means, in professional basketball.\"</p>",
+      "id": "https://sports.yahoo.com/articles/mike-gansey-deserves-vote-confidence-140536712.html",
+      "title": "Mike Gansey deserves your vote of confidence",
+      "originalTitle": "Mike Gansey deserves your vote of confidence",
+      "headlineZh": "Mike Gansey 相关消息更新",
+      "titleZh": "Mike Gansey 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/mike-gansey-deserves-vote-confidence-140536712.html",
+      "url": "https://sports.yahoo.com/articles/mike-gansey-deserves-vote-confidence-140536712.html",
+      "pubDate": "2026-07-22T14:05:36.000Z",
+      "publishedAt": "2026-07-22T14:05:36.000Z",
+      "summary": "It shouldn’t take LeBron James signing on the dotted line to feel good about Philly’s new president.",
       "dekZh": "",
       "summaryZh": "",
-      "oneLineZh": "维克托·文班亚马相关消息更新",
+      "oneLineZh": "Mike Gansey 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Wembanyama_Victor_sas_260519.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/wD_evJhHeBWpZPyC7StFpQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MzY7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/7cbb4b19e540e3ad5a9ebe8b24074921",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
       "importance": 2,
-      "eventKey": "trade:lebron-james:spurs",
-      "relatedItems": [],
-      "displayTitle": "Victor Wembanyama: Discount Meant To Keep Money From Limiting Spurs' Title Chances",
+      "eventKey": "sign:lebron-james",
+      "relatedItems": [
+        {
+          "title": "Latest LeBron James free agency news, rumors, updates on 'Decision'",
+          "originalTitle": "Latest LeBron James free agency news, rumors, updates on 'Decision'",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/latest-lebron-james-free-agency-114043602.html",
+          "publishedAt": "2026-07-22T11:40:43.000Z",
+          "angle": "rumor"
+        }
+      ],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Latest LeBron James free agency news, rumors, updates on 'Decision'"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/mike-gansey-deserves-vote-confidence-140536712.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/latest-lebron-james-free-agency-114043602.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "Mike Gansey deserves your vote of confidence",
       "copySource": "fallback",
-      "storyType": "rumor",
-      "isMerged": false
+      "storyType": "signing"
     },
     {
       "id": "https://sports.yahoo.com/articles/victor-wembanyama-caitlin-clark-derrick-140000023.html",
@@ -410,60 +596,6 @@
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/latest-lebron-james-free-agency-114043602.html",
-      "title": "Latest LeBron James free agency news, rumors, updates on 'Decision'",
-      "originalTitle": "Latest LeBron James free agency news, rumors, updates on 'Decision'",
-      "headlineZh": "Latest 勒布朗·詹姆斯签约动向更新",
-      "titleZh": "Latest 勒布朗·詹姆斯签约动向更新",
-      "link": "https://sports.yahoo.com/articles/latest-lebron-james-free-agency-114043602.html",
-      "url": "https://sports.yahoo.com/articles/latest-lebron-james-free-agency-114043602.html",
-      "pubDate": "2026-07-22T11:40:43.000Z",
-      "publishedAt": "2026-07-22T11:40:43.000Z",
-      "summary": "Here's the latest on LeBron James and which team he plans to sign with for the 2026-27 NBA season.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Latest 勒布朗·詹姆斯的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Latest 勒布朗·詹姆斯签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/SdCSGKgidI5qiUGa7N9PQQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03NjE7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/cb7c1ce54a6c6cb7cea914071b950172",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james",
-      "relatedItems": [
-        {
-          "title": "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
-          "originalTitle": "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/adam-silver-pushing-lebron-james-194954211.html",
-          "publishedAt": "2026-07-21T19:49:54.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Latest LeBron James free agency news, rumors, updates on 'Decision'",
-        "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/latest-lebron-james-free-agency-114043602.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/adam-silver-pushing-lebron-james-194954211.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "Latest LeBron James free agency news, rumors, updates on 'Decision'",
-      "copySource": "fallback",
-      "storyType": "signing"
     },
     {
       "id": "https://sports.yahoo.com/articles/open-thread-aaron-fox-shoe-110000632.html",
@@ -811,29 +943,12 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "交易",
       "importance": 2,
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lakers-wont-trade-bronny-more-052342188.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lakers-still-monitoring-center-market-191351421.html"
-        }
-      ],
-      "originalTitles": [
-        "Lakers won't trade Bronny, 'more than happy' to keep James | Report",
-        "Lakers still monitoring center market, could make trade for big"
-      ],
-      "isMerged": true,
       "eventKey": "trade:lebron-james:lakers",
       "relatedItems": [],
       "displayTitle": "Lakers won't trade Bronny, 'more than happy' to keep James | Report",
       "copySource": "fallback",
-      "storyType": "rumor"
+      "storyType": "rumor",
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/utah-jazz-reacts-survey-happen-050940120.html",
@@ -1003,7 +1118,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T15:20:21.746Z",
+      "aiGeneratedAt": "2026-07-22T16:56:56.166Z",
       "aiConfidence": 0.9
     },
     {
@@ -1034,7 +1149,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T15:20:21.747Z",
+      "aiGeneratedAt": "2026-07-22T16:56:56.168Z",
       "aiConfidence": 0.9
     },
     {
@@ -1149,7 +1264,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T15:20:21.748Z",
+      "aiGeneratedAt": "2026-07-22T16:56:56.169Z",
       "aiConfidence": 0.9
     },
     {
@@ -1489,34 +1604,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/warriors-preseason-home-schedule-headlined-204315958.html",
-      "title": "Warriors’ preseason home schedule headlined by opener against Lakers",
-      "originalTitle": "Warriors’ preseason home schedule headlined by opener against Lakers",
-      "headlineZh": "勇士休赛期后续动向",
-      "titleZh": "勇士休赛期后续动向",
-      "link": "https://sports.yahoo.com/articles/warriors-preseason-home-schedule-headlined-204315958.html",
-      "url": "https://sports.yahoo.com/articles/warriors-preseason-home-schedule-headlined-204315958.html",
-      "pubDate": "2026-07-21T20:43:15.000Z",
-      "publishedAt": "2026-07-21T20:43:15.000Z",
-      "summary": "The Warriors welcome the new-look Lakers to the Chase Center October 6",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，勇士公布季前赛主场赛程，首个主场看点是对阵湖人。这条新闻主要涉及新赛季开始前的赛程安排。",
-      "oneLineZh": "勇士休赛期后续动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/3smRh6pMp9BXKVZvLUTZoQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MTA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/381a355a6fc07a1bf2c854f4ee8d60bc",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Warriors’ preseason home schedule headlined by opener against Lakers",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286776/Jamarion-Sharp-Clippers-Agree-To-Two-Way-Deal",
       "title": "Jamarion Sharp, Clippers Agree To Two-Way Deal",
       "originalTitle": "Jamarion Sharp, Clippers Agree To Two-Way Deal",
@@ -1542,34 +1629,6 @@
       "eventKey": "sign:jamarion-sharp",
       "relatedItems": [],
       "displayTitle": "Jamarion Sharp, Clippers Agree To Two-Way Deal",
-      "copySource": "fallback",
-      "storyType": "signing",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/lebron-james-nba-free-agency-203642576.html",
-      "title": "LeBron James has NBA free agency — and Lakers — in holding pattern",
-      "originalTitle": "LeBron James has NBA free agency — and Lakers — in holding pattern",
-      "headlineZh": "勒布朗·詹姆斯签约动向更新",
-      "titleZh": "勒布朗·詹姆斯签约动向更新",
-      "link": "https://sports.yahoo.com/articles/lebron-james-nba-free-agency-203642576.html",
-      "url": "https://sports.yahoo.com/articles/lebron-james-nba-free-agency-203642576.html",
-      "pubDate": "2026-07-21T20:36:42.000Z",
-      "publishedAt": "2026-07-21T20:36:42.000Z",
-      "summary": "Until LeBron James make his decision, the NBA and Los Angeles Lakers are stuck in a holding pattern when it comes to the NBA free agency.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，勒布朗·詹姆斯的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "勒布朗·詹姆斯签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/8j9VLBNngTAW7R.q1xsaGg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/b75d00dadda679eadb9e8d92b2f514b5",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james:lakers",
-      "relatedItems": [],
-      "displayTitle": "LeBron James has NBA free agency — and Lakers — in holding pattern",
       "copySource": "fallback",
       "storyType": "signing",
       "isMerged": false
@@ -1632,90 +1691,6 @@
       "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/nets-reacts-grade-nets-trade-201345904.html",
-      "title": "Nets Reacts: How would you grade the Nets’ trade for Julius Randle & No. 28 pick?",
-      "originalTitle": "Nets Reacts: How would you grade the Nets’ trade for Julius Randle & No. 28 pick?",
-      "headlineZh": "篮网 Reacts 交易影响继续发酵",
-      "titleZh": "篮网 Reacts 交易影响继续发酵",
-      "link": "https://sports.yahoo.com/articles/nets-reacts-grade-nets-trade-201345904.html",
-      "url": "https://sports.yahoo.com/articles/nets-reacts-grade-nets-trade-201345904.html",
-      "pubDate": "2026-07-21T20:13:45.000Z",
-      "publishedAt": "2026-07-21T20:13:45.000Z",
-      "summary": "How would you grade the trade for Julius Randle + No. 28?",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，这是一篇球迷评分和观点讨论文章，主题是篮网相关交易是否值得认可。原文重点是读者如何评价这笔操作，而不是新的交易消息。",
-      "oneLineZh": "篮网 Reacts 交易影响继续发酵",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/hEoffQoJZM3FQNlJZy48Rw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/cec8e9b80b1e2b24805baba6dca4a133",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 2,
-      "eventKey": "trade:nets-reacts:nets",
-      "relatedItems": [],
-      "displayTitle": "Nets Reacts: How would you grade the Nets’ trade for Julius Randle & No. 28 pick?",
-      "copySource": "fallback",
-      "storyType": "opinion",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/warriors-rookie-yaxel-lendeborg-named-194309429.html",
-      "title": "Warriors rookie Yaxel Lendeborg named Summer League MVP, All Summer-League teams announced",
-      "originalTitle": "Warriors rookie Yaxel Lendeborg named Summer League MVP, All Summer-League teams announced",
-      "headlineZh": "亚克塞尔·伦德伯格相关消息更新",
-      "titleZh": "亚克塞尔·伦德伯格相关消息更新",
-      "link": "https://sports.yahoo.com/articles/warriors-rookie-yaxel-lendeborg-named-194309429.html",
-      "url": "https://sports.yahoo.com/articles/warriors-rookie-yaxel-lendeborg-named-194309429.html",
-      "pubDate": "2026-07-21T19:43:09.000Z",
-      "publishedAt": "2026-07-21T19:43:09.000Z",
-      "summary": "All five players on the All Summer League team were rookies from a very deep draft class.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，亚克塞尔·伦德伯格等球员入选夏季联赛最佳阵容相关名单。原文重点是这些年轻球员在夏季联赛中的表现获得认可。",
-      "oneLineZh": "亚克塞尔·伦德伯格相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/sfHXaiG6rdSjs7ARPMHxXw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/ef6e2c183ec2068f6759be842a03c6ab",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 2,
-      "displayTitle": "Warriors rookie Yaxel Lendeborg named Summer League MVP, All Summer-League teams announced",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/lebron-james-free-agency-decision-191255855.html",
-      "title": "LeBron James’ free agency decision remains without a timetable, per report",
-      "originalTitle": "LeBron James’ free agency decision remains without a timetable, per report",
-      "headlineZh": "勒布朗·詹姆斯签约动向更新",
-      "titleZh": "勒布朗·詹姆斯签约动向更新",
-      "link": "https://sports.yahoo.com/articles/lebron-james-free-agency-decision-191255855.html",
-      "url": "https://sports.yahoo.com/articles/lebron-james-free-agency-decision-191255855.html",
-      "pubDate": "2026-07-21T19:12:55.000Z",
-      "publishedAt": "2026-07-21T19:12:55.000Z",
-      "summary": "Rounding up all Warriors and NBA related news for Tuesday, July 21st.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，勒布朗·詹姆斯的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "勒布朗·詹姆斯签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/7_kTyrwnsMeGmrff7fEi7w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/8d7d72d55d1861b562c59609ed27d9ee",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james:warriors",
-      "relatedItems": [],
-      "displayTitle": "LeBron James’ free agency decision remains without a timetable, per report",
-      "copySource": "fallback",
-      "storyType": "rumor",
       "isMerged": false
     },
     {
@@ -1802,7 +1777,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T15:20:21.750Z",
+      "aiGeneratedAt": "2026-07-22T16:56:56.170Z",
       "aiConfidence": 0.9
     },
     {
