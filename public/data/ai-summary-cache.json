@@ -211,22 +211,62 @@
       "generatedAt": "2026-07-22T03:26:37.036Z",
       "sourceHash": "6fa7cebfc7527544be1c77e0094accf94c48401675604a046738cb991d3ebf22",
       "promptVersion": "summary-v4"
+    },
+    "3d817b7e73fa630339f2a0ea5c441edab57c5151ad88b9308cd4e786ac84178c": {
+      "summaryZh": "迈阿密热火队的官方 YouTube 页面泄露了一段勒布朗·詹姆斯的介绍新闻发布会视频，目前该视频已被设为非公开。这一消息引发了外界对詹姆斯未来动向的猜测。",
+      "oneLineZh": "热火队泄露勒布朗·詹姆斯介绍会视频，引发猜测。",
+      "confidence": 0.9,
+      "storyType": "fact",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-22T04:26:55.790Z",
+      "sourceHash": "c562c8996686137e3b29fad67fc1c046e87d577e021cbb59262c9b28285759cd",
+      "promptVersion": "summary-v4"
+    },
+    "bf4029c1d8acc03a70b1e5402c069883fdfd63efa964fc75e884c369df099dca": {
+      "summaryZh": "斯蒂芬·库里成为首位在奈史密斯篮球名人堂展出个人展览的现役 NBA 球员。",
+      "oneLineZh": "库里在篮球名人堂开设个人展览。",
+      "confidence": 0.9,
+      "storyType": "fact",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-22T04:26:57.427Z",
+      "sourceHash": "5425fb798a5812cee95c8a96d77d08b1d30a98fd7ac8a1c87d1ee67c6b045f23",
+      "promptVersion": "summary-v4"
+    },
+    "b0bae53de1a62684668dc13e6a0b6600cef78b2c098e42db4e82e8615993a13b": {
+      "summaryZh": "德雷蒙德·格林在接受沙奎尔·奥尼尔采访时表示，尽管科比·布莱恩特是2000 年代最伟大的球员之一，但他常常被排除在历史最佳球员讨论之外。",
+      "oneLineZh": "德雷蒙德·格林谈科比为何不被视为 GOAT。",
+      "confidence": 0.9,
+      "storyType": "injury",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-22T04:27:01.834Z",
+      "sourceHash": "c244035f182ceaa65a4272478a1a4c4b203a659ced63575310c5a2d747d2267c",
+      "promptVersion": "summary-v4"
+    },
+    "878b64b3791be908086927a33376cd11bc9bf007e3ff19e2d66b38df583e9a78": {
+      "summaryZh": "波士顿凯尔特人队的最新动态汇总，涵盖了球队的所有新闻。",
+      "oneLineZh": "凯尔特人队最新新闻汇总。",
+      "confidence": 0.9,
+      "storyType": "fact",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-22T04:27:03.665Z",
+      "sourceHash": "a7d2251a4303a056ea8a0893fcc5738d8c732a4d332cf30bf52b99c83283a040",
+      "promptVersion": "summary-v4"
     }
   },
   "backlog": {
     "cdaf9d7e0358fc8fc5e6deab098313609d580aa4996ca9c3c32fee061fa98162": {
       "sourceHash": "d6e901933fdeda1f7b67eaa4a662624a6a071cfb7254a6fc4aca3f7875ff3d1c",
       "lastTitle": "Wilt Chamberlain Lakers jacket found by teen at thrift store fetches over $89,000",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
+      "skippedByLimit": 3,
+      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
       "lastReason": "limit"
     },
     "e10f840cf4c3d6fc529b524787e3bcd0e998da5f6a3050b157d22bb833513df6": {
       "sourceHash": "fa16a76aece5619c3fc423fa7f08517da0284d43cec9f5a07419bfd414e5324a",
       "lastTitle": "Jalen Wilson to Hawks, Ziaire Williams with Lakers as Tyson Etienne, Trevon Scott go overseas",
-      "skippedByLimit": 1,
-      "lastSkippedAt": "2026-07-22T02:55:51.080Z",
-      "lastReason": "non-chinese-oneline",
+      "skippedByLimit": 2,
+      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
+      "lastReason": "limit",
       "failureCount": 1,
       "lastFailedAt": "2026-07-22T03:02:22.950Z",
       "nextRetryAt": "2026-07-22T03:32:22.950Z"
@@ -234,9 +274,9 @@
     "a6b39d17abb0aa9c0ed02fd589cb01e20516687a76aa7242b8554038c6429e9a": {
       "sourceHash": "4f5934d4ba0e84fab314b65afb095e51310fcc5e4da6de65d203ad8877cd7b72",
       "lastTitle": "When will LeBron James announce his decision? 'We're not going to be rushed,' agent Rich Paul said",
-      "skippedByLimit": 1,
-      "lastSkippedAt": "2026-07-22T02:55:51.080Z",
-      "lastReason": "incomplete-opinion-summary",
+      "skippedByLimit": 2,
+      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
+      "lastReason": "limit",
       "failureCount": 1,
       "lastFailedAt": "2026-07-22T03:02:13.379Z",
       "nextRetryAt": "2026-07-22T03:32:13.379Z"
@@ -244,22 +284,22 @@
     "34a8fa63127e88bc4c4441f9d3a4b3035a03179e2c477f2a07199bc1638ab274": {
       "sourceHash": "50a48c5fb65b902e365823a3138a8d61aec5b53e7773a6cb2e11b5e04dc50783",
       "lastTitle": "Walmart Heiress Nancy Walton Laurie Explores Las Vegas NBA Bid",
-      "skippedByLimit": 3,
-      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
+      "skippedByLimit": 4,
+      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
       "lastReason": "limit"
     },
     "9115f8e8a87159da6e04ab57d4e82600dfad87c09c83295e8a266a3ba1b922d4": {
       "sourceHash": "2c50be306b06cb2aa2d7ae06c3925b14ce543099d594e7f2795b60b95389a7af",
       "lastTitle": "Why Hugo Gonzalez has potential to be Derrick White-level player",
-      "skippedByLimit": 3,
-      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
+      "skippedByLimit": 4,
+      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
       "lastReason": "limit"
     },
     "8f2332f91f2a037ac1275108262be4c2c4607e4fe454142c79a9388b88f86a41": {
       "sourceHash": "33486f8f045191fd9ef881a66a573113c34f0ec2f4e79bb3661478874da1cfef",
       "lastTitle": "Editor-in-chief mailbag: Taking a break from LeBron Watch (or not if you don’t want to)",
-      "skippedByLimit": 3,
-      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
+      "skippedByLimit": 4,
+      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
       "lastReason": "limit"
     },
     "7348e539d7d7f752d320c7d0b3b15da5a58de7c1f04dc30724ecaa2943cb2a75": {
@@ -276,13 +316,6 @@
       "lastSkippedAt": "2026-07-22T03:02:11.409Z",
       "lastReason": "limit"
     },
-    "878b64b3791be908086927a33376cd11bc9bf007e3ff19e2d66b38df583e9a78": {
-      "sourceHash": "a7d2251a4303a056ea8a0893fcc5738d8c732a4d332cf30bf52b99c83283a040",
-      "lastTitle": "Boston Celtics Daily Links 7/21/26",
-      "skippedByLimit": 3,
-      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
-      "lastReason": "limit"
-    },
     "69b6d0b620a688c47300bc323d29bb054303d0b8858a42a9d6c110afedc043cb": {
       "sourceHash": "3cb572841e64e4969e18511e9e429929119d5a5cb1372cc288bd0291a9c6ff02",
       "lastTitle": "Stephen Curry becomes first current player to receive exhibit at the Naismith Basketball Hall of Fame",
@@ -296,9 +329,9 @@
       "skippedByLimit": 2,
       "lastSkippedAt": "2026-07-22T03:02:11.409Z",
       "lastReason": "incomplete-opinion-summary",
-      "failureCount": 1,
-      "lastFailedAt": "2026-07-22T03:26:34.840Z",
-      "nextRetryAt": "2026-07-22T03:56:34.840Z"
+      "failureCount": 2,
+      "lastFailedAt": "2026-07-22T04:26:59.632Z",
+      "nextRetryAt": "2026-07-22T06:26:59.632Z"
     },
     "24418fa08de01edf472f00ce1da6e3abf2748691d6240327e2c83575ba1a97b8": {
       "sourceHash": "80329ee8fc259a3e1038d334914e741c4d611e3b5ab26f95978243196319e500",
@@ -349,13 +382,6 @@
       "lastSkippedAt": "2026-07-22T03:02:11.409Z",
       "lastReason": "limit"
     },
-    "63825fb5d0f528e136bfe3ed926a95cc43838282f95b8a0c3280343807768cb8": {
-      "sourceHash": "95aa5f350ce20f82c66987858607fcd2cea9e3106ec602051657850e91835437",
-      "lastTitle": "Meleek Thomas recognized for impressive Summer League performance",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
-      "lastReason": "limit"
-    },
     "e8122ffebf5c4d936e5290f09b467b7d68c2eaae6040b1c717bfeb6ce83e9bd8": {
       "sourceHash": "1af721998d820b778374b7f0a74e352e46f3d675610ff148cf9bdd8815f42e88",
       "lastTitle": "Did Rob Pelinka improve the Lakers this offseason?",
@@ -391,53 +417,46 @@
       "lastSkippedAt": "2026-07-22T03:02:11.409Z",
       "lastReason": "limit"
     },
-    "b0bae53de1a62684668dc13e6a0b6600cef78b2c098e42db4e82e8615993a13b": {
-      "sourceHash": "c244035f182ceaa65a4272478a1a4c4b203a659ced63575310c5a2d747d2267c",
-      "lastTitle": "Draymond Green reveals to Shaq why Kobe Bryant isn’t considered a GOAT",
-      "skippedByLimit": 3,
-      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
-      "lastReason": "limit"
-    },
     "4dda34a9b5f3c0c4fc6e38a2f6d3e72d338e79b3477b16ddd270d13553834b5e": {
       "sourceHash": "a2679f48d3bd6879ad462fbf1d3040588c1b9fdce07a5aa7cce9b3cd98c1644e",
       "lastTitle": "Zach Guthrie Promoted To Lakers Coaching Staff As Assistant, Head Of Player Development",
-      "skippedByLimit": 3,
-      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
+      "skippedByLimit": 4,
+      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
       "lastReason": "limit"
     },
     "71e04cbb4adf36871d6f8cfac0f46a1e6a2e39ac76e244f0f8575c1b5afe39f6": {
       "sourceHash": "ee3249e007909a0eb361b45a42807d22a3d5ba6bc6f33c550c38db49a40b5c3d",
       "lastTitle": "Giannis Antetokounmpo's Motivation 'At A Million Percent' Joining Heat",
-      "skippedByLimit": 3,
-      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
+      "skippedByLimit": 4,
+      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
       "lastReason": "limit"
     },
     "e4a0ba1d22dd017254d978010cec663cfd472c2c77350f8b290ed55c4ce44f4b": {
       "sourceHash": "a3d57794ac0707e40b379dc91521d4f46ac7021d57d3bf7e0110a50291598ec4",
       "lastTitle": "De'Aaron Fox Still Viewed By Spurs As Key Part Of Future",
-      "skippedByLimit": 3,
-      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
+      "skippedByLimit": 4,
+      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
       "lastReason": "limit"
     },
     "4267935de0b0153311d003c9c453697dff7e5815a21707d26968e67e2d2c03cf": {
       "sourceHash": "f08cae3f7032cae4f3d16424c1f04e285a4da5c53ef065b8506139df71d91b27",
       "lastTitle": "Dylan Harper Could Open Season As Spurs' Sixth Man",
-      "skippedByLimit": 3,
-      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
+      "skippedByLimit": 4,
+      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
       "lastReason": "limit"
     },
     "18429adc889293a391c983078fa656ec78dc4ca276760e1affb88ce88d3ec8cc": {
       "sourceHash": "ac2e2c21908af61a8cf66848b81e91fcd9742097d030603435c2d774dfe678fb",
       "lastTitle": "NBA's Local Streaming Hub Draws Interest From YouTube, ESPN",
-      "skippedByLimit": 3,
-      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
+      "skippedByLimit": 4,
+      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
       "lastReason": "limit"
     },
     "17f6b97a63183aae4dcd307216c394b3fd544b768967d274ac3c1cc29175976b": {
       "sourceHash": "f8389cb48620b543418e6c5855f08a7a2991be6e05325feb24e924cb6921c80c",
       "lastTitle": "Mavericks Match Moussa Cisse's Two-Year, $4.7M Offer Sheet With Knicks",
-      "skippedByLimit": 3,
-      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
+      "skippedByLimit": 4,
+      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
       "lastReason": "limit"
     },
     "e902eb1c659d963763efff7f695e91bd79cbe4f0ff5a128032e3eaccae1c11a6": {
@@ -450,15 +469,15 @@
     "af1e30fa9cd070211a04e3b8c8a5f35c97666caaf68f951fcd034cdd0ee6e5f4": {
       "sourceHash": "5b72eec0d60ff026671aa368ea23459d95e7d6eeedb293ba6f6a7f99834fe0ad",
       "lastTitle": "Jonathan Kuminga's Talks With Lakers Stall Over Contract",
-      "skippedByLimit": 3,
-      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
+      "skippedByLimit": 4,
+      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
       "lastReason": "limit"
     },
     "ceeb447b24b80e43b7978f676449dd711ca05cedad42378e7c59b6de8c0488f6": {
       "sourceHash": "2ccaf1bb4e79af766aacc4cd91a6794140318282dce7ceed6dcbd613f62456ed",
       "lastTitle": "Luka Doncic: I Think We Have A Really Good Team, Excited To Start New Season",
-      "skippedByLimit": 3,
-      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
+      "skippedByLimit": 4,
+      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
       "lastReason": "limit"
     },
     "d507214a625c7dac4722de6e147958e6e2ea6d112a5ad5034f6637198507ce7f": {
@@ -469,19 +488,11 @@
       "nextRetryAt": "2026-07-22T03:25:53.425Z",
       "lastReason": "incomplete-opinion-summary"
     },
-    "bb47154f7f158dd2cd25e8ba3dac3444e1c5fe675d896aaadcb330c7a9a06023": {
-      "sourceHash": "a8725d9d3e06e1b206a43695729824b24b7e17c34a5ac6ef991512ed0c8a799f",
-      "lastTitle": "Yaxel Lendeborg wins 2026 NBA Summer League MVP after Warriors' championship win",
-      "failureCount": 1,
-      "lastFailedAt": "2026-07-22T02:55:57.912Z",
-      "nextRetryAt": "2026-07-22T03:25:57.912Z",
-      "lastReason": "non-chinese-oneline"
-    },
     "cd1d7fe5c0bc480c3f39112247f12dfcff5e9d40cd010c0567177205c83e4414": {
       "sourceHash": "8080d8e7a49fe81dc31ff599712a5208fbccb98bbfff34574419dc9060cbe06b",
       "lastTitle": "Can the Suns tap into Miles Bridges’ two-way potential?",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
+      "skippedByLimit": 3,
+      "lastSkippedAt": "2026-07-22T04:26:53.403Z",
       "lastReason": "limit"
     },
     "c8efe5d7238772a1e145892ee9c24999a470594d8babad203d34f01fc80d1e5e": {
@@ -489,13 +500,6 @@
       "lastTitle": "Draymond Green has ‘respect' for Warriors rookie Yaxel Lendeborg's trash talk",
       "skippedByLimit": 1,
       "lastSkippedAt": "2026-07-22T03:02:11.409Z",
-      "lastReason": "limit"
-    },
-    "773500ca94d07183a929e4b4e7a2f63d9f25cb71d5b3b94af236953b44e6f0f8": {
-      "sourceHash": "92d47fb2b3b42cb68882fb13e7f9f826e265fb31693fee05bd8ec96471201af9",
-      "lastTitle": "Rich Paul Says LeBron James 'Won't Be Rushed' Into Making Decsion",
-      "skippedByLimit": 1,
-      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     }
   }

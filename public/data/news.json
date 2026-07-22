@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-22T04:24:28.264Z",
+  "updatedAt": "2026-07-22T04:27:03.719Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-22T04:24:28.264Z",
-    "previousUpdatedAt": "2026-07-22T04:22:42.118Z",
-    "updatedAt": "2026-07-22T04:24:28.264Z",
+    "checkedAt": "2026-07-22T04:27:03.719Z",
+    "previousUpdatedAt": "2026-07-22T04:24:28.264Z",
+    "updatedAt": "2026-07-22T04:27:03.719Z",
     "fetchedItems": 80,
-    "mergedItems": 75,
+    "mergedItems": 70,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -32,37 +32,97 @@
     ],
     "failedFeeds": [],
     "newestPublishedAt": "2026-07-22T03:59:55.000Z",
-    "dataAgeHours": 0.40924,
-    "aiEnabled": false,
+    "dataAgeHours": 0.45242194444444445,
+    "aiEnabled": true,
     "aiScope": "latest-items",
-    "aiCandidates": 22,
+    "aiCandidates": 20,
     "aiCacheHits": 10,
-    "aiRequests": 0,
-    "aiAccepted": 0,
-    "aiRejected": 0,
+    "aiRequests": 5,
+    "aiAccepted": 4,
+    "aiRejected": 1,
     "aiFailed": 0,
     "aiRetried": 0,
     "rejectedAsNonChinese": 0,
-    "skippedByLimit": 0,
-    "finalItemsWithChineseSummary": 53,
-    "finalItemsWithoutChineseSummary": 22,
-    "totalNewsItems": 75,
-    "itemsWithValidChineseSummary": 45,
-    "itemsMissingChineseSummary": 30,
-    "eligibleBacklog": 22,
-    "selectedThisRun": 0,
+    "skippedByLimit": 15,
+    "finalItemsWithChineseSummary": 54,
+    "finalItemsWithoutChineseSummary": 16,
+    "totalNewsItems": 70,
+    "itemsWithValidChineseSummary": 42,
+    "itemsMissingChineseSummary": 28,
+    "eligibleBacklog": 20,
+    "selectedThisRun": 5,
     "previouslyFailed": 3,
-    "remainingAfterRun": 22,
+    "remainingAfterRun": 16,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
-    "acceptedHighConfidence": 0,
-    "averageAiConfidence": null,
-    "minAcceptedConfidence": null,
-    "maxAcceptedConfidence": null,
+    "acceptedHighConfidence": 4,
+    "averageAiConfidence": 0.9,
+    "minAcceptedConfidence": 0.9,
+    "maxAcceptedConfidence": 0.9,
     "aiLogicError": false,
     "aiModel": "openai/gpt-4o-mini",
-    "aiSelectedItems": [],
-    "aiUpdatedItems": [],
+    "aiSelectedItems": [
+      {
+        "title": "LeBron James to Miami Heat? YouTube page leaks future press conference",
+        "publishedAt": "2026-07-22T03:59:55.000Z",
+        "source": "Yahoo Sports",
+        "reason": "needs-ai-summary"
+      },
+      {
+        "title": "Naismith Basketball Hall of Fame announces new Stephen Curry exhibit",
+        "publishedAt": "2026-07-22T03:22:49.000Z",
+        "source": "Yahoo Sports",
+        "reason": "needs-ai-summary"
+      },
+      {
+        "title": "Suns Reacts: The next big Suns move isn’t a trade",
+        "publishedAt": "2026-07-21T19:00:00.000Z",
+        "source": "Yahoo Sports",
+        "reason": "needs-ai-summary"
+      },
+      {
+        "title": "Draymond Green reveals to Shaq why Kobe Bryant isn’t considered a GOAT",
+        "publishedAt": "2026-07-21T18:34:21.000Z",
+        "source": "Yahoo Sports",
+        "reason": "needs-ai-summary"
+      },
+      {
+        "title": "Boston Celtics Daily Links 7/21/26",
+        "publishedAt": "2026-07-21T18:17:16.000Z",
+        "source": "Yahoo Sports",
+        "reason": "needs-ai-summary"
+      }
+    ],
+    "aiUpdatedItems": [
+      {
+        "title": "LeBron James to Miami Heat? YouTube page leaks future press conference",
+        "publishedAt": "2026-07-22T03:59:55.000Z",
+        "source": "Yahoo Sports",
+        "summaryZh": "迈阿密热火队的官方 YouTube 页面泄露了一段勒布朗·詹姆斯的介绍新闻发布会视频，目前该视频已被设为非公开。这一消息引发了外界对詹姆斯未来动向的猜测。",
+        "oneLineZh": "热火队泄露勒布朗·詹姆斯介绍会视频，引发猜测。"
+      },
+      {
+        "title": "Naismith Basketball Hall of Fame announces new Stephen Curry exhibit",
+        "publishedAt": "2026-07-22T03:22:49.000Z",
+        "source": "Yahoo Sports",
+        "summaryZh": "斯蒂芬·库里成为首位在奈史密斯篮球名人堂展出个人展览的现役 NBA 球员。",
+        "oneLineZh": "库里在篮球名人堂开设个人展览。"
+      },
+      {
+        "title": "Draymond Green reveals to Shaq why Kobe Bryant isn’t considered a GOAT",
+        "publishedAt": "2026-07-21T18:34:21.000Z",
+        "source": "Yahoo Sports",
+        "summaryZh": "德雷蒙德·格林在接受沙奎尔·奥尼尔采访时表示，尽管科比·布莱恩特是2000 年代最伟大的球员之一，但他常常被排除在历史最佳球员讨论之外。",
+        "oneLineZh": "德雷蒙德·格林谈科比为何不被视为 GOAT。"
+      },
+      {
+        "title": "Boston Celtics Daily Links 7/21/26",
+        "publishedAt": "2026-07-21T18:17:16.000Z",
+        "source": "Yahoo Sports",
+        "summaryZh": "波士顿凯尔特人队的最新动态汇总，涵盖了球队的所有新闻。",
+        "oneLineZh": "凯尔特人队最新新闻汇总。"
+      }
+    ],
     "message": "Fetched 80 usable RSS items from all feeds."
   },
   "highlights": [
@@ -81,13 +141,6 @@
       "link": "https://basketball.realgm.com/wiretap/286768/Cam-Christie-Pushed-Back-Guarantee-Date-For-Second-Time"
     },
     {
-      "id": "https://sports.yahoo.com/articles/meleek-thomas-recognized-impressive-summer-222300052.html",
-      "text": "梅利克·托马斯因夏季联赛表现受到认可",
-      "category": "选秀",
-      "source": "Yahoo Sports",
-      "link": "https://sports.yahoo.com/articles/meleek-thomas-recognized-impressive-summer-222300052.html"
-    },
-    {
       "id": "https://sports.yahoo.com/articles/espn-names-caleb-wilson-most-150000193.html",
       "text": "在 NBA 夏季联赛中，Caleb Wilson 表现出色，成为 ESPN 评选的“最具电力的新秀”",
       "category": "选秀",
@@ -95,11 +148,18 @@
       "link": "https://sports.yahoo.com/articles/espn-names-caleb-wilson-most-150000193.html"
     },
     {
-      "id": "https://sports.yahoo.com/articles/stephen-curry-become-first-active-005907528.html",
-      "text": "斯蒂芬·库里将成为首位在篮球名人堂拥有个人展览的现役球员",
+      "id": "https://sports.yahoo.com/articles/naismith-basketball-hall-fame-announces-032249860.html",
+      "text": "斯蒂芬·库里成为首位在奈史密斯篮球名人堂展出个人展览的现役 NBA 球员",
       "category": "其他",
       "source": "Yahoo Sports",
-      "link": "https://sports.yahoo.com/articles/stephen-curry-become-first-active-005907528.html"
+      "link": "https://sports.yahoo.com/articles/naismith-basketball-hall-fame-announces-032249860.html"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/report-hawks-add-jalen-wilson-185434351.html",
+      "text": "据报道，亚特兰大老鹰队签下了 Jalen Wilson，作为一名双向球员",
+      "category": "签约",
+      "source": "Yahoo Sports",
+      "link": "https://sports.yahoo.com/articles/report-hawks-add-jalen-wilson-185434351.html"
     }
   ],
   "items": [
@@ -115,7 +175,7 @@
       "publishedAt": "2026-07-22T03:59:55.000Z",
       "summary": "The Miami Heat Official YouTube page just leaked a LeBron James introductory press conference. Video now unlisted. What does this mean?",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "迈阿密热火队的官方 YouTube 页面泄露了一段勒布朗·詹姆斯的介绍新闻发布会视频，目前该视频已被设为非公开。这一消息引发了外界对詹姆斯未来动向的猜测。",
       "oneLineZh": "勒布朗·詹姆斯相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -124,12 +184,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "displayTitle": "LeBron James to Miami Heat? YouTube page leaks future press conference",
-      "copySource": "fallback",
-      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "displayTitle": "LeBron James to Miami Heat? YouTube page leaks future press conference",
+      "copySource": "github-models",
+      "storyType": "fact",
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-22T04:26:55.790Z",
+      "aiConfidence": 0.9
     },
     {
       "id": "https://sports.yahoo.com/articles/naismith-basketball-hall-fame-announces-032249860.html",
@@ -143,7 +206,7 @@
       "publishedAt": "2026-07-22T03:22:49.000Z",
       "summary": "Stephen Curry becomes the first active NBA player to have an exhibit at the Naismith Memorial Basketball Hall of Fame.",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "斯蒂芬·库里成为首位在奈史密斯篮球名人堂展出个人展览的现役 NBA 球员。",
       "oneLineZh": "Naismith Basketball Hall 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -152,12 +215,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "displayTitle": "Naismith Basketball Hall of Fame announces new Stephen Curry exhibit",
-      "copySource": "fallback",
-      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "displayTitle": "Naismith Basketball Hall of Fame announces new Stephen Curry exhibit",
+      "copySource": "github-models",
+      "storyType": "fact",
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-22T04:26:57.427Z",
+      "aiConfidence": 0.9
     },
     {
       "id": "https://sports.yahoo.com/articles/warriors-yaxel-lendeborg-earns-summer-021955478.html",
@@ -180,12 +246,34 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
-      "displayTitle": "Warriors' Yaxel Lendeborg earns Summer League MVP, first team honors",
-      "copySource": "fallback",
-      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Yaxel Lendeborg adds to trophy collection with Summer League MVP",
+        "Warriors' Yaxel Lendeborg earns Summer League MVP, first team honors",
+        "Yaxel Lendeborg wins 2026 NBA Summer League MVP after Warriors' championship win"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/yaxel-lendeborg-adds-trophy-collection-010132088.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/warriors-yaxel-lendeborg-earns-summer-021955478.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/yaxel-lendeborg-wins-2026-nba-165820804.html"
+        }
+      ],
+      "isMerged": false,
+      "displayTitle": "Warriors' Yaxel Lendeborg earns Summer League MVP, first team honors",
+      "copySource": "fallback",
+      "storyType": "fact"
     },
     {
       "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
@@ -235,44 +323,16 @@
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
-      "importance": 1,
+      "importance": 2,
+      "eventKey": "",
+      "relatedItems": [],
       "displayTitle": "Valkyries Janelle Salaün to compete in 3-point contest",
       "copySource": "github-models",
       "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T04:24:28.212Z",
+      "aiGeneratedAt": "2026-07-22T04:26:57.429Z",
       "aiConfidence": 0.9
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/yaxel-lendeborg-adds-trophy-collection-010132088.html",
-      "title": "Yaxel Lendeborg adds to trophy collection with Summer League MVP",
-      "originalTitle": "Yaxel Lendeborg adds to trophy collection with Summer League MVP",
-      "headlineZh": "亚克塞尔·伦德伯格相关消息更新",
-      "titleZh": "亚克塞尔·伦德伯格相关消息更新",
-      "link": "https://sports.yahoo.com/articles/yaxel-lendeborg-adds-trophy-collection-010132088.html",
-      "url": "https://sports.yahoo.com/articles/yaxel-lendeborg-adds-trophy-collection-010132088.html",
-      "pubDate": "2026-07-22T01:01:32.000Z",
-      "publishedAt": "2026-07-22T01:01:32.000Z",
-      "summary": "The Warriors’ first-round pick became the first-ever dual winner of both Summer League MVP trophies",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，这篇文章围绕夏季联赛表现展开，重点是年轻球员、球队阵容和赛事结果带来的后续观察。",
-      "oneLineZh": "亚克塞尔·伦德伯格相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/4Ch7rqwi8gRuPDcUnfn0QA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04ODk7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/ad8ab8c112b14e727e53c83fce4fb546",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 2,
-      "displayTitle": "Yaxel Lendeborg adds to trophy collection with Summer League MVP",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/stephen-curry-become-first-active-005907528.html",
@@ -351,11 +411,11 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
       "importance": 2,
+      "eventKey": "",
+      "relatedItems": [],
       "displayTitle": "Did Rob Pelinka improve the Lakers this offseason?",
       "copySource": "fallback",
       "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -387,34 +447,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/meleek-thomas-recognized-impressive-summer-222300052.html",
-      "title": "Meleek Thomas recognized for impressive Summer League performance",
-      "originalTitle": "Meleek Thomas recognized for impressive Summer League performance",
-      "headlineZh": "梅利克·托马斯相关消息更新",
-      "titleZh": "梅利克·托马斯相关消息更新",
-      "link": "https://sports.yahoo.com/articles/meleek-thomas-recognized-impressive-summer-222300052.html",
-      "url": "https://sports.yahoo.com/articles/meleek-thomas-recognized-impressive-summer-222300052.html",
-      "pubDate": "2026-07-21T22:23:00.000Z",
-      "publishedAt": "2026-07-21T22:23:00.000Z",
-      "summary": "The Cavs’ rookie led all scorers in Vegas with 27.3 points per game.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，梅利克·托马斯因夏季联赛表现受到认可。原文提到他在拉斯维加斯场均得到 27.3 分，领跑所有得分手。",
-      "oneLineZh": "梅利克·托马斯相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/XAc5IkaCAQ915vPIj4zyPA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/8e9be663d9b46cdd81c4395aeff7f469",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 2,
-      "displayTitle": "Meleek Thomas recognized for impressive Summer League performance",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://sports.yahoo.com/articles/cavaliers-reacts-survey-recent-draft-220000035.html",
       "title": "Cavaliers Reacts Survey: Which recent draft pick has the brightest future?",
       "originalTitle": "Cavaliers Reacts Survey: Which recent draft pick has the brightest future?",
@@ -435,12 +467,29 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "选秀",
       "importance": 2,
-      "displayTitle": "Cavaliers Reacts Survey: Which recent draft pick has the brightest future?",
-      "copySource": "fallback",
-      "storyType": "opinion",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Meleek Thomas recognized for impressive Summer League performance",
+        "Cavaliers Reacts Survey: Which recent draft pick has the brightest future?"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/meleek-thomas-recognized-impressive-summer-222300052.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/cavaliers-reacts-survey-recent-draft-220000035.html"
+        }
+      ],
+      "isMerged": false,
+      "displayTitle": "Cavaliers Reacts Survey: Which recent draft pick has the brightest future?",
+      "copySource": "fallback",
+      "storyType": "opinion"
     },
     {
       "id": "https://sports.yahoo.com/articles/sb-nation-reacts-grade-wizards-213029830.html",
@@ -519,11 +568,11 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "选秀",
       "importance": 2,
+      "eventKey": "",
+      "relatedItems": [],
       "displayTitle": "Gonzaga Bulldogs in the NBA Summer League: A Wrap-Up",
       "copySource": "fallback",
       "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -721,11 +770,11 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "选秀",
       "importance": 2,
+      "eventKey": "",
+      "relatedItems": [],
       "displayTitle": "Yaxel Lendeborg, Caleb Wilson, Cameron Boozer Headline 2026 NBA All-Sumer League Teams",
       "copySource": "fallback",
       "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -786,6 +835,14 @@
           "url": "https://sports.yahoo.com/articles/rich-paul-updates-timeframe-lebron-165900675.html",
           "publishedAt": "2026-07-21T16:59:00.000Z",
           "angle": "source"
+        },
+        {
+          "title": "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
+          "originalTitle": "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/nba/article/rich-paul-says-lebron-james-has-no-timetable-to-make-free-agent-decision-were-not-going-to-be-rushed-125104126.html",
+          "publishedAt": "2026-07-21T12:51:04.000Z",
+          "angle": "source"
         }
       ],
       "sources": [
@@ -793,7 +850,8 @@
       ],
       "originalTitles": [
         "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
-        "Rich Paul updates timeframe for LeBron James’ free-agency decision"
+        "Rich Paul updates timeframe for LeBron James’ free-agency decision",
+        "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'"
       ],
       "sourceLinks": [
         {
@@ -803,6 +861,10 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/rich-paul-updates-timeframe-lebron-165900675.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/nba/article/rich-paul-says-lebron-james-has-no-timetable-to-make-free-agent-decision-were-not-going-to-be-rushed-125104126.html"
         }
       ],
       "isMerged": true,
@@ -866,7 +928,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T04:24:28.213Z",
+      "aiGeneratedAt": "2026-07-22T04:26:57.430Z",
       "aiConfidence": 0.85
     },
     {
@@ -950,7 +1012,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T04:24:28.214Z",
+      "aiGeneratedAt": "2026-07-22T04:26:57.431Z",
       "aiConfidence": 0.9
     },
     {
@@ -1009,7 +1071,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T04:24:28.215Z",
+      "aiGeneratedAt": "2026-07-22T04:26:59.633Z",
       "aiConfidence": 0.9
     },
     {
@@ -1024,7 +1086,7 @@
       "publishedAt": "2026-07-21T18:34:21.000Z",
       "summary": "Despite being one of the greatest players to play the game of basketball in the 2000's, Kobe Bryant is often left out of the GOAT conversation.",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "德雷蒙德·格林在接受沙奎尔·奥尼尔采访时表示，尽管科比·布莱恩特是2000 年代最伟大的球员之一，但他常常被排除在历史最佳球员讨论之外。",
       "oneLineZh": "Draymond Green 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -1034,11 +1096,14 @@
       "category": "其他",
       "importance": 1,
       "displayTitle": "Draymond Green reveals to Shaq why Kobe Bryant isn’t considered a GOAT",
-      "copySource": "fallback",
+      "copySource": "github-models",
       "storyType": "injury",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-22T04:27:01.834Z",
+      "aiConfidence": 0.9
     },
     {
       "id": "https://sports.yahoo.com/nba/article/stephen-curry-becomes-first-current-player-to-receive-exhibit-at-the-naismith-basketball-hall-of-fame-181853143.html",
@@ -1080,7 +1145,7 @@
       "publishedAt": "2026-07-21T18:17:16.000Z",
       "summary": "All the Celtics news you need in one convenient place.",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "波士顿凯尔特人队的最新动态汇总，涵盖了球队的所有新闻。",
       "oneLineZh": "NBA 动态：凯尔特人 Daily Links 7/21/26",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -1090,11 +1155,14 @@
       "category": "其他",
       "importance": 2,
       "displayTitle": "Boston Celtics Daily Links 7/21/26",
-      "copySource": "fallback",
+      "copySource": "github-models",
       "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-22T04:27:03.665Z",
+      "aiConfidence": 0.9
     },
     {
       "id": "https://sports.yahoo.com/nba/breaking-news/article/yaxel-lendeborg-named-mvp-cameron-boozer-caleb-wilson-make-nba-all-summer-league-first-team-174914523.html",
@@ -1153,34 +1221,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/yaxel-lendeborg-wins-2026-nba-165820804.html",
-      "title": "Yaxel Lendeborg wins 2026 NBA Summer League MVP after Warriors' championship win",
-      "originalTitle": "Yaxel Lendeborg wins 2026 NBA Summer League MVP after Warriors' championship win",
-      "headlineZh": "亚克塞尔·伦德伯格相关消息更新",
-      "titleZh": "亚克塞尔·伦德伯格相关消息更新",
-      "link": "https://sports.yahoo.com/articles/yaxel-lendeborg-wins-2026-nba-165820804.html",
-      "url": "https://sports.yahoo.com/articles/yaxel-lendeborg-wins-2026-nba-165820804.html",
-      "pubDate": "2026-07-21T16:58:20.000Z",
-      "publishedAt": "2026-07-21T16:58:20.000Z",
-      "summary": "Golden State Warriors rookie forward Yaxel Lendeborg was named the 2026 NBA Summer League MVP and was selected to the All-Summer League First Team.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，这篇文章围绕夏季联赛表现展开，重点是年轻球员、球队阵容和赛事结果带来的后续观察。",
-      "oneLineZh": "亚克塞尔·伦德伯格相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/4daff0c60e683263aaf9a725ba555e58",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 2,
-      "displayTitle": "Yaxel Lendeborg wins 2026 NBA Summer League MVP after Warriors' championship win",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286771/Cameron-Boozer-Says-Versatility-Sets-Him-Apart-Cites-Knicks-As-Model",
       "title": "Cameron Boozer Says Versatility Sets Him Apart, Cites Knicks As Model",
       "originalTitle": "Cameron Boozer Says Versatility Sets Him Apart, Cites Knicks As Model",
@@ -1201,11 +1241,11 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "选秀",
       "importance": 2,
+      "eventKey": "",
+      "relatedItems": [],
       "displayTitle": "Cameron Boozer Says Versatility Sets Him Apart, Cites Knicks As Model",
       "copySource": "fallback",
       "storyType": "opinion",
-      "eventKey": "",
-      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -1348,7 +1388,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T04:24:28.217Z",
+      "aiGeneratedAt": "2026-07-22T04:27:03.669Z",
       "aiConfidence": 0.9
     },
     {
@@ -1379,7 +1419,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T04:24:28.219Z",
+      "aiGeneratedAt": "2026-07-22T04:27:03.672Z",
       "aiConfidence": 0.9
     },
     {
@@ -1410,7 +1450,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T04:24:28.220Z",
+      "aiGeneratedAt": "2026-07-22T04:27:03.674Z",
       "aiConfidence": 0.9
     },
     {
@@ -1469,7 +1509,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T04:24:28.222Z",
+      "aiGeneratedAt": "2026-07-22T04:27:03.675Z",
       "aiConfidence": 0.9
     },
     {
@@ -1528,7 +1568,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T04:24:28.223Z",
+      "aiGeneratedAt": "2026-07-22T04:27:03.677Z",
       "aiConfidence": 0.9
     },
     {
@@ -1559,7 +1599,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T04:24:28.224Z",
+      "aiGeneratedAt": "2026-07-22T04:27:03.678Z",
       "aiConfidence": 0.9
     },
     {
@@ -1586,62 +1626,6 @@
       "displayTitle": "Wilt Chamberlain Lakers jacket found by teen at thrift store fetches over $89,000",
       "copySource": "fallback",
       "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/nba/article/rich-paul-says-lebron-james-has-no-timetable-to-make-free-agent-decision-were-not-going-to-be-rushed-125104126.html",
-      "title": "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
-      "originalTitle": "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
-      "headlineZh": "Rich Paul 相关消息更新",
-      "titleZh": "Rich Paul 相关消息更新",
-      "link": "https://sports.yahoo.com/nba/article/rich-paul-says-lebron-james-has-no-timetable-to-make-free-agent-decision-were-not-going-to-be-rushed-125104126.html",
-      "url": "https://sports.yahoo.com/nba/article/rich-paul-says-lebron-james-has-no-timetable-to-make-free-agent-decision-were-not-going-to-be-rushed-125104126.html",
-      "pubDate": "2026-07-21T12:51:04.000Z",
-      "publishedAt": "2026-07-21T12:51:04.000Z",
-      "summary": "LeBron James will make his decision when he's ready.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Rich Paul 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/gFGp4VmYZz5fGhMj3vymGA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/3f7d6fc3-44a9-4e0f-80b5-cb36d5010a62",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
-      "copySource": "fallback",
-      "storyType": "opinion",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286767/Rich-Paul-Says-LeBron-James-Wont-Be-Rushed-Into-Making-Decsion",
-      "title": "Rich Paul Says LeBron James 'Won't Be Rushed' Into Making Decsion",
-      "originalTitle": "Rich Paul Says LeBron James 'Won't Be Rushed' Into Making Decsion",
-      "headlineZh": "Rich Paul Says 相关消息更新",
-      "titleZh": "Rich Paul Says 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286767/Rich-Paul-Says-LeBron-James-Wont-Be-Rushed-Into-Making-Decsion",
-      "url": "https://basketball.realgm.com/wiretap/286767/Rich-Paul-Says-LeBron-James-Wont-Be-Rushed-Into-Making-Decsion",
-      "pubDate": "2026-07-21T12:43:29.000Z",
-      "publishedAt": "2026-07-21T12:43:29.000Z",
-      "summary": "<p>On the latest episode of the Game Over podcast, Klutch Sports leader Rich Paul said that he doesn't know which team his friend and client LeBron James will play for next season. Paul made one thing clear about the process however, by saying that it won't be a snap decision.</p> <p>\"We're not going to be rushed,\" Paul said about James choosing his next team. \"We're not going to be rushed. It's his choice to make and when he makes the choice, he'll make it.\"</p> <p>Paul went on to say that James has all the information he needs to make his decision.</p> <p>\"There's been several people to call and say, 'Hey, Rich, is there anything more we should be doing? We could be doing?'\" Paul said. \"And my answer is, 'No. We don't need you to go above and beyond about anything. We understand it. It's clear. All the messages have been sent.'\"</p> <p>James said in recent public appearances that, \"I won't hold you guys up too much longer.\" NBA commissioner Adam Silver weighed in to say that he hopes the NBA's all-time leading scorer decides soon, so that the league can finish next season's schedule.</p> <p>\"I saw Adam in New York and we discussed it,\" Paul said about speaking with Silver. \"And like I said, it's still his choice. So, if he doesn't really know, you can't rush it. You can't rush it.\"</p>",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Rich Paul Says 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_260502.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Rich Paul Says LeBron James 'Won't Be Rushed' Into Making Decsion",
-      "copySource": "fallback",
-      "storyType": "opinion",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1922,11 +1906,37 @@
       "category": "交易",
       "importance": 5,
       "eventKey": "trade:lebron-james",
-      "relatedItems": [],
+      "relatedItems": [
+        {
+          "title": "Rich Paul Says LeBron James 'Won't Be Rushed' Into Making Decsion",
+          "originalTitle": "Rich Paul Says LeBron James 'Won't Be Rushed' Into Making Decsion",
+          "source": "RealGM",
+          "url": "https://basketball.realgm.com/wiretap/286767/Rich-Paul-Says-LeBron-James-Wont-Be-Rushed-Into-Making-Decsion",
+          "publishedAt": "2026-07-21T12:43:29.000Z",
+          "angle": "source"
+        }
+      ],
+      "sources": [
+        "RealGM"
+      ],
+      "originalTitles": [
+        "Rich Paul Says LeBron James 'Won't Be Rushed' Into Making Decsion",
+        "Trey Murphy Trade Talks Could Pick Up After LeBron James' Decision"
+      ],
+      "sourceLinks": [
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286767/Rich-Paul-Says-LeBron-James-Wont-Be-Rushed-Into-Making-Decsion"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286759/Trey-Murphy-Trade-Talks-Could-Pick-Up-After-LeBron-James-Decision"
+        }
+      ],
+      "isMerged": true,
       "displayTitle": "Trey Murphy Trade Talks Could Pick Up After LeBron James' Decision",
       "copySource": "fallback",
-      "storyType": "rumor",
-      "isMerged": false
+      "storyType": "rumor"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286758/Jonathan-Kumingas-Talks-With-Lakers-Stall-Over-Contract",
