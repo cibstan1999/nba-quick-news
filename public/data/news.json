@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-22T03:02:30.383Z",
+  "updatedAt": "2026-07-22T03:09:44.473Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-22T03:02:30.383Z",
-    "previousUpdatedAt": "2026-07-22T02:56:54.771Z",
-    "updatedAt": "2026-07-22T03:02:30.383Z",
+    "checkedAt": "2026-07-22T03:09:44.473Z",
+    "previousUpdatedAt": "2026-07-22T03:02:30.383Z",
+    "updatedAt": "2026-07-22T03:09:44.473Z",
     "fetchedItems": 80,
-    "mergedItems": 72,
+    "mergedItems": 71,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -32,34 +32,90 @@
     ],
     "failedFeeds": [],
     "newestPublishedAt": "2026-07-22T02:19:55.000Z",
-    "dataAgeHours": 0.7098286111111111,
+    "dataAgeHours": 0.8304091666666666,
     "aiEnabled": true,
-    "aiCandidates": 50,
-    "aiCacheHits": 0,
-    "aiRequests": 10,
-    "aiAccepted": 6,
-    "aiRejected": 2,
+    "aiScope": "latest-items",
+    "aiCandidates": 41,
+    "aiCacheHits": 6,
+    "aiRequests": 5,
+    "aiAccepted": 3,
+    "aiRejected": 1,
     "aiFailed": 0,
-    "aiRetried": 2,
+    "aiRetried": 1,
     "rejectedAsNonChinese": 1,
-    "skippedByLimit": 40,
-    "finalItemsWithChineseSummary": 26,
-    "finalItemsWithoutChineseSummary": 46,
-    "totalNewsItems": 72,
+    "skippedByLimit": 36,
+    "finalItemsWithChineseSummary": 29,
+    "finalItemsWithoutChineseSummary": 42,
+    "totalNewsItems": 71,
     "itemsWithValidChineseSummary": 20,
-    "itemsMissingChineseSummary": 52,
-    "eligibleBacklog": 50,
-    "selectedThisRun": 10,
+    "itemsMissingChineseSummary": 51,
+    "eligibleBacklog": 41,
+    "selectedThisRun": 5,
     "previouslyFailed": 0,
-    "remainingAfterRun": 46,
+    "remainingAfterRun": 42,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
-    "acceptedHighConfidence": 6,
-    "averageAiConfidence": 0.9000000000000001,
-    "minAcceptedConfidence": 0.9,
-    "maxAcceptedConfidence": 0.9,
+    "acceptedHighConfidence": 3,
+    "averageAiConfidence": 0.8875,
+    "minAcceptedConfidence": 0.75,
+    "maxAcceptedConfidence": 0.95,
     "aiLogicError": false,
     "aiModel": "openai/gpt-4o-mini",
+    "aiSelectedItems": [
+      {
+        "title": "Warriors' Yaxel Lendeborg earns Summer League MVP, first team honors",
+        "publishedAt": "2026-07-22T02:19:55.000Z",
+        "source": "Yahoo Sports",
+        "reason": "needs-ai-summary"
+      },
+      {
+        "title": "Stephen Curry to become first active player with exhibit in Basketball Hall of Fame",
+        "publishedAt": "2026-07-22T00:59:07.000Z",
+        "source": "Yahoo Sports",
+        "reason": "needs-ai-summary"
+      },
+      {
+        "title": "Did Rob Pelinka improve the Lakers this offseason?",
+        "publishedAt": "2026-07-22T00:06:16.000Z",
+        "source": "Yahoo Sports",
+        "reason": "needs-ai-summary"
+      },
+      {
+        "title": "Meleek Thomas recognized for impressive Summer League performance",
+        "publishedAt": "2026-07-21T22:23:00.000Z",
+        "source": "Yahoo Sports",
+        "reason": "needs-ai-summary"
+      },
+      {
+        "title": "Cavaliers Reacts Survey: Which recent draft pick has the brightest future?",
+        "publishedAt": "2026-07-21T22:00:00.000Z",
+        "source": "Yahoo Sports",
+        "reason": "needs-ai-summary"
+      }
+    ],
+    "aiUpdatedItems": [
+      {
+        "title": "Stephen Curry to become first active player with exhibit in Basketball Hall of Fame",
+        "publishedAt": "2026-07-22T00:59:07.000Z",
+        "source": "Yahoo Sports",
+        "summaryZh": "斯蒂芬·库里将成为首位在篮球名人堂展出作品的现役球员。该展览聚焦于库里从一名默默无闻的大学球员成长为冠军和最有价值球员的故事。",
+        "oneLineZh": "库里将成为首位现役名人堂展出球员。"
+      },
+      {
+        "title": "Did Rob Pelinka improve the Lakers this offseason?",
+        "publishedAt": "2026-07-22T00:06:16.000Z",
+        "source": "Yahoo Sports",
+        "summaryZh": "在这个休赛期，湖人队的管理层是否在罗布·佩林卡的领导下对阵容进行了有效的改组，仍然存在争议。球迷和分析人士对球队的未来走向持不同看法。",
+        "oneLineZh": "湖人队的阵容改组引发争议。"
+      },
+      {
+        "title": "Meleek Thomas recognized for impressive Summer League performance",
+        "publishedAt": "2026-07-21T22:23:00.000Z",
+        "source": "Yahoo Sports",
+        "summaryZh": "克利夫兰骑士新秀 Meleek Thomas 在夏季联赛中表现出色，场均得到27.3分，成为拉斯维加斯得分王。",
+        "oneLineZh": "Meleek Thomas 在夏季联赛中场均27.3分，表现抢眼。"
+      }
+    ],
     "message": "Fetched 80 usable RSS items from all feeds."
   },
   "highlights": [
@@ -140,7 +196,7 @@
       "publishedAt": "2026-07-22T00:59:07.000Z",
       "summary": "The exhibit focuses on Curry's story as an unheralded player entering college becoming a champion and MVP.",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "斯蒂芬·库里将成为首位在篮球名人堂展出作品的现役球员。该展览聚焦于库里从一名默默无闻的大学球员成长为冠军和最有价值球员的故事。",
       "oneLineZh": "斯蒂芬·库里相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -152,9 +208,12 @@
       "eventKey": "",
       "relatedItems": [],
       "displayTitle": "Stephen Curry to become first active player with exhibit in Basketball Hall of Fame",
-      "copySource": "fallback",
+      "copySource": "github-models",
       "storyType": "fact",
-      "isMerged": false
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-22T03:09:40.427Z",
+      "aiConfidence": 0.9
     },
     {
       "id": "https://sports.yahoo.com/articles/dallas-mavericks-trade-favorite-004235590.html",
@@ -196,7 +255,7 @@
       "publishedAt": "2026-07-22T00:06:16.000Z",
       "summary": "Did Rob Pelinka overhaul this Lakers roster for the better this offseason, or was this a step in the wrong direction?",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "在这个休赛期，湖人队的管理层是否在罗布·佩林卡的领导下对阵容进行了有效的改组，仍然存在争议。球迷和分析人士对球队的未来走向持不同看法。",
       "oneLineZh": "Did Rob Pelinka 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -208,9 +267,12 @@
       "eventKey": "",
       "relatedItems": [],
       "displayTitle": "Did Rob Pelinka improve the Lakers this offseason?",
-      "copySource": "fallback",
+      "copySource": "github-models",
       "storyType": "fact",
-      "isMerged": false
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-22T03:09:42.433Z",
+      "aiConfidence": 0.75
     },
     {
       "id": "https://sports.yahoo.com/articles/meleek-thomas-recognized-impressive-summer-222300052.html",
@@ -224,7 +286,7 @@
       "publishedAt": "2026-07-21T22:23:00.000Z",
       "summary": "The Cavs’ rookie led all scorers in Vegas with 27.3 points per game.",
       "dekZh": "",
-      "summaryZh": "",
+      "summaryZh": "克利夫兰骑士新秀 Meleek Thomas 在夏季联赛中表现出色，场均得到27.3分，成为拉斯维加斯得分王。",
       "oneLineZh": "Meleek Thomas 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
@@ -236,9 +298,12 @@
       "eventKey": "",
       "relatedItems": [],
       "displayTitle": "Meleek Thomas recognized for impressive Summer League performance",
-      "copySource": "fallback",
+      "copySource": "github-models",
       "storyType": "fact",
-      "isMerged": false
+      "isMerged": false,
+      "aiModel": "openai/gpt-4o-mini",
+      "aiGeneratedAt": "2026-07-22T03:09:44.430Z",
+      "aiConfidence": 0.95
     },
     {
       "id": "https://sports.yahoo.com/articles/cavaliers-reacts-survey-recent-draft-220000035.html",
@@ -614,6 +679,14 @@
           "angle": "source"
         },
         {
+          "title": "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
+          "originalTitle": "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/nba/article/rich-paul-says-lebron-james-has-no-timetable-to-make-free-agent-decision-were-not-going-to-be-rushed-125104126.html",
+          "publishedAt": "2026-07-21T12:51:04.000Z",
+          "angle": "source"
+        },
+        {
           "title": "LeBron James Decision 4.0 live updates: Latest rumors on next team",
           "originalTitle": "LeBron James Decision 4.0 live updates: Latest rumors on next team",
           "source": "Yahoo Sports",
@@ -628,6 +701,7 @@
       "originalTitles": [
         "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
         "Rich Paul updates timeframe for LeBron James’ free-agency decision",
+        "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
         "LeBron James Decision 4.0 live updates: Latest rumors on next team"
       ],
       "sourceLinks": [
@@ -638,6 +712,10 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/rich-paul-updates-timeframe-lebron-165900675.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/nba/article/rich-paul-says-lebron-james-has-no-timetable-to-make-free-agent-decision-were-not-going-to-be-rushed-125104126.html"
         },
         {
           "source": "Yahoo Sports",
@@ -1191,7 +1269,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:02:15.435Z",
+      "aiGeneratedAt": "2026-07-22T03:09:44.432Z",
       "aiConfidence": 0.9
     },
     {
@@ -1222,7 +1300,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:02:17.090Z",
+      "aiGeneratedAt": "2026-07-22T03:09:44.433Z",
       "aiConfidence": 0.9
     },
     {
@@ -1253,7 +1331,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:02:19.002Z",
+      "aiGeneratedAt": "2026-07-22T03:09:44.435Z",
       "aiConfidence": 0.9
     },
     {
@@ -1312,7 +1390,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:02:26.581Z",
+      "aiGeneratedAt": "2026-07-22T03:09:44.436Z",
       "aiConfidence": 0.9
     },
     {
@@ -1371,7 +1449,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:02:28.426Z",
+      "aiGeneratedAt": "2026-07-22T03:09:44.438Z",
       "aiConfidence": 0.9
     },
     {
@@ -1402,7 +1480,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T03:02:30.350Z",
+      "aiGeneratedAt": "2026-07-22T03:09:44.439Z",
       "aiConfidence": 0.9
     },
     {
@@ -1429,34 +1507,6 @@
       "displayTitle": "Wilt Chamberlain Lakers jacket found by teen at thrift store fetches over $89,000",
       "copySource": "fallback",
       "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/nba/article/rich-paul-says-lebron-james-has-no-timetable-to-make-free-agent-decision-were-not-going-to-be-rushed-125104126.html",
-      "title": "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
-      "originalTitle": "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
-      "headlineZh": "Rich Paul 相关消息更新",
-      "titleZh": "Rich Paul 相关消息更新",
-      "link": "https://sports.yahoo.com/nba/article/rich-paul-says-lebron-james-has-no-timetable-to-make-free-agent-decision-were-not-going-to-be-rushed-125104126.html",
-      "url": "https://sports.yahoo.com/nba/article/rich-paul-says-lebron-james-has-no-timetable-to-make-free-agent-decision-were-not-going-to-be-rushed-125104126.html",
-      "pubDate": "2026-07-21T12:51:04.000Z",
-      "publishedAt": "2026-07-21T12:51:04.000Z",
-      "summary": "LeBron James will make his decision when he's ready.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Rich Paul 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/gFGp4VmYZz5fGhMj3vymGA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/3f7d6fc3-44a9-4e0f-80b5-cb36d5010a62",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
-      "copySource": "fallback",
-      "storyType": "opinion",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1593,12 +1643,12 @@
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "其他",
-      "importance": 2,
-      "eventKey": "",
-      "relatedItems": [],
+      "importance": 1,
       "displayTitle": "Tuesday Posted & Toasted Notes: Human Towns and pregame meals",
       "copySource": "fallback",
       "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
