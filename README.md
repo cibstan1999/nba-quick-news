@@ -69,6 +69,6 @@ For richer summaries from article text, manually run the workflow with:
 
 - `github_models_enabled=true`
 - `jina_reader_enabled=true`
-- Keep `github_models_max_items=5` while testing
+- Keep `github_models_max_items=5` while testing, or use `10` when you want to fill more summaries in one run
 
-Jina Reader does not require an account for basic usage. If anonymous rate limits become a problem later, add a free or paid Jina key as the optional repository secret `JINA_API_KEY`; the site still works without it.
+The AI prompt asks for a short human-style Chinese retelling, not a title translation: 2-3 sentences, roughly 120-220 Chinese characters, based on the RSS text plus the article text Jina Reader can extract. Jina Reader does not require an account for basic usage. If anonymous rate limits become a problem later, add a free or paid Jina key as the optional repository secret `JINA_API_KEY`; the site still works without it.

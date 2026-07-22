@@ -19,7 +19,7 @@ const outputPath = path.join(rootDir, 'public', 'data', 'news.json');
 const aiCachePath = path.join(rootDir, 'public', 'data', 'ai-summary-cache.json');
 const githubModelsEndpoint = 'https://models.github.ai/inference/chat/completions';
 const defaultGithubModelsModel = 'openai/gpt-4o-mini';
-const aiPromptVersion = 'summary-v3';
+const aiPromptVersion = 'summary-v4';
 
 const parser = new XMLParser({
   ignoreAttributes: false,
@@ -424,7 +424,7 @@ function isAiCandidate(item = {}, { hasValidCache = false } = {}) {
 }
 
 function getAiCandidateRejectionReason(item = {}, { hasValidCache = false, candidate = false, priority = 0 } = {}) {
-  if (hasValidCache) return 'valid-summary-v3-cache';
+  if (hasValidCache) return 'valid-summary-v4-cache';
   if (candidate && priority > 0) return '';
   const summary = item.summaryZh || '';
   if (!summary.trim()) return 'empty-summary-but-priority-zero';
@@ -465,7 +465,7 @@ function getGithubModelsPrompt(item = {}) {
     'confidence 表示“摘要是否忠实覆盖输入中明确存在的信息”，不是表示新闻本身是否已被官方确认。',
     'confidence 评分标准：0.90-1.00=输入事实完整明确，摘要直接忠实转述；0.75-0.89=输入基本明确，仅有少量细节缺失；0.60-0.74=核心人物和事件明确，但背景或部分细节有限；0.45-0.59=只能确认大致主题，无法完整确认观点或结果；低于0.45=输入不足以生成可靠摘要。',
     '对于比赛比分、正式签约、明确采访引语、明确交易状态，不要仅因来源是 RSS 就自动给低分。',
-    'summaryZh 只写 1 到 2 句，建议 45 到 100 个中文字符，硬上限 140 个字符。优先回答核心事件，不要罗列全部背景、声明和筹码，除非它们是理解事件所必需。oneLineZh 最多 45 个中文字符。',
+    'summaryZh 写成 2 到 3 句中文复述，建议 120 到 220 个中文字符，像懂 NBA 的编辑读完文章后讲给中文读者听。不要只翻译标题；要交代文章核心事件、关键背景、球队或球员处境，以及为什么这条新闻值得注意。oneLineZh 最多 45 个中文字符。',
     '请严格返回 JSON：{"summaryZh":"","oneLineZh":"","confidence":0.0,"storyType":"fact"}'
   ].join('\n');
 }
@@ -504,7 +504,7 @@ function getGithubModelsPromptV3(item = {}, retryNote = '') {
     '内容原则：只能使用输入中明确存在的信息；不得补充模型记忆；不得猜测合同细节、球队态度或交易结果；传闻必须保留“据报道”“有意”“讨论中”等不确定性；已签约、已交易、有意、接近、讨论中必须严格区分。',
     '中文表达：像熟悉 NBA 的中文体育编辑。不要逐词翻译英文语序，不要写“关于……的更新”“就……而言”“该名球员”。球员姓名默认保留英文；球队用常见中文译名；sign 写“签下/签约”，agree to a deal 写“达成签约协议”，acquire 写“得到/交易得到”，waive 写“裁掉/放弃”。',
     '文风：简洁、中性、像中文 NBA 快讯。不要营销号，不要夸张词，不要评价交易输赢。避免半中半英拼接，但球员姓名、NBA、合同类型和必要专有名词可以保留英文。',
-    '长度：summaryZh 1 到 2 句，优先 45 到 90 个中文字符，硬上限 130 个中文字符；oneLineZh 一句话，优先 20 到 42 个中文字符。',
+    '长度：summaryZh 2 到 3 句，优先 120 到 220 个中文字符，硬上限 240 个中文字符；oneLineZh 一句话，优先 20 到 42 个中文字符。',
     'confidence 表示“摘要是否忠实覆盖输入中明确存在的信息”，不是表示新闻本身是否官宣。明确比分、签约、采访引语或交易状态不应仅因来源是 RSS 就低分。',
     'storyType 只能使用 fact、trade、signing、injury、draft、rumor、opinion、analysis、unknown。',
     '严格返回 JSON，不要 Markdown，不要解释：{"summaryZh":"","oneLineZh":"","confidence":0.0,"storyType":"fact"}'
@@ -1065,9 +1065,9 @@ function firstCompleteChineseSentence(value = '') {
 
 function compactAiSummary(value = '') {
   const text = normalizeChineseText(value);
-  if (text.length <= 140) return text;
+  if (text.length <= 240) return text;
   const first = firstCompleteChineseSentence(text);
-  return first && first.length <= 140 ? first : text;
+  return first && first.length <= 240 ? first : text;
 }
 
 function buildConservativeEmptyAiFallback(item = {}) {
@@ -1151,7 +1151,7 @@ function validateAiSummary(item = {}, aiResult = null) {
   if (!summaryZh) rejectionReasons.push('empty-summary');
   if (summaryZh && !isPredominantlyChinese(summaryZh)) rejectionReasons.push('non-chinese-summary');
   if (oneLineZh && !isPredominantlyChinese(oneLineZh)) rejectionReasons.push('non-chinese-oneline');
-  if (getChineseLength(summaryZh) > 130) rejectionReasons.push('too-long-summary');
+  if (getChineseLength(summaryZh) > 240) rejectionReasons.push('too-long-summary');
   if (getChineseLength(oneLineZh) > 48) rejectionReasons.push('too-long-oneline');
   if (hasModelMetaText(`${summaryZh} ${oneLineZh}`)) rejectionReasons.push('model-meta-text');
   if (hasEmptySummaryTemplate(`${summaryZh} ${oneLineZh}`)) rejectionReasons.push('generic-summary');
@@ -1354,7 +1354,7 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
       remainingRequests -= 1;
       const retryResult = await summarizeWithGitHubModels(
         item,
-        '上一次结果不符合自然中文 NBA 快讯文风。请保持事实完全不变，只重写中文表达。不要逐句翻译，不得添加信息；summaryZh 必须是中文为主、1 到 2 句、130 个中文字符以内；oneLineZh 必须是中文为主、48 个中文字符以内。'
+        '上一次结果不符合自然中文 NBA 快讯文风。请保持事实完全不变，只重写中文表达。不要逐句翻译，不得添加信息；summaryZh 必须是中文为主、2 到 3 句、240 个中文字符以内，像读完文章后的复述；oneLineZh 必须是中文为主、48 个中文字符以内。'
       );
       if (retryResult) {
         aiResult = retryResult;
@@ -5253,7 +5253,7 @@ async function runSelfTests() {
   assert(!validateAiSummary({ originalTitle: 'Test title', summary: 'Input summary' }, { summaryZh: '', oneLineZh: '', confidence: 0.45, storyType: 'fact' }).accepted, 'empty AI summary is rejected');
   assert(!validateAiSummary({ originalTitle: 'Test title', summary: 'Input summary' }, { summaryZh: '```json 根据提供的信息，湖人仍在评估阵容。```', oneLineZh: '湖人评估阵容。', confidence: 0.8, storyType: 'fact' }).accepted, 'model meta text is rejected');
   const longValidation = validateAiSummary({ originalTitle: 'Test title', summary: 'Input summary' }, { summaryZh: '湖人继续评估阵容，'.repeat(40), oneLineZh: '湖人继续评估阵容。', confidence: 0.8, storyType: 'fact' });
-  assert(!longValidation.accepted || getChineseLength(longValidation.value?.summaryZh || '') <= 130, 'overlong AI summary is rejected or safely compacted');
+  assert(!longValidation.accepted || getChineseLength(longValidation.value?.summaryZh || '') <= 240, 'overlong AI summary is rejected or safely compacted');
   assert(!validateAiSummary({ originalTitle: 'Test title', summary: 'Input summary' }, 'not-json').accepted, 'invalid AI result shape is rejected');
 
   const sourceHash = 'source-hash';
