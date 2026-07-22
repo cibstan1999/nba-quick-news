@@ -171,14 +171,54 @@
       "generatedAt": "2026-07-22T03:02:30.350Z",
       "sourceHash": "d6e901933fdeda1f7b67eaa4a662624a6a071cfb7254a6fc4aca3f7875ff3d1c",
       "promptVersion": "summary-v4"
+    },
+    "d2544551e6d65f93dcc70c446ec64071d2c105774ecac6162e7c4dcbe726f7ea": {
+      "summaryZh": "Valkyries 的 Janelle Salaün 将参加即将在芝加哥举行的三分球大赛。",
+      "oneLineZh": "Janelle Salaün 将参加芝加哥三分球大赛。",
+      "confidence": 0.9,
+      "storyType": "fact",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-22T03:26:29.064Z",
+      "sourceHash": "614e2654c34a92040debefc6c3e004fe13f0c3cbc244c02a8567f0387ea31d32",
+      "promptVersion": "summary-v4"
+    },
+    "bd48b336630a914594b5abd524ae6c329543e6bd9089db62483ca3e50236b8bc": {
+      "summaryZh": "尽管湖人队的阵容已满，但据报道他们仍在关注中锋市场，可能会进行交易以增加内线深度。",
+      "oneLineZh": "湖人队有意在中锋市场寻求交易。",
+      "confidence": 0.85,
+      "storyType": "rumor",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-22T03:26:30.485Z",
+      "sourceHash": "9c91a50ecd282b1547f2ad25e4399d7afbfe26f991850af9cd72a547f63598f1",
+      "promptVersion": "summary-v4"
+    },
+    "79c012732685aefa59cada07453ec634082d48da091bc2f20400f9f5c5604cac": {
+      "summaryZh": "纽约尼克斯在追求穆萨·西塞未果后，面临新的挑战。由于达拉斯的阻碍，西塞未能加盟纽约，球队目前正在考虑备选方案。",
+      "oneLineZh": "尼克斯追求穆萨·西塞失败，正寻求备选方案。",
+      "confidence": 0.9,
+      "storyType": "fact",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-22T03:26:32.698Z",
+      "sourceHash": "d5f196e85afde86ead71432dfac20698a16fb3363eccd849becbabcee35f30a9",
+      "promptVersion": "summary-v4"
+    },
+    "786bdf479a013b4bc2395fdf71ce0c1fae2cffc83bd9feac057f363ad78a1a9e": {
+      "summaryZh": "据报道，亚特兰大老鹰队签下了 Jalen Wilson，作为一名双向球员。这是老鹰队签下的第三名双向球员。",
+      "oneLineZh": "老鹰队签下双向球员 Jalen Wilson。",
+      "confidence": 0.9,
+      "storyType": "rumor",
+      "model": "openai/gpt-4o-mini",
+      "generatedAt": "2026-07-22T03:26:37.036Z",
+      "sourceHash": "6fa7cebfc7527544be1c77e0094accf94c48401675604a046738cb991d3ebf22",
+      "promptVersion": "summary-v4"
     }
   },
   "backlog": {
     "cdaf9d7e0358fc8fc5e6deab098313609d580aa4996ca9c3c32fee061fa98162": {
-      "sourceHash": "027fbe2a910fe1561f6a17e5f7732e1990f3f2b20186f1bdc97086620af13093",
+      "sourceHash": "d6e901933fdeda1f7b67eaa4a662624a6a071cfb7254a6fc4aca3f7875ff3d1c",
       "lastTitle": "Wilt Chamberlain Lakers jacket found by teen at thrift store fetches over $89,000",
-      "skippedByLimit": 1,
-      "lastSkippedAt": "2026-07-22T02:55:51.080Z",
+      "skippedByLimit": 2,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "e10f840cf4c3d6fc529b524787e3bcd0e998da5f6a3050b157d22bb833513df6": {
@@ -204,22 +244,22 @@
     "34a8fa63127e88bc4c4441f9d3a4b3035a03179e2c477f2a07199bc1638ab274": {
       "sourceHash": "50a48c5fb65b902e365823a3138a8d61aec5b53e7773a6cb2e11b5e04dc50783",
       "lastTitle": "Walmart Heiress Nancy Walton Laurie Explores Las Vegas NBA Bid",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
+      "skippedByLimit": 3,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "9115f8e8a87159da6e04ab57d4e82600dfad87c09c83295e8a266a3ba1b922d4": {
       "sourceHash": "2c50be306b06cb2aa2d7ae06c3925b14ce543099d594e7f2795b60b95389a7af",
       "lastTitle": "Why Hugo Gonzalez has potential to be Derrick White-level player",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
+      "skippedByLimit": 3,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "8f2332f91f2a037ac1275108262be4c2c4607e4fe454142c79a9388b88f86a41": {
       "sourceHash": "33486f8f045191fd9ef881a66a573113c34f0ec2f4e79bb3661478874da1cfef",
       "lastTitle": "Editor-in-chief mailbag: Taking a break from LeBron Watch (or not if you don’t want to)",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
+      "skippedByLimit": 3,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "7348e539d7d7f752d320c7d0b3b15da5a58de7c1f04dc30724ecaa2943cb2a75": {
@@ -239,8 +279,8 @@
     "878b64b3791be908086927a33376cd11bc9bf007e3ff19e2d66b38df583e9a78": {
       "sourceHash": "a7d2251a4303a056ea8a0893fcc5738d8c732a4d332cf30bf52b99c83283a040",
       "lastTitle": "Boston Celtics Daily Links 7/21/26",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
+      "skippedByLimit": 3,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "69b6d0b620a688c47300bc323d29bb054303d0b8858a42a9d6c110afedc043cb": {
@@ -250,26 +290,15 @@
       "lastSkippedAt": "2026-07-22T03:02:11.409Z",
       "lastReason": "limit"
     },
-    "79c012732685aefa59cada07453ec634082d48da091bc2f20400f9f5c5604cac": {
-      "sourceHash": "d5f196e85afde86ead71432dfac20698a16fb3363eccd849becbabcee35f30a9",
-      "lastTitle": "What’s next for the Knicks after failed Moussa Cisse pursuit?",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
-      "lastReason": "limit"
-    },
     "e387dec73f20568b9d44219ae4c55f06e462bd3d1844c80aa4108ed25c5855df": {
       "sourceHash": "bd8f73ca9d4a4c9f38ef8804690cc031dd55b3557c0daab0bd7b6e38345a1963",
       "lastTitle": "Suns Reacts: The next big Suns move isn’t a trade",
       "skippedByLimit": 2,
       "lastSkippedAt": "2026-07-22T03:02:11.409Z",
-      "lastReason": "limit"
-    },
-    "bd48b336630a914594b5abd524ae6c329543e6bd9089db62483ca3e50236b8bc": {
-      "sourceHash": "9c91a50ecd282b1547f2ad25e4399d7afbfe26f991850af9cd72a547f63598f1",
-      "lastTitle": "Lakers still monitoring center market, could make trade for big",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
-      "lastReason": "limit"
+      "lastReason": "incomplete-opinion-summary",
+      "failureCount": 1,
+      "lastFailedAt": "2026-07-22T03:26:34.840Z",
+      "nextRetryAt": "2026-07-22T03:56:34.840Z"
     },
     "24418fa08de01edf472f00ce1da6e3abf2748691d6240327e2c83575ba1a97b8": {
       "sourceHash": "80329ee8fc259a3e1038d334914e741c4d611e3b5ab26f95978243196319e500",
@@ -358,15 +387,15 @@
     "515b87ae7f1019e9cba1ce5c8394f161cb6c5aeeb68b35337eb5b7e01fe020f7": {
       "sourceHash": "2c0ee6bf543986461685e69d18d58e4aeb321acba53db644135d07db6aee4c79",
       "lastTitle": "Open Thread: Brent Barry has two NBA records for shooting percentages",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
+      "skippedByLimit": 3,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "105c48dc737b70df37821187d7762f810f52b7b65d780e16466cde4e1d6bc3e6": {
-      "sourceHash": "c5a5eb5e9a2a14d72dc4c88c9ed0f7e20e335c5b3776d572b3b4727d894831ec",
+      "sourceHash": "8697fbec89f66bf380e48cd1af611941578b808253c3056b53ac8a3a52dfc97b",
       "lastTitle": "Tuesday Posted & Toasted Notes: Human Towns and pregame meals",
-      "skippedByLimit": 1,
-      "lastSkippedAt": "2026-07-22T02:55:51.080Z",
+      "skippedByLimit": 2,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "7c706db8e5e88b87e6bdbe0630a53c0471559f3ec0e0191a6b2c195d62e271de": {
@@ -386,57 +415,50 @@
     "b0bae53de1a62684668dc13e6a0b6600cef78b2c098e42db4e82e8615993a13b": {
       "sourceHash": "c244035f182ceaa65a4272478a1a4c4b203a659ced63575310c5a2d747d2267c",
       "lastTitle": "Draymond Green reveals to Shaq why Kobe Bryant isn’t considered a GOAT",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
-      "lastReason": "limit"
-    },
-    "786bdf479a013b4bc2395fdf71ce0c1fae2cffc83bd9feac057f363ad78a1a9e": {
-      "sourceHash": "6fa7cebfc7527544be1c77e0094accf94c48401675604a046738cb991d3ebf22",
-      "lastTitle": "Report: Hawks add Jalen Wilson as two-way player",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
+      "skippedByLimit": 3,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "4dda34a9b5f3c0c4fc6e38a2f6d3e72d338e79b3477b16ddd270d13553834b5e": {
       "sourceHash": "a2679f48d3bd6879ad462fbf1d3040588c1b9fdce07a5aa7cce9b3cd98c1644e",
       "lastTitle": "Zach Guthrie Promoted To Lakers Coaching Staff As Assistant, Head Of Player Development",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
+      "skippedByLimit": 3,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "71e04cbb4adf36871d6f8cfac0f46a1e6a2e39ac76e244f0f8575c1b5afe39f6": {
       "sourceHash": "ee3249e007909a0eb361b45a42807d22a3d5ba6bc6f33c550c38db49a40b5c3d",
       "lastTitle": "Giannis Antetokounmpo's Motivation 'At A Million Percent' Joining Heat",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
+      "skippedByLimit": 3,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "e4a0ba1d22dd017254d978010cec663cfd472c2c77350f8b290ed55c4ce44f4b": {
       "sourceHash": "a3d57794ac0707e40b379dc91521d4f46ac7021d57d3bf7e0110a50291598ec4",
       "lastTitle": "De'Aaron Fox Still Viewed By Spurs As Key Part Of Future",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
+      "skippedByLimit": 3,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "4267935de0b0153311d003c9c453697dff7e5815a21707d26968e67e2d2c03cf": {
       "sourceHash": "f08cae3f7032cae4f3d16424c1f04e285a4da5c53ef065b8506139df71d91b27",
       "lastTitle": "Dylan Harper Could Open Season As Spurs' Sixth Man",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
+      "skippedByLimit": 3,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "18429adc889293a391c983078fa656ec78dc4ca276760e1affb88ce88d3ec8cc": {
       "sourceHash": "ac2e2c21908af61a8cf66848b81e91fcd9742097d030603435c2d774dfe678fb",
       "lastTitle": "NBA's Local Streaming Hub Draws Interest From YouTube, ESPN",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
+      "skippedByLimit": 3,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "17f6b97a63183aae4dcd307216c394b3fd544b768967d274ac3c1cc29175976b": {
       "sourceHash": "f8389cb48620b543418e6c5855f08a7a2991be6e05325feb24e924cb6921c80c",
       "lastTitle": "Mavericks Match Moussa Cisse's Two-Year, $4.7M Offer Sheet With Knicks",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
+      "skippedByLimit": 3,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "e902eb1c659d963763efff7f695e91bd79cbe4f0ff5a128032e3eaccae1c11a6": {
@@ -449,15 +471,15 @@
     "af1e30fa9cd070211a04e3b8c8a5f35c97666caaf68f951fcd034cdd0ee6e5f4": {
       "sourceHash": "5b72eec0d60ff026671aa368ea23459d95e7d6eeedb293ba6f6a7f99834fe0ad",
       "lastTitle": "Jonathan Kuminga's Talks With Lakers Stall Over Contract",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
+      "skippedByLimit": 3,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "ceeb447b24b80e43b7978f676449dd711ca05cedad42378e7c59b6de8c0488f6": {
       "sourceHash": "2ccaf1bb4e79af766aacc4cd91a6794140318282dce7ceed6dcbd613f62456ed",
       "lastTitle": "Luka Doncic: I Think We Have A Really Good Team, Excited To Start New Season",
-      "skippedByLimit": 2,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
+      "skippedByLimit": 3,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "d507214a625c7dac4722de6e147958e6e2ea6d112a5ad5034f6637198507ce7f": {
@@ -479,8 +501,8 @@
     "cd1d7fe5c0bc480c3f39112247f12dfcff5e9d40cd010c0567177205c83e4414": {
       "sourceHash": "8080d8e7a49fe81dc31ff599712a5208fbccb98bbfff34574419dc9060cbe06b",
       "lastTitle": "Can the Suns tap into Miles Bridges’ two-way potential?",
-      "skippedByLimit": 1,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
+      "skippedByLimit": 2,
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     },
     "c8efe5d7238772a1e145892ee9c24999a470594d8babad203d34f01fc80d1e5e": {
@@ -490,11 +512,11 @@
       "lastSkippedAt": "2026-07-22T03:02:11.409Z",
       "lastReason": "limit"
     },
-    "c3bab7ea82d43975fd8694ec7ab364ca51a91849405a2628ae7f63c1f0c2a534": {
-      "sourceHash": "6fcd92dea67656f0df0e0fa30b09f98cdcad7e1a2ae9aa4fd669d859b5d61f43",
-      "lastTitle": "Rich Paul says LeBron James has no timetable to make free-agent decision: 'We're not going to be rushed'",
+    "773500ca94d07183a929e4b4e7a2f63d9f25cb71d5b3b94af236953b44e6f0f8": {
+      "sourceHash": "92d47fb2b3b42cb68882fb13e7f9f826e265fb31693fee05bd8ec96471201af9",
+      "lastTitle": "Rich Paul Says LeBron James 'Won't Be Rushed' Into Making Decsion",
       "skippedByLimit": 1,
-      "lastSkippedAt": "2026-07-22T03:02:11.409Z",
+      "lastSkippedAt": "2026-07-22T03:26:27.057Z",
       "lastReason": "limit"
     }
   }

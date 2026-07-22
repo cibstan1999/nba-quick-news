@@ -162,7 +162,10 @@ const playerNameZh = new Map([
   ['Cameron Boozer', '卡梅伦·布泽尔'],
   ['Graham Ike', '格雷厄姆·艾克'],
   ['Deivon Smith', '戴维恩·史密斯'],
-  ['Rob Pelinka', '罗勃·佩林卡']
+  ['Rob Pelinka', '罗勃·佩林卡'],
+  ['Brayden Burries', '布雷登·伯里斯'],
+  ['Burries', '布雷登·伯里斯'],
+  ['Taelon Peter', '泰伦·彼得']
 ]);
 
 function escapeRegExp(value = '') {
@@ -5135,13 +5138,65 @@ function scoreHighlight(item) {
   if (['签约', '交易', '伤病', '选秀'].includes(item.category)) score += 5;
   if (/(lebron|kawhi|harden|doncic|brown|lakers|warriors|celtics|suns|nets|sixers|bucks|heat|cavaliers)/i.test(text)) score += 3;
   if (/(free agency|trade|sign|deal|contract|extension|injury|draft|target|rumor|pursuit|acquire)/i.test(text)) score += 3;
+  if (/(mvp|first team|all-summer|all summer|hall of fame|two-way deal|waive|preseason schedule|summer league championship)/i.test(text)) score += 4;
   if (getMoneyTokens(`${item.titleZh} ${item.summaryZh}`).length) score += 2;
   if (item.isMerged) score += 2;
   return score;
 }
 
+function cleanupHighlightText(value = '') {
+  return normalizeChineseText(String(value || '')
+    .replace(/^据\s*(?:Yahoo Sports|RealGM|原文)\s*报道，?/, '')
+    .replace(/^NBA动态：/, '')
+    .replace(/^签约动态：/, '')
+    .replace(/^交易动态：/, '')
+    .replace(/这条新闻重点是.+$/, '')
+    .replace(/原文重点是.+$/, '')
+    .replace(/对于球队来说，.+$/, '')
+    .replace(/它更像.+$/, '')
+    .replace(/这篇文章.+$/, '')
+    .replace(/[。；;，,]\s*$/, ''));
+}
+
+function isUsableHighlightText(value = '') {
+  const text = cleanupHighlightText(value);
+  if (!text || !hasChineseText(text)) return false;
+  if (!isPredominantlyChinese(text)) return false;
+  if (!isSafeChineseSummary(text)) return false;
+  if (isGenericHeadline(text) || isGenericFallbackSummary(text) || isMachineTemplateSummary(text)) return false;
+  if (/相关消息更新|相关动态|后续动向|继续更新|值得关注|原文聚焦|更多背景|成为焦点|积极信号|目前仍属于|签约或合同动向|相关交易/.test(text)) return false;
+  if (/Reacts|Survey|mailbag|Daily Links|podcast|odds|fantasy/i.test(text)) return false;
+  return getChineseLength(text) >= 12 && getChineseLength(text) <= 70;
+}
+
+function isLowValueHighlightCandidate(item = {}) {
+  const text = `${item.originalTitle || item.title || ''} ${item.summary || ''} ${item.summaryZh || ''}`;
+  return /\b(?:reacts|survey|mailbag|daily links|podcast|odds|fantasy|favorite|grade the|how would you grade|questions|open thread|game thread)\b/i.test(text) ||
+    /球迷(?:调查|评分|投票)|观点讨论|赔率|前景分析/.test(text);
+}
+
+function summaryToHighlightText(summaryZh = '') {
+  const clean = normalizeChineseText(summaryZh);
+  if (!clean || !hasChineseText(clean)) return '';
+  const sentences = clean
+    .split(/(?<=[。！？!?])\s*/)
+    .map(cleanupHighlightText)
+    .filter(Boolean);
+  const best = sentences.find(isUsableHighlightText) || cleanupHighlightText(sentences.join('，'));
+  if (!best) return '';
+  if (isUsableHighlightText(best)) return best;
+  const shortened = cleanupHighlightText(best.split(/[，,；;]/).slice(0, 2).join('，'));
+  return isUsableHighlightText(shortened) ? shortened : '';
+}
+
 function toHighlightText(item) {
-  return normalizeSpacing((item.oneLineZh || item.headlineZh || '').replace(/^NBA动态：/, '').replace(/^签约动态：/, '').replace(/^交易动态：/, ''));
+  const candidates = [
+    item.oneLineZh,
+    summaryToHighlightText(item.summaryZh || ''),
+    item.headlineZh
+  ].map(cleanupHighlightText);
+
+  return candidates.find(isUsableHighlightText) || '';
 }
 
 function getHighlightDedupeKey(item = {}) {
@@ -5175,9 +5230,13 @@ function buildHighlights(items) {
     .sort((a, b) => b.score - a.score || new Date(b.item.pubDate).getTime() - new Date(a.item.pubDate).getTime())
     .filter(({ item }) => {
       const publishedAt = new Date(item.publishedAt || item.pubDate || '').getTime();
+      const highlightText = toHighlightText(item);
       return Number.isFinite(publishedAt) &&
         publishedAt >= cutoff &&
-        isHighQualityChineseHeadline(item, toHighlightText(item));
+        highlightText &&
+        scoreHighlight(item) >= 5 &&
+        !isLowValueArticle(item.originalTitle || item.title || '', item.summary || '') &&
+        !isLowValueHighlightCandidate(item);
     })) {
     const key = getHighlightDedupeKey(item);
     if (key && seen.has(key)) continue;

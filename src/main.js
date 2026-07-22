@@ -101,6 +101,32 @@ function isLowInfoHighlight(text = '') {
   return /open thread|game thread|podcast|odds|championship odds|fantasy|trade grades|preview|discussion|survey|reacts|mailbag|questions/i.test(text);
 }
 
+function isUsableChineseHighlight(text = '') {
+  const value = String(text || '').trim();
+  return isChineseSnippet(value) &&
+    !isGenericChineseSnippet(value) &&
+    !/相关消息更新|相关动态|后续动向|继续更新|值得关注|原文聚焦|更多背景/.test(value) &&
+    !isLowInfoHighlight(value);
+}
+
+function compactHighlightText(text = '') {
+  return String(text || '')
+    .replace(/^据\s*(?:Yahoo Sports|RealGM|原文)\s*报道，?/, '')
+    .split(/(?<=[。！？!?])\s*/)[0]
+    .replace(/[。！？!?]+$/, '')
+    .trim();
+}
+
+function getHighlightText(item = {}, highlight = {}) {
+  const candidates = [
+    highlight.text,
+    item.oneLineZh,
+    compactHighlightText(item.summaryZh),
+    item.headlineZh
+  ].map(compactHighlightText);
+  return candidates.find(isUsableChineseHighlight) || '';
+}
+
 function getHighlightItems() {
   const byId = new Map();
   const byLink = new Map();
@@ -116,7 +142,7 @@ function getHighlightItems() {
       return {
         ...highlight,
         matched,
-        text: matched ? getPrimaryTitle(matched) : highlight.text
+        text: matched ? getHighlightText(matched, highlight) : highlight.text
       };
     });
 
@@ -128,13 +154,13 @@ function getHighlightItems() {
       link: item.url || item.link,
       category: item.category,
       source: item.source,
-      text: getPrimaryTitle(item),
+      text: getHighlightText(item),
       matched: item
     }));
 
   const seen = new Set();
   return [...fromFeed, ...fromItems]
-    .filter((item) => item.text && !isLowInfoHighlight(`${item.text} ${item.matched?.originalTitle || ''}`))
+    .filter((item) => item.text && isUsableChineseHighlight(item.text) && !isLowInfoHighlight(`${item.text} ${item.matched?.originalTitle || ''}`))
     .filter((item) => {
       const key = item.matched?.eventKey || item.id || item.link || item.text;
       if (seen.has(key)) return false;
