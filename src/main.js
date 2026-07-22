@@ -93,6 +93,10 @@ function isChineseSnippet(value = '') {
   return chineseChars >= 6 && chineseChars >= latinChars * 0.35;
 }
 
+function isGenericChineseSnippet(value = '') {
+  return /相关消息更新|相关动态|交易影响继续发酵|休赛期后续动向|签约动向更新|最新动态|后续影响/.test(String(value));
+}
+
 function isLowInfoHighlight(text = '') {
   return /open thread|game thread|podcast|odds|championship odds|fantasy|trade grades|preview|discussion|survey|reacts|mailbag|questions/i.test(text);
 }
@@ -337,7 +341,7 @@ function renderCard(item) {
   const dekZh = item.dekZh || '';
   const summaryZh = isChineseSnippet(item.summaryZh)
     ? item.summaryZh
-    : (isChineseSnippet(item.oneLineZh) ? item.oneLineZh : '');
+    : (isChineseSnippet(item.oneLineZh) && !isGenericChineseSnippet(item.oneLineZh) ? item.oneLineZh : '');
   const goldenQuoteZh = item.goldenQuoteZh || '';
   const source = item.source || 'Original source';
   const url = item.url || item.link;

@@ -966,6 +966,17 @@ function compareAiCandidateEntries(existingPayload = null, now = Date.now()) {
   };
 }
 
+function compareAiCandidateEntriesByNewest(a, b) {
+  const timeDelta = new Date(b.item.publishedAt || b.item.pubDate || 0).getTime() -
+    new Date(a.item.publishedAt || a.item.pubDate || 0).getTime();
+  if (timeDelta) return timeDelta;
+
+  const priorityDelta = b.priority - a.priority;
+  if (priorityDelta) return priorityDelta;
+
+  return (b.item.importance || 0) - (a.item.importance || 0);
+}
+
 function isRumorWrittenAsConfirmed(item = {}, summary = '') {
   if (inferStoryType(item) !== 'rumor') return false;
   const text = normalizeChineseText(summary);
@@ -1254,7 +1265,8 @@ function buildAiCandidateEvaluations(items = [], existingPayload = null, cache =
   });
 }
 
-async function applyGitHubModelsEnhancements(items = [], existingPayload = null) {
+async function applyGitHubModelsEnhancements(items = [], existingPayload = null, options = {}) {
+  const { latestOnly = false } = options;
   const requestedEnabled = isGitHubModelsEnabled();
   const enabled = requestedEnabled && Boolean(process.env.GITHUB_MODELS_TOKEN);
   const model = getAiModel();
@@ -1284,7 +1296,10 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     eligibleBacklog: 0,
     selectedThisRun: 0,
     previouslyFailed: 0,
-    remainingAfterRun: 0
+    remainingAfterRun: 0,
+    aiScope: latestOnly ? 'latest-items' : 'backlog',
+    aiSelectedItems: [],
+    aiUpdatedItems: []
   };
 
   let remainingRequests = getGithubModelsMaxItems();
@@ -1298,15 +1313,24 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
   const activeKeys = new Set(evaluatedEntries.map((entry) => entry.cacheKey));
   pruneAiBacklog(cache, activeKeys);
 
-  const candidateEntries = evaluatedEntries
+  const allCandidateEntries = evaluatedEntries
     .filter((entry) => entry.priority > 0)
     .sort(compareAiCandidateEntries(existingPayload));
+  const candidateEntries = latestOnly
+    ? [...allCandidateEntries].sort(compareAiCandidateEntriesByNewest)
+    : allCandidateEntries;
   stats.aiCandidates = candidateEntries.length;
   stats.itemsWithValidChineseSummary = items.filter(hasValidChineseSummary).length;
   stats.itemsMissingChineseSummary = items.length - stats.itemsWithValidChineseSummary;
   stats.eligibleBacklog = candidateEntries.length;
   stats.previouslyFailed = candidateEntries.filter((entry) => (entry.backlog?.failureCount || 0) > 0).length;
   const selectedEntries = enabled ? candidateEntries.slice(0, getGithubModelsMaxItems()) : [];
+  stats.aiSelectedItems = selectedEntries.map((entry) => ({
+    title: entry.item.originalTitle || entry.item.title || '',
+    publishedAt: entry.item.publishedAt || entry.item.pubDate || '',
+    source: entry.item.source || '',
+    reason: entry.rejectionReason || 'needs-ai-summary'
+  }));
   const selectedEntryByKey = new Map(selectedEntries.map((entry) => [entry.cacheKey, entry]));
   const candidateKeys = new Set(selectedEntries.map((entry) => entry.cacheKey));
   stats.selectedThisRun = selectedEntries.length;
@@ -1402,6 +1426,13 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     }
 
     stats.aiAccepted += 1;
+    stats.aiUpdatedItems.push({
+      title: item.originalTitle || item.title || '',
+      publishedAt: item.publishedAt || item.pubDate || '',
+      source: item.source || '',
+      summaryZh: validation.value.summaryZh,
+      oneLineZh: validation.value.oneLineZh
+    });
     stats.acceptedConfidenceValues.push(validation.value.aiConfidence);
     if (validation.confidenceBand === 'medium') {
       stats.acceptedMediumConfidence += 1;
@@ -1451,6 +1482,7 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
 
   console.log('GitHub Models summary:', JSON.stringify({
     'GitHub Models enabled': stats.aiEnabled,
+    'AI scope': stats.aiScope,
     'AI candidates': stats.aiCandidates,
     'AI cache hits': stats.aiCacheHits,
     'AI requests': stats.aiRequests,
@@ -1478,8 +1510,16 @@ async function applyGitHubModelsEnhancements(items = [], existingPayload = null)
     Model: stats.aiModel
   }, null, 2));
 
+  if (stats.aiSelectedItems.length) {
+    console.log('AI selected items:', JSON.stringify(stats.aiSelectedItems, null, 2));
+  }
+  if (stats.aiUpdatedItems.length) {
+    console.log('AI updated items:', JSON.stringify(stats.aiUpdatedItems, null, 2));
+  }
+
   console.log('AI summary diagnostics:', JSON.stringify({
     model: stats.aiModel,
+    scope: stats.aiScope,
     candidates: stats.aiCandidates,
     cached: stats.aiCacheHits,
     requested: stats.aiRequests,
@@ -4448,7 +4488,7 @@ async function backfillAiSummaries() {
     return;
   }
 
-  const aiEnhancement = await applyGitHubModelsEnhancements(preparedItems, existing);
+  const aiEnhancement = await applyGitHubModelsEnhancements(preparedItems, existing, { latestOnly: false });
   const finalItems = aiEnhancement.items;
   const remaining = finalItems.filter((item) => !hasValidChineseSummary(item)).length;
   const checkedAt = new Date().toISOString();
@@ -5126,7 +5166,7 @@ async function main() {
     }
 
     const preparedItems = preparePayloadForWrite({ items }, { stripArticleText: false }).items;
-    const aiEnhancement = await applyGitHubModelsEnhancements(preparedItems, existingPayloadForAi);
+    const aiEnhancement = await applyGitHubModelsEnhancements(preparedItems, existingPayloadForAi, { latestOnly: true });
     const finalItems = aiEnhancement.items;
     const updatedAt = new Date().toISOString();
     const previousUpdatedAt = existingPayloadForAi?.updatedAt || '';
@@ -5153,6 +5193,7 @@ async function main() {
         newestPublishedAt,
         dataAgeHours,
         aiEnabled: aiEnhancement.stats.aiEnabled,
+        aiScope: aiEnhancement.stats.aiScope,
         aiCandidates: aiEnhancement.stats.aiCandidates,
         aiCacheHits: aiEnhancement.stats.aiCacheHits,
         aiRequests: aiEnhancement.stats.aiRequests,
@@ -5179,6 +5220,8 @@ async function main() {
         maxAcceptedConfidence: aiEnhancement.stats.maxAcceptedConfidence,
         aiLogicError: aiEnhancement.stats.aiLogicError,
         aiModel: aiEnhancement.stats.aiModel,
+        aiSelectedItems: aiEnhancement.stats.aiSelectedItems,
+        aiUpdatedItems: aiEnhancement.stats.aiUpdatedItems,
         message: failedFeeds.length
           ? `Fetched ${fetchedItems} usable RSS items with ${failedFeeds.length} failed feed(s).`
           : `Fetched ${fetchedItems} usable RSS items from all feeds.`
