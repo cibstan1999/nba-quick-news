@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-22T08:38:25.882Z",
+  "updatedAt": "2026-07-22T11:12:16.257Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-22T08:38:25.882Z",
-    "previousUpdatedAt": "2026-07-22T05:56:16.077Z",
-    "updatedAt": "2026-07-22T08:38:25.882Z",
+    "checkedAt": "2026-07-22T11:12:16.257Z",
+    "previousUpdatedAt": "2026-07-22T08:38:25.882Z",
+    "updatedAt": "2026-07-22T11:12:16.257Z",
     "fetchedItems": 80,
-    "mergedItems": 73,
+    "mergedItems": 72,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,12 +31,12 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-22T06:24:27.000Z",
-    "dataAgeHours": 2.233022777777778,
+    "newestPublishedAt": "2026-07-22T10:15:00.000Z",
+    "dataAgeHours": 0.9545158333333333,
     "aiEnabled": false,
     "aiScope": "latest-items",
-    "aiCandidates": 21,
-    "aiCacheHits": 12,
+    "aiCandidates": 22,
+    "aiCacheHits": 10,
     "aiRequests": 0,
     "aiAccepted": 0,
     "aiRejected": 0,
@@ -44,15 +44,15 @@
     "aiRetried": 0,
     "rejectedAsNonChinese": 0,
     "skippedByLimit": 0,
-    "finalItemsWithChineseSummary": 52,
-    "finalItemsWithoutChineseSummary": 21,
-    "totalNewsItems": 73,
-    "itemsWithValidChineseSummary": 42,
+    "finalItemsWithChineseSummary": 50,
+    "finalItemsWithoutChineseSummary": 22,
+    "totalNewsItems": 72,
+    "itemsWithValidChineseSummary": 41,
     "itemsMissingChineseSummary": 31,
-    "eligibleBacklog": 21,
+    "eligibleBacklog": 22,
     "selectedThisRun": 0,
-    "previouslyFailed": 3,
-    "remainingAfterRun": 21,
+    "previouslyFailed": 2,
+    "remainingAfterRun": 22,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
     "acceptedHighConfidence": 0,
@@ -103,6 +103,62 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/mark-pope-provides-practice-report-101500199.html",
+      "title": "Mark Pope provides a practice report recapping the Las Vegas trip",
+      "originalTitle": "Mark Pope provides a practice report recapping the Las Vegas trip",
+      "headlineZh": "Mark Pope 相关消息更新",
+      "titleZh": "Mark Pope 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/mark-pope-provides-practice-report-101500199.html",
+      "url": "https://sports.yahoo.com/articles/mark-pope-provides-practice-report-101500199.html",
+      "pubDate": "2026-07-22T10:15:00.000Z",
+      "publishedAt": "2026-07-22T10:15:00.000Z",
+      "summary": "Mark Pope talks about the Wildcats taking a memorable trip to Vegas.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Mark Pope 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/gRifozlKB20_KUqo7iGjOA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/817c6e2b98c1f8ff603a2706705b7314",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Mark Pope provides a practice report recapping the Las Vegas trip",
+      "copySource": "fallback",
+      "storyType": "rumor",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/youtube-gold-john-havlicek-stymies-100900865.html",
+      "title": "YouTube Gold: John Havlicek Stymies Dr. J",
+      "originalTitle": "YouTube Gold: John Havlicek Stymies Dr. J",
+      "headlineZh": "YouTube Gold 相关消息更新",
+      "titleZh": "YouTube Gold 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/youtube-gold-john-havlicek-stymies-100900865.html",
+      "url": "https://sports.yahoo.com/articles/youtube-gold-john-havlicek-stymies-100900865.html",
+      "pubDate": "2026-07-22T10:09:00.000Z",
+      "publishedAt": "2026-07-22T10:09:00.000Z",
+      "summary": "Between his incredible endurance and attention to detail, John Havlicek was an utterly unique basketball player.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "YouTube Gold 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/PvF_9RRJ0xrT11geZKuCAg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xMjAwO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/bc677aa4f52214b32fcd1637c3ebdaad",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "YouTube Gold: John Havlicek Stymies Dr. J",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://basketball.realgm.com/wiretap/286779/Mario-Hezonja-Drawing-Interest-From-Multiple-Teams",
       "title": "Mario Hezonja Drawing Interest From Multiple Teams",
@@ -278,6 +334,73 @@
       "isMerged": false
     },
     {
+      "id": "https://sports.yahoo.com/articles/did-youtube-account-spoil-lebron-044032853.html",
+      "title": "Did a YouTube account spoil LeBron James’ free agency decision?",
+      "originalTitle": "Did a YouTube account spoil LeBron James’ free agency decision?",
+      "headlineZh": "勒布朗·詹姆斯签约动向更新",
+      "titleZh": "勒布朗·詹姆斯签约动向更新",
+      "link": "https://sports.yahoo.com/articles/did-youtube-account-spoil-lebron-044032853.html",
+      "url": "https://sports.yahoo.com/articles/did-youtube-account-spoil-lebron-044032853.html",
+      "pubDate": "2026-07-22T04:40:32.000Z",
+      "publishedAt": "2026-07-22T04:40:32.000Z",
+      "summary": "Is LeBron James taking his talents back to South Beach?",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，勒布朗·詹姆斯的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "勒布朗·詹姆斯签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/_e4Be_v7cGX3jdhocpJVfg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/6f9952477fdfd74b53ce29dab77dd134",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james",
+      "relatedItems": [
+        {
+          "title": "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
+          "originalTitle": "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/adam-silver-pushing-lebron-james-194954211.html",
+          "publishedAt": "2026-07-21T19:49:54.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Rich Paul updates timeframe for LeBron James’ free-agency decision",
+          "originalTitle": "Rich Paul updates timeframe for LeBron James’ free-agency decision",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/rich-paul-updates-timeframe-lebron-165900675.html",
+          "publishedAt": "2026-07-21T16:59:00.000Z",
+          "angle": "source"
+        }
+      ],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Did a YouTube account spoil LeBron James’ free agency decision?",
+        "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
+        "Rich Paul updates timeframe for LeBron James’ free-agency decision"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/did-youtube-account-spoil-lebron-044032853.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/adam-silver-pushing-lebron-james-194954211.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/rich-paul-updates-timeframe-lebron-165900675.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "Did a YouTube account spoil LeBron James’ free agency decision?",
+      "copySource": "fallback",
+      "storyType": "signing"
+    },
+    {
       "id": "https://sports.yahoo.com/nba/article/heat-confirm-the-lebron-james-introductory-press-conference-youtube-video-was-published-accidentally-after-latest-rumors-043327502.html",
       "title": "Heat confirm the LeBron James introductory press conference YouTube video was published accidentally after latest rumors",
       "originalTitle": "Heat confirm the LeBron James introductory press conference YouTube video was published accidentally after latest rumors",
@@ -361,7 +484,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T08:38:25.486Z",
+      "aiGeneratedAt": "2026-07-22T11:12:16.211Z",
       "aiConfidence": 0.9
     },
     {
@@ -392,7 +515,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T08:38:25.487Z",
+      "aiGeneratedAt": "2026-07-22T11:12:16.212Z",
       "aiConfidence": 0.9
     },
     {
@@ -535,7 +658,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T08:38:25.488Z",
+      "aiGeneratedAt": "2026-07-22T11:12:16.213Z",
       "aiConfidence": 0.9
     },
     {
@@ -1049,60 +1172,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/adam-silver-pushing-lebron-james-194954211.html",
-      "title": "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
-      "originalTitle": "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
-      "headlineZh": "Adam Silver 签约动向更新",
-      "titleZh": "Adam Silver 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/adam-silver-pushing-lebron-james-194954211.html",
-      "url": "https://sports.yahoo.com/articles/adam-silver-pushing-lebron-james-194954211.html",
-      "pubDate": "2026-07-21T19:49:54.000Z",
-      "publishedAt": "2026-07-21T19:49:54.000Z",
-      "summary": "NBA commissioner Adam Silver may regret calling out LeBron James to decide where he will play next season. Four-time NBA champion Draymond Green said that Silver urging James to make...",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Adam Silver 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Adam Silver 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/zc6EMQN68MYmTDFhkBzdeQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/b80dfeea3f6550d1df1f45061d596b9b",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james",
-      "relatedItems": [
-        {
-          "title": "Rich Paul updates timeframe for LeBron James’ free-agency decision",
-          "originalTitle": "Rich Paul updates timeframe for LeBron James’ free-agency decision",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/rich-paul-updates-timeframe-lebron-165900675.html",
-          "publishedAt": "2026-07-21T16:59:00.000Z",
-          "angle": "source"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
-        "Rich Paul updates timeframe for LeBron James’ free-agency decision"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/adam-silver-pushing-lebron-james-194954211.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/rich-paul-updates-timeframe-lebron-165900675.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "Adam Silver pushing LeBron James into free agency decision will backfire: Draymond Green",
-      "copySource": "fallback",
-      "storyType": "rumor"
-    },
-    {
       "id": "https://sports.yahoo.com/articles/warriors-rookie-yaxel-lendeborg-named-194309429.html",
       "title": "Warriors rookie Yaxel Lendeborg named Summer League MVP, All Summer-League teams announced",
       "originalTitle": "Warriors rookie Yaxel Lendeborg named Summer League MVP, All Summer-League teams announced",
@@ -1211,7 +1280,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T08:38:25.490Z",
+      "aiGeneratedAt": "2026-07-22T11:12:16.215Z",
       "aiConfidence": 0.9
     },
     {
@@ -1270,7 +1339,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T08:38:25.492Z",
+      "aiGeneratedAt": "2026-07-22T11:12:16.216Z",
       "aiConfidence": 0.9
     },
     {
@@ -1301,7 +1370,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T08:38:25.493Z",
+      "aiGeneratedAt": "2026-07-22T11:12:16.217Z",
       "aiConfidence": 0.9
     },
     {
@@ -1360,7 +1429,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T08:38:25.495Z",
+      "aiGeneratedAt": "2026-07-22T11:12:16.218Z",
       "aiConfidence": 0.9
     },
     {
@@ -1615,7 +1684,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T08:38:25.496Z",
+      "aiGeneratedAt": "2026-07-22T11:12:16.219Z",
       "aiConfidence": 0.9
     },
     {
@@ -1646,97 +1715,7 @@
       "relatedItems": [],
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T08:38:25.497Z",
-      "aiConfidence": 0.9
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/warriors-rookie-yaxel-lendeborgs-defense-134604620.html",
-      "title": "Warriors rookie Yaxel Lendeborg's defense a mixed bag in NBA Summer League",
-      "originalTitle": "Warriors rookie Yaxel Lendeborg's defense a mixed bag in NBA Summer League",
-      "headlineZh": "亚克塞尔·伦德伯格's 相关消息更新",
-      "titleZh": "亚克塞尔·伦德伯格's 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/warriors-rookie-yaxel-lendeborgs-defense-134604620.html",
-      "url": "https://sports.yahoo.com/articles/warriors-rookie-yaxel-lendeborgs-defense-134604620.html",
-      "pubDate": "2026-07-21T13:46:04.000Z",
-      "publishedAt": "2026-07-21T13:46:04.000Z",
-      "summary": "Dalton Johnson breaks down what Golden State Warriors rookie Yaxel Lendeborg showed defensively in the NBA Summer League.",
-      "dekZh": "",
-      "summaryZh": "金州勇士新秀 Yaxel Lendeborg 在 NBA 夏季联赛中的防守表现参差不齐。分析师 Dalton Johnson 对 Lendeborg 的防守能力进行了详细解读。",
-      "oneLineZh": "亚克塞尔·伦德伯格's 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/f15866990a4364f8d956aa03c1bee027",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 2,
-      "displayTitle": "Warriors rookie Yaxel Lendeborg's defense a mixed bag in NBA Summer League",
-      "copySource": "github-models",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false,
-      "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T08:38:25.499Z",
-      "aiConfidence": 0.9
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/jalen-wilson-hawks-ziaire-williams-134243513.html",
-      "title": "Jalen Wilson to Hawks, Ziaire Williams with Lakers as Tyson Etienne, Trevon Scott go overseas",
-      "originalTitle": "Jalen Wilson to Hawks, Ziaire Williams with Lakers as Tyson Etienne, Trevon Scott go overseas",
-      "headlineZh": "Jalen Wilson 相关消息更新",
-      "titleZh": "Jalen Wilson 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/jalen-wilson-hawks-ziaire-williams-134243513.html",
-      "url": "https://sports.yahoo.com/articles/jalen-wilson-hawks-ziaire-williams-134243513.html",
-      "pubDate": "2026-07-21T13:42:43.000Z",
-      "publishedAt": "2026-07-21T13:42:43.000Z",
-      "summary": "Jalen Wilson becomes the latest Net from last season to find a home.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Jalen Wilson 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/W87He49lRlw.eHtoTC_UwA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03NjA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/6aec08fd79f3c77ffda358e1dc6437bf",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Jalen Wilson to Hawks, Ziaire Williams with Lakers as Tyson Etienne, Trevon Scott go overseas",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/rich-paul-provides-lebron-james-133554062.html",
-      "title": "Rich Paul provides an update on LeBron James’s decision",
-      "originalTitle": "Rich Paul provides an update on LeBron James’s decision",
-      "headlineZh": "Rich Paul 相关消息更新",
-      "titleZh": "Rich Paul 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/rich-paul-provides-lebron-james-133554062.html",
-      "url": "https://sports.yahoo.com/articles/rich-paul-provides-lebron-james-133554062.html",
-      "pubDate": "2026-07-21T13:35:54.000Z",
-      "publishedAt": "2026-07-21T13:35:54.000Z",
-      "summary": "Don’t expect an announcement anytime soon.",
-      "dekZh": "",
-      "summaryZh": "Rich Paul 表示，勒布朗·詹姆斯的决定不会很快公布，球迷们暂时不必期待相关消息。",
-      "oneLineZh": "Rich Paul 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/p9HgMTfDTMD4zJFSG20Mkw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTQ7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/93f92e05668632e15d736d7f80ae3a30",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Rich Paul provides an update on LeBron James’s decision",
-      "copySource": "github-models",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false,
-      "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T08:38:25.501Z",
+      "aiGeneratedAt": "2026-07-22T11:12:16.220Z",
       "aiConfidence": 0.9
     },
     {
@@ -1767,7 +1746,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-22T08:38:25.502Z",
+      "aiGeneratedAt": "2026-07-22T11:12:16.221Z",
       "aiConfidence": 0.9
     },
     {
