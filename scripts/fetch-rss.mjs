@@ -315,6 +315,7 @@ function getAiSourceHash(item = {}) {
     aiPromptVersion,
     item.originalTitle || item.title || '',
     item.summary || '',
+    normalizeWhitespace(item.articleText || '').slice(0, 6000),
     item.source || '',
     item.category || '',
     item.publishedAt || item.pubDate || '',
@@ -475,6 +476,7 @@ function sleep(ms) {
 
 function getGithubModelsPromptV3(item = {}, retryNote = '') {
   const facts = getExtractedFactsForPrompt(item);
+  const articleText = normalizeWhitespace(item.articleText || '').slice(0, 6000);
   const relatedItems = toArray(item.relatedItems).map((related) => ({
     originalTitle: related.originalTitle || related.title || '',
     summary: stripHtml(related.summary || ''),
@@ -496,6 +498,7 @@ function getGithubModelsPromptV3(item = {}, retryNote = '') {
     `eventKey: ${item.eventKey || ''}`,
     `relatedItems: ${JSON.stringify(relatedItems)}`,
     `extractedFacts: ${JSON.stringify(facts)}`,
+    `articleTextExcerpt: ${articleText}`,
     `fallbackSummaryZh: ${item.summaryZh || ''}`,
     '',
     '内容原则：只能使用输入中明确存在的信息；不得补充模型记忆；不得猜测合同细节、球队态度或交易结果；传闻必须保留“据报道”“有意”“讨论中”等不确定性；已签约、已交易、有意、接近、讨论中必须严格区分。',
@@ -647,6 +650,7 @@ function buildSourceEvidence(item = {}) {
     item.title,
     item.summary,
     item.originalSummary,
+    item.articleText,
     item.dek,
     item.description,
     ...toArray(item.relatedItems).map((related) => related.originalTitle || related.title || ''),
@@ -2482,11 +2486,13 @@ async function extractArticleText(url) {
   }
 
   try {
-    const targetUrl = `https://r.jina.ai/http://${url.replace(/^https?:\/\//i, '')}`;
+    const targetUrl = `https://r.jina.ai/${url}`;
+    const jinaApiKey = process.env.JINA_API_KEY || '';
     const response = await fetchWithRetry(targetUrl, {
       headers: {
         ...FETCH_HEADERS,
-        Accept: 'text/plain, text/markdown, */*'
+        Accept: 'text/plain, text/markdown, */*',
+        ...(jinaApiKey ? { Authorization: `Bearer ${jinaApiKey}` } : {})
       }
     }, 2);
 
@@ -3923,10 +3929,19 @@ function normalizeHighlightText(highlight = {}) {
   };
 }
 
-function preparePayloadForWrite(payload = {}) {
+function stripTransientArticleText(item = {}) {
+  const { articleText, ...cleanItem } = item;
+  return cleanItem;
+}
+
+function preparePayloadForWrite(payload = {}, options = {}) {
+  const { stripArticleText = true } = options;
   const items = Array.isArray(payload.items)
     ? mergeEvents(mergeEvents(payload.items.map(enrichMergedContractDetails).map(normalizeNewsItemText)).map(normalizeNewsItemText)).map(normalizeNewsItemText)
     : payload.items;
+  const outputItems = stripArticleText && Array.isArray(items)
+    ? items.map(stripTransientArticleText)
+    : items;
   const highlights = Array.isArray(items)
     ? buildHighlights(items).map(normalizeHighlightText)
     : toArray(payload.highlights).map(normalizeHighlightText);
@@ -3934,7 +3949,7 @@ function preparePayloadForWrite(payload = {}) {
   return {
     ...payload,
     highlights,
-    items
+    items: outputItems
   };
 }
 
@@ -5110,7 +5125,7 @@ async function main() {
       return;
     }
 
-    const preparedItems = preparePayloadForWrite({ items }).items;
+    const preparedItems = preparePayloadForWrite({ items }, { stripArticleText: false }).items;
     const aiEnhancement = await applyGitHubModelsEnhancements(preparedItems, existingPayloadForAi);
     const finalItems = aiEnhancement.items;
     const updatedAt = new Date().toISOString();

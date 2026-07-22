@@ -64,3 +64,11 @@ To manually fill missing Chinese summaries, run the workflow with:
 - `github_models_max_items=5` by default
 
 The script still enforces a hard safety cap of 30 items per run. If GitHub Models free quota or rate limits are exhausted, the workflow logs the issue and keeps existing news data instead of writing English text into Chinese summary fields.
+
+For richer summaries from article text, manually run the workflow with:
+
+- `github_models_enabled=true`
+- `jina_reader_enabled=true`
+- Keep `github_models_max_items=5` while testing
+
+Jina Reader does not require an account for basic usage. If anonymous rate limits become a problem later, add a free or paid Jina key as the optional repository secret `JINA_API_KEY`; the site still works without it.

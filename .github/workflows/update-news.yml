@@ -21,6 +21,14 @@ on:
         description: 'GitHub Models model ID'
         required: false
         default: 'openai/gpt-4o-mini'
+      jina_reader_enabled:
+        description: 'Use Jina Reader to fetch article text for AI summaries'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
       backfill_ai:
         description: 'Backfill missing Chinese summaries'
         required: false
@@ -65,6 +73,8 @@ jobs:
           GITHUB_MODELS_ENABLED: ${{ github.event.inputs.backfill_ai == 'true' && 'true' || github.event.inputs.github_models_enabled || 'false' }}
           GITHUB_MODELS_MODEL: ${{ github.event.inputs.github_models_model || 'openai/gpt-4o-mini' }}
           GITHUB_MODELS_MAX_ITEMS: ${{ github.event.inputs.github_models_max_items || '5' }}
+          JINA_READER_ENABLED: ${{ github.event.inputs.jina_reader_enabled || 'false' }}
+          JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
 
       - name: Check news freshness
         if: ${{ github.event.inputs.backfill_ai != 'true' }}
