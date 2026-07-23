@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-23T11:26:23.369Z",
+  "updatedAt": "2026-07-23T13:05:29.186Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-23T11:26:23.369Z",
-    "previousUpdatedAt": "2026-07-23T09:27:08.368Z",
-    "updatedAt": "2026-07-23T11:26:23.369Z",
+    "checkedAt": "2026-07-23T13:05:29.186Z",
+    "previousUpdatedAt": "2026-07-23T11:26:23.369Z",
+    "updatedAt": "2026-07-23T13:05:29.186Z",
     "fetchedItems": 79,
-    "mergedItems": 66,
+    "mergedItems": 64,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,11 +31,11 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-23T10:00:00.000Z",
-    "dataAgeHours": 1.4398247222222222,
+    "newestPublishedAt": "2026-07-23T12:01:00.000Z",
+    "dataAgeHours": 1.074773888888889,
     "aiEnabled": false,
     "aiScope": "latest-items",
-    "aiCandidates": 37,
+    "aiCandidates": 36,
     "aiCacheHits": 1,
     "aiRequests": 0,
     "aiAccepted": 0,
@@ -44,15 +44,15 @@
     "aiRetried": 0,
     "rejectedAsNonChinese": 0,
     "skippedByLimit": 0,
-    "finalItemsWithChineseSummary": 29,
-    "finalItemsWithoutChineseSummary": 37,
-    "totalNewsItems": 66,
-    "itemsWithValidChineseSummary": 28,
-    "itemsMissingChineseSummary": 38,
-    "eligibleBacklog": 37,
+    "finalItemsWithChineseSummary": 28,
+    "finalItemsWithoutChineseSummary": 36,
+    "totalNewsItems": 64,
+    "itemsWithValidChineseSummary": 27,
+    "itemsMissingChineseSummary": 37,
+    "eligibleBacklog": 36,
     "selectedThisRun": 0,
     "previouslyFailed": 0,
-    "remainingAfterRun": 37,
+    "remainingAfterRun": 36,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
     "acceptedHighConfidence": 0,
@@ -75,6 +75,147 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/lebron-decision-drags-latest-rumors-120100304.html",
+      "title": "LeBron decision drags on: Latest rumors, news on next team",
+      "originalTitle": "LeBron decision drags on: Latest rumors, news on next team",
+      "headlineZh": "NBA 休赛期后续动向",
+      "titleZh": "NBA 休赛期后续动向",
+      "link": "https://sports.yahoo.com/articles/lebron-decision-drags-latest-rumors-120100304.html",
+      "url": "https://sports.yahoo.com/articles/lebron-decision-drags-latest-rumors-120100304.html",
+      "pubDate": "2026-07-23T12:01:00.000Z",
+      "publishedAt": "2026-07-23T12:01:00.000Z",
+      "summary": "Keep up with the latest news on LeBron James' free agency with USA TODAY Sports.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "NBA 休赛期后续动向",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/8FJU6u0a6qVmtPfrLiZFXw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05NjM7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/4ca9db04eaaa019e7dd035b4857bdda3",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james",
+      "relatedItems": [
+        {
+          "title": "LeBron James delaying free agency decision for one key reason",
+          "originalTitle": "LeBron James delaying free agency decision for one key reason",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/lebron-james-delaying-free-agency-011351804.html",
+          "publishedAt": "2026-07-23T01:13:51.000Z",
+          "angle": "report"
+        },
+        {
+          "title": "Did Adam Silver's remarks delay LeBron James' free agency choice?",
+          "originalTitle": "Did Adam Silver's remarks delay LeBron James' free agency choice?",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/did-adam-silvers-remarks-delay-235620837.html",
+          "publishedAt": "2026-07-22T23:56:20.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Kendrick Perkins convinced we got first ‘real big clue’ of LeBron James’ free agency",
+          "originalTitle": "Kendrick Perkins convinced we got first ‘real big clue’ of LeBron James’ free agency",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/kendrick-perkins-convinced-got-first-203220672.html",
+          "publishedAt": "2026-07-22T20:32:20.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "How NBA teams reportedly could ‘sway' LeBron James into signing with them",
+          "originalTitle": "How NBA teams reportedly could ‘sway' LeBron James into signing with them",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/nba-teams-reportedly-could-sway-174351034.html",
+          "publishedAt": "2026-07-22T17:43:51.000Z",
+          "angle": "report"
+        }
+      ],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "LeBron decision drags on: Latest rumors, news on next team",
+        "LeBron James delaying free agency decision for one key reason",
+        "Did Adam Silver's remarks delay LeBron James' free agency choice?",
+        "Kendrick Perkins convinced we got first ‘real big clue’ of LeBron James’ free agency",
+        "How NBA teams reportedly could ‘sway' LeBron James into signing with them"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-decision-drags-latest-rumors-120100304.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-delaying-free-agency-011351804.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/did-adam-silvers-remarks-delay-235620837.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/kendrick-perkins-convinced-got-first-203220672.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/nba-teams-reportedly-could-sway-174351034.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/mike-gansey-deserves-vote-confidence-140536712.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "LeBron decision drags on: Latest rumors, news on next team",
+      "copySource": "fallback",
+      "storyType": "signing"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lebron-james-rumors-superstar-trade-120000227.html",
+      "title": "LeBron James rumors on superstar trade demands, who’s calling him, favorites, and more",
+      "originalTitle": "LeBron James rumors on superstar trade demands, who’s calling him, favorites, and more",
+      "headlineZh": "勒布朗·詹姆斯交易影响继续发酵",
+      "titleZh": "勒布朗·詹姆斯交易影响继续发酵",
+      "link": "https://sports.yahoo.com/articles/lebron-james-rumors-superstar-trade-120000227.html",
+      "url": "https://sports.yahoo.com/articles/lebron-james-rumors-superstar-trade-120000227.html",
+      "pubDate": "2026-07-23T12:00:00.000Z",
+      "publishedAt": "2026-07-23T12:00:00.000Z",
+      "summary": "Here are latest rumors on LeBron James’ free agency.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，勒布朗·詹姆斯相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "勒布朗·詹姆斯交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/rwQ5lVmERGA0RbeeEFVgDA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTk7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/4d9e24c5189fb2c4c11cc4c7b5b66885",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 2,
+      "eventKey": "trade:lebron-james",
+      "relatedItems": [],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "LeBron James rumors on superstar trade demands, who’s calling him, favorites, and more"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-rumors-superstar-trade-120000227.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/nba-offseason-trade-free-agent-201126098.html"
+        }
+      ],
+      "isMerged": false,
+      "displayTitle": "LeBron James rumors on superstar trade demands, who’s calling him, favorites, and more",
+      "copySource": "fallback",
+      "storyType": "trade"
+    },
     {
       "id": "https://sports.yahoo.com/articles/ex-arizona-guard-anthony-dell-100000908.html",
       "title": "Ex-Arizona guard Anthony Dell’Orso signs deal with Australian pro club",
@@ -490,90 +631,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/lebron-james-delaying-free-agency-011351804.html",
-      "title": "LeBron James delaying free agency decision for one key reason",
-      "originalTitle": "LeBron James delaying free agency decision for one key reason",
-      "headlineZh": "勒布朗·詹姆斯签约动向更新",
-      "titleZh": "勒布朗·詹姆斯签约动向更新",
-      "link": "https://sports.yahoo.com/articles/lebron-james-delaying-free-agency-011351804.html",
-      "url": "https://sports.yahoo.com/articles/lebron-james-delaying-free-agency-011351804.html",
-      "pubDate": "2026-07-23T01:13:51.000Z",
-      "publishedAt": "2026-07-23T01:13:51.000Z",
-      "summary": "The LeBron James free agency saga has yet to reach its denouement, and the latest report reveals the reason for the delay. James is reportedly “slow-playing” his decision to see...",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，勒布朗·詹姆斯的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "勒布朗·詹姆斯签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/SRzdb4Tshbnt5I53SmBflw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/4ce7f2462cf892b6e19abb45553f9784",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james",
-      "relatedItems": [
-        {
-          "title": "Did Adam Silver's remarks delay LeBron James' free agency choice?",
-          "originalTitle": "Did Adam Silver's remarks delay LeBron James' free agency choice?",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/did-adam-silvers-remarks-delay-235620837.html",
-          "publishedAt": "2026-07-22T23:56:20.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "Kendrick Perkins convinced we got first ‘real big clue’ of LeBron James’ free agency",
-          "originalTitle": "Kendrick Perkins convinced we got first ‘real big clue’ of LeBron James’ free agency",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/kendrick-perkins-convinced-got-first-203220672.html",
-          "publishedAt": "2026-07-22T20:32:20.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "How NBA teams reportedly could ‘sway' LeBron James into signing with them",
-          "originalTitle": "How NBA teams reportedly could ‘sway' LeBron James into signing with them",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/nba-teams-reportedly-could-sway-174351034.html",
-          "publishedAt": "2026-07-22T17:43:51.000Z",
-          "angle": "report"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "LeBron James delaying free agency decision for one key reason",
-        "Did Adam Silver's remarks delay LeBron James' free agency choice?",
-        "Kendrick Perkins convinced we got first ‘real big clue’ of LeBron James’ free agency",
-        "How NBA teams reportedly could ‘sway' LeBron James into signing with them"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-delaying-free-agency-011351804.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/did-adam-silvers-remarks-delay-235620837.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/kendrick-perkins-convinced-got-first-203220672.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/nba-teams-reportedly-could-sway-174351034.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/mike-gansey-deserves-vote-confidence-140536712.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "LeBron James delaying free agency decision for one key reason",
-      "copySource": "fallback",
-      "storyType": "rumor"
-    },
-    {
       "id": "https://sports.yahoo.com/nba/article/longtime-trail-blazers-broadcaster-kevin-calabro-parts-ways-with-team-due-to-subprime-offer-004430055.html",
       "title": "Longtime Trail Blazers broadcaster Kevin Calabro parts ways with team due to 'subprime' offer",
       "originalTitle": "Longtime Trail Blazers broadcaster Kevin Calabro parts ways with team due to 'subprime' offer",
@@ -935,34 +992,6 @@
       "displayTitle": "Winnipeg Jets poke fun at Miami Heat YouTube blunder as LeBron free agency continues",
       "copySource": "fallback",
       "storyType": "signing",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/nba-offseason-trade-free-agent-201126098.html",
-      "title": "NBA Offseason Trade/Free Agent Rumors 2026: Mario Hezonja return rumors, plus Bradley Beal, Anthony Davis",
-      "originalTitle": "NBA Offseason Trade/Free Agent Rumors 2026: Mario Hezonja return rumors, plus Bradley Beal, Anthony Davis",
-      "headlineZh": "Offseason Trade 交易影响继续发酵",
-      "titleZh": "Offseason Trade 交易影响继续发酵",
-      "link": "https://sports.yahoo.com/articles/nba-offseason-trade-free-agent-201126098.html",
-      "url": "https://sports.yahoo.com/articles/nba-offseason-trade-free-agent-201126098.html",
-      "pubDate": "2026-07-22T20:11:26.000Z",
-      "publishedAt": "2026-07-22T20:11:26.000Z",
-      "summary": "Things are moving slowly while everyone waits for LeBron James' decision to come down.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Offseason Trade 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
-      "oneLineZh": "Offseason Trade 交易影响继续发酵",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/QbGJ7psJnXFdF2rRL51N6g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/e6dd5b99c136cba6aa4c9a9fa3c02ce3",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "交易",
-      "importance": 4,
-      "eventKey": "trade:lebron-james",
-      "relatedItems": [],
-      "displayTitle": "NBA Offseason Trade/Free Agent Rumors 2026: Mario Hezonja return rumors, plus Bradley Beal, Anthony Davis",
-      "copySource": "fallback",
-      "storyType": "trade",
       "isMerged": false
     },
     {
@@ -1693,62 +1722,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/victor-wembanyama-caitlin-clark-derrick-140000023.html",
-      "title": "Victor Wembanyama, Caitlin Clark, and Derrick Rose are NBA 2K27 cover athletes",
-      "originalTitle": "Victor Wembanyama, Caitlin Clark, and Derrick Rose are NBA 2K27 cover athletes",
-      "headlineZh": "维克托·文班亚马相关消息更新",
-      "titleZh": "维克托·文班亚马相关消息更新",
-      "link": "https://sports.yahoo.com/articles/victor-wembanyama-caitlin-clark-derrick-140000023.html",
-      "url": "https://sports.yahoo.com/articles/victor-wembanyama-caitlin-clark-derrick-140000023.html",
-      "pubDate": "2026-07-22T14:00:00.000Z",
-      "publishedAt": "2026-07-22T14:00:00.000Z",
-      "summary": "Here’s your first look at the cover.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "维克托·文班亚马相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/sb_nation_articles_115/a69998d57e21b71b4af2ffd3649bab79",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Victor Wembanyama, Caitlin Clark, and Derrick Rose are NBA 2K27 cover athletes",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://www.yahoo.com/entertainment/celebrity/articles/pacers-star-tyrese-haliburton-marries-135131374.html",
-      "title": "Pacers star Tyrese Haliburton marries longtime partner Jade Jones",
-      "originalTitle": "Pacers star Tyrese Haliburton marries longtime partner Jade Jones",
-      "headlineZh": "泰瑞斯·哈利伯顿相关消息更新",
-      "titleZh": "泰瑞斯·哈利伯顿相关消息更新",
-      "link": "https://www.yahoo.com/entertainment/celebrity/articles/pacers-star-tyrese-haliburton-marries-135131374.html",
-      "url": "https://www.yahoo.com/entertainment/celebrity/articles/pacers-star-tyrese-haliburton-marries-135131374.html",
-      "pubDate": "2026-07-22T13:51:31.000Z",
-      "publishedAt": "2026-07-22T13:51:31.000Z",
-      "summary": "Indiana Pacers star Tyrese Haliburton and longtime partner Jade Jones announced on social media that they are married.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "泰瑞斯·哈利伯顿相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/lo/mysterio/api/8166d465df8f4e636750f163ee4a6b2bc776dacea5e832245540f0f597fab2d7/lightyear_networkapi/resizefill_w1200;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fusa_today_sports_articles_558%2F5d85c7f4dc0dbe3051813cd6349e51de",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Pacers star Tyrese Haliburton marries longtime partner Jade Jones",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286780/Bradley-Beal-Drawing-Interest-From-Heat-Celtics-Clippers",
       "title": "Bradley Beal Drawing Interest From Heat, Celtics, Clippers",
       "originalTitle": "Bradley Beal Drawing Interest From Heat, Celtics, Clippers",
@@ -1978,7 +1951,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-23T11:26:23.339Z",
+      "aiGeneratedAt": "2026-07-23T13:05:29.153Z",
       "aiConfidence": 0.9
     },
     {
