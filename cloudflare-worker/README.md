@@ -1,8 +1,8 @@
-# NBA Quick News Cloudflare Worker Prototype
+# NBA Quick News Cloudflare Worker
 
-This is a parallel prototype for moving RSS refresh and Chinese summaries from GitHub Actions to Cloudflare Workers.
+This Worker is the Cloudflare-side RSS refresh and Chinese summary pipeline for NBA Quick News.
 
-It does not replace the current GitHub Pages / Cloudflare Pages frontend yet.
+It does not replace the frontend data source yet. The frontend still reads its own `/data/news.json` until Worker output quality is verified.
 
 ## What It Does
 
@@ -10,34 +10,14 @@ It does not replace the current GitHub Pages / Cloudflare Pages frontend yet.
 - `GET /refresh`: fetch RSS, optionally read articles through Jina Reader, summarize selected items with Workers AI, and write `news.json` to KV.
 - Cron trigger: runs every 30 minutes.
 
-## Cloudflare Resources
+## Existing Cloudflare Resources
 
-Create one Workers KV namespace:
+Do not recreate these resources:
 
-```bash
-npx wrangler kv namespace create NBA_QUICK_NEWS
-```
-
-Copy the returned namespace id into `cloudflare-worker/wrangler.jsonc`:
-
-```jsonc
-"kv_namespaces": [
-  {
-    "binding": "NEWS_KV",
-    "id": "YOUR_NAMESPACE_ID"
-  }
-]
-```
-
-The Worker also uses a Workers AI binding:
-
-```jsonc
-"ai": {
-  "binding": "AI"
-}
-```
-
-No personal AI API key is needed for Workers AI.
+- Worker: `nba-quick-news-worker`
+- KV binding: `NEWS_KV`
+- Workers AI binding: `AI`
+- Cron: `*/30 * * * *`
 
 ## Useful Commands
 
@@ -49,15 +29,11 @@ npm run worker:deploy
 After deployment:
 
 ```text
-https://<worker-domain>/refresh
-https://<worker-domain>/data/news.json
+https://nba-quick-news-worker.cibstan1999.workers.dev/health
+https://nba-quick-news-worker.cibstan1999.workers.dev/data/news.json
 ```
 
-If you set `REFRESH_TOKEN` as a Worker secret, call refresh with:
-
-```text
-https://<worker-domain>/refresh?token=<REFRESH_TOKEN>
-```
+The manual refresh endpoint is protected by a Cloudflare secret. Do not commit or document the secret value.
 
 ## Environment Variables
 
@@ -65,20 +41,12 @@ These defaults are in `wrangler.jsonc`:
 
 ```text
 AI_ENABLED=true
-AI_MODEL=@cf/meta/llama-3.1-8b-instruct
-AI_MAX_ITEMS_PER_RUN=5
+AI_MODEL=@cf/meta/llama-3.1-8b-instruct-fast
+AI_MAX_ITEMS_PER_RUN=3
 JINA_READER_ENABLED=true
 ARTICLE_CHAR_LIMIT=5000
-SUMMARY_CACHE_VERSION=cf-summary-v1
+SUMMARY_CACHE_VERSION=cf-summary-v2
 ```
-
-Recommended first test:
-
-```text
-AI_MAX_ITEMS_PER_RUN=3
-```
-
-Once quality and usage look good, increase to 5.
 
 ## Summary Strategy
 
@@ -87,8 +55,14 @@ The Worker does not translate titles. It keeps the English original title and us
 - `summaryZh`: 2-3 sentence Chinese recap.
 - `oneLineZh`: one-line Chinese quick hit for today's brief.
 
-Workers AI output is cached in KV by a source hash, so unchanged articles do not consume AI requests again.
+Workers AI output is cached in KV by a source hash, so unchanged articles do not consume AI requests again. The `SUMMARY_CACHE_VERSION` value intentionally changes when prompt and validation quality changes.
 
-## Current Status
+## Quality Checks
 
-This is a prototype. The existing GitHub Actions RSS job remains the source of truth until the Worker output is manually verified.
+Worker output is validated before being cached:
+
+- Rejects generic copy such as "相关消息更新" or "后续动向".
+- Rejects obvious mixed Chinese/English machine phrases.
+- Preserves explicit money, years, picks, and other strict facts when present.
+- Keeps rumors uncertain and analysis/opinion framed as analysis/opinion.
+- Tracks `aiRejected`, `aiFailed`, `aiAccepted`, `aiCacheHits`, and `aiRejectionSamples` in `lastFetchStatus`.

@@ -24,6 +24,6 @@
     "AI_MAX_ITEMS_PER_RUN": "3",
     "JINA_READER_ENABLED": "true",
     "ARTICLE_CHAR_LIMIT": "5000",
-    "SUMMARY_CACHE_VERSION": "cf-summary-v1"
+    "SUMMARY_CACHE_VERSION": "cf-summary-v2"
   }
 }

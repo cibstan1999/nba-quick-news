@@ -13,38 +13,116 @@ const FEEDS = [
 
 const NEWS_KEY = 'news.json';
 const SOURCE_CACHE_PREFIX = 'ai-summary:';
+const DEFAULT_SUMMARY_CACHE_VERSION = 'cf-summary-v2';
 
 const TEAM_ZH = new Map([
-  ['Golden State Warriors', '勇士'],
-  ['Warriors', '勇士'],
-  ['Los Angeles Lakers', '湖人'],
-  ['Lakers', '湖人'],
+  ['Atlanta Hawks', '老鹰'],
+  ['Hawks', '老鹰'],
   ['Boston Celtics', '凯尔特人'],
   ['Celtics', '凯尔特人'],
-  ['Philadelphia 76ers', '76 人'],
-  ['76ers', '76 人'],
-  ['Dallas Mavericks', '独行侠'],
-  ['Mavericks', '独行侠'],
-  ['Memphis Grizzlies', '灰熊'],
-  ['Grizzlies', '灰熊'],
+  ['Brooklyn Nets', '篮网'],
+  ['Nets', '篮网'],
+  ['Charlotte Hornets', '黄蜂'],
+  ['Hornets', '黄蜂'],
+  ['Chicago Bulls', '公牛'],
+  ['Bulls', '公牛'],
   ['Cleveland Cavaliers', '骑士'],
   ['Cavaliers', '骑士'],
+  ['Dallas Mavericks', '独行侠'],
+  ['Mavericks', '独行侠'],
+  ['Denver Nuggets', '掘金'],
+  ['Nuggets', '掘金'],
+  ['Detroit Pistons', '活塞'],
+  ['Pistons', '活塞'],
+  ['Golden State Warriors', '勇士'],
+  ['Warriors', '勇士'],
+  ['Houston Rockets', '火箭'],
+  ['Rockets', '火箭'],
+  ['Indiana Pacers', '步行者'],
+  ['Pacers', '步行者'],
   ['LA Clippers', '快船'],
   ['Los Angeles Clippers', '快船'],
   ['Clippers', '快船'],
+  ['Los Angeles Lakers', '湖人'],
+  ['Lakers', '湖人'],
+  ['Memphis Grizzlies', '灰熊'],
+  ['Grizzlies', '灰熊'],
   ['Miami Heat', '热火'],
   ['Heat', '热火'],
   ['Milwaukee Bucks', '雄鹿'],
   ['Bucks', '雄鹿'],
+  ['Minnesota Timberwolves', '森林狼'],
+  ['Timberwolves', '森林狼'],
+  ['New Orleans Pelicans', '鹈鹕'],
+  ['Pelicans', '鹈鹕'],
   ['New York Knicks', '尼克斯'],
   ['Knicks', '尼克斯'],
+  ['Oklahoma City Thunder', '雷霆'],
+  ['Thunder', '雷霆'],
+  ['Orlando Magic', '魔术'],
+  ['Magic', '魔术'],
+  ['Philadelphia 76ers', '76 人'],
+  ['76ers', '76 人'],
   ['Phoenix Suns', '太阳'],
   ['Suns', '太阳'],
-  ['Brooklyn Nets', '篮网'],
-  ['Nets', '篮网'],
-  ['Indiana Pacers', '步行者'],
-  ['Pacers', '步行者']
+  ['Portland Trail Blazers', '开拓者'],
+  ['Trail Blazers', '开拓者'],
+  ['Blazers', '开拓者'],
+  ['Sacramento Kings', '国王'],
+  ['Kings', '国王'],
+  ['San Antonio Spurs', '马刺'],
+  ['Spurs', '马刺'],
+  ['Toronto Raptors', '猛龙'],
+  ['Raptors', '猛龙'],
+  ['Utah Jazz', '爵士'],
+  ['Jazz', '爵士'],
+  ['Washington Wizards', '奇才'],
+  ['Wizards', '奇才']
 ]);
+
+const PLAYER_ZH = new Map([
+  ['LeBron James', '勒布朗·詹姆斯'],
+  ['Stephen Curry', '斯蒂芬·库里'],
+  ['Steph Curry', '斯蒂芬·库里'],
+  ['Kevin Durant', '凯文·杜兰特'],
+  ['Giannis Antetokounmpo', '扬尼斯·阿德托昆博'],
+  ['Luka Doncic', '卢卡·东契奇'],
+  ['Luka Dončić', '卢卡·东契奇'],
+  ['Kawhi Leonard', '科怀·伦纳德'],
+  ['James Harden', '詹姆斯·哈登'],
+  ['Jaylen Brown', '杰伦·布朗'],
+  ['Jalen Brunson', '杰伦·布伦森'],
+  ['Draymond Green', '德雷蒙德·格林'],
+  ['Jonathan Kuminga', '乔纳森·库明加'],
+  ['Cam Christie', '卡姆·克里斯蒂'],
+  ['Yaxel Lendeborg', '亚克塞尔·伦德伯格'],
+  ['Caleb Wilson', '卡莱布·威尔逊'],
+  ['Meleek Thomas', '梅利克·托马斯'],
+  ['Cameron Boozer', '卡梅伦·布泽尔'],
+  ['Brayden Burries', '布雷登·伯里斯'],
+  ['Jalen Wilson', '杰伦·威尔逊'],
+  ['Matisse Thybulle', '马蒂斯·赛布尔'],
+  ['Lu Dort', '吕冈茨·多尔特'],
+  ['Luguentz Dort', '吕冈茨·多尔特'],
+  ['Zaccharie Risacher', '扎卡里·里萨谢'],
+  ['Ryan Nembhard', '瑞安·内姆哈德'],
+  ['Taelon Peter', '泰伦·彼得'],
+  ['Rob Pelinka', '罗勃·佩林卡'],
+  ['Rich Paul', '里奇·保罗'],
+  ['Adam Silver', '亚当·萧华']
+]);
+
+const FORBIDDEN_COPY_PATTERNS = [
+  /相关消息更新/,
+  /后续动向/,
+  /继续更新/,
+  /更多背景/,
+  /详情请/,
+  /原文聚焦/,
+  /这篇文章讨论了/,
+  /\b(?:thoughts following|takeaways from|what we learned|more background|reach out to|expected to|planning to|shows interest|title contenders)\b/i,
+  /\b(?:multi-year|one-year|two-year|three-year|four-year)\b/i
+];
 
 export default {
   async fetch(request, env, ctx) {
@@ -165,7 +243,9 @@ async function refreshNews(env, meta = {}) {
       aiRequests: aiStats.requests,
       aiAccepted: aiStats.accepted,
       aiFailed: aiStats.failed,
+      aiRejected: aiStats.rejected,
       aiCacheHits: aiStats.cacheHits,
+      aiRejectionSamples: aiStats.rejectionSamples,
       message: failedFeeds.length
         ? `Fetched ${rawItems.length} items with ${failedFeeds.length} failed feed(s).`
         : `Fetched ${rawItems.length} items from all feeds.`,
@@ -232,7 +312,7 @@ function normalizeRssItem(item, feedConfig) {
 }
 
 async function applyAiSummaries(items, env) {
-  const stats = { candidates: 0, cacheHits: 0, requests: 0, accepted: 0, failed: 0 };
+  const stats = { candidates: 0, cacheHits: 0, requests: 0, accepted: 0, rejected: 0, failed: 0, rejectionSamples: [] };
   if (!isEnabled(env.AI_ENABLED) || !env.AI) return stats;
 
   const maxItems = clampInt(env.AI_MAX_ITEMS_PER_RUN, 5, 1, 10);
@@ -244,7 +324,7 @@ async function applyAiSummaries(items, env) {
   let remaining = maxItems;
   for (const item of candidates) {
     const articleText = await extractArticleText(item.url, env);
-    const sourceHash = await sha256(`${item.originalTitle}\n${item.summary}\n${articleText}\n${env.SUMMARY_CACHE_VERSION || 'cf-summary-v1'}`);
+    const sourceHash = await sha256(`${item.originalTitle}\n${item.summary}\n${articleText}\n${env.SUMMARY_CACHE_VERSION || DEFAULT_SUMMARY_CACHE_VERSION}`);
     const cacheKey = `${SOURCE_CACHE_PREFIX}${sourceHash}`;
     const cached = await readJsonKv(env.NEWS_KV, cacheKey);
     if (isValidCachedSummary(cached)) {
@@ -259,9 +339,15 @@ async function applyAiSummaries(items, env) {
 
     try {
       const aiResult = await summarizeWithWorkersAi(item, articleText, env);
-      const accepted = validateAiResult(aiResult);
+      const accepted = validateAiResult(aiResult, item);
       if (!accepted.ok) {
-        stats.failed += 1;
+        stats.rejected += 1;
+        pushSample(stats.rejectionSamples, {
+          title: item.originalTitle,
+          reasons: accepted.reasons,
+          summaryZh: normalizeWhitespace(aiResult?.summaryZh || '').slice(0, 180),
+          oneLineZh: normalizeWhitespace(aiResult?.oneLineZh || '').slice(0, 90)
+        });
         continue;
       }
       const cacheValue = {
@@ -270,7 +356,7 @@ async function applyAiSummaries(items, env) {
         model: env.AI_MODEL || '@cf/meta/llama-3.1-8b-instruct',
         generatedAt: new Date().toISOString(),
         sourceHash,
-        promptVersion: env.SUMMARY_CACHE_VERSION || 'cf-summary-v1'
+        promptVersion: env.SUMMARY_CACHE_VERSION || DEFAULT_SUMMARY_CACHE_VERSION
       };
       await env.NEWS_KV.put(cacheKey, JSON.stringify(cacheValue));
       applySummary(item, cacheValue, { source: 'workers-ai' });
@@ -293,7 +379,13 @@ async function summarizeWithWorkersAi(item, articleText, env) {
     messages: [
       {
         role: 'system',
-        content: '你是一名严谨的中文 NBA 快讯编辑。只根据输入事实复述，不添加原文没有的信息。球员姓名可保留英文，球队名用常见中文。不要逐词翻译，不要半中半英拼接。'
+        content: [
+          '你是一名严谨的中文 NBA 快讯编辑，只根据输入事实写中文复述，不添加输入中没有的信息。',
+          '你不是标题翻译器。不要逐词翻译英文标题，不要半中半英拼接。',
+          '球员姓名可以保留英文或使用常见中文译名；球队必须使用常见中文队名。',
+          '签约/交易/伤病/传闻/分析要严格区分：传闻不能写成已完成，分析不能写成事实。',
+          '如果信息不足，宁可保守说明“现有摘要未提供更多细节”，不要编造。'
+        ].join('\n')
       },
       {
         role: 'user',
@@ -307,19 +399,48 @@ async function summarizeWithWorkersAi(item, articleText, env) {
 }
 
 function buildSummaryPrompt(item, articleText) {
+  const sourceText = `${item.originalTitle}\n${item.summary}\n${articleText}`;
+  const extracted = extractFactsForPrompt(sourceText);
+  const guidance = getStoryTypeGuidance(item.storyType, item.category);
   return [
-    '请把下面 NBA 英文新闻改写成中文快讯摘要。',
-    '要求：summaryZh 写 2 到 3 句，像懂 NBA 的中文编辑读完文章后复述；oneLineZh 写一句 20 到 45 个中文字符的今日快讯。',
-    '不要翻译标题；不要营销号；传闻必须保留“据报道/有意/讨论中”；分析观点必须写明这是分析或观点。',
-    '严格返回 JSON：{"summaryZh":"","oneLineZh":"","confidence":0.0}',
+    '任务：把下面 NBA 英文新闻写成中文快讯摘要，不翻译标题。',
+    'summaryZh：2 到 3 句，80 到 180 个中文字符；要让中文读者不点原文也知道发生了什么。',
+    'oneLineZh：一句中文快讯，18 到 45 个中文字符；不要与 summaryZh 第一整句完全相同。',
+    '必须优先保留输入里明确出现的合同金额、年限、交易筹码、比分、伤病部位、时间状态。',
+    '不要输出“相关消息更新”“后续动向”“成为焦点”“更多背景来自原文报道”。',
+    '不要输出未翻译英文普通短语，例如 reach out to、expected to、multi-year、thoughts following。',
+    guidance,
+    '严格返回 JSON，不要 Markdown，不要解释：{"summaryZh":"","oneLineZh":"","confidence":0.0}',
     '',
     `source: ${item.source}`,
     `category: ${item.category}`,
     `storyType: ${item.storyType}`,
     `originalTitle: ${item.originalTitle}`,
     `rssSummary: ${item.summary || ''}`,
+    `extractedFacts: ${JSON.stringify(extracted)}`,
+    `preferredTeamNames: ${JSON.stringify(Object.fromEntries([...TEAM_ZH].slice(0, 60)))}`,
+    `preferredPlayerNames: ${JSON.stringify(Object.fromEntries([...PLAYER_ZH].filter(([name]) => sourceText.includes(name))))}`,
     `articleText: ${articleText || '(正文不可用，只能基于标题和 RSS 摘要保守处理)'}`
   ].join('\n');
+}
+
+function getStoryTypeGuidance(storyType, category) {
+  if (storyType === 'rumor' || category === '重要流言') {
+    return '传闻规则：必须写“据报道/有意/正在关注/讨论中”等不确定表达；不得写成已经完成。';
+  }
+  if (storyType === 'analysis' || storyType === 'opinion') {
+    return '观点/分析规则：必须说明这是媒体分析、球员表态或观点讨论；不要写成球队已经决定。';
+  }
+  if (category === '交易') {
+    return '交易规则：必须写清谁去哪里、谁送出什么；若交易只是讨论中，必须保留不确定性。';
+  }
+  if (category === '签约') {
+    return '签约规则：必须写清球员、球队、合同年限和金额；若金额未知，不要编造。';
+  }
+  if (category === '伤病') {
+    return '伤病规则：必须写清球员、伤病部位或复出状态；不要夸大影响。';
+  }
+  return '普通新闻规则：只复述最重要事实，避免空泛背景。';
 }
 
 async function extractArticleText(url, env) {
@@ -352,19 +473,40 @@ function parseAiJson(value) {
   }
 }
 
-function validateAiResult(result) {
-  if (!result || typeof result !== 'object') return { ok: false };
-  const summaryZh = normalizeWhitespace(result.summaryZh || '');
-  const oneLineZh = normalizeWhitespace(result.oneLineZh || '');
+function validateAiResult(result, item = null) {
+  const reasons = [];
+  if (!result || typeof result !== 'object') return { ok: false, reasons: ['invalid-json'] };
+  const summaryZh = normalizeChineseCopy(result.summaryZh || '');
+  const oneLineZh = normalizeChineseCopy(result.oneLineZh || '');
   const confidence = Number(result.confidence || 0);
-  if (confidence < 0.5) return { ok: false };
-  if (!isChineseSummary(summaryZh) || !isChineseSummary(oneLineZh)) return { ok: false };
-  if (/相关消息更新|后续动向|更多背景|详情请/.test(`${summaryZh} ${oneLineZh}`)) return { ok: false };
+  const combined = `${summaryZh} ${oneLineZh}`;
+  if (!Number.isFinite(confidence) || confidence < 0.5) reasons.push('low-confidence');
+  if (!isChineseSummary(summaryZh)) reasons.push('bad-summary-language');
+  if (!isChineseSummary(oneLineZh)) reasons.push('bad-oneline-language');
+  if (hasForbiddenCopy(combined)) reasons.push('generic-or-mixed-copy');
+  if (summaryZh && oneLineZh && compactComparable(summaryZh).includes(compactComparable(oneLineZh)) && getChineseLength(oneLineZh) > 34) {
+    reasons.push('oneline-repeats-summary');
+  }
+  if (getChineseLength(summaryZh) > 220) reasons.push('summary-too-long');
+  if (getChineseLength(oneLineZh) > 50) reasons.push('oneline-too-long');
+  if (item) {
+    const sourceText = `${item.originalTitle} ${item.summary}`;
+    if (item.storyType === 'rumor' && !/(据报道|据称|有意|关注|考虑|讨论|尚未|可能|传闻|流言)/.test(summaryZh)) {
+      reasons.push('rumor-as-fact');
+    }
+    if (['analysis', 'opinion'].includes(item.storyType) && !/(分析|认为|表示|谈到|观点|讨论|评估|可能|有望|称)/.test(summaryZh)) {
+      reasons.push('analysis-as-fact');
+    }
+    for (const token of extractStrictFacts(sourceText)) {
+      if (!combined.includes(token.zh) && !combined.includes(token.raw)) reasons.push(`missing-fact:${token.raw}`);
+    }
+  }
+  if (reasons.length) return { ok: false, reasons };
   return {
     ok: true,
     value: {
-      summaryZh: summaryZh.slice(0, 260),
-      oneLineZh: oneLineZh.slice(0, 80),
+      summaryZh,
+      oneLineZh,
       confidence
     }
   };
@@ -376,6 +518,115 @@ function applySummary(item, summary, { source }) {
   item.copySource = source;
   item.aiModel = summary.model;
   item.aiGeneratedAt = summary.generatedAt;
+}
+
+function extractFactsForPrompt(text = '') {
+  return {
+    teams: [...new Set([...TEAM_ZH.keys()].filter((team) => new RegExp(`\\b${escapeRegExp(team)}\\b`, 'i').test(text)).map((team) => TEAM_ZH.get(team)))],
+    players: [...new Set([...PLAYER_ZH.keys()].filter((name) => new RegExp(`\\b${escapeRegExp(name)}\\b`, 'i').test(text)).map((name) => PLAYER_ZH.get(name)))],
+    money: extractMoneyTerms(text),
+    years: extractYearTerms(text),
+    picks: extractPickTerms(text),
+    scores: extractScoreTerms(text),
+    status: inferAction(text)
+  };
+}
+
+function extractStrictFacts(text = '') {
+  return [
+    ...extractMoneyTerms(text).map((term) => ({ raw: term.raw, zh: term.zh })),
+    ...extractYearTerms(text).map((term) => ({ raw: term.raw, zh: term.zh })),
+    ...extractPickTerms(text).map((term) => ({ raw: term.raw, zh: term.zh }))
+  ];
+}
+
+function extractMoneyTerms(text = '') {
+  const terms = [];
+  for (const match of String(text).matchAll(/\$(\d+(?:\.\d+)?)\s*(M|million|B|billion)?/gi)) {
+    const value = Number(match[1]);
+    const unit = String(match[2] || 'M').toLowerCase();
+    if (!Number.isFinite(value)) continue;
+    const zh = unit.startsWith('b')
+      ? `${trimNumber(value * 10)} 亿美元`
+      : `${trimNumber(value * 100)} 万美元`;
+    terms.push({ raw: match[0], zh });
+  }
+  return terms;
+}
+
+function extractYearTerms(text = '') {
+  const words = {
+    one: 1,
+    two: 2,
+    three: 3,
+    four: 4,
+    five: 5,
+    six: 6
+  };
+  const terms = [];
+  for (const match of String(text).matchAll(/\b(one|two|three|four|five|six)-year\b/gi)) {
+    terms.push({ raw: match[0], zh: `${words[match[1].toLowerCase()]} 年` });
+  }
+  for (const match of String(text).matchAll(/\b(\d+)-year\b/gi)) {
+    terms.push({ raw: match[0], zh: `${match[1]} 年` });
+  }
+  return terms;
+}
+
+function extractPickTerms(text = '') {
+  const terms = [];
+  if (/\bfirst[-\s]+round pick/i.test(text)) terms.push({ raw: 'first-round pick', zh: '首轮签' });
+  if (/\bsecond[-\s]+round pick/i.test(text)) terms.push({ raw: 'second-round pick', zh: '次轮签' });
+  for (const match of String(text).matchAll(/\b(\d{4})\s+(first|second)[-\s]+round pick/gi)) {
+    terms.push({ raw: match[0], zh: `${match[1]} 年${match[2].toLowerCase() === 'first' ? '首轮签' : '次轮签'}` });
+  }
+  return terms;
+}
+
+function extractScoreTerms(text = '') {
+  return [...String(text).matchAll(/\b(\d{2,3})-(\d{2,3})\b/g)].map((match) => ({
+    raw: match[0],
+    zh: `${match[1]} 比 ${match[2]}`
+  }));
+}
+
+function normalizeChineseCopy(value = '') {
+  let text = localize(String(value || ''));
+  for (const term of extractMoneyTerms(text)) text = text.replace(term.raw, term.zh);
+  for (const term of extractYearTerms(text)) text = text.replace(term.raw, term.zh);
+  text = text
+    .replace(/\bmulti[-\s]+year contract\b/gi, '多年合同')
+    .replace(/\bmulti[-\s]+year\b/gi, '多年')
+    .replace(/\bcontract\b/gi, '合同')
+    .replace(/\bdeal\b/gi, '合同')
+    .replace(/\bfree agency\b/gi, '自由市场')
+    .replace(/\bSummer League\b/g, '夏季联赛')
+    .replace(/\bHall of Fame\b/g, '名人堂')
+    .replace(/([，。；：])\s+/g, '$1')
+    .replace(/\s+([，。；：])/g, '$1')
+    .replace(/([一-龥])([A-Za-z][A-Za-z'.-]*(?:\s+[A-Za-z][A-Za-z'.-]*)*)/g, '$1 $2')
+    .replace(/([A-Za-z][A-Za-z'.-]*(?:\s+[A-Za-z][A-Za-z'.-]*)*)([一-龥])/g, '$1 $2');
+  return normalizeWhitespace(text);
+}
+
+function hasForbiddenCopy(value = '') {
+  return FORBIDDEN_COPY_PATTERNS.some((pattern) => pattern.test(value));
+}
+
+function compactComparable(value = '') {
+  return normalizeWhitespace(value).toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '');
+}
+
+function getChineseLength(value = '') {
+  return (String(value).match(/[\u4e00-\u9fa5]/g) || []).length;
+}
+
+function trimNumber(value) {
+  return Number.isInteger(value) ? String(value) : String(Number(value.toFixed(1)));
+}
+
+function pushSample(samples, sample, limit = 5) {
+  if (samples.length < limit) samples.push(sample);
 }
 
 function needsAiSummary(item) {
@@ -404,19 +655,24 @@ function buildFallbackSummary(item) {
   const title = item.originalTitle || '';
   const sourcePrefix = item.source ? `据 ${item.source} 报道，` : '';
 
-  const contract = title.match(/^(.+?),\s*(.+?) Agree To (.+?Deal)$/i);
+  const contract = title.match(/^(.+?),\s*(.+?) Agree To (.+?Deal)$/i) ||
+    title.match(/^(.+?) signs? (.+?) with (.+)$/i);
   if (contract) {
+    const player = contract[1];
+    const team = contract[2];
+    const contractText = contract[3] || '';
+    const details = [...extractYearTerms(contractText), ...extractMoneyTerms(contractText)].map((term) => term.zh).join('、');
     return {
-      summaryZh: normalizeWhitespace(`${sourcePrefix}${localize(contract[2])}与 ${localize(contract[1])} 达成合同协议，原文标题显示这是一笔${localizeContract(contract[3])}。`),
-      oneLineZh: normalizeWhitespace(`${localize(contract[2])}与 ${localize(contract[1])} 达成合同`)
+      summaryZh: normalizeChineseCopy(`${sourcePrefix}${localize(team)}与 ${localize(player)} 达成合同协议${details ? `，合同信息包括${details}` : ''}。`),
+      oneLineZh: normalizeChineseCopy(`${localize(team)}签下 ${localize(player)}${details ? `，${details}` : ''}`)
     };
   }
 
   const mvp = text.match(/(.+?) (?:was named|earns|named) (?:NBA )?Summer League MVP/i);
   if (mvp) {
     return {
-      summaryZh: normalizeWhitespace(`${sourcePrefix}${localize(mvp[1])}被评为 NBA 夏季联赛 MVP，原文重点是他在夏季联赛的表现获得认可。`),
-      oneLineZh: normalizeWhitespace(`${localize(mvp[1])}当选夏季联赛 MVP`)
+      summaryZh: normalizeChineseCopy(`${sourcePrefix}${localize(mvp[1])}被评为 NBA 夏季联赛 MVP，原文重点是他在夏季联赛的表现获得认可。`),
+      oneLineZh: normalizeChineseCopy(`${localize(mvp[1])}当选夏季联赛 MVP`)
     };
   }
 
@@ -523,6 +779,9 @@ function localize(value = '') {
   for (const [en, zh] of TEAM_ZH) {
     text = text.replace(new RegExp(`\\b${escapeRegExp(en)}\\b`, 'gi'), zh);
   }
+  for (const [en, zh] of PLAYER_ZH) {
+    text = text.replace(new RegExp(`\\b${escapeRegExp(en)}\\b`, 'gi'), zh);
+  }
   return normalizeWhitespace(text);
 }
 
@@ -556,8 +815,18 @@ function authorizeRefresh(request, env) {
   if (!env.REFRESH_TOKEN) return { ok: true };
   const url = new URL(request.url);
   const token = request.headers.get('x-refresh-token') || url.searchParams.get('token');
-  if (token === env.REFRESH_TOKEN) return { ok: true };
+  if (timingSafeEqual(token || '', env.REFRESH_TOKEN)) return { ok: true };
   return { ok: false, status: 401, message: 'Missing or invalid refresh token.' };
+}
+
+function timingSafeEqual(left = '', right = '') {
+  const encoder = new TextEncoder();
+  const leftBytes = encoder.encode(String(left));
+  const rightBytes = encoder.encode(String(right));
+  if (leftBytes.length !== rightBytes.length) return false;
+  return crypto.subtle.timingSafeEqual
+    ? crypto.subtle.timingSafeEqual(leftBytes, rightBytes)
+    : leftBytes.every((byte, index) => byte === rightBytes[index]);
 }
 
 function assertBindings(env) {
