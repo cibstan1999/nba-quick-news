@@ -1,0 +1,13 @@
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/data/news.json
+  Cache-Control: public, max-age=300, must-revalidate
+
+/data/ai-summary-cache.json
+  Cache-Control: private, no-store
+
+/*
+  Cache-Control: public, max-age=60, must-revalidate
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
