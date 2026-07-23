@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-23T03:55:05.576Z",
+  "updatedAt": "2026-07-23T06:33:22.167Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-23T03:55:05.576Z",
-    "previousUpdatedAt": "2026-07-23T00:03:15.489Z",
-    "updatedAt": "2026-07-23T03:55:05.576Z",
+    "checkedAt": "2026-07-23T06:33:22.167Z",
+    "previousUpdatedAt": "2026-07-23T03:55:05.576Z",
+    "updatedAt": "2026-07-23T06:33:22.167Z",
     "fetchedItems": 79,
-    "mergedItems": 67,
+    "mergedItems": 66,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,11 +31,11 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-23T02:58:36.000Z",
-    "dataAgeHours": 0.9415488888888889,
+    "newestPublishedAt": "2026-07-23T06:02:05.000Z",
+    "dataAgeHours": 0.5214352777777778,
     "aiEnabled": false,
     "aiScope": "latest-items",
-    "aiCandidates": 41,
+    "aiCandidates": 38,
     "aiCacheHits": 1,
     "aiRequests": 0,
     "aiAccepted": 0,
@@ -44,15 +44,15 @@
     "aiRetried": 0,
     "rejectedAsNonChinese": 0,
     "skippedByLimit": 0,
-    "finalItemsWithChineseSummary": 26,
-    "finalItemsWithoutChineseSummary": 41,
-    "totalNewsItems": 67,
-    "itemsWithValidChineseSummary": 25,
-    "itemsMissingChineseSummary": 42,
-    "eligibleBacklog": 41,
+    "finalItemsWithChineseSummary": 28,
+    "finalItemsWithoutChineseSummary": 38,
+    "totalNewsItems": 66,
+    "itemsWithValidChineseSummary": 27,
+    "itemsMissingChineseSummary": 39,
+    "eligibleBacklog": 38,
     "selectedThisRun": 0,
     "previouslyFailed": 0,
-    "remainingAfterRun": 41,
+    "remainingAfterRun": 38,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
     "acceptedHighConfidence": 0,
@@ -72,30 +72,131 @@
       "category": "签约",
       "source": "Yahoo Sports / RealGM",
       "link": "https://sports.yahoo.com/nba/article/victor-wembanyama-explains-decision-to-take-less-money-from-spurs-in-252-million-extension-164046566.html"
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286789/Isaiah-Crawford-Rockets-Sign-Two-Way-Contract",
-      "text": "Isaiah Crawford，火箭签下双向，原文关注 Isaiah Crawford 的合同或自由市场动向",
-      "category": "签约",
-      "source": "RealGM",
-      "link": "https://basketball.realgm.com/wiretap/286789/Isaiah-Crawford-Rockets-Sign-Two-Way-Contract"
     }
   ],
   "items": [
     {
-      "id": "https://basketball.realgm.com/wiretap/286789/Isaiah-Crawford-Rockets-Sign-Two-Way-Contract",
-      "title": "Isaiah Crawford, Rockets Sign Two-Way Contract",
-      "originalTitle": "Isaiah Crawford, Rockets Sign Two-Way Contract",
-      "headlineZh": "Isaiah Crawford，火箭签下双向",
-      "titleZh": "Isaiah Crawford，火箭签下双向",
-      "link": "https://basketball.realgm.com/wiretap/286789/Isaiah-Crawford-Rockets-Sign-Two-Way-Contract",
-      "url": "https://basketball.realgm.com/wiretap/286789/Isaiah-Crawford-Rockets-Sign-Two-Way-Contract",
+      "id": "https://basketball.realgm.com/wiretap/286794/Clippers-Looking-To-Re-Sign-Bennedict-Mathurin",
+      "title": "Clippers Looking To Re-Sign Bennedict Mathurin",
+      "originalTitle": "Clippers Looking To Re-Sign Bennedict Mathurin",
+      "headlineZh": "快船 Looking To 签约动向更新",
+      "titleZh": "快船 Looking To 签约动向更新",
+      "link": "https://basketball.realgm.com/wiretap/286794/Clippers-Looking-To-Re-Sign-Bennedict-Mathurin",
+      "url": "https://basketball.realgm.com/wiretap/286794/Clippers-Looking-To-Re-Sign-Bennedict-Mathurin",
+      "pubDate": "2026-07-23T06:02:05.000Z",
+      "publishedAt": "2026-07-23T06:02:05.000Z",
+      "summary": "<p>The Los Angeles Clippers are looking to re-sign Bennedict Mathurin, sources told Jake Fischer and Marc Stein of The Stein Line.</p> <p>The Clippers could also sign-and-trade Mathurin, but are more likely to bring him back next season.</p> <p>Mathurin averaged 17.4 points and 5.5 rebounds last season for the Clippers. </p>",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，快船 Looking To 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "快船 Looking To 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Mathurin_Bennedict_lac_260225.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "trade:clippers-looking-to",
+      "relatedItems": [],
+      "displayTitle": "Clippers Looking To Re-Sign Bennedict Mathurin",
+      "copySource": "fallback",
+      "storyType": "rumor",
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286792/Cavs-Interested-In-Mario-Hezonja",
+      "title": "Cavs Interested In Mario Hezonja",
+      "originalTitle": "Cavs Interested In Mario Hezonja",
+      "headlineZh": "Interested 在 Mario 相关消息更新",
+      "titleZh": "Interested 在 Mario 相关消息更新",
+      "link": "https://basketball.realgm.com/wiretap/286792/Cavs-Interested-In-Mario-Hezonja",
+      "url": "https://basketball.realgm.com/wiretap/286792/Cavs-Interested-In-Mario-Hezonja",
+      "pubDate": "2026-07-23T05:52:29.000Z",
+      "publishedAt": "2026-07-23T05:52:29.000Z",
+      "summary": "<p>The Cleveland Cavaliers have registered interest in Mario Hezonja, sources told Jake Fischer and Marc Stein of The Stein Line.</p> <p>Hezonja is expected to <a href=\"https://basketball.realgm.com/wiretap/286779/Mario-Hezonja-Drawing-Interest-From-Multiple-Teams\">rejoin the NBA</a> from Real Madrid next season.</p> <p>With the Cavs still in the running to sign LeBron James, Jonathan Kuminga is also rumored as a fallback option should James sign elsewhere. </p>",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，骑士 Interested 在 Mario Hezonja，目前仍属于消息或传闻阶段。",
+      "oneLineZh": "Interested 在 Mario 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Hezonja_Mario_por_200303.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james:cavaliers",
+      "relatedItems": [],
+      "sources": [
+        "RealGM"
+      ],
+      "originalTitles": [
+        "Mario Hezonja Drawing Interest From Multiple Teams",
+        "Heat Say Link To LeBron James Press Conference Live Stream Posted By Mistake",
+        "Cavs Interested In Mario Hezonja"
+      ],
+      "sourceLinks": [
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286779/Mario-Hezonja-Drawing-Interest-From-Multiple-Teams"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286778/Heat-Say-Link-To-LeBron-James-Press-Conference-Live-Stream-Posted-By-Mistake"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286792/Cavs-Interested-In-Mario-Hezonja"
+        }
+      ],
+      "isMerged": false,
+      "displayTitle": "Cavs Interested In Mario Hezonja",
+      "copySource": "fallback",
+      "storyType": "rumor"
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286791/Pelicans-Exploring-Trade-Options-For-Jordan-Hawkins",
+      "title": "Pelicans Exploring Trade Options For Jordan Hawkins",
+      "originalTitle": "Pelicans Exploring Trade Options For Jordan Hawkins",
+      "headlineZh": "鹈鹕 Exploring Trade 交易影响继续发酵",
+      "titleZh": "鹈鹕 Exploring Trade 交易影响继续发酵",
+      "link": "https://basketball.realgm.com/wiretap/286791/Pelicans-Exploring-Trade-Options-For-Jordan-Hawkins",
+      "url": "https://basketball.realgm.com/wiretap/286791/Pelicans-Exploring-Trade-Options-For-Jordan-Hawkins",
+      "pubDate": "2026-07-23T05:46:35.000Z",
+      "publishedAt": "2026-07-23T05:46:35.000Z",
+      "summary": "<p>The New Orleans Pelicans are exploring the trade market for Jordan Hawkins, sources told Marc Stein and Jake Fischer of The Stein Line.</p> <p>The Grizzlies are reportedly interested in Hawkins.</p> <p>Hawkins averaged 5.1 points and 1.7 rebounds last season.</p> <p>The Pelicans continue to turn down trade interest for Trey Murphy III and Herb Jones.</p>",
+      "dekZh": "Hawkins 场均5.1分和1.7篮板 上赛季。",
+      "summaryZh": "据 RealGM 报道，鹈鹕 Exploring Trade 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "鹈鹕 Exploring Trade 交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [
+        "Hawkins场均5.1分和1.7篮板 上赛季。"
+      ],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Hawkins_Jordan_nop_231205.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "交易",
+      "importance": 3,
+      "eventKey": "trade:pelicans-exploring-trade:grizzlies",
+      "relatedItems": [],
+      "displayTitle": "Pelicans Exploring Trade Options For Jordan Hawkins",
+      "copySource": "fallback",
+      "storyType": "rumor",
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286789/Rockets-Sign-Isaiah-Crawford-To-Contract",
+      "title": "Rockets Sign Isaiah Crawford To Contract",
+      "originalTitle": "Rockets Sign Isaiah Crawford To Contract",
+      "headlineZh": "火箭签下 Isaiah Crawford To",
+      "titleZh": "火箭签下 Isaiah Crawford To",
+      "link": "https://basketball.realgm.com/wiretap/286789/Rockets-Sign-Isaiah-Crawford-To-Contract",
+      "url": "https://basketball.realgm.com/wiretap/286789/Rockets-Sign-Isaiah-Crawford-To-Contract",
       "pubDate": "2026-07-23T02:58:36.000Z",
       "publishedAt": "2026-07-23T02:58:36.000Z",
       "summary": "<p>The Houston Rockets have re-signed forward Isaiah Crawford.</p> <p>Crawford appeared in 14 games as a two-way player for the Rockets in 2025-26, averaging 11.0 points, 6.3 rebounds, 2.0 assists and 1.2 blocks per 36 minutes played. He recorded career highs of 11 points and 6 rebounds in the season finale vs. Memphis on April 12.</p> <p>In 20 games while transferred to the Rockets G League affiliate, Rio Grande Valley, Crawford averaged 19.0 ppg, 7.6 rpg, 3.1 apg and 2.1 spg while shooting 51.5% from the floor and 39.2% from 3-point range.</p> <p>Crawford was was a two-way player for Sacramento in 2024-25 and helped its G League affiliate, Stockton, win the championship.</p>",
       "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Isaiah Crawford，火箭签下双向，原文关注 Isaiah Crawford 的合同或自由市场动向。",
-      "oneLineZh": "Isaiah Crawford，火箭签下双向",
+      "summaryZh": "",
+      "oneLineZh": "火箭签下 Isaiah Crawford To",
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_houstonrockets.jpg",
@@ -103,9 +204,9 @@
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
       "importance": 3,
-      "eventKey": "sign:isaiah-crawford",
+      "eventKey": "sign:rockets-sign-isaiah",
       "relatedItems": [],
-      "displayTitle": "Isaiah Crawford, Rockets Sign Two-Way Contract",
+      "displayTitle": "Rockets Sign Isaiah Crawford To Contract",
       "copySource": "fallback",
       "storyType": "signing",
       "isMerged": false
@@ -277,6 +378,118 @@
       "isMerged": false
     },
     {
+      "id": "https://sports.yahoo.com/articles/lakers-legend-brutal-reality-check-012922748.html",
+      "title": "Lakers legend’s brutal reality check for LeBron as he keeps NBA waiting",
+      "originalTitle": "Lakers legend’s brutal reality check for LeBron as he keeps NBA waiting",
+      "headlineZh": "湖人休赛期后续动向",
+      "titleZh": "湖人休赛期后续动向",
+      "link": "https://sports.yahoo.com/articles/lakers-legend-brutal-reality-check-012922748.html",
+      "url": "https://sports.yahoo.com/articles/lakers-legend-brutal-reality-check-012922748.html",
+      "pubDate": "2026-07-23T01:29:22.000Z",
+      "publishedAt": "2026-07-23T01:29:22.000Z",
+      "summary": "Shaquille O'Neal is weighing in on LeBron James’ NBA destiny.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "湖人休赛期后续动向",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/1Zyqf16zMaAEh04HOedXfg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/a1959292751912e83a1c3d3a7d1f4fc2",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Lakers legend’s brutal reality check for LeBron as he keeps NBA waiting",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lebron-james-delaying-free-agency-011351804.html",
+      "title": "LeBron James delaying free agency decision for one key reason",
+      "originalTitle": "LeBron James delaying free agency decision for one key reason",
+      "headlineZh": "勒布朗·詹姆斯签约动向更新",
+      "titleZh": "勒布朗·詹姆斯签约动向更新",
+      "link": "https://sports.yahoo.com/articles/lebron-james-delaying-free-agency-011351804.html",
+      "url": "https://sports.yahoo.com/articles/lebron-james-delaying-free-agency-011351804.html",
+      "pubDate": "2026-07-23T01:13:51.000Z",
+      "publishedAt": "2026-07-23T01:13:51.000Z",
+      "summary": "The LeBron James free agency saga has yet to reach its denouement, and the latest report reveals the reason for the delay. James is reportedly “slow-playing” his decision to see...",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，勒布朗·詹姆斯的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "勒布朗·詹姆斯签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/SRzdb4Tshbnt5I53SmBflw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/4ce7f2462cf892b6e19abb45553f9784",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james",
+      "relatedItems": [
+        {
+          "title": "Did Adam Silver's remarks delay LeBron James' free agency choice?",
+          "originalTitle": "Did Adam Silver's remarks delay LeBron James' free agency choice?",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/did-adam-silvers-remarks-delay-235620837.html",
+          "publishedAt": "2026-07-22T23:56:20.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Kendrick Perkins convinced we got first ‘real big clue’ of LeBron James’ free agency",
+          "originalTitle": "Kendrick Perkins convinced we got first ‘real big clue’ of LeBron James’ free agency",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/kendrick-perkins-convinced-got-first-203220672.html",
+          "publishedAt": "2026-07-22T20:32:20.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "How NBA teams reportedly could ‘sway' LeBron James into signing with them",
+          "originalTitle": "How NBA teams reportedly could ‘sway' LeBron James into signing with them",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/nba-teams-reportedly-could-sway-174351034.html",
+          "publishedAt": "2026-07-22T17:43:51.000Z",
+          "angle": "report"
+        }
+      ],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "LeBron James delaying free agency decision for one key reason",
+        "Did Adam Silver's remarks delay LeBron James' free agency choice?",
+        "Kendrick Perkins convinced we got first ‘real big clue’ of LeBron James’ free agency",
+        "How NBA teams reportedly could ‘sway' LeBron James into signing with them"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-delaying-free-agency-011351804.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/did-adam-silvers-remarks-delay-235620837.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/kendrick-perkins-convinced-got-first-203220672.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/nba-teams-reportedly-could-sway-174351034.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/mike-gansey-deserves-vote-confidence-140536712.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "LeBron James delaying free agency decision for one key reason",
+      "copySource": "fallback",
+      "storyType": "rumor"
+    },
+    {
       "id": "https://sports.yahoo.com/nba/article/longtime-trail-blazers-broadcaster-kevin-calabro-parts-ways-with-team-due-to-subprime-offer-004430055.html",
       "title": "Longtime Trail Blazers broadcaster Kevin Calabro parts ways with team due to 'subprime' offer",
       "originalTitle": "Longtime Trail Blazers broadcaster Kevin Calabro parts ways with team due to 'subprime' offer",
@@ -298,6 +511,34 @@
       "category": "其他",
       "importance": 1,
       "displayTitle": "Longtime Trail Blazers broadcaster Kevin Calabro parts ways with team due to 'subprime' offer",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/caitlin-clark-featured-nba-2k27-002618754.html",
+      "title": "Caitlin Clark featured on NBA 2K27 video game cover with ‘weird’ twist",
+      "originalTitle": "Caitlin Clark featured on NBA 2K27 video game cover with ‘weird’ twist",
+      "headlineZh": "Caitlin Clark 相关消息更新",
+      "titleZh": "Caitlin Clark 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/caitlin-clark-featured-nba-2k27-002618754.html",
+      "url": "https://sports.yahoo.com/articles/caitlin-clark-featured-nba-2k27-002618754.html",
+      "pubDate": "2026-07-23T00:26:18.000Z",
+      "publishedAt": "2026-07-23T00:26:18.000Z",
+      "summary": "Clark’s appearance on the cover marks the first time a WNBA player has been featured on her own global cover of the NBA edition of the game",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Caitlin Clark 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/xtssSj7Kx9SsWtrTNfAt1A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/28ade0265fd88ad6a72737b39cdeedc2",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Caitlin Clark featured on NBA 2K27 video game cover with ‘weird’ twist",
       "copySource": "fallback",
       "storyType": "fact",
       "eventKey": "",
@@ -359,90 +600,6 @@
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/did-adam-silvers-remarks-delay-235620837.html",
-      "title": "Did Adam Silver's remarks delay LeBron James' free agency choice?",
-      "originalTitle": "Did Adam Silver's remarks delay LeBron James' free agency choice?",
-      "headlineZh": "Did Adam Silver's 签约动向更新",
-      "titleZh": "Did Adam Silver's 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/did-adam-silvers-remarks-delay-235620837.html",
-      "url": "https://sports.yahoo.com/articles/did-adam-silvers-remarks-delay-235620837.html",
-      "pubDate": "2026-07-22T23:56:20.000Z",
-      "publishedAt": "2026-07-22T23:56:20.000Z",
-      "summary": "Cleveland sports radio host said LeBron James was rubbed the wrong way by Adam Silver's comments, which delayed his decision.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Did Adam Silver's 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/uNFOhFA2vSKMuUI.cJkGYA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MjI7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/21d6998053039831da1dc0c4b70dbc20",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james",
-      "relatedItems": [
-        {
-          "title": "Kendrick Perkins convinced we got first ‘real big clue’ of LeBron James’ free agency",
-          "originalTitle": "Kendrick Perkins convinced we got first ‘real big clue’ of LeBron James’ free agency",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/kendrick-perkins-convinced-got-first-203220672.html",
-          "publishedAt": "2026-07-22T20:32:20.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "How NBA teams reportedly could ‘sway' LeBron James into signing with them",
-          "originalTitle": "How NBA teams reportedly could ‘sway' LeBron James into signing with them",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/nba-teams-reportedly-could-sway-174351034.html",
-          "publishedAt": "2026-07-22T17:43:51.000Z",
-          "angle": "report"
-        },
-        {
-          "title": "Latest LeBron James free agency news, rumors, updates on 'Decision'",
-          "originalTitle": "Latest LeBron James free agency news, rumors, updates on 'Decision'",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/latest-lebron-james-free-agency-114043602.html",
-          "publishedAt": "2026-07-22T11:40:43.000Z",
-          "angle": "rumor"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Did Adam Silver's remarks delay LeBron James' free agency choice?",
-        "Kendrick Perkins convinced we got first ‘real big clue’ of LeBron James’ free agency",
-        "How NBA teams reportedly could ‘sway' LeBron James into signing with them",
-        "Latest LeBron James free agency news, rumors, updates on 'Decision'"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/did-adam-silvers-remarks-delay-235620837.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/kendrick-perkins-convinced-got-first-203220672.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/nba-teams-reportedly-could-sway-174351034.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/mike-gansey-deserves-vote-confidence-140536712.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/latest-lebron-james-free-agency-114043602.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "Did Adam Silver's remarks delay LeBron James' free agency choice?",
-      "copySource": "fallback",
-      "storyType": "signing"
     },
     {
       "id": "https://sports.yahoo.com/nba/article/grizzlies-dangelo-russell-expected-to-work-together-to-allow-veteran-guard-to-find-new-home-235415261.html",
@@ -697,6 +854,34 @@
       "isMerged": false
     },
     {
+      "id": "https://sports.yahoo.com/articles/nba-offseason-trade-free-agent-201126098.html",
+      "title": "NBA Offseason Trade/Free Agent Rumors 2026: Mario Hezonja return rumors, plus Bradley Beal, Anthony Davis",
+      "originalTitle": "NBA Offseason Trade/Free Agent Rumors 2026: Mario Hezonja return rumors, plus Bradley Beal, Anthony Davis",
+      "headlineZh": "Offseason Trade 交易影响继续发酵",
+      "titleZh": "Offseason Trade 交易影响继续发酵",
+      "link": "https://sports.yahoo.com/articles/nba-offseason-trade-free-agent-201126098.html",
+      "url": "https://sports.yahoo.com/articles/nba-offseason-trade-free-agent-201126098.html",
+      "pubDate": "2026-07-22T20:11:26.000Z",
+      "publishedAt": "2026-07-22T20:11:26.000Z",
+      "summary": "Things are moving slowly while everyone waits for LeBron James' decision to come down.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Offseason Trade 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
+      "oneLineZh": "Offseason Trade 交易影响继续发酵",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/QbGJ7psJnXFdF2rRL51N6g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/e6dd5b99c136cba6aa4c9a9fa3c02ce3",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "交易",
+      "importance": 4,
+      "eventKey": "trade:lebron-james",
+      "relatedItems": [],
+      "displayTitle": "NBA Offseason Trade/Free Agent Rumors 2026: Mario Hezonja return rumors, plus Bradley Beal, Anthony Davis",
+      "copySource": "fallback",
+      "storyType": "trade",
+      "isMerged": false
+    },
+    {
       "id": "https://sports.yahoo.com/articles/method-mavericks-madness-offseason-195514557.html",
       "title": "There’s a method to the Mavericks madness this offseason",
       "originalTitle": "There’s a method to the Mavericks madness this offseason",
@@ -915,6 +1100,10 @@
         {
           "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286766/Sam-Presti-Describes-Lu-Dort-Trade-As-Financial-Decision"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286793/Hawks-To-Hold-Off-Extension-Talks-With-Lu-Dort"
         }
       ],
       "isMerged": true,
@@ -1588,107 +1777,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/bucks-reacts-survey-ryan-rollins-120000469.html",
-      "title": "Bucks Reacts Survey: Ryan Rollins for Peyton Watson?",
-      "originalTitle": "Bucks Reacts Survey: Ryan Rollins for Peyton Watson?",
-      "headlineZh": "雄鹿 Reacts Survey 相关消息更新",
-      "titleZh": "雄鹿 Reacts Survey 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/bucks-reacts-survey-ryan-rollins-120000469.html",
-      "url": "https://sports.yahoo.com/articles/bucks-reacts-survey-ryan-rollins-120000469.html",
-      "pubDate": "2026-07-22T12:00:00.000Z",
-      "publishedAt": "2026-07-22T12:00:00.000Z",
-      "summary": "Stacked in the backcourt but thin on the wing, the Bucks have a tough question to answer.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "雄鹿 Reacts Survey 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/MBkaPlwEB1R2UkQw9xEWCQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/38b36aa8d0ca00e7f04a9c86e8e383fb",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Bucks Reacts Survey: Ryan Rollins for Peyton Watson?",
-      "copySource": "fallback",
-      "storyType": "opinion",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/rich-paul-confronted-potential-lebron-113928370.html",
-      "title": "Rich Paul confronted about potential LeBron James-Warriors union by Bill Simmons",
-      "originalTitle": "Rich Paul confronted about potential LeBron James-Warriors union by Bill Simmons",
-      "headlineZh": "Rich Paul 相关消息更新",
-      "titleZh": "Rich Paul 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/rich-paul-confronted-potential-lebron-113928370.html",
-      "url": "https://sports.yahoo.com/articles/rich-paul-confronted-potential-lebron-113928370.html",
-      "pubDate": "2026-07-22T11:39:28.000Z",
-      "publishedAt": "2026-07-22T11:39:28.000Z",
-      "summary": "The Ringer's Bill Simmons confronted Klutch Sports CEO Rich Paul about a potential LeBron James NBA free-agent signing with the Golden State Warriors.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Rich Paul 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/12cf2f83cf795ec50c39979aa3fe09d7",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james:warriors",
-      "relatedItems": [],
-      "displayTitle": "Rich Paul confronted about potential LeBron James-Warriors union by Bill Simmons",
-      "copySource": "fallback",
-      "storyType": "signing",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286779/Mario-Hezonja-Drawing-Interest-From-Multiple-Teams",
-      "title": "Mario Hezonja Drawing Interest From Multiple Teams",
-      "originalTitle": "Mario Hezonja Drawing Interest From Multiple Teams",
-      "headlineZh": "Mario Hezonja Drawing 相关消息更新",
-      "titleZh": "Mario Hezonja Drawing 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286779/Mario-Hezonja-Drawing-Interest-From-Multiple-Teams",
-      "url": "https://basketball.realgm.com/wiretap/286779/Mario-Hezonja-Drawing-Interest-From-Multiple-Teams",
-      "pubDate": "2026-07-22T06:24:27.000Z",
-      "publishedAt": "2026-07-22T06:24:27.000Z",
-      "summary": "<p>Real Madrid forward Mario Hezonja is drawing interest from multiple teams around the league, sources told Marc Stein of The Stein Line.</p> <p>Hezonja is widely expected to rejoin the NBA next season.</p> <p>Hezonja is also drawing interest from teams who are also chasing LeBron James, with the 76ers, Cavs, and Heat <a href=\"https://x.com/TheSteinLine/status/2079738156518187370\">the favorites to sign James</a>.</p> <p>Hezonja last played in the NBA for the Blazers during the 2019-20 season.</p>",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Mario Hezonja Drawing 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Hezonja_Mario_por_200303.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james:cavaliers",
-      "relatedItems": [],
-      "sources": [
-        "RealGM"
-      ],
-      "originalTitles": [
-        "Mario Hezonja Drawing Interest From Multiple Teams",
-        "Heat Say Link To LeBron James Press Conference Live Stream Posted By Mistake"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286779/Mario-Hezonja-Drawing-Interest-From-Multiple-Teams"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286778/Heat-Say-Link-To-LeBron-James-Press-Conference-Live-Stream-Posted-By-Mistake"
-        }
-      ],
-      "isMerged": false,
-      "displayTitle": "Mario Hezonja Drawing Interest From Multiple Teams",
-      "copySource": "fallback",
-      "storyType": "rumor"
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286777/Peter-Suder-To-Explore-Options-After-Getting-Waived-By-Lakers",
       "title": "Peter Suder To Explore Options After Getting Waived By Lakers",
       "originalTitle": "Peter Suder To Explore Options After Getting Waived By Lakers",
@@ -1890,7 +1978,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-23T03:55:05.546Z",
+      "aiGeneratedAt": "2026-07-23T06:33:22.138Z",
       "aiConfidence": 0.9
     },
     {
@@ -2033,135 +2121,6 @@
       "displayTitle": "Mavericks Sign Jett Howard To Two-Way, Waive Tyler Smith",
       "copySource": "fallback",
       "storyType": "signing",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286761/Matisse-Thybulle-Lakers-Agree-To-One-Year-$33M-Deal",
-      "title": "Matisse Thybulle, Lakers Agree To One-Year, $3.3M Deal",
-      "originalTitle": "Matisse Thybulle, Lakers Agree To One-Year, $3.3M Deal",
-      "headlineZh": "Matisse Thybulle 与湖人达成一年，330 万美元合同",
-      "titleZh": "Matisse Thybulle 与湖人达成一年，330 万美元合同",
-      "link": "https://basketball.realgm.com/wiretap/286761/Matisse-Thybulle-Lakers-Agree-To-One-Year-$33M-Deal",
-      "url": "https://basketball.realgm.com/wiretap/286761/Matisse-Thybulle-Lakers-Agree-To-One-Year-$33M-Deal",
-      "pubDate": "2026-07-20T18:24:56.000Z",
-      "publishedAt": "2026-07-20T18:24:56.000Z",
-      "summary": "<p>Matisse Thybulle and the Los Angeles Lakers have agreed to a one-year, $3.3 million contract.</p> <p>Thybulle is coming off his three-year, $33 million contract with the Portland Trail Blazers that was originally signed as a restricted free agent offer sheet with the Dallas Mavericks in 2023 that was matched. Luka Doncic was with the Mavericks when Thybulle signed the offer sheet.</p> <p>Thybulle appeared in 30 games last season with the Blazers, averaging 5.8 points, 2.0 rebounds and 2.0 steals as one of the NBA's best wing defenders.</p> <p>Thybulle missed most of the 2024-25 season due to right knee tendinopathy.</p> <p>The Lakers currently have 16 players on guaranteed contracts for the 2026-27 season, which will necessitate additional roster maneuvers before the start of the regular season. </p>",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Matisse Thybulle 与湖人达成一年，330 万美元合同，原文关注 Matisse Thybulle 的合同或自由市场动向。",
-      "oneLineZh": "Matisse Thybulle 与湖人达成一年，330 万美元合同",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Thybulle_Matisse_por_250625.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 5,
-      "eventKey": "sign:matisse-thybulle:lakers:1:330",
-      "relatedItems": [],
-      "displayTitle": "Matisse Thybulle, Lakers Agree To One-Year, $3.3M Deal",
-      "copySource": "fallback",
-      "storyType": "signing",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286760/Luka-Doncic-I-Think-We-Have-A-Really-Good-Team-Excited-To-Start-New-Season",
-      "title": "Luka Doncic: I Think We Have A Really Good Team, Excited To Start New Season",
-      "originalTitle": "Luka Doncic: I Think We Have A Really Good Team, Excited To Start New Season",
-      "headlineZh": "卢卡·东契奇相关消息更新",
-      "titleZh": "卢卡·东契奇相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286760/Luka-Doncic-I-Think-We-Have-A-Really-Good-Team-Excited-To-Start-New-Season",
-      "url": "https://basketball.realgm.com/wiretap/286760/Luka-Doncic-I-Think-We-Have-A-Really-Good-Team-Excited-To-Start-New-Season",
-      "pubDate": "2026-07-20T17:25:41.000Z",
-      "publishedAt": "2026-07-20T17:25:41.000Z",
-      "summary": "<p>Luka Doncic spoke optimistically about the Los Angeles Lakers' roster during an interview over the weekend with the Golf Channel while he was attending the British Open.</p> <p>The Lakers acquired Walker Kessler in a sign-and-trade with the Utah Jazz that cost the team two future first round picks outright and two first round swaps. The Lakers believe Kessler is the best two-way center Doncic has ever played with. The addition of Kessler and new rotation pieces such as Sandro Mamukelashvili, Quentin Grimes and Collin Sexton came at the expense of losing LeBron James.</p> <p>\"I think we have a really good team,\" Doncic said. \"I'm very excited to start a new season. Obviously last season didn't end how we wanted, so I'm very excited for the new one.\"</p> <p>When Doncic led the Dallas Mavericks to the 2024 Finals, he was paired with Daniel Gafford and Dereck Lively splitting time at center.</p> <p>Last August, Doncic signed a three-year, $165 million extension with the Lakers that contained a player option for 2028. Doncic can sign a four-year extension during the 2027 offseason.</p>",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "卢卡·东契奇相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Doncic_Luka_lal_251210.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
-      "importance": 2,
-      "eventKey": "trade:lebron-james:mavericks:lakers",
-      "relatedItems": [],
-      "displayTitle": "Luka Doncic: I Think We Have A Really Good Team, Excited To Start New Season",
-      "copySource": "fallback",
-      "storyType": "trade",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286759/Trey-Murphy-Trade-Talks-Could-Pick-Up-After-LeBron-James-Decision",
-      "title": "Trey Murphy Trade Talks Could Pick Up After LeBron James' Decision",
-      "originalTitle": "Trey Murphy Trade Talks Could Pick Up After LeBron James' Decision",
-      "headlineZh": "Trey Murphy Trade 交易影响继续发酵",
-      "titleZh": "Trey Murphy Trade 交易影响继续发酵",
-      "link": "https://basketball.realgm.com/wiretap/286759/Trey-Murphy-Trade-Talks-Could-Pick-Up-After-LeBron-James-Decision",
-      "url": "https://basketball.realgm.com/wiretap/286759/Trey-Murphy-Trade-Talks-Could-Pick-Up-After-LeBron-James-Decision",
-      "pubDate": "2026-07-20T17:19:02.000Z",
-      "publishedAt": "2026-07-20T17:19:02.000Z",
-      "summary": "<p>The New Orleans Pelicans could revisit Trey Murphy trade scenarios after LeBron James decides which team he will play for this upcoming season. The Pelicans listened to trade offers around the draft but maintained a high asking price for Murphy.</p> <p>\"Chatter about a Trey Murphy trade, while lessened, hasn't vanished and is one of many potential pieces of league business that could resurface once LeBron James' next destination becomes clear,\" writes John Hollinger at The Athletic.</p> <p>Murphy, who averaged 21.5 points, 5.7 rebounds and 3.8 assists across 66 games last season while shooting 37.9 percent from three-point range, is under contract through the 2029 offseason on a four-year, $112 million deal. He will earn $27 million next season.</p> <p>The Pelicans selected Derik Queen and Jeremiah Fears in the first round last season and represent their youth movement. But the Pelicans also retain mid-career veterans such as Murphy, Zion Williamson, Dejounte Murray and Herb Jones.</p>",
-      "dekZh": "",
-      "summaryZh": "据 RealGM / Yahoo Sports 报道，Trey Murphy Trade 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
-      "oneLineZh": "Trey Murphy Trade 交易影响继续发酵",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Murphy_Trey_nop_260626.jpg",
-      "source": "RealGM / Yahoo Sports",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "交易",
-      "importance": 5,
-      "eventKey": "trade:lebron-james",
-      "relatedItems": [],
-      "sources": [
-        "RealGM",
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Trey Murphy Trade Talks Could Pick Up After LeBron James' Decision"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286759/Trey-Murphy-Trade-Talks-Could-Pick-Up-After-LeBron-James-Decision"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/nba-offseason-trade-free-agent-201126098.html"
-        }
-      ],
-      "isMerged": false,
-      "displayTitle": "Trey Murphy Trade Talks Could Pick Up After LeBron James' Decision",
-      "copySource": "fallback",
-      "storyType": "rumor"
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286758/Jonathan-Kumingas-Talks-With-Lakers-Stall-Over-Contract",
-      "title": "Jonathan Kuminga's Talks With Lakers Stall Over Contract",
-      "originalTitle": "Jonathan Kuminga's Talks With Lakers Stall Over Contract",
-      "headlineZh": "Jonathan Kuminga's Talks 签约动向更新",
-      "titleZh": "Jonathan Kuminga's Talks 签约动向更新",
-      "link": "https://basketball.realgm.com/wiretap/286758/Jonathan-Kumingas-Talks-With-Lakers-Stall-Over-Contract",
-      "url": "https://basketball.realgm.com/wiretap/286758/Jonathan-Kumingas-Talks-With-Lakers-Stall-Over-Contract",
-      "pubDate": "2026-07-20T16:47:19.000Z",
-      "publishedAt": "2026-07-20T16:47:19.000Z",
-      "summary": "<p>Talks between the Los Angeles Lakers and free agent Jonathan Kuminga have stalled, with both sides far apart on contract terms, according to team sources. The Athletic has reported on the Lakers' interest in Kuminga since late June, but the team has shown little motivation to commit significant draft capital toward a sign-and-trade to complete a deal.</p> <p>Despite the stalled momentum, Kuminga remains viewed as the top remaining upside play on the free agent market and could re-emerge as a Lakers target if his market stays cool. League sources indicated the Cleveland Cavaliers are the team most frequently connected to Kuminga aside from the Lakers. The Cavaliers are awaiting a decision from LeBron James before possibly pivoting to Kuminga.</p> <p>The Atlanta Hawks previously declined their $24.3 million team option on Kuminga for the 2026-27 season. He played last season on a $22.5 million contract following a prolonged restricted free agency process with the Golden State Warriors.</p> <p>The Lakers have also shown interest in free agent Matisse Thybulle, a top-tier defensive wing who has developed into an effective catch-and-shoot threat during his time with the Portland Trail Blazers. </p> <p>Sources also indicated the Lakers continue monitoring the market for size at center. The team already acquired Walker Kessler via sign-and-trade and signed Kevon Looney to bolster that position, with Sandro Mamukelashvili also capable of playing center. </p>",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Jonathan Kuminga's Talks 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Kuminga_Jonathan_atl_260225.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "trade:lebron-james:hawks:warriors",
-      "relatedItems": [],
-      "displayTitle": "Jonathan Kuminga's Talks With Lakers Stall Over Contract",
-      "copySource": "fallback",
-      "storyType": "rumor",
       "isMerged": false
     }
   ]
