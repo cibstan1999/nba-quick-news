@@ -1,0 +1,29 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nba-quick-news-worker",
+  "main": "src/index.js",
+  "compatibility_date": "2026-07-23",
+  "observability": {
+    "enabled": true
+  },
+  "triggers": {
+    "crons": ["*/30 * * * *"]
+  },
+  "ai": {
+    "binding": "AI"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "NEWS_KV",
+      "id": "REPLACE_WITH_NEWS_KV_NAMESPACE_ID"
+    }
+  ],
+  "vars": {
+    "AI_ENABLED": "true",
+    "AI_MODEL": "@cf/meta/llama-3.1-8b-instruct",
+    "AI_MAX_ITEMS_PER_RUN": "5",
+    "JINA_READER_ENABLED": "true",
+    "ARTICLE_CHAR_LIMIT": "5000",
+    "SUMMARY_CACHE_VERSION": "cf-summary-v1"
+  }
+}
