@@ -378,11 +378,28 @@ async function applyAiSummaries(items, env) {
 
 async function summarizeWithWorkersAi(item, articleText, env) {
   const prompt = buildSummaryPrompt(item, articleText);
-  const response = await env.AI.run(env.AI_MODEL || DEFAULT_AI_MODEL, {
+  const request = buildWorkersAiRequest(prompt, 1200);
+  const response = await env.AI.run(env.AI_MODEL || DEFAULT_AI_MODEL, request);
+  let normalized = normalizeAiResponse(response);
+  if (normalized.isEmptyLengthResponse) {
+    console.warn('Workers AI returned empty content after reasoning budget exhaustion; retrying once', {
+      title: item.originalTitle,
+      finishReason: normalized.finishReason,
+      rawResponse: normalized.rawDebug.slice(0, 2000)
+    });
+    const retryResponse = await env.AI.run(env.AI_MODEL || DEFAULT_AI_MODEL, buildWorkersAiRequest(prompt, 1800));
+    normalized = normalizeAiResponse(retryResponse);
+  }
+  return normalized;
+}
+
+function buildWorkersAiRequest(prompt, maxTokens) {
+  return {
     messages: [
       {
         role: 'system',
         content: [
+          '/no_think',
           '你是一名严谨的中文 NBA 快讯编辑，只根据输入事实写中文复述，不添加输入中没有的信息。',
           '你不是标题翻译器。不要逐词翻译英文标题，不要半中半英拼接。',
           '球员姓名可以保留英文或使用常见中文译名；球队必须使用常见中文队名。',
@@ -393,16 +410,17 @@ async function summarizeWithWorkersAi(item, articleText, env) {
       },
       {
         role: 'user',
-        content: prompt
+        content: `/no_think\n${prompt}`
       }
     ],
-    max_tokens: 420,
-    temperature: 0.2
-  });
-  const raw = getAiResponseContent(response);
-  return {
-    raw,
-    parsed: parseAiJson(raw || response)
+    max_tokens: maxTokens,
+    temperature: 0.7,
+    top_p: 0.8,
+    top_k: 20,
+    reasoning_effort: null,
+    chat_template_kwargs: {
+      enable_thinking: false
+    }
   };
 }
 
@@ -485,13 +503,22 @@ function parseAiJson(value) {
   }
 }
 
+function normalizeAiResponse(response) {
+  const rawDebug = stringifyForDebug(response);
+  const content = getAiResponseContent(response);
+  const finishReason = getAiFinishReason(response);
+  return {
+    raw: content,
+    rawDebug,
+    finishReason,
+    isEmptyLengthResponse: !normalizeWhitespace(content) && finishReason === 'length',
+    parsed: parseAiJson(content || response)
+  };
+}
+
 function getAiResponseContent(response) {
   if (!response) return '';
   if (typeof response === 'string') return response;
-  for (const key of ['response', 'text', 'content', 'result']) {
-    const value = response?.[key];
-    if (typeof value === 'string') return value;
-  }
   if (Array.isArray(response?.choices)) {
     const choiceText = response.choices
       .map((choice) => choice?.message?.content || choice?.text || '')
@@ -499,10 +526,31 @@ function getAiResponseContent(response) {
       .join('\n');
     if (choiceText) return choiceText;
   }
+  for (const key of ['response', 'text', 'content', 'result']) {
+    const value = response?.[key];
+    if (typeof value === 'string') return value;
+  }
+  return '';
+}
+
+function getAiFinishReason(response) {
+  if (Array.isArray(response?.choices)) {
+    const finishReason = response.choices
+      .map((choice) => choice?.finish_reason || choice?.finishReason || '')
+      .filter(Boolean)
+      .join('\n');
+    if (finishReason) return finishReason;
+  }
+  return response?.finish_reason || response?.finishReason || '';
+}
+
+function stringifyForDebug(value) {
+  if (!value) return '';
+  if (typeof value === 'string') return normalizeWhitespace(value);
   try {
-    return JSON.stringify(response);
+    return normalizeWhitespace(JSON.stringify(value));
   } catch {
-    return String(response);
+    return normalizeWhitespace(String(value));
   }
 }
 
@@ -512,7 +560,9 @@ function logWorkersAiDebug(item, aiResponse, accepted) {
   const oneLineZh = normalizeWhitespace(parsed?.oneLineZh || '');
   console.warn('Workers AI debug', {
     title: item.originalTitle,
-    rawResponse: normalizeWhitespace(aiResponse?.raw || '').slice(0, 2000),
+    rawResponse: normalizeWhitespace(aiResponse?.rawDebug || aiResponse?.raw || '').slice(0, 2000),
+    content: normalizeWhitespace(aiResponse?.raw || '').slice(0, 2000),
+    finishReason: aiResponse?.finishReason || '',
     parsedJson: parsed,
     summaryZh,
     oneLineZh,
