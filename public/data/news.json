@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-23T23:00:18.235Z",
+  "updatedAt": "2026-07-24T00:07:40.602Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-23T23:00:18.235Z",
-    "previousUpdatedAt": "2026-07-23T21:36:31.911Z",
-    "updatedAt": "2026-07-23T23:00:18.235Z",
+    "checkedAt": "2026-07-24T00:07:40.602Z",
+    "previousUpdatedAt": "2026-07-23T23:00:18.235Z",
+    "updatedAt": "2026-07-24T00:07:40.602Z",
     "fetchedItems": 79,
     "mergedItems": 73,
     "successfulFeeds": [
@@ -31,11 +31,11 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-23T21:44:26.000Z",
-    "dataAgeHours": 1.2645097222222221,
+    "newestPublishedAt": "2026-07-23T22:42:00.000Z",
+    "dataAgeHours": 1.427945,
     "aiEnabled": false,
     "aiScope": "latest-items",
-    "aiCandidates": 44,
+    "aiCandidates": 43,
     "aiCacheHits": 1,
     "aiRequests": 0,
     "aiAccepted": 0,
@@ -44,15 +44,15 @@
     "aiRetried": 0,
     "rejectedAsNonChinese": 0,
     "skippedByLimit": 0,
-    "finalItemsWithChineseSummary": 29,
-    "finalItemsWithoutChineseSummary": 44,
+    "finalItemsWithChineseSummary": 30,
+    "finalItemsWithoutChineseSummary": 43,
     "totalNewsItems": 73,
-    "itemsWithValidChineseSummary": 28,
-    "itemsMissingChineseSummary": 45,
-    "eligibleBacklog": 44,
+    "itemsWithValidChineseSummary": 29,
+    "itemsMissingChineseSummary": 44,
+    "eligibleBacklog": 43,
     "selectedThisRun": 0,
     "previouslyFailed": 0,
-    "remainingAfterRun": 44,
+    "remainingAfterRun": 43,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
     "acceptedHighConfidence": 0,
@@ -82,6 +82,34 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "title": "2026 LeBron James Next Team Odds: Were The Heat Social Team Getting Ready To Announce?",
+      "originalTitle": "2026 LeBron James Next Team Odds: Were The Heat Social Team Getting Ready To Announce?",
+      "headlineZh": "勒布朗·詹姆斯 Next 相关消息更新",
+      "titleZh": "勒布朗·詹姆斯 Next 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "url": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
+      "pubDate": "2026-07-23T22:42:00.000Z",
+      "publishedAt": "2026-07-23T22:42:00.000Z",
+      "summary": "LeBron James next team odds now favor the Miami Heat after a deleted YouTube livestream fueled signing rumors.",
+      "dekZh": "",
+      "summaryZh": "Yahoo Sports 分析了2026 勒布朗·詹姆斯 Next Team 相关赔率变化，文章属于赔率和前景分析。",
+      "oneLineZh": "勒布朗·詹姆斯 Next 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/c60086aeffed51230e4bf3c57270744f",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "eventKey": "odds:lebron-james:heat",
+      "relatedItems": [],
+      "displayTitle": "2026 LeBron James Next Team Odds: Were The Heat Social Team Getting Ready To Announce?",
+      "copySource": "fallback",
+      "storyType": "analysis",
+      "isMerged": false
+    },
     {
       "id": "https://www.yahoo.com/entertainment/celebrity/articles/ring-didnt-lie-anthony-edwards-214426866.html",
       "title": "Ring didn't lie: Anthony Edwards married girlfriend Shannon Jackson",
@@ -137,6 +165,51 @@
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lebron-james-top-three-free-193604093.html",
+      "title": "LeBron James’ top three free agency priorities revealed",
+      "originalTitle": "LeBron James’ top three free agency priorities revealed",
+      "headlineZh": "勒布朗·詹姆斯签约动向更新",
+      "titleZh": "勒布朗·詹姆斯签约动向更新",
+      "link": "https://sports.yahoo.com/articles/lebron-james-top-three-free-193604093.html",
+      "url": "https://sports.yahoo.com/articles/lebron-james-top-three-free-193604093.html",
+      "pubDate": "2026-07-23T19:36:04.000Z",
+      "publishedAt": "2026-07-23T19:36:04.000Z",
+      "summary": "LeBron James has three things on his mind when deciding which team he'll sign with in free agency.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，勒布朗·詹姆斯的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "勒布朗·詹姆斯签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/fSzj1vPKH3UDfZRLemJq_w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/2df741bb85c39126957d374cf1cac230",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james",
+      "relatedItems": [],
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "LeBron James’ top three free agency priorities revealed",
+        "LeBron decision updates LIVE: Latest rumors, news on next team"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-top-three-free-193604093.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-decision-drags-latest-rumors-120100304.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "LeBron James’ top three free agency priorities revealed",
+      "copySource": "fallback",
+      "storyType": "signing"
     },
     {
       "id": "https://sports.yahoo.com/articles/alex-karaban-reflects-summer-league-192327758.html",
@@ -610,6 +683,34 @@
       "displayTitle": "Rockets Chip Engelland hire could change the team",
       "copySource": "fallback",
       "storyType": "rumor",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/sabrina-ionescu-teases-3-point-163106041.html",
+      "title": "Sabrina Ionescu teases 3-point contest rematch with Warriors star Steph Curry",
+      "originalTitle": "Sabrina Ionescu teases 3-point contest rematch with Warriors star Steph Curry",
+      "headlineZh": "Sabrina Ionescu 相关消息更新",
+      "titleZh": "Sabrina Ionescu 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/sabrina-ionescu-teases-3-point-163106041.html",
+      "url": "https://sports.yahoo.com/articles/sabrina-ionescu-teases-3-point-163106041.html",
+      "pubDate": "2026-07-23T16:31:06.000Z",
+      "publishedAt": "2026-07-23T16:31:06.000Z",
+      "summary": "New York Liberty star Sabrina Ionescu teased a rematch for a 3-point shooting competition with Golden State Warriors Steph Curry is a possibility.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Sabrina Ionescu 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/5b83480d608dd0639a68cd4d8eb3270b",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Sabrina Ionescu teases 3-point contest rematch with Warriors star Steph Curry",
+      "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -1089,60 +1190,6 @@
       "copySource": "fallback",
       "storyType": "signing",
       "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/lebron-decision-drags-latest-rumors-120100304.html",
-      "title": "LeBron decision updates LIVE: Latest rumors, news on next team",
-      "originalTitle": "LeBron decision updates LIVE: Latest rumors, news on next team",
-      "headlineZh": "NBA 休赛期后续动向",
-      "titleZh": "NBA 休赛期后续动向",
-      "link": "https://sports.yahoo.com/articles/lebron-decision-drags-latest-rumors-120100304.html",
-      "url": "https://sports.yahoo.com/articles/lebron-decision-drags-latest-rumors-120100304.html",
-      "pubDate": "2026-07-23T12:01:00.000Z",
-      "publishedAt": "2026-07-23T12:01:00.000Z",
-      "summary": "Keep up with the latest news on LeBron James' free agency with USA TODAY Sports.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "NBA 休赛期后续动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/8FJU6u0a6qVmtPfrLiZFXw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05NjM7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_sports_articles_558/4ca9db04eaaa019e7dd035b4857bdda3",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james",
-      "relatedItems": [
-        {
-          "title": "LeBron James delaying free agency decision for one key reason",
-          "originalTitle": "LeBron James delaying free agency decision for one key reason",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/lebron-james-delaying-free-agency-011351804.html",
-          "publishedAt": "2026-07-23T01:13:51.000Z",
-          "angle": "report"
-        }
-      ],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "LeBron decision updates LIVE: Latest rumors, news on next team",
-        "LeBron James delaying free agency decision for one key reason"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-decision-drags-latest-rumors-120100304.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-delaying-free-agency-011351804.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "LeBron decision updates LIVE: Latest rumors, news on next team",
-      "copySource": "fallback",
-      "storyType": "signing"
     },
     {
       "id": "https://sports.yahoo.com/articles/3-suns-storylines-already-worth-120000576.html",
@@ -1673,34 +1720,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "title": "2026 LeBron James Next Team Odds: Were The Heat Social Team Getting Ready To Announce?",
-      "originalTitle": "2026 LeBron James Next Team Odds: Were The Heat Social Team Getting Ready To Announce?",
-      "headlineZh": "勒布朗·詹姆斯 Next 相关消息更新",
-      "titleZh": "勒布朗·詹姆斯 Next 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "url": "https://sports.yahoo.com/articles/2026-lebron-james-next-team-091700774.html",
-      "pubDate": "2026-07-23T02:25:00.000Z",
-      "publishedAt": "2026-07-23T02:25:00.000Z",
-      "summary": "LeBron James next team odds now favor the Miami Heat after a deleted YouTube livestream fueled signing rumors.",
-      "dekZh": "",
-      "summaryZh": "Yahoo Sports 分析了2026 勒布朗·詹姆斯 Next Team 相关赔率变化，文章属于赔率和前景分析。",
-      "oneLineZh": "勒布朗·詹姆斯 Next 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/covers_articles_287/c60086aeffed51230e4bf3c57270744f",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "eventKey": "odds:lebron-james:heat",
-      "relatedItems": [],
-      "displayTitle": "2026 LeBron James Next Team Odds: Were The Heat Social Team Getting Ready To Announce?",
-      "copySource": "fallback",
-      "storyType": "analysis",
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286787/Emanuel-Miller-Waived-By-Spurs-From-Two-Way",
       "title": "Emanuel Miller Waived By Spurs From Two-Way",
       "originalTitle": "Emanuel Miller Waived By Spurs From Two-Way",
@@ -1778,34 +1797,6 @@
       "category": "其他",
       "importance": 1,
       "displayTitle": "Chip Engelland Hired By Rockets As Assistant Coach",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/lakers-legend-brutal-reality-check-012922748.html",
-      "title": "Lakers legend’s brutal reality check for LeBron as he keeps NBA waiting",
-      "originalTitle": "Lakers legend’s brutal reality check for LeBron as he keeps NBA waiting",
-      "headlineZh": "湖人休赛期后续动向",
-      "titleZh": "湖人休赛期后续动向",
-      "link": "https://sports.yahoo.com/articles/lakers-legend-brutal-reality-check-012922748.html",
-      "url": "https://sports.yahoo.com/articles/lakers-legend-brutal-reality-check-012922748.html",
-      "pubDate": "2026-07-23T01:29:22.000Z",
-      "publishedAt": "2026-07-23T01:29:22.000Z",
-      "summary": "Shaquille O'Neal is weighing in on LeBron James’ NBA destiny.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "湖人休赛期后续动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/1Zyqf16zMaAEh04HOedXfg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/a1959292751912e83a1c3d3a7d1f4fc2",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Lakers legend’s brutal reality check for LeBron as he keeps NBA waiting",
       "copySource": "fallback",
       "storyType": "fact",
       "eventKey": "",
@@ -2161,7 +2152,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-23T23:00:18.211Z",
+      "aiGeneratedAt": "2026-07-24T00:07:40.570Z",
       "aiConfidence": 0.9
     },
     {
