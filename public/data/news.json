@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-24T11:18:50.903Z",
+  "updatedAt": "2026-07-24T13:00:47.241Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-24T11:18:50.903Z",
-    "previousUpdatedAt": "2026-07-24T09:05:45.048Z",
-    "updatedAt": "2026-07-24T11:18:50.903Z",
+    "checkedAt": "2026-07-24T13:00:47.241Z",
+    "previousUpdatedAt": "2026-07-24T11:18:50.903Z",
+    "updatedAt": "2026-07-24T13:00:47.241Z",
     "fetchedItems": 79,
     "mergedItems": 72,
     "successfulFeeds": [
@@ -31,8 +31,8 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-24T10:05:00.000Z",
-    "dataAgeHours": 1.230806388888889,
+    "newestPublishedAt": "2026-07-24T10:09:21.000Z",
+    "dataAgeHours": 2.857289166666667,
     "aiEnabled": false,
     "aiScope": "latest-items",
     "aiCandidates": 43,
@@ -82,6 +82,34 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/friday-posted-toasted-notes-offseason-100921507.html",
+      "title": "Friday Posted & Toasted Notes: Offseason talk, wrong covers, vodka bottles",
+      "originalTitle": "Friday Posted & Toasted Notes: Offseason talk, wrong covers, vodka bottles",
+      "headlineZh": "周五 Posted 相关消息更新",
+      "titleZh": "周五 Posted 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/friday-posted-toasted-notes-offseason-100921507.html",
+      "url": "https://sports.yahoo.com/articles/friday-posted-toasted-notes-offseason-100921507.html",
+      "pubDate": "2026-07-24T10:09:21.000Z",
+      "publishedAt": "2026-07-24T10:09:21.000Z",
+      "summary": "Been putting together this post for a few days because otherwise I’d be feeding you 200-word posts. Would you rather have short, daily notes, or bigger, every-few-days posts? Links below! “You got the Jalen Brunson shoes? He don’t have ’em, right? (Steph Curry) sold $50 million in jerseys the days they released it. That is […]",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "周五 Posted 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/I03cSnOZpBFMdES.tEud4w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MTU7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/632e57abf20a2866d400545f71c8c215",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Friday Posted & Toasted Notes: Offseason talk, wrong covers, vodka bottles",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/malachi-moreno-ranked-among-top-100500993.html",
       "title": "Malachi Moreno ranked among the top-5 returning NBA Draft prospects",
@@ -1559,34 +1587,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/mavericks-restoring-something-worth-watching-110000483.html",
-      "title": "The Mavericks are restoring something, and it’s worth watching them work",
-      "originalTitle": "The Mavericks are restoring something, and it’s worth watching them work",
-      "headlineZh": "独行侠休赛期后续动向",
-      "titleZh": "独行侠休赛期后续动向",
-      "link": "https://sports.yahoo.com/articles/mavericks-restoring-something-worth-watching-110000483.html",
-      "url": "https://sports.yahoo.com/articles/mavericks-restoring-something-worth-watching-110000483.html",
-      "pubDate": "2026-07-23T11:00:00.000Z",
-      "publishedAt": "2026-07-23T11:00:00.000Z",
-      "summary": "Finding the merit trapped just under the surface",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "独行侠休赛期后续动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/AVgGVthi0NNTsJ71YbUKYw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/60a96db9124067ceff3656fa0bf1a0cc",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "The Mavericks are restoring something, and it’s worth watching them work",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286794/Clippers-Looking-To-Re-Sign-Bennedict-Mathurin",
       "title": "Clippers Looking To Re-Sign Bennedict Mathurin",
       "originalTitle": "Clippers Looking To Re-Sign Bennedict Mathurin",
@@ -2179,7 +2179,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-24T11:18:50.872Z",
+      "aiGeneratedAt": "2026-07-24T13:00:47.212Z",
       "aiConfidence": 0.9
     },
     {
