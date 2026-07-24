@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-24T06:29:26.045Z",
+  "updatedAt": "2026-07-24T09:05:45.048Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-24T06:29:26.045Z",
-    "previousUpdatedAt": "2026-07-24T03:54:49.985Z",
-    "updatedAt": "2026-07-24T06:29:26.045Z",
+    "checkedAt": "2026-07-24T09:05:45.048Z",
+    "previousUpdatedAt": "2026-07-24T06:29:26.045Z",
+    "updatedAt": "2026-07-24T09:05:45.048Z",
     "fetchedItems": 79,
-    "mergedItems": 72,
+    "mergedItems": 73,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,8 +31,8 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-24T01:45:18.000Z",
-    "dataAgeHours": 4.7355680555555555,
+    "newestPublishedAt": "2026-07-24T06:32:38.000Z",
+    "dataAgeHours": 2.551957777777778,
     "aiEnabled": false,
     "aiScope": "latest-items",
     "aiCandidates": 43,
@@ -44,10 +44,10 @@
     "aiRetried": 0,
     "rejectedAsNonChinese": 0,
     "skippedByLimit": 0,
-    "finalItemsWithChineseSummary": 29,
+    "finalItemsWithChineseSummary": 30,
     "finalItemsWithoutChineseSummary": 43,
-    "totalNewsItems": 72,
-    "itemsWithValidChineseSummary": 28,
+    "totalNewsItems": 73,
+    "itemsWithValidChineseSummary": 29,
     "itemsMissingChineseSummary": 44,
     "eligibleBacklog": 43,
     "selectedThisRun": 0,
@@ -82,6 +82,34 @@
     }
   ],
   "items": [
+    {
+      "id": "https://basketball.realgm.com/wiretap/286801/Warriors-Open-To-Signing-Short-Term-Extension-With-Steph-Curry",
+      "title": "Warriors Open To Signing Short-Term Extension With Steph Curry",
+      "originalTitle": "Warriors Open To Signing Short-Term Extension With Steph Curry",
+      "headlineZh": "Open To Signing 签约动向更新",
+      "titleZh": "Open To Signing 签约动向更新",
+      "link": "https://basketball.realgm.com/wiretap/286801/Warriors-Open-To-Signing-Short-Term-Extension-With-Steph-Curry",
+      "url": "https://basketball.realgm.com/wiretap/286801/Warriors-Open-To-Signing-Short-Term-Extension-With-Steph-Curry",
+      "pubDate": "2026-07-24T06:32:38.000Z",
+      "publishedAt": "2026-07-24T06:32:38.000Z",
+      "summary": "<p>The Golden State Warriors are open to signing a one or two-year extension with Steph Curry, according to Anthony Slater of ESPN.</p> <p>Curry will be extension-eligible on August 29.</p> <p>\"If he wants a one-year extension at big money, if he wants a two-year extension - the Warriors are very open to that conversation. </p> <p>\"I think they want to see how this roster looks in the short-term and long-term, and by the time we get to late August when he's eligible, Steph Curry and the Warriors will sit down and decide,\" said Slater.</p> <p>Curry is currently on a one-year, $62 million deal. </p> <p>It was reported last week that the Warriors still need to add another star in order to<a href=\"https://basketball.realgm.com/wiretap/286734/Warriors-Need-To-Add-Another-Star-To-Have-Chance-Of-Signing-LeBron-James\"> have a shot at signing LeBron James</a>. </p>",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，Open To Signing 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Open To Signing 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Curry_Stephen_gsw_260416.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james:warriors:2:6200",
+      "relatedItems": [],
+      "displayTitle": "Warriors Open To Signing Short-Term Extension With Steph Curry",
+      "copySource": "fallback",
+      "storyType": "rumor",
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/nba-offseason-trade-free-agent-014518716.html",
       "title": "NBA Offseason Trade/Free Agent Rumors 2026: Lakers calling Kuminga, D'Angelo Russell to hit market",
@@ -1899,10 +1927,6 @@
         },
         {
           "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286766/Sam-Presti-Describes-Lu-Dort-Trade-As-Financial-Decision"
-        },
-        {
-          "source": "RealGM",
           "link": "https://basketball.realgm.com/wiretap/286793/Hawks-To-Hold-Off-Extension-Talks-With-Lu-Dort"
         }
       ],
@@ -2169,7 +2193,7 @@
       "storyType": "trade",
       "isMerged": false,
       "aiModel": "openai/gpt-4o-mini",
-      "aiGeneratedAt": "2026-07-24T06:29:26.013Z",
+      "aiGeneratedAt": "2026-07-24T09:05:45.015Z",
       "aiConfidence": 0.9
     },
     {
