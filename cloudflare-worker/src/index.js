@@ -339,8 +339,10 @@ async function applyAiSummaries(items, env) {
     stats.requests += 1;
 
     try {
-      const aiResult = await summarizeWithWorkersAi(item, articleText, env);
+      const aiResponse = await summarizeWithWorkersAi(item, articleText, env);
+      const aiResult = aiResponse.parsed;
       const accepted = validateAiResult(aiResult, item);
+      logWorkersAiDebug(item, aiResponse, accepted);
       if (!accepted.ok) {
         stats.rejected += 1;
         pushSample(stats.rejectionSamples, {
@@ -397,7 +399,11 @@ async function summarizeWithWorkersAi(item, articleText, env) {
     max_tokens: 420,
     temperature: 0.2
   });
-  return parseAiJson(response?.response || response?.text || response);
+  const raw = getAiResponseContent(response);
+  return {
+    raw,
+    parsed: parseAiJson(raw || response)
+  };
 }
 
 function buildSummaryPrompt(item, articleText) {
@@ -477,6 +483,41 @@ function parseAiJson(value) {
   } catch {
     return null;
   }
+}
+
+function getAiResponseContent(response) {
+  if (!response) return '';
+  if (typeof response === 'string') return response;
+  for (const key of ['response', 'text', 'content', 'result']) {
+    const value = response?.[key];
+    if (typeof value === 'string') return value;
+  }
+  if (Array.isArray(response?.choices)) {
+    const choiceText = response.choices
+      .map((choice) => choice?.message?.content || choice?.text || '')
+      .filter(Boolean)
+      .join('\n');
+    if (choiceText) return choiceText;
+  }
+  try {
+    return JSON.stringify(response);
+  } catch {
+    return String(response);
+  }
+}
+
+function logWorkersAiDebug(item, aiResponse, accepted) {
+  const parsed = aiResponse?.parsed || null;
+  const summaryZh = normalizeWhitespace(parsed?.summaryZh || '');
+  const oneLineZh = normalizeWhitespace(parsed?.oneLineZh || '');
+  console.warn('Workers AI debug', {
+    title: item.originalTitle,
+    rawResponse: normalizeWhitespace(aiResponse?.raw || '').slice(0, 2000),
+    parsedJson: parsed,
+    summaryZh,
+    oneLineZh,
+    rejectionReasons: accepted?.ok ? [] : accepted?.reasons || []
+  });
 }
 
 function validateAiResult(result, item = null) {
