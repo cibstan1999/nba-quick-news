@@ -41,11 +41,11 @@ These defaults are in `wrangler.jsonc`:
 
 ```text
 AI_ENABLED=true
-AI_MODEL=@cf/meta/llama-3.1-8b-instruct-fast
+AI_MODEL=@cf/qwen/qwen3-30b-a3b-fp8
 AI_MAX_ITEMS_PER_RUN=3
 JINA_READER_ENABLED=true
 ARTICLE_CHAR_LIMIT=5000
-SUMMARY_CACHE_VERSION=cf-summary-v2
+SUMMARY_CACHE_VERSION=cf-summary-v3-qwen3
 ```
 
 ## Summary Strategy

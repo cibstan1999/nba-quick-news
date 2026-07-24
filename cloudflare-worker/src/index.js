@@ -13,7 +13,8 @@ const FEEDS = [
 
 const NEWS_KEY = 'news.json';
 const SOURCE_CACHE_PREFIX = 'ai-summary:';
-const DEFAULT_SUMMARY_CACHE_VERSION = 'cf-summary-v2';
+const DEFAULT_AI_MODEL = '@cf/qwen/qwen3-30b-a3b-fp8';
+const DEFAULT_SUMMARY_CACHE_VERSION = 'cf-summary-v3-qwen3';
 
 const TEAM_ZH = new Map([
   ['Atlanta Hawks', '老鹰'],
@@ -353,7 +354,7 @@ async function applyAiSummaries(items, env) {
       const cacheValue = {
         summaryZh: accepted.value.summaryZh,
         oneLineZh: accepted.value.oneLineZh,
-        model: env.AI_MODEL || '@cf/meta/llama-3.1-8b-instruct',
+        model: env.AI_MODEL || DEFAULT_AI_MODEL,
         generatedAt: new Date().toISOString(),
         sourceHash,
         promptVersion: env.SUMMARY_CACHE_VERSION || DEFAULT_SUMMARY_CACHE_VERSION
@@ -375,7 +376,7 @@ async function applyAiSummaries(items, env) {
 
 async function summarizeWithWorkersAi(item, articleText, env) {
   const prompt = buildSummaryPrompt(item, articleText);
-  const response = await env.AI.run(env.AI_MODEL || '@cf/meta/llama-3.1-8b-instruct', {
+  const response = await env.AI.run(env.AI_MODEL || DEFAULT_AI_MODEL, {
     messages: [
       {
         role: 'system',
@@ -384,7 +385,8 @@ async function summarizeWithWorkersAi(item, articleText, env) {
           '你不是标题翻译器。不要逐词翻译英文标题，不要半中半英拼接。',
           '球员姓名可以保留英文或使用常见中文译名；球队必须使用常见中文队名。',
           '签约/交易/伤病/传闻/分析要严格区分：传闻不能写成已完成，分析不能写成事实。',
-          '如果信息不足，宁可保守说明“现有摘要未提供更多细节”，不要编造。'
+          '如果信息不足，宁可保守说明“现有摘要未提供更多细节”，不要编造。',
+          '不要输出思考过程，不要输出 <think> 标签，只输出最终 JSON。'
         ].join('\n')
       },
       {
@@ -409,6 +411,7 @@ function buildSummaryPrompt(item, articleText) {
     '必须优先保留输入里明确出现的合同金额、年限、交易筹码、比分、伤病部位、时间状态。',
     '不要输出“相关消息更新”“后续动向”“成为焦点”“更多背景来自原文报道”。',
     '不要输出未翻译英文普通短语，例如 reach out to、expected to、multi-year、thoughts following。',
+    '不要输出思考过程或 <think> 标签。',
     guidance,
     '严格返回 JSON，不要 Markdown，不要解释：{"summaryZh":"","oneLineZh":"","confidence":0.0}',
     '',
@@ -463,7 +466,10 @@ async function extractArticleText(url, env) {
 function parseAiJson(value) {
   if (!value) return null;
   if (typeof value === 'object') return value;
-  const text = String(value).replace(/```json|```/g, '').trim();
+  const text = String(value)
+    .replace(/<think>[\s\S]*?<\/think>/gi, '')
+    .replace(/```json|```/g, '')
+    .trim();
   const match = text.match(/\{[\s\S]*\}/);
   if (!match) return null;
   try {
