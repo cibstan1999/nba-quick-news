@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-25T05:48:48.034Z",
+  "updatedAt": "2026-07-25T08:12:09.764Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-25T05:48:48.034Z",
-    "previousUpdatedAt": "2026-07-25T02:57:21.715Z",
-    "updatedAt": "2026-07-25T05:48:48.034Z",
+    "checkedAt": "2026-07-25T08:12:09.764Z",
+    "previousUpdatedAt": "2026-07-25T05:48:48.034Z",
+    "updatedAt": "2026-07-25T08:12:09.764Z",
     "fetchedItems": 79,
-    "mergedItems": 64,
+    "mergedItems": 69,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,11 +31,11 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-25T04:28:49.000Z",
-    "dataAgeHours": 1.333065,
+    "newestPublishedAt": "2026-07-25T06:40:31.000Z",
+    "dataAgeHours": 1.5274344444444445,
     "aiEnabled": false,
     "aiScope": "latest-items",
-    "aiCandidates": 43,
+    "aiCandidates": 47,
     "aiCacheHits": 0,
     "aiRequests": 0,
     "aiAccepted": 0,
@@ -44,15 +44,15 @@
     "aiRetried": 0,
     "rejectedAsNonChinese": 0,
     "skippedByLimit": 0,
-    "finalItemsWithChineseSummary": 21,
-    "finalItemsWithoutChineseSummary": 43,
-    "totalNewsItems": 64,
-    "itemsWithValidChineseSummary": 21,
-    "itemsMissingChineseSummary": 43,
-    "eligibleBacklog": 43,
+    "finalItemsWithChineseSummary": 22,
+    "finalItemsWithoutChineseSummary": 47,
+    "totalNewsItems": 69,
+    "itemsWithValidChineseSummary": 22,
+    "itemsMissingChineseSummary": 47,
+    "eligibleBacklog": 47,
     "selectedThisRun": 0,
     "previouslyFailed": 0,
-    "remainingAfterRun": 43,
+    "remainingAfterRun": 47,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
     "acceptedHighConfidence": 0,
@@ -65,8 +65,191 @@
     "aiUpdatedItems": [],
     "message": "Fetched 79 usable RSS items from all feeds."
   },
-  "highlights": [],
+  "highlights": [
+    {
+      "id": "https://basketball.realgm.com/wiretap/286814/Blazers-John-Tonje-Agree-To-Two-Way-Contract",
+      "text": "开拓者，John Tonje 达成 双向 合同，原文关注 John Tonje Agree 的合同或自由市场动向",
+      "category": "签约",
+      "source": "RealGM",
+      "link": "https://basketball.realgm.com/wiretap/286814/Blazers-John-Tonje-Agree-To-Two-Way-Contract"
+    }
+  ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/nba-star-lebron-james-join-160739368.html",
+      "title": "NBA superstar LeBron James to join Philadelphia 76ers",
+      "originalTitle": "NBA superstar LeBron James to join Philadelphia 76ers",
+      "headlineZh": "勒布朗·詹姆斯相关消息更新",
+      "titleZh": "勒布朗·詹姆斯相关消息更新",
+      "link": "https://sports.yahoo.com/articles/nba-star-lebron-james-join-160739368.html",
+      "url": "https://sports.yahoo.com/articles/nba-star-lebron-james-join-160739368.html",
+      "pubDate": "2026-07-25T06:40:31.000Z",
+      "publishedAt": "2026-07-25T06:40:31.000Z",
+      "summary": "Basketball superstar LeBron James announces he will join the Philadelphia 76ers for what he says will be his final contract in the NBA.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "勒布朗·詹姆斯相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/os/en/bbc_us_articles_995/0fd1a60683927589e1b1c52aa6278f3d",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/292-players-more-lebron-james-221621676.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/nba-star-lebron-james-join-160739368.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-abbott-elementary-reactions-002247181.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/did-lebron-james-decision-why-230616498.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/nba/article/lebron-james-deal-with-the-76ers-is-a-high-school-reunion-with-president-of-basketball-operations-mike-gansey-212808216.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/rich-paul-says-lebron-bronny-204136472.html"
+        }
+      ],
+      "originalTitles": [
+        "NBA superstar LeBron James to join Philadelphia 76ers",
+        "NBA stars react to LeBron James’ shocking decision to join 76ers",
+        "LeBron James on 'Abbott Elementary?' Reactions to superstar joining 76ers",
+        "Did LeBron James make right decision? Why signing with 76ers is a risk | Opinion",
+        "LeBron James' deal with the 76ers is a high school reunion with president of basketball operations Mike Gansey"
+      ],
+      "isMerged": true,
+      "eventKey": "sign:lebron-james:76ers",
+      "relatedItems": [
+        {
+          "title": "LeBron James on 'Abbott Elementary?' Reactions to superstar joining 76ers",
+          "originalTitle": "LeBron James on 'Abbott Elementary?' Reactions to superstar joining 76ers",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/lebron-james-abbott-elementary-reactions-002247181.html",
+          "publishedAt": "2026-07-25T00:22:47.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "Did LeBron James make right decision? Why signing with 76ers is a risk | Opinion",
+          "originalTitle": "Did LeBron James make right decision? Why signing with 76ers is a risk | Opinion",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/did-lebron-james-decision-why-230616498.html",
+          "publishedAt": "2026-07-24T23:06:16.000Z",
+          "angle": "source"
+        },
+        {
+          "title": "LeBron James' deal with the 76ers is a high school reunion with president of basketball operations Mike Gansey",
+          "originalTitle": "LeBron James' deal with the 76ers is a high school reunion with president of basketball operations Mike Gansey",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/nba/article/lebron-james-deal-with-the-76ers-is-a-high-school-reunion-with-president-of-basketball-operations-mike-gansey-212808216.html",
+          "publishedAt": "2026-07-24T21:28:08.000Z",
+          "angle": "source"
+        }
+      ],
+      "displayTitle": "NBA superstar LeBron James to join Philadelphia 76ers",
+      "copySource": "fallback",
+      "storyType": "signing"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/maybe-hes-racist-trump-critical-063657291.html",
+      "title": "'Maybe he's a racist' - Trump critical of James",
+      "originalTitle": "'Maybe he's a racist' - Trump critical of James",
+      "headlineZh": "NBA 休赛期后续动向",
+      "titleZh": "NBA 休赛期后续动向",
+      "link": "https://sports.yahoo.com/articles/maybe-hes-racist-trump-critical-063657291.html",
+      "url": "https://sports.yahoo.com/articles/maybe-hes-racist-trump-critical-063657291.html",
+      "pubDate": "2026-07-25T06:36:57.000Z",
+      "publishedAt": "2026-07-25T06:36:57.000Z",
+      "summary": "United States President Donald Trump said LeBron James might be \"a racist\" when asked if the basketball star is the \"best ever\" to play the sport.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "NBA 休赛期后续动向",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/yvvBJGqbiHAxgqiUzO2EOw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/bbc_us_articles_995/4c8aecb719cf6ec98b995149ef36e8e5",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "'Maybe he's a racist' - Trump critical of James",
+      "copySource": "fallback",
+      "storyType": "rumor",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286814/Blazers-John-Tonje-Agree-To-Two-Way-Contract",
+      "title": "Blazers, John Tonje Agree To Two-Way Contract",
+      "originalTitle": "Blazers, John Tonje Agree To Two-Way Contract",
+      "headlineZh": "签约动态：开拓者，John Tonje 达成 双向 合同",
+      "titleZh": "签约动态：开拓者，John Tonje 达成 双向 合同",
+      "link": "https://basketball.realgm.com/wiretap/286814/Blazers-John-Tonje-Agree-To-Two-Way-Contract",
+      "url": "https://basketball.realgm.com/wiretap/286814/Blazers-John-Tonje-Agree-To-Two-Way-Contract",
+      "pubDate": "2026-07-25T06:18:17.000Z",
+      "publishedAt": "2026-07-25T06:18:17.000Z",
+      "summary": "<p>The Portland Trail Blazers signed John Tonje to a two-way contract, sources told Shams Charania of ESPN.</p> <p>Tonje averaged 2.5 points and 1.0 rebounds for the Celtics last season. </p>",
+      "dekZh": "",
+      "summaryZh": "据 RealGM 报道，签约动态：开拓者，John Tonje 达成 双向 合同，原文关注 John Tonje Agree 的合同或自由市场动向。",
+      "oneLineZh": "签约动态：开拓者，John Tonje 达成 双向 合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/nba_portlandtrailblazers.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 4,
+      "eventKey": "sign:john-tonje-agree:celtics",
+      "relatedItems": [],
+      "displayTitle": "Blazers, John Tonje Agree To Two-Way Contract",
+      "copySource": "fallback",
+      "storyType": "rumor",
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286813/Kentavious-Caldwell-Pope-Negotiating-Buyout-With-Grizzlies-Intends-To-Sign-With-Sixers",
+      "title": "Kentavious Caldwell-Pope Negotiating Buyout With Grizzlies, Intends To Sign With Sixers",
+      "originalTitle": "Kentavious Caldwell-Pope Negotiating Buyout With Grizzlies, Intends To Sign With Sixers",
+      "headlineZh": "Kentavious Caldwell-Pope Negotiating 签约动向更新",
+      "titleZh": "Kentavious Caldwell-Pope Negotiating 签约动向更新",
+      "link": "https://basketball.realgm.com/wiretap/286813/Kentavious-Caldwell-Pope-Negotiating-Buyout-With-Grizzlies-Intends-To-Sign-With-Sixers",
+      "url": "https://basketball.realgm.com/wiretap/286813/Kentavious-Caldwell-Pope-Negotiating-Buyout-With-Grizzlies-Intends-To-Sign-With-Sixers",
+      "pubDate": "2026-07-25T06:12:57.000Z",
+      "publishedAt": "2026-07-25T06:12:57.000Z",
+      "summary": "<p>Kentavious Caldwell-Pope is negotiating a buyout with the Memphis Grizzlies, sources told Chris Haynes.</p> <p>Caldwell-Pope intends to <a href=\"https://basketball.realgm.com/wiretap/286807/LeBron-James-Agrees-To-Two-Year-$8M-Deal-With-76ers\">join LeBron James</a> and sign with the Sixers.</p> <p>Caldwell-Pope averaged 8.4 points and 2.5 rebounds last season. </p>",
+      "dekZh": "Caldwell-Pope 场均8.4分和2.5篮板 上赛季。",
+      "summaryZh": "据 RealGM 报道，Kentavious Caldwell-Pope Negotiating 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Kentavious Caldwell-Pope Negotiating 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [
+        "Caldwell-Pope场均8.4分和2.5篮板 上赛季。"
+      ],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Caldwellpope_Kentavious_mem_251025.jpg",
+      "source": "RealGM",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:lebron-james:grizzlies:2:800",
+      "relatedItems": [],
+      "displayTitle": "Kentavious Caldwell-Pope Negotiating Buyout With Grizzlies, Intends To Sign With Sixers",
+      "copySource": "fallback",
+      "storyType": "rumor",
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/nba/article/kentavious-caldwell-pope-reportedly-negotiating-buyout-with-grizzlies-intends-to-reunite-with-lebron-james-on-sixers-042849275.html",
       "title": "Kentavious Caldwell-Pope reportedly negotiating buyout with Grizzlies, intends to reunite with LeBron James on Sixers",
@@ -89,6 +272,62 @@
       "category": "其他",
       "importance": 2,
       "displayTitle": "Kentavious Caldwell-Pope reportedly negotiating buyout with Grizzlies, intends to reunite with LeBron James on Sixers",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/does-lebron-james-joining-76ers-040948863.html",
+      "title": "How does LeBron James joining 76ers affect Nets?",
+      "originalTitle": "How does LeBron James joining 76ers affect Nets?",
+      "headlineZh": "勒布朗·詹姆斯相关消息更新",
+      "titleZh": "勒布朗·詹姆斯相关消息更新",
+      "link": "https://sports.yahoo.com/articles/does-lebron-james-joining-76ers-040948863.html",
+      "url": "https://sports.yahoo.com/articles/does-lebron-james-joining-76ers-040948863.html",
+      "pubDate": "2026-07-25T04:09:48.000Z",
+      "publishedAt": "2026-07-25T04:09:48.000Z",
+      "summary": "What are the implications for the Nets now that LeBron James is moving East?",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "勒布朗·詹姆斯相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/mK6lLMfyVM.uxx9GO_KIwA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTY7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/f2b98198b68de77922cf193825e0c0f2",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "How does LeBron James joining 76ers affect Nets?",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/utah-jazz-survey-results-happen-034631462.html",
+      "title": "Utah Jazz Survey Results: What should happen at center?",
+      "originalTitle": "Utah Jazz Survey Results: What should happen at center?",
+      "headlineZh": "Utah Survey Results 相关消息更新",
+      "titleZh": "Utah Survey Results 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/utah-jazz-survey-results-happen-034631462.html",
+      "url": "https://sports.yahoo.com/articles/utah-jazz-survey-results-happen-034631462.html",
+      "pubDate": "2026-07-25T03:46:31.000Z",
+      "publishedAt": "2026-07-25T03:46:31.000Z",
+      "summary": "Jazz fans tell us what they want to happen at center",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Utah Survey Results 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/zOZpVd1GUKd51SRa6.gTrw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xMDI2O2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/5c332c803c913268596d066e28520642",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Utah Jazz Survey Results: What should happen at center?",
       "copySource": "fallback",
       "storyType": "fact",
       "eventKey": "",
@@ -119,6 +358,34 @@
       "displayTitle": "Philadelphia 76ers schedule: When might LeBron James make Sixers debut?",
       "copySource": "fallback",
       "storyType": "rumor",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lebron-james-76ers-decision-puts-031441648.html",
+      "title": "LeBron James’ 76ers decision puts Knicks on a complicated path to an NBA Finals repeat",
+      "originalTitle": "LeBron James’ 76ers decision puts Knicks on a complicated path to an NBA Finals repeat",
+      "headlineZh": "勒布朗·詹姆斯相关消息更新",
+      "titleZh": "勒布朗·詹姆斯相关消息更新",
+      "link": "https://sports.yahoo.com/articles/lebron-james-76ers-decision-puts-031441648.html",
+      "url": "https://sports.yahoo.com/articles/lebron-james-76ers-decision-puts-031441648.html",
+      "pubDate": "2026-07-25T03:14:41.000Z",
+      "publishedAt": "2026-07-25T03:14:41.000Z",
+      "summary": "This time, the 76ers opted for a different type of process — and its effectiveness will directly impact the Knicks’ quest to repeat after snapping their 53-year drought.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "勒布朗·詹姆斯相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/XTI7mLiOY1zvgRmKLuHVDA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/c318961426f7e29b35805e77589b22d5",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "季后赛",
+      "importance": 2,
+      "displayTitle": "LeBron James’ 76ers decision puts Knicks on a complicated path to an NBA Finals repeat",
+      "copySource": "fallback",
+      "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
@@ -180,6 +447,34 @@
       "isMerged": false
     },
     {
+      "id": "https://sports.yahoo.com/articles/gov-josh-shapiro-made-76ers-023747724.html",
+      "title": "Gov. Josh Shapiro made 76ers recruiting pitch to LeBron James before decision",
+      "originalTitle": "Gov. Josh Shapiro made 76ers recruiting pitch to LeBron James before decision",
+      "headlineZh": "Gov. Josh Shapiro 相关消息更新",
+      "titleZh": "Gov. Josh Shapiro 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/gov-josh-shapiro-made-76ers-023747724.html",
+      "url": "https://sports.yahoo.com/articles/gov-josh-shapiro-made-76ers-023747724.html",
+      "pubDate": "2026-07-25T02:37:47.000Z",
+      "publishedAt": "2026-07-25T02:37:47.000Z",
+      "summary": "Pennsylvania Gov. Josh Shapiro is celebrating his state's big win in landing LeBron James.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Gov. Josh Shapiro 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/0yg0PT8G8.Re.NEiqt1Idg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/d25106f4c3225a54a263463948d4fb63",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Gov. Josh Shapiro made 76ers recruiting pitch to LeBron James before decision",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
       "id": "https://sports.yahoo.com/articles/cavs-gambled-lost-waiting-lebron-020855306.html",
       "title": "The Cavs gambled, and lost, on waiting for LeBron James",
       "originalTitle": "The Cavs gambled, and lost, on waiting for LeBron James",
@@ -201,6 +496,34 @@
       "category": "选秀",
       "importance": 2,
       "displayTitle": "The Cavs gambled, and lost, on waiting for LeBron James",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/rich-paul-takes-shot-espn-014105823.html",
+      "title": "Rich Paul takes shot at ESPN’s Adam Schefter after LeBron James’ 76ers decision",
+      "originalTitle": "Rich Paul takes shot at ESPN’s Adam Schefter after LeBron James’ 76ers decision",
+      "headlineZh": "Rich Paul 相关消息更新",
+      "titleZh": "Rich Paul 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/rich-paul-takes-shot-espn-014105823.html",
+      "url": "https://sports.yahoo.com/articles/rich-paul-takes-shot-espn-014105823.html",
+      "pubDate": "2026-07-25T01:41:05.000Z",
+      "publishedAt": "2026-07-25T01:41:05.000Z",
+      "summary": "Adam Schefter was sold a lemon.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Rich Paul 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/Lia7hpoz2OFHq0mOO2ZdnQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/d7d7eaf5fac86ade117a0bd69375a58b",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Rich Paul takes shot at ESPN’s Adam Schefter after LeBron James’ 76ers decision",
       "copySource": "fallback",
       "storyType": "fact",
       "eventKey": "",
@@ -292,113 +615,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/nba-stars-react-lebron-james-004936654.html",
-      "title": "NBA stars react to LeBron James’ shocking decision to join 76ers",
-      "originalTitle": "NBA stars react to LeBron James’ shocking decision to join 76ers",
-      "headlineZh": "勒布朗·詹姆斯相关消息更新",
-      "titleZh": "勒布朗·詹姆斯相关消息更新",
-      "link": "https://sports.yahoo.com/articles/nba-stars-react-lebron-james-004936654.html",
-      "url": "https://sports.yahoo.com/articles/nba-stars-react-lebron-james-004936654.html",
-      "pubDate": "2026-07-25T00:49:36.000Z",
-      "publishedAt": "2026-07-25T00:49:36.000Z",
-      "summary": "LeBron James stunned the basketball world with his decision to sign with the Philadelphia 76ers. Of the final four suitors in the free agent sweepstakes, Cleveland and Miami seemed like...",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "勒布朗·詹姆斯相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/dYNi1rmDfOIVV5tOjDfbAw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/a6d8a98720c8f8ea250abb48c9b188d6",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/292-players-more-lebron-james-221621676.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/takeoff-charles-barkley-reacts-lebron-190605909.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/nba-stars-react-lebron-james-004936654.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-abbott-elementary-reactions-002247181.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/did-lebron-james-decision-why-230616498.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/nba/article/lebron-james-deal-with-the-76ers-is-a-high-school-reunion-with-president-of-basketball-operations-mike-gansey-212808216.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/rich-paul-says-lebron-bronny-204136472.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-signing-76ers-tyrese-190518524.html"
-        }
-      ],
-      "originalTitles": [
-        "NBA stars react to LeBron James’ shocking decision to join 76ers",
-        "NBA superstar LeBron James to join Philadelphia 76ers",
-        "LeBron James on 'Abbott Elementary?' Reactions to superstar joining 76ers",
-        "7 biggest winners and losers from LeBron James joining the 76ers",
-        "Did LeBron James make right decision? Why signing with 76ers is a risk | Opinion",
-        "LeBron James' deal with the 76ers is a high school reunion with president of basketball operations Mike Gansey",
-        "LeBron James signing with 76ers has Tyrese Maxey feeling like John Calipari"
-      ],
-      "isMerged": true,
-      "eventKey": "sign:lebron-james:76ers",
-      "relatedItems": [
-        {
-          "title": "LeBron James on 'Abbott Elementary?' Reactions to superstar joining 76ers",
-          "originalTitle": "LeBron James on 'Abbott Elementary?' Reactions to superstar joining 76ers",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/lebron-james-abbott-elementary-reactions-002247181.html",
-          "publishedAt": "2026-07-25T00:22:47.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "Did LeBron James make right decision? Why signing with 76ers is a risk | Opinion",
-          "originalTitle": "Did LeBron James make right decision? Why signing with 76ers is a risk | Opinion",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/did-lebron-james-decision-why-230616498.html",
-          "publishedAt": "2026-07-24T23:06:16.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "LeBron James' deal with the 76ers is a high school reunion with president of basketball operations Mike Gansey",
-          "originalTitle": "LeBron James' deal with the 76ers is a high school reunion with president of basketball operations Mike Gansey",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/nba/article/lebron-james-deal-with-the-76ers-is-a-high-school-reunion-with-president-of-basketball-operations-mike-gansey-212808216.html",
-          "publishedAt": "2026-07-24T21:28:08.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "LeBron James signing with 76ers has Tyrese Maxey feeling like John Calipari",
-          "originalTitle": "LeBron James signing with 76ers has Tyrese Maxey feeling like John Calipari",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/lebron-james-signing-76ers-tyrese-190518524.html",
-          "publishedAt": "2026-07-24T19:05:18.000Z",
-          "angle": "source"
-        }
-      ],
-      "displayTitle": "NBA stars react to LeBron James’ shocking decision to join 76ers",
-      "copySource": "fallback",
-      "storyType": "signing"
-    },
-    {
       "id": "https://sports.yahoo.com/articles/why-vince-carter-feels-76ers-232249699.html",
       "title": "Why Vince Carter feels the 76ers adding LeBron James is ‘cheating’",
       "originalTitle": "Why Vince Carter feels the 76ers adding LeBron James is ‘cheating’",
@@ -449,26 +665,10 @@
       "importance": 2,
       "eventKey": "trade:lebron-james:76ers",
       "relatedItems": [],
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "How Topps beat everyone to the LeBron James-76ers decision — and blindsided NBA"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/topps-beat-everyone-lebron-james-230841297.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/where-sixers-stand-financially-jaylen-135605314.html"
-        }
-      ],
-      "isMerged": false,
       "displayTitle": "How Topps beat everyone to the LeBron James-76ers decision — and blindsided NBA",
       "copySource": "fallback",
-      "storyType": "trade"
+      "storyType": "trade",
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/micah-parsons-erupts-lebron-james-225522637.html",
@@ -655,16 +855,34 @@
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/DeRozan_DeMar_sac_241015.jpg",
-      "source": "RealGM",
+      "source": "RealGM / Yahoo Sports",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
       "importance": 2,
       "eventKey": "injury:lebron-james:76ers",
       "relatedItems": [],
+      "sources": [
+        "RealGM",
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Heat Shift Focus To DeMar DeRozan After Losing Out On LeBron James",
+        "Kentavious Caldwell-Pope negotiating buy out from Grizzlies, to sign with 76ers"
+      ],
+      "sourceLinks": [
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286811/Heat-Shift-Focus-To-DeMar-DeRozan-After-Losing-Out-On-LeBron-James"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/kentavious-caldwell-pope-negotiating-buy-064957533.html"
+        }
+      ],
+      "isMerged": false,
       "displayTitle": "Heat Shift Focus To DeMar DeRozan After Losing Out On LeBron James",
       "copySource": "fallback",
-      "storyType": "rumor",
-      "isMerged": false
+      "storyType": "rumor"
     },
     {
       "id": "https://sports.yahoo.com/articles/csr-weekend-warriors-7-24-220000402.html",
@@ -1328,90 +1546,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/report-no-current-plan-bronny-192916592.html",
-      "title": "Report: No current plan for Bronny James to join Sixers",
-      "originalTitle": "Report: No current plan for Bronny James to join Sixers",
-      "headlineZh": "Bronny James 相关消息更新",
-      "titleZh": "Bronny James 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/report-no-current-plan-bronny-192916592.html",
-      "url": "https://sports.yahoo.com/articles/report-no-current-plan-bronny-192916592.html",
-      "pubDate": "2026-07-24T19:29:16.000Z",
-      "publishedAt": "2026-07-24T19:29:16.000Z",
-      "summary": "ESPN’s Ramona Shelburne has reported that LeBron and Bronny are “not a package deal.”",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Bronny James 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/s4Pz5qj2VxOmeaFfHfjRvg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/3574ad26d8a844349b4a643d7a51e2c6",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:bronny-james:76ers",
-      "relatedItems": [],
-      "displayTitle": "Report: No current plan for Bronny James to join Sixers",
-      "copySource": "fallback",
-      "storyType": "rumor",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/lakers-best-perimeter-defender-might-192255295.html",
-      "title": "The Lakers best perimeter defender might be on a two-way contract",
-      "originalTitle": "The Lakers best perimeter defender might be on a two-way contract",
-      "headlineZh": "签约动态：湖人 best perimeter defender might be on 双向 合同",
-      "titleZh": "签约动态：湖人 best perimeter defender might be on 双向 合同",
-      "link": "https://sports.yahoo.com/articles/lakers-best-perimeter-defender-might-192255295.html",
-      "url": "https://sports.yahoo.com/articles/lakers-best-perimeter-defender-might-192255295.html",
-      "pubDate": "2026-07-24T19:22:55.000Z",
-      "publishedAt": "2026-07-24T19:22:55.000Z",
-      "summary": "Chris Mañon showed why his elite defense is worth keeping on the roster, and may find himself with minutes this season.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "签约动态：湖人 best perimeter defender might be on 双向 合同",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/7xtd8kWXr7sR7jr5zTmp8A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/6cf6ffdee7a6dee969656162f6aafb21",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:the-lakers:lakers",
-      "relatedItems": [],
-      "displayTitle": "The Lakers best perimeter defender might be on a two-way contract",
-      "copySource": "fallback",
-      "storyType": "rumor",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/ex-nba-star-gilbert-arenas-191107045.html",
-      "title": "Ex-NBA star Gilbert Arenas claims LeBron James’ wife ‘didn’t approve’ 76ers in NBA blockbuster",
-      "originalTitle": "Ex-NBA star Gilbert Arenas claims LeBron James’ wife ‘didn’t approve’ 76ers in NBA blockbuster",
-      "headlineZh": "Gilbert Arenas 交易影响继续发酵",
-      "titleZh": "Gilbert Arenas 交易影响继续发酵",
-      "link": "https://sports.yahoo.com/articles/ex-nba-star-gilbert-arenas-191107045.html",
-      "url": "https://sports.yahoo.com/articles/ex-nba-star-gilbert-arenas-191107045.html",
-      "pubDate": "2026-07-24T19:11:07.000Z",
-      "publishedAt": "2026-07-24T19:11:07.000Z",
-      "summary": "\"I know Savannah [James] didn’t approve this. Nobody approves of going to Philly.\"",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Gilbert Arenas 相关交易成为焦点，原文讨论这笔操作对球队阵容和后续走势的影响。",
-      "oneLineZh": "Gilbert Arenas 交易影响继续发酵",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/wv0V6Dl6cOoto6OynXmgrw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/7c51ad4184ddd3d75d02640d17f72eed",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Ex-NBA star Gilbert Arenas claims LeBron James’ wife ‘didn’t approve’ 76ers in NBA blockbuster",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286807/LeBron-James-Agrees-To-Two-Year-$8M-Deal-With-76ers",
       "title": "LeBron James Agrees To Two-Year, $8M Deal With 76ers",
       "originalTitle": "LeBron James Agrees To Two-Year, $8M Deal With 76ers",
@@ -1703,32 +1837,10 @@
       "importance": 2,
       "eventKey": "sign:lebron-james:cavaliers",
       "relatedItems": [],
-      "sources": [
-        "RealGM"
-      ],
-      "originalTitles": [
-        "Mario Hezonja Drawing Interest From Multiple Teams",
-        "Cavs Interested In Mario Hezonja",
-        "Heat Say Link To LeBron James Press Conference Live Stream Posted By Mistake"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286779/Mario-Hezonja-Drawing-Interest-From-Multiple-Teams"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286792/Cavs-Interested-In-Mario-Hezonja"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286778/Heat-Say-Link-To-LeBron-James-Press-Conference-Live-Stream-Posted-By-Mistake"
-        }
-      ],
-      "isMerged": false,
       "displayTitle": "Cavs Interested In Mario Hezonja",
       "copySource": "fallback",
-      "storyType": "rumor"
+      "storyType": "rumor",
+      "isMerged": false
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286791/Pelicans-Exploring-Trade-Options-For-Jordan-Hawkins",
