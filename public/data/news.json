@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-25T11:46:16.759Z",
+  "updatedAt": "2026-07-25T13:43:34.442Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-25T11:46:16.759Z",
-    "previousUpdatedAt": "2026-07-25T10:09:07.130Z",
-    "updatedAt": "2026-07-25T11:46:16.759Z",
+    "checkedAt": "2026-07-25T13:43:34.442Z",
+    "previousUpdatedAt": "2026-07-25T11:46:16.759Z",
+    "updatedAt": "2026-07-25T13:43:34.442Z",
     "fetchedItems": 79,
-    "mergedItems": 68,
+    "mergedItems": 66,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,11 +31,11 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-25T10:45:00.000Z",
-    "dataAgeHours": 1.0213219444444444,
+    "newestPublishedAt": "2026-07-25T12:00:00.000Z",
+    "dataAgeHours": 1.7262338888888888,
     "aiEnabled": false,
     "aiScope": "latest-items",
-    "aiCandidates": 46,
+    "aiCandidates": 45,
     "aiCacheHits": 0,
     "aiRequests": 0,
     "aiAccepted": 0,
@@ -44,15 +44,15 @@
     "aiRetried": 0,
     "rejectedAsNonChinese": 0,
     "skippedByLimit": 0,
-    "finalItemsWithChineseSummary": 22,
-    "finalItemsWithoutChineseSummary": 46,
-    "totalNewsItems": 68,
-    "itemsWithValidChineseSummary": 22,
-    "itemsMissingChineseSummary": 46,
-    "eligibleBacklog": 46,
+    "finalItemsWithChineseSummary": 21,
+    "finalItemsWithoutChineseSummary": 45,
+    "totalNewsItems": 66,
+    "itemsWithValidChineseSummary": 21,
+    "itemsMissingChineseSummary": 45,
+    "eligibleBacklog": 45,
     "selectedThisRun": 0,
     "previouslyFailed": 0,
-    "remainingAfterRun": 46,
+    "remainingAfterRun": 45,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
     "acceptedHighConfidence": 0,
@@ -67,6 +67,13 @@
   },
   "highlights": [
     {
+      "id": "https://sports.yahoo.com/articles/nba-power-rankings-30-teams-120000023.html",
+      "text": "据 Yahoo Sports / RealGM 报道，76 人 与 76 人达成 2 年 800 万美元合同，原文关注 Power Rankings 的合同或自由市场动向",
+      "category": "签约",
+      "source": "Yahoo Sports / RealGM",
+      "link": "https://sports.yahoo.com/articles/nba-power-rankings-30-teams-120000023.html"
+    },
+    {
       "id": "https://basketball.realgm.com/wiretap/286814/Blazers-John-Tonje-Agree-To-Two-Way-Contract",
       "text": "开拓者，John Tonje 达成 双向 合同，原文关注 John Tonje Agree 的合同或自由市场动向",
       "category": "签约",
@@ -75,6 +82,140 @@
     }
   ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/nba-power-rankings-30-teams-120000023.html",
+      "title": "NBA Power Rankings for all 30 teams updated after LeBron James signs with 76ers",
+      "originalTitle": "NBA Power Rankings for all 30 teams updated after LeBron James signs with 76ers",
+      "headlineZh": "76 人 与 76 人达成 2 年 800 万美元合同",
+      "titleZh": "76 人 与 76 人达成 2 年 800 万美元合同",
+      "link": "https://sports.yahoo.com/articles/nba-power-rankings-30-teams-120000023.html",
+      "url": "https://sports.yahoo.com/articles/nba-power-rankings-30-teams-120000023.html",
+      "pubDate": "2026-07-25T12:00:00.000Z",
+      "publishedAt": "2026-07-25T12:00:00.000Z",
+      "summary": "Where do the Sixers rank in our power rankings after signing LeBron?",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports / RealGM 报道，76 人 与 76 人达成 2 年 800 万美元合同，原文关注 Power Rankings 的合同或自由市场动向。",
+      "oneLineZh": "76 人 与 76 人达成 2 年 800 万美元合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/V9J237NjmIvsqHV.IXV_YA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/8a689323fcc1cbf915469ac2840cf089",
+      "source": "Yahoo Sports / RealGM",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 5,
+      "sources": [
+        "Yahoo Sports",
+        "RealGM"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/292-players-more-lebron-james-221621676.html"
+        },
+        {
+          "source": "Yahoo Sports / RealGM",
+          "link": "https://sports.yahoo.com/articles/nba-power-rankings-30-teams-120000023.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/nba-star-lebron-james-join-160739368.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/breaking-down-knicks-76ers-rosters-041835325.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/lebron-james-abbott-elementary-reactions-002247181.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/did-lebron-james-decision-why-230616498.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/nba/article/lebron-james-deal-with-the-76ers-is-a-high-school-reunion-with-president-of-basketball-operations-mike-gansey-212808216.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/rich-paul-says-lebron-bronny-204136472.html"
+        }
+      ],
+      "originalTitles": [
+        "292 players will make more than LeBron James this NBA season. Here's the full list",
+        "NBA Power Rankings for all 30 teams updated after LeBron James signs with 76ers",
+        "LeBron James Agrees To Two-Year, $8M Deal With 76ers",
+        "NBA superstar LeBron James to join Philadelphia 76ers",
+        "NBA stars react to LeBron James’ shocking decision to join 76ers",
+        "Breaking down Knicks, 76ers rosters after LeBron James’ decision",
+        "LeBron James on 'Abbott Elementary?' Reactions to superstar joining 76ers",
+        "Did LeBron James make right decision? Why signing with 76ers is a risk | Opinion",
+        "LeBron James' deal with the 76ers is a high school reunion with president of basketball operations Mike Gansey",
+        "Rich Paul says LeBron, Bronny not package deal, no plan to reunite on 76ers"
+      ],
+      "isMerged": false,
+      "eventKey": "sign:lebron-james:76ers:800",
+      "relatedItems": [],
+      "displayTitle": "NBA Power Rankings for all 30 teams updated after LeBron James signs with 76ers",
+      "copySource": "fallback",
+      "storyType": "analysis"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/lebron-james-chosen-team-may-110000890.html",
+      "title": "LeBron James has chosen a team — what it may mean for the Dallas Mavericks",
+      "originalTitle": "LeBron James has chosen a team — what it may mean for the Dallas Mavericks",
+      "headlineZh": "勒布朗·詹姆斯相关消息更新",
+      "titleZh": "勒布朗·詹姆斯相关消息更新",
+      "link": "https://sports.yahoo.com/articles/lebron-james-chosen-team-may-110000890.html",
+      "url": "https://sports.yahoo.com/articles/lebron-james-chosen-team-may-110000890.html",
+      "pubDate": "2026-07-25T11:00:00.000Z",
+      "publishedAt": "2026-07-25T11:00:00.000Z",
+      "summary": "James has made his decision and now the rest of the league can get back to business",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "勒布朗·詹姆斯相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/UGGfexPd7.MN6dAYfu09rA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xMjAwO2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/9ab39d4d49fd7aabd24393f314223690",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "LeBron James has chosen a team — what it may mean for the Dallas Mavericks",
+      "copySource": "fallback",
+      "storyType": "rumor",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/open-thread-julian-champagnie-made-110000916.html",
+      "title": "Open Thread: Julian Champagnie made a suprise appearance at USAA",
+      "originalTitle": "Open Thread: Julian Champagnie made a suprise appearance at USAA",
+      "headlineZh": "Open Thread 相关消息更新",
+      "titleZh": "Open Thread 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/open-thread-julian-champagnie-made-110000916.html",
+      "url": "https://sports.yahoo.com/articles/open-thread-julian-champagnie-made-110000916.html",
+      "pubDate": "2026-07-25T11:00:00.000Z",
+      "publishedAt": "2026-07-25T11:00:00.000Z",
+      "summary": "The Spurs sharpshooter continues his community outreach",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Open Thread 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/ovukdfrETjNly4EeXOSiyg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05NjA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/5c6a1d1f460ad9f772d7a5a9d58407c6",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Open Thread: Julian Champagnie made a suprise appearance at USAA",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
     {
       "id": "https://sports.yahoo.com/articles/kentucky-wildcats-news-lebron-james-104500739.html",
       "title": "Kentucky Wildcats News: LeBron James joins Tyrese Maxey and Justin Edwards with the 76ers",
@@ -102,6 +243,51 @@
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/report-kentavious-caldwell-pope-expected-100825480.html",
+      "title": "Report: Kentavious Caldwell-Pope expected to sign with Sixers",
+      "originalTitle": "Report: Kentavious Caldwell-Pope expected to sign with Sixers",
+      "headlineZh": "Kentavious Caldwell-Pope 签约动向更新",
+      "titleZh": "Kentavious Caldwell-Pope 签约动向更新",
+      "link": "https://sports.yahoo.com/articles/report-kentavious-caldwell-pope-expected-100825480.html",
+      "url": "https://sports.yahoo.com/articles/report-kentavious-caldwell-pope-expected-100825480.html",
+      "pubDate": "2026-07-25T10:08:25.000Z",
+      "publishedAt": "2026-07-25T10:08:25.000Z",
+      "summary": "The Sixers are reportedly in line to sign another player represented by Klutch.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports 报道，Kentavious Caldwell-Pope 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Kentavious Caldwell-Pope 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/pZAQ0cP.WsajSVCnGYQnFw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/7512f0579c531f7d5c8e7289b145c465",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "sources": [
+        "Yahoo Sports"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/report-kentavious-caldwell-pope-expected-100825480.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/report-kentavious-caldwell-pope-intends-010750800.html"
+        }
+      ],
+      "originalTitles": [
+        "Report: Kentavious Caldwell-Pope expected to sign with Sixers",
+        "Report: Kentavious Caldwell-Pope intends to sign with Sixers, join James again"
+      ],
+      "isMerged": true,
+      "eventKey": "sign:kentavious-caldwell-pope:76ers",
+      "relatedItems": [],
+      "displayTitle": "Report: Kentavious Caldwell-Pope expected to sign with Sixers",
+      "copySource": "fallback",
+      "storyType": "rumor"
     },
     {
       "id": "https://sports.yahoo.com/articles/youtube-gold-1964-game-7-092200586.html",
@@ -186,108 +372,6 @@
       "eventKey": "",
       "relatedItems": [],
       "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/nba-star-lebron-james-join-160739368.html",
-      "title": "NBA superstar LeBron James to join Philadelphia 76ers",
-      "originalTitle": "NBA superstar LeBron James to join Philadelphia 76ers",
-      "headlineZh": "勒布朗·詹姆斯相关消息更新",
-      "titleZh": "勒布朗·詹姆斯相关消息更新",
-      "link": "https://sports.yahoo.com/articles/nba-star-lebron-james-join-160739368.html",
-      "url": "https://sports.yahoo.com/articles/nba-star-lebron-james-join-160739368.html",
-      "pubDate": "2026-07-25T06:40:31.000Z",
-      "publishedAt": "2026-07-25T06:40:31.000Z",
-      "summary": "Basketball superstar LeBron James announces he will join the Philadelphia 76ers for what he says will be his final contract in the NBA.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "勒布朗·詹姆斯相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/bbc_us_articles_995/0fd1a60683927589e1b1c52aa6278f3d",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "sources": [
-        "Yahoo Sports"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/292-players-more-lebron-james-221621676.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/nba-star-lebron-james-join-160739368.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/breaking-down-knicks-76ers-rosters-041835325.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/lebron-james-abbott-elementary-reactions-002247181.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/did-lebron-james-decision-why-230616498.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/nba/article/lebron-james-deal-with-the-76ers-is-a-high-school-reunion-with-president-of-basketball-operations-mike-gansey-212808216.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/rich-paul-says-lebron-bronny-204136472.html"
-        }
-      ],
-      "originalTitles": [
-        "NBA superstar LeBron James to join Philadelphia 76ers",
-        "NBA stars react to LeBron James’ shocking decision to join 76ers",
-        "Breaking down Knicks, 76ers rosters after LeBron James’ decision",
-        "LeBron James on 'Abbott Elementary?' Reactions to superstar joining 76ers",
-        "Did LeBron James make right decision? Why signing with 76ers is a risk | Opinion",
-        "LeBron James' deal with the 76ers is a high school reunion with president of basketball operations Mike Gansey"
-      ],
-      "isMerged": true,
-      "eventKey": "sign:lebron-james:76ers",
-      "relatedItems": [
-        {
-          "title": "Breaking down Knicks, 76ers rosters after LeBron James’ decision",
-          "originalTitle": "Breaking down Knicks, 76ers rosters after LeBron James’ decision",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/breaking-down-knicks-76ers-rosters-041835325.html",
-          "publishedAt": "2026-07-25T04:18:35.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "LeBron James on 'Abbott Elementary?' Reactions to superstar joining 76ers",
-          "originalTitle": "LeBron James on 'Abbott Elementary?' Reactions to superstar joining 76ers",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/lebron-james-abbott-elementary-reactions-002247181.html",
-          "publishedAt": "2026-07-25T00:22:47.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "Did LeBron James make right decision? Why signing with 76ers is a risk | Opinion",
-          "originalTitle": "Did LeBron James make right decision? Why signing with 76ers is a risk | Opinion",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/articles/did-lebron-james-decision-why-230616498.html",
-          "publishedAt": "2026-07-24T23:06:16.000Z",
-          "angle": "source"
-        },
-        {
-          "title": "LeBron James' deal with the 76ers is a high school reunion with president of basketball operations Mike Gansey",
-          "originalTitle": "LeBron James' deal with the 76ers is a high school reunion with president of basketball operations Mike Gansey",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/nba/article/lebron-james-deal-with-the-76ers-is-a-high-school-reunion-with-president-of-basketball-operations-mike-gansey-212808216.html",
-          "publishedAt": "2026-07-24T21:28:08.000Z",
-          "angle": "source"
-        }
-      ],
-      "displayTitle": "NBA superstar LeBron James to join Philadelphia 76ers",
-      "copySource": "fallback",
-      "storyType": "signing"
     },
     {
       "id": "https://sports.yahoo.com/articles/maybe-hes-racist-trump-critical-063657291.html",
@@ -735,34 +819,6 @@
       "eventKey": "injury:lebron-james:warriors",
       "relatedItems": [],
       "displayTitle": "9 players the Warriors could target after missing out on LeBron James",
-      "copySource": "fallback",
-      "storyType": "rumor",
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/report-kentavious-caldwell-pope-intends-010750800.html",
-      "title": "Report: Kentavious Caldwell-Pope intends to sign with Sixers, join James again",
-      "originalTitle": "Report: Kentavious Caldwell-Pope intends to sign with Sixers, join James again",
-      "headlineZh": "Kentavious Caldwell-Pope 签约动向更新",
-      "titleZh": "Kentavious Caldwell-Pope 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/report-kentavious-caldwell-pope-intends-010750800.html",
-      "url": "https://sports.yahoo.com/articles/report-kentavious-caldwell-pope-intends-010750800.html",
-      "pubDate": "2026-07-25T01:07:50.000Z",
-      "publishedAt": "2026-07-25T01:07:50.000Z",
-      "summary": "Kentavious Caldwell-Pope reportedly intends to join the Sixers in free agency.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Kentavious Caldwell-Pope 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Kentavious Caldwell-Pope 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/R05IWp12Niob5iOIfH_LLw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/csnphilly.com/1461f36da901d5b6757a929677fa6b69",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:kentavious-caldwell-pope:76ers",
-      "relatedItems": [],
-      "displayTitle": "Report: Kentavious Caldwell-Pope intends to sign with Sixers, join James again",
       "copySource": "fallback",
       "storyType": "rumor",
       "isMerged": false
@@ -1402,160 +1458,31 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/egor-just-being-egor-las-203904687.html",
-      "title": "Egor just being Egor in Las Vegas, joined by Michael Porter Jr.",
-      "originalTitle": "Egor just being Egor in Las Vegas, joined by Michael Porter Jr.",
-      "headlineZh": "拉斯维加斯相关消息更新",
-      "titleZh": "拉斯维加斯相关消息更新",
-      "link": "https://sports.yahoo.com/articles/egor-just-being-egor-las-203904687.html",
-      "url": "https://sports.yahoo.com/articles/egor-just-being-egor-las-203904687.html",
-      "pubDate": "2026-07-24T20:39:04.000Z",
-      "publishedAt": "2026-07-24T20:39:04.000Z",
-      "summary": "Egor Dëmin posts Summer League highlights.",
+      "id": "https://basketball.realgm.com/wiretap/286806/Oscar-Tshiebwe-Signs-With-Rockets",
+      "title": "Oscar Tshiebwe Signs With Rockets",
+      "originalTitle": "Oscar Tshiebwe Signs With Rockets",
+      "headlineZh": "Oscar Tshiebwe Signs 签约动向更新",
+      "titleZh": "Oscar Tshiebwe Signs 签约动向更新",
+      "link": "https://basketball.realgm.com/wiretap/286806/Oscar-Tshiebwe-Signs-With-Rockets",
+      "url": "https://basketball.realgm.com/wiretap/286806/Oscar-Tshiebwe-Signs-With-Rockets",
+      "pubDate": "2026-07-24T15:25:34.000Z",
+      "publishedAt": "2026-07-24T15:25:34.000Z",
+      "summary": "<p>The Houston Rockets have signed free agent forward/center Oscar Tshiebwe.</p> <p>Tshiebwe (6-9, 265) was eligible for the 2023 NBA Draft following his senior season at Kentucky. He spent his rookie season as a two-way player with Indiana in 2023-24 and the past two seasons on a two-way contract with the Utah Jazz. </p> <p>In 49 career games with seven starts, Tshiebwe has averaged 7.0 points and 6.5 rebounds in 15.2 minutes per game.</p>",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，这篇文章围绕夏季联赛表现展开，重点是年轻球员、球队阵容和赛事结果带来的后续观察。",
-      "oneLineZh": "拉斯维加斯相关消息更新",
+      "summaryZh": "据 RealGM 报道，Oscar Tshiebwe Signs 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Oscar Tshiebwe Signs 签约动向更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/d9A8TvFEZOytVurS1KiMmA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/c7454978a9f2898186ed0988aef49696",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 1,
-      "displayTitle": "Egor just being Egor in Las Vegas, joined by Michael Porter Jr.",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/steve-kerr-reportedly-told-warriors-203749188.html",
-      "title": "Steve Kerr reportedly has told Warriors rookie Yaxel Lendeborg he ‘might start'",
-      "originalTitle": "Steve Kerr reportedly has told Warriors rookie Yaxel Lendeborg he ‘might start'",
-      "headlineZh": "Steve Kerr 相关消息更新",
-      "titleZh": "Steve Kerr 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/steve-kerr-reportedly-told-warriors-203749188.html",
-      "url": "https://sports.yahoo.com/articles/steve-kerr-reportedly-told-warriors-203749188.html",
-      "pubDate": "2026-07-24T20:37:49.000Z",
-      "publishedAt": "2026-07-24T20:37:49.000Z",
-      "summary": "Yaxel Lendeborg reportedly told ESPN NBA insider Anthony Slater that Warriors coach Steve Kerr told the rookie he might start for Golden State.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Steve Kerr 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/os/en/csnbayarea.com/4daff0c60e683263aaf9a725ba555e58",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "选秀",
-      "importance": 2,
-      "displayTitle": "Steve Kerr reportedly has told Warriors rookie Yaxel Lendeborg he ‘might start'",
-      "copySource": "fallback",
-      "storyType": "rumor",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/heat-furious-over-lebron-snub-202347810.html",
-      "title": "Heat furious over LeBron snub as wild 76ers conspiracy theory emerges",
-      "originalTitle": "Heat furious over LeBron snub as wild 76ers conspiracy theory emerges",
-      "headlineZh": "热火休赛期后续动向",
-      "titleZh": "热火休赛期后续动向",
-      "link": "https://sports.yahoo.com/articles/heat-furious-over-lebron-snub-202347810.html",
-      "url": "https://sports.yahoo.com/articles/heat-furious-over-lebron-snub-202347810.html",
-      "pubDate": "2026-07-24T20:23:47.000Z",
-      "publishedAt": "2026-07-24T20:23:47.000Z",
-      "summary": "Future NBA Hall of Famer LeBron James choosing the Philadelphia 76ers did more than shock the NBA. According to Dan Le Batard, it left people around the Miami Heat furious,...",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "热火休赛期后续动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/NHLAP06OdzMNGYbpLaLdSw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/40ab7dd53d3854eccf6ff89417d6554d",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Heat furious over LeBron snub as wild 76ers conspiracy theory emerges",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/rockets-sign-forward-center-oscar-202059363.html",
-      "title": "Rockets sign forward/center Oscar Tshiebwe",
-      "originalTitle": "Rockets sign forward/center Oscar Tshiebwe",
-      "headlineZh": "Oscar Tshiebwe 签约动向更新",
-      "titleZh": "Oscar Tshiebwe 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/rockets-sign-forward-center-oscar-202059363.html",
-      "url": "https://sports.yahoo.com/articles/rockets-sign-forward-center-oscar-202059363.html",
-      "pubDate": "2026-07-24T20:20:59.000Z",
-      "publishedAt": "2026-07-24T20:20:59.000Z",
-      "summary": "The Rockets made another move today.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports / RealGM 报道，Oscar Tshiebwe 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Oscar Tshiebwe 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/heehic1.PgMvwPkDOnJzDg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/5e54f411ca307ac6c6450f2eaed4ef39",
-      "source": "Yahoo Sports / RealGM",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "sources": [
-        "Yahoo Sports",
-        "RealGM"
-      ],
-      "sourceLinks": [
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/rockets-sign-forward-center-oscar-202059363.html"
-        },
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286806/Oscar-Tshiebwe-Signs-With-Rockets"
-        }
-      ],
-      "originalTitles": [
-        "Rockets sign forward/center Oscar Tshiebwe"
-      ],
-      "isMerged": false,
-      "eventKey": "sign:oscar-tshiebwe",
-      "relatedItems": [],
-      "displayTitle": "Rockets sign forward/center Oscar Tshiebwe",
-      "copySource": "fallback",
-      "storyType": "signing"
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286807/LeBron-James-Agrees-To-Two-Year-$8M-Deal-With-76ers",
-      "title": "LeBron James Agrees To Two-Year, $8M Deal With 76ers",
-      "originalTitle": "LeBron James Agrees To Two-Year, $8M Deal With 76ers",
-      "headlineZh": "勒布朗·詹姆斯 Agrees 签约动向更新",
-      "titleZh": "勒布朗·詹姆斯 Agrees 签约动向更新",
-      "link": "https://basketball.realgm.com/wiretap/286807/LeBron-James-Agrees-To-Two-Year-$8M-Deal-With-76ers",
-      "url": "https://basketball.realgm.com/wiretap/286807/LeBron-James-Agrees-To-Two-Year-$8M-Deal-With-76ers",
-      "pubDate": "2026-07-24T15:42:27.000Z",
-      "publishedAt": "2026-07-24T15:42:27.000Z",
-      "summary": "<p>LeBron James has agreed to sign a two-year, $8 million with the Philadelphia 76ers. James will have a player option for Year 2.</p> <p>James revealed that he was strongly considering retirement going into the offseason.</p> <p>James also considered signing with the Cleveland Cavaliers, Miami Heat, Golden State Warriors and Minnesota Timberwolves. James will form a core alongside Tyrese Maxey, Jaylen Brown, Joel Embiid and VJ Edgecombe. </p> <p>\"I thought I was done when the season ended,\" said James in a statement. \"I wasn't ready to announce it, and I knew I needed some time to really decide, but I was pretty sure I played my last game. I was honest at that last press conference when I said I needed to look at myself and deicide if I still love this game. I still truly love this game, and I have more to give.</p> <p>\"The last few weeks have really been special. I've never been able to have no clue what to do and take real time to just think. I've had an incredible few months with all the people I love trying to figure it all out. This is my last decision. I'm not going for money. I'm not going for family. What am I really playing for at this point?</p> <p>\"I still want to sacrifice. I still want to work. I still want to grind. I still want to compete, to win and to have a chance at the feeling of winning another championship.</p> <p>\"I believe I can help make the Philadelphia 76ers a championship team and I am so excited to energize a new fan base and start this incredible journey one last time. </p> <p>\"Thank you LA. Miami I'll forever love and Northeast Ohio will always home!\"</p>",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，勒布朗·詹姆斯 Agrees 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "勒布朗·詹姆斯 Agrees 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/James_LeBron_lal_260502.jpg",
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Tshiebwe_Oscar_uta_260406.jpg",
       "source": "RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
       "importance": 2,
-      "eventKey": "sign:lebron-james:cavaliers:2:800",
+      "eventKey": "sign:oscar-tshiebwe-signs:jazz",
       "relatedItems": [],
-      "displayTitle": "LeBron James Agrees To Two-Year, $8M Deal With 76ers",
+      "displayTitle": "Oscar Tshiebwe Signs With Rockets",
       "copySource": "fallback",
-      "storyType": "trade",
+      "storyType": "signing",
       "isMerged": false
     },
     {
