@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-26T11:22:14.107Z",
+  "updatedAt": "2026-07-26T12:39:07.039Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-26T11:22:14.107Z",
-    "previousUpdatedAt": "2026-07-26T09:34:39.376Z",
-    "updatedAt": "2026-07-26T11:22:14.107Z",
+    "checkedAt": "2026-07-26T12:39:07.039Z",
+    "previousUpdatedAt": "2026-07-26T11:22:14.107Z",
+    "updatedAt": "2026-07-26T12:39:07.039Z",
     "fetchedItems": 80,
     "mergedItems": 73,
     "successfulFeeds": [
@@ -32,7 +32,7 @@
     ],
     "failedFeeds": [],
     "newestPublishedAt": "2026-07-26T11:00:51.000Z",
-    "dataAgeHours": 0.3564186111111111,
+    "dataAgeHours": 1.637788611111111,
     "aiEnabled": false,
     "aiScope": "latest-items",
     "aiCandidates": 48,
@@ -66,13 +66,6 @@
     "message": "Fetched 80 usable RSS items from all feeds."
   },
   "highlights": [
-    {
-      "id": "https://sports.yahoo.com/articles/nba-power-rankings-30-teams-120000023.html",
-      "text": "据 Yahoo Sports / RealGM 报道，76 人 与 76 人达成 2 年 800 万美元合同，原文关注 Power Rankings 的合同或自由市场动向",
-      "category": "签约",
-      "source": "Yahoo Sports / RealGM",
-      "link": "https://sports.yahoo.com/articles/nba-power-rankings-30-teams-120000023.html"
-    },
     {
       "id": "https://basketball.realgm.com/wiretap/286820/Spencer-Jones-Thunder-Sign-Two-Year-$12M-Offer-Sheet",
       "text": "据 RealGM / Yahoo Sports 报道，Spencer Jones 与雷霆达成 2 年 1200 万美元合同，原文关注 Spencer Jones 的合同或自由市场动向",
