@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-25T22:31:53.458Z",
+  "updatedAt": "2026-07-26T00:02:54.992Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-25T22:31:53.458Z",
-    "previousUpdatedAt": "2026-07-25T21:28:27.306Z",
-    "updatedAt": "2026-07-25T22:31:53.458Z",
+    "checkedAt": "2026-07-26T00:02:54.992Z",
+    "previousUpdatedAt": "2026-07-25T22:31:53.458Z",
+    "updatedAt": "2026-07-26T00:02:54.992Z",
     "fetchedItems": 80,
     "mergedItems": 70,
     "successfulFeeds": [
@@ -32,7 +32,7 @@
     ],
     "failedFeeds": [],
     "newestPublishedAt": "2026-07-25T21:39:55.000Z",
-    "dataAgeHours": 0.8662383333333333,
+    "dataAgeHours": 2.383331111111111,
     "aiEnabled": false,
     "aiScope": "latest-items",
     "aiCandidates": 44,
@@ -111,6 +111,79 @@
       "category": "其他",
       "importance": 2,
       "displayTitle": "LeBron decision roundup: Why did LeBron choose Philadelphia? Did he make the call at 1 a.m.?",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/rockets-sign-forward-julian-phillips-210654397.html",
+      "title": "Rockets sign forward Julian Phillips",
+      "originalTitle": "Rockets sign forward Julian Phillips",
+      "headlineZh": "Julian Phillips 签约动向更新",
+      "titleZh": "Julian Phillips 签约动向更新",
+      "link": "https://sports.yahoo.com/articles/rockets-sign-forward-julian-phillips-210654397.html",
+      "url": "https://sports.yahoo.com/articles/rockets-sign-forward-julian-phillips-210654397.html",
+      "pubDate": "2026-07-25T21:06:54.000Z",
+      "publishedAt": "2026-07-25T21:06:54.000Z",
+      "summary": "The Rockets keep making moves.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports / RealGM 报道，Julian Phillips 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
+      "oneLineZh": "Julian Phillips 签约动向更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/OfsOzK5p3F7T78nC0cOH4Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0xNzk5O2NmPXdlYnA-/https://media.zenfs.com/en/sb_nation_articles_115/831123e93a4c269784a8a023ac5170b2",
+      "source": "Yahoo Sports / RealGM",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "sources": [
+        "Yahoo Sports",
+        "RealGM"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/rockets-sign-forward-julian-phillips-210654397.html"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286806/Oscar-Tshiebwe-Signs-With-Rockets"
+        }
+      ],
+      "originalTitles": [
+        "Rockets sign forward Julian Phillips"
+      ],
+      "isMerged": false,
+      "eventKey": "sign:julian-phillips",
+      "relatedItems": [],
+      "displayTitle": "Rockets sign forward Julian Phillips",
+      "copySource": "fallback",
+      "storyType": "signing"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/boston-celtics-daily-links-7-204803341.html",
+      "title": "Boston Celtics Daily Links 7/25/26",
+      "originalTitle": "Boston Celtics Daily Links 7/25/26",
+      "headlineZh": "NBA 动态：凯尔特人 Daily Links 7/25/26",
+      "titleZh": "NBA 动态：凯尔特人 Daily Links 7/25/26",
+      "link": "https://sports.yahoo.com/articles/boston-celtics-daily-links-7-204803341.html",
+      "url": "https://sports.yahoo.com/articles/boston-celtics-daily-links-7-204803341.html",
+      "pubDate": "2026-07-25T20:48:03.000Z",
+      "publishedAt": "2026-07-25T20:48:03.000Z",
+      "summary": "All the Celtics news you need in one convenient place.",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "NBA 动态：凯尔特人 Daily Links 7/25/26",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/jWqRP0qeEz1yo9YtrA6I8Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/a118ea7d722e6eac04238bbe18787931",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 2,
+      "displayTitle": "Boston Celtics Daily Links 7/25/26",
       "copySource": "fallback",
       "storyType": "fact",
       "eventKey": "",
@@ -782,10 +855,6 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/lebron-james-abbott-elementary-reactions-002247181.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/did-lebron-james-decision-why-230616498.html"
         }
       ],
       "originalTitles": [
@@ -794,8 +863,7 @@
         "NBA superstar LeBron James to join Philadelphia 76ers",
         "NBA stars react to LeBron James’ shocking decision to join 76ers",
         "Breaking down Knicks, 76ers rosters after LeBron James’ decision",
-        "LeBron James on 'Abbott Elementary?' Reactions to superstar joining 76ers",
-        "Did LeBron James make right decision? Why signing with 76ers is a risk | Opinion"
+        "LeBron James on 'Abbott Elementary?' Reactions to superstar joining 76ers"
       ],
       "isMerged": false,
       "eventKey": "sign:lebron-james:76ers:800",
@@ -1580,34 +1648,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/micah-parsons-erupts-lebron-james-225522637.html",
-      "title": "Micah Parsons erupts after LeBron James snubs Steph Curry, Warriors",
-      "originalTitle": "Micah Parsons erupts after LeBron James snubs Steph Curry, Warriors",
-      "headlineZh": "Micah Parsons 相关消息更新",
-      "titleZh": "Micah Parsons 相关消息更新",
-      "link": "https://sports.yahoo.com/articles/micah-parsons-erupts-lebron-james-225522637.html",
-      "url": "https://sports.yahoo.com/articles/micah-parsons-erupts-lebron-james-225522637.html",
-      "pubDate": "2026-07-24T22:55:22.000Z",
-      "publishedAt": "2026-07-24T22:55:22.000Z",
-      "summary": "Stephen Curry, Micah ParsonsMicah Parsons had one question after LeBron James chose Philadelphia over Golden State: Why does nobody seem to want to play with Stephen Curry? “Nobody wants to...",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Micah Parsons 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/uBhtNVaqPwpKp2d0VjYLsA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ny_post_sports_articles_389/0cb2615c290b1141f3c7b576b2032b3c",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Micah Parsons erupts after LeBron James snubs Steph Curry, Warriors",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286812/LeBron-James-Could-Play-At-Least-Two-More-Seasons-After-Nearly-Retiring-This-Offseason",
       "title": "LeBron James Could Play At Least Two More Seasons After Nearly Retiring This Offseason",
       "originalTitle": "LeBron James Could Play At Least Two More Seasons After Nearly Retiring This Offseason",
@@ -1689,34 +1729,6 @@
       "displayTitle": "Bronny James Expected To Remain With Lakers",
       "copySource": "fallback",
       "storyType": "rumor",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286806/Oscar-Tshiebwe-Signs-With-Rockets",
-      "title": "Oscar Tshiebwe Signs With Rockets",
-      "originalTitle": "Oscar Tshiebwe Signs With Rockets",
-      "headlineZh": "Oscar Tshiebwe Signs 签约动向更新",
-      "titleZh": "Oscar Tshiebwe Signs 签约动向更新",
-      "link": "https://basketball.realgm.com/wiretap/286806/Oscar-Tshiebwe-Signs-With-Rockets",
-      "url": "https://basketball.realgm.com/wiretap/286806/Oscar-Tshiebwe-Signs-With-Rockets",
-      "pubDate": "2026-07-24T15:25:34.000Z",
-      "publishedAt": "2026-07-24T15:25:34.000Z",
-      "summary": "<p>The Houston Rockets have signed free agent forward/center Oscar Tshiebwe.</p> <p>Tshiebwe (6-9, 265) was eligible for the 2023 NBA Draft following his senior season at Kentucky. He spent his rookie season as a two-way player with Indiana in 2023-24 and the past two seasons on a two-way contract with the Utah Jazz. </p> <p>In 49 career games with seven starts, Tshiebwe has averaged 7.0 points and 6.5 rebounds in 15.2 minutes per game.</p>",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，Oscar Tshiebwe Signs 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Oscar Tshiebwe Signs 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Tshiebwe_Oscar_uta_260406.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:oscar-tshiebwe-signs:jazz",
-      "relatedItems": [],
-      "displayTitle": "Oscar Tshiebwe Signs With Rockets",
-      "copySource": "fallback",
-      "storyType": "signing",
       "isMerged": false
     },
     {
