@@ -9,15 +9,15 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-26T17:34:11.634Z",
+  "updatedAt": "2026-07-26T19:17:25.756Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-26T17:34:11.634Z",
-    "previousUpdatedAt": "2026-07-26T16:04:22.843Z",
-    "updatedAt": "2026-07-26T17:34:11.634Z",
+    "checkedAt": "2026-07-26T19:17:25.756Z",
+    "previousUpdatedAt": "2026-07-26T17:34:11.634Z",
+    "updatedAt": "2026-07-26T19:17:25.756Z",
     "fetchedItems": 80,
-    "mergedItems": 72,
+    "mergedItems": 71,
     "successfulFeeds": [
       {
         "source": "RealGM",
@@ -31,11 +31,11 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-26T17:26:04.000Z",
-    "dataAgeHours": 0.1354538888888889,
+    "newestPublishedAt": "2026-07-26T18:21:08.000Z",
+    "dataAgeHours": 0.9382655555555556,
     "aiEnabled": false,
     "aiScope": "latest-items",
-    "aiCandidates": 46,
+    "aiCandidates": 47,
     "aiCacheHits": 0,
     "aiRequests": 0,
     "aiAccepted": 0,
@@ -44,15 +44,15 @@
     "aiRetried": 0,
     "rejectedAsNonChinese": 0,
     "skippedByLimit": 0,
-    "finalItemsWithChineseSummary": 26,
-    "finalItemsWithoutChineseSummary": 46,
-    "totalNewsItems": 72,
-    "itemsWithValidChineseSummary": 26,
-    "itemsMissingChineseSummary": 46,
-    "eligibleBacklog": 46,
+    "finalItemsWithChineseSummary": 24,
+    "finalItemsWithoutChineseSummary": 47,
+    "totalNewsItems": 71,
+    "itemsWithValidChineseSummary": 24,
+    "itemsMissingChineseSummary": 47,
+    "eligibleBacklog": 47,
     "selectedThisRun": 0,
     "previouslyFailed": 0,
-    "remainingAfterRun": 46,
+    "remainingAfterRun": 47,
     "rejectedLowConfidenceBelow50": 0,
     "acceptedMediumConfidence": 0,
     "acceptedHighConfidence": 0,
@@ -68,31 +68,114 @@
   "highlights": [],
   "items": [
     {
-      "id": "https://sports.yahoo.com/nba/article/mario-hezonja-reportedly-signing-1-year-28-million-deal-with-cavaliers-returning-to-nba-for-first-time-since-2020-172604198.html",
-      "title": "Mario Hezonja reportedly signing 1-year, $2.8 million deal with Cavaliers, returning to NBA for first time since 2020",
-      "originalTitle": "Mario Hezonja reportedly signing 1-year, $2.8 million deal with Cavaliers, returning to NBA for first time since 2020",
-      "headlineZh": "Mario Hezonja 签约动向更新",
-      "titleZh": "Mario Hezonja 签约动向更新",
-      "link": "https://sports.yahoo.com/nba/article/mario-hezonja-reportedly-signing-1-year-28-million-deal-with-cavaliers-returning-to-nba-for-first-time-since-2020-172604198.html",
-      "url": "https://sports.yahoo.com/nba/article/mario-hezonja-reportedly-signing-1-year-28-million-deal-with-cavaliers-returning-to-nba-for-first-time-since-2020-172604198.html",
-      "pubDate": "2026-07-26T17:26:04.000Z",
-      "publishedAt": "2026-07-26T17:26:04.000Z",
-      "summary": "Hezonja, the No. 5 overall pick in the 2015 draft, last played in the league with the Portland Trail Blazers during the 2019-20 season.",
+      "id": "https://sports.yahoo.com/articles/cavs-sign-impactful-wing-scorer-182108117.html",
+      "title": "Cavs sign impactful wing scorer from Europe",
+      "originalTitle": "Cavs sign impactful wing scorer from Europe",
+      "headlineZh": "骑士自由市场与合同动向",
+      "titleZh": "骑士自由市场与合同动向",
+      "link": "https://sports.yahoo.com/articles/cavs-sign-impactful-wing-scorer-182108117.html",
+      "url": "https://sports.yahoo.com/articles/cavs-sign-impactful-wing-scorer-182108117.html",
+      "pubDate": "2026-07-26T18:21:08.000Z",
+      "publishedAt": "2026-07-26T18:21:08.000Z",
+      "summary": "Cleveland is taking a swing on a high-upside offensive talent.",
       "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Mario Hezonja 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Mario Hezonja 签约动向更新",
+      "summaryZh": "",
+      "oneLineZh": "骑士自由市场与合同动向",
       "goldenQuoteZh": "",
       "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/pp5rtJ_fXmmX6QZFWP4jpg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03ODI7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/6eb1280e-b415-403e-9809-bf737c797987",
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/vVgZA9PuwzEzV2v_qGqSeQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTk7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/d8f50d897847346b716100fd9fb72380",
       "source": "Yahoo Sports",
       "feed": "https://sports.yahoo.com/nba/rss.xml",
       "category": "签约",
       "importance": 2,
-      "eventKey": "sign:mario-hezonja:cavaliers:1:280",
-      "relatedItems": [],
-      "displayTitle": "Mario Hezonja reportedly signing 1-year, $2.8 million deal with Cavaliers, returning to NBA for first time since 2020",
+      "displayTitle": "Cavs sign impactful wing scorer from Europe",
       "copySource": "fallback",
-      "storyType": "trade",
+      "storyType": "signing",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
+    },
+    {
+      "id": "https://basketball.realgm.com/wiretap/286827/Mario-Hezonja-Cavs-Agree-To-One-Year-$28M-Contact",
+      "title": "Mario Hezonja, Cavs Agree To One-Year, $2.8M Contact",
+      "originalTitle": "Mario Hezonja, Cavs Agree To One-Year, $2.8M Contact",
+      "headlineZh": "Mario Hezonja 相关消息更新",
+      "titleZh": "Mario Hezonja 相关消息更新",
+      "link": "https://basketball.realgm.com/wiretap/286827/Mario-Hezonja-Cavs-Agree-To-One-Year-$28M-Contact",
+      "url": "https://basketball.realgm.com/wiretap/286827/Mario-Hezonja-Cavs-Agree-To-One-Year-$28M-Contact",
+      "pubDate": "2026-07-26T17:20:17.000Z",
+      "publishedAt": "2026-07-26T17:20:17.000Z",
+      "summary": "<p>The Cleveland Cavaliers have agreed to a one-year deal with wing Mario Hezonja for $2.8 million. Hezonja returns to the NBA with Cleveland after spending the last six seasons playing for teams in Greece, Russia and Spain.</p> <p>The 6-foot-8 last played in the NBA during the 2019-20 season with the Portland Trail Blazers. Hezonja started his NBA career with the Orlando Magic and also played for the New York Knicks.</p> <p>Last season, Hezonja averaged 15 points, 4.3 rebounds and 2.1 assists for Real Madrid. The 31-year-old helped Real Madrid to the EuroLeague championship game, where they fell to Olympiacos.</p>",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Mario Hezonja 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Hezonja_Mario_por_200303.jpg",
+      "source": "RealGM / Yahoo Sports",
+      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
+      "category": "签约",
+      "importance": 2,
+      "eventKey": "sign:mario-hezonja:cavaliers:1:280",
+      "relatedItems": [
+        {
+          "title": "Mario Hezonja reportedly signing 1-year, $2.8 million deal with Cavaliers, returning to NBA for first time since 2020",
+          "originalTitle": "Mario Hezonja reportedly signing 1-year, $2.8 million deal with Cavaliers, returning to NBA for first time since 2020",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/nba/article/mario-hezonja-reportedly-signing-1-year-28-million-deal-with-cavaliers-returning-to-nba-for-first-time-since-2020-172604198.html",
+          "publishedAt": "2026-07-26T17:26:04.000Z",
+          "angle": "report"
+        }
+      ],
+      "sources": [
+        "RealGM",
+        "Yahoo Sports"
+      ],
+      "originalTitles": [
+        "Mario Hezonja, Cavs Agree To One-Year, $2.8M Contact",
+        "Mario Hezonja reportedly signing 1-year, $2.8 million deal with Cavaliers, returning to NBA for first time since 2020"
+      ],
+      "sourceLinks": [
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286827/Mario-Hezonja-Cavs-Agree-To-One-Year-$28M-Contact"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/nba/article/mario-hezonja-reportedly-signing-1-year-28-million-deal-with-cavaliers-returning-to-nba-for-first-time-since-2020-172604198.html"
+        }
+      ],
+      "isMerged": true,
+      "displayTitle": "Mario Hezonja, Cavs Agree To One-Year, $2.8M Contact",
+      "copySource": "fallback",
+      "storyType": "trade"
+    },
+    {
+      "id": "https://sports.yahoo.com/articles/knick-knacks-why-york-won-163842272.html",
+      "title": "Knick Knacks: Why New York won’t not repeat as champs, why Reggie Miller still sucks & why it matters",
+      "originalTitle": "Knick Knacks: Why New York won’t not repeat as champs, why Reggie Miller still sucks & why it matters",
+      "headlineZh": "Knick Knacks 相关消息更新",
+      "titleZh": "Knick Knacks 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/knick-knacks-why-york-won-163842272.html",
+      "url": "https://sports.yahoo.com/articles/knick-knacks-why-york-won-163842272.html",
+      "pubDate": "2026-07-26T16:38:42.000Z",
+      "publishedAt": "2026-07-26T16:38:42.000Z",
+      "summary": "Going back to the past to make sense of the future",
+      "dekZh": "",
+      "summaryZh": "",
+      "oneLineZh": "Knick Knacks 相关消息更新",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/kqcQ4oRWOmbdmq4u_9NpGg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05NjA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/a4a1e3978d965ee5ab102e6d90d6082f",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
+      "importance": 1,
+      "displayTitle": "Knick Knacks: Why New York won’t not repeat as champs, why Reggie Miller still sucks & why it matters",
+      "copySource": "fallback",
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
       "isMerged": false
     },
     {
@@ -1419,18 +1502,13 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/nba-star-lebron-james-join-160739368.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/breaking-down-knicks-76ers-rosters-041835325.html"
         }
       ],
       "originalTitles": [
         "NBA Power Rankings for all 30 teams updated after LeBron James signs with 76ers",
         "LeBron James Agrees To Two-Year, $8M Deal With 76ers",
         "LeBron James' emotional roller coaster led to signing with the 76ers",
-        "NBA superstar LeBron James to join Philadelphia 76ers",
-        "Breaking down Knicks, 76ers rosters after LeBron James’ decision"
+        "NBA superstar LeBron James to join Philadelphia 76ers"
       ],
       "isMerged": false,
       "eventKey": "sign:lebron-james:76ers:800",
@@ -1692,34 +1770,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/articles/maybe-hes-racist-trump-critical-063657291.html",
-      "title": "'Maybe he's a racist' - Trump critical of James",
-      "originalTitle": "'Maybe he's a racist' - Trump critical of James",
-      "headlineZh": "NBA 休赛期后续动向",
-      "titleZh": "NBA 休赛期后续动向",
-      "link": "https://sports.yahoo.com/articles/maybe-hes-racist-trump-critical-063657291.html",
-      "url": "https://sports.yahoo.com/articles/maybe-hes-racist-trump-critical-063657291.html",
-      "pubDate": "2026-07-25T06:36:57.000Z",
-      "publishedAt": "2026-07-25T06:36:57.000Z",
-      "summary": "United States President Donald Trump said LeBron James might be \"a racist\" when asked if the basketball star is the \"best ever\" to play the sport.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "NBA 休赛期后续动向",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/yvvBJGqbiHAxgqiUzO2EOw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/bbc_us_articles_995/4c8aecb719cf6ec98b995149ef36e8e5",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "'Maybe he's a racist' - Trump critical of James",
-      "copySource": "fallback",
-      "storyType": "rumor",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286814/Blazers-John-Tonje-Agree-To-Two-Way-Contract",
       "title": "Blazers, John Tonje Agree To Two-Way Contract",
       "originalTitle": "Blazers, John Tonje Agree To Two-Way Contract",
@@ -1778,34 +1828,6 @@
       "isMerged": false
     },
     {
-      "id": "https://sports.yahoo.com/nba/article/kentavious-caldwell-pope-reportedly-reuniting-with-lebron-james-on-sixers-after-grizzlies-buyout-042849275.html",
-      "title": "Kentavious Caldwell-Pope reportedly reuniting with LeBron James on Sixers after Grizzlies buyout",
-      "originalTitle": "Kentavious Caldwell-Pope reportedly reuniting with LeBron James on Sixers after Grizzlies buyout",
-      "headlineZh": "Kentavious Caldwell-Pope 相关消息更新",
-      "titleZh": "Kentavious Caldwell-Pope 相关消息更新",
-      "link": "https://sports.yahoo.com/nba/article/kentavious-caldwell-pope-reportedly-reuniting-with-lebron-james-on-sixers-after-grizzlies-buyout-042849275.html",
-      "url": "https://sports.yahoo.com/nba/article/kentavious-caldwell-pope-reportedly-reuniting-with-lebron-james-on-sixers-after-grizzlies-buyout-042849275.html",
-      "pubDate": "2026-07-25T04:28:49.000Z",
-      "publishedAt": "2026-07-25T04:28:49.000Z",
-      "summary": "The two won a title together with the Lakers in 2020.",
-      "dekZh": "",
-      "summaryZh": "",
-      "oneLineZh": "Kentavious Caldwell-Pope 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/9BSn1BLmV6JO7pP5Z2qzow--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/2026-07/47b98633-9934-491f-abf1-5403cb531269",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "其他",
-      "importance": 2,
-      "displayTitle": "Kentavious Caldwell-Pope reportedly reuniting with LeBron James on Sixers after Grizzlies buyout",
-      "copySource": "fallback",
-      "storyType": "fact",
-      "eventKey": "",
-      "relatedItems": [],
-      "isMerged": false
-    },
-    {
       "id": "https://basketball.realgm.com/wiretap/286812/LeBron-James-Could-Play-At-Least-Two-More-Seasons-After-Nearly-Retiring-This-Offseason",
       "title": "LeBron James Could Play At Least Two More Seasons After Nearly Retiring This Offseason",
       "originalTitle": "LeBron James Could Play At Least Two More Seasons After Nearly Retiring This Offseason",
@@ -1850,16 +1872,42 @@
       "goldenQuoteZh": "",
       "keyPoints": [],
       "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/DeRozan_DeMar_sac_241015.jpg",
-      "source": "RealGM",
+      "source": "Yahoo Sports / RealGM",
       "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
       "category": "签约",
       "importance": 2,
       "eventKey": "injury:lebron-james:76ers",
-      "relatedItems": [],
+      "relatedItems": [
+        {
+          "title": "The skepticism about LeBron James and the Sixers is out of hand",
+          "originalTitle": "The skepticism about LeBron James and the Sixers is out of hand",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/skepticism-lebron-james-sixers-hand-160000794.html",
+          "publishedAt": "2026-07-26T16:00:00.000Z",
+          "angle": "analysis"
+        }
+      ],
+      "sources": [
+        "Yahoo Sports",
+        "RealGM"
+      ],
+      "originalTitles": [
+        "The skepticism about LeBron James and the Sixers is out of hand"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/articles/skepticism-lebron-james-sixers-hand-160000794.html"
+        },
+        {
+          "source": "RealGM",
+          "link": "https://basketball.realgm.com/wiretap/286811/Heat-Shift-Focus-To-DeMar-DeRozan-After-Losing-Out-On-LeBron-James"
+        }
+      ],
+      "isMerged": true,
       "displayTitle": "Heat Shift Focus To DeMar DeRozan After Losing Out On LeBron James",
       "copySource": "fallback",
-      "storyType": "rumor",
-      "isMerged": false
+      "storyType": "rumor"
     },
     {
       "id": "https://basketball.realgm.com/wiretap/286809/Bronny-James-Expected-To-Remain-With-Lakers",
@@ -2154,34 +2202,6 @@
       "eventKey": "trade:lu-dort:hawks:thunder:mavericks",
       "relatedItems": [],
       "displayTitle": "Hawks To Hold Off Extension Talks With Lu Dort",
-      "copySource": "fallback",
-      "storyType": "rumor",
-      "isMerged": false
-    },
-    {
-      "id": "https://basketball.realgm.com/wiretap/286792/Cavs-Interested-In-Mario-Hezonja",
-      "title": "Cavs Interested In Mario Hezonja",
-      "originalTitle": "Cavs Interested In Mario Hezonja",
-      "headlineZh": "Interested 在 Mario 相关消息更新",
-      "titleZh": "Interested 在 Mario 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286792/Cavs-Interested-In-Mario-Hezonja",
-      "url": "https://basketball.realgm.com/wiretap/286792/Cavs-Interested-In-Mario-Hezonja",
-      "pubDate": "2026-07-23T05:52:29.000Z",
-      "publishedAt": "2026-07-23T05:52:29.000Z",
-      "summary": "<p>The Cleveland Cavaliers have registered interest in Mario Hezonja, sources told Jake Fischer and Marc Stein of The Stein Line.</p> <p>Hezonja is expected to <a href=\"https://basketball.realgm.com/wiretap/286779/Mario-Hezonja-Drawing-Interest-From-Multiple-Teams\">rejoin the NBA</a> from Real Madrid next season.</p> <p>With the Cavs still in the running to sign LeBron James, Jonathan Kuminga is also rumored as a fallback option should James sign elsewhere. </p>",
-      "dekZh": "",
-      "summaryZh": "据 RealGM 报道，骑士 Interested 在 Mario Hezonja，目前仍属于消息或传闻阶段。",
-      "oneLineZh": "Interested 在 Mario 相关消息更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Hezonja_Mario_por_200303.jpg",
-      "source": "RealGM",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james:cavaliers",
-      "relatedItems": [],
-      "displayTitle": "Cavs Interested In Mario Hezonja",
       "copySource": "fallback",
       "storyType": "rumor",
       "isMerged": false
