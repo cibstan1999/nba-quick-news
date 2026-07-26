@@ -9,13 +9,13 @@
       "feed": "https://sports.yahoo.com/nba/rss.xml"
     }
   ],
-  "updatedAt": "2026-07-26T19:17:25.756Z",
+  "updatedAt": "2026-07-26T20:29:55.940Z",
   "lastFetchStatus": {
     "status": "success",
     "fetchMode": "fresh",
-    "checkedAt": "2026-07-26T19:17:25.756Z",
-    "previousUpdatedAt": "2026-07-26T17:34:11.634Z",
-    "updatedAt": "2026-07-26T19:17:25.756Z",
+    "checkedAt": "2026-07-26T20:29:55.940Z",
+    "previousUpdatedAt": "2026-07-26T19:17:25.756Z",
+    "updatedAt": "2026-07-26T20:29:55.940Z",
     "fetchedItems": 80,
     "mergedItems": 71,
     "successfulFeeds": [
@@ -31,8 +31,8 @@
       }
     ],
     "failedFeeds": [],
-    "newestPublishedAt": "2026-07-26T18:21:08.000Z",
-    "dataAgeHours": 0.9382655555555556,
+    "newestPublishedAt": "2026-07-26T19:54:23.000Z",
+    "dataAgeHours": 0.5924833333333334,
     "aiEnabled": false,
     "aiScope": "latest-items",
     "aiCandidates": 47,
@@ -65,8 +65,62 @@
     "aiUpdatedItems": [],
     "message": "Fetched 80 usable RSS items from all feeds."
   },
-  "highlights": [],
+  "highlights": [
+    {
+      "id": "https://sports.yahoo.com/articles/mario-hezonja-returning-nba-joining-195423128.html",
+      "text": "据 Yahoo Sports / RealGM 报道，Mario Hezonja 与骑士达成 1 年 280 万美元合同，原文关注 Mario Hezonja 的合同或自由市场动向",
+      "category": "签约",
+      "source": "Yahoo Sports / RealGM",
+      "link": "https://sports.yahoo.com/articles/mario-hezonja-returning-nba-joining-195423128.html"
+    }
+  ],
   "items": [
+    {
+      "id": "https://sports.yahoo.com/articles/mario-hezonja-returning-nba-joining-195423128.html",
+      "title": "Mario Hezonja returning to NBA, joining Cavaliers on one-year minimum contract",
+      "originalTitle": "Mario Hezonja returning to NBA, joining Cavaliers on one-year minimum contract",
+      "headlineZh": "Mario Hezonja 与骑士达成 1 年 280 万美元合同",
+      "titleZh": "Mario Hezonja 与骑士达成 1 年 280 万美元合同",
+      "link": "https://sports.yahoo.com/articles/mario-hezonja-returning-nba-joining-195423128.html",
+      "url": "https://sports.yahoo.com/articles/mario-hezonja-returning-nba-joining-195423128.html",
+      "pubDate": "2026-07-26T19:54:23.000Z",
+      "publishedAt": "2026-07-26T19:54:23.000Z",
+      "summary": "The former No. 5 pick played five NBA seasons before returning to Europe and becoming an elite player there.",
+      "dekZh": "",
+      "summaryZh": "据 Yahoo Sports / RealGM 报道，Mario Hezonja 与骑士达成 1 年 280 万美元合同，原文关注 Mario Hezonja 的合同或自由市场动向。",
+      "oneLineZh": "Mario Hezonja 与骑士达成 1 年 280 万美元合同",
+      "goldenQuoteZh": "",
+      "keyPoints": [],
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/j8xTBmQKnBg7etOS0ffl2A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/ce94ebb2686236d23f5341ec430f4d49",
+      "source": "Yahoo Sports / RealGM",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "签约",
+      "importance": 2,
+      "sources": [
+        "Yahoo Sports",
+        "RealGM"
+      ],
+      "sourceLinks": [
+        {
+          "source": "Yahoo Sports / RealGM",
+          "link": "https://sports.yahoo.com/articles/mario-hezonja-returning-nba-joining-195423128.html"
+        },
+        {
+          "source": "Yahoo Sports",
+          "link": "https://sports.yahoo.com/nba/article/mario-hezonja-reportedly-signing-1-year-28-million-deal-with-cavaliers-returning-to-nba-for-first-time-since-2020-172604198.html"
+        }
+      ],
+      "originalTitles": [
+        "Mario Hezonja, Cavs Agree To One-Year, $2.8M Contact",
+        "Mario Hezonja reportedly signing 1-year, $2.8 million deal with Cavaliers, returning to NBA for first time since 2020"
+      ],
+      "isMerged": true,
+      "eventKey": "sign:mario-hezonja:cavaliers:1:280",
+      "relatedItems": [],
+      "displayTitle": "Mario Hezonja returning to NBA, joining Cavaliers on one-year minimum contract",
+      "copySource": "fallback",
+      "storyType": "signing"
+    },
     {
       "id": "https://sports.yahoo.com/articles/cavs-sign-impactful-wing-scorer-182108117.html",
       "title": "Cavs sign impactful wing scorer from Europe",
@@ -96,59 +150,32 @@
       "isMerged": false
     },
     {
-      "id": "https://basketball.realgm.com/wiretap/286827/Mario-Hezonja-Cavs-Agree-To-One-Year-$28M-Contact",
-      "title": "Mario Hezonja, Cavs Agree To One-Year, $2.8M Contact",
-      "originalTitle": "Mario Hezonja, Cavs Agree To One-Year, $2.8M Contact",
-      "headlineZh": "Mario Hezonja 相关消息更新",
-      "titleZh": "Mario Hezonja 相关消息更新",
-      "link": "https://basketball.realgm.com/wiretap/286827/Mario-Hezonja-Cavs-Agree-To-One-Year-$28M-Contact",
-      "url": "https://basketball.realgm.com/wiretap/286827/Mario-Hezonja-Cavs-Agree-To-One-Year-$28M-Contact",
-      "pubDate": "2026-07-26T17:20:17.000Z",
-      "publishedAt": "2026-07-26T17:20:17.000Z",
-      "summary": "<p>The Cleveland Cavaliers have agreed to a one-year deal with wing Mario Hezonja for $2.8 million. Hezonja returns to the NBA with Cleveland after spending the last six seasons playing for teams in Greece, Russia and Spain.</p> <p>The 6-foot-8 last played in the NBA during the 2019-20 season with the Portland Trail Blazers. Hezonja started his NBA career with the Orlando Magic and also played for the New York Knicks.</p> <p>Last season, Hezonja averaged 15 points, 4.3 rebounds and 2.1 assists for Real Madrid. The 31-year-old helped Real Madrid to the EuroLeague championship game, where they fell to Olympiacos.</p>",
+      "id": "https://sports.yahoo.com/articles/brooklyn-podcast-mpj-podcast-matt-172844628.html",
+      "title": "The Brooklyn Podcast: The MPJ Podcast with Matt Brooks of the Denver Nuggets",
+      "originalTitle": "The Brooklyn Podcast: The MPJ Podcast with Matt Brooks of the Denver Nuggets",
+      "headlineZh": "Brooklyn Podcast 相关消息更新",
+      "titleZh": "Brooklyn Podcast 相关消息更新",
+      "link": "https://sports.yahoo.com/articles/brooklyn-podcast-mpj-podcast-matt-172844628.html",
+      "url": "https://sports.yahoo.com/articles/brooklyn-podcast-mpj-podcast-matt-172844628.html",
+      "pubDate": "2026-07-26T17:28:44.000Z",
+      "publishedAt": "2026-07-26T17:28:44.000Z",
+      "summary": "NetsDaily legend Matt Brooks joins the show to talk all things MPJ, Nets, and Nuggets!",
       "dekZh": "",
       "summaryZh": "",
-      "oneLineZh": "Mario Hezonja 相关消息更新",
+      "oneLineZh": "Brooklyn Podcast 相关消息更新",
       "goldenQuoteZh": "",
       "keyPoints": [],
-      "imageUrl": "https://basketball.realgm.com/images/nba/4.2/wiretap/photos/2006/Hezonja_Mario_por_200303.jpg",
-      "source": "RealGM / Yahoo Sports",
-      "feed": "https://basketball.realgm.com/rss/wiretap/15/0.xml",
-      "category": "签约",
+      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/kp7P.r15bvg.R9PGp_DZJw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/e3dfae569cfc2d649341acf316e1bbd4",
+      "source": "Yahoo Sports",
+      "feed": "https://sports.yahoo.com/nba/rss.xml",
+      "category": "其他",
       "importance": 2,
-      "eventKey": "sign:mario-hezonja:cavaliers:1:280",
-      "relatedItems": [
-        {
-          "title": "Mario Hezonja reportedly signing 1-year, $2.8 million deal with Cavaliers, returning to NBA for first time since 2020",
-          "originalTitle": "Mario Hezonja reportedly signing 1-year, $2.8 million deal with Cavaliers, returning to NBA for first time since 2020",
-          "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/nba/article/mario-hezonja-reportedly-signing-1-year-28-million-deal-with-cavaliers-returning-to-nba-for-first-time-since-2020-172604198.html",
-          "publishedAt": "2026-07-26T17:26:04.000Z",
-          "angle": "report"
-        }
-      ],
-      "sources": [
-        "RealGM",
-        "Yahoo Sports"
-      ],
-      "originalTitles": [
-        "Mario Hezonja, Cavs Agree To One-Year, $2.8M Contact",
-        "Mario Hezonja reportedly signing 1-year, $2.8 million deal with Cavaliers, returning to NBA for first time since 2020"
-      ],
-      "sourceLinks": [
-        {
-          "source": "RealGM",
-          "link": "https://basketball.realgm.com/wiretap/286827/Mario-Hezonja-Cavs-Agree-To-One-Year-$28M-Contact"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/nba/article/mario-hezonja-reportedly-signing-1-year-28-million-deal-with-cavaliers-returning-to-nba-for-first-time-since-2020-172604198.html"
-        }
-      ],
-      "isMerged": true,
-      "displayTitle": "Mario Hezonja, Cavs Agree To One-Year, $2.8M Contact",
+      "displayTitle": "The Brooklyn Podcast: The MPJ Podcast with Matt Brooks of the Denver Nuggets",
       "copySource": "fallback",
-      "storyType": "trade"
+      "storyType": "fact",
+      "eventKey": "",
+      "relatedItems": [],
+      "isMerged": false
     },
     {
       "id": "https://sports.yahoo.com/articles/knick-knacks-why-york-won-163842272.html",
@@ -1498,17 +1525,12 @@
         {
           "source": "Yahoo Sports",
           "link": "https://sports.yahoo.com/articles/lebron-james-emotional-roller-coaster-154031558.html"
-        },
-        {
-          "source": "Yahoo Sports",
-          "link": "https://sports.yahoo.com/articles/nba-star-lebron-james-join-160739368.html"
         }
       ],
       "originalTitles": [
         "NBA Power Rankings for all 30 teams updated after LeBron James signs with 76ers",
         "LeBron James Agrees To Two-Year, $8M Deal With 76ers",
-        "LeBron James' emotional roller coaster led to signing with the 76ers",
-        "NBA superstar LeBron James to join Philadelphia 76ers"
+        "LeBron James' emotional roller coaster led to signing with the 76ers"
       ],
       "isMerged": false,
       "eventKey": "sign:lebron-james:76ers:800",
@@ -1739,34 +1761,6 @@
       "storyType": "fact",
       "eventKey": "",
       "relatedItems": [],
-      "isMerged": false
-    },
-    {
-      "id": "https://sports.yahoo.com/articles/kentavious-caldwell-pope-negotiating-buy-064957533.html",
-      "title": "Kentavious Caldwell-Pope negotiating buyout from Grizzlies, to sign with 76ers",
-      "originalTitle": "Kentavious Caldwell-Pope negotiating buyout from Grizzlies, to sign with 76ers",
-      "headlineZh": "Kentavious Caldwell-Pope 签约动向更新",
-      "titleZh": "Kentavious Caldwell-Pope 签约动向更新",
-      "link": "https://sports.yahoo.com/articles/kentavious-caldwell-pope-negotiating-buy-064957533.html",
-      "url": "https://sports.yahoo.com/articles/kentavious-caldwell-pope-negotiating-buy-064957533.html",
-      "pubDate": "2026-07-25T06:49:57.000Z",
-      "publishedAt": "2026-07-25T06:49:57.000Z",
-      "summary": "KCP reunites with LeBron James, the two of them won a title together in Los Angeles.",
-      "dekZh": "",
-      "summaryZh": "据 Yahoo Sports 报道，Kentavious Caldwell-Pope 的签约或合同动向成为焦点，原文围绕其自由市场前景展开。",
-      "oneLineZh": "Kentavious Caldwell-Pope 签约动向更新",
-      "goldenQuoteZh": "",
-      "keyPoints": [],
-      "imageUrl": "https://s.yimg.com/ny/api/res/1.2/G3UOwynrnTVMBv4K5gIUAA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/nbcsports.com/8137b04fc46ea7d49ed3a3d409aae7ce",
-      "source": "Yahoo Sports",
-      "feed": "https://sports.yahoo.com/nba/rss.xml",
-      "category": "签约",
-      "importance": 2,
-      "eventKey": "sign:lebron-james:grizzlies",
-      "relatedItems": [],
-      "displayTitle": "Kentavious Caldwell-Pope negotiating buyout from Grizzlies, to sign with 76ers",
-      "copySource": "fallback",
-      "storyType": "signing",
       "isMerged": false
     },
     {
