@@ -1,4 +1,4 @@
-export const PIPELINE_VERSION = 'editorial-pipeline-v2';
+export const PIPELINE_VERSION = 'editorial-pipeline-v4';
 export const AI_STATUSES = ['pending', 'processing', 'accepted', 'rejected', 'failed'];
 export const FACT_LEVELS = ['confirmed', 'reported', 'rumor', 'analysis'];
 export const CATEGORIES = ['交易', '签约', '伤病', '选秀', '流言', '比赛', '分析', '其他'];
@@ -61,6 +61,8 @@ const PLAYER_GROUPS = [
   ['mario-hezonja', '马里奥·赫佐尼亚', ['Mario Hezonja']],
   ['dalen-terry', '达伦·特里', ['Dalen Terry']],
   ['kentavious-caldwell-pope', '肯塔维奥斯·考德威尔-波普', ['Kentavious Caldwell-Pope']],
+  ['peyton-watson', '佩顿·沃特森', ['Peyton Watson']],
+  ['spencer-jones', '斯潘塞·琼斯', ['Spencer Jones']],
   ['james-harden', '詹姆斯·哈登', ['James Harden']],
   ['jaylen-brown', '杰伦·布朗', ['Jaylen Brown']],
   ['jalen-brunson', '杰伦·布伦森', ['Jalen Brunson']],
@@ -74,9 +76,12 @@ const TEAM_LOOKUP = buildAliasLookup(TEAM_GROUPS);
 const PLAYER_LOOKUP = buildAliasLookup(PLAYER_GROUPS);
 const TEAM_REPLACEMENTS = buildReplacements(TEAM_GROUPS);
 const PLAYER_REPLACEMENTS = buildReplacements(PLAYER_GROUPS);
+const ZH_TEAM_SIGNING_PATTERN = new RegExp(
+  `(?:签约|续约)\\s*(?:${TEAM_GROUPS.map(([, zh]) => escapeRegExp(zh)).join('|')})`
+);
 
 const RUMOR_SIGNALS = /\b(?:rumou?r|reportedly|could|may|might|potential|considering|interested|interest in|mutual interest|showing interest|have interest|waiting on|targeting|target|monitoring|exploring|expected to|linked to|eyeing|pursuing|emerge as|sources? say|in talks?)\b/i;
-const ANALYSIS_SIGNALS = /\b(?:analysis|takeaways?|thoughts following|what we learned|outlook|projection|ranking|winners and losers|look to challenge|preview|odds|what it means|reaction to|played role|focused on building|building (?:a )?team for after|after .+ retires|reasons? for|why .+)\b/i;
+const ANALYSIS_SIGNALS = /\b(?:analysis|takeaways?|thoughts following|what we learned|outlook|projection|ranking|winners and losers|look to challenge|preview|odds|what it means|reaction to|focused on building|building (?:a )?team for after|after .+ retires|reasons? for|why .+)\b/i;
 const OPINION_SIGNALS = /\b(?:says?|said|believes?|thinks?|reacts?|shares? thoughts|explains?|discusses?|comments? on|criticizes?|praises?|admits?|responds?)\b/i;
 const TRADE_SIGNALS = /\b(?:trade|traded|acquire|acquired|lands? .+ in (?:a )?deal|sent to|dealt to|transaction|finalizing (?:a )?deal)\b/i;
 const SIGNING_SIGNALS = /\b(?:signs?|signed|re-signs?|agrees? to|contract|extension|offer sheet|matching .+ offer sheet)\b/i;
@@ -207,6 +212,7 @@ export async function createSourceHash(item) {
 export function inferStoryType(text = '') {
   const value = normalizeWhitespace(text);
   if (ANALYSIS_SIGNALS.test(value)) return 'analysis';
+  if (/\b(?:played role in|reason(?:s)? (?:for|behind)|why .+ (?:signed|joined|left))\b/i.test(value)) return 'fact';
   if (TRADE_SIGNALS.test(value)) return 'trade';
   if (/\b(?:could|may|might|considering|interested|interest in|mutual interest|showing interest|waiting on|targeting|monitoring|exploring|linked to|eyeing|pursuing|in talks?)\b/i.test(value)) {
     return 'rumor';
@@ -260,8 +266,8 @@ export function buildEventKey(item = {}) {
 
 export function createPendingRecord(item, now = new Date().toISOString()) {
   const evidence = `${item.originalTitle || ''} ${item.originalSummary || item.summary || ''}`;
-  const storyType = inferStoryType(evidence);
-  const category = classifyCategory(evidence, storyType);
+  const storyType = inferStoryType(item.originalTitle || evidence);
+  const category = classifyCategory(item.originalTitle || evidence, storyType);
   return cleanStringsDeep({
     newsId: item.newsId,
     sourceHash: item.sourceHash,
@@ -352,6 +358,7 @@ export function buildEditorialPrompt(record, articleText = '') {
   ].filter(Boolean).join('\n'));
   const facts = extractEvidenceFacts(sourceEvidence);
   const playerNameRules = buildPlayerNameRules(record.originalTitle);
+  const coreFacts = buildCoreFactBrief(record);
   const expected = record.expectedFactLevel || inferFactLevel(sourceEvidence, record.storyType);
 
   return [
@@ -367,14 +374,14 @@ export function buildEditorialPrompt(record, articleText = '') {
     'factLevel：只能是 confirmed、reported、rumor、analysis 之一。',
     '必须保留输入中明确出现的球员、球队、合同金额、合同年限、比分和主要交易资产。',
     '球员姓名必须严格遵守 personNameRules：词典已给中文名时使用该中文名；标记为保留英文时必须原样保留，禁止自行音译。',
+    '中文语法：球员去某队必须写“加盟某队”或“与某队签约”，禁止写“球员签约某队”；球队签下球员可以写“某队签下球员”。',
+    '解释签约原因时，标题应写“某因素影响某球员加盟某队的决定”，不要写“签约某队与某因素有关”。',
     '传闻、潜在下家、接触、考虑和预计等内容必须写成“据报道”“有消息称”“可能”“有意”或“正在考虑”，不能写成已经完成。',
     '分析、预测和观点必须明确写成分析或观点，不能改写成确定事实。',
     'titleZh 与 summaryZh 不能只是同一句话的重复。',
     `本地判定 storyType=${record.storyType}，期望 factLevel=${expected}，期望 categoryZh=${record.category}。`,
-    `必须保留的核心事实=${JSON.stringify(extractEvidenceFacts([
-      record.originalTitle,
-      firstSentence(record.originalSummary)
-    ].filter(Boolean).join('\n')))}`,
+    'standardizedCoreFacts 中的中文金额和年限已经正确换算；必须原样保留，禁止再次换算或改变量级。',
+    `standardizedCoreFacts=${JSON.stringify(coreFacts)}`,
     `已提取事实=${JSON.stringify(facts)}`,
     `personNameRules=${JSON.stringify(playerNameRules)}`,
     `originalTitle=${record.originalTitle}`,
@@ -580,7 +587,7 @@ export function validateEditorialResult(result, record, articleText = '') {
   if (details.missingFacts.length) reasons.push('missing-key-facts');
 
   const expectedCategory = record.category || classifyCategory(sourceCore, record.storyType);
-  if (['交易', '签约', '伤病', '选秀'].includes(expectedCategory) && value.categoryZh !== expectedCategory) {
+  if (CATEGORIES.includes(expectedCategory) && value.categoryZh !== expectedCategory) {
     reasons.push('category-conflict');
   }
 
@@ -702,9 +709,14 @@ export function migrateLegacyRecord(item, now = new Date().toISOString()) {
 
 export function normalizeChineseText(value = '') {
   let text = normalizeWhitespace(value)
+    .replace(/\bqualifying offer\b/gi, '资质报价')
+    .replace(/\boffer sheet\b/gi, '报价合同')
+    .replace(/\bsecond apron\b/gi, '第二土豪线')
+    .replace(/\bfirst apron\b/gi, '第一土豪线')
     .replace(/76\s*人/g, '76 人')
     .replace(/([^\s])76 人/g, '$1 76 人')
-    .replace(/76 人([^\s，。！？、；：])/g, '76 人 $1');
+    .replace(/76 人([^\s，。！？、；：])/g, '76 人 $1')
+    .replace(/76 人\s+([与的后将])/g, '76 人$1');
 
   for (const replacement of TEAM_REPLACEMENTS) {
     text = text.replace(replacement.pattern, replacement.zh);
@@ -742,6 +754,8 @@ export function inspectChineseCopy(value, { minHan = 8, maxLength = 220 } = {}) 
     if (pattern.test(text)) fragments.push(pattern.source);
   }
   if (/[’']s(?=[\s，。！？]|$)/i.test(text)) fragments.push('english-possessive');
+  if (ZH_TEAM_SIGNING_PATTERN.test(text)) fragments.push('player-signs-team-grammar');
+  if (/签约\s*76 人|签约\s*球队/.test(text)) fragments.push('player-signs-team-grammar');
 
   const withoutProperNames = stripAllowedProperNames(text);
   const englishRun = withoutProperNames.match(/\b[a-z]+(?:\s+[a-z]+){1,}\b/i);
@@ -777,12 +791,12 @@ function materializeItem(record) {
     displayTitle: editorial.titleZh,
     summaryZh: editorial.summaryZh,
     oneLineZh: editorial.titleZh,
-    categoryZh: editorial.categoryZh,
-    category: editorial.categoryZh,
+    categoryZh: record.category || editorial.categoryZh,
+    category: record.category || editorial.categoryZh,
     tagsZh: editorial.tagsZh,
     confidence: editorial.confidence,
     aiConfidence: editorial.confidence,
-    factLevel: editorial.factLevel,
+    factLevel: record.expectedFactLevel || editorial.factLevel,
     aiStatus: 'accepted',
     storyType: record.storyType,
     importance: record.importance,
@@ -899,6 +913,38 @@ function buildPlayerNameRules(text = '') {
     covered.add(id);
   }
   return rules;
+}
+
+function buildCoreFactBrief(record) {
+  const evidence = [
+    record.originalTitle,
+    firstSentence(record.originalSummary)
+  ].filter(Boolean).join('\n');
+  const facts = extractEvidenceFacts(evidence);
+  return {
+    teamsZh: facts.teams.map((id) => getGroupZh(TEAM_GROUPS, id)).filter(Boolean),
+    playerNames: buildPlayerNameRules(record.originalTitle).map((rule) => rule.output),
+    contractAmountsZh: facts.money.map(formatMoneyFactZh).filter(Boolean),
+    contractYearsZh: facts.durations.map((fact) => `${fact.split(':').at(-1)} 年`),
+    draftAssetsZh: facts.picks.map(formatPickFactZh).filter(Boolean),
+    scores: facts.scores.map((fact) => fact.replace(/^score:/, '').replace(':', ' 比 '))
+  };
+}
+
+function getGroupZh(groups, id) {
+  return groups.find(([groupId]) => groupId === id)?.[1] || '';
+}
+
+function formatMoneyFactZh(fact) {
+  const millions = Number(String(fact).split(':').at(-1));
+  if (!Number.isFinite(millions)) return '';
+  return `${stripNumber(millions * 100)} 万美元`;
+}
+
+function formatPickFactZh(fact) {
+  const [, round, count] = String(fact).split(':');
+  if (!round || !count) return '';
+  return `${count} 个${round === 'first' ? '首轮签' : '次轮签'}`;
 }
 
 function extractPersonDisplayNames(text = '') {

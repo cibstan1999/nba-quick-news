@@ -262,7 +262,13 @@ async function processRecord(record, env, stats) {
         model: aiResult.modelUsed,
         reasons: validation.reasons
       });
-      const fallbackResult = await summarizeWithJsonFallback(record, articleText, env);
+      const fallbackResult = await summarizeWithJsonFallback(
+        record,
+        articleText,
+        env,
+        aiResult.normalized.parsed,
+        validation
+      );
       stats.requests += fallbackResult.requestCount;
       stats.fallbackRequests += fallbackResult.requestCount;
       const fallbackValidation = validateEditorialResult(
@@ -404,8 +410,18 @@ async function summarizeWithWorkersAi(record, articleText, env) {
   }
 }
 
-async function summarizeWithJsonFallback(record, articleText, env) {
-  const prompt = buildEditorialPrompt(record, articleText);
+async function summarizeWithJsonFallback(record, articleText, env, rejectedResult, validation) {
+  const correction = [
+    '',
+    '上一版候选未通过本地质量检查，请根据具体问题重新编辑。',
+    `上一版候选=${JSON.stringify(rejectedResult || {})}`,
+    `拒绝原因=${JSON.stringify(validation?.reasons || [])}`,
+    `新增或错误事实=${JSON.stringify(validation?.details?.addedFacts || [])}`,
+    `遗漏核心事实=${JSON.stringify(validation?.details?.missingFacts || [])}`,
+    `不安全片段=${JSON.stringify(validation?.details?.unsafeFragments || [])}`,
+    '必须修复以上全部问题；不能照抄不安全英文片段，不能改变金额量级。'
+  ].join('\n');
+  const prompt = `${buildEditorialPrompt(record, articleText)}${correction}`;
   return runJsonFallback(prompt, getFallbackModel(env), env);
 }
 

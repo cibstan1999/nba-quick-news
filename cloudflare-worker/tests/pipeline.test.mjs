@@ -55,7 +55,7 @@ test('story type keeps rumors and completed signings distinct', () => {
   assert.equal(inferStoryType('Jaxson Hayes Agrees To Two-Year Deal With Lakers'), 'signing');
   assert.equal(inferStoryType('Nuggets Matching Spencer Jones Offer Sheet From Thunder'), 'signing');
   assert.equal(inferStoryType('Jonathan Kuminga, Cavaliers Have Mutual Interest'), 'rumor');
-  assert.equal(inferStoryType('Proximity Played Role In LeBron James Signing With 76ers'), 'analysis');
+  assert.equal(inferStoryType('Proximity Played Role In LeBron James Signing With 76ers'), 'fact');
   assert.equal(inferStoryType('Warriors Focused On Building Team For After Stephen Curry Retires'), 'analysis');
   assert.equal(inferStoryType('Sixers Waive Dalen Terry'), 'fact');
 });
@@ -162,6 +162,48 @@ test('accepted copy normalizes Chinese contract spacing', async () => {
   assert.equal(validation.ok, true, JSON.stringify(validation));
   assert.match(validation.value.titleZh, /2 年/);
   assert.match(validation.value.summaryZh, /1200 万美元/);
+});
+
+test('known contract English terms are normalized before language validation', async () => {
+  const record = await makeRecord({
+    originalTitle: 'Nuggets Matching Spencer Jones Offer Sheet From Thunder',
+    originalSummary: 'The Nuggets matched the two-year, $12 million offer sheet for Spencer Jones.',
+    url: 'https://example.com/offer-sheet'
+  });
+  const result = {
+    titleZh: '掘金匹配雷霆给 Spencer Jones 的 offer sheet',
+    summaryZh: '掘金匹配了雷霆给 Spencer Jones 的 2 年 1200 万美元 offer sheet，因此将留下这名球员。',
+    categoryZh: '签约',
+    tagsZh: ['掘金', '雷霆'],
+    confidence: 0.9,
+    factLevel: 'confirmed'
+  };
+  const validation = validateEditorialResult(result, record);
+  assert.equal(validation.ok, true, JSON.stringify(validation));
+  assert.doesNotMatch(validation.value.summaryZh, /offer sheet/i);
+});
+
+test('quality gate rejects player-signs-team Chinese grammar and category drift', async () => {
+  const record = await makeRecord({
+    originalTitle: 'Proximity To NYC Played Role In LeBron James Signing With 76ers',
+    originalSummary: "The Philadelphia 76ers' proximity to New York City played a role in LeBron James' decision to sign with the team.",
+    url: 'https://example.com/lebron-reason'
+  });
+  assert.equal(record.storyType, 'fact');
+  assert.equal(record.category, '其他');
+  const result = {
+    titleZh: '勒布朗·詹姆斯签约 76 人与纽约近有关',
+    summaryZh: '据报道，勒布朗·詹姆斯因为费城距离纽约较近，最终决定签约 76 人。',
+    categoryZh: '签约',
+    tagsZh: ['勒布朗·詹姆斯', '76 人'],
+    confidence: 0.9,
+    factLevel: 'reported'
+  };
+  const validation = validateEditorialResult(result, record);
+  assert.equal(validation.ok, false);
+  assert.ok(validation.reasons.includes('unsafe-title'));
+  assert.ok(validation.reasons.includes('category-conflict'));
+  assert.ok(validation.details.unsafeFragments.includes('player-signs-team-grammar'));
 });
 
 test('quality gate rejects fabricated money', async () => {
