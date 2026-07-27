@@ -5,6 +5,7 @@ import {
   createNewsId,
   createPendingRecord,
   createSourceHash,
+  extractEvidenceFacts,
   inferFactLevel,
   inferStoryType,
   materializePayload,
@@ -49,6 +50,20 @@ test('story type keeps rumors and completed signings distinct', () => {
   assert.equal(inferStoryType('Lakers reportedly interested in Player A'), 'rumor');
   assert.equal(inferFactLevel('Lakers reportedly interested in Player A'), 'rumor');
   assert.equal(inferStoryType('Jaxson Hayes Agrees To Two-Year Deal With Lakers'), 'signing');
+  assert.equal(inferStoryType('Nuggets Matching Spencer Jones Offer Sheet From Thunder'), 'signing');
+  assert.equal(inferStoryType('Jonathan Kuminga, Cavaliers Have Mutual Interest'), 'rumor');
+  assert.equal(inferStoryType('Proximity Played Role In LeBron James Signing With 76ers'), 'analysis');
+});
+
+test('headline entity extraction keeps player names without title verbs', () => {
+  const signing = extractEvidenceFacts('Nuggets Matching Spencer Jones Offer Sheet From Thunder');
+  assert.ok(signing.players.includes('spencer-jones'));
+  assert.ok(!signing.players.some((player) => player.includes('matching')));
+
+  const trade = extractEvidenceFacts('Wizards, Mavericks Had No Interest In Trading Anthony Davis, Kyrie Irving');
+  assert.ok(trade.players.includes('anthony-davis'));
+  assert.ok(trade.players.includes('kyrie-irving'));
+  assert.ok(!trade.players.some((player) => player.includes('interest')));
 });
 
 test('queue reserves a slot for fresh news and continues old backlog', async () => {
