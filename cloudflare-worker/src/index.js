@@ -29,6 +29,7 @@ const TEAM_ZH = new Map([
   ['Bulls', '公牛'],
   ['Cleveland Cavaliers', '骑士'],
   ['Cavaliers', '骑士'],
+  ['Cavs', '骑士'],
   ['Dallas Mavericks', '独行侠'],
   ['Mavericks', '独行侠'],
   ['Denver Nuggets', '掘金'],
@@ -581,6 +582,8 @@ function validateAiResult(result, item = null) {
   if (!isChineseSummary(summaryZh)) reasons.push('bad-summary-language');
   if (!isChineseSummary(oneLineZh)) reasons.push('bad-oneline-language');
   if (hasForbiddenCopy(combined)) reasons.push('generic-or-mixed-copy');
+  const selfTeamMovement = findSelfTeamMovement(combined);
+  if (selfTeamMovement) reasons.push(`self-team-movement:${selfTeamMovement}`);
   if (summaryZh && oneLineZh && compactComparable(summaryZh).includes(compactComparable(oneLineZh)) && getChineseLength(oneLineZh) > 34) {
     reasons.push('oneline-repeats-summary');
   }
@@ -734,8 +737,10 @@ function needsAiSummary(item) {
 
 function normalizeOutputItem(item) {
   const fallback = buildFallbackSummary(item);
-  const summaryZh = item.summaryZh || fallback.summaryZh;
-  const oneLineZh = item.oneLineZh || fallback.oneLineZh;
+  const summaryCandidate = item.summaryZh || fallback.summaryZh;
+  const oneLineCandidate = item.oneLineZh || fallback.oneLineZh;
+  const summaryZh = findSelfTeamMovement(summaryCandidate) ? '' : summaryCandidate;
+  const oneLineZh = findSelfTeamMovement(oneLineCandidate) ? '' : oneLineCandidate;
   return recursiveCleanStrings({
     ...item,
     displayTitle: item.originalTitle,
@@ -749,18 +754,14 @@ function normalizeOutputItem(item) {
 
 function buildFallbackSummary(item) {
   const text = `${item.originalTitle} ${item.summary}`;
-  const title = item.originalTitle || '';
   const sourcePrefix = item.source ? `据 ${item.source} 报道，` : '';
 
-  const contract = title.match(/^(.+?),\s*(.+?) Agree To (.+?Deal)$/i) ||
-    title.match(/^(.+?) signs? (.+?) with (.+)$/i);
+  const contract = parseSigningTitle(item);
   if (contract) {
-    const player = contract[1];
-    const team = contract[2];
-    const contractText = contract[3] || '';
+    const { player, team, contractText } = contract;
     const details = [...extractYearTerms(contractText), ...extractMoneyTerms(contractText)].map((term) => term.zh).join('、');
     return {
-      summaryZh: normalizeChineseCopy(`${sourcePrefix}${localize(team)}与 ${localize(player)} 达成合同协议${details ? `，合同信息包括${details}` : ''}。`),
+      summaryZh: normalizeChineseCopy(`${sourcePrefix}${localize(team)}与 ${localize(player)} 达成合同协议${details ? `，合同信息包括 ${details}` : ''}。`),
       oneLineZh: normalizeChineseCopy(`${localize(team)}签下 ${localize(player)}${details ? `，${details}` : ''}`)
     };
   }
@@ -781,6 +782,42 @@ function buildFallbackSummary(item) {
   }
 
   return { summaryZh: '', oneLineZh: '' };
+}
+
+function parseSigningTitle(item = {}) {
+  const title = normalizeWhitespace(item.originalTitle || '').replace(/\s*\|\s*(?:Report|News).*$/i, '');
+  const evidence = `${title} ${item.summary || ''}`;
+  const patterns = [
+    {
+      regex: /^(.+?),\s*(.+?)\s+Agree(?:s|d)?\s+To\s+(.+?(?:Deal|Contract|Contact))$/i,
+      map: (match) => ({ player: match[1], team: match[2], contractText: match[3] })
+    },
+    {
+      regex: /^(.+?)\s+Agree(?:s|d)?\s+To\s+(.+?(?:Deal|Contract|Contact))\s+With\s+(.+)$/i,
+      map: (match) => ({ player: match[1], team: match[3], contractText: match[2] })
+    },
+    {
+      regex: /^(.+?)\s+(?:officially\s+)?signs?\s+(?:a\s+)?contract\s+with\s+(.+)$/i,
+      map: (match) => ({ player: match[1], team: match[2], contractText: evidence })
+    },
+    {
+      regex: /^(.+?)\s+To\s+Sign\s+With\s+(.+?)(?:\s+After\b|\s+Following\b|\s+Once\b|$)/i,
+      map: (match) => ({ player: match[1], team: match[2], contractText: evidence })
+    }
+  ];
+
+  for (const { regex, map } of patterns) {
+    const match = title.match(regex);
+    if (!match) continue;
+    const parsed = map(match);
+    if (!isKnownTeamName(parsed.team) || isKnownTeamName(parsed.player)) continue;
+    return {
+      player: normalizeWhitespace(parsed.player),
+      team: normalizeWhitespace(parsed.team),
+      contractText: normalizeWhitespace(parsed.contractText || evidence)
+    };
+  }
+  return null;
 }
 
 function buildHighlights(items) {
@@ -871,6 +908,14 @@ function getMainTeam(text = '') {
   return '';
 }
 
+function isKnownTeamName(value = '') {
+  const normalized = normalizeWhitespace(value).toLowerCase();
+  if (!normalized) return false;
+  return [...TEAM_ZH].some(([english, chinese]) =>
+    english.toLowerCase() === normalized || chinese === normalizeWhitespace(value)
+  );
+}
+
 function localize(value = '') {
   let text = String(value || '').trim();
   for (const [en, zh] of TEAM_ZH) {
@@ -880,6 +925,21 @@ function localize(value = '') {
     text = text.replace(new RegExp(`\\b${escapeRegExp(en)}\\b`, 'gi'), zh);
   }
   return normalizeWhitespace(text);
+}
+
+function findSelfTeamMovement(value = '') {
+  const text = normalizeWhitespace(value);
+  if (!text) return '';
+  const teams = [...new Set(TEAM_ZH.values())].sort((a, b) => b.length - a.length);
+  for (const team of teams) {
+    const teamPattern = team.split(/\s+/).map(escapeRegExp).join('\\s*');
+    const pattern = new RegExp(
+      `${teamPattern}\\s*(?:队)?\\s*(?:将|已|正式|宣布|确认|计划|预计|可能|有意|据报)?\\s*` +
+      `(?:加盟|加入|转投|被交易至|交易至|前往)\\s*${teamPattern}(?:队)?`
+    );
+    if (pattern.test(text)) return team;
+  }
+  return '';
 }
 
 function localizeContract(value = '') {
@@ -935,7 +995,9 @@ function emptyPayload() {
 }
 
 function isValidCachedSummary(value) {
-  return value && isChineseSummary(value.summaryZh) && isChineseSummary(value.oneLineZh);
+  if (!value || !isChineseSummary(value.summaryZh) || !isChineseSummary(value.oneLineZh)) return false;
+  const combined = `${value.summaryZh} ${value.oneLineZh}`;
+  return !hasForbiddenCopy(combined) && !findSelfTeamMovement(combined);
 }
 
 function isChineseSummary(value = '') {
