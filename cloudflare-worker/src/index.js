@@ -1,144 +1,51 @@
 import { XMLParser } from 'fast-xml-parser';
+import {
+  PIPELINE_VERSION,
+  buildEditorialPrompt,
+  buildWorkersAiRequest,
+  cleanStringsDeep,
+  createNewsId,
+  createPendingRecord,
+  createSourceHash,
+  decodeHtml,
+  getRetrySchedule,
+  materializePayload,
+  migrateLegacyRecord,
+  normalizeAiResponse,
+  normalizeWhitespace,
+  recoverStaleProcessing,
+  selectQueueRecords,
+  stripHtml,
+  summarizeQueue,
+  validateEditorialResult
+} from './pipeline.js';
 
-const FEEDS = [
-  {
-    source: 'RealGM',
-    feed: 'https://basketball.realgm.com/rss/wiretap/15/0.xml'
-  },
-  {
-    source: 'Yahoo Sports',
-    feed: 'https://sports.yahoo.com/nba/rss.xml'
-  }
-];
+const FEED = {
+  source: 'RealGM',
+  feed: 'https://basketball.realgm.com/rss/wiretap/15/0.xml'
+};
 
 const NEWS_KEY = 'news.json';
-const SOURCE_CACHE_PREFIX = 'ai-summary:';
-const AI_CURSOR_KEY = 'ai-candidate-cursor';
+const CATALOG_KEY = 'news:catalog:v1';
+const RECORD_PREFIX = 'news:item:';
 const DEFAULT_AI_MODEL = '@cf/qwen/qwen3-30b-a3b-fp8';
-const DEFAULT_SUMMARY_CACHE_VERSION = 'cf-summary-v3-qwen3';
+const DEFAULT_CATALOG_LIMIT = 120;
 
-const TEAM_ZH = new Map([
-  ['Atlanta Hawks', '老鹰'],
-  ['Hawks', '老鹰'],
-  ['Boston Celtics', '凯尔特人'],
-  ['Celtics', '凯尔特人'],
-  ['Brooklyn Nets', '篮网'],
-  ['Nets', '篮网'],
-  ['Charlotte Hornets', '黄蜂'],
-  ['Hornets', '黄蜂'],
-  ['Chicago Bulls', '公牛'],
-  ['Bulls', '公牛'],
-  ['Cleveland Cavaliers', '骑士'],
-  ['Cavaliers', '骑士'],
-  ['Cavs', '骑士'],
-  ['Dallas Mavericks', '独行侠'],
-  ['Mavericks', '独行侠'],
-  ['Denver Nuggets', '掘金'],
-  ['Nuggets', '掘金'],
-  ['Detroit Pistons', '活塞'],
-  ['Pistons', '活塞'],
-  ['Golden State Warriors', '勇士'],
-  ['Warriors', '勇士'],
-  ['Houston Rockets', '火箭'],
-  ['Rockets', '火箭'],
-  ['Indiana Pacers', '步行者'],
-  ['Pacers', '步行者'],
-  ['LA Clippers', '快船'],
-  ['Los Angeles Clippers', '快船'],
-  ['Clippers', '快船'],
-  ['Los Angeles Lakers', '湖人'],
-  ['Lakers', '湖人'],
-  ['Memphis Grizzlies', '灰熊'],
-  ['Grizzlies', '灰熊'],
-  ['Miami Heat', '热火'],
-  ['Heat', '热火'],
-  ['Milwaukee Bucks', '雄鹿'],
-  ['Bucks', '雄鹿'],
-  ['Minnesota Timberwolves', '森林狼'],
-  ['Timberwolves', '森林狼'],
-  ['New Orleans Pelicans', '鹈鹕'],
-  ['Pelicans', '鹈鹕'],
-  ['New York Knicks', '尼克斯'],
-  ['Knicks', '尼克斯'],
-  ['Oklahoma City Thunder', '雷霆'],
-  ['Thunder', '雷霆'],
-  ['Orlando Magic', '魔术'],
-  ['Magic', '魔术'],
-  ['Philadelphia 76ers', '76 人'],
-  ['Philadelphia 76er', '76 人'],
-  ['Sixers', '76 人'],
-  ['Sixer', '76 人'],
-  ['76ers', '76 人'],
-  ['76er', '76 人'],
-  ['Phoenix Suns', '太阳'],
-  ['Suns', '太阳'],
-  ['Portland Trail Blazers', '开拓者'],
-  ['Trail Blazers', '开拓者'],
-  ['Blazers', '开拓者'],
-  ['Sacramento Kings', '国王'],
-  ['Kings', '国王'],
-  ['San Antonio Spurs', '马刺'],
-  ['Spurs', '马刺'],
-  ['Toronto Raptors', '猛龙'],
-  ['Raptors', '猛龙'],
-  ['Utah Jazz', '爵士'],
-  ['Jazz', '爵士'],
-  ['Washington Wizards', '奇才'],
-  ['Wizards', '奇才']
-]);
-
-const PLAYER_ZH = new Map([
-  ['LeBron James', '勒布朗·詹姆斯'],
-  ['Stephen Curry', '斯蒂芬·库里'],
-  ['Steph Curry', '斯蒂芬·库里'],
-  ['Kevin Durant', '凯文·杜兰特'],
-  ['Giannis Antetokounmpo', '扬尼斯·阿德托昆博'],
-  ['Luka Doncic', '卢卡·东契奇'],
-  ['Luka Dončić', '卢卡·东契奇'],
-  ['Kawhi Leonard', '科怀·伦纳德'],
-  ['James Harden', '詹姆斯·哈登'],
-  ['Jaylen Brown', '杰伦·布朗'],
-  ['Jalen Brunson', '杰伦·布伦森'],
-  ['Draymond Green', '德雷蒙德·格林'],
-  ['Jonathan Kuminga', '乔纳森·库明加'],
-  ['Cam Christie', '卡姆·克里斯蒂'],
-  ['Yaxel Lendeborg', '亚克塞尔·伦德伯格'],
-  ['Caleb Wilson', '卡莱布·威尔逊'],
-  ['Meleek Thomas', '梅利克·托马斯'],
-  ['Cameron Boozer', '卡梅伦·布泽尔'],
-  ['Brayden Burries', '布雷登·伯里斯'],
-  ['Jalen Wilson', '杰伦·威尔逊'],
-  ['Matisse Thybulle', '马蒂斯·赛布尔'],
-  ['Lu Dort', '吕冈茨·多尔特'],
-  ['Luguentz Dort', '吕冈茨·多尔特'],
-  ['Zaccharie Risacher', '扎卡里·里萨谢'],
-  ['Ryan Nembhard', '瑞安·内姆哈德'],
-  ['Taelon Peter', '泰伦·彼得'],
-  ['Rob Pelinka', '罗勃·佩林卡'],
-  ['Rich Paul', '里奇·保罗'],
-  ['Adam Silver', '亚当·萧华']
-]);
-
-const FORBIDDEN_COPY_PATTERNS = [
-  /相关消息更新/,
-  /后续动向/,
-  /继续更新/,
-  /更多背景/,
-  /详情请/,
-  /原文聚焦/,
-  /这篇文章讨论了/,
-  /\b(?:thoughts following|takeaways from|what we learned|more background|reach out to|expected to|planning to|shows interest|title contenders)\b/i,
-  /\b(?:multi-year|one-year|two-year|three-year|four-year)\b/i
-];
+class RefreshError extends Error {
+  constructor(message, payload) {
+    super(message);
+    this.name = 'RefreshError';
+    this.payload = payload;
+  }
+}
 
 export default {
-  async fetch(request, env, ctx) {
+  async fetch(request, env) {
     const url = new URL(request.url);
-
     if (request.method === 'OPTIONS') return corsResponse('', { status: 204 });
 
     if (url.pathname === '/health') {
-      return jsonResponse({ ok: true, now: new Date().toISOString() });
+      return serveHealth(env);
     }
 
     if (url.pathname === '/data/news.json') {
@@ -148,20 +55,51 @@ export default {
     if (url.pathname === '/refresh') {
       const auth = authorizeRefresh(request, env);
       if (!auth.ok) return jsonResponse({ error: auth.message }, { status: auth.status });
-      const payload = await refreshNews(env);
-      return jsonResponse(payload);
+      try {
+        return jsonResponse(await refreshNews(env, { trigger: 'manual' }));
+      } catch (error) {
+        console.error('Manual refresh failed', {
+          error: error?.message || String(error),
+          pipelineVersion: PIPELINE_VERSION
+        });
+        if (error instanceof RefreshError) {
+          return jsonResponse(error.payload, { status: 502 });
+        }
+        return jsonResponse({ error: 'Refresh failed.', pipelineVersion: PIPELINE_VERSION }, { status: 500 });
+      }
     }
 
     return jsonResponse({
       name: 'nba-quick-news-worker',
-      routes: ['/data/news.json', '/refresh', '/health']
+      pipelineVersion: PIPELINE_VERSION,
+      routes: ['/health', '/data/news.json', '/refresh']
     });
   },
 
   async scheduled(controller, env, ctx) {
-    ctx.waitUntil(refreshNews(env, { cron: controller.cron, scheduledTime: controller.scheduledTime }));
+    ctx.waitUntil(refreshNews(env, {
+      trigger: 'cron',
+      cron: controller.cron,
+      scheduledTime: controller.scheduledTime
+    }));
   }
 };
+
+async function serveHealth(env) {
+  assertBindings(env);
+  const payload = await readJson(env.NEWS_KV, NEWS_KEY);
+  return jsonResponse({
+    ok: true,
+    now: new Date().toISOString(),
+    pipelineVersion: PIPELINE_VERSION,
+    dataStatus: payload?.lastFetchStatus?.status || 'empty',
+    updatedAt: payload?.updatedAt || null,
+    acceptedItems: payload?.items?.length || 0,
+    queue: payload?.lastFetchStatus?.queue || null
+  }, {
+    headers: { 'cache-control': 'no-store' }
+  });
+}
 
 async function serveNews(env) {
   assertBindings(env);
@@ -171,22 +109,12 @@ async function serveNews(env) {
       headers: {
         ...corsHeaders(),
         'content-type': 'application/json; charset=utf-8',
-        'cache-control': 'public, max-age=300, must-revalidate'
+        'cache-control': 'public, max-age=120, stale-if-error=86400'
       }
     });
   }
 
-  return jsonResponse({
-    sources: FEEDS,
-    updatedAt: null,
-    lastFetchStatus: {
-      status: 'empty',
-      checkedAt: new Date().toISOString(),
-      message: 'No Cloudflare Worker news.json has been generated yet. Call /refresh first.'
-    },
-    highlights: [],
-    items: []
-  }, {
+  return jsonResponse(emptyPayload(), {
     headers: { 'cache-control': 'no-store' }
   });
 }
@@ -194,85 +122,278 @@ async function serveNews(env) {
 async function refreshNews(env, meta = {}) {
   assertBindings(env);
   const checkedAt = new Date().toISOString();
-  const previousPayload = await readExistingPayload(env);
-  const feedResults = await Promise.all(FEEDS.map((feed) => fetchFeed(feed)));
-  const successfulFeeds = feedResults.filter((result) => result.ok);
-  const failedFeeds = feedResults.filter((result) => !result.ok).map(({ source, feed, error }) => ({ source, feed, error }));
-  const rawItems = feedResults.flatMap((result) => result.items || []);
+  const nowMs = new Date(checkedAt).getTime();
+  const previousPayload = await readJson(env.NEWS_KV, NEWS_KEY);
+  const previousUpdatedAt = previousPayload?.updatedAt || null;
+  const feedResult = await fetchFeed(FEED);
 
-  if (!rawItems.length || !successfulFeeds.length) {
-    const failedPayload = {
+  if (!feedResult.ok || feedResult.items.length === 0) {
+    const failedPayload = cleanStringsDeep({
       ...(previousPayload || emptyPayload()),
       lastFetchStatus: {
+        ...(previousPayload?.lastFetchStatus || {}),
         status: 'fetch-failed',
         checkedAt,
-        updatedAt: previousPayload?.updatedAt || null,
+        updatedAt: previousUpdatedAt,
         fetchedItems: 0,
-        mergedItems: previousPayload?.items?.length || 0,
-        successfulFeeds: successfulFeeds.map(toFeedStatus),
-        failedFeeds,
-        message: 'All RSS feeds failed or returned no usable items.'
+        successfulFeeds: [],
+        failedFeeds: [{
+          source: FEED.source,
+          feed: FEED.feed,
+          error: feedResult.error || 'RSS returned no usable items.'
+        }],
+        message: 'RealGM RSS fetch failed; previously accepted content was preserved.',
+        pipelineVersion: PIPELINE_VERSION,
+        ...meta
       }
-    };
-    await env.NEWS_KV.put(NEWS_KEY, JSON.stringify(failedPayload, null, 2));
-    return failedPayload;
+    });
+    await env.NEWS_KV.put(NEWS_KEY, JSON.stringify(failedPayload));
+    throw new RefreshError('RealGM RSS fetch failed.', failedPayload);
   }
 
-  const dedupedItems = dedupeItems(rawItems).slice(0, 80);
-  const preparedItems = dedupedItems.map((item) => ({
-    ...item,
-    eventKey: getEventKey(item),
-    category: classifyCategory(`${item.originalTitle} ${item.summary}`),
-    storyType: inferStoryType(`${item.originalTitle} ${item.summary}`),
-    importance: scoreImportance(item),
-    summaryZh: '',
-    oneLineZh: '',
-    copySource: 'fallback'
-  }));
+  const incoming = await normalizeIncomingItems(feedResult.items);
+  const state = await loadContentState(env, previousPayload, checkedAt);
+  const dirty = new Set(state.dirtyIds);
 
-  const aiStats = await applyAiSummaries(preparedItems, env);
-  const finalItems = preparedItems.map(normalizeOutputItem);
-  const highlights = buildHighlights(finalItems);
-  const payload = {
-    sources: FEEDS,
-    updatedAt: checkedAt,
-    lastFetchStatus: {
-      status: failedFeeds.length ? 'partial-success' : 'success',
-      fetchMode: 'cloudflare-worker',
-      checkedAt,
-      updatedAt: checkedAt,
-      fetchedItems: rawItems.length,
-      mergedItems: finalItems.length,
-      successfulFeeds: successfulFeeds.map(toFeedStatus),
-      failedFeeds,
-      aiEnabled: isEnabled(env.AI_ENABLED) && Boolean(env.AI),
-      aiCandidates: aiStats.candidates,
-      aiRequests: aiStats.requests,
-      aiAccepted: aiStats.accepted,
-      aiFailed: aiStats.failed,
-      aiRejected: aiStats.rejected,
-      aiCacheHits: aiStats.cacheHits,
-      aiRejectionSamples: aiStats.rejectionSamples,
-      message: failedFeeds.length
-        ? `Fetched ${rawItems.length} items with ${failedFeeds.length} failed feed(s).`
-        : `Fetched ${rawItems.length} items from all feeds.`,
-      ...meta
-    },
-    highlights,
-    items: finalItems
+  for (const newsId of recoverStaleProcessing(state.records, nowMs)) dirty.add(newsId);
+  mergeIncoming(state.records, incoming, checkedAt, dirty);
+
+  const catalogLimit = clampInteger(env.NEWS_CATALOG_LIMIT, DEFAULT_CATALOG_LIMIT, 40, 200);
+  state.records = retainCatalogRecords(state.records, catalogLimit);
+  const selected = isAiEnabled(env)
+    ? selectQueueRecords(state.records, clampInteger(env.AI_MAX_ITEMS_PER_RUN, 3, 1, 10), nowMs)
+    : [];
+
+  for (const record of selected) {
+    record.aiStatus = 'processing';
+    record.processingStartedAt = checkedAt;
+    record.lastAttemptAt = checkedAt;
+    record.lastError = null;
+    record.rejectionReasons = [];
+    dirty.add(record.newsId);
+  }
+
+  await writeRecords(env.NEWS_KV, state.records.filter((record) => dirty.has(record.newsId)));
+  await saveCatalogIfChanged(env.NEWS_KV, state.catalogIds, state.records, checkedAt);
+
+  if (selected.length) await sleep(1100);
+
+  const aiStats = {
+    enabled: isAiEnabled(env),
+    selected: selected.length,
+    requests: 0,
+    accepted: 0,
+    rejected: 0,
+    failed: 0,
+    rejectionSamples: []
   };
 
-  await env.NEWS_KV.put(NEWS_KEY, JSON.stringify(payload, null, 2));
+  for (const record of selected) {
+    await processRecord(record, env, aiStats);
+    await writeRecord(env.NEWS_KV, record);
+  }
+
+  const updatedAt = checkedAt;
+  const queue = summarizeQueue(state.records, checkedAt);
+  const pipelineDegraded = aiStats.rejected > 0 || aiStats.failed > 0;
+  const status = {
+    status: pipelineDegraded ? 'partial-success' : 'success',
+    fetchMode: 'cloudflare-worker',
+    checkedAt,
+    updatedAt,
+    previousUpdatedAt,
+    fetchedItems: feedResult.items.length,
+    normalizedItems: incoming.length,
+    acceptedItems: state.records.filter((record) => record.aiStatus === 'accepted').length,
+    successfulFeeds: [{ source: FEED.source, feed: FEED.feed, items: feedResult.items.length }],
+    failedFeeds: [],
+    aiEnabled: aiStats.enabled,
+    aiModel: env.AI_MODEL || DEFAULT_AI_MODEL,
+    aiSelected: aiStats.selected,
+    aiRequests: aiStats.requests,
+    aiAccepted: aiStats.accepted,
+    aiRejected: aiStats.rejected,
+    aiFailed: aiStats.failed,
+    aiRejectionSamples: aiStats.rejectionSamples,
+    queue,
+    message: pipelineDegraded
+      ? `Fetched ${feedResult.items.length} RealGM items; ${aiStats.accepted} AI edit(s) accepted and ${aiStats.rejected + aiStats.failed} deferred for retry.`
+      : `Fetched ${feedResult.items.length} RealGM items; ${aiStats.accepted} AI edit(s) accepted.`,
+    pipelineVersion: PIPELINE_VERSION,
+    ...meta
+  };
+  const payload = materializePayload(state.records, status, checkedAt);
+  await env.NEWS_KV.put(NEWS_KEY, JSON.stringify(payload));
+
+  console.log('NBA editorial pipeline completed', {
+    pipelineVersion: PIPELINE_VERSION,
+    fetchedItems: feedResult.items.length,
+    acceptedItems: payload.items.length,
+    aiSelected: aiStats.selected,
+    aiRequests: aiStats.requests,
+    aiAccepted: aiStats.accepted,
+    aiRejected: aiStats.rejected,
+    aiFailed: aiStats.failed,
+    queue
+  });
+
   return payload;
 }
 
+async function processRecord(record, env, stats) {
+  const articleText = await extractArticleText(record.url, env);
+  try {
+    const aiResult = await summarizeWithWorkersAi(record, articleText, env);
+    stats.requests += aiResult.requestCount;
+    const validation = validateEditorialResult(aiResult.normalized.parsed, record, articleText);
+
+    if (!validation.ok) {
+      record.aiStatus = 'rejected';
+      record.retryCount = (record.retryCount || 0) + 1;
+      record.processedAt = new Date().toISOString();
+      record.processingStartedAt = null;
+      record.nextRetryAt = getRetrySchedule('rejected', record.retryCount);
+      record.rejectionReasons = validation.reasons;
+      record.lastError = validation.reasons.join(',');
+      record.editorial = null;
+      stats.rejected += 1;
+      pushSample(stats.rejectionSamples, {
+        newsId: record.newsId,
+        originalTitle: record.originalTitle,
+        reasons: validation.reasons,
+        addedFacts: validation.details.addedFacts,
+        missingFacts: validation.details.missingFacts,
+        unsafeFragments: validation.details.unsafeFragments
+      });
+      console.warn('Workers AI editorial rejected', {
+        newsId: record.newsId,
+        originalTitle: record.originalTitle,
+        finishReason: aiResult.normalized.finishReason,
+        reasons: validation.reasons,
+        addedFacts: validation.details.addedFacts,
+        missingFacts: validation.details.missingFacts,
+        unsafeFragments: validation.details.unsafeFragments,
+        rawResponse: aiResult.normalized.rawDebug.slice(0, 2000)
+      });
+      return;
+    }
+
+    record.aiStatus = 'accepted';
+    record.retryCount = record.retryCount || 0;
+    record.processedAt = new Date().toISOString();
+    record.processingStartedAt = null;
+    record.nextRetryAt = null;
+    record.rejectionReasons = [];
+    record.lastError = null;
+    record.editorial = {
+      ...validation.value,
+      model: env.AI_MODEL || DEFAULT_AI_MODEL,
+      generatedAt: record.processedAt,
+      editorSource: 'workers-ai',
+      pipelineVersion: PIPELINE_VERSION
+    };
+    stats.accepted += 1;
+  } catch (error) {
+    stats.requests += Number(error?.aiRequestCount) || 0;
+    record.aiStatus = 'failed';
+    record.retryCount = (record.retryCount || 0) + 1;
+    record.processedAt = new Date().toISOString();
+    record.processingStartedAt = null;
+    record.nextRetryAt = getRetrySchedule('failed', record.retryCount);
+    record.rejectionReasons = [];
+    record.lastError = sanitizeError(error);
+    record.editorial = null;
+    stats.failed += 1;
+    console.warn('Workers AI editorial request failed', {
+      newsId: record.newsId,
+      originalTitle: record.originalTitle,
+      retryCount: record.retryCount,
+      nextRetryAt: record.nextRetryAt,
+      error: record.lastError
+    });
+  }
+}
+
+async function summarizeWithWorkersAi(record, articleText, env) {
+  const model = env.AI_MODEL || DEFAULT_AI_MODEL;
+  const prompt = buildEditorialPrompt(record, articleText);
+  let requestCount = 0;
+  let response;
+
+  try {
+    try {
+      requestCount += 1;
+      response = await env.AI.run(model, buildWorkersAiRequest(prompt, 1800, true));
+    } catch (error) {
+      if (!/response.?format|json.?schema|json mode|unsupported/i.test(error?.message || '')) throw error;
+      console.warn('Workers AI JSON schema mode unavailable; retrying with prompt-enforced JSON', {
+        model,
+        error: sanitizeError(error)
+      });
+      requestCount += 1;
+      response = await env.AI.run(model, buildWorkersAiRequest(prompt, 1800, false));
+    }
+
+    let normalized = normalizeAiResponse(response);
+    if (!normalized.parsed && (!normalized.rawContent || normalized.finishReason === 'length')) {
+      console.warn('Workers AI returned no usable JSON; retrying once without using reasoning text', {
+        newsId: record.newsId,
+        finishReason: normalized.finishReason,
+        rawResponse: normalized.rawDebug.slice(0, 2000)
+      });
+      requestCount += 1;
+      response = await env.AI.run(model, buildWorkersAiRequest(prompt, 3200, true));
+      normalized = normalizeAiResponse(response);
+    }
+
+    return { normalized, requestCount };
+  } catch (error) {
+    if (error && typeof error === 'object') {
+      error.aiRequestCount = requestCount;
+      throw error;
+    }
+    const wrapped = new Error(String(error));
+    wrapped.aiRequestCount = requestCount;
+    throw wrapped;
+  }
+}
+
+async function extractArticleText(url, env) {
+  if (!isEnabled(env.JINA_READER_ENABLED) || !url) return '';
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 12_000);
+  try {
+    const response = await fetch(`https://r.jina.ai/${url}`, {
+      headers: {
+        accept: 'text/plain',
+        'user-agent': 'nba-quick-news-worker/1.0'
+      },
+      signal: controller.signal
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const limit = clampInteger(env.ARTICLE_CHAR_LIMIT, 5000, 1000, 8000);
+    return normalizeWhitespace(await response.text()).slice(0, limit);
+  } catch (error) {
+    console.warn('Article extraction failed; AI will use RSS evidence only', {
+      url,
+      error: sanitizeError(error)
+    });
+    return '';
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 async function fetchFeed(feedConfig) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15_000);
   try {
     const response = await fetch(feedConfig.feed, {
       headers: {
         accept: 'application/rss+xml, application/xml, text/xml',
-        'user-agent': 'nba-quick-news-worker/0.1'
-      }
+        'user-agent': 'nba-quick-news-worker/1.0'
+      },
+      signal: controller.signal
     });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const xml = await response.text();
@@ -286,706 +407,153 @@ async function fetchFeed(feedConfig) {
     const items = toArray(channel.item || channel.entry)
       .map((item) => normalizeRssItem(item, feedConfig))
       .filter((item) => item.originalTitle && item.url);
-    return { ok: true, source: feedConfig.source, feed: feedConfig.feed, items };
+    return { ok: true, items };
   } catch (error) {
-    return {
-      ok: false,
-      source: feedConfig.source,
-      feed: feedConfig.feed,
-      error: error?.message || String(error),
-      items: []
-    };
+    return { ok: false, items: [], error: sanitizeError(error) };
+  } finally {
+    clearTimeout(timeout);
   }
 }
 
 function normalizeRssItem(item, feedConfig) {
-  const title = getText(item.title);
+  const title = decodeHtml(getText(item.title));
+  const summary = decodeHtml(stripHtml(getText(item.description || item.summary || item.content || '')));
   const link = normalizeLink(item.link);
-  const summary = stripHtml(getText(item.description || item.summary || item.content || ''));
-  const publishedAt = new Date(getText(item.pubDate || item.published || item.updated || Date.now())).toISOString();
   return {
-    id: link || `${feedConfig.source}:${title}`,
-    originalTitle: decodeHtml(title),
-    title: decodeHtml(title),
+    source: feedConfig.source,
+    feed: feedConfig.feed,
+    originalTitle: title,
+    originalSummary: summary,
+    summary,
     url: link,
     link,
-    summary: decodeHtml(summary),
-    originalSummary: decodeHtml(summary),
-    publishedAt,
-    pubDate: publishedAt,
-    source: feedConfig.source,
-    feed: feedConfig.feed
+    publishedAt: getText(item.pubDate || item.published || item.updated || Date.now())
   };
 }
 
-async function applyAiSummaries(items, env) {
-  const stats = { candidates: 0, cacheHits: 0, requests: 0, accepted: 0, rejected: 0, failed: 0, rejectionSamples: [] };
-  if (!isEnabled(env.AI_ENABLED) || !env.AI) return stats;
-
-  const maxItems = clampInt(env.AI_MAX_ITEMS_PER_RUN, 5, 1, 10);
-  const candidates = items
-    .filter(needsAiSummary)
-    .sort((a, b) => b.importance - a.importance || new Date(b.publishedAt) - new Date(a.publishedAt));
-  stats.candidates = candidates.length;
-  const storedCursor = Number(await readJsonKv(env.NEWS_KV, AI_CURSOR_KEY));
-  const cursor = candidates.length && Number.isFinite(storedCursor)
-    ? Math.abs(Math.trunc(storedCursor)) % candidates.length
-    : 0;
-  const orderedCandidates = candidates.length
-    ? [...candidates.slice(cursor), ...candidates.slice(0, cursor)]
-    : [];
-
-  let remaining = maxItems;
-  for (const item of orderedCandidates) {
-    const articleText = await extractArticleText(item.url, env);
-    const sourceHash = await sha256(`${item.originalTitle}\n${item.summary}\n${articleText}\n${env.SUMMARY_CACHE_VERSION || DEFAULT_SUMMARY_CACHE_VERSION}`);
-    const cacheKey = `${SOURCE_CACHE_PREFIX}${sourceHash}`;
-    const cached = await readJsonKv(env.NEWS_KV, cacheKey);
-    if (isValidCachedSummary(cached)) {
-      applySummary(item, cached, { source: 'workers-ai-cache' });
-      stats.cacheHits += 1;
-      continue;
-    }
-
-    if (remaining <= 0) continue;
-    remaining -= 1;
-    stats.requests += 1;
-
-    try {
-      const aiResponse = await summarizeWithWorkersAi(item, articleText, env);
-      const aiResult = aiResponse.parsed;
-      const accepted = validateAiResult(aiResult, item);
-      logWorkersAiDebug(item, aiResponse, accepted);
-      if (!accepted.ok) {
-        stats.rejected += 1;
-        pushSample(stats.rejectionSamples, {
-          title: item.originalTitle,
-          reasons: accepted.reasons,
-          summaryZh: normalizeWhitespace(aiResult?.summaryZh || '').slice(0, 180),
-          oneLineZh: normalizeWhitespace(aiResult?.oneLineZh || '').slice(0, 90)
-        });
-        continue;
-      }
-      const cacheValue = {
-        summaryZh: accepted.value.summaryZh,
-        oneLineZh: accepted.value.oneLineZh,
-        model: env.AI_MODEL || DEFAULT_AI_MODEL,
-        generatedAt: new Date().toISOString(),
-        sourceHash,
-        promptVersion: env.SUMMARY_CACHE_VERSION || DEFAULT_SUMMARY_CACHE_VERSION
-      };
-      await env.NEWS_KV.put(cacheKey, JSON.stringify(cacheValue));
-      applySummary(item, cacheValue, { source: 'workers-ai' });
-      stats.accepted += 1;
-    } catch (error) {
-      console.warn('Workers AI summary failed', {
-        title: item.originalTitle,
-        error: error?.message || String(error)
-      });
-      stats.failed += 1;
-    }
-  }
-
-  if (candidates.length && stats.requests > 0) {
-    await env.NEWS_KV.put(AI_CURSOR_KEY, JSON.stringify((cursor + stats.requests) % candidates.length));
-  }
-
-  return stats;
-}
-
-async function summarizeWithWorkersAi(item, articleText, env) {
-  const prompt = buildSummaryPrompt(item, articleText);
-  const request = buildWorkersAiRequest(prompt, 1200);
-  const response = await env.AI.run(env.AI_MODEL || DEFAULT_AI_MODEL, request);
-  let normalized = normalizeAiResponse(response);
-  if (normalized.isEmptyLengthResponse) {
-    console.warn('Workers AI returned empty content after reasoning budget exhaustion; retrying once', {
-      title: item.originalTitle,
-      finishReason: normalized.finishReason,
-      rawResponse: normalized.rawDebug.slice(0, 2000)
-    });
-    const retryResponse = await env.AI.run(env.AI_MODEL || DEFAULT_AI_MODEL, buildWorkersAiRequest(prompt, 1800));
-    normalized = normalizeAiResponse(retryResponse);
-  }
-  return normalized;
-}
-
-function buildWorkersAiRequest(prompt, maxTokens) {
-  return {
-    messages: [
-      {
-        role: 'system',
-        content: [
-          '/no_think',
-          '你是一名严谨的中文 NBA 快讯编辑，只根据输入事实写中文复述，不添加输入中没有的信息。',
-          '你不是标题翻译器。不要逐词翻译英文标题，不要半中半英拼接。',
-          '球员姓名可以保留英文或使用常见中文译名；球队必须使用常见中文队名。',
-          '签约/交易/伤病/传闻/分析要严格区分：传闻不能写成已完成，分析不能写成事实。',
-          '如果信息不足，宁可保守说明“现有摘要未提供更多细节”，不要编造。',
-          '不要输出思考过程，不要输出 <think> 标签，只输出最终 JSON。'
-        ].join('\n')
-      },
-      {
-        role: 'user',
-        content: `/no_think\n${prompt}`
-      }
-    ],
-    max_tokens: maxTokens,
-    temperature: 0.7,
-    top_p: 0.8,
-    top_k: 20,
-    reasoning_effort: null,
-    chat_template_kwargs: {
-      enable_thinking: false
-    }
-  };
-}
-
-function buildSummaryPrompt(item, articleText) {
-  const sourceText = `${item.originalTitle}\n${item.summary}\n${articleText}`;
-  const extracted = extractFactsForPrompt(sourceText);
-  const guidance = getStoryTypeGuidance(item.storyType, item.category);
-  return [
-    '任务：把下面 NBA 英文新闻写成中文快讯摘要，不翻译标题。',
-    'summaryZh：2 到 3 句，80 到 180 个中文字符；要让中文读者不点原文也知道发生了什么。',
-    'oneLineZh：一句中文快讯，18 到 45 个中文字符；不要与 summaryZh 第一整句完全相同。',
-    '必须优先保留输入里明确出现的合同金额、年限、交易筹码、比分、伤病部位、时间状态。',
-    '不要输出“相关消息更新”“后续动向”“成为焦点”“更多背景来自原文报道”。',
-    '不要输出未翻译英文普通短语，例如 reach out to、expected to、multi-year、thoughts following。',
-    '不要输出思考过程或 <think> 标签。',
-    guidance,
-    '严格返回 JSON，不要 Markdown，不要解释：{"summaryZh":"","oneLineZh":"","confidence":0.0}',
-    '',
-    `source: ${item.source}`,
-    `category: ${item.category}`,
-    `storyType: ${item.storyType}`,
-    `originalTitle: ${item.originalTitle}`,
-    `rssSummary: ${item.summary || ''}`,
-    `extractedFacts: ${JSON.stringify(extracted)}`,
-    `preferredTeamNames: ${JSON.stringify(Object.fromEntries([...TEAM_ZH].slice(0, 60)))}`,
-    `preferredPlayerNames: ${JSON.stringify(Object.fromEntries([...PLAYER_ZH].filter(([name]) => sourceText.includes(name))))}`,
-    `articleText: ${articleText || '(正文不可用，只能基于标题和 RSS 摘要保守处理)'}`
-  ].join('\n');
-}
-
-function getStoryTypeGuidance(storyType, category) {
-  if (storyType === 'rumor' || category === '重要流言') {
-    return '传闻规则：必须写“据报道/有意/正在关注/讨论中”等不确定表达；不得写成已经完成。';
-  }
-  if (storyType === 'analysis' || storyType === 'opinion') {
-    return '观点/分析规则：必须说明这是媒体分析、球员表态或观点讨论；不要写成球队已经决定。';
-  }
-  if (category === '交易') {
-    return '交易规则：必须写清谁去哪里、谁送出什么；若交易只是讨论中，必须保留不确定性。';
-  }
-  if (category === '签约') {
-    return '签约规则：必须写清球员、球队、合同年限和金额；若金额未知，不要编造。';
-  }
-  if (category === '伤病') {
-    return '伤病规则：必须写清球员、伤病部位或复出状态；不要夸大影响。';
-  }
-  return '普通新闻规则：只复述最重要事实，避免空泛背景。';
-}
-
-async function extractArticleText(url, env) {
-  if (!isEnabled(env.JINA_READER_ENABLED) || !url) return '';
-  try {
-    const readerUrl = `https://r.jina.ai/http://${url.replace(/^https?:\/\//, '')}`;
-    const response = await fetch(readerUrl, {
-      headers: { accept: 'text/plain' },
-      signal: AbortSignal.timeout(12000)
-    });
-    if (!response.ok) throw new Error(`Jina HTTP ${response.status}`);
-    const text = stripHtml(await response.text());
-    return normalizeWhitespace(text).slice(0, clampInt(env.ARTICLE_CHAR_LIMIT, 5000, 1000, 8000));
-  } catch (error) {
-    console.warn('Jina Reader failed', { url, error: error?.message || String(error) });
-    return '';
-  }
-}
-
-function parseAiJson(value) {
-  if (!value) return null;
-  if (typeof value === 'object') return value;
-  const text = String(value)
-    .replace(/<think>[\s\S]*?<\/think>/gi, '')
-    .replace(/```json|```/g, '')
-    .trim();
-  const match = text.match(/\{[\s\S]*\}/);
-  if (!match) return null;
-  try {
-    return JSON.parse(match[0]);
-  } catch {
-    return null;
-  }
-}
-
-function normalizeAiResponse(response) {
-  const rawDebug = stringifyForDebug(response);
-  const content = getAiResponseContent(response);
-  const finishReason = getAiFinishReason(response);
-  return {
-    raw: content,
-    rawDebug,
-    finishReason,
-    isEmptyLengthResponse: !normalizeWhitespace(content) && finishReason === 'length',
-    parsed: parseAiJson(content || response)
-  };
-}
-
-function getAiResponseContent(response) {
-  if (!response) return '';
-  if (typeof response === 'string') return response;
-  if (Array.isArray(response?.choices)) {
-    const choiceText = response.choices
-      .map((choice) => choice?.message?.content || choice?.text || '')
-      .filter(Boolean)
-      .join('\n');
-    if (choiceText) return choiceText;
-  }
-  for (const key of ['response', 'text', 'content', 'result']) {
-    const value = response?.[key];
-    if (typeof value === 'string') return value;
-  }
-  return '';
-}
-
-function getAiFinishReason(response) {
-  if (Array.isArray(response?.choices)) {
-    const finishReason = response.choices
-      .map((choice) => choice?.finish_reason || choice?.finishReason || '')
-      .filter(Boolean)
-      .join('\n');
-    if (finishReason) return finishReason;
-  }
-  return response?.finish_reason || response?.finishReason || '';
-}
-
-function stringifyForDebug(value) {
-  if (!value) return '';
-  if (typeof value === 'string') return normalizeWhitespace(value);
-  try {
-    return normalizeWhitespace(JSON.stringify(value));
-  } catch {
-    return normalizeWhitespace(String(value));
-  }
-}
-
-function logWorkersAiDebug(item, aiResponse, accepted) {
-  const parsed = aiResponse?.parsed || null;
-  const summaryZh = normalizeWhitespace(parsed?.summaryZh || '');
-  const oneLineZh = normalizeWhitespace(parsed?.oneLineZh || '');
-  console.warn('Workers AI debug', {
-    title: item.originalTitle,
-    rawResponse: normalizeWhitespace(aiResponse?.rawDebug || aiResponse?.raw || '').slice(0, 2000),
-    content: normalizeWhitespace(aiResponse?.raw || '').slice(0, 2000),
-    finishReason: aiResponse?.finishReason || '',
-    parsedJson: parsed,
-    summaryZh,
-    oneLineZh,
-    rejectionReasons: accepted?.ok ? [] : accepted?.reasons || []
-  });
-}
-
-function validateAiResult(result, item = null) {
-  const reasons = [];
-  if (!result || typeof result !== 'object') return { ok: false, reasons: ['invalid-json'] };
-  const summaryZh = normalizeChineseCopy(result.summaryZh || '');
-  const oneLineZh = normalizeChineseCopy(result.oneLineZh || '');
-  const confidence = Number(result.confidence || 0);
-  const combined = `${summaryZh} ${oneLineZh}`;
-  if (!Number.isFinite(confidence) || confidence < 0.5) reasons.push('low-confidence');
-  if (!isChineseSummary(summaryZh)) reasons.push('bad-summary-language');
-  if (!isChineseSummary(oneLineZh)) reasons.push('bad-oneline-language');
-  if (hasForbiddenCopy(combined)) reasons.push('generic-or-mixed-copy');
-  const selfTeamMovement = findSelfTeamMovement(combined);
-  if (selfTeamMovement) reasons.push(`self-team-movement:${selfTeamMovement}`);
-  if (summaryZh && oneLineZh && compactComparable(summaryZh).includes(compactComparable(oneLineZh)) && getChineseLength(oneLineZh) > 34) {
-    reasons.push('oneline-repeats-summary');
-  }
-  if (getChineseLength(summaryZh) > 220) reasons.push('summary-too-long');
-  if (getChineseLength(oneLineZh) > 50) reasons.push('oneline-too-long');
-  if (item) {
-    const sourceText = `${item.originalTitle} ${item.summary}`;
-    if (item.storyType === 'rumor' && !/(据报道|据称|有意|关注|考虑|讨论|尚未|可能|传闻|流言)/.test(summaryZh)) {
-      reasons.push('rumor-as-fact');
-    }
-    if (['analysis', 'opinion'].includes(item.storyType) && !/(分析|认为|表示|谈到|观点|讨论|评估|可能|有望|称)/.test(summaryZh)) {
-      reasons.push('analysis-as-fact');
-    }
-    for (const token of extractStrictFacts(sourceText)) {
-      if (!combined.includes(token.zh) && !combined.includes(token.raw)) reasons.push(`missing-fact:${token.raw}`);
-    }
-  }
-  if (reasons.length) return { ok: false, reasons };
-  return {
-    ok: true,
-    value: {
-      summaryZh,
-      oneLineZh,
-      confidence
-    }
-  };
-}
-
-function applySummary(item, summary, { source }) {
-  item.summaryZh = summary.summaryZh;
-  item.oneLineZh = summary.oneLineZh;
-  item.copySource = source;
-  item.aiModel = summary.model;
-  item.aiGeneratedAt = summary.generatedAt;
-}
-
-function extractFactsForPrompt(text = '') {
-  return {
-    teams: [...new Set([...TEAM_ZH.keys()].filter((team) => new RegExp(`\\b${escapeRegExp(team)}\\b`, 'i').test(text)).map((team) => TEAM_ZH.get(team)))],
-    players: [...new Set([...PLAYER_ZH.keys()].filter((name) => new RegExp(`\\b${escapeRegExp(name)}\\b`, 'i').test(text)).map((name) => PLAYER_ZH.get(name)))],
-    money: extractMoneyTerms(text),
-    years: extractYearTerms(text),
-    picks: extractPickTerms(text),
-    scores: extractScoreTerms(text),
-    status: inferAction(text)
-  };
-}
-
-function extractStrictFacts(text = '') {
-  return [
-    ...extractMoneyTerms(text).map((term) => ({ raw: term.raw, zh: term.zh })),
-    ...extractYearTerms(text).map((term) => ({ raw: term.raw, zh: term.zh })),
-    ...extractPickTerms(text).map((term) => ({ raw: term.raw, zh: term.zh }))
-  ];
-}
-
-function extractMoneyTerms(text = '') {
-  const terms = [];
-  for (const match of String(text).matchAll(/\$(\d+(?:\.\d+)?)\s*(M|million|B|billion)?/gi)) {
-    const value = Number(match[1]);
-    const unit = String(match[2] || 'M').toLowerCase();
-    if (!Number.isFinite(value)) continue;
-    const zh = unit.startsWith('b')
-      ? `${trimNumber(value * 10)} 亿美元`
-      : `${trimNumber(value * 100)} 万美元`;
-    terms.push({ raw: match[0], zh });
-  }
-  return terms;
-}
-
-function extractYearTerms(text = '') {
-  const words = {
-    one: 1,
-    two: 2,
-    three: 3,
-    four: 4,
-    five: 5,
-    six: 6
-  };
-  const terms = [];
-  for (const match of String(text).matchAll(/\b(one|two|three|four|five|six)-year\b/gi)) {
-    terms.push({ raw: match[0], zh: `${words[match[1].toLowerCase()]} 年` });
-  }
-  for (const match of String(text).matchAll(/\b(\d+)-year\b/gi)) {
-    terms.push({ raw: match[0], zh: `${match[1]} 年` });
-  }
-  return terms;
-}
-
-function extractPickTerms(text = '') {
-  const terms = [];
-  if (/\bfirst[-\s]+round pick/i.test(text)) terms.push({ raw: 'first-round pick', zh: '首轮签' });
-  if (/\bsecond[-\s]+round pick/i.test(text)) terms.push({ raw: 'second-round pick', zh: '次轮签' });
-  for (const match of String(text).matchAll(/\b(\d{4})\s+(first|second)[-\s]+round pick/gi)) {
-    terms.push({ raw: match[0], zh: `${match[1]} 年${match[2].toLowerCase() === 'first' ? '首轮签' : '次轮签'}` });
-  }
-  return terms;
-}
-
-function extractScoreTerms(text = '') {
-  return [...String(text).matchAll(/\b(\d{2,3})-(\d{2,3})\b/g)].map((match) => ({
-    raw: match[0],
-    zh: `${match[1]} 比 ${match[2]}`
+async function normalizeIncomingItems(items) {
+  const normalized = await Promise.all(items.map(async (item) => {
+    const newsId = await createNewsId(item);
+    const sourceHash = await createSourceHash(item);
+    return {
+      ...item,
+      newsId,
+      sourceHash
+    };
   }));
-}
-
-function normalizeChineseCopy(value = '') {
-  let text = localize(String(value || ''));
-  for (const term of extractMoneyTerms(text)) text = text.replace(term.raw, term.zh);
-  for (const term of extractYearTerms(text)) text = text.replace(term.raw, term.zh);
-  text = text
-    .replace(/\bmulti[-\s]+year contract\b/gi, '多年合同')
-    .replace(/\bmulti[-\s]+year\b/gi, '多年')
-    .replace(/\bcontract\b/gi, '合同')
-    .replace(/\bdeal\b/gi, '合同')
-    .replace(/\bfree agency\b/gi, '自由市场')
-    .replace(/\bSummer League\b/g, '夏季联赛')
-    .replace(/\bHall of Fame\b/g, '名人堂')
-    .replace(/([，。；：])\s+/g, '$1')
-    .replace(/\s+([，。；：])/g, '$1')
-    .replace(/([一-龥])([A-Za-z][A-Za-z'.-]*(?:\s+[A-Za-z][A-Za-z'.-]*)*)/g, '$1 $2')
-    .replace(/([A-Za-z][A-Za-z'.-]*(?:\s+[A-Za-z][A-Za-z'.-]*)*)([一-龥])/g, '$1 $2');
-  return normalizeWhitespace(text);
-}
-
-function hasForbiddenCopy(value = '') {
-  return FORBIDDEN_COPY_PATTERNS.some((pattern) => pattern.test(value));
-}
-
-function compactComparable(value = '') {
-  return normalizeWhitespace(value).toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '');
-}
-
-function getChineseLength(value = '') {
-  return (String(value).match(/[\u4e00-\u9fa5]/g) || []).length;
-}
-
-function trimNumber(value) {
-  return Number.isInteger(value) ? String(value) : String(Number(value.toFixed(1)));
-}
-
-function pushSample(samples, sample, limit = 5) {
-  if (samples.length < limit) samples.push(sample);
-}
-
-function needsAiSummary(item) {
-  if ((item.importance || 1) >= 4 && ['交易', '签约', '伤病', '选秀'].includes(item.category)) return true;
-  if (['rumor', 'analysis', 'opinion'].includes(item.storyType)) return true;
-  return /LeBron|Curry|Durant|Giannis|Doncic|Kawhi|trade|sign|injury|MVP|Summer League/i.test(`${item.originalTitle} ${item.summary}`);
-}
-
-function normalizeOutputItem(item) {
-  const fallback = buildFallbackSummary(item);
-  const summaryCandidate = item.summaryZh || fallback.summaryZh;
-  const oneLineCandidate = item.oneLineZh || fallback.oneLineZh;
-  const summaryZh = findSelfTeamMovement(summaryCandidate) ? '' : summaryCandidate;
-  const oneLineZh = findSelfTeamMovement(oneLineCandidate) ? '' : oneLineCandidate;
-  return recursiveCleanStrings({
-    ...item,
-    displayTitle: item.originalTitle,
-    summaryZh,
-    oneLineZh,
-    titleZh: '',
-    headlineZh: '',
-    imageUrl: ''
-  });
-}
-
-function buildFallbackSummary(item) {
-  const text = `${item.originalTitle} ${item.summary}`;
-  const sourcePrefix = item.source ? `据 ${item.source} 报道，` : '';
-
-  const contract = parseSigningTitle(item);
-  if (contract) {
-    const { player, team, contractText } = contract;
-    const details = [...extractYearTerms(contractText), ...extractMoneyTerms(contractText)].map((term) => term.zh).join('、');
-    return {
-      summaryZh: normalizeChineseCopy(`${sourcePrefix}${localize(team)}与 ${localize(player)} 达成合同协议${details ? `，合同信息包括 ${details}` : ''}。`),
-      oneLineZh: normalizeChineseCopy(`${localize(team)}签下 ${localize(player)}${details ? `，${details}` : ''}`)
-    };
-  }
-
-  const mvp = text.match(/(.+?) (?:was named|earns|named) (?:NBA )?Summer League MVP/i);
-  if (mvp) {
-    return {
-      summaryZh: normalizeChineseCopy(`${sourcePrefix}${localize(mvp[1])}被评为 NBA 夏季联赛 MVP，原文重点是他在夏季联赛的表现获得认可。`),
-      oneLineZh: normalizeChineseCopy(`${localize(mvp[1])}当选夏季联赛 MVP`)
-    };
-  }
-
-  if (/Hall of Fame/i.test(text) && /Curry/i.test(text)) {
-    return {
-      summaryZh: `${sourcePrefix}斯蒂芬·库里将获得篮球名人堂相关展览展示，原文重点是他的三分球影响力和职业成就得到认可。`,
-      oneLineZh: '库里将获得篮球名人堂展览展示'
-    };
-  }
-
-  return { summaryZh: '', oneLineZh: '' };
-}
-
-function parseSigningTitle(item = {}) {
-  const title = normalizeWhitespace(item.originalTitle || '').replace(/\s*\|\s*(?:Report|News).*$/i, '');
-  const evidence = `${title} ${item.summary || ''}`;
-  const patterns = [
-    {
-      regex: /^(.+?),\s*(.+?)\s+Agree(?:s|d)?\s+To\s+(.+?(?:Deal|Contract|Contact))$/i,
-      map: (match) => ({ player: match[1], team: match[2], contractText: match[3] })
-    },
-    {
-      regex: /^(.+?)\s+Agree(?:s|d)?\s+To\s+(.+?(?:Deal|Contract|Contact))\s+With\s+(.+)$/i,
-      map: (match) => ({ player: match[1], team: match[3], contractText: match[2] })
-    },
-    {
-      regex: /^(.+?)\s+(?:officially\s+)?signs?\s+(?:a\s+)?contract\s+with\s+(.+)$/i,
-      map: (match) => ({ player: match[1], team: match[2], contractText: evidence })
-    },
-    {
-      regex: /^(.+?)\s+officially\s+signs\s+(?:his|her|their|the|a)?\s*(.+?)\s+contract$/i,
-      map: (match) => ({ player: match[1], team: match[2], contractText: evidence })
-    },
-    {
-      regex: /^(.+?)\s+To\s+Sign\s+With\s+(.+?)(?:\s+After\b|\s+Following\b|\s+Once\b|$)/i,
-      map: (match) => ({ player: match[1], team: match[2], contractText: evidence })
-    }
-  ];
-
-  for (const { regex, map } of patterns) {
-    const match = title.match(regex);
-    if (!match) continue;
-    const parsed = map(match);
-    if (!isKnownTeamName(parsed.team) || isKnownTeamName(parsed.player)) continue;
-    return {
-      player: normalizeWhitespace(parsed.player),
-      team: normalizeWhitespace(parsed.team),
-      contractText: normalizeWhitespace(parsed.contractText || evidence)
-    };
-  }
-  return null;
-}
-
-function buildHighlights(items) {
-  const cutoff = Date.now() - 24 * 60 * 60 * 1000;
   const seen = new Set();
-  return [...items]
-    .filter((item) => new Date(item.publishedAt).getTime() >= cutoff)
-    .filter((item) => isChineseSummary(item.oneLineZh) && !/相关消息更新|后续动向/.test(item.oneLineZh))
-    .sort((a, b) => b.importance - a.importance || new Date(b.publishedAt) - new Date(a.publishedAt))
-    .filter((item) => {
-      const key = item.eventKey || item.oneLineZh;
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    })
-    .slice(0, 5)
-    .map((item) => ({
-      id: item.id,
-      text: item.oneLineZh,
-      category: item.category,
-      source: item.source,
-      link: item.link
-    }));
-}
-
-function dedupeItems(items) {
-  const seen = new Set();
-  return items.filter((item) => {
-    const key = getEventKey(item);
-    if (seen.has(key)) return false;
-    seen.add(key);
+  return normalized.filter((item) => {
+    if (seen.has(item.newsId)) return false;
+    seen.add(item.newsId);
     return true;
   });
 }
 
-function getEventKey(item) {
-  return slugText([
-    inferAction(`${item.originalTitle} ${item.summary}`),
-    getMainPlayer(item.originalTitle),
-    getMainTeam(`${item.originalTitle} ${item.summary}`)
-  ].filter(Boolean).join(':')) || slugText(item.url || item.originalTitle);
-}
-
-function inferAction(text) {
-  if (/\b(trade|traded|acquire|acquired|deal with|sent to)\b/i.test(text)) return 'trade';
-  if (/\b(sign|signed|contract|extension|agree to)\b/i.test(text)) return 'signing';
-  if (/\b(injury|injured|out|surgery|return)\b/i.test(text)) return 'injury';
-  if (/\b(draft|summer league|rookie|mvp|first team)\b/i.test(text)) return 'draft';
-  if (/\b(rumor|interested|target|monitoring|considering)\b/i.test(text)) return 'rumor';
-  return 'news';
-}
-
-function classifyCategory(text) {
-  const action = inferAction(text);
-  if (action === 'trade') return '交易';
-  if (action === 'signing') return '签约';
-  if (action === 'injury') return '伤病';
-  if (action === 'draft') return '选秀';
-  if (action === 'rumor') return '重要流言';
-  return '其他';
-}
-
-function inferStoryType(text) {
-  if (/\b(thoughts|takeaways|what we learned|analysis|outlook|projection|ranking|look to challenge)\b/i.test(text)) return 'analysis';
-  if (/\b(says|said|believes|reacts|shares thoughts|explains|discusses|comments on)\b/i.test(text)) return 'opinion';
-  if (/\b(rumor|interested|monitoring|considering|target)\b/i.test(text)) return 'rumor';
-  return inferAction(text);
-}
-
-function scoreImportance(item) {
-  const text = `${item.originalTitle} ${item.summary}`;
-  let score = 1;
-  if (['交易', '签约', '伤病'].includes(classifyCategory(text))) score += 3;
-  if (/\b(LeBron|Curry|Durant|Giannis|Doncic|Kawhi|MVP|Warriors|Lakers|Celtics|Knicks)\b/i.test(text)) score += 2;
-  if (/\b(\$\d+|million|two-year|four-year|first-round|Summer League MVP)\b/i.test(text)) score += 1;
-  return Math.min(score, 5);
-}
-
-function getMainPlayer(title = '') {
-  const match = title.match(/\b([A-Z][A-Za-z'.-]+(?:\s+[A-Z][A-Za-z'.-]+){1,2})\b/);
-  return match ? match[1] : '';
-}
-
-function getMainTeam(text = '') {
-  for (const team of TEAM_ZH.keys()) {
-    if (new RegExp(`\\b${escapeRegExp(team)}\\b`, 'i').test(text)) return team;
+async function loadContentState(env, previousPayload, now) {
+  const catalog = await readJson(env.NEWS_KV, CATALOG_KEY);
+  if (Array.isArray(catalog?.ids) && catalog.ids.length) {
+    const records = (await Promise.all(
+      catalog.ids.map((newsId) => readJson(env.NEWS_KV, recordKey(newsId)))
+    )).filter((record) => record?.newsId);
+    return { records, catalogIds: catalog.ids, dirtyIds: [] };
   }
-  return '';
+
+  const legacyItems = (previousPayload?.items || []).filter((item) => (item.source || 'RealGM') === 'RealGM');
+  const records = await Promise.all(legacyItems.map(async (item) => {
+    const newsId = item.newsId || await createNewsId(item);
+    const sourceHash = item.sourceHash || await createSourceHash(item);
+    return migrateLegacyRecord({ ...item, newsId, sourceHash }, now);
+  }));
+  return {
+    records,
+    catalogIds: [],
+    dirtyIds: records.map((record) => record.newsId)
+  };
 }
 
-function isKnownTeamName(value = '') {
-  const normalized = normalizeWhitespace(value).toLowerCase();
-  if (!normalized) return false;
-  return [...TEAM_ZH].some(([english, chinese]) =>
-    english.toLowerCase() === normalized || chinese === normalizeWhitespace(value)
-  );
-}
+function mergeIncoming(records, incoming, now, dirty) {
+  const byId = new Map(records.map((record) => [record.newsId, record]));
+  for (const item of incoming) {
+    const existing = byId.get(item.newsId);
+    if (!existing) {
+      const record = createPendingRecord(item, now);
+      records.push(record);
+      byId.set(record.newsId, record);
+      dirty.add(record.newsId);
+      continue;
+    }
 
-function localize(value = '') {
-  let text = String(value || '').trim();
-  for (const [en, zh] of TEAM_ZH) {
-    text = text.replace(new RegExp(`\\b${escapeRegExp(en)}\\b`, 'gi'), zh);
+    if (existing.sourceHash !== item.sourceHash && existing.aiStatus !== 'accepted') {
+      existing.sourceHash = item.sourceHash;
+      existing.originalTitle = item.originalTitle;
+      existing.originalSummary = item.originalSummary;
+      existing.aiStatus = 'pending';
+      existing.retryCount = 0;
+      existing.nextRetryAt = null;
+      existing.lastError = null;
+      existing.rejectionReasons = [];
+      dirty.add(existing.newsId);
+    }
   }
-  for (const [en, zh] of PLAYER_ZH) {
-    text = text.replace(new RegExp(`\\b${escapeRegExp(en)}\\b`, 'gi'), zh);
-  }
-  return normalizeWhitespace(text);
 }
 
-function findSelfTeamMovement(value = '') {
-  const text = normalizeWhitespace(value);
-  if (!text) return '';
-  const teams = [...new Set(TEAM_ZH.values())].sort((a, b) => b.length - a.length);
-  for (const team of teams) {
-    const teamPattern = team.split(/\s+/).map(escapeRegExp).join('\\s*');
-    const pattern = new RegExp(
-      `${teamPattern}\\s*(?:队)?\\s*(?:将|已|正式|宣布|确认|计划|预计|可能|有意|据报)?\\s*` +
-      `(?:加盟|加入|转投|被交易至|交易至|前往|与)\\s*${teamPattern}(?:队)?`
-    );
-    if (pattern.test(text)) return team;
-  }
-  return '';
+function retainCatalogRecords(records, limit) {
+  const sorted = [...records].sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+  return sorted.slice(0, limit);
 }
 
-function localizeContract(value = '') {
-  return localize(value)
-    .replace(/two-year/i, '2 年')
-    .replace(/three-year/i, '3 年')
-    .replace(/four-year/i, '4 年')
-    .replace(/one-year/i, '1 年')
-    .replace(/\bdeal\b/i, '合同');
+async function saveCatalogIfChanged(kv, previousIds, records, now) {
+  const ids = records.map((record) => record.newsId);
+  if (arraysEqual(previousIds || [], ids)) return;
+  await kv.put(CATALOG_KEY, JSON.stringify({
+    version: 1,
+    pipelineVersion: PIPELINE_VERSION,
+    updatedAt: now,
+    ids
+  }));
 }
 
-async function readExistingPayload(env) {
-  return readJsonKv(env.NEWS_KV, NEWS_KEY);
+async function writeRecords(kv, records) {
+  await Promise.all(records.map((record) => writeRecord(kv, record)));
 }
 
-async function readJsonKv(kv, key) {
+async function writeRecord(kv, record) {
+  await kv.put(recordKey(record.newsId), JSON.stringify(cleanStringsDeep(record)));
+}
+
+function recordKey(newsId) {
+  return `${RECORD_PREFIX}${newsId}`;
+}
+
+async function readJson(kv, key) {
   try {
-    const value = await kv.get(key);
-    return value ? JSON.parse(value) : null;
-  } catch {
+    const raw = await kv.get(key);
+    return raw ? JSON.parse(raw) : null;
+  } catch (error) {
+    console.warn('KV JSON read failed', { key, error: sanitizeError(error) });
     return null;
   }
 }
 
-function toFeedStatus(result) {
-  return { source: result.source, feed: result.feed, items: result.items?.length || 0 };
+function emptyPayload() {
+  const now = new Date().toISOString();
+  return {
+    schemaVersion: '2.0',
+    pipelineVersion: PIPELINE_VERSION,
+    source: FEED.source,
+    feed: FEED.feed,
+    updatedAt: null,
+    lastFetchStatus: {
+      status: 'empty',
+      checkedAt: now,
+      updatedAt: null,
+      acceptedItems: 0,
+      queue: { pending: 0, processing: 0, accepted: 0, rejected: 0, failed: 0, total: 0, due: 0 },
+      message: 'No accepted editorial content has been generated yet.'
+    },
+    highlights: [],
+    items: []
+  };
 }
 
 function authorizeRefresh(request, env) {
@@ -1001,30 +569,23 @@ function timingSafeEqual(left = '', right = '') {
   const leftBytes = encoder.encode(String(left));
   const rightBytes = encoder.encode(String(right));
   if (leftBytes.length !== rightBytes.length) return false;
-  return crypto.subtle.timingSafeEqual
-    ? crypto.subtle.timingSafeEqual(leftBytes, rightBytes)
-    : leftBytes.every((byte, index) => byte === rightBytes[index]);
+  let difference = 0;
+  for (let index = 0; index < leftBytes.length; index += 1) {
+    difference |= leftBytes[index] ^ rightBytes[index];
+  }
+  return difference === 0;
 }
 
 function assertBindings(env) {
   if (!env.NEWS_KV) throw new Error('Missing NEWS_KV binding.');
 }
 
-function emptyPayload() {
-  return { sources: FEEDS, highlights: [], items: [] };
+function isAiEnabled(env) {
+  return isEnabled(env.AI_ENABLED) && Boolean(env.AI);
 }
 
-function isValidCachedSummary(value) {
-  if (!value || !isChineseSummary(value.summaryZh) || !isChineseSummary(value.oneLineZh)) return false;
-  const combined = `${value.summaryZh} ${value.oneLineZh}`;
-  return !hasForbiddenCopy(combined) && !findSelfTeamMovement(combined);
-}
-
-function isChineseSummary(value = '') {
-  const text = String(value || '');
-  const chinese = (text.match(/[\u4e00-\u9fa5]/g) || []).length;
-  const latin = (text.match(/[A-Za-z]/g) || []).length;
-  return chinese >= 8 && chinese >= latin * 0.3;
+function isEnabled(value) {
+  return ['1', 'true', 'yes', 'on'].includes(String(value || '').toLowerCase());
 }
 
 function getText(value) {
@@ -1041,48 +602,17 @@ function normalizeLink(value) {
   return '';
 }
 
-function stripHtml(value = '') {
-  return normalizeWhitespace(String(value)
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<[^>]+>/g, ' '));
+function sanitizeError(error) {
+  const message = error?.name === 'AbortError' ? 'timeout' : (error?.message || String(error));
+  return normalizeWhitespace(message).slice(0, 300);
 }
 
-function decodeHtml(value = '') {
-  return String(value)
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;|&apos;/g, "'")
-    .replace(/&nbsp;/g, ' ');
+function pushSample(samples, sample, limit = 5) {
+  if (samples.length < limit) samples.push(sample);
 }
 
-function normalizeWhitespace(value = '') {
-  return String(value).replace(/[\r\n\t]+/g, ' ').replace(/\s+/g, ' ').trim();
-}
-
-function recursiveCleanStrings(value) {
-  if (typeof value === 'string') return normalizeWhitespace(value);
-  if (Array.isArray(value)) return value.map(recursiveCleanStrings);
-  if (value && typeof value === 'object') {
-    return Object.fromEntries(Object.entries(value).map(([key, entry]) => [key, recursiveCleanStrings(entry)]));
-  }
-  return value;
-}
-
-async function sha256(value) {
-  const bytes = new TextEncoder().encode(value);
-  const hash = await crypto.subtle.digest('SHA-256', bytes);
-  return [...new Uint8Array(hash)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
-}
-
-function slugText(value = '') {
-  return String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 120);
-}
-
-function escapeRegExp(value = '') {
-  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+function arraysEqual(left, right) {
+  return left.length === right.length && left.every((value, index) => value === right[index]);
 }
 
 function toArray(value) {
@@ -1090,14 +620,13 @@ function toArray(value) {
   return Array.isArray(value) ? value : [value];
 }
 
-function clampInt(value, fallback, min, max) {
+function clampInteger(value, fallback, min, max) {
   const parsed = Number.parseInt(value, 10);
-  if (!Number.isFinite(parsed)) return fallback;
-  return Math.max(min, Math.min(max, parsed));
+  return Number.isFinite(parsed) ? Math.max(min, Math.min(max, parsed)) : fallback;
 }
 
-function isEnabled(value) {
-  return ['1', 'true', 'yes', 'on'].includes(String(value || '').toLowerCase());
+function sleep(milliseconds) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
 function corsHeaders() {

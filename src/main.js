@@ -1,7 +1,8 @@
 import './style.css';
 
-const categories = ['最新', '交易', '签约', '伤病', '选秀', '季后赛', '其他'];
+const categories = ['最新', '交易', '签约', '伤病', '选秀', '流言', '比赛', '分析', '其他'];
 const workerNewsUrl = 'https://nba-quick-news-worker.cibstan1999.workers.dev/data/news.json';
+const workerCacheKey = 'nba-quick-news:last-worker-payload:v1';
 
 const app = document.querySelector('#app');
 
@@ -14,7 +15,8 @@ const state = {
   category: '最新',
   visibleCount: 15,
   loading: true,
-  error: ''
+  error: '',
+  usingCachedData: false
 };
 
 function escapeHtml(value = '') {
@@ -58,6 +60,14 @@ function getFreshnessState() {
     return { level: 'danger', label: '新闻数据已超过 24 小时未更新', detail: `约 ${Math.round(ageHours)} 小时未成功更新。` };
   }
 
+  if (status === 'fetch-failed' || status === 'cached-fallback') {
+    return {
+      level: 'warning',
+      label: status === 'cached-fallback' ? '正在显示上次缓存' : '本轮抓取失败',
+      detail: '已保留最近一次通过质量检查的内容。'
+    };
+  }
+
   if (ageHours > 6) {
     return { level: 'warning', label: '新闻数据可能延迟', detail: `约 ${Math.round(ageHours)} 小时未成功更新。` };
   }
@@ -66,16 +76,16 @@ function getFreshnessState() {
     return { level: 'soft', label: '更新稍有延迟', detail: `约 ${Math.round(ageHours)} 小时前更新。` };
   }
 
-  return { level: 'ok', label: status === 'partial-success' ? '部分源更新成功' : '更新正常', detail: '新闻数据仍然新鲜。' };
+  return { level: 'ok', label: status === 'partial-success' ? '部分内容待重试' : '更新正常', detail: '新闻数据仍然新鲜。' };
 }
 
 function getPrimaryTitle(item = {}) {
-  return item.originalTitle ||
-    item.title ||
-    item.displayTitle ||
-    item.titleZh ||
+  return item.titleZh ||
     item.headlineZh ||
     item.oneLineZh ||
+    item.displayTitle ||
+    item.originalTitle ||
+    item.title ||
     '无标题';
 }
 
@@ -137,46 +147,50 @@ function getHighlightText(item = {}, highlight = {}) {
   return candidates.find(isUsableChineseHighlight) || '';
 }
 
-function getNewsKeys(item = {}) {
-  return [item.id, item.url, item.link].filter(Boolean).map((value) => String(value).trim());
-}
-
-function mergeWorkerSummaries(items = [], workerItems = []) {
-  const byKey = new Map();
-  workerItems.forEach((item) => {
-    getNewsKeys(item).forEach((key) => byKey.set(key, item));
-  });
-
-  return items.map((item) => {
-    const workerItem = getNewsKeys(item).map((key) => byKey.get(key)).find(Boolean);
-    if (!workerItem) return item;
-    const workerSummary = isUsableChineseCopy(workerItem.summaryZh) ? workerItem.summaryZh : '';
-    const workerOneLine = isUsableChineseCopy(workerItem.oneLineZh) ? workerItem.oneLineZh : '';
-    if (!workerSummary && !workerOneLine) return item;
-    return {
-      ...item,
-      summaryZh: workerSummary || item.summaryZh,
-      oneLineZh: workerOneLine || item.oneLineZh,
-      copySource: workerItem.copySource || item.copySource,
-      aiModel: workerItem.aiModel || item.aiModel,
-      aiGeneratedAt: workerItem.aiGeneratedAt || item.aiGeneratedAt
-    };
-  });
-}
-
-async function loadWorkerNews() {
+async function fetchWorkerNews() {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 3500);
+  const timeout = setTimeout(() => controller.abort(), 15000);
   try {
     const response = await fetch(workerNewsUrl, { cache: 'no-store', signal: controller.signal });
-    if (!response.ok) return null;
-    return await response.json();
-  } catch (error) {
-    console.warn('Worker summary enrichment unavailable', error);
-    return null;
+    if (!response.ok) throw new Error(`Worker feed unavailable (${response.status})`);
+    const payload = await response.json();
+    if (!payload || !Array.isArray(payload.items)) throw new Error('Worker returned an invalid payload.');
+    return payload;
   } finally {
     clearTimeout(timeout);
   }
+}
+
+function readCachedWorkerNews() {
+  try {
+    const raw = localStorage.getItem(workerCacheKey);
+    if (!raw) return null;
+    const payload = JSON.parse(raw);
+    return payload && Array.isArray(payload.items) ? payload : null;
+  } catch (error) {
+    console.warn('Cached Worker payload is invalid', error);
+    return null;
+  }
+}
+
+function cacheWorkerNews(payload) {
+  if (!Array.isArray(payload?.items) || payload.items.length === 0) return;
+  try {
+    localStorage.setItem(workerCacheKey, JSON.stringify(payload));
+  } catch (error) {
+    console.warn('Unable to cache the latest Worker payload', error);
+  }
+}
+
+function applyWorkerPayload(payload, { cached = false } = {}) {
+  state.items = Array.isArray(payload.items) ? payload.items : [];
+  state.highlights = Array.isArray(payload.highlights) ? payload.highlights : [];
+  state.updatedAt = payload.updatedAt || '';
+  state.lastFetchStatus = {
+    ...(payload.lastFetchStatus || {}),
+    ...(cached ? { status: 'cached-fallback' } : {})
+  };
+  state.usingCachedData = cached;
 }
 
 function getHighlightItems() {
@@ -200,7 +214,7 @@ function getHighlightItems() {
 
   const fromItems = state.items
     .filter((item) => (item.importance || 1) >= 4)
-    .filter((item) => ['交易', '签约', '伤病', '选秀', '重要流言'].includes(item.category) || item.sourceCount > 1)
+    .filter((item) => ['交易', '签约', '伤病', '选秀', '流言', '重要流言'].includes(item.category) || item.sourceCount > 1)
     .map((item) => ({
       id: item.id,
       link: item.url || item.link,
@@ -374,7 +388,7 @@ function render() {
 
       <section class="news-meta" aria-live="polite">
         <span id="newsCount">${state.loading ? '正在加载...' : `${getFilteredItems().length} 条新闻`}</span>
-        <span>来源：RealGM / Yahoo Sports</span>
+        <span>来源：RealGM · Cloudflare AI 编辑</span>
       </section>
 
       <section id="newsList" class="news-list" aria-label="NBA news stories"></section>
@@ -483,26 +497,24 @@ function renderRelatedItems(relatedItems) {
 
 async function loadNews() {
   try {
-    const response = await fetch(`${import.meta.env.BASE_URL}data/news.json`, { cache: 'no-store' });
-    if (!response.ok) {
-      throw new Error(`Feed unavailable (${response.status})`);
+    const data = await fetchWorkerNews();
+    const cached = readCachedWorkerNews();
+    if (data.items.length === 0 && cached?.items?.length) {
+      applyWorkerPayload(cached, { cached: true });
+      state.error = 'Worker 暂时没有可展示的已验收内容，正在显示上一次成功缓存。';
+    } else {
+      applyWorkerPayload(data);
+      cacheWorkerNews(data);
     }
-
-    const data = await response.json();
-    const staticItems = Array.isArray(data.items) ? data.items : [];
-    state.items = staticItems;
-    state.highlights = Array.isArray(data.highlights) ? data.highlights : [];
-    state.updatedAt = data.updatedAt || '';
-    state.lastFetchStatus = data.lastFetchStatus || {};
-    void loadWorkerNews().then((workerData) => {
-      const workerItems = Array.isArray(workerData?.items) ? workerData.items : [];
-      if (!workerItems.length) return;
-      state.items = mergeWorkerSummaries(state.items, workerItems);
-      refreshDynamicSections();
-    });
   } catch (error) {
-    state.error = '无法读取本地新闻数据。请运行 npm run fetch 后重试。';
-    console.error(error);
+    const cached = readCachedWorkerNews();
+    if (cached?.items?.length) {
+      applyWorkerPayload(cached, { cached: true });
+      state.error = 'Worker 暂时不可用，正在显示上一次成功缓存。';
+    } else {
+      state.error = '暂时无法读取新闻，且此浏览器还没有可用缓存。';
+    }
+    console.error('Unable to load the canonical Worker feed', error);
   } finally {
     state.loading = false;
     refreshDynamicSections();

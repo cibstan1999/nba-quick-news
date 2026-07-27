@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "nba-quick-news-worker",
   "main": "src/index.js",
-  "compatibility_date": "2026-07-23",
+  "compatibility_date": "2026-07-27",
   "observability": {
     "enabled": true
   },
@@ -24,6 +24,6 @@
     "AI_MAX_ITEMS_PER_RUN": "3",
     "JINA_READER_ENABLED": "true",
     "ARTICLE_CHAR_LIMIT": "5000",
-    "SUMMARY_CACHE_VERSION": "cf-summary-v3-qwen3"
+    "NEWS_CATALOG_LIMIT": "120"
   }
 }

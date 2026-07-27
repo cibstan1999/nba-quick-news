@@ -1,52 +1,26 @@
-name: Update NBA News
+name: Validate NBA News Pipeline
 
 on:
-  schedule:
-    - cron: '*/30 * * * *'
   workflow_dispatch:
-    inputs:
-      github_models_enabled:
-        description: 'Enable GitHub Models copy editing for new priority events'
-        required: false
-        default: 'false'
-        type: choice
-        options:
-          - 'false'
-          - 'true'
-      github_models_max_items:
-        description: 'Maximum AI items to process'
-        required: false
-        default: '5'
-      github_models_model:
-        description: 'GitHub Models model ID'
-        required: false
-        default: 'openai/gpt-4o-mini'
-      jina_reader_enabled:
-        description: 'Use Jina Reader to fetch article text for AI summaries'
-        required: false
-        default: 'false'
-        type: choice
-        options:
-          - 'false'
-          - 'true'
-      backfill_ai:
-        description: 'Backfill missing Chinese summaries'
-        required: false
-        default: false
-        type: boolean
+  push:
+    branches:
+      - main
+    paths:
+      - 'cloudflare-worker/**'
+      - 'src/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/update-news.yml'
 
 permissions:
-  contents: write
-  models: read
-  pages: write
-  id-token: write
+  contents: read
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: validate-news-pipeline
+  cancel-in-progress: true
 
 jobs:
-  update-news:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -61,52 +35,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Fetch NBA RSS feeds
-        run: |
-          if [ "${{ github.event.inputs.backfill_ai || 'false' }}" = "true" ]; then
-            npm run backfill-ai
-          else
-            npm run fetch
-          fi
-        env:
-          GITHUB_MODELS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_MODELS_ENABLED: ${{ github.event.inputs.backfill_ai == 'true' && 'true' || github.event.inputs.github_models_enabled || 'false' }}
-          GITHUB_MODELS_MODEL: ${{ github.event.inputs.github_models_model || 'openai/gpt-4o-mini' }}
-          GITHUB_MODELS_MAX_ITEMS: ${{ github.event.inputs.github_models_max_items || '5' }}
-          JINA_READER_ENABLED: ${{ github.event.inputs.jina_reader_enabled || 'false' }}
-          JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
-
-      - name: Check news freshness
-        if: ${{ github.event.inputs.backfill_ai != 'true' }}
-        run: node scripts/check-freshness.mjs
-
-      - name: Print fetch status
-        run: |
-          node -e "const data = require('./public/data/news.json'); console.log(JSON.stringify({ updatedAt: data.updatedAt, lastFetchStatus: data.lastFetchStatus, count: data.items?.length, top: data.items?.slice(0, 5).map((item) => ({ source: item.source, title: item.title, pubDate: item.pubDate })) }, null, 2));"
-
-      - name: Commit updated news
-        run: |
-          if git diff --quiet -- public/data/news.json public/data/ai-summary-cache.json; then
-            echo "No news changes to commit."
-            exit 0
-          fi
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/news.json public/data/ai-summary-cache.json
-          git commit -m "chore: update NBA news feed"
-          git push
+      - name: Test content pipeline
+        run: npm test
 
       - name: Build site
         run: npm run build
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v6
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: dist
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v5

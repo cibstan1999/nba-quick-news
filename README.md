@@ -1,74 +1,119 @@
 # NBA Quick News
 
-NBA Quick News is a clean static NBA news reader powered by RealGM and Yahoo Sports NBA RSS feeds.
+NBA Quick News is an automated Chinese NBA editorial feed. RealGM RSS is the
+source material; Cloudflare Workers AI produces structured Chinese copy after
+the article passes local fact and language checks.
 
-## Local Setup
+## Production Architecture
+
+```text
+RealGM RSS
+  -> Cloudflare Worker normalization and stable newsId
+  -> KV-backed AI processing queue
+  -> Qwen Chinese editorial JSON
+  -> fact, rumor, language, and schema validation
+  -> accepted records in Workers KV
+  -> /data/news.json
+  -> Vite frontend
+```
+
+Workers KV is the only production content source. The frontend does not merge
+repository JSON with Worker output. It saves the latest successful Worker
+payload in browser local storage and uses that copy only when the Worker is
+temporarily unavailable.
+
+## Local Development
+
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-## Fetch News Locally
-
-```bash
-npm run fetch
-```
-
-This reads the configured NBA RSS feeds, parses them with `fast-xml-parser`, cleans summaries, assigns categories, and writes `public/data/news.json`. If fetching fails and an old JSON file exists, the script leaves the old file untouched.
-
-## Local Preview
+Run the frontend:
 
 ```bash
 npm run dev
 ```
 
-Open the local Vite URL shown in the terminal.
+The local site reads the production Worker API. Open:
 
-## Build
+```text
+http://127.0.0.1:5173/nba-quick-news/
+```
+
+Run the deterministic pipeline tests:
+
+```bash
+npm test
+```
+
+Build for GitHub Pages:
 
 ```bash
 npm run build
 ```
 
-The production site is generated in `dist/`.
+Build for the Cloudflare-connected frontend:
 
-## GitHub Pages Deployment
+```bash
+npm run build:cloudflare
+```
 
-1. Push this repository to GitHub as `nba-quick-news`.
-2. In GitHub, open `Settings > Pages`.
-3. Set the source to `GitHub Actions`.
-4. The included `Deploy GitHub Pages` workflow builds the Vite app and publishes `dist/`.
+## Cloudflare Worker
 
-The Vite base path is configured for the project site URL `/nba-quick-news/`.
+The existing Worker is configured in `cloudflare-worker/wrangler.jsonc`.
 
-## GitHub Actions News Updates
+```bash
+npm run worker:dev
+npm run worker:deploy
+```
 
-`.github/workflows/update-news.yml` runs every 30 minutes and can also be started manually with `workflow_dispatch`.
+Routes:
 
-The workflow:
+- `GET /health`: pipeline and queue health.
+- `GET /data/news.json`: accepted editorial content.
+- `GET /refresh`: protected manual refresh.
 
-1. Installs dependencies with `npm ci`.
-2. Runs `npm run fetch`.
-3. Checks whether `public/data/news.json` changed.
-4. Commits changes back to the repository with `chore: update NBA news feed`.
+The production `REFRESH_TOKEN` is a Cloudflare secret. Do not add its value to
+the repository, documentation, command history, or logs. The scheduled
+Cloudflare Cron runs every 30 minutes and does not need the token.
 
-The frontend reads `data/news.json` under the configured Vite base path, so it works both locally and on the GitHub Pages project URL.
+## Editorial State
 
-## Free-First AI Policy
+Every normalized story has one of these states:
 
-The scheduled workflow keeps GitHub Models disabled by default to avoid background usage of AI quota. RSS fetching, GitHub Actions for this public repository, and GitHub Pages deployment are intended to stay on free GitHub services.
+- `pending`: waiting for AI processing.
+- `processing`: currently being edited.
+- `accepted`: passed all quality checks and may appear on the homepage.
+- `rejected`: AI responded, but the copy failed validation.
+- `failed`: the request failed or timed out.
 
-To manually fill missing Chinese summaries, run the workflow with:
+Rejected and failed stories receive `retryCount`, `processedAt`, and
+`nextRetryAt`. A failed story cannot block later queue items. The queue reserves
+capacity for fresh news while continuing to drain older work.
 
-- `backfill_ai=true` (this enables GitHub Models only for that manual run)
-- `github_models_max_items=5` by default
+Workers AI must return:
 
-The script still enforces a hard safety cap of 30 items per run. If GitHub Models free quota or rate limits are exhausted, the workflow logs the issue and keeps existing news data instead of writing English text into Chinese summary fields.
+```json
+{
+  "titleZh": "",
+  "summaryZh": "",
+  "categoryZh": "",
+  "tagsZh": [],
+  "confidence": 0.0,
+  "factLevel": "confirmed"
+}
+```
 
-For richer summaries from article text, manually run the workflow with:
+Rumors and analysis must retain uncertain wording. Contract money, contract
+length, named teams, named players, scores, and major trade assets are checked
+against the RSS and extracted article evidence.
 
-- `github_models_enabled=true`
-- `jina_reader_enabled=true`
-- Keep `github_models_max_items=5` while testing, or use `10` when you want to fill more summaries in one run
+## GitHub Actions
 
-The AI prompt asks for a short human-style Chinese retelling, not a title translation: 2-3 sentences, roughly 120-220 Chinese characters, based on the RSS text plus the article text Jina Reader can extract. Jina Reader does not require an account for basic usage. If anonymous rate limits become a problem later, add a free or paid Jina key as the optional repository secret `JINA_API_KEY`; the site still works without it.
+- `deploy-pages.yml` builds and deploys the frontend to GitHub Pages.
+- `update-news.yml` now validates the Worker pipeline and frontend build only.
+
+GitHub Actions no longer fetches RSS or commits `public/data/news.json`.
+Cloudflare Cron and Workers KV own the production content lifecycle.

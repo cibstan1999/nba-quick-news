@@ -1,68 +1,59 @@
 # NBA Quick News Cloudflare Worker
 
-This Worker is the Cloudflare-side RSS refresh and Chinese summary pipeline for NBA Quick News.
+This Worker owns the complete production content pipeline for NBA Quick News.
+It uses the existing `NEWS_KV` and `AI` bindings and the existing 30-minute
+Cron trigger. No additional Cloudflare resources are required.
 
-It does not replace the frontend data source yet. The frontend still reads its own `/data/news.json` until Worker output quality is verified.
+## Pipeline
 
-## What It Does
+1. Fetch RealGM RSS.
+2. Normalize each story and generate a stable `newsId`.
+3. Store new stories as `pending`.
+4. Select fresh and backlog stories without starving either group.
+5. Optionally read article text through Jina Reader.
+6. Ask Qwen for structured Chinese editorial copy.
+7. Validate JSON shape, language, facts, category, and fact level.
+8. Store the result as `accepted`, `rejected`, or `failed`.
+9. Materialize only `accepted` stories into `news.json`.
 
-- `GET /data/news.json`: read the latest generated payload from Workers KV.
-- `GET /refresh`: fetch RSS, optionally read articles through Jina Reader, summarize selected items with Workers AI, and write `news.json` to KV.
-- Cron trigger: runs every 30 minutes.
+## KV Keys
 
-## Existing Cloudflare Resources
+- `news:catalog:v1`: bounded list of known `newsId` values.
+- `news:item:<newsId>`: source, editorial state, retry metadata, and accepted copy.
+- `news.json`: read-optimized public payload for the frontend.
 
-Do not recreate these resources:
+Per-story keys keep failures isolated. The catalog and public payload are each
+written at most once per refresh.
 
-- Worker: `nba-quick-news-worker`
-- KV binding: `NEWS_KV`
-- Workers AI binding: `AI`
-- Cron: `*/30 * * * *`
+## AI Output
 
-## Useful Commands
+The model must return strict JSON with:
+
+- `titleZh`
+- `summaryZh`
+- `categoryZh`
+- `tagsZh`
+- `confidence`
+- `factLevel`
+
+The Worker never uses model reasoning text as content. Empty output caused by a
+token limit gets one bounded retry. Any invalid, fabricated, overconfident, or
+mixed-language output is rejected and scheduled for a later retry.
+
+## Routes
+
+- `GET /health`
+- `GET /data/news.json`
+- `GET /refresh`
+
+`/refresh` accepts the existing `REFRESH_TOKEN` through the
+`x-refresh-token` header or the existing query parameter. Never commit or log
+the secret value.
+
+## Commands
 
 ```bash
+npm test
 npm run worker:dev
 npm run worker:deploy
 ```
-
-After deployment:
-
-```text
-https://nba-quick-news-worker.cibstan1999.workers.dev/health
-https://nba-quick-news-worker.cibstan1999.workers.dev/data/news.json
-```
-
-The manual refresh endpoint is protected by a Cloudflare secret. Do not commit or document the secret value.
-
-## Environment Variables
-
-These defaults are in `wrangler.jsonc`:
-
-```text
-AI_ENABLED=true
-AI_MODEL=@cf/qwen/qwen3-30b-a3b-fp8
-AI_MAX_ITEMS_PER_RUN=3
-JINA_READER_ENABLED=true
-ARTICLE_CHAR_LIMIT=5000
-SUMMARY_CACHE_VERSION=cf-summary-v3-qwen3
-```
-
-## Summary Strategy
-
-The Worker does not translate titles. It keeps the English original title and uses Workers AI only to generate:
-
-- `summaryZh`: 2-3 sentence Chinese recap.
-- `oneLineZh`: one-line Chinese quick hit for today's brief.
-
-Workers AI output is cached in KV by a source hash, so unchanged articles do not consume AI requests again. The `SUMMARY_CACHE_VERSION` value intentionally changes when prompt and validation quality changes.
-
-## Quality Checks
-
-Worker output is validated before being cached:
-
-- Rejects generic copy such as "相关消息更新" or "后续动向".
-- Rejects obvious mixed Chinese/English machine phrases.
-- Preserves explicit money, years, picks, and other strict facts when present.
-- Keeps rumors uncertain and analysis/opinion framed as analysis/opinion.
-- Tracks `aiRejected`, `aiFailed`, `aiAccepted`, `aiCacheHits`, and `aiRejectionSamples` in `lastFetchStatus`.
