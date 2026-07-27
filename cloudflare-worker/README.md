@@ -11,10 +11,11 @@ Cron trigger. No additional Cloudflare resources are required.
 3. Store new stories as `pending`.
 4. Select fresh and backlog stories without starving either group.
 5. Optionally read article text through Jina Reader.
-6. Ask Qwen for structured Chinese editorial copy.
-7. Validate JSON shape, language, facts, category, and fact level.
-8. Store the result as `accepted`, `rejected`, or `failed`.
-9. Materialize only `accepted` stories into `news.json`.
+6. Ask Qwen to submit structured Chinese editorial copy through a function call.
+7. Use one bounded JSON-mode fallback review when Qwen is unusable or rejected.
+8. Validate language, facts, category, fact level, names, amounts, and duration.
+9. Store the result as `accepted`, `rejected`, or `failed`.
+10. Materialize only `accepted` stories into `news.json`.
 
 ## KV Keys
 
@@ -36,9 +37,16 @@ The model must return strict JSON with:
 - `confidence`
 - `factLevel`
 
-The Worker never uses model reasoning text as content. Empty output caused by a
-token limit gets one bounded retry. Any invalid, fabricated, overconfident, or
-mixed-language output is rejected and scheduled for a later retry.
+The Worker never uses model reasoning text as content. Qwen must call the
+`publish_nba_brief` tool. If the tool payload is missing or fails validation,
+`AI_FALLBACK_MODEL` gets one structured JSON review. Any result that remains
+invalid, fabricated, overconfident, or mixed-language is rejected and scheduled
+for a later retry.
+
+The default models are:
+
+- Primary: `@cf/qwen/qwen3-30b-a3b-fp8`
+- Structured fallback: `@cf/meta/llama-3.1-8b-instruct-fast`
 
 ## Routes
 

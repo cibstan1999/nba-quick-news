@@ -10,7 +10,8 @@ the article passes local fact and language checks.
 RealGM RSS
   -> Cloudflare Worker normalization and stable newsId
   -> KV-backed AI processing queue
-  -> Qwen Chinese editorial JSON
+  -> Qwen function-call editorial JSON
+  -> JSON-mode fallback model when Qwen cannot produce an acceptable payload
   -> fact, rumor, language, and schema validation
   -> accepted records in Workers KV
   -> /data/news.json
@@ -109,6 +110,13 @@ Workers AI must return:
 Rumors and analysis must retain uncertain wording. Contract money, contract
 length, named teams, named players, scores, and major trade assets are checked
 against the RSS and extracted article evidence.
+
+Qwen is the primary Chinese editor. It submits its result through a single
+`publish_nba_brief` function call, so reasoning text is never treated as copy.
+If Qwen fails to return a tool payload or its result fails the quality gate, the
+Worker performs one bounded review with Cloudflare's JSON-mode model configured
+by `AI_FALLBACK_MODEL`. Both paths pass the same local validation before a story
+can become `accepted`.
 
 ## GitHub Actions
 

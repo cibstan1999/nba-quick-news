@@ -1,4 +1,4 @@
-export const PIPELINE_VERSION = 'editorial-pipeline-v1';
+export const PIPELINE_VERSION = 'editorial-pipeline-v2';
 export const AI_STATUSES = ['pending', 'processing', 'accepted', 'rejected', 'failed'];
 export const FACT_LEVELS = ['confirmed', 'reported', 'rumor', 'analysis'];
 export const CATEGORIES = ['交易', '签约', '伤病', '选秀', '流言', '比赛', '分析', '其他'];
@@ -43,6 +43,24 @@ const PLAYER_GROUPS = [
   ['giannis-antetokounmpo', '扬尼斯·阿德托昆博', ['Giannis Antetokounmpo']],
   ['luka-doncic', '卢卡·东契奇', ['Luka Doncic', 'Luka Dončić']],
   ['kawhi-leonard', '科怀·伦纳德', ['Kawhi Leonard']],
+  ['anthony-davis', '安东尼·戴维斯', ['Anthony Davis']],
+  ['kyrie-irving', '凯里·欧文', ['Kyrie Irving']],
+  ['klay-thompson', '克莱·汤普森', ['Klay Thompson']],
+  ['nikola-jokic', '尼古拉·约基奇', ['Nikola Jokic']],
+  ['joel-embiid', '乔尔·恩比德', ['Joel Embiid']],
+  ['tyrese-maxey', '泰瑞斯·马克西', ['Tyrese Maxey']],
+  ['jimmy-butler', '吉米·巴特勒', ['Jimmy Butler']],
+  ['paul-george', '保罗·乔治', ['Paul George']],
+  ['demar-derozan', '德玛尔·德罗赞', ['DeMar DeRozan']],
+  ['bradley-beal', '布拉德利·比尔', ['Bradley Beal']],
+  ['donovan-mitchell', '多诺万·米切尔', ['Donovan Mitchell']],
+  ['bam-adebayo', '巴姆·阿德巴约', ['Bam Adebayo']],
+  ['jayson-tatum', '杰森·塔图姆', ['Jayson Tatum']],
+  ['shai-gilgeous-alexander', '谢伊·吉尔杰斯-亚历山大', ['Shai Gilgeous-Alexander']],
+  ['victor-wembanyama', '维克托·文班亚马', ['Victor Wembanyama']],
+  ['mario-hezonja', '马里奥·赫佐尼亚', ['Mario Hezonja']],
+  ['dalen-terry', '达伦·特里', ['Dalen Terry']],
+  ['kentavious-caldwell-pope', '肯塔维奥斯·考德威尔-波普', ['Kentavious Caldwell-Pope']],
   ['james-harden', '詹姆斯·哈登', ['James Harden']],
   ['jaylen-brown', '杰伦·布朗', ['Jaylen Brown']],
   ['jalen-brunson', '杰伦·布伦森', ['Jalen Brunson']],
@@ -58,10 +76,10 @@ const TEAM_REPLACEMENTS = buildReplacements(TEAM_GROUPS);
 const PLAYER_REPLACEMENTS = buildReplacements(PLAYER_GROUPS);
 
 const RUMOR_SIGNALS = /\b(?:rumou?r|reportedly|could|may|might|potential|considering|interested|interest in|mutual interest|showing interest|have interest|waiting on|targeting|target|monitoring|exploring|expected to|linked to|eyeing|pursuing|emerge as|sources? say|in talks?)\b/i;
-const ANALYSIS_SIGNALS = /\b(?:analysis|takeaways?|thoughts following|what we learned|outlook|projection|ranking|winners and losers|look to challenge|preview|odds|what it means|reaction to|played role|reasons? for|why .+)\b/i;
+const ANALYSIS_SIGNALS = /\b(?:analysis|takeaways?|thoughts following|what we learned|outlook|projection|ranking|winners and losers|look to challenge|preview|odds|what it means|reaction to|played role|focused on building|building (?:a )?team for after|after .+ retires|reasons? for|why .+)\b/i;
 const OPINION_SIGNALS = /\b(?:says?|said|believes?|thinks?|reacts?|shares? thoughts|explains?|discusses?|comments? on|criticizes?|praises?|admits?|responds?)\b/i;
 const TRADE_SIGNALS = /\b(?:trade|traded|acquire|acquired|lands? .+ in (?:a )?deal|sent to|dealt to|transaction|finalizing (?:a )?deal)\b/i;
-const SIGNING_SIGNALS = /\b(?:signs?|signed|re-signs?|agrees? to|contract|extension|offer sheet|matching .+ offer sheet|waived|waives|released|releases|buyout)\b/i;
+const SIGNING_SIGNALS = /\b(?:signs?|signed|re-signs?|agrees? to|contract|extension|offer sheet|matching .+ offer sheet)\b/i;
 const INJURY_SIGNALS = /\b(?:injury|injured|surgery|out for|ruled out|return from|medical update|missed? games?|torn|sprain|fracture)\b/i;
 const DRAFT_SIGNALS = /\b(?:draft|drafted|first-round pick|second-round pick|lottery pick|rookie)\b/i;
 const GAME_SIGNALS = /\b(?:final score|defeats?|beats?|loss to|win over|game recap|box score|summer league mvp)\b/i;
@@ -190,6 +208,9 @@ export function inferStoryType(text = '') {
   const value = normalizeWhitespace(text);
   if (ANALYSIS_SIGNALS.test(value)) return 'analysis';
   if (TRADE_SIGNALS.test(value)) return 'trade';
+  if (/\b(?:could|may|might|considering|interested|interest in|mutual interest|showing interest|waiting on|targeting|monitoring|exploring|linked to|eyeing|pursuing|in talks?)\b/i.test(value)) {
+    return 'rumor';
+  }
   if (SIGNING_SIGNALS.test(value)) return 'signing';
   if (INJURY_SIGNALS.test(value)) return 'injury';
   if (DRAFT_SIGNALS.test(value)) return 'draft';
@@ -248,6 +269,7 @@ export function createPendingRecord(item, now = new Date().toISOString()) {
     feed: item.feed || '',
     originalTitle: item.originalTitle || item.title || '',
     originalSummary: item.originalSummary || item.summary || '',
+    imageUrl: canonicalizeUrl(item.imageUrl || ''),
     url: canonicalizeUrl(item.url || item.link),
     publishedAt: normalizeDate(item.publishedAt || item.pubDate),
     storyType,
@@ -329,6 +351,7 @@ export function buildEditorialPrompt(record, articleText = '') {
     articleText
   ].filter(Boolean).join('\n'));
   const facts = extractEvidenceFacts(sourceEvidence);
+  const playerNameRules = buildPlayerNameRules(record.originalTitle);
   const expected = record.expectedFactLevel || inferFactLevel(sourceEvidence, record.storyType);
 
   return [
@@ -343,12 +366,17 @@ export function buildEditorialPrompt(record, articleText = '') {
     'confidence：0 到 1，表示输出是否忠实覆盖输入事实，不代表新闻是否官方确认。',
     'factLevel：只能是 confirmed、reported、rumor、analysis 之一。',
     '必须保留输入中明确出现的球员、球队、合同金额、合同年限、比分和主要交易资产。',
-    '没有中文译名把握的球员姓名保留英文；球队必须使用常见中文队名。',
+    '球员姓名必须严格遵守 personNameRules：词典已给中文名时使用该中文名；标记为保留英文时必须原样保留，禁止自行音译。',
     '传闻、潜在下家、接触、考虑和预计等内容必须写成“据报道”“有消息称”“可能”“有意”或“正在考虑”，不能写成已经完成。',
     '分析、预测和观点必须明确写成分析或观点，不能改写成确定事实。',
     'titleZh 与 summaryZh 不能只是同一句话的重复。',
     `本地判定 storyType=${record.storyType}，期望 factLevel=${expected}，期望 categoryZh=${record.category}。`,
+    `必须保留的核心事实=${JSON.stringify(extractEvidenceFacts([
+      record.originalTitle,
+      firstSentence(record.originalSummary)
+    ].filter(Boolean).join('\n')))}`,
     `已提取事实=${JSON.stringify(facts)}`,
+    `personNameRules=${JSON.stringify(playerNameRules)}`,
     `originalTitle=${record.originalTitle}`,
     `rssSummary=${record.originalSummary || '(无)'}`,
     `articleText=${articleText || '(正文不可用，只能根据标题和 RSS 摘要保守编辑)'}`
@@ -363,25 +391,72 @@ export function buildWorkersAiRequest(prompt, maxTokens = 1800, withSchema = tru
         content: [
           '/no_think',
           '你是一名严谨的中文 NBA 快讯编辑。',
-          '不要展示思考过程，只返回最终 JSON。'
+          '不要展示思考过程。必须调用 publish_nba_brief 工具提交最终结果。'
         ].join('\n')
       },
       {
         role: 'user',
-        content: `/no_think\n${prompt}`
+        content: `/no_think\n${prompt}\n请调用 publish_nba_brief，不要输出普通文本。`
+      }
+    ],
+    max_tokens: maxTokens,
+    temperature: 0.2,
+    top_p: 0.8,
+    top_k: 20,
+    stream: false
+  };
+
+  if (withSchema) {
+    request.tools = [{
+      type: 'function',
+      function: {
+        name: 'publish_nba_brief',
+        description: '提交经过中文 NBA 编辑处理的新闻标题、摘要和事实属性。',
+        parameters: {
+          type: 'object',
+          additionalProperties: false,
+          properties: {
+            titleZh: { type: 'string' },
+            summaryZh: { type: 'string' },
+            categoryZh: { type: 'string', enum: CATEGORIES },
+            tagsZh: {
+              type: 'array',
+              minItems: 1,
+              maxItems: 5,
+              items: { type: 'string' }
+            },
+            confidence: { type: 'number', minimum: 0, maximum: 1 },
+            factLevel: { type: 'string', enum: FACT_LEVELS }
+          },
+          required: ['titleZh', 'summaryZh', 'categoryZh', 'tagsZh', 'confidence', 'factLevel']
+        }
+      }
+    }];
+  }
+
+  return request;
+}
+
+export function buildWorkersAiJsonRequest(prompt, maxTokens = 1400) {
+  return {
+    messages: [
+      {
+        role: 'system',
+        content: [
+          '你是一名严谨的中文 NBA 快讯编辑。',
+          '不要展示思考过程，只返回符合指定 JSON Schema 的最终结果。'
+        ].join('\n')
+      },
+      {
+        role: 'user',
+        content: prompt
       }
     ],
     max_tokens: maxTokens,
     temperature: 0.2,
     top_p: 0.8,
     stream: false,
-    chat_template_kwargs: {
-      enable_thinking: false
-    }
-  };
-
-  if (withSchema) {
-    request.response_format = {
+    response_format: {
       type: 'json_schema',
       json_schema: {
         type: 'object',
@@ -401,10 +476,8 @@ export function buildWorkersAiRequest(prompt, maxTokens = 1800, withSchema = tru
         },
         required: ['titleZh', 'summaryZh', 'categoryZh', 'tagsZh', 'confidence', 'factLevel']
       }
-    };
-  }
-
-  return request;
+    }
+  };
 }
 
 export function normalizeAiResponse(response) {
@@ -415,7 +488,13 @@ export function normalizeAiResponse(response) {
     ''
   );
   const message = response?.choices?.[0]?.message || response?.result?.choices?.[0]?.message;
+  const toolCalls = [
+    ...(Array.isArray(response?.tool_calls) ? response.tool_calls : []),
+    ...(Array.isArray(response?.result?.tool_calls) ? response.result.tool_calls : []),
+    ...(Array.isArray(message?.tool_calls) ? message.tool_calls : [])
+  ];
   const candidates = [
+    ...toolCalls.map((toolCall) => toolCall?.arguments ?? toolCall?.function?.arguments),
     response?.response,
     response?.result?.response,
     message?.content,
@@ -485,8 +564,13 @@ export function validateEditorialResult(result, record, articleText = '') {
     reasons.push('summary-repeats-title');
   }
 
-  const sourceCore = `${record.originalTitle || ''}\n${record.originalSummary || ''}`;
-  const sourceEvidence = `${sourceCore}\n${articleText || ''}`;
+  const leadSummary = firstSentence(record.originalSummary || '');
+  const sourceCore = `${record.originalTitle || ''}\n${leadSummary}`;
+  const sourceEvidence = [
+    record.originalTitle,
+    record.originalSummary,
+    articleText
+  ].filter(Boolean).join('\n');
   const requiredFacts = extractEvidenceFacts(sourceCore);
   const requiredEntities = extractEvidenceFacts(record.originalTitle || '');
   const allowedFacts = extractEvidenceFacts(sourceEvidence);
@@ -631,6 +715,9 @@ export function normalizeChineseText(value = '') {
 
   return normalizeWhitespace(
     text
+      .replace(/(\d+(?:\.\d+)?)\s*万美元/g, '$1 万美元')
+      .replace(/(\d+(?:\.\d+)?)\s*亿美元/g, '$1 亿美元')
+      .replace(/(\d+)\s*年/g, '$1 年')
       .replace(/\s+([，。！？、；：])/g, '$1')
       .replace(/([，。！？、；：])\s+/g, '$1')
       .replace(/([一-龥])([A-Z][A-Za-zÀ-ž'’.:-]*(?:\s+[A-Z][A-Za-zÀ-ž'’.:-]*)*)/g, '$1 $2')
@@ -706,7 +793,7 @@ function materializeItem(record) {
     copySource: editorial.editorSource || 'workers-ai',
     aiModel: editorial.model,
     aiGeneratedAt: editorial.generatedAt,
-    imageUrl: ''
+    imageUrl: record.imageUrl || ''
   });
 }
 
@@ -785,6 +872,7 @@ function extractPeople(text = '') {
   scrubbed = scrubbed.replace(PERSON_BOUNDARY_WORDS, ' | ');
   const matches = scrubbed.match(/\b[A-Z][A-Za-zÀ-ž'’.-]+(?:\s+(?:[A-Z][A-Za-zÀ-ž'’.-]+|Jr\.?|Sr\.?)){1,3}\b/g) || [];
   for (const match of matches) {
+    if (/[.!?]\s/.test(match.replace(/\b(?:Jr|Sr)\.\s/g, ''))) continue;
     const words = match.split(/\s+/);
     if (words.every((word) => SOURCE_WORDS.has(word.replace(/[.,]/g, '')))) continue;
     if (extractTeamIds(match).length) continue;
@@ -792,6 +880,50 @@ function extractPeople(text = '') {
     if (normalized && !found.includes(normalized)) found.push(normalized);
   }
   return found;
+}
+
+function buildPlayerNameRules(text = '') {
+  const rules = [];
+  const covered = new Set();
+  for (const [id, zh, aliases] of PLAYER_GROUPS) {
+    const matched = aliases.find((alias) => containsAlias(text, alias));
+    if (!matched) continue;
+    rules.push({ source: matched, output: zh });
+    covered.add(id);
+  }
+
+  for (const name of extractPersonDisplayNames(text)) {
+    const id = slug(name);
+    if (!id || covered.has(id)) continue;
+    rules.push({ source: name, output: name, instruction: '保留英文' });
+    covered.add(id);
+  }
+  return rules;
+}
+
+function extractPersonDisplayNames(text = '') {
+  let scrubbed = String(text);
+  for (const [, , aliases] of TEAM_GROUPS) {
+    for (const alias of aliases) {
+      scrubbed = scrubbed.replace(new RegExp(`\\b${escapeRegExp(alias)}\\b`, 'gi'), ' | ');
+    }
+  }
+  scrubbed = scrubbed.replace(PERSON_BOUNDARY_WORDS, ' | ');
+  return [...new Set(
+    (scrubbed.match(/\b[A-Z][A-Za-zÀ-ž'’.-]+(?:\s+(?:[A-Z][A-Za-zÀ-ž'’.-]+|Jr\.?|Sr\.?)){1,3}\b/g) || [])
+      .filter((match) => {
+        if (/[.!?]\s/.test(match.replace(/\b(?:Jr|Sr)\.\s/g, ''))) return false;
+        const words = match.split(/\s+/);
+        return !words.every((word) => SOURCE_WORDS.has(word.replace(/[.,]/g, ''))) &&
+          extractTeamIds(match).length === 0;
+      })
+  )];
+}
+
+function firstSentence(value = '') {
+  const text = normalizeWhitespace(value);
+  if (!text) return '';
+  return text.split(/(?<=[.!?。！？])\s+/)[0] || text;
 }
 
 function extractMoneyFacts(text = '') {

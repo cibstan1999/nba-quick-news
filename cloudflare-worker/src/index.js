@@ -2,6 +2,7 @@ import { XMLParser } from 'fast-xml-parser';
 import {
   PIPELINE_VERSION,
   buildEditorialPrompt,
+  buildWorkersAiJsonRequest,
   buildWorkersAiRequest,
   cleanStringsDeep,
   createNewsId,
@@ -29,6 +30,7 @@ const NEWS_KEY = 'news.json';
 const CATALOG_KEY = 'news:catalog:v1';
 const RECORD_PREFIX = 'news:item:';
 const DEFAULT_AI_MODEL = '@cf/qwen/qwen3-30b-a3b-fp8';
+const DEFAULT_AI_FALLBACK_MODEL = '@cf/meta/llama-3.1-8b-instruct-fast';
 const DEFAULT_CATALOG_LIMIT = 120;
 
 class RefreshError extends Error {
@@ -185,6 +187,8 @@ async function refreshNews(env, meta = {}) {
     accepted: 0,
     rejected: 0,
     failed: 0,
+    fallbackRequests: 0,
+    fallbackAccepted: 0,
     rejectionSamples: []
   };
 
@@ -209,8 +213,11 @@ async function refreshNews(env, meta = {}) {
     failedFeeds: [],
     aiEnabled: aiStats.enabled,
     aiModel: env.AI_MODEL || DEFAULT_AI_MODEL,
+    aiFallbackModel: env.AI_FALLBACK_MODEL || DEFAULT_AI_FALLBACK_MODEL,
     aiSelected: aiStats.selected,
     aiRequests: aiStats.requests,
+    aiFallbackRequests: aiStats.fallbackRequests,
+    aiFallbackAccepted: aiStats.fallbackAccepted,
     aiAccepted: aiStats.accepted,
     aiRejected: aiStats.rejected,
     aiFailed: aiStats.failed,
@@ -241,11 +248,37 @@ async function refreshNews(env, meta = {}) {
 }
 
 async function processRecord(record, env, stats) {
-  const articleText = await extractArticleText(record.url, env);
+  const articleText = await extractArticleText(record.url, record.originalTitle, env);
   try {
-    const aiResult = await summarizeWithWorkersAi(record, articleText, env);
+    let aiResult = await summarizeWithWorkersAi(record, articleText, env);
     stats.requests += aiResult.requestCount;
-    const validation = validateEditorialResult(aiResult.normalized.parsed, record, articleText);
+    stats.fallbackRequests += aiResult.fallbackRequestCount;
+    let validation = validateEditorialResult(aiResult.normalized.parsed, record, articleText);
+
+    if (!validation.ok && aiResult.modelUsed !== getFallbackModel(env)) {
+      console.warn('Primary AI edit failed the quality gate; requesting structured fallback review', {
+        newsId: record.newsId,
+        originalTitle: record.originalTitle,
+        model: aiResult.modelUsed,
+        reasons: validation.reasons
+      });
+      const fallbackResult = await summarizeWithJsonFallback(record, articleText, env);
+      stats.requests += fallbackResult.requestCount;
+      stats.fallbackRequests += fallbackResult.requestCount;
+      const fallbackValidation = validateEditorialResult(
+        fallbackResult.normalized.parsed,
+        record,
+        articleText
+      );
+      if (fallbackValidation.ok) {
+        aiResult = fallbackResult;
+        validation = fallbackValidation;
+        stats.fallbackAccepted += 1;
+      } else {
+        validation = fallbackValidation;
+        aiResult = fallbackResult;
+      }
+    }
 
     if (!validation.ok) {
       record.aiStatus = 'rejected';
@@ -287,7 +320,7 @@ async function processRecord(record, env, stats) {
     record.lastError = null;
     record.editorial = {
       ...validation.value,
-      model: env.AI_MODEL || DEFAULT_AI_MODEL,
+      model: aiResult.modelUsed,
       generatedAt: record.processedAt,
       editorSource: 'workers-ai',
       pipelineVersion: PIPELINE_VERSION
@@ -295,6 +328,7 @@ async function processRecord(record, env, stats) {
     stats.accepted += 1;
   } catch (error) {
     stats.requests += Number(error?.aiRequestCount) || 0;
+    stats.fallbackRequests += Number(error?.aiFallbackRequestCount) || 0;
     record.aiStatus = 'failed';
     record.retryCount = (record.retryCount || 0) + 1;
     record.processedAt = new Date().toISOString();
@@ -316,40 +350,52 @@ async function processRecord(record, env, stats) {
 
 async function summarizeWithWorkersAi(record, articleText, env) {
   const model = env.AI_MODEL || DEFAULT_AI_MODEL;
+  const fallbackModel = getFallbackModel(env);
   const prompt = buildEditorialPrompt(record, articleText);
   let requestCount = 0;
-  let response;
+  let primaryError = null;
 
   try {
     try {
       requestCount += 1;
-      response = await env.AI.run(model, buildWorkersAiRequest(prompt, 1800, true));
-    } catch (error) {
-      if (!/response.?format|json.?schema|json mode|unsupported/i.test(error?.message || '')) throw error;
-      console.warn('Workers AI JSON schema mode unavailable; retrying with prompt-enforced JSON', {
-        model,
-        error: sanitizeError(error)
-      });
-      requestCount += 1;
-      response = await env.AI.run(model, buildWorkersAiRequest(prompt, 1800, false));
-    }
-
-    let normalized = normalizeAiResponse(response);
-    if (!normalized.parsed && (!normalized.rawContent || normalized.finishReason === 'length')) {
-      console.warn('Workers AI returned no usable JSON; retrying once without using reasoning text', {
+      const response = await env.AI.run(model, buildWorkersAiRequest(prompt, 1800, true));
+      const normalized = normalizeAiResponse(response);
+      if (normalized.parsed) {
+        return {
+          normalized,
+          requestCount,
+          fallbackRequestCount: 0,
+          modelUsed: model
+        };
+      }
+      console.warn('Primary Workers AI model returned no editorial tool payload', {
         newsId: record.newsId,
+        model,
         finishReason: normalized.finishReason,
         rawResponse: normalized.rawDebug.slice(0, 2000)
       });
-      requestCount += 1;
-      response = await env.AI.run(model, buildWorkersAiRequest(prompt, 3200, true));
-      normalized = normalizeAiResponse(response);
+    } catch (error) {
+      primaryError = error;
+      console.warn('Primary Workers AI model failed; trying structured fallback model', {
+        newsId: record.newsId,
+        model,
+        error: sanitizeError(error)
+      });
     }
 
-    return { normalized, requestCount };
+    if (fallbackModel === model) {
+      throw primaryError || new Error('Primary Workers AI model returned no structured editorial payload.');
+    }
+
+    const fallback = await runJsonFallback(prompt, fallbackModel, env);
+    return {
+      ...fallback,
+      requestCount: requestCount + fallback.requestCount,
+      fallbackRequestCount: fallback.requestCount
+    };
   } catch (error) {
     if (error && typeof error === 'object') {
-      error.aiRequestCount = requestCount;
+      error.aiRequestCount = (Number(error.aiRequestCount) || 0) + requestCount;
       throw error;
     }
     const wrapped = new Error(String(error));
@@ -358,7 +404,38 @@ async function summarizeWithWorkersAi(record, articleText, env) {
   }
 }
 
-async function extractArticleText(url, env) {
+async function summarizeWithJsonFallback(record, articleText, env) {
+  const prompt = buildEditorialPrompt(record, articleText);
+  return runJsonFallback(prompt, getFallbackModel(env), env);
+}
+
+async function runJsonFallback(prompt, model, env) {
+  try {
+    const response = await env.AI.run(model, buildWorkersAiJsonRequest(prompt));
+    return {
+      normalized: normalizeAiResponse(response),
+      requestCount: 1,
+      fallbackRequestCount: 1,
+      modelUsed: model
+    };
+  } catch (error) {
+    if (error && typeof error === 'object') {
+      error.aiRequestCount = (Number(error.aiRequestCount) || 0) + 1;
+      error.aiFallbackRequestCount = (Number(error.aiFallbackRequestCount) || 0) + 1;
+      throw error;
+    }
+    const wrapped = new Error(String(error));
+    wrapped.aiRequestCount = 1;
+    wrapped.aiFallbackRequestCount = 1;
+    throw wrapped;
+  }
+}
+
+function getFallbackModel(env) {
+  return env.AI_FALLBACK_MODEL || DEFAULT_AI_FALLBACK_MODEL;
+}
+
+async function extractArticleText(url, originalTitle, env) {
   if (!isEnabled(env.JINA_READER_ENABLED) || !url) return '';
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 12_000);
@@ -372,7 +449,15 @@ async function extractArticleText(url, env) {
     });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const limit = clampInteger(env.ARTICLE_CHAR_LIMIT, 5000, 1000, 8000);
-    return normalizeWhitespace(await response.text()).slice(0, limit);
+    const readerText = normalizeWhitespace(await response.text());
+    const articleText = isolateReaderArticle(readerText, originalTitle);
+    if (!articleText) {
+      console.warn('Article extraction returned navigation or unrelated text; using RSS evidence only', {
+        url
+      });
+      return '';
+    }
+    return articleText.slice(0, limit);
   } catch (error) {
     console.warn('Article extraction failed; AI will use RSS evidence only', {
       url,
@@ -382,6 +467,26 @@ async function extractArticleText(url, env) {
   } finally {
     clearTimeout(timeout);
   }
+}
+
+function isolateReaderArticle(readerText, originalTitle) {
+  const text = normalizeWhitespace(readerText);
+  const title = normalizeWhitespace(originalTitle);
+  if (!text || !title) return '';
+
+  const lowerText = text.toLowerCase();
+  const titleIndex = lowerText.lastIndexOf(title.toLowerCase());
+  if (titleIndex >= 0) return text.slice(titleIndex);
+
+  const titleWords = title
+    .toLowerCase()
+    .match(/[a-z][a-z'-]{3,}/g)
+    ?.filter((word) => !/^(?:with|from|after|before|could|would|sign|signs|agree|agrees|trade|traded)$/.test(word)) || [];
+  const distinctive = [...new Set(titleWords)].slice(0, 6);
+  const matches = distinctive.filter((word) => lowerText.includes(word));
+  return distinctive.length >= 2 && matches.length >= Math.min(3, distinctive.length)
+    ? text
+    : '';
 }
 
 async function fetchFeed(feedConfig) {
@@ -406,7 +511,8 @@ async function fetchFeed(feedConfig) {
     const channel = parsed?.rss?.channel || parsed?.feed || {};
     const items = toArray(channel.item || channel.entry)
       .map((item) => normalizeRssItem(item, feedConfig))
-      .filter((item) => item.originalTitle && item.url);
+      .filter((item) => item.originalTitle && item.url)
+      .filter((item) => !isNonStoryTitle(item.originalTitle));
     return { ok: true, items };
   } catch (error) {
     return { ok: false, items: [], error: sanitizeError(error) };
@@ -419,6 +525,12 @@ function normalizeRssItem(item, feedConfig) {
   const title = decodeHtml(getText(item.title));
   const summary = decodeHtml(stripHtml(getText(item.description || item.summary || item.content || '')));
   const link = normalizeLink(item.link);
+  const imageUrl = normalizeLink(
+    item['media:thumbnail']?.url ||
+    item['media:content']?.url ||
+    item.enclosure?.url ||
+    ''
+  );
   return {
     source: feedConfig.source,
     feed: feedConfig.feed,
@@ -427,6 +539,7 @@ function normalizeRssItem(item, feedConfig) {
     summary,
     url: link,
     link,
+    imageUrl,
     publishedAt: getText(item.pubDate || item.published || item.updated || Date.now())
   };
 }
@@ -483,23 +596,45 @@ function mergeIncoming(records, incoming, now, dirty) {
       continue;
     }
 
-    if (existing.sourceHash !== item.sourceHash && existing.aiStatus !== 'accepted') {
-      existing.sourceHash = item.sourceHash;
-      existing.originalTitle = item.originalTitle;
-      existing.originalSummary = item.originalSummary;
-      existing.aiStatus = 'pending';
-      existing.retryCount = 0;
-      existing.nextRetryAt = null;
-      existing.lastError = null;
-      existing.rejectionReasons = [];
+    if (existing.sourceHash !== item.sourceHash && existing.aiStatus === 'accepted') {
+      const refreshed = createPendingRecord(item, now);
+      Object.assign(existing, {
+        sourceHash: refreshed.sourceHash,
+        originalTitle: refreshed.originalTitle,
+        originalSummary: refreshed.originalSummary,
+        imageUrl: refreshed.imageUrl,
+        publishedAt: refreshed.publishedAt,
+        storyType: refreshed.storyType,
+        expectedFactLevel: refreshed.expectedFactLevel,
+        category: refreshed.category,
+        importance: refreshed.importance,
+        eventKey: refreshed.eventKey
+      });
+      dirty.add(existing.newsId);
+    } else if (existing.sourceHash !== item.sourceHash) {
+      const replacement = createPendingRecord(item, now);
+      Object.assign(existing, replacement, {
+        queuedAt: existing.queuedAt || now
+      });
+      dirty.add(existing.newsId);
+    } else if (!existing.imageUrl && item.imageUrl) {
+      existing.imageUrl = item.imageUrl;
       dirty.add(existing.newsId);
     }
   }
 }
 
 function retainCatalogRecords(records, limit) {
-  const sorted = [...records].sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+  const sorted = records
+    .filter((record) => !isNonStoryTitle(record.originalTitle))
+    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
   return sorted.slice(0, limit);
+}
+
+function isNonStoryTitle(value = '') {
+  return /^(?:Get Your Latest NBA News From RealGM(?:'s)? Basketball Wiretap|RealGM Basketball Wiretap)$/i.test(
+    normalizeWhitespace(value)
+  );
 }
 
 async function saveCatalogIfChanged(kv, previousIds, records, now) {

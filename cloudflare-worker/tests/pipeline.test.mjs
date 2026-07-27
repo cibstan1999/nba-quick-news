@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   buildWorkersAiRequest,
+  buildWorkersAiJsonRequest,
   createNewsId,
   createPendingRecord,
   createSourceHash,
@@ -49,10 +50,14 @@ test('newsId is stable for canonical URLs', async () => {
 test('story type keeps rumors and completed signings distinct', () => {
   assert.equal(inferStoryType('Lakers reportedly interested in Player A'), 'rumor');
   assert.equal(inferFactLevel('Lakers reportedly interested in Player A'), 'rumor');
+  assert.equal(inferStoryType('Peyton Watson Could Sign Qualifying Offer With Nuggets'), 'rumor');
+  assert.equal(inferStoryType('Heat Waiting On Klay Thompson Before Filling Out Roster'), 'rumor');
   assert.equal(inferStoryType('Jaxson Hayes Agrees To Two-Year Deal With Lakers'), 'signing');
   assert.equal(inferStoryType('Nuggets Matching Spencer Jones Offer Sheet From Thunder'), 'signing');
   assert.equal(inferStoryType('Jonathan Kuminga, Cavaliers Have Mutual Interest'), 'rumor');
   assert.equal(inferStoryType('Proximity Played Role In LeBron James Signing With 76ers'), 'analysis');
+  assert.equal(inferStoryType('Warriors Focused On Building Team For After Stephen Curry Retires'), 'analysis');
+  assert.equal(inferStoryType('Sixers Waive Dalen Terry'), 'fact');
 });
 
 test('headline entity extraction keeps player names without title verbs', () => {
@@ -120,6 +125,43 @@ test('validated signing preserves contract length and money', async () => {
   };
   const validation = validateEditorialResult(result, record);
   assert.equal(validation.ok, true, JSON.stringify(validation));
+});
+
+test('quality gate requires core contract facts but not salary-cap background amounts', async () => {
+  const record = await makeRecord({
+    originalTitle: 'Nuggets Matching Spencer Jones Offer Sheet From Thunder',
+    originalSummary: [
+      'The Denver Nuggets are matching the two-year, $12 million offer sheet Spencer Jones signed with the Oklahoma City Thunder.',
+      'Oklahoma City will remain under the second apron by $6.9 million and retain a $6.1 million exception.'
+    ].join(' '),
+    url: 'https://example.com/spencer-jones'
+  });
+  const result = {
+    titleZh: '掘金匹配雷霆给 Spencer Jones 的报价合同',
+    summaryZh: '掘金匹配了雷霆向 Spencer Jones 开出的 2 年 1200 万美元报价合同，因此将留下这名受限制自由球员。',
+    categoryZh: '签约',
+    tagsZh: ['掘金', '雷霆', 'Spencer Jones'],
+    confidence: 0.9,
+    factLevel: 'confirmed'
+  };
+  const validation = validateEditorialResult(result, record);
+  assert.equal(validation.ok, true, JSON.stringify(validation));
+});
+
+test('accepted copy normalizes Chinese contract spacing', async () => {
+  const record = await makeRecord();
+  const result = {
+    titleZh: '湖人与 Jaxson Hayes 达成2年续约合同',
+    summaryZh: 'Jaxson Hayes 与湖人达成2年1200万美元合同，球队将继续保留这名内线轮换球员。',
+    categoryZh: '签约',
+    tagsZh: ['湖人', '续约'],
+    confidence: 0.9,
+    factLevel: 'confirmed'
+  };
+  const validation = validateEditorialResult(result, record);
+  assert.equal(validation.ok, true, JSON.stringify(validation));
+  assert.match(validation.value.titleZh, /2 年/);
+  assert.match(validation.value.summaryZh, /1200 万美元/);
 });
 
 test('quality gate rejects fabricated money', async () => {
@@ -245,9 +287,39 @@ test('AI response parser accepts structured response and never reads reasoning',
   assert.equal(reasoningOnly.isEmptyLengthResponse, true);
 });
 
-test('Workers AI request asks for the complete editorial JSON schema', () => {
+test('Workers AI request asks Qwen to return the complete editorial tool payload', () => {
   const request = buildWorkersAiRequest('test', 1800, true);
-  const required = request.response_format.json_schema.required;
+  const required = request.tools[0].function.parameters.required;
   assert.deepEqual(required, ['titleZh', 'summaryZh', 'categoryZh', 'tagsZh', 'confidence', 'factLevel']);
-  assert.equal(request.chat_template_kwargs.enable_thinking, false);
+  assert.equal(request.tools[0].function.name, 'publish_nba_brief');
+  assert.match(request.messages[0].content, /^\/no_think/);
+  assert.match(request.messages[1].content, /publish_nba_brief/);
+});
+
+test('structured fallback request uses Cloudflare JSON mode', () => {
+  const request = buildWorkersAiJsonRequest('test');
+  assert.equal(request.response_format.type, 'json_schema');
+  assert.deepEqual(
+    request.response_format.json_schema.required,
+    ['titleZh', 'summaryZh', 'categoryZh', 'tagsZh', 'confidence', 'factLevel']
+  );
+});
+
+test('AI response parser accepts editorial tool arguments and never reads reasoning', () => {
+  const normalized = normalizeAiResponse({
+    tool_calls: [{
+      name: 'publish_nba_brief',
+      arguments: {
+        titleZh: '湖人与球员完成续约',
+        summaryZh: '湖人与该球员完成续约，双方确认继续合作，合同细节以原始报道为准。',
+        categoryZh: '签约',
+        tagsZh: ['湖人'],
+        confidence: 0.8,
+        factLevel: 'confirmed'
+      }
+    }],
+    reasoning: '{"titleZh":"不应读取"}',
+    finish_reason: 'stop'
+  });
+  assert.equal(normalized.parsed.titleZh, '湖人与球员完成续约');
 });
