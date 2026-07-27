@@ -83,9 +83,12 @@ const teamNames = new Map([
   ['Orlando Magic', '奥兰多魔术'],
   ['Magic', '魔术'],
   ['Philadelphia 76ers', '费城 76 人'],
+  ['Philadelphia 76er', '76 人'],
   ['Philadelphia', '费城 76 人'],
   ['Sixers', '76 人'],
+  ['Sixer', '76 人'],
   ['76ers', '76 人'],
+  ['76er', '76 人'],
   ['Phoenix Suns', '菲尼克斯太阳'],
   ['Suns', '太阳'],
   ['Portland Trail Blazers', '波特兰开拓者'],
@@ -1565,7 +1568,7 @@ function stripSourcePhrases(value = '') {
 
 function hasMachineEnglish(value = '') {
   const text = String(value);
-  return /\b(?:considered|expected|agree|agrees|signing|signed|sign|named|with|from|into|onto|upon|under|over|after|before|during|likely|believed|pursuing|delaying|leading|target|source says|free agency|contract|deal|traded|trade|rumors|tracker|reacts|survey|continue|continued|host|play host|interested|according|not|for|vs|versus|about|ready|fill|reveal|reveals|calls|moving|latest|play)\b/i.test(text);
+  return /\b(?:officially|his|her|their|considered|expected|agree|agrees|signing|signed|sign|named|with|from|into|onto|upon|under|over|after|before|during|likely|believed|pursuing|delaying|leading|target|source says|free agency|contract|deal|traded|trade|rumors|tracker|reacts|survey|continue|continued|host|play host|interested|according|not|for|vs|versus|about|ready|fill|reveal|reveals|calls|moving|latest|play)\b/i.test(text);
 }
 
 function safeTitle(titleZh, originalTitle) {
@@ -1884,6 +1887,11 @@ function translateTitle(title = '', category = '其他') {
   }
 
   const cleanTitle = stripSourcePhrases(title);
+
+  const officiallySignsTeamContractMatch = cleanTitle.match(/^(.+?) officially signs (?:his|her|their|the|a)?\s*(.+?) contract$/i);
+  if (officiallySignsTeamContractMatch) {
+    return `${localizeCommonTerms(officiallySignsTeamContractMatch[1])}正式与${localizeCommonTerms(officiallySignsTeamContractMatch[2])}签约`;
+  }
 
   const kesslerTargetMatch = cleanTitle.match(/^(.+?) considered (.+?) top target in free agency$/i);
   if (kesslerTargetMatch) {
@@ -2257,6 +2265,11 @@ function summarizeFactSentence(sentence = '') {
   const original = cleanupFactSentence(sentence);
   if (!original || /represented by/i.test(original)) return '';
 
+  const officiallyJoinedMatch = original.match(/^(.+?) is officially (?:an?|the) (.+?)\.$/i);
+  if (officiallyJoinedMatch) {
+    return `${localizeCommonTerms(officiallyJoinedMatch[1])}已正式加盟${localizeCommonTerms(officiallyJoinedMatch[2])}。`;
+  }
+
   const planningCapMatch = original.match(
     /^(?:The )?(.+?) are planning additional moves to gain more cap flexibility if (.+?) shows interest in signing with the team/i
   );
@@ -2373,6 +2386,11 @@ function summarizeFactSentence(sentence = '') {
 function summarizeFactFromTitle(title = '') {
   const cleanTitle = stripSourcePhrases(title);
 
+  const officiallySignsTeamContractMatch = cleanTitle.match(/^(.+?) officially signs (?:his|her|their|the|a)?\s*(.+?) contract$/i);
+  if (officiallySignsTeamContractMatch) {
+    return `${localizeCommonTerms(officiallySignsTeamContractMatch[1])}已正式与${localizeCommonTerms(officiallySignsTeamContractMatch[2])}签约。`;
+  }
+
   const signingAmountMatch = cleanTitle.match(/^(.+?) signing (.+?) on (.+?) contract/i);
   if (signingAmountMatch) {
     return `${localizeCommonTerms(signingAmountMatch[1])}将签下${localizeCommonTerms(signingAmountMatch[2])}，合同金额为${contractAmount(signingAmountMatch[3])}。`;
@@ -2434,6 +2452,15 @@ function summarizeFactFromTitle(title = '') {
 }
 
 function buildFallbackSummaryZh({ source, headlineZh, title, sentences }) {
+  const officiallySignsTeamContractMatch = stripSourcePhrases(title).match(
+    /^(.+?) officially signs (?:his|her|their|the|a)?\s*(.+?) contract$/i
+  );
+  if (officiallySignsTeamContractMatch) {
+    return normalizeSpacing(
+      `据 ${source} 报道，${localizeCommonTerms(officiallySignsTeamContractMatch[1])}已正式与${localizeCommonTerms(officiallySignsTeamContractMatch[2])}签约。`
+    );
+  }
+
   const recapSummary = buildRecapAnalysisSummary({ title, source });
   if (recapSummary) return recapSummary;
 
@@ -2798,6 +2825,7 @@ function isSafeChineseTitle(text = '') {
   const value = normalizeChineseText(text);
   if (!value || !hasChineseText(value)) return false;
   if (isGenericHeadline(value)) return false;
+  if (findSelfTeamContradiction(value)) return false;
   if (hasMixedChineseEnglish(value) || hasMixedEnglishSummary(value)) return false;
   if (/Fantasy Fallout|Championship Odds|Trade Grades/i.test(value)) return false;
   return true;
@@ -2807,6 +2835,7 @@ function isSafeChineseSummary(text = '') {
   const value = normalizeChineseText(text);
   if (!value) return true;
   if (!isPredominantlyChinese(value)) return false;
+  if (findSelfTeamContradiction(value)) return false;
   if (isGenericFallbackSummary(value) || findUnsafeSummaryFragments(value).length) return false;
   if (/['’]s\b|[\u4e00-\u9fa5][’']\s|更多背景来自原文报道|NBA 动态：|原文聚焦|这篇文章讨论了/i.test(value)) return false;
   if (/中文标点包裹未翻译英文标题片段/.test(value)) return false;
@@ -2825,6 +2854,21 @@ function isSafeChineseSummary(text = '') {
   if (hasUntranslatedContractTerm(value)) return false;
   if (/Fantasy Fallout|Championship Odds|Trade Grades/i.test(value)) return false;
   return true;
+}
+
+function findSelfTeamContradiction(value = '') {
+  const text = normalizeChineseText(value);
+  if (!text) return '';
+  const teams = [...new Set(teamNames.values())].sort((a, b) => b.length - a.length);
+  for (const team of teams) {
+    const teamPattern = team.split(/\s+/).map(escapeRegExp).join('\\s*');
+    const pattern = new RegExp(
+      `${teamPattern}\\s*(?:队)?\\s*(?:与|将|已|正式|宣布|计划|预计|可能|有意|据报)?\\s*` +
+      `(?:加盟|加入|转投|签约|签下|被交易至|交易至|前往|与)\\s*${teamPattern}(?:队)?`
+    );
+    if (pattern.test(text)) return team;
+  }
+  return '';
 }
 
 function isCoreNewsCategory(category = '') {
@@ -2923,6 +2967,26 @@ function stripArticleLead(value = '') {
 function extractFactFromEnglish({ title = '', summary = '', source = '' } = {}) {
   const cleanTitle = stripSourcePhrases(stripArticleLead(title));
   const cleanSummary = stripHtml(summary);
+
+  const proximitySigningMatch = cleanTitle.match(/^Proximity To NYC Played Role In (.+?) Signing With (.+)$/i);
+  if (proximitySigningMatch) {
+    const player = localizeCommonTerms(proximitySigningMatch[1]);
+    const team = localizeCommonTerms(proximitySigningMatch[2]);
+    return {
+      headlineZh: `纽约区位因素影响${player}加盟${team}的决定`,
+      summaryZh: `${team}靠近纽约市，是${player}选择加盟的重要因素之一。报道指出，在纽约建立更多存在感是他和家人的长期考虑。`
+    };
+  }
+
+  const officiallySignsTeamContractMatch = cleanTitle.match(/^(.+?) officially signs (?:his|her|their|the|a)?\s*(.+?) contract$/i);
+  if (officiallySignsTeamContractMatch) {
+    const player = localizeCommonTerms(officiallySignsTeamContractMatch[1]);
+    const team = localizeCommonTerms(officiallySignsTeamContractMatch[2]);
+    return {
+      headlineZh: `${player}正式与${team}签约`,
+      summaryZh: `${player}已经正式与${team}完成签约。`
+    };
+  }
 
   const reachOutFreeAgencyMatch = cleanTitle.match(/^(.+?) Reach Out To (.+?) In Free Agency$/i);
   if (reachOutFreeAgencyMatch) {
@@ -3849,6 +3913,7 @@ function normalizeChineseText(text = '') {
     .replace(/76\s*人/g, '76 人')
     .replace(/76\s*人(?=\d)/g, '76 人 ')
     .replace(/(提升|加盟后)\s*76\s*人/g, '$1 76 人')
+    .replace(/(加盟|加入|转投|前往|签约|签下)\s*76\s*人/g, '$1 76 人')
     .replace(/尼克斯\s+首发五人/g, '尼克斯首发五人')
     .replace(/([至与从给为])76\s*人/g, '$1 76 人')
     .replace(/凯尔特人交易至\s*76\s*人/g, '凯尔特人交易至 76 人')
@@ -3995,7 +4060,7 @@ function normalizeNewsItemText(item = {}) {
   headlineZh = normalizeChineseText(deTemplateHeadline(improveHeadlineFromSummary(headlineZh, summaryZh)));
   headlineZh = normalizeChineseText(fixMixedLanguageHeadline(headlineZh, item));
   const originalFactText = `${item.originalTitle || item.title || ''} ${item.summary || ''}`;
-  const extractedFact = (isGenericHeadline(headlineZh) || hasUnsafeEnglishResidue(headlineZh) || !summaryZh || isMixedLanguageHeadline(summaryZh) || hasMixedEnglishSummary(summaryZh) || hasUntranslatedContractTerm(`${headlineZh} ${summaryZh}`) || /\bmulti[-\s]+year contract\b/i.test(originalFactText) || /sign-and-trade| from .+ to .+ in .+ for /i.test(originalFactText))
+  const extractedFact = (isGenericHeadline(headlineZh) || findSelfTeamContradiction(`${headlineZh} ${summaryZh}`) || hasUnsafeEnglishResidue(headlineZh) || !summaryZh || isMixedLanguageHeadline(summaryZh) || hasMixedEnglishSummary(summaryZh) || hasUntranslatedContractTerm(`${headlineZh} ${summaryZh}`) || /\bmulti[-\s]+year contract\b/i.test(originalFactText) || /sign-and-trade| from .+ to .+ in .+ for /i.test(originalFactText))
     ? extractFactFromEnglish({ title: item.originalTitle || item.title || '', summary: item.summary || '', source: item.source || '' })
     : null;
   if (extractedFact?.headlineZh) {
@@ -4249,6 +4314,7 @@ function getQualityReport(payload = {}) {
     ...textFields,
     ...highlightFields
   ];
+  const selfTeamContradiction = allTextRecords.filter(([, value]) => findSelfTeamContradiction(value));
   const titleContainsNewline = titleWhitespaceRecords.filter(([field, value]) =>
     ['originalTitle', 'displayTitle', 'headlineZh', 'titleZh', 'oneLineZh', 'dekZh', 'goldenQuoteZh', 'highlight'].includes(field) &&
     /[\n\r\t]/.test(value)
@@ -4377,6 +4443,7 @@ function getQualityReport(payload = {}) {
       vagueImpactHeadline: vagueImpactHeadline.length,
       mixedLanguageHeadline: mixedLanguageHeadline.length,
       mixedEnglishSummary: mixedEnglishSummary.length,
+      selfTeamContradiction: selfTeamContradiction.length,
       untranslatedContractTerm: untranslatedContractTerm.length,
       tradeTitleMisclassifiedAsInjury: tradeTitleMisclassifiedAsInjury.length,
       duplicatePlayerTeamTradeEvents: duplicatePlayerTeamTradeEvents.length,
@@ -4447,6 +4514,7 @@ function getQualityReport(payload = {}) {
       vagueImpactHeadline,
       mixedLanguageHeadline,
       mixedEnglishSummary,
+      selfTeamContradiction,
       untranslatedContractTerm,
       tradeTitleMisclassifiedAsInjury,
       duplicatePlayerTeamTradeEvents,
@@ -5163,6 +5231,8 @@ function isUsableHighlightText(value = '') {
   if (!text || !hasChineseText(text)) return false;
   if (!isPredominantlyChinese(text)) return false;
   if (!isSafeChineseSummary(text)) return false;
+  if (findSelfTeamContradiction(text)) return false;
+  if (hasMachineEnglish(text)) return false;
   if (isGenericHeadline(text) || isGenericFallbackSummary(text) || isMachineTemplateSummary(text)) return false;
   if (/相关消息更新|相关动态|后续动向|继续更新|值得关注|原文聚焦|更多背景|成为焦点|积极信号|目前仍属于|签约或合同动向|相关交易/.test(text)) return false;
   if (/Reacts|Survey|mailbag|Daily Links|podcast|odds|fantasy/i.test(text)) return false;
@@ -5515,6 +5585,37 @@ async function runSelfTests() {
 
   const frontend = await readFile(path.join(rootDir, 'src', 'main.js'), 'utf8');
   assert(!/item\.summaryZh\s*\|\|\s*item\.summary/.test(frontend), 'frontend does not fallback from summaryZh to English summary');
+  const lebronSigningTitle = 'LeBron James officially signs his Sixers contract';
+  assert(
+    normalizeChineseText(translateTitle(lebronSigningTitle, '签约')) === '勒布朗·詹姆斯正式与 76 人签约',
+    'officially signs his team contract title is translated without English residue'
+  );
+  assert(
+    normalizeChineseText(buildFallbackSummaryZh({
+      source: 'Yahoo Sports',
+      headlineZh: '勒布朗·詹姆斯正式与 76 人签约',
+      title: lebronSigningTitle,
+      sentences: ['LeBron James is officially a Philadelphia 76er.']
+    })) === '据 Yahoo Sports 报道，勒布朗·詹姆斯已正式与 76 人签约。',
+    'official signing fallback produces a concise Chinese fact summary'
+  );
+  assert(
+    !isUsableHighlightText('勒布朗·詹姆斯 officially 签下 his 76 人'),
+    'mixed-language signing text cannot enter highlights'
+  );
+  assert(
+    findSelfTeamContradiction('76 人与 76 人达成 2 年合同') === '76 人',
+    'same-team signing contradiction is detected'
+  );
+  const proximityFact = extractFactFromEnglish({
+    title: 'Proximity To NYC Played Role In LeBron James Signing With 76ers',
+    summary: 'The Philadelphia 76ers proximity to New York City played a role in LeBron James decision.',
+    source: 'RealGM'
+  });
+  assert(
+    normalizeChineseText(proximityFact?.headlineZh) === '纽约区位因素影响勒布朗·詹姆斯加盟 76 人的决定',
+    'LeBron proximity story is described as context rather than a second signing'
+  );
 
   const makeMockItem = (index, extra = {}) => ({
     id: `mock-${index}`,

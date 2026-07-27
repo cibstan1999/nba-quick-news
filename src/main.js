@@ -1,6 +1,7 @@
 import './style.css';
 
 const categories = ['最新', '交易', '签约', '伤病', '选秀', '季后赛', '其他'];
+const workerNewsUrl = 'https://nba-quick-news-worker.cibstan1999.workers.dev/data/news.json';
 
 const app = document.querySelector('#app');
 
@@ -97,14 +98,23 @@ function isGenericChineseSnippet(value = '') {
   return /相关消息更新|相关动态|交易影响继续发酵|休赛期后续动向|签约动向更新|最新动态|后续影响/.test(String(value));
 }
 
+function hasUnsafeEnglishCopy(value = '') {
+  return /\b(?:officially|his|her|their|signs?|signed|contract|with|from|after|before|expected|reportedly|latest|update)\b/i.test(String(value));
+}
+
+function isUsableChineseCopy(value = '') {
+  return isChineseSnippet(value) &&
+    !isGenericChineseSnippet(value) &&
+    !hasUnsafeEnglishCopy(value);
+}
+
 function isLowInfoHighlight(text = '') {
   return /open thread|game thread|podcast|odds|championship odds|fantasy|trade grades|preview|discussion|survey|reacts|mailbag|questions/i.test(text);
 }
 
 function isUsableChineseHighlight(text = '') {
   const value = String(text || '').trim();
-  return isChineseSnippet(value) &&
-    !isGenericChineseSnippet(value) &&
+  return isUsableChineseCopy(value) &&
     !/相关消息更新|相关动态|后续动向|继续更新|值得关注|原文聚焦|更多背景/.test(value) &&
     !isLowInfoHighlight(value);
 }
@@ -119,12 +129,54 @@ function compactHighlightText(text = '') {
 
 function getHighlightText(item = {}, highlight = {}) {
   const candidates = [
-    highlight.text,
     item.oneLineZh,
     compactHighlightText(item.summaryZh),
+    highlight.text,
     item.headlineZh
   ].map(compactHighlightText);
   return candidates.find(isUsableChineseHighlight) || '';
+}
+
+function getNewsKeys(item = {}) {
+  return [item.id, item.url, item.link].filter(Boolean).map((value) => String(value).trim());
+}
+
+function mergeWorkerSummaries(items = [], workerItems = []) {
+  const byKey = new Map();
+  workerItems.forEach((item) => {
+    getNewsKeys(item).forEach((key) => byKey.set(key, item));
+  });
+
+  return items.map((item) => {
+    const workerItem = getNewsKeys(item).map((key) => byKey.get(key)).find(Boolean);
+    if (!workerItem) return item;
+    const workerSummary = isUsableChineseCopy(workerItem.summaryZh) ? workerItem.summaryZh : '';
+    const workerOneLine = isUsableChineseCopy(workerItem.oneLineZh) ? workerItem.oneLineZh : '';
+    if (!workerSummary && !workerOneLine) return item;
+    return {
+      ...item,
+      summaryZh: workerSummary || item.summaryZh,
+      oneLineZh: workerOneLine || item.oneLineZh,
+      copySource: workerItem.copySource || item.copySource,
+      aiModel: workerItem.aiModel || item.aiModel,
+      aiGeneratedAt: workerItem.aiGeneratedAt || item.aiGeneratedAt
+    };
+  });
+}
+
+async function loadWorkerNews() {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 3500);
+  try {
+    const response = await fetch(workerNewsUrl, { cache: 'no-store', signal: controller.signal });
+    if (!response.ok) return null;
+    return await response.json();
+  } catch (error) {
+    console.warn('Worker summary enrichment unavailable', error);
+    return null;
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 function getHighlightItems() {
@@ -437,10 +489,17 @@ async function loadNews() {
     }
 
     const data = await response.json();
-    state.items = Array.isArray(data.items) ? data.items : [];
+    const staticItems = Array.isArray(data.items) ? data.items : [];
+    state.items = staticItems;
     state.highlights = Array.isArray(data.highlights) ? data.highlights : [];
     state.updatedAt = data.updatedAt || '';
     state.lastFetchStatus = data.lastFetchStatus || {};
+    void loadWorkerNews().then((workerData) => {
+      const workerItems = Array.isArray(workerData?.items) ? workerData.items : [];
+      if (!workerItems.length) return;
+      state.items = mergeWorkerSummaries(state.items, workerItems);
+      refreshDynamicSections();
+    });
   } catch (error) {
     state.error = '无法读取本地新闻数据。请运行 npm run fetch 后重试。';
     console.error(error);

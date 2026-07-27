@@ -13,6 +13,7 @@ const FEEDS = [
 
 const NEWS_KEY = 'news.json';
 const SOURCE_CACHE_PREFIX = 'ai-summary:';
+const AI_CURSOR_KEY = 'ai-candidate-cursor';
 const DEFAULT_AI_MODEL = '@cf/qwen/qwen3-30b-a3b-fp8';
 const DEFAULT_SUMMARY_CACHE_VERSION = 'cf-summary-v3-qwen3';
 
@@ -64,7 +65,11 @@ const TEAM_ZH = new Map([
   ['Orlando Magic', '魔术'],
   ['Magic', '魔术'],
   ['Philadelphia 76ers', '76 人'],
+  ['Philadelphia 76er', '76 人'],
+  ['Sixers', '76 人'],
+  ['Sixer', '76 人'],
   ['76ers', '76 人'],
+  ['76er', '76 人'],
   ['Phoenix Suns', '太阳'],
   ['Suns', '太阳'],
   ['Portland Trail Blazers', '开拓者'],
@@ -322,9 +327,16 @@ async function applyAiSummaries(items, env) {
     .filter(needsAiSummary)
     .sort((a, b) => b.importance - a.importance || new Date(b.publishedAt) - new Date(a.publishedAt));
   stats.candidates = candidates.length;
+  const storedCursor = Number(await readJsonKv(env.NEWS_KV, AI_CURSOR_KEY));
+  const cursor = candidates.length && Number.isFinite(storedCursor)
+    ? Math.abs(Math.trunc(storedCursor)) % candidates.length
+    : 0;
+  const orderedCandidates = candidates.length
+    ? [...candidates.slice(cursor), ...candidates.slice(0, cursor)]
+    : [];
 
   let remaining = maxItems;
-  for (const item of candidates) {
+  for (const item of orderedCandidates) {
     const articleText = await extractArticleText(item.url, env);
     const sourceHash = await sha256(`${item.originalTitle}\n${item.summary}\n${articleText}\n${env.SUMMARY_CACHE_VERSION || DEFAULT_SUMMARY_CACHE_VERSION}`);
     const cacheKey = `${SOURCE_CACHE_PREFIX}${sourceHash}`;
@@ -372,6 +384,10 @@ async function applyAiSummaries(items, env) {
       });
       stats.failed += 1;
     }
+  }
+
+  if (candidates.length && stats.requests > 0) {
+    await env.NEWS_KV.put(AI_CURSOR_KEY, JSON.stringify((cursor + stats.requests) % candidates.length));
   }
 
   return stats;
@@ -801,6 +817,10 @@ function parseSigningTitle(item = {}) {
       map: (match) => ({ player: match[1], team: match[2], contractText: evidence })
     },
     {
+      regex: /^(.+?)\s+officially\s+signs\s+(?:his|her|their|the|a)?\s*(.+?)\s+contract$/i,
+      map: (match) => ({ player: match[1], team: match[2], contractText: evidence })
+    },
+    {
       regex: /^(.+?)\s+To\s+Sign\s+With\s+(.+?)(?:\s+After\b|\s+Following\b|\s+Once\b|$)/i,
       map: (match) => ({ player: match[1], team: match[2], contractText: evidence })
     }
@@ -935,7 +955,7 @@ function findSelfTeamMovement(value = '') {
     const teamPattern = team.split(/\s+/).map(escapeRegExp).join('\\s*');
     const pattern = new RegExp(
       `${teamPattern}\\s*(?:队)?\\s*(?:将|已|正式|宣布|确认|计划|预计|可能|有意|据报)?\\s*` +
-      `(?:加盟|加入|转投|被交易至|交易至|前往)\\s*${teamPattern}(?:队)?`
+      `(?:加盟|加入|转投|被交易至|交易至|前往|与)\\s*${teamPattern}(?:队)?`
     );
     if (pattern.test(text)) return team;
   }
