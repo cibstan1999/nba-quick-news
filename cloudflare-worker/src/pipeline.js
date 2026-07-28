@@ -76,6 +76,37 @@ const NBA_PERSON_GROUPS = [
   ['joe-lacob', '乔·拉科布', ['Joe Lacob']]
 ];
 
+const CANONICAL_PERSON_ENTITIES = [
+  {
+    id: 'stephen-curry',
+    role: 'player',
+    englishNames: ['Stephen Curry', 'Steph Curry'],
+    chineseNames: ['斯蒂芬·库里'],
+    shortNames: ['库里']
+  },
+  {
+    id: 'seth-curry',
+    role: 'player',
+    englishNames: ['Seth Curry'],
+    chineseNames: ['赛斯·库里'],
+    shortNames: ['库里']
+  },
+  {
+    id: 'dell-curry',
+    role: 'player',
+    englishNames: ['Dell Curry'],
+    chineseNames: ['戴尔·库里'],
+    shortNames: ['库里']
+  },
+  {
+    id: 'joe-lacob',
+    role: 'owner',
+    englishNames: ['Joe Lacob'],
+    chineseNames: ['乔·拉科布'],
+    shortNames: []
+  }
+];
+
 const NBA_PERSON_KNOWN_BAD_OUTPUTS = new Map([
   ['joe-lacob', ['拉博布']]
 ]);
@@ -97,6 +128,48 @@ const SIGNING_SIGNALS = /\b(?:signs?|signed|re-signs?|agrees? to|contract|extens
 const INJURY_SIGNALS = /\b(?:injury|injured|surgery|out for|ruled out|return from|medical update|missed? games?|torn|sprain|fracture)\b/i;
 const DRAFT_SIGNALS = /\b(?:draft|drafted|first-round pick|second-round pick|lottery pick|rookie)\b/i;
 const GAME_SIGNALS = /\b(?:final score|defeats?|beats?|loss to|win over|game recap|box score|summer league mvp)\b/i;
+
+const SOURCE_CERTAINTY_MARKERS = {
+  expected: /\b(?:expected|likely)\s+(?:to|that)\b/i,
+  possible: /\b(?:could|may|might)\b/i,
+  interest: /\b(?:interested in|interest in|showing interest in|have interest in)\b/i,
+  considering: /\b(?:considering|exploring|leaning toward)\b/i,
+  reported: /\b(?:reportedly|according to|sources? say)\b/i
+};
+
+const SOURCE_ACTION_PATTERNS = {
+  stay: /\b(?:remain|stay|start(?:ing)? (?:the )?season with|return to)\b/i,
+  join: /\b(?:join|sign(?:s|ed|ing)?(?: with)?|land with)\b/i,
+  leave: /\b(?:leave|depart)\b/i,
+  trade: /\b(?:trade|acquire|send|sent|deal|dealt)\b/i,
+  decide: /\b(?:decide|choose|pick)\b/i
+};
+
+const CHINESE_DEFINITE_ACTION_PATTERNS = [
+  {
+    action: 'stay',
+    pattern: /(?:将会?|确定|已决定|已确认|确认)(?:继续)?(?:留队|留在|效力|回归)|(?:确定|确认)留队/g
+  },
+  {
+    action: 'join',
+    pattern: /(?:将会?|确定|已决定|正式|确认|已经?|已)(?:加盟|签约|签下)|已达成/g
+  },
+  {
+    action: 'leave',
+    pattern: /(?:将会?|确定|已决定)(?:离队|离开)/g
+  },
+  {
+    action: 'trade',
+    pattern: /(?:将会?|确定|已决定|正式|确认)(?:交易|送往|换来)|(?:已|已经)(?:通过交易)?(?:被交易|交易|送往|换来|得到)/g
+  },
+  {
+    action: 'decide',
+    pattern: /(?:已经?|已)(?:决定|敲定)|(?:决定|方案)(?:已经?)?确定/g
+  }
+];
+
+const CHINESE_ACTION_UNCERTAINTY = /(?:预计|可能|有望|或许|或将|倾向|尚未|仍在考虑|正在考虑|计划|据称)/;
+const CHINESE_REPORT_ATTRIBUTION = /(?:据报道|据消息|有消息称|消息人士称|报道称)/;
 
 const FORBIDDEN_ENGLISH_PHRASES = [
   'officially signs',
@@ -635,7 +708,10 @@ export function validateEditorialResult(result, record, articleText = '') {
   const requiredFacts = extractEvidenceFacts(sourceCore);
   const requiredEntities = extractEvidenceFacts(record.originalTitle || '');
   const allowedFacts = extractEvidenceFacts(sourceEvidence);
-  const outputFacts = extractEvidenceFacts(`${value.titleZh}\n${value.summaryZh}`);
+  const outputFacts = extractEvidenceFacts(
+    `${value.titleZh}\n${value.summaryZh}`,
+    sourceEvidence
+  );
   compareFacts(requiredFacts, allowedFacts, outputFacts, details, requiredEntities);
   if (details.addedFacts.length) reasons.push('added-facts');
   if (details.missingFacts.length) reasons.push('missing-key-facts');
@@ -646,6 +722,15 @@ export function validateEditorialResult(result, record, articleText = '') {
   }
 
   const expectedFactLevel = record.expectedFactLevel || inferFactLevel(sourceCore, record.storyType);
+  const certaintyReview = inspectCertaintyPreservation(
+    sourceEvidence,
+    `${value.titleZh}\n${value.summaryZh}`,
+    expectedFactLevel
+  );
+  if (certaintyReview.reasons.length) {
+    reasons.push(...certaintyReview.reasons);
+    details.unsafeFragments.push(...certaintyReview.fragments);
+  }
   if (expectedFactLevel === 'rumor') {
     if (value.factLevel === 'confirmed') reasons.push('rumor-marked-confirmed');
     if (!/(据报道|据消息|有消息称|可能|有意|考虑|关注|寻求|尚未|传闻|流言|预计)/.test(`${value.titleZh} ${value.summaryZh}`)) {
@@ -656,6 +741,7 @@ export function validateEditorialResult(result, record, articleText = '') {
     if (value.factLevel !== 'analysis') reasons.push('analysis-marked-as-fact');
     if (!/(分析|认为|观点|评估|预测|可能|有望|被视为|或将|讨论)/.test(value.summaryZh)) {
       reasons.push('analysis-as-fact');
+      reasons.push('analysis-presented-as-fact');
     }
   }
   if (expectedFactLevel === 'reported' && value.factLevel === 'confirmed' && RUMOR_SIGNALS.test(sourceCore)) {
@@ -853,11 +939,131 @@ function normalizeEditorialPersonNames(value, sourceEvidence) {
   return normalizeChineseText(text);
 }
 
-export function extractEvidenceFacts(text = '') {
+function inspectCertaintyPreservation(sourceValue, outputValue, expectedFactLevel) {
+  const sourceText = String(sourceValue || '').replace(/[\r\n]+/g, '. ');
+  const outputText = normalizeWhitespace(outputValue);
+  const reasons = [];
+  const fragments = [];
+
+  const negationChecks = [
+    {
+      label: 'not-expected-to',
+      source: /\b(?:is|are|was|were|be)?\s*not expected to\b/i,
+      preserved: /(?:预计不会|预计不|不太可能|尚无|没有|不会|未被预计|预计仍|预计留队)/
+    },
+    {
+      label: 'no-indication',
+      source: /\bno indication(?:s)?\b/i,
+      preserved: /(?:没有迹象|暂无迹象|尚无迹象|未有迹象|没有显示)/
+    },
+    {
+      label: 'not-decided',
+      source: /\b(?:has|have|had)\s+(?:not|yet to)\s+decid(?:e|ed)\b|\bhasn't decided\b/i,
+      preserved: /(?:尚未决定|还未决定|没有决定|未作决定|仍在考虑|决定尚未作出)/
+    },
+    {
+      label: 'no-interest',
+      source: /\b(?:had|has|have|showed|expressed)?\s*no interest in\b/i,
+      preserved: /(?:无意|没有兴趣|不感兴趣|不考虑|拒绝)/
+    }
+  ];
+
+  for (const check of negationChecks) {
+    if (!check.source.test(sourceText) || check.preserved.test(outputText)) continue;
+    reasons.push('negation-lost');
+    fragments.push(`source-negation:${check.label}`);
+  }
+
+  const sourceClaims = extractSourceCertaintyClaims(sourceText);
+  const outputClaims = extractDefiniteChineseClaims(outputText);
+  for (const sourceClaim of sourceClaims) {
+    if (sourceClaim.marker === 'reported') {
+      const preservesReportedStatus = CHINESE_REPORT_ATTRIBUTION.test(outputText) ||
+        CHINESE_ACTION_UNCERTAINTY.test(outputText);
+      if (!preservesReportedStatus && outputClaims.length) {
+        reasons.push('certainty-escalation');
+        fragments.push('source-reported:output-unattributed-definite');
+      }
+      continue;
+    }
+
+    for (const outputClaim of outputClaims) {
+      if (!certaintyActionsOverlap(sourceClaim.action, outputClaim.action)) continue;
+      if (hasChineseUncertaintyNear(outputText, outputClaim.index)) continue;
+      reasons.push('certainty-escalation');
+      fragments.push(`source-${sourceClaim.marker}:${sourceClaim.action}->output-definite:${outputClaim.action}`);
+    }
+  }
+
+  if (expectedFactLevel === 'analysis' &&
+      !/(?:分析|文章|报道|记者|认为|观点|评估|预测|可能|有望|被视为|或将|讨论)/.test(outputText)) {
+    reasons.push('analysis-presented-as-fact');
+    fragments.push('analysis-without-attribution-or-modality');
+  }
+
+  return {
+    reasons: [...new Set(reasons)],
+    fragments: [...new Set(fragments)]
+  };
+}
+
+function extractSourceCertaintyClaims(sourceText) {
+  const clauses = String(sourceText || '')
+    .split(/(?<=[.!?;])\s+|,\s+(?=(?:but|however|while|and)\b)/i)
+    .map(normalizeWhitespace)
+    .filter(Boolean);
+  const claims = [];
+
+  for (const clause of clauses) {
+    for (const [marker, pattern] of Object.entries(SOURCE_CERTAINTY_MARKERS)) {
+      if (!pattern.test(clause)) continue;
+      const actions = Object.entries(SOURCE_ACTION_PATTERNS)
+        .filter(([, actionPattern]) => actionPattern.test(clause))
+        .map(([action]) => action);
+      if (!actions.length) {
+        if (marker === 'interest') actions.push('acquisition');
+        else if (marker === 'considering') actions.push('general');
+        else if (marker === 'reported') actions.push('reported');
+        else actions.push('general');
+      }
+      for (const action of actions) claims.push({ marker, action });
+    }
+  }
+
+  return claims.filter((claim, index, all) => (
+    all.findIndex((entry) => entry.marker === claim.marker && entry.action === claim.action) === index
+  ));
+}
+
+function extractDefiniteChineseClaims(outputText) {
+  const claims = [];
+  for (const { action, pattern } of CHINESE_DEFINITE_ACTION_PATTERNS) {
+    pattern.lastIndex = 0;
+    for (const match of outputText.matchAll(pattern)) {
+      claims.push({ action, index: match.index || 0, text: match[0] });
+    }
+  }
+  return claims;
+}
+
+function certaintyActionsOverlap(sourceAction, outputAction) {
+  if (sourceAction === 'general' || sourceAction === outputAction) return true;
+  if (sourceAction === 'reported') return true;
+  if (sourceAction === 'acquisition') return ['join', 'trade'].includes(outputAction);
+  return (sourceAction === 'stay' && outputAction === 'leave') ||
+    (sourceAction === 'leave' && outputAction === 'stay');
+}
+
+function hasChineseUncertaintyNear(text, index) {
+  const context = text.slice(Math.max(0, index - 12), index + 8);
+  return CHINESE_ACTION_UNCERTAINTY.test(context);
+}
+
+export function extractEvidenceFacts(text = '', personContext = text) {
   const value = normalizeWhitespace(text);
   return {
     teams: extractTeamIds(value),
-    players: extractPeople(value),
+    players: extractPeople(value, normalizeWhitespace(personContext || value)),
     money: extractMoneyFacts(value),
     durations: extractDurationFacts(value),
     picks: extractPickFacts(value),
@@ -961,10 +1167,13 @@ function extractTeamIds(text = '') {
   return found;
 }
 
-function extractPeople(text = '') {
+function extractPeople(text = '', personContext = text) {
   const found = [];
   for (const [alias, metadata] of PLAYER_LOOKUP) {
     if (containsAlias(text, alias) && !found.includes(metadata.id)) found.push(metadata.id);
+  }
+  for (const id of extractCanonicalPersonIds(text, personContext, 'player')) {
+    if (!found.includes(id)) found.push(id);
   }
 
   let scrubbed = String(text);
@@ -984,6 +1193,14 @@ function extractPeople(text = '') {
       scrubbed = scrubbed.replace(new RegExp(`\\b${escapeRegExp(alias)}\\b`, 'gi'), ' | ');
     }
   }
+  for (const entity of CANONICAL_PERSON_ENTITIES) {
+    for (const alias of [...entity.englishNames, ...entity.chineseNames]) {
+      const pattern = /^[A-Za-z0-9]/.test(alias) && /[A-Za-z0-9]$/.test(alias)
+        ? `\\b${escapeRegExp(alias)}\\b`
+        : escapeRegExp(alias);
+      scrubbed = scrubbed.replace(new RegExp(pattern, 'gi'), ' | ');
+    }
+  }
   scrubbed = scrubbed.replace(PERSON_BOUNDARY_WORDS, ' | ');
   const matches = [...scrubbed.matchAll(PERSON_CANDIDATE_PATTERN)];
   for (const match of matches) {
@@ -993,6 +1210,40 @@ function extractPeople(text = '') {
     const normalized = slug(candidate);
     if (normalized && !found.includes(normalized)) found.push(normalized);
   }
+  return found;
+}
+
+function extractCanonicalPersonIds(text = '', personContext = text, role = '') {
+  const outputText = normalizeWhitespace(text);
+  const evidenceText = normalizeWhitespace(`${personContext || ''} ${outputText}`);
+  const found = [];
+
+  for (const entity of CANONICAL_PERSON_ENTITIES) {
+    if (role && entity.role !== role) continue;
+    const fullNames = [...entity.englishNames, ...entity.chineseNames];
+    if (fullNames.some((name) => containsAlias(outputText, name))) {
+      found.push(entity.id);
+    }
+  }
+
+  const shortNames = [...new Set(
+    CANONICAL_PERSON_ENTITIES
+      .filter((entity) => !role || entity.role === role)
+      .flatMap((entity) => entity.shortNames)
+  )];
+  for (const shortName of shortNames) {
+    if (!containsAlias(outputText, shortName)) continue;
+    const candidates = CANONICAL_PERSON_ENTITIES.filter((entity) => (
+      (!role || entity.role === role) &&
+      entity.shortNames.includes(shortName) &&
+      [...entity.englishNames, ...entity.chineseNames]
+        .some((name) => containsAlias(evidenceText, name))
+    ));
+    if (candidates.length === 1 && !found.includes(candidates[0].id)) {
+      found.push(candidates[0].id);
+    }
+  }
+
   return found;
 }
 

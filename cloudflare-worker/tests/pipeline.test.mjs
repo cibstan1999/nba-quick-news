@@ -207,6 +207,52 @@ test('quality gate accepts DeMar DeRozan interest copy without a verb-shaped pla
   assert.ok(!validation.details.missingFacts.includes('player:demar-derozan-receiving'));
 });
 
+test('canonical Curry aliases use source evidence without family-name collisions', () => {
+  assert.deepEqual(
+    extractEvidenceFacts('库里谈到球队未来', 'Stephen Curry discussed the Warriors').players,
+    ['stephen-curry']
+  );
+  assert.deepEqual(
+    extractEvidenceFacts('库里谈到球队未来', 'Steph Curry discussed the Warriors').players,
+    ['stephen-curry']
+  );
+  assert.deepEqual(
+    extractEvidenceFacts('库里谈到球队未来', 'Seth Curry discussed his role').players,
+    ['seth-curry']
+  );
+  assert.deepEqual(
+    extractEvidenceFacts('库里回顾职业生涯', 'Dell Curry discussed his career').players,
+    ['dell-curry']
+  );
+  assert.deepEqual(
+    extractEvidenceFacts('库里谈到球队未来', 'Stephen Curry and Seth Curry spoke together').players,
+    []
+  );
+  assert.deepEqual(
+    extractEvidenceFacts('赛斯·库里谈到球队未来', 'Seth Curry discussed his role').players,
+    ['seth-curry']
+  );
+});
+
+test('quality gate accepts Curry short name for Stephen Curry evidence', async () => {
+  const record = await makeRecord({
+    originalTitle: 'Warriors Focused On Building Team For After Stephen Curry Retires',
+    originalSummary: 'Reporter Tim Kawakami analyzed how the Warriors may balance moves around Stephen Curry with planning for the future.',
+    url: 'https://example.com/curry-alias'
+  });
+  const result = {
+    titleZh: '勇士评估库里退役后的建队方向',
+    summaryZh: '记者分析认为，勇士可能在围绕库里补强的同时，为未来阵容保留调整空间。',
+    categoryZh: '分析',
+    tagsZh: ['勇士', '库里'],
+    confidence: 0.9,
+    factLevel: 'analysis'
+  };
+
+  const validation = validateEditorialResult(result, record);
+  assert.ok(!validation.details.missingFacts.includes('player:stephen-curry'), JSON.stringify(validation));
+});
+
 test('queue reserves a slot for fresh news and continues old backlog', async () => {
   const records = [];
   for (let index = 0; index < 6; index += 1) {
@@ -375,6 +421,203 @@ test('rumor cannot be promoted to a confirmed transaction', async () => {
   assert.equal(validation.ok, false);
   assert.ok(validation.reasons.includes('rumor-marked-confirmed'));
   assert.ok(validation.reasons.includes('rumor-as-fact'));
+});
+
+test('quality gate rejects action-specific certainty escalation', async () => {
+  const cases = [
+    {
+      title: 'Anthony Davis Expected To Remain With Wizards',
+      summary: 'Anthony Davis is expected to remain with the Washington Wizards.',
+      resultTitle: '安东尼·戴维斯确定留队',
+      resultSummary: '据报道，安东尼·戴维斯将继续留在奇才。',
+      expectedReason: 'certainty-escalation'
+    },
+    {
+      title: 'LeBron James Could Join 76ers',
+      summary: 'LeBron James could join the Philadelphia 76ers.',
+      resultTitle: '勒布朗·詹姆斯将加盟 76 人',
+      resultSummary: '据报道，勒布朗·詹姆斯将加盟 76 人。',
+      expectedReason: 'certainty-escalation'
+    },
+    {
+      title: 'LeBron James Likely To Return To Lakers',
+      summary: 'LeBron James is likely to return to the Los Angeles Lakers.',
+      resultTitle: '勒布朗·詹姆斯将回归湖人',
+      resultSummary: '勒布朗·詹姆斯将回归湖人，并继续为球队效力。',
+      expectedReason: 'certainty-escalation'
+    },
+    {
+      title: 'LeBron James May Join 76ers',
+      summary: 'LeBron James may join the Philadelphia 76ers.',
+      resultTitle: '勒布朗·詹姆斯正式加盟 76 人',
+      resultSummary: '勒布朗·詹姆斯已经加盟 76 人，双方完成签约。',
+      expectedReason: 'certainty-escalation'
+    },
+    {
+      title: 'Lakers Interested In Seth Curry',
+      summary: 'The Los Angeles Lakers are interested in Seth Curry.',
+      resultTitle: '湖人已经签下 Seth Curry',
+      resultSummary: '据报道，湖人已经签下 Seth Curry，双方完成签约。',
+      expectedReason: 'certainty-escalation'
+    },
+    {
+      title: 'Lakers Considering Signing LeBron James',
+      summary: 'The Los Angeles Lakers are considering signing LeBron James.',
+      resultTitle: '湖人已决定签下勒布朗·詹姆斯',
+      resultSummary: '湖人已决定签下勒布朗·詹姆斯，双方即将完成签约。',
+      expectedReason: 'certainty-escalation'
+    },
+    {
+      title: 'Warriors Exploring Trade For LeBron James',
+      summary: 'The Golden State Warriors are exploring a trade for LeBron James.',
+      resultTitle: '勇士已经交易得到勒布朗·詹姆斯',
+      resultSummary: '勇士已通过交易得到勒布朗·詹姆斯，交易正式完成。',
+      expectedReason: 'certainty-escalation'
+    },
+    {
+      title: 'LeBron James Leaning Toward Joining 76ers',
+      summary: 'LeBron James is leaning toward joining the Philadelphia 76ers.',
+      resultTitle: '勒布朗·詹姆斯已决定加盟 76 人',
+      resultSummary: '勒布朗·詹姆斯已决定加盟 76 人，双方将完成签约。',
+      expectedReason: 'certainty-escalation'
+    },
+    {
+      title: '76ers Reportedly Agree To Deal With LeBron James',
+      summary: 'The Philadelphia 76ers reportedly agreed to a deal with LeBron James.',
+      resultTitle: '76 人与勒布朗·詹姆斯已达成合同',
+      resultSummary: '76 人与勒布朗·詹姆斯已达成合同，双方完成签约。',
+      expectedReason: 'certainty-escalation'
+    },
+    {
+      title: 'Stephen Curry Not Expected To Leave Warriors',
+      summary: 'Stephen Curry is not expected to leave the Golden State Warriors.',
+      resultTitle: '斯蒂芬·库里预计离队',
+      resultSummary: '据报道，斯蒂芬·库里预计离开勇士。',
+      expectedReason: 'negation-lost'
+    },
+    {
+      title: 'No Indication Stephen Curry Will Leave Warriors',
+      summary: 'There is no indication Stephen Curry will leave the Golden State Warriors.',
+      resultTitle: '斯蒂芬·库里将离开勇士',
+      resultSummary: '斯蒂芬·库里将离开勇士，并寻找下一支球队。',
+      expectedReason: 'negation-lost'
+    },
+    {
+      title: 'LeBron James Has Not Decided On Next Team',
+      summary: 'LeBron James has not decided which team he will join.',
+      resultTitle: '勒布朗·詹姆斯已决定加盟新球队',
+      resultSummary: '据报道，勒布朗·詹姆斯已经决定加盟新球队。',
+      expectedReason: 'negation-lost'
+    }
+  ];
+
+  for (const [index, entry] of cases.entries()) {
+    const record = await makeRecord({
+      originalTitle: entry.title,
+      originalSummary: entry.summary,
+      url: `https://example.com/certainty-${index}`
+    });
+    const validation = validateEditorialResult({
+      titleZh: entry.resultTitle,
+      summaryZh: entry.resultSummary,
+      categoryZh: record.category,
+      tagsZh: ['NBA', '动态'],
+      confidence: 0.9,
+      factLevel: record.expectedFactLevel
+    }, record);
+    assert.ok(
+      validation.reasons.includes(entry.expectedReason),
+      `${entry.title}: ${JSON.stringify(validation)}`
+    );
+  }
+});
+
+test('frozen TR-03 wording is rejected for expected-status escalation', async () => {
+  const record = await makeRecord({
+    originalTitle: 'Wizards, Mavericks Had No Interest In Trading Anthony Davis, Kyrie Irving',
+    originalSummary: [
+      'Neither the Washington Wizards nor the Dallas Mavericks had any interest in trading either player.',
+      "It's expected that both Davis and Irving will start the season with the Wizards and Mavericks, respectively."
+    ].join(' '),
+    url: 'https://example.com/frozen-tr-03'
+  });
+  const validation = validateEditorialResult({
+    titleZh: '奇才、独行侠无意交易安东尼·戴维斯、凯里·欧文',
+    summaryZh: '据报道，奇才和独行侠均无意交易两人。戴维斯和欧文将留在奇才和独行侠。',
+    categoryZh: '流言',
+    tagsZh: ['奇才', '独行侠'],
+    confidence: 0.9,
+    factLevel: 'rumor'
+  }, record);
+
+  assert.ok(validation.reasons.includes('certainty-escalation'), JSON.stringify(validation));
+  assert.ok(
+    validation.details.unsafeFragments.includes('source-expected:stay->output-definite:stay'),
+    JSON.stringify(validation)
+  );
+});
+
+test('quality gate preserves English negation when Chinese remains undecided', async () => {
+  const record = await makeRecord({
+    originalTitle: 'LeBron James Has Not Decided On Next Team',
+    originalSummary: 'LeBron James has yet to decide which team he will join.',
+    url: 'https://example.com/not-decided-safe'
+  });
+  const validation = validateEditorialResult({
+    titleZh: '勒布朗·詹姆斯尚未决定下家',
+    summaryZh: '据报道，勒布朗·詹姆斯尚未决定下一支球队，目前仍在考虑不同选择。',
+    categoryZh: record.category,
+    tagsZh: ['勒布朗·詹姆斯', '流言'],
+    confidence: 0.9,
+    factLevel: record.expectedFactLevel
+  }, record);
+  assert.ok(!validation.reasons.includes('negation-lost'), JSON.stringify(validation));
+  assert.ok(!validation.reasons.includes('certainty-escalation'), JSON.stringify(validation));
+});
+
+test('quality gate identifies analysis presented as completed fact', async () => {
+  const record = await makeRecord({
+    originalTitle: 'What It Means For LeBron James If Lakers Make A Trade',
+    originalSummary: 'The analysis explores how a possible trade could affect LeBron James and the Lakers.',
+    url: 'https://example.com/analysis-as-fact'
+  });
+  const validation = validateEditorialResult({
+    titleZh: '湖人交易改变勒布朗·詹姆斯处境',
+    summaryZh: '湖人完成交易后改变了勒布朗·詹姆斯的球队处境和后续安排。',
+    categoryZh: '分析',
+    tagsZh: ['湖人', '勒布朗·詹姆斯'],
+    confidence: 0.9,
+    factLevel: 'analysis'
+  }, record);
+  assert.ok(validation.reasons.includes('analysis-presented-as-fact'), JSON.stringify(validation));
+});
+
+test('quality gate does not reject confirmed signings or completed trades as escalation', async () => {
+  const signingRecord = await makeRecord();
+  const signing = validateEditorialResult({
+    titleZh: '湖人与 Jaxson Hayes 完成续约',
+    summaryZh: 'Jaxson Hayes 已与湖人达成 2 年 1200 万美元合同，双方正式完成续约。',
+    categoryZh: '签约',
+    tagsZh: ['湖人', '续约'],
+    confidence: 0.9,
+    factLevel: 'confirmed'
+  }, signingRecord);
+  assert.ok(!signing.reasons.includes('certainty-escalation'), JSON.stringify(signing));
+
+  const tradeRecord = await makeRecord({
+    originalTitle: '76ers Acquire Jaylen Brown From Celtics',
+    originalSummary: 'The Philadelphia 76ers completed a trade to acquire Jaylen Brown from the Boston Celtics.',
+    url: 'https://example.com/completed-trade'
+  });
+  const trade = validateEditorialResult({
+    titleZh: '76 人从凯尔特人得到杰伦·布朗',
+    summaryZh: '76 人已经完成与凯尔特人的交易，并从对方得到杰伦·布朗。',
+    categoryZh: '交易',
+    tagsZh: ['76 人', '凯尔特人'],
+    confidence: 0.9,
+    factLevel: 'confirmed'
+  }, tradeRecord);
+  assert.ok(!trade.reasons.includes('certainty-escalation'), JSON.stringify(trade));
 });
 
 test('accepted records are the only records materialized for the homepage', async () => {
