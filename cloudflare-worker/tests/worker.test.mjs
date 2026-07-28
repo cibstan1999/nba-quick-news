@@ -644,3 +644,291 @@ test('Debug reprocess runs one rejected record without writing KV or touching ac
   assert.equal(acceptedResponse.status, 409);
   assert.equal(aiCalls, 0);
 });
+
+test('Phase 1 runs fact extraction then editorial generation with no fallback', async (context) => {
+  const restoreFetch = mockSigningFeed(context, 'phase1-success');
+  context.after(restoreFetch);
+  const kv = new MemoryKv();
+  const calls = [];
+  const env = makePhase1Env(kv, async (model, request) => {
+    calls.push({ model, request });
+    return calls.length === 1
+      ? { response: phase1SigningFact(), finish_reason: 'stop' }
+      : { response: phase1SigningEditorial(), finish_reason: 'stop' };
+  });
+
+  const response = await worker.fetch(new Request('https://worker.example/refresh'), env);
+  const payload = await response.json();
+
+  assert.equal(response.status, 200);
+  assert.equal(payload.items.length, 1);
+  assert.equal(payload.items[0].oneLineZh, 'Hayes 的新合同价值 1200 万美元');
+  assert.equal('factExtraction' in payload.items[0], false);
+  assert.equal(payload.lastFetchStatus.pipelineMode, 'phase1');
+  assert.equal(payload.lastFetchStatus.factStageRequests, 1);
+  assert.equal(payload.lastFetchStatus.editorialStageRequests, 1);
+  assert.equal(payload.lastFetchStatus.aiRequests, 2);
+  assert.equal(payload.lastFetchStatus.aiFallbackRequests, 0);
+  assert.equal(calls.length, 2);
+  assert.equal(calls.every((call) => call.model === env.AI_MODEL), true);
+
+  const catalog = JSON.parse(kv.values.get('news:catalog:v1'));
+  const record = JSON.parse(kv.values.get(`news:item:${catalog.ids[0]}`));
+  assert.equal(record.factExtractionStatus, 'accepted');
+  assert.equal(record.factValidationStatus, 'accepted');
+  assert.equal(record.editorialGenerationStatus, 'accepted');
+  assert.equal(record.finalGateStatus, 'accepted');
+  assert.match(record.factExtractionCacheKey, /^fact-v1-qwen3:/);
+  assert.match(record.editorialGenerationCacheKey, /^editorial-v1-qwen3:/);
+});
+
+test('Phase 1 stops after Stage 1 validation failure and never invokes Stage 2 or Llama', async (context) => {
+  const restoreFetch = mockSigningFeed(context, 'phase1-fact-reject');
+  context.after(restoreFetch);
+  const kv = new MemoryKv();
+  const models = [];
+  const unsafeFact = phase1SigningFact();
+  unsafeFact.numbers = [{ type: 'money', raw: '$99 million', value: '99 million USD' }];
+  const env = makePhase1Env(kv, async (model) => {
+    models.push(model);
+    return { response: unsafeFact, finish_reason: 'stop' };
+  });
+
+  const payload = await (await worker.fetch(
+    new Request('https://worker.example/refresh'),
+    env
+  )).json();
+
+  assert.equal(payload.lastFetchStatus.aiRequests, 1);
+  assert.equal(payload.lastFetchStatus.factStageRequests, 1);
+  assert.equal(payload.lastFetchStatus.editorialStageRequests, 0);
+  assert.equal(payload.lastFetchStatus.stage2Skipped, 1);
+  assert.equal(payload.lastFetchStatus.aiFallbackRequests, 0);
+  assert.deepEqual(models, [env.AI_MODEL]);
+
+  const catalog = JSON.parse(kv.values.get('news:catalog:v1'));
+  const record = JSON.parse(kv.values.get(`news:item:${catalog.ids[0]}`));
+  assert.equal(record.aiStatus, 'rejected');
+  assert.equal(record.rejectionStage, 'fact-validation');
+  assert.equal(record.rejectionReasons.includes('fact-number-mismatch'), true);
+});
+
+test('Phase 1 retries structural Stage 1 failure once and does not call fallback', async (context) => {
+  const restoreFetch = mockSigningFeed(context, 'phase1-structural-reject');
+  context.after(restoreFetch);
+  const kv = new MemoryKv();
+  const models = [];
+  const env = makePhase1Env(kv, async (model) => {
+    models.push(model);
+    return {
+      choices: [{
+        message: { content: null, reasoning: 'Never consume this.' },
+        finish_reason: 'length'
+      }]
+    };
+  });
+
+  const payload = await (await worker.fetch(
+    new Request('https://worker.example/refresh'),
+    env
+  )).json();
+
+  assert.equal(payload.lastFetchStatus.aiRequests, 2);
+  assert.equal(payload.lastFetchStatus.factStageRequests, 2);
+  assert.equal(payload.lastFetchStatus.editorialStageRequests, 0);
+  assert.equal(payload.lastFetchStatus.aiFallbackRequests, 0);
+  assert.deepEqual(models, [env.AI_MODEL, env.AI_MODEL]);
+
+  const catalog = JSON.parse(kv.values.get('news:catalog:v1'));
+  const record = JSON.parse(kv.values.get(`news:item:${catalog.ids[0]}`));
+  assert.equal(record.aiStatus, 'rejected');
+  assert.equal(record.rejectionStage, 'fact-extraction');
+});
+
+test('Phase 1 rejects an unsafe Stage 2 candidate without invoking fallback', async (context) => {
+  const restoreFetch = mockSigningFeed(context, 'phase1-gate-reject');
+  context.after(restoreFetch);
+  const kv = new MemoryKv();
+  const calls = [];
+  const env = makePhase1Env(kv, async (model) => {
+    calls.push(model);
+    if (calls.length === 1) return { response: phase1SigningFact(), finish_reason: 'stop' };
+    return {
+      response: { ...phase1SigningEditorial(), confidence: 0.3 },
+      finish_reason: 'stop'
+    };
+  });
+
+  const payload = await (await worker.fetch(
+    new Request('https://worker.example/refresh'),
+    env
+  )).json();
+
+  assert.equal(payload.lastFetchStatus.aiRequests, 2);
+  assert.equal(payload.lastFetchStatus.aiFallbackRequests, 0);
+  assert.equal(payload.lastFetchStatus.aiRejected, 1);
+  assert.deepEqual(calls, [env.AI_MODEL, env.AI_MODEL]);
+
+  const catalog = JSON.parse(kv.values.get('news:catalog:v1'));
+  const record = JSON.parse(kv.values.get(`news:item:${catalog.ids[0]}`));
+  assert.equal(record.rejectionStage, 'final-gate');
+  assert.equal(record.rejectionReasons.includes('low-confidence'), true);
+});
+
+test('Phase 1 canary selects at most one new pending item and leaves the rest pending', async (context) => {
+  const originalFetch = globalThis.fetch;
+  context.after(() => {
+    globalThis.fetch = originalFetch;
+  });
+  globalThis.fetch = async () => new Response(`<?xml version="1.0"?>
+    <rss version="2.0"><channel>
+      <item>
+        <title>Jaxson Hayes Agrees To Two-Year, $12M Deal With Lakers</title>
+        <link>https://basketball.realgm.com/wiretap/canary-1</link>
+        <pubDate>Mon, 27 Jul 2026 07:30:00 GMT</pubDate>
+        <description>Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.</description>
+      </item>
+      <item>
+        <title>Second Player Agrees To Two-Year, $12M Deal With Lakers</title>
+        <link>https://basketball.realgm.com/wiretap/canary-2</link>
+        <pubDate>Mon, 27 Jul 2026 07:20:00 GMT</pubDate>
+        <description>Second Player has agreed to a two-year, $12 million contract with the Los Angeles Lakers.</description>
+      </item>
+    </channel></rss>`, {
+    status: 200,
+    headers: { 'content-type': 'application/rss+xml' }
+  });
+
+  const kv = new MemoryKv();
+  let calls = 0;
+  const env = makePhase1Env(kv, async () => {
+    calls += 1;
+    return calls === 1
+      ? { response: phase1SigningFact(), finish_reason: 'stop' }
+      : { response: phase1SigningEditorial(), finish_reason: 'stop' };
+  });
+  env.EDITORIAL_PIPELINE_MODE = 'phase1-canary';
+
+  const payload = await (await worker.fetch(
+    new Request('https://worker.example/refresh'),
+    env
+  )).json();
+  const catalog = JSON.parse(kv.values.get('news:catalog:v1'));
+  const records = catalog.ids.map((id) => JSON.parse(kv.values.get(`news:item:${id}`)));
+
+  assert.equal(payload.lastFetchStatus.aiSelected, 1);
+  assert.equal(calls, 2);
+  assert.equal(records.filter((record) => record.aiStatus === 'pending').length, 1);
+  assert.equal(records.filter((record) => record.aiStatus === 'accepted').length, 1);
+});
+
+test('Phase 1 debug can evaluate an accepted record without writing KV', async (context) => {
+  const restoreFetch = mockSigningFeed(context, 'phase1-debug');
+  context.after(restoreFetch);
+  const kv = new MemoryKv();
+  let stage = 0;
+  const env = makePhase1Env(kv, async () => {
+    stage += 1;
+    return stage % 2 === 1
+      ? { response: phase1SigningFact(), finish_reason: 'stop' }
+      : { response: phase1SigningEditorial(), finish_reason: 'stop' };
+  });
+  env.REFRESH_TOKEN = 'phase1-test-token';
+  const auth = { 'x-refresh-token': env.REFRESH_TOKEN };
+
+  await worker.fetch(new Request('https://worker.example/refresh', { headers: auth }), env);
+  const catalog = JSON.parse(kv.values.get('news:catalog:v1'));
+  const newsId = catalog.ids[0];
+  const before = JSON.stringify([...kv.values.entries()]);
+  stage = 0;
+  const response = await worker.fetch(new Request('https://worker.example/debug/reprocess', {
+    method: 'POST',
+    headers: { ...auth, 'content-type': 'application/json' },
+    body: JSON.stringify({
+      newsId,
+      dryRun: true,
+      pipelineMode: 'phase1',
+      evaluateAccepted: true
+    })
+  }), env);
+  const payload = await response.json();
+
+  assert.equal(response.status, 200);
+  assert.equal(payload.persisted, false);
+  assert.equal(payload.pipelineMode, 'phase1');
+  assert.equal(payload.factStageRequests, 1);
+  assert.equal(payload.editorialStageRequests, 1);
+  assert.equal(payload.resultAiStatus, 'accepted');
+  assert.equal(JSON.stringify([...kv.values.entries()]), before);
+});
+
+function mockSigningFeed(context, suffix) {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () => new Response(`<?xml version="1.0"?>
+    <rss version="2.0"><channel><item>
+      <title>Jaxson Hayes Agrees To Two-Year, $12M Deal With Lakers</title>
+      <link>https://basketball.realgm.com/wiretap/${suffix}</link>
+      <pubDate>Mon, 27 Jul 2026 07:30:00 GMT</pubDate>
+      <description>Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.</description>
+    </item></channel></rss>`, {
+    status: 200,
+    headers: { 'content-type': 'application/rss+xml' }
+  });
+  return () => {
+    globalThis.fetch = originalFetch;
+  };
+}
+
+function makePhase1Env(kv, run) {
+  return {
+    NEWS_KV: kv,
+    AI_ENABLED: 'true',
+    AI_MAX_ITEMS_PER_RUN: '3',
+    EDITORIAL_PIPELINE_MODE: 'phase1',
+    JINA_READER_ENABLED: 'false',
+    AI_MODEL: '@cf/qwen/qwen3-30b-a3b-fp8',
+    AI_FALLBACK_MODEL: '@cf/meta/llama-3.1-8b-instruct-fast',
+    AI: { run }
+  };
+}
+
+function phase1SigningFact() {
+  return {
+    storyType: 'signing',
+    sourceCertainty: 'confirmed',
+    attribution: ['RealGM'],
+    entities: [
+      { type: 'person', name: 'Jaxson Hayes', canonicalId: 'jaxson-hayes' },
+      { type: 'team', name: 'Los Angeles Lakers', canonicalId: 'lakers' }
+    ],
+    numbers: [
+      { type: 'contractYears', raw: 'two-year', value: '2 years' },
+      { type: 'money', raw: '$12 million', value: '12 million USD' }
+    ],
+    claims: [{
+      id: 'c1',
+      subject: 'Jaxson Hayes',
+      predicate: 'has agreed to',
+      object: 'a two-year, $12 million contract with the Los Angeles Lakers',
+      polarity: 'positive',
+      certainty: 'confirmed',
+      attribution: '',
+      evidence: [{
+        sourceField: 'rssSummary',
+        text: 'Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.'
+      }]
+    }],
+    mustNotClaim: []
+  };
+}
+
+function phase1SigningEditorial() {
+  return {
+    titleZh: '湖人与 Jaxson Hayes 达成 2 年合同',
+    summaryZh: 'Jaxson Hayes 与湖人达成 2 年 1200 万美元合同，双方已经完成这笔签约。',
+    oneLineZh: 'Hayes 的新合同价值 1200 万美元',
+    categoryZh: '签约',
+    tagsZh: ['湖人', '签约'],
+    confidence: 0.9
+  };
+}

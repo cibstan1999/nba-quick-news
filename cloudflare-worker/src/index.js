@@ -1,7 +1,14 @@
 import { XMLParser } from 'fast-xml-parser';
 import {
+  EDITORIAL_GENERATION_VERSION,
+  FACT_EXTRACTION_VERSION,
+  PIPELINE_MODES,
   PIPELINE_VERSION,
   buildEditorialPrompt,
+  buildFactExtractionPrompt,
+  buildPhase1EditorialPrompt,
+  buildPhase1EditorialRequest,
+  buildPhase1FactRequest,
   buildWorkersAiJsonRequest,
   buildWorkersAiRequest,
   cleanStringsDeep,
@@ -13,12 +20,17 @@ import {
   materializePayload,
   migrateLegacyRecord,
   normalizeAiResponse,
+  normalizeFactExtractionResponse,
+  normalizePhase1EditorialResponse,
   normalizeWhitespace,
   recoverStaleProcessing,
   selectQueueRecords,
   stripHtml,
   summarizeQueue,
-  validateEditorialResult
+  summarizeFactExtraction,
+  validateEditorialResult,
+  validateFactExtraction,
+  validatePhase1EditorialResult
 } from './pipeline.js';
 
 const FEED = {
@@ -34,6 +46,10 @@ const DEFAULT_AI_FALLBACK_MODEL = '@cf/meta/llama-3.1-8b-instruct-fast';
 const DEFAULT_CATALOG_LIMIT = 120;
 const PRIMARY_JSON_MAX_TOKENS = 2400;
 const PRIMARY_JSON_RETRY_MAX_TOKENS = 4000;
+const FACT_JSON_MAX_TOKENS = 3200;
+const FACT_JSON_RETRY_MAX_TOKENS = 4800;
+const EDITORIAL_JSON_MAX_TOKENS = 2200;
+const EDITORIAL_JSON_RETRY_MAX_TOKENS = 3400;
 
 class RefreshError extends Error {
   constructor(message, payload) {
@@ -93,6 +109,9 @@ export default {
     return jsonResponse({
       name: 'nba-quick-news-worker',
       pipelineVersion: PIPELINE_VERSION,
+      pipelineMode: getPipelineMode(env),
+      factExtractionVersion: FACT_EXTRACTION_VERSION,
+      editorialGenerationVersion: EDITORIAL_GENERATION_VERSION,
       routes: ['/health', '/data/news.json', '/refresh']
     });
   },
@@ -113,6 +132,9 @@ async function serveHealth(env) {
     ok: true,
     now: new Date().toISOString(),
     pipelineVersion: PIPELINE_VERSION,
+    pipelineMode: getPipelineMode(env),
+    factExtractionVersion: FACT_EXTRACTION_VERSION,
+    editorialGenerationVersion: EDITORIAL_GENERATION_VERSION,
     dataStatus: payload?.lastFetchStatus?.status || 'empty',
     updatedAt: payload?.updatedAt || null,
     acceptedItems: payload?.items?.length || 0,
@@ -186,6 +208,11 @@ async function reprocessRejectedForDebug(request, env) {
   }
 
   const newsId = normalizeWhitespace(body?.newsId || '');
+  const requestedMode = normalizeWhitespace(body?.pipelineMode || '');
+  const pipelineMode = requestedMode
+    ? getPipelineMode({ ...env, EDITORIAL_PIPELINE_MODE: requestedMode })
+    : getPipelineMode(env);
+  const evaluateAccepted = body?.evaluateAccepted === true && pipelineMode === 'phase1';
   if (body?.dryRun !== true) {
     return jsonResponse({ error: 'dryRun must be true.' }, {
       status: 400,
@@ -214,9 +241,9 @@ async function reprocessRejectedForDebug(request, env) {
       headers: { 'cache-control': 'no-store' }
     });
   }
-  if (storedRecord.aiStatus !== 'rejected') {
+  if (storedRecord.aiStatus !== 'rejected' && !(evaluateAccepted && storedRecord.aiStatus === 'accepted')) {
     return jsonResponse({
-      error: 'Only rejected news can be reprocessed by this debug endpoint.',
+      error: 'Only rejected news can be reprocessed unless phase1 accepted-record evaluation is explicitly enabled.',
       newsId,
       aiStatus: storedRecord.aiStatus || 'unknown'
     }, {
@@ -232,11 +259,18 @@ async function reprocessRejectedForDebug(request, env) {
   testRecord.lastAttemptAt = startedAt;
   testRecord.lastError = null;
   testRecord.rejectionReasons = [];
+  testRecord.rejectionStage = null;
+  if (pipelineMode !== 'single') {
+    testRecord.editorial = null;
+    resetPhase1RecordState(testRecord);
+  }
 
   const stats = createDebugAiStats();
   const snapshots = [];
-  await processRecord(testRecord, env, stats, snapshots);
+  await processRecord(testRecord, env, stats, snapshots, pipelineMode);
   const qwenSnapshot = snapshots.find((snapshot) => snapshot.stage === 'qwen-primary') || null;
+  const factSnapshot = snapshots.find((snapshot) => snapshot.stage === 'phase1-fact-extraction') || null;
+  const editorialSnapshot = snapshots.find((snapshot) => snapshot.stage === 'phase1-editorial-generation') || null;
   const finalSnapshot = snapshots.at(-1) || null;
 
   return jsonResponse({
@@ -247,8 +281,14 @@ async function reprocessRejectedForDebug(request, env) {
     originalTitle: storedRecord.originalTitle,
     previousAiStatus: storedRecord.aiStatus,
     resultAiStatus: testRecord.aiStatus,
+    pipelineMode,
+    pipelineVersion: PIPELINE_VERSION,
+    factExtractionVersion: FACT_EXTRACTION_VERSION,
+    editorialGenerationVersion: EDITORIAL_GENERATION_VERSION,
     aiSelected: 1,
     aiRequests: stats.requests,
+    factStageRequests: stats.factStageRequests,
+    editorialStageRequests: stats.editorialStageRequests,
     aiAccepted: stats.accepted,
     aiRejected: stats.rejected,
     aiFailed: stats.failed,
@@ -260,13 +300,17 @@ async function reprocessRejectedForDebug(request, env) {
       lengthStops: stats.qwenLengthStops,
       invalidJson: stats.qwenInvalidJson
     },
-    qwenFinalParsedJson: qwenSnapshot?.qwenFinalParsedJson || null,
-    titleZh: (qwenSnapshot || finalSnapshot)?.titleZh || '',
-    summaryZh: (qwenSnapshot || finalSnapshot)?.summaryZh || '',
-    oneLineZh: (qwenSnapshot || finalSnapshot)?.oneLineZh || '',
+    factExtraction: factSnapshot?.factExtraction || null,
+    factValidation: factSnapshot?.factValidation || null,
+    qwenFinalParsedJson: (editorialSnapshot || qwenSnapshot)?.qwenFinalParsedJson || null,
+    titleZh: (editorialSnapshot || qwenSnapshot || finalSnapshot)?.titleZh || '',
+    summaryZh: (editorialSnapshot || qwenSnapshot || finalSnapshot)?.summaryZh || '',
+    oneLineZh: (editorialSnapshot || qwenSnapshot || finalSnapshot)?.oneLineZh || '',
     fallbackInvoked: Boolean(finalSnapshot?.fallbackInvoked),
     fallbackReason: finalSnapshot?.fallbackReason || null,
-    rejectionReasons: (qwenSnapshot || finalSnapshot)?.rejectionReasons || testRecord.rejectionReasons || [],
+    rejectionStage: testRecord.rejectionStage || null,
+    rejectionReasons: (editorialSnapshot || factSnapshot || qwenSnapshot || finalSnapshot)?.rejectionReasons ||
+      testRecord.rejectionReasons || [],
     snapshots
   }, {
     headers: { 'cache-control': 'no-store' }
@@ -298,6 +342,9 @@ async function refreshNews(env, meta = {}) {
         }],
         message: 'RealGM RSS fetch failed; previously accepted content was preserved.',
         pipelineVersion: PIPELINE_VERSION,
+        pipelineMode: getPipelineMode(env),
+        factExtractionVersion: FACT_EXTRACTION_VERSION,
+        editorialGenerationVersion: EDITORIAL_GENERATION_VERSION,
         ...meta
       }
     });
@@ -308,6 +355,7 @@ async function refreshNews(env, meta = {}) {
   const incoming = await normalizeIncomingItems(feedResult.items);
   const state = await loadContentState(env, previousPayload, checkedAt);
   const dirty = new Set(state.dirtyIds);
+  const pipelineMode = getPipelineMode(env);
 
   for (const newsId of recoverStaleProcessing(state.records, nowMs)) dirty.add(newsId);
   mergeIncoming(state.records, incoming, checkedAt, dirty);
@@ -315,7 +363,12 @@ async function refreshNews(env, meta = {}) {
   const catalogLimit = clampInteger(env.NEWS_CATALOG_LIMIT, DEFAULT_CATALOG_LIMIT, 40, 200);
   state.records = retainCatalogRecords(state.records, catalogLimit);
   const selected = isAiEnabled(env)
-    ? selectQueueRecords(state.records, clampInteger(env.AI_MAX_ITEMS_PER_RUN, 3, 1, 10), nowMs)
+    ? selectRecordsForPipelineMode(
+        state.records,
+        pipelineMode,
+        clampInteger(env.AI_MAX_ITEMS_PER_RUN, 3, 1, 10),
+        nowMs
+      )
     : [];
 
   for (const record of selected) {
@@ -347,11 +400,18 @@ async function refreshNews(env, meta = {}) {
     qwenEmptyContent: 0,
     qwenLengthStops: 0,
     qwenInvalidJson: 0,
+    factStageRequests: 0,
+    factStageParsed: 0,
+    factStageRejected: 0,
+    editorialStageRequests: 0,
+    editorialStageParsed: 0,
+    editorialStageRejected: 0,
+    stage2Skipped: 0,
     rejectionSamples: []
   };
 
   for (const record of selected) {
-    await processRecord(record, env, aiStats);
+    await processRecord(record, env, aiStats, null, pipelineMode);
     await writeRecord(env.NEWS_KV, record);
   }
 
@@ -370,6 +430,7 @@ async function refreshNews(env, meta = {}) {
     successfulFeeds: [{ source: FEED.source, feed: FEED.feed, items: feedResult.items.length }],
     failedFeeds: [],
     aiEnabled: aiStats.enabled,
+    pipelineMode,
     aiModel: env.AI_MODEL || DEFAULT_AI_MODEL,
     aiFallbackModel: env.AI_FALLBACK_MODEL || DEFAULT_AI_FALLBACK_MODEL,
     aiSelected: aiStats.selected,
@@ -379,6 +440,15 @@ async function refreshNews(env, meta = {}) {
     aiAccepted: aiStats.accepted,
     aiRejected: aiStats.rejected,
     aiFailed: aiStats.failed,
+    factExtractionVersion: FACT_EXTRACTION_VERSION,
+    editorialGenerationVersion: EDITORIAL_GENERATION_VERSION,
+    factStageRequests: aiStats.factStageRequests,
+    factStageParsed: aiStats.factStageParsed,
+    factStageRejected: aiStats.factStageRejected,
+    editorialStageRequests: aiStats.editorialStageRequests,
+    editorialStageParsed: aiStats.editorialStageParsed,
+    editorialStageRejected: aiStats.editorialStageRejected,
+    stage2Skipped: aiStats.stage2Skipped,
     aiRejectionSamples: aiStats.rejectionSamples,
     queue,
     message: pipelineDegraded
@@ -392,6 +462,9 @@ async function refreshNews(env, meta = {}) {
 
   console.log('NBA editorial pipeline completed', {
     pipelineVersion: PIPELINE_VERSION,
+    pipelineMode,
+    factExtractionVersion: FACT_EXTRACTION_VERSION,
+    editorialGenerationVersion: EDITORIAL_GENERATION_VERSION,
     fetchedItems: feedResult.items.length,
     acceptedItems: payload.items.length,
     aiSelected: aiStats.selected,
@@ -399,6 +472,9 @@ async function refreshNews(env, meta = {}) {
     aiAccepted: aiStats.accepted,
     aiRejected: aiStats.rejected,
     aiFailed: aiStats.failed,
+    factStageRequests: aiStats.factStageRequests,
+    editorialStageRequests: aiStats.editorialStageRequests,
+    stage2Skipped: aiStats.stage2Skipped,
     qwenBaseline: {
       attempts: aiStats.qwenAttempts,
       retries: aiStats.qwenRetries,
@@ -413,7 +489,16 @@ async function refreshNews(env, meta = {}) {
   return payload;
 }
 
-async function processRecord(record, env, stats, debugSnapshots = null) {
+async function processRecord(
+  record,
+  env,
+  stats,
+  debugSnapshots = null,
+  pipelineMode = getPipelineMode(env)
+) {
+  if (pipelineMode !== 'single') {
+    return processRecordPhase1(record, env, stats, debugSnapshots, pipelineMode);
+  }
   const articleText = await extractArticleText(record.url, record.originalTitle, env);
   try {
     let aiResult = await summarizeWithWorkersAi(record, articleText, env);
@@ -497,6 +582,420 @@ async function processRecord(record, env, stats, debugSnapshots = null) {
       error: record.lastError
     });
   }
+}
+
+async function processRecordPhase1(record, env, stats, debugSnapshots, pipelineMode) {
+  const articleText = await extractArticleText(record.url, record.originalTitle, env);
+  const model = env.AI_MODEL || DEFAULT_AI_MODEL;
+  const sourceHash = record.sourceHash || '';
+  const factCacheKey = `${FACT_EXTRACTION_VERSION}:${sourceHash}`;
+  const editorialCacheKey = `${EDITORIAL_GENERATION_VERSION}:${sourceHash}`;
+  const cachedFactVersion = record.factExtractionVersion;
+  const cachedFactKey = record.factExtractionCacheKey;
+  let factExtraction = null;
+
+  record.pipelineVersion = PIPELINE_VERSION;
+  record.factExtractionVersion = FACT_EXTRACTION_VERSION;
+  record.editorialGenerationVersion = EDITORIAL_GENERATION_VERSION;
+  record.factExtractionCacheKey = factCacheKey;
+  record.editorialGenerationCacheKey = editorialCacheKey;
+  record.factStageRequests = 0;
+  record.editorialStageRequests = 0;
+  record.rejectionStage = null;
+  record.finalGateStatus = 'pending';
+
+  try {
+    const hasValidFactCache = (
+      record.factExtraction &&
+      record.factValidationStatus === 'accepted' &&
+      cachedFactVersion === FACT_EXTRACTION_VERSION &&
+      cachedFactKey === factCacheKey
+    );
+
+    if (hasValidFactCache) {
+      const cachedValidation = validateFactExtraction(record.factExtraction, record, articleText);
+      if (cachedValidation.ok) {
+        factExtraction = cachedValidation.value;
+        record.factExtraction = factExtraction;
+        record.factExtractionStatus = 'accepted';
+        record.factValidationStatus = 'accepted';
+        record.factValidation = compactFactValidation(cachedValidation);
+      }
+    }
+
+    if (!factExtraction) {
+      record.factExtractionStatus = 'processing';
+      record.factValidationStatus = 'pending';
+      const factPrompt = buildFactExtractionPrompt(record, articleText);
+      const factResult = await runQwenStructuredStage({
+        env,
+        model,
+        newsId: record.newsId,
+        stage: 'phase1-fact-extraction',
+        prompt: factPrompt,
+        attempts: [
+          { maxTokens: FACT_JSON_MAX_TOKENS, retry: false },
+          { maxTokens: FACT_JSON_RETRY_MAX_TOKENS, retry: true }
+        ],
+        buildRequest: buildPhase1FactRequest,
+        normalizeResponse: normalizeFactExtractionResponse
+      });
+      addStageStats(stats, 'fact', factResult);
+      record.factStageRequests = factResult.requestCount;
+
+      if (!factResult.normalized?.parsed) {
+        record.factExtractionStatus = 'rejected';
+        record.factValidationStatus = 'rejected';
+        const reasons = ['fact-schema-invalid'];
+        const snapshot = logPhase1FactDebug(record, factResult, {
+          ok: false,
+          reasons,
+          details: { structuralFailureReason: factResult.failureReason }
+        }, pipelineMode);
+        if (debugSnapshots) debugSnapshots.push(snapshot);
+        rejectPhase1Record(record, stats, 'fact-extraction', reasons, {
+          structuralFailureReason: factResult.failureReason
+        });
+        stats.factStageRejected += 1;
+        stats.stage2Skipped += 1;
+        return;
+      }
+
+      stats.factStageParsed += 1;
+      const factValidation = validateFactExtraction(
+        factResult.normalized.parsed,
+        record,
+        articleText
+      );
+      const snapshot = logPhase1FactDebug(record, factResult, factValidation, pipelineMode);
+      if (debugSnapshots) debugSnapshots.push(snapshot);
+      if (!factValidation.ok) {
+        record.factExtractionStatus = 'accepted';
+        record.factValidationStatus = 'rejected';
+        record.factExtraction = factValidation.value;
+        record.factValidation = compactFactValidation(factValidation);
+        rejectPhase1Record(
+          record,
+          stats,
+          'fact-validation',
+          factValidation.reasons,
+          factValidation.details
+        );
+        stats.factStageRejected += 1;
+        stats.stage2Skipped += 1;
+        return;
+      }
+
+      factExtraction = factValidation.value;
+      record.factExtraction = factExtraction;
+      record.factExtractionStatus = 'accepted';
+      record.factValidationStatus = 'accepted';
+      record.factValidation = compactFactValidation(factValidation);
+    } else {
+      const snapshot = {
+        newsId: record.newsId,
+        originalTitle: record.originalTitle,
+        stage: 'phase1-fact-extraction',
+        model,
+        pipelineMode,
+        cacheHit: true,
+        factExtraction: summarizeFactExtraction(factExtraction),
+        factValidation: record.factValidation,
+        stageRequests: 0,
+        rejectionReasons: []
+      };
+      console.log('Phase 1 fact extraction debug', snapshot);
+      if (debugSnapshots) debugSnapshots.push(snapshot);
+    }
+
+    record.editorialGenerationStatus = 'processing';
+    const editorialPrompt = buildPhase1EditorialPrompt(factExtraction, record);
+    const editorialResult = await runQwenStructuredStage({
+      env,
+      model,
+      newsId: record.newsId,
+      stage: 'phase1-editorial-generation',
+      prompt: editorialPrompt,
+      attempts: [
+        { maxTokens: EDITORIAL_JSON_MAX_TOKENS, retry: false },
+        { maxTokens: EDITORIAL_JSON_RETRY_MAX_TOKENS, retry: true }
+      ],
+      buildRequest: buildPhase1EditorialRequest,
+      normalizeResponse: normalizePhase1EditorialResponse
+    });
+    addStageStats(stats, 'editorial', editorialResult);
+    record.editorialStageRequests = editorialResult.requestCount;
+
+    if (!editorialResult.normalized?.parsed) {
+      record.editorialGenerationStatus = 'rejected';
+      record.finalGateStatus = 'rejected';
+      const reasons = ['invalid-json-shape'];
+      const snapshot = logPhase1EditorialDebug(record, editorialResult, {
+        ok: false,
+        reasons,
+        details: {
+          addedFacts: [],
+          missingFacts: [],
+          unsafeFragments: [editorialResult.failureReason || 'qwen-structural-failure']
+        }
+      }, pipelineMode);
+      if (debugSnapshots) debugSnapshots.push(snapshot);
+      rejectPhase1Record(record, stats, 'editorial-generation', reasons, {
+        structuralFailureReason: editorialResult.failureReason
+      });
+      stats.editorialStageRejected += 1;
+      return;
+    }
+
+    stats.editorialStageParsed += 1;
+    const validation = validatePhase1EditorialResult(
+      editorialResult.normalized.parsed,
+      record,
+      factExtraction
+    );
+    const snapshot = logPhase1EditorialDebug(record, editorialResult, validation, pipelineMode);
+    if (debugSnapshots) debugSnapshots.push(snapshot);
+    if (!validation.ok) {
+      record.editorialGenerationStatus = 'accepted';
+      record.finalGateStatus = 'rejected';
+      rejectPhase1Record(
+        record,
+        stats,
+        'final-gate',
+        validation.reasons,
+        validation.details
+      );
+      stats.editorialStageRejected += 1;
+      return;
+    }
+
+    const processedAt = new Date().toISOString();
+    record.aiStatus = 'accepted';
+    record.processedAt = processedAt;
+    record.processingStartedAt = null;
+    record.nextRetryAt = null;
+    record.rejectionReasons = [];
+    record.rejectionStage = null;
+    record.lastError = null;
+    record.category = validation.value.categoryZh;
+    record.expectedFactLevel = validation.value.factLevel;
+    record.editorialGenerationStatus = 'accepted';
+    record.finalGateStatus = 'accepted';
+    record.editorial = {
+      ...validation.value,
+      model,
+      generatedAt: processedAt,
+      editorSource: 'workers-ai-phase1',
+      pipelineVersion: PIPELINE_VERSION,
+      factExtractionVersion: FACT_EXTRACTION_VERSION,
+      editorialGenerationVersion: EDITORIAL_GENERATION_VERSION
+    };
+    stats.accepted += 1;
+  } catch (error) {
+    record.aiStatus = 'failed';
+    record.retryCount = (record.retryCount || 0) + 1;
+    record.processedAt = new Date().toISOString();
+    record.processingStartedAt = null;
+    record.nextRetryAt = getRetrySchedule('failed', record.retryCount);
+    record.rejectionReasons = [];
+    record.rejectionStage = 'pipeline-error';
+    record.lastError = sanitizeError(error);
+    record.editorial = null;
+    record.finalGateStatus = 'failed';
+    stats.failed += 1;
+    console.warn('Phase 1 pipeline failed unexpectedly', {
+      newsId: record.newsId,
+      pipelineMode,
+      error: record.lastError
+    });
+  }
+}
+
+async function runQwenStructuredStage({
+  env,
+  model,
+  newsId,
+  stage,
+  prompt,
+  attempts,
+  buildRequest,
+  normalizeResponse
+}) {
+  const qwenDiagnostics = createQwenDiagnostics();
+  let requestCount = 0;
+  let normalized = null;
+  let failureReason = null;
+
+  for (let index = 0; index < attempts.length; index += 1) {
+    const attempt = attempts[index];
+    requestCount += 1;
+    qwenDiagnostics.attempts += 1;
+    if (attempt.retry) qwenDiagnostics.retries += 1;
+    try {
+      const response = await env.AI.run(
+        model,
+        buildRequest(prompt, attempt.maxTokens, { retry: attempt.retry })
+      );
+      normalized = normalizeResponse(response);
+      if (normalized.parsed) {
+        qwenDiagnostics.parsed += 1;
+        return {
+          normalized,
+          requestCount,
+          modelUsed: model,
+          qwenDiagnostics,
+          fallbackInvoked: false,
+          fallbackReason: null,
+          failureReason: null
+        };
+      }
+      failureReason = normalized.structuralFailureReason;
+      if (!normalized.rawContent) qwenDiagnostics.emptyContent += 1;
+      if (normalized.finishReason.toLowerCase() === 'length') {
+        qwenDiagnostics.lengthStops += 1;
+      } else {
+        qwenDiagnostics.invalidJson += 1;
+      }
+      console.warn('Phase 1 Qwen stage returned no valid structured JSON', {
+        newsId,
+        stage,
+        attempt: index + 1,
+        finishReason: normalized.finishReason,
+        contentLength: normalized.contentLength,
+        failureReason,
+        incompleteShape: normalized.incompleteShape || null
+      });
+    } catch (error) {
+      failureReason = 'qwen-request-error';
+      console.warn('Phase 1 Qwen stage request failed', {
+        newsId,
+        stage,
+        attempt: index + 1,
+        error: sanitizeError(error)
+      });
+    }
+  }
+
+  return {
+    normalized,
+    requestCount,
+    modelUsed: model,
+    qwenDiagnostics,
+    fallbackInvoked: false,
+    fallbackReason: null,
+    failureReason: failureReason || 'qwen-structural-failure'
+  };
+}
+
+function addStageStats(stats, stage, result) {
+  stats.requests += result.requestCount;
+  mergeQwenDiagnostics(stats, result.qwenDiagnostics);
+  if (stage === 'fact') stats.factStageRequests += result.requestCount;
+  if (stage === 'editorial') stats.editorialStageRequests += result.requestCount;
+}
+
+function rejectPhase1Record(record, stats, stage, reasons, details = {}) {
+  record.aiStatus = 'rejected';
+  record.retryCount = (record.retryCount || 0) + 1;
+  record.processedAt = new Date().toISOString();
+  record.processingStartedAt = null;
+  record.nextRetryAt = getRetrySchedule('rejected', record.retryCount);
+  record.rejectionStage = stage;
+  record.rejectionReasons = [...new Set(reasons)];
+  record.lastError = record.rejectionReasons.join(',');
+  record.editorial = null;
+  stats.rejected += 1;
+  pushSample(stats.rejectionSamples, {
+    newsId: record.newsId,
+    originalTitle: record.originalTitle,
+    stage,
+    reasons: record.rejectionReasons,
+    details: cleanStringsDeep(details)
+  });
+}
+
+function compactFactValidation(validation) {
+  return {
+    ok: Boolean(validation?.ok),
+    reasons: [...(validation?.reasons || [])],
+    details: cleanStringsDeep(validation?.details || {}),
+    validatedAt: new Date().toISOString()
+  };
+}
+
+function resetPhase1RecordState(record) {
+  record.pipelineVersion = PIPELINE_VERSION;
+  record.factExtractionVersion = null;
+  record.editorialGenerationVersion = null;
+  record.factExtractionCacheKey = null;
+  record.editorialGenerationCacheKey = null;
+  record.factExtractionStatus = 'pending';
+  record.factValidationStatus = 'pending';
+  record.editorialGenerationStatus = 'pending';
+  record.finalGateStatus = 'pending';
+  record.factStageRequests = 0;
+  record.editorialStageRequests = 0;
+  record.factExtraction = null;
+  record.factValidation = null;
+}
+
+function logPhase1FactDebug(record, result, validation, pipelineMode) {
+  const snapshot = {
+    newsId: record.newsId,
+    originalTitle: record.originalTitle,
+    stage: 'phase1-fact-extraction',
+    model: result?.modelUsed || '',
+    pipelineMode,
+    factExtractionVersion: FACT_EXTRACTION_VERSION,
+    factExtraction: summarizeFactExtraction(result?.normalized?.parsed),
+    factValidation: {
+      ok: Boolean(validation?.ok),
+      reasons: [...(validation?.reasons || [])],
+      details: cleanStringsDeep(validation?.details || {})
+    },
+    stageRequests: result?.requestCount || 0,
+    fallbackInvoked: false,
+    fallbackReason: null,
+    rejectionReasons: [...(validation?.reasons || [])]
+  };
+  console.log('Phase 1 fact extraction debug', snapshot);
+  return snapshot;
+}
+
+function logPhase1EditorialDebug(record, result, validation, pipelineMode) {
+  const parsed = result?.normalized?.parsed;
+  const snapshot = {
+    newsId: record.newsId,
+    originalTitle: record.originalTitle,
+    stage: 'phase1-editorial-generation',
+    model: result?.modelUsed || '',
+    pipelineMode,
+    editorialGenerationVersion: EDITORIAL_GENERATION_VERSION,
+    qwenFinalParsedJson: parsed
+      ? {
+          titleZh: normalizeWhitespace(parsed.titleZh || ''),
+          summaryZh: normalizeWhitespace(parsed.summaryZh || ''),
+          oneLineZh: normalizeWhitespace(parsed.oneLineZh || ''),
+          categoryZh: normalizeWhitespace(parsed.categoryZh || ''),
+          tagsZh: Array.isArray(parsed.tagsZh)
+            ? parsed.tagsZh.map((tag) => normalizeWhitespace(tag)).filter(Boolean)
+            : [],
+          confidence: parsed.confidence
+        }
+      : null,
+    titleZh: normalizeWhitespace(parsed?.titleZh || ''),
+    summaryZh: normalizeWhitespace(parsed?.summaryZh || ''),
+    oneLineZh: normalizeWhitespace(parsed?.oneLineZh || ''),
+    stageRequests: result?.requestCount || 0,
+    fallbackInvoked: false,
+    fallbackReason: null,
+    rejectionReasons: [...(validation?.reasons || [])],
+    addedFacts: [...(validation?.details?.addedFacts || [])],
+    missingFacts: [...(validation?.details?.missingFacts || [])],
+    unsafeFragments: [...(validation?.details?.unsafeFragments || [])]
+  };
+  console.log('Phase 1 editorial quality debug', snapshot);
+  return snapshot;
 }
 
 async function summarizeWithWorkersAi(record, articleText, env) {
@@ -657,6 +1156,13 @@ function createDebugAiStats() {
     qwenEmptyContent: 0,
     qwenLengthStops: 0,
     qwenInvalidJson: 0,
+    factStageRequests: 0,
+    factStageParsed: 0,
+    factStageRejected: 0,
+    editorialStageRequests: 0,
+    editorialStageParsed: 0,
+    editorialStageRejected: 0,
+    stage2Skipped: 0,
     rejectionSamples: []
   };
 }
@@ -1006,6 +1512,23 @@ function assertBindings(env) {
 
 function isAiEnabled(env) {
   return isEnabled(env.AI_ENABLED) && Boolean(env.AI);
+}
+
+function getPipelineMode(env) {
+  const value = normalizeWhitespace(env?.EDITORIAL_PIPELINE_MODE || '').toLowerCase();
+  return PIPELINE_MODES.includes(value) ? value : 'single';
+}
+
+function selectRecordsForPipelineMode(records, pipelineMode, maxItems, nowMs) {
+  if (pipelineMode === 'phase1-canary') {
+    const newPending = records.filter((record) => (
+      record.aiStatus === 'pending' &&
+      (record.retryCount || 0) === 0 &&
+      (!record.nextRetryAt || new Date(record.nextRetryAt).getTime() <= nowMs)
+    ));
+    return selectQueueRecords(newPending, 1, nowMs).slice(0, 1);
+  }
+  return selectQueueRecords(records, maxItems, nowMs);
 }
 
 function isEnabled(value) {

@@ -1,7 +1,20 @@
-export const PIPELINE_VERSION = 'editorial-pipeline-v4';
+export const PIPELINE_VERSION = 'editorial-pipeline-v5-two-stage';
+export const FACT_EXTRACTION_VERSION = 'fact-v1-qwen3';
+export const EDITORIAL_GENERATION_VERSION = 'editorial-v1-qwen3';
 export const AI_STATUSES = ['pending', 'processing', 'accepted', 'rejected', 'failed'];
 export const FACT_LEVELS = ['confirmed', 'reported', 'rumor', 'analysis'];
 export const CATEGORIES = ['交易', '签约', '伤病', '选秀', '流言', '比赛', '分析', '其他'];
+export const PIPELINE_MODES = ['single', 'phase1-canary', 'phase1'];
+
+const FACT_STORY_TYPES = ['trade', 'signing', 'injury', 'interview', 'opinion', 'game', 'analysis', 'rumor', 'draft', 'fact'];
+const FACT_CERTAINTIES = ['confirmed', 'reported', 'expected', 'likely', 'possible', 'opinion'];
+const FACT_POLARITIES = ['positive', 'negative'];
+const FACT_SOURCE_FIELDS = ['title', 'rssSummary', 'articleText'];
+const FACT_ENTITY_TYPES = ['person', 'team', 'organization', 'other'];
+const FACT_NUMBER_TYPES = ['money', 'contractYears', 'score', 'date', 'injuryDuration', 'tradeAsset'];
+const FACT_EVIDENCE_MAX_LENGTH = 260;
+// Pipeline upgrades use explicit cache versions; evidence hashes stay compatible with accepted v4 records.
+const SOURCE_HASH_COMPATIBILITY_VERSION = 'editorial-pipeline-v4';
 
 const TEAM_GROUPS = [
   ['hawks', '老鹰', ['Atlanta Hawks', 'Hawks']],
@@ -307,7 +320,7 @@ export async function createNewsId(item) {
 
 export async function createSourceHash(item) {
   return sha256([
-    PIPELINE_VERSION,
+    SOURCE_HASH_COMPATIBILITY_VERSION,
     normalizeWhitespace(item.originalTitle),
     normalizeWhitespace(item.originalSummary || item.summary),
     canonicalizeUrl(item.url || item.link)
@@ -397,6 +410,20 @@ export function createPendingRecord(item, now = new Date().toISOString()) {
     lastAttemptAt: null,
     lastError: null,
     rejectionReasons: [],
+    rejectionStage: null,
+    pipelineVersion: PIPELINE_VERSION,
+    factExtractionVersion: null,
+    editorialGenerationVersion: null,
+    factExtractionCacheKey: null,
+    editorialGenerationCacheKey: null,
+    factExtractionStatus: 'pending',
+    factValidationStatus: 'pending',
+    editorialGenerationStatus: 'pending',
+    finalGateStatus: 'pending',
+    factStageRequests: 0,
+    editorialStageRequests: 0,
+    factExtraction: null,
+    factValidation: null,
     editorial: null
   });
 }
@@ -493,6 +520,74 @@ export function buildEditorialPrompt(record, articleText = '') {
     `rssSummary=${record.originalSummary || '(无)'}`,
     `articleText=${articleText || '(正文不可用，只能根据标题和 RSS 摘要保守编辑)'}`
   ].join('\n');
+}
+
+export function buildFactExtractionPrompt(record, articleText = '') {
+  return [
+    'You are the fact extraction stage of an NBA news pipeline.',
+    'Read the English evidence and return one strict JSON object only.',
+    'Do not translate, summarize in Chinese, infer missing context, or use outside knowledge.',
+    'Every claim must be supported by one or more short verbatim evidence snippets copied from the supplied field.',
+    `Each evidence text must be at most ${FACT_EVIDENCE_MAX_LENGTH} characters and must not contain a full article.`,
+    'Preserve raw money, contract years, scores, dates, injury durations, and trade assets exactly as written in evidence.',
+    'Represent explicit negation with polarity="negative".',
+    'Use certainty only from: confirmed, reported, expected, likely, possible, opinion.',
+    'Use opinion for attributed views, predictions, rankings, and analysis rather than completed events.',
+    'For reported, expected, possible, or opinion claims, retain the source or speaker in attribution.',
+    'Add likely overstatements to mustNotClaim, especially completed transactions not supported by uncertain evidence.',
+    'The JSON fields are storyType, sourceCertainty, attribution, entities, numbers, claims, mustNotClaim.',
+    'entities items use: {"type":"person|team|organization|other","name":"source spelling","canonicalId":"optional lowercase id"}.',
+    'numbers items use: {"type":"money|contractYears|score|date|injuryDuration|tradeAsset","raw":"exact source value","value":"normalized optional value"}.',
+    'claims items use: {"id":"c1","subject":"","predicate":"","object":"","polarity":"positive|negative","certainty":"confirmed|reported|expected|likely|possible|opinion","attribution":"","evidence":[{"sourceField":"title|rssSummary|articleText","text":"exact short quote"}]}.',
+    'If evidence is thin, return fewer conservative claims. Never manufacture a claim just to fill a field.',
+    `localStoryType=${record.storyType || 'fact'}`,
+    `source=${record.source || 'RealGM'}`,
+    `title=${record.originalTitle || ''}`,
+    `rssSummary=${record.originalSummary || '(none)'}`,
+    `articleText=${articleText || '(none)'}`
+  ].join('\n');
+}
+
+export function buildPhase1EditorialPrompt(factExtraction, record) {
+  const canonicalNames = buildCanonicalDisplayNames(factExtraction, record);
+  return [
+    '你是严谨的中文 NBA 快讯编辑。',
+    '你的唯一事实来源是下方已经通过代码验证的 Fact JSON；不得使用外部知识，不得补充常识或猜测。',
+    '严格返回一个 JSON 对象，不得输出 Markdown、解释、reasoning 或额外字段。',
+    '字段只能是 titleZh、summaryZh、oneLineZh、categoryZh、tagsZh、confidence。',
+    'titleZh：自然、具体的中文体育新闻标题，约 14 到 32 个中文字符。',
+    'summaryZh：1 到 2 句，约 60 到 160 个中文字符，覆盖主要事实和必要限定。',
+    'oneLineZh：独立生成的一句话速览，不得与 titleZh 完全相同；没有额外事实时换一种更精炼但不新增事实的表达。',
+    'categoryZh：只能是 交易、签约、伤病、选秀、流言、比赛、分析、其他之一。',
+    'tagsZh：1 到 5 个简短标签。',
+    'confidence：0 到 1，表示中文稿忠实覆盖已验证 Fact JSON 的程度。',
+    '必须保留 Fact JSON 中的 certainty、polarity 和 attribution。',
+    'reported、expected、likely、possible 不能改写成已完成或确定事件。',
+    'opinion 或 analysis 必须明确写成某人观点、媒体分析、预测或讨论，不能写成已发生事实。',
+    '采访必须保留发言者、观点对象和归属关系。',
+    '必须准确保留 Fact JSON 中的金额、年限、比分、伤病时间和主要交易筹码。',
+    '优先使用 canonicalNames 中的常见中文名；无中文映射时完整保留英文姓名，不自行音译。',
+    `source=${record.source || 'RealGM'}`,
+    `publishedAt=${record.publishedAt || ''}`,
+    `canonicalNames=${JSON.stringify(canonicalNames)}`,
+    `validatedFactJson=${JSON.stringify(factExtraction)}`
+  ].join('\n');
+}
+
+export function buildPhase1FactRequest(prompt, maxTokens = 3200, { retry = false } = {}) {
+  return buildDirectJsonRequest(prompt, maxTokens, {
+    retry,
+    role: 'NBA fact extraction engine',
+    fields: 'storyType、sourceCertainty、attribution、entities、numbers、claims、mustNotClaim'
+  });
+}
+
+export function buildPhase1EditorialRequest(prompt, maxTokens = 2200, { retry = false } = {}) {
+  return buildDirectJsonRequest(prompt, maxTokens, {
+    retry,
+    role: '严谨的中文 NBA 快讯编辑',
+    fields: 'titleZh、summaryZh、oneLineZh、categoryZh、tagsZh、confidence'
+  });
 }
 
 export function buildWorkersAiRequest(prompt, maxTokens = 2400, { retry = false } = {}) {
@@ -642,6 +737,250 @@ export function normalizeAiResponse(response) {
     finishReason,
     isEmptyLengthResponse: !parsed && !normalizedRawContent && lowerFinishReason === 'length',
     structuralFailureReason
+  };
+}
+
+export function normalizeFactExtractionResponse(response) {
+  const normalized = normalizeStructuredAiResponse(
+    response,
+    (value) => isFactExtractionObject(normalizeFactExtraction(value)),
+    isFactExtractionCandidateObject
+  );
+  if (normalized.parsed) normalized.parsed = normalizeFactExtraction(normalized.parsed);
+  return normalized;
+}
+
+export function normalizePhase1EditorialResponse(response) {
+  return normalizeStructuredAiResponse(response, isPhase1EditorialObject, isPhase1EditorialCandidateObject);
+}
+
+export function validateFactExtraction(result, record, articleText = '') {
+  const reasons = [];
+  const details = {
+    unsupportedEntities: [],
+    numberMismatches: [],
+    evidenceMismatches: [],
+    certaintyMismatches: [],
+    negationMismatches: [],
+    attributionMismatches: []
+  };
+  if (!isFactExtractionObject(result)) {
+    return { ok: false, reasons: ['fact-schema-invalid'], details, value: null };
+  }
+
+  const value = normalizeFactExtraction(result);
+  if (!isFactExtractionObject(value)) {
+    return { ok: false, reasons: ['fact-schema-invalid'], details, value: null };
+  }
+
+  const sourceFields = {
+    title: normalizeWhitespace(record.originalTitle || ''),
+    rssSummary: normalizeWhitespace(record.originalSummary || ''),
+    articleText: normalizeWhitespace(articleText || '')
+  };
+  const sourceEvidence = Object.values(sourceFields).filter(Boolean).join('\n');
+  const sourceFacts = extractEvidenceFacts(sourceEvidence);
+
+  const inferredSourceCertainty = inferClaimCertainty(
+    `${sourceFields.title}\n${sourceFields.rssSummary}`,
+    record.storyType
+  );
+  if (certaintyStrength(value.sourceCertainty) > certaintyStrength(inferredSourceCertainty)) {
+    reasons.push('fact-certainty-mismatch');
+    details.certaintyMismatches.push(
+      `source:${inferredSourceCertainty}->fact:${value.sourceCertainty}`
+    );
+  }
+
+  for (const entity of value.entities) {
+    if (!isFactEntitySupported(entity, sourceEvidence, sourceFacts)) {
+      details.unsupportedEntities.push(`${entity.type}:${entity.name}`);
+    }
+  }
+  if (details.unsupportedEntities.length) reasons.push('fact-entity-unsupported');
+
+  for (const number of value.numbers) {
+    if (!isFactNumberSupported(number, sourceEvidence, sourceFacts)) {
+      details.numberMismatches.push(`${number.type}:${number.raw}`);
+    }
+  }
+  if (details.numberMismatches.length) reasons.push('fact-number-mismatch');
+
+  for (const claim of value.claims) {
+    const supportedEvidence = claim.evidence.filter((entry) => (
+      entry.text.length <= FACT_EVIDENCE_MAX_LENGTH &&
+      evidenceSnippetMatches(sourceFields[entry.sourceField], entry.text)
+    ));
+    if (!supportedEvidence.length) {
+      details.evidenceMismatches.push(claim.id);
+      continue;
+    }
+
+    const evidenceText = supportedEvidence.map((entry) => entry.text).join(' ');
+    const evidenceCertainty = inferClaimCertainty(evidenceText, value.storyType);
+    if (certaintyStrength(claim.certainty) > certaintyStrength(evidenceCertainty)) {
+      details.certaintyMismatches.push(
+        `${claim.id}:${evidenceCertainty}->${claim.certainty}`
+      );
+    }
+
+    if (containsExplicitEnglishNegation(evidenceText) && claim.polarity !== 'negative') {
+      details.negationMismatches.push(claim.id);
+    }
+
+    if (['reported', 'opinion'].includes(claim.certainty)) {
+      const attribution = normalizeWhitespace(claim.attribution);
+      const attributionSupported = Boolean(attribution) && (
+        containsNormalized(sourceEvidence, attribution) ||
+        containsNormalized(evidenceText, attribution) ||
+        comparable(attribution) === comparable(record.source || 'RealGM')
+      );
+      if (!attributionSupported) details.attributionMismatches.push(claim.id);
+    }
+
+    const claimFacts = extractEvidenceFacts(
+      `${claim.subject} ${claim.object}`,
+      sourceEvidence
+    );
+    const evidenceFacts = extractEvidenceFacts(evidenceText, sourceEvidence);
+    if (hasUnsupportedFact(claimFacts, evidenceFacts)) {
+      details.evidenceMismatches.push(`${claim.id}:claim-entity-or-number`);
+    }
+  }
+
+  if (details.evidenceMismatches.length) reasons.push('fact-evidence-missing');
+  if (details.certaintyMismatches.length) reasons.push('fact-certainty-mismatch');
+  if (details.negationMismatches.length) reasons.push('fact-negation-lost');
+  if (details.attributionMismatches.length) reasons.push('fact-attribution-missing');
+
+  return reasons.length
+    ? { ok: false, reasons: [...new Set(reasons)], details: dedupeFactValidationDetails(details), value }
+    : { ok: true, reasons: [], details: dedupeFactValidationDetails(details), value };
+}
+
+export function validatePhase1EditorialResult(result, record, factExtraction) {
+  const details = { addedFacts: [], missingFacts: [], unsafeFragments: [] };
+  if (!isPhase1EditorialObject(result) || !isFactExtractionObject(factExtraction)) {
+    return { ok: false, reasons: ['invalid-json-shape'], details };
+  }
+
+  const factLevel = factCertaintyToEditorialLevel(factExtraction.sourceCertainty);
+  const factStoryType = factExtraction.storyType === 'interview'
+    ? 'opinion'
+    : factExtraction.storyType;
+  const expectedCategory = classifyCategory('', factStoryType);
+  const gateRecord = {
+    ...record,
+    storyType: factStoryType,
+    category: expectedCategory,
+    expectedFactLevel: factLevel
+  };
+  const sourceEvidence = [
+    record.originalTitle,
+    record.originalSummary
+  ].filter(Boolean).join('\n');
+  const normalizedOneLine = normalizeEditorialPersonNames(
+    normalizeChineseText(result.oneLineZh),
+    sourceEvidence
+  );
+  const candidate = {
+    titleZh: result.titleZh,
+    summaryZh: result.summaryZh,
+    categoryZh: result.categoryZh,
+    tagsZh: result.tagsZh,
+    confidence: result.confidence,
+    factLevel,
+    oneLineZh: normalizedOneLine
+  };
+  const validation = validateEditorialResult(candidate, gateRecord, '');
+  const reasons = [...validation.reasons];
+  const value = validation.value
+    ? { ...validation.value, oneLineZh: normalizedOneLine }
+    : null;
+
+  const oneLineSafety = inspectChineseCopy(normalizedOneLine, { minHan: 5, maxLength: 90 });
+  if (!oneLineSafety.ok) {
+    reasons.push('unsafe-oneline');
+    details.unsafeFragments.push(...oneLineSafety.fragments);
+  }
+  if (value && comparable(value.titleZh) === comparable(normalizedOneLine)) {
+    reasons.push('title-oneline-duplicate');
+  }
+
+  const factEvidence = buildValidatedFactEvidence(factExtraction);
+  const requiredFacts = extractEvidenceFacts(factEvidence, sourceEvidence);
+  const outputFacts = value
+    ? extractEvidenceFacts(
+        `${value.titleZh}\n${value.summaryZh}\n${value.oneLineZh}`,
+        sourceEvidence
+      )
+    : extractEvidenceFacts('');
+  const phase1FactDetails = { addedFacts: [], missingFacts: [] };
+  compareFacts(requiredFacts, requiredFacts, outputFacts, phase1FactDetails);
+  if (phase1FactDetails.addedFacts.length) reasons.push('editorial-fact-mismatch');
+  if (phase1FactDetails.missingFacts.length) reasons.push('editorial-missing-verified-facts');
+
+  const certaintyReview = inspectCertaintyPreservation(
+    factEvidence,
+    normalizedOneLine,
+    factLevel
+  );
+  if (certaintyReview.reasons.length) {
+    reasons.push(...certaintyReview.reasons);
+    details.unsafeFragments.push(...certaintyReview.fragments);
+  }
+
+  details.addedFacts.push(
+    ...(validation.details?.addedFacts || []),
+    ...phase1FactDetails.addedFacts
+  );
+  details.missingFacts.push(
+    ...(validation.details?.missingFacts || []),
+    ...phase1FactDetails.missingFacts
+  );
+  details.unsafeFragments.push(...(validation.details?.unsafeFragments || []));
+
+  return reasons.length
+    ? {
+        ok: false,
+        reasons: [...new Set(reasons)],
+        details: dedupeEditorialDetails(details),
+        value
+      }
+    : {
+        ok: true,
+        reasons: [],
+        details: dedupeEditorialDetails(details),
+        value
+      };
+}
+
+export function summarizeFactExtraction(factExtraction) {
+  if (!isFactExtractionObject(factExtraction)) return null;
+  return {
+    storyType: factExtraction.storyType,
+    sourceCertainty: factExtraction.sourceCertainty,
+    attribution: factExtraction.attribution.slice(0, 5),
+    entities: factExtraction.entities.slice(0, 12).map((entity) => ({
+      type: entity.type,
+      name: entity.name,
+      canonicalId: entity.canonicalId
+    })),
+    numbers: factExtraction.numbers.slice(0, 12),
+    claims: factExtraction.claims.slice(0, 12).map((claim) => ({
+      id: claim.id,
+      subject: claim.subject,
+      predicate: claim.predicate,
+      object: claim.object,
+      polarity: claim.polarity,
+      certainty: claim.certainty,
+      attribution: claim.attribution,
+      evidence: claim.evidence.map((entry) => ({
+        sourceField: entry.sourceField,
+        text: entry.text.slice(0, 120)
+      }))
+    })),
+    mustNotClaim: factExtraction.mustNotClaim.slice(0, 8)
   };
 }
 
@@ -1086,7 +1425,7 @@ function materializeItem(record) {
     headlineZh: editorial.titleZh,
     displayTitle: editorial.titleZh,
     summaryZh: editorial.summaryZh,
-    oneLineZh: editorial.titleZh,
+    oneLineZh: editorial.oneLineZh || editorial.titleZh,
     categoryZh: record.category || editorial.categoryZh,
     category: record.category || editorial.categoryZh,
     tagsZh: editorial.tagsZh,
@@ -1426,6 +1765,399 @@ function stripAllowedProperNames(text) {
     .replace(/\b(?:NBA|MVP|ESPN|RealGM|Yahoo Sports|MSG|L\.A\.|Summer League|Aspiration)\b/gi, ' ')
     .replace(/\b[A-Z][A-Za-zÀ-ž'’.-]+(?:\s+[A-Z][A-Za-zÀ-ž'’.-]+){1,3}\b/g, ' ');
   return normalizeWhitespace(value);
+}
+
+function buildDirectJsonRequest(prompt, maxTokens, { retry, role, fields }) {
+  const retryInstruction = retry
+    ? 'The previous response was structurally invalid. Return one complete JSON object with every required field.'
+    : 'Return one complete JSON object with every required field.';
+  return {
+    messages: [
+      {
+        role: 'system',
+        content: [
+          '/no_think',
+          `You are ${role}.`,
+          'Disable thinking output. Never return reasoning, Markdown, code fences, or explanations.',
+          `Only return JSON with these fields: ${fields}.`,
+          retryInstruction
+        ].join('\n')
+      },
+      {
+        role: 'user',
+        content: ['/no_think', prompt, retryInstruction, 'JSON only.'].join('\n')
+      }
+    ],
+    max_tokens: maxTokens,
+    temperature: 0.1,
+    top_p: 0.8,
+    top_k: 20,
+    stream: false
+  };
+}
+
+function normalizeStructuredAiResponse(response, isComplete, isCandidate) {
+  const finishReason = String(
+    response?.finish_reason ||
+    response?.result?.finish_reason ||
+    response?.choices?.[0]?.finish_reason ||
+    ''
+  );
+  const message = response?.choices?.[0]?.message || response?.result?.choices?.[0]?.message;
+  const toolCalls = [
+    ...(Array.isArray(response?.tool_calls) ? response.tool_calls : []),
+    ...(Array.isArray(response?.result?.tool_calls) ? response.result.tool_calls : []),
+    ...(Array.isArray(message?.tool_calls) ? message.tool_calls : [])
+  ];
+  const candidates = [
+    ...toolCalls.map((toolCall) => toolCall?.arguments ?? toolCall?.function?.arguments),
+    response?.response,
+    response?.result?.response,
+    normalizeMessageContent(message?.content),
+    response?.result,
+    response
+  ];
+  let parsed = null;
+  let rawContent = '';
+  let incompleteSchema = false;
+  let incompleteShape = null;
+
+  for (const candidate of candidates) {
+    if (candidate == null) continue;
+    if (isComplete(candidate)) {
+      parsed = candidate;
+      rawContent = JSON.stringify(candidate);
+      break;
+    }
+    if (isCandidate(candidate)) {
+      incompleteSchema = true;
+      rawContent = JSON.stringify(candidate);
+      incompleteShape = describeJsonShape(candidate);
+      continue;
+    }
+    if (typeof candidate !== 'string' || !candidate.trim()) continue;
+    rawContent = candidate;
+    const parsedCandidate = parseJsonCandidate(candidate);
+    if (!parsedCandidate) continue;
+    if (isComplete(parsedCandidate)) {
+      parsed = parsedCandidate;
+      break;
+    }
+    if (isCandidate(parsedCandidate)) {
+      incompleteSchema = true;
+      incompleteShape = describeJsonShape(parsedCandidate);
+    }
+  }
+
+  const normalizedRawContent = normalizeWhitespace(rawContent);
+  const lowerFinishReason = finishReason.toLowerCase();
+  const structuralFailureReason = parsed
+    ? null
+    : incompleteSchema
+      ? 'qwen-incomplete-schema'
+      : !normalizedRawContent && lowerFinishReason === 'length'
+        ? 'qwen-length-stop'
+        : !normalizedRawContent
+          ? 'qwen-empty-content'
+          : 'qwen-invalid-json';
+  return {
+    parsed,
+    rawContent: normalizedRawContent,
+    contentLength: normalizedRawContent.length,
+    finishReason,
+    isEmptyLengthResponse: !parsed && !normalizedRawContent && lowerFinishReason === 'length',
+    structuralFailureReason,
+    incompleteShape
+  };
+}
+
+function normalizeFactExtraction(result) {
+  return cleanStringsDeep({
+    storyType: normalizeWhitespace(result.storyType).toLowerCase(),
+    sourceCertainty: normalizeWhitespace(result.sourceCertainty).toLowerCase(),
+    attribution: [...new Set(
+      (Array.isArray(result.attribution)
+        ? result.attribution
+        : result.attribution
+          ? [result.attribution]
+          : [])
+        .map(normalizeWhitespace)
+        .filter(Boolean)
+    )].slice(0, 8),
+    entities: (Array.isArray(result.entities) ? result.entities : [])
+      .map((entity) => ({
+        type: normalizeWhitespace(entity?.type).toLowerCase(),
+        name: normalizeWhitespace(entity?.name),
+        canonicalId: slug(entity?.canonicalId || entity?.name)
+      }))
+      .filter((entity) => entity.type && entity.name)
+      .slice(0, 20),
+    numbers: (Array.isArray(result.numbers) ? result.numbers : [])
+      .map((number) => ({
+        type: normalizeWhitespace(number?.type),
+        raw: normalizeWhitespace(number?.raw),
+        value: normalizeWhitespace(number?.value)
+      }))
+      .filter((number) => number.type && number.raw)
+      .slice(0, 20),
+    claims: (Array.isArray(result.claims) ? result.claims : [])
+      .map((claim, index) => ({
+        id: normalizeWhitespace(claim?.id) || `c${index + 1}`,
+        subject: normalizeWhitespace(claim?.subject),
+        predicate: normalizeWhitespace(claim?.predicate),
+        object: normalizeWhitespace(claim?.object),
+        polarity: normalizeWhitespace(claim?.polarity).toLowerCase(),
+        certainty: normalizeWhitespace(claim?.certainty).toLowerCase(),
+        attribution: normalizeWhitespace(claim?.attribution),
+        evidence: (Array.isArray(claim?.evidence) ? claim.evidence : [])
+          .map((entry) => ({
+            sourceField: normalizeWhitespace(entry?.sourceField),
+            text: normalizeWhitespace(entry?.text).slice(0, FACT_EVIDENCE_MAX_LENGTH)
+          }))
+          .filter((entry) => entry.sourceField && entry.text)
+          .slice(0, 4)
+      }))
+      .slice(0, 16),
+    mustNotClaim: [...new Set(
+      (Array.isArray(result.mustNotClaim) ? result.mustNotClaim : [])
+        .map(normalizeWhitespace)
+        .filter(Boolean)
+    )].slice(0, 12)
+  });
+}
+
+function describeJsonShape(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  return Object.fromEntries(Object.entries(value).map(([key, entry]) => {
+    if (!Array.isArray(entry)) return [key, typeof entry];
+    const first = entry[0];
+    return [key, {
+      type: 'array',
+      length: entry.length,
+      itemType: first == null ? 'empty' : Array.isArray(first) ? 'array' : typeof first,
+      itemKeys: first && typeof first === 'object' && !Array.isArray(first)
+        ? Object.keys(first)
+        : []
+    }];
+  }));
+}
+
+function isFactExtractionObject(value) {
+  return Boolean(
+    isFactExtractionCandidateObject(value) &&
+    FACT_STORY_TYPES.includes(normalizeWhitespace(value.storyType).toLowerCase()) &&
+    FACT_CERTAINTIES.includes(normalizeWhitespace(value.sourceCertainty).toLowerCase()) &&
+    Array.isArray(value.attribution) &&
+    Array.isArray(value.entities) &&
+    value.entities.every((entity) => (
+      entity && typeof entity === 'object' &&
+      FACT_ENTITY_TYPES.includes(normalizeWhitespace(entity.type).toLowerCase()) &&
+      typeof entity.name === 'string'
+    )) &&
+    Array.isArray(value.numbers) &&
+    value.numbers.every((number) => (
+      number && typeof number === 'object' &&
+      FACT_NUMBER_TYPES.includes(normalizeWhitespace(number.type)) &&
+      typeof number.raw === 'string'
+    )) &&
+    Array.isArray(value.claims) &&
+    value.claims.length > 0 &&
+    value.claims.every((claim) => (
+      claim && typeof claim === 'object' &&
+      typeof claim.id === 'string' &&
+      typeof claim.subject === 'string' &&
+      typeof claim.predicate === 'string' &&
+      typeof claim.object === 'string' &&
+      FACT_POLARITIES.includes(normalizeWhitespace(claim.polarity).toLowerCase()) &&
+      FACT_CERTAINTIES.includes(normalizeWhitespace(claim.certainty).toLowerCase()) &&
+      typeof claim.attribution === 'string' &&
+      Array.isArray(claim.evidence) &&
+      claim.evidence.length > 0 &&
+      claim.evidence.every((entry) => (
+        entry && typeof entry === 'object' &&
+        FACT_SOURCE_FIELDS.includes(normalizeWhitespace(entry.sourceField)) &&
+        typeof entry.text === 'string' &&
+        Boolean(normalizeWhitespace(entry.text))
+      ))
+    )) &&
+    Array.isArray(value.mustNotClaim)
+  );
+}
+
+function isFactExtractionCandidateObject(value) {
+  return Boolean(
+    value &&
+    typeof value === 'object' &&
+    !Array.isArray(value) &&
+    ['storyType', 'sourceCertainty', 'attribution', 'entities', 'numbers', 'claims', 'mustNotClaim']
+      .some((key) => key in value)
+  );
+}
+
+function isPhase1EditorialObject(value) {
+  return Boolean(
+    isPhase1EditorialCandidateObject(value) &&
+    typeof value.titleZh === 'string' &&
+    typeof value.summaryZh === 'string' &&
+    typeof value.oneLineZh === 'string' &&
+    typeof value.categoryZh === 'string' &&
+    Array.isArray(value.tagsZh) &&
+    typeof value.confidence === 'number'
+  );
+}
+
+function isPhase1EditorialCandidateObject(value) {
+  return Boolean(
+    value &&
+    typeof value === 'object' &&
+    !Array.isArray(value) &&
+    ['titleZh', 'summaryZh', 'oneLineZh', 'categoryZh', 'tagsZh', 'confidence']
+      .some((key) => key in value)
+  );
+}
+
+function buildCanonicalDisplayNames(factExtraction, record) {
+  const sourceEvidence = `${record.originalTitle || ''}\n${record.originalSummary || ''}`;
+  return factExtraction.entities.map((entity) => {
+    let canonicalId = slug(entity.canonicalId || entity.name);
+    let displayZh = entity.name;
+    let role = entity.type;
+
+    if (entity.type === 'team') {
+      const teamId = extractTeamIds(entity.name)[0] || canonicalId;
+      const teamZh = getGroupZh(TEAM_GROUPS, teamId);
+      if (teamZh) {
+        canonicalId = teamId;
+        displayZh = teamZh;
+      }
+    } else if (entity.type === 'person') {
+      const personIds = extractCanonicalPersonIds(entity.name, sourceEvidence);
+      const playerIds = extractPeople(entity.name, sourceEvidence);
+      const personId = personIds[0] || playerIds[0] || canonicalId;
+      const playerZh = getGroupZh(PLAYER_GROUPS, personId);
+      const personZh = getGroupZh(NBA_PERSON_GROUPS, personId);
+      canonicalId = personId;
+      displayZh = playerZh || personZh || entity.name;
+      role = CANONICAL_PERSON_ENTITIES.find((entry) => entry.id === personId)?.role || 'person';
+    }
+
+    return {
+      canonicalId,
+      sourceName: entity.name,
+      displayZh,
+      role
+    };
+  });
+}
+
+function inferClaimCertainty(text, storyType = '') {
+  const value = normalizeWhitespace(text);
+  if (
+    ['analysis', 'opinion', 'interview'].includes(storyType) ||
+    /\b(?:believes?|thinks?|shares? thoughts|opinion|analysis|predicts?|argues?|suggests?)\b/i.test(value)
+  ) return 'opinion';
+  if (/\blikely(?:\s+to|\s+that)?\b/i.test(value)) return 'likely';
+  if (/\bexpected(?:\s+to|\s+that)?\b/i.test(value)) return 'expected';
+  if (/\b(?:could|may|might|interested in|interest in|considering|exploring|leaning toward|unclear|unknown|(?:has|have|had) not decided|(?:has|have) yet to decide)\b/i.test(value)) {
+    return 'possible';
+  }
+  if (/\b(?:reportedly|according to|sources? say|was told|is told)\b/i.test(value)) return 'reported';
+  return 'confirmed';
+}
+
+function certaintyStrength(certainty) {
+  return {
+    opinion: 1,
+    possible: 2,
+    expected: 3,
+    likely: 3,
+    reported: 4,
+    confirmed: 5
+  }[certainty] || 0;
+}
+
+function factCertaintyToEditorialLevel(certainty) {
+  if (certainty === 'opinion') return 'analysis';
+  if (certainty === 'possible') return 'rumor';
+  if (['reported', 'expected', 'likely'].includes(certainty)) return 'reported';
+  return 'confirmed';
+}
+
+function evidenceSnippetMatches(sourceText, snippet) {
+  if (!sourceText || !snippet) return false;
+  return normalizeEvidenceForMatch(sourceText).includes(normalizeEvidenceForMatch(snippet));
+}
+
+function normalizeEvidenceForMatch(value) {
+  return normalizeWhitespace(value)
+    .normalize('NFKC')
+    .replace(/[‘’]/g, "'")
+    .replace(/[“”]/g, '"')
+    .replace(/\s+([,.;:!?])/g, '$1')
+    .toLowerCase();
+}
+
+function containsNormalized(text, candidate) {
+  return normalizeEvidenceForMatch(text).includes(normalizeEvidenceForMatch(candidate));
+}
+
+function containsExplicitEnglishNegation(text) {
+  return /\b(?:not|no|never|without|hasn't|haven't|hadn't|has not|have not|had not|has yet to|have yet to|did not|does not)\b/i.test(text);
+}
+
+function isFactEntitySupported(entity, sourceEvidence, sourceFacts) {
+  if (containsNormalized(sourceEvidence, entity.name)) return true;
+  if (entity.type === 'team') {
+    const ids = extractTeamIds(entity.name);
+    return ids.length > 0 && ids.every((id) => sourceFacts.teams.includes(id));
+  }
+  if (entity.type === 'person') {
+    const ids = extractPeople(entity.name, sourceEvidence);
+    return ids.length > 0 && ids.every((id) => sourceFacts.players.includes(id));
+  }
+  return false;
+}
+
+function isFactNumberSupported(number, sourceEvidence, sourceFacts) {
+  if (containsNormalized(sourceEvidence, number.raw)) return true;
+  const parsed = extractEvidenceFacts(number.raw, sourceEvidence);
+  const groupsByType = {
+    money: ['money'],
+    contractYears: ['durations'],
+    score: ['scores'],
+    tradeAsset: ['picks']
+  };
+  const groups = groupsByType[number.type] || [];
+  return groups.length > 0 && groups.every((group) => (
+    parsed[group].length > 0 &&
+    parsed[group].every((fact) => sourceFacts[group].includes(fact))
+  ));
+}
+
+function hasUnsupportedFact(candidate, allowed) {
+  return ['teams', 'players', 'money', 'durations', 'picks', 'scores']
+    .some((group) => candidate[group].some((fact) => !allowed[group].includes(fact)));
+}
+
+function buildValidatedFactEvidence(factExtraction) {
+  return normalizeWhitespace([
+    ...factExtraction.claims.flatMap((claim) => claim.evidence.map((entry) => entry.text)),
+    ...factExtraction.numbers.map((number) => number.raw)
+  ].join('\n'));
+}
+
+function dedupeFactValidationDetails(details) {
+  return Object.fromEntries(
+    Object.entries(details).map(([key, values]) => [key, [...new Set(values)]])
+  );
+}
+
+function dedupeEditorialDetails(details) {
+  return {
+    addedFacts: [...new Set(details.addedFacts)],
+    missingFacts: [...new Set(details.missingFacts)],
+    unsafeFragments: [...new Set(details.unsafeFragments)]
+  };
 }
 
 function buildAliasLookup(groups) {
