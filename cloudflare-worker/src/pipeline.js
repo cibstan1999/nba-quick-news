@@ -140,7 +140,7 @@ const SOURCE_WORDS = new Set([
   'After', 'Before', 'For', 'And', 'Into', 'On', 'Of', 'To', 'In'
 ]);
 
-const PERSON_BOUNDARY_WORDS = /\b(?:Acquire[sd]?|Agree[sd]?|Sign(?:s|ed|ing)?|Re-Sign(?:s|ed|ing)?|Trade[sd]?|Trading|Send|Sent|Deal(?:s|t)?|Land(?:s|ed|ing)?|Report(?:ed|edly)?|Return(?:s|ed|ing)?|Join(?:s|ed|ing)?|Match(?:es|ed|ing)?|Offer|Sheet|Focus(?:es|ed|ing)?|Build(?:s|ing)?|Team|Retire[sd]?|Waive[sd]?|Wait(?:s|ed|ing)?|Fill(?:s|ed|ing)?|Roster|Qualifying|Proximity|Play(?:s|ed|ing)?|Role|Show(?:s|ed|ing)?|Mutual|Interest|Intends?|Expected|Could|Would|May|Might|Had|Has|Have|No|Out|Before|With|From|For|After|Against|During|Into|Over|At|On|Of|To|In|And|Or|Vs)\b/gi;
+const PERSON_BOUNDARY_WORDS = /\b(?:Acquire[sd]?|Agree[sd]?|Sign(?:s|ed|ing)?|Re-Sign(?:s|ed|ing)?|Trade[sd]?|Trading|Send|Sent|Deal(?:s|t)?|Land(?:s|ed|ing)?|Report(?:ed|edly)?|Return(?:s|ed|ing)?|Join(?:s|ed|ing)?|Match(?:es|ed|ing)?|Receiv(?:e|es|ed|ing)|Draw(?:s|n|ing)?|Generat(?:e|es|ed|ing)|Expect(?:s|ed|ing)?|Offer|Sheet|Focus(?:es|ed|ing)?|Build(?:s|ing)?|Team|Retire[sd]?|Waive[sd]?|Wait(?:s|ed|ing)?|Fill(?:s|ed|ing)?|Roster|Qualifying|Proximity|Play(?:s|ed|ing)?|Role|Show(?:s|ed|ing)?|Mutual|Interest|Intends?|Could|Would|May|Might|Had|Has|Have|No|Out|Before|With|From|For|After|Against|During|Into|Over|At|On|Of|To|In|And|Or|Vs)\b/gi;
 
 export function normalizeWhitespace(value = '') {
   return String(value || '').replace(/[\r\n\t]+/g, ' ').replace(/\s+/g, ' ').trim();
@@ -866,6 +866,11 @@ function extractPeople(text = '') {
       scrubbed = scrubbed.replace(new RegExp(`\\b${escapeRegExp(alias)}\\b`, 'gi'), ' | ');
     }
   }
+  for (const [, , aliases] of PLAYER_GROUPS) {
+    for (const alias of aliases) {
+      scrubbed = scrubbed.replace(new RegExp(`\\b${escapeRegExp(alias)}\\b`, 'gi'), ' | ');
+    }
+  }
   scrubbed = scrubbed.replace(PERSON_BOUNDARY_WORDS, ' | ');
   const matches = scrubbed.match(/\b[A-Z][A-Za-zÀ-ž'’.-]+(?:\s+(?:[A-Z][A-Za-zÀ-ž'’.-]+|Jr\.?|Sr\.?)){1,3}\b/g) || [];
   for (const match of matches) {
@@ -933,6 +938,11 @@ function formatPickFactZh(fact) {
 function extractPersonDisplayNames(text = '') {
   let scrubbed = String(text);
   for (const [, , aliases] of TEAM_GROUPS) {
+    for (const alias of aliases) {
+      scrubbed = scrubbed.replace(new RegExp(`\\b${escapeRegExp(alias)}\\b`, 'gi'), ' | ');
+    }
+  }
+  for (const [, , aliases] of PLAYER_GROUPS) {
     for (const alias of aliases) {
       scrubbed = scrubbed.replace(new RegExp(`\\b${escapeRegExp(alias)}\\b`, 'gi'), ' | ');
     }

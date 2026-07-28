@@ -69,6 +69,38 @@ test('headline entity extraction keeps player names without title verbs', () => 
   assert.ok(trade.players.includes('anthony-davis'));
   assert.ok(trade.players.includes('kyrie-irving'));
   assert.ok(!trade.players.some((player) => player.includes('interest')));
+
+  const receiving = extractEvidenceFacts('DeMar DeRozan Receiving Interest');
+  assert.deepEqual(receiving.players, ['demar-derozan']);
+
+  const expected = extractEvidenceFacts('LeBron James Expected To Return');
+  assert.deepEqual(expected.players, ['lebron-james']);
+
+  const drawing = extractEvidenceFacts('Stephen Curry Drawing Interest');
+  assert.deepEqual(drawing.players, ['stephen-curry']);
+
+  const generating = extractEvidenceFacts('Cooper Flagg Generating Interest');
+  assert.deepEqual(generating.players, ['cooper-flagg']);
+});
+
+test('quality gate accepts DeMar DeRozan interest copy without a verb-shaped player', async () => {
+  const record = await makeRecord({
+    originalTitle: 'DeMar DeRozan Receiving Interest From Heat, Nuggets, Cavaliers',
+    originalSummary: 'The Miami Heat, Denver Nuggets and Cleveland Cavaliers have expressed interest in DeMar DeRozan.',
+    url: 'https://example.com/demar-derozan-interest'
+  });
+  const result = {
+    titleZh: '德玛尔·德罗赞受到热火、掘金、骑士关注',
+    summaryZh: '德玛尔·德罗赞目前是自由市场最受关注的球员之一，热火、掘金和骑士均对他表示兴趣。',
+    categoryZh: '其他',
+    tagsZh: ['德玛尔·德罗赞', '热火', '掘金', '骑士'],
+    confidence: 0.9,
+    factLevel: 'reported'
+  };
+
+  const validation = validateEditorialResult(result, record);
+  assert.equal(validation.ok, true, JSON.stringify(validation));
+  assert.ok(!validation.details.missingFacts.includes('player:demar-derozan-receiving'));
 });
 
 test('queue reserves a slot for fresh news and continues old backlog', async () => {
