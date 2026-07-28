@@ -653,7 +653,7 @@ test('Phase 1 runs fact extraction then editorial generation with no fallback', 
   const env = makePhase1Env(kv, async (model, request) => {
     calls.push({ model, request });
     return calls.length === 1
-      ? { response: phase1SigningFact(), finish_reason: 'stop' }
+      ? { response: phase1SigningEvidence(), finish_reason: 'stop' }
       : { response: phase1SigningEditorial(), finish_reason: 'stop' };
   });
 
@@ -678,7 +678,7 @@ test('Phase 1 runs fact extraction then editorial generation with no fallback', 
   assert.equal(record.factValidationStatus, 'accepted');
   assert.equal(record.editorialGenerationStatus, 'accepted');
   assert.equal(record.finalGateStatus, 'accepted');
-  assert.match(record.factExtractionCacheKey, /^fact-v2-qwen3-simple:/);
+  assert.match(record.factExtractionCacheKey, /^fact-v3-qwen3-evidence-first:/);
   assert.match(record.editorialGenerationCacheKey, /^editorial-v1-qwen3:/);
 });
 
@@ -687,12 +687,12 @@ test('Phase 1 stops after Stage 1 validation failure and never invokes Stage 2 o
   context.after(restoreFetch);
   const kv = new MemoryKv();
   const models = [];
-  const unsafeFact = phase1SigningFact();
-  unsafeFact.facts[0].factText =
+  const unsafeEvidence = phase1SigningEvidence();
+  unsafeEvidence.evidenceItems[0].evidenceQuote =
     'Jaxson Hayes has agreed to a two-year, $99 million contract with the Los Angeles Lakers.';
   const env = makePhase1Env(kv, async (model) => {
     models.push(model);
-    return { response: unsafeFact, finish_reason: 'stop' };
+    return { response: unsafeEvidence, finish_reason: 'stop' };
   });
 
   const payload = await (await worker.fetch(
@@ -711,7 +711,7 @@ test('Phase 1 stops after Stage 1 validation failure and never invokes Stage 2 o
   const record = JSON.parse(kv.values.get(`news:item:${catalog.ids[0]}`));
   assert.equal(record.aiStatus, 'rejected');
   assert.equal(record.rejectionStage, 'fact-validation');
-  assert.equal(record.rejectionReasons.includes('fact-number-mismatch'), true);
+  assert.equal(record.rejectionReasons.includes('fact-evidence-not-found'), true);
 });
 
 test('Phase 1 retries structural Stage 1 failure once and does not call fallback', async (context) => {
@@ -753,7 +753,7 @@ test('Phase 1 rejects an unsafe Stage 2 candidate without invoking fallback', as
   const calls = [];
   const env = makePhase1Env(kv, async (model) => {
     calls.push(model);
-    if (calls.length === 1) return { response: phase1SigningFact(), finish_reason: 'stop' };
+    if (calls.length === 1) return { response: phase1SigningEvidence(), finish_reason: 'stop' };
     return {
       response: { ...phase1SigningEditorial(), confidence: 0.3 },
       finish_reason: 'stop'
@@ -805,7 +805,7 @@ test('Phase 1 canary selects at most one new pending item and leaves the rest pe
   const env = makePhase1Env(kv, async () => {
     calls += 1;
     return calls === 1
-      ? { response: phase1SigningFact(), finish_reason: 'stop' }
+      ? { response: phase1SigningEvidence(), finish_reason: 'stop' }
       : { response: phase1SigningEditorial(), finish_reason: 'stop' };
   });
   env.EDITORIAL_PIPELINE_MODE = 'phase1-canary';
@@ -831,7 +831,7 @@ test('Phase 1 debug can evaluate an accepted record without writing KV', async (
   const env = makePhase1Env(kv, async () => {
     stage += 1;
     return stage % 2 === 1
-      ? { response: phase1SigningFact(), finish_reason: 'stop' }
+      ? { response: phase1SigningEvidence(), finish_reason: 'stop' }
       : { response: phase1SigningEditorial(), finish_reason: 'stop' };
   });
   env.REFRESH_TOKEN = 'phase1-test-token';
@@ -871,7 +871,7 @@ test('Phase 1 debug can stop after validated Stage 1 without invoking Stage 2', 
   const env = makePhase1Env(kv, async () => {
     calls += 1;
     return calls % 2 === 1
-      ? { response: phase1SigningFact(), finish_reason: 'stop' }
+      ? { response: phase1SigningEvidence(), finish_reason: 'stop' }
       : { response: phase1SigningEditorial(), finish_reason: 'stop' };
   });
   env.REFRESH_TOKEN = 'phase1-test-token';
@@ -936,19 +936,14 @@ function makePhase1Env(kv, run) {
   };
 }
 
-function phase1SigningFact() {
+function phase1SigningEvidence() {
   return {
-    storyType: 'signing',
-    facts: [{
-      id: 'fact-1',
-      factText: 'Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.',
-      polarity: 'positive',
-      certainty: 'confirmed',
-      attribution: '',
-      sourceField: 'rssSummary',
-      evidenceQuote: 'Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.'
-    }],
-    mustNotClaim: []
+    evidenceItems: [{
+      id: 'evidence-1',
+      evidenceQuote: 'Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.',
+      attributionName: '',
+      attributionQuote: ''
+    }]
   };
 }
 

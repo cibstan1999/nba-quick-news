@@ -1,113 +1,101 @@
-# Phase 1 Stage 1 Simplification Evaluation
+# Phase 1 Evidence-First Stage 1 Evaluation
 
 > **Partial frozen baseline: 9/18 samples. Injury and game samples are absent. This is a Stage 1-only dry-run and does not evaluate Stage 2 quality.**
 
 ## Decision
 
-- Stage 1 JSON parse target (`>= 8/9`): **met, 8/9**
-- Stage 1 validation target (`>= 7/9`): **not met, 2/9**
-- Severe unsupported fact in a generated candidate: **1, rejected by the Gate**
+- Final JSON parse target (`>= 8/9`): **met, 9/9**
+- Evidence location target (`>= 8/9`): **met, 9/9**
+- Stage 1 validation target (`>= 7/9`): **met, 9/9**
+- Certainty escalation: **0**
+- Negation loss: **0**
+- Unsupported events: **0**
+- Number or entity mismatches: **0**
 - Llama fallback calls: **0**
 - Stage 2 calls: **0**
 - Production KV writes: **0**
-- Ready for Stage 2 integration: **No**
+- Ready for Stage 2 integration: **Yes**
 
-The simplified schema materially improved structural reliability, but Qwen still selected the wrong evidence field, assigned stronger or incorrect certainty, misused polarity, and omitted required attribution. The factual Gate correctly stopped these candidates. No further Stage 1 tuning or Stage 2 work was performed after this failed threshold.
+The AI now selects exact source excerpts only. Deterministic code locates each quote and derives story type, certainty, polarity, attribution, entities, numbers, and `mustNotClaim`. No Stage 2 code or prompt was changed.
 
-## Schema Change
-
-Before (`fact-v1-qwen3`):
+## AI Schema
 
 ```json
 {
-  "storyType": "rumor",
-  "sourceCertainty": "possible",
-  "attribution": [],
-  "entities": [],
-  "numbers": [],
-  "claims": [
+  "evidenceItems": [
     {
-      "subject": "",
-      "predicate": "",
-      "object": "",
-      "polarity": "positive",
-      "certainty": "possible",
-      "attribution": "",
-      "evidence": []
+      "id": "evidence-1",
+      "evidenceQuote": "exact English substring copied from the supplied source",
+      "attributionName": "",
+      "attributionQuote": ""
     }
-  ],
-  "mustNotClaim": []
+  ]
 }
 ```
 
-After (`fact-v2-qwen3-simple`):
+`attributionName` and `attributionQuote` normalize to empty strings when the model omits these optional values. Extra model-owned labels such as `sourceField`, `certainty`, and `polarity` remain schema errors.
 
-```json
-{
-  "storyType": "trade_rumor",
-  "facts": [
-    {
-      "id": "fact-1",
-      "factText": "English normalized factual statement",
-      "certainty": "confirmed",
-      "polarity": "positive",
-      "attribution": "",
-      "sourceField": "title",
-      "evidenceQuote": "exact short quote copied from the source field"
-    }
-  ],
-  "mustNotClaim": []
-}
-```
+## Deterministic Fact Generation
 
-The new contract removes article-level certainty, entity/number duplication, and subject/predicate/object claims. Certainty is attached to each fact. Evidence validation uses normalized, case-insensitive substring matching against the declared source field. Numbers and entities remain strict.
+- Source location checks `originalTitle`, RSS summary, then article text.
+- Matching is limited to Unicode normalization, smart quote and dash normalization, whitespace folding, and case-insensitive substring comparison.
+- `certainty` comes from the verified quote: `confirmed`, `expected`, `likely`, `possible`, `interest`, or `opinion`.
+- `polarity` comes from explicit English negation.
+- `reported` identifies attribution and does not override interest or possibility.
+- Interview and analysis records require at least one verified attribution.
+- Attribution can come from the model's exact pair, an exact `NAME said` structure, an interview title, an identified program title, or an explicit report cue plus source metadata.
+- Bare `per game` is not treated as an attribution cue.
+- Entities and numbers are extracted only from verified evidence and its located source field.
+- `mustNotClaim` is generated from verified modality and negation.
 
 ## Aggregate Results
+
+The remote dry-run produced 8/9 first-attempt parses. TR-01 required the existing single Qwen retry and then parsed, producing 9/9 final parseability. The same nine extracted evidence payloads were revalidated locally after the final deterministic attribution consistency fix.
 
 | Metric | Result |
 |---|---:|
 | Frozen samples | 9 |
 | First-attempt JSON parsed | 8/9 |
-| Retry recovered JSON | 0/1 |
-| Final JSON parsed | 8/9 |
-| Stage 1 validated | 2/9 |
+| Retry recovered JSON | 1/1 |
+| Final JSON parsed | 9/9 |
+| Evidence located | 9/9 |
+| Stage 1 validated | 9/9 |
 | Stage 1 requests | 10 |
 | Average Stage 1 requests | 1.11 |
 | Stage 2 requests | 0 |
 | Llama fallback calls | 0 |
 | Production writes | 0 |
-| Facts with certainty mismatch | 7 across 4 samples |
-| Evidence quotes not found | 3 |
-| Missing attributions | 5 |
+| Certainty mismatches | 0 |
+| Polarity mismatches | 0 |
+| Attribution mismatches after final revalidation | 0 |
+| Unsupported events | 0 |
 | Number mismatches | 0 |
-| Entity mismatches | 1 |
-| Polarity/negation mismatches | 1 |
+| Entity mismatches | 0 |
 
 ## Frozen Sample Results
 
-| ID | Type | Requests | Parsed | Validated | Failure attribution |
-|---|---|---:|---|---|---|
-| TR-01 | trade rumor | 2 | No | No | Both Qwen responses remained invalid JSON after the allowed retry. |
-| TR-02 | trade rumor | 1 | Yes | No | Interest in Klay Thompson was labeled `reported`; the quoted evidence supports `possible`. |
-| TR-03 | trade rumor | 1 | Yes | Yes | Exact evidence, negative trade-interest wording, and expected season-start status were preserved. |
-| SG-01 | signing | 1 | Yes | No | Qwen used negative polarity for a salary-cap consequence without grammatical negation. |
-| SG-02 | signing | 1 | Yes | Yes | The expected re-signing language and the `$28 million` figure were preserved. |
-| SG-03 | signing | 1 | Yes | No | A sentence from the RSS summary was incorrectly declared as title evidence. |
-| IN-01 | interview | 1 | Yes | No | One unsupported event was added, three opinion statements were labeled `reported`, speaker attribution was empty, and one player entity was not supported by the selected evidence. |
-| AN-01 | analysis | 1 | Yes | No | One quote was not found, two possible/analytical statements were labeled `reported`, and one analytical claim lacked attribution. |
-| AN-02 | analysis | 1 | Yes | No | A speaker statement was labeled `reported` instead of `opinion` and had no attribution. |
+| ID | Type | Requests | Final parse | Evidence | Final validation | Notes |
+|---|---|---:|---|---|---|---|
+| TR-01 | trade rumor | 2 | Pass | Pass | Pass | Retry recovered valid evidence; interest remained non-confirmed. |
+| TR-02 | trade rumor | 1 | Pass | Pass | Pass | Klay Thompson interest and uncertainty were derived by code. |
+| TR-03 | trade rumor | 1 | Pass | Pass | Pass | Negative trade interest and expected status were preserved. |
+| SG-01 | signing | 1 | Pass | Pass | Pass | Offer-sheet years, money, and cap facts remained exact. |
+| SG-02 | signing | 1 | Pass | Pass | Pass | Expected re-signing and `$28 million` remained non-confirmed. |
+| SG-03 | signing | 1 | Pass | Pass | Pass | RSS evidence was auto-located; `per game` no longer caused false attribution. |
+| IN-01 | interview | 1 | Pass | Pass | Pass | Stephen Curry attribution came from the exact interview title. |
+| AN-01 | analysis | 1 | Pass | Pass | Pass | The explicit `reportedly` item supplies verified RealGM attribution. |
+| AN-02 | analysis | 1 | Pass | Pass | Pass | `Dunc'd On:` supplies verified program attribution; questions remain opinion. |
 
-## Safety Findings
+## Safety Notes
 
-- Exact evidence matching caught the unsupported IN-01 statement rather than allowing it into Stage 2.
-- The validator preserved `expected`, `likely`, `possible`, and `opinion` distinctions; it did not collapse them into `confirmed`.
-- No amount, contract year, score, or trade asset mismatch was observed in this partial cohort.
-- No rejected Stage 1 result invoked Llama or another rewriting fallback.
-- All requests used the debug reprocess path with `dryRun: true`; Stage 2 was explicitly disabled.
-- The ignored local results contain only the frozen evaluation material and are not part of this report.
+- No semantic paraphrase was accepted as evidence.
+- Missing or invalid attribution quotes still fail.
+- Analysis or interview records with no verified attribution still fail.
+- Unsupported model events cannot form internal Facts.
+- The Qwen retry remains structural only; there is no Llama fallback in Phase 1.
+- The Stage 1-only endpoint returned `pending` after successful validation and never invoked Stage 2.
+- The local result file remains ignored and is not committed.
 
 ## Threshold Assessment
 
-Structural simplification succeeded, improving final parseability from `6/9` to `8/9` and reducing Stage 1 requests from `13` to `10`. Validation improved only from `1/9` to `2/9`, far below the required `7/9`.
-
-The remaining failures are not a Stage 2 problem. They occur before Chinese generation and include one unsupported event, seven certainty mismatches, five missing attributions, three source-field/evidence mismatches, and one polarity error. Stage 2 integration must remain paused.
+Evidence-first extraction meets the minimum condition for Stage 2 integration on this partial frozen cohort. This is not a production readiness decision and does not measure Chinese editorial quality. The next task may integrate the existing Stage 2 against these verified Facts, using the same frozen samples and without weakening the Fact Gate.

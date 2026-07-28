@@ -796,9 +796,11 @@ test('Phase 1 versions and prompts isolate fact extraction from editorial genera
   const editorialPrompt = buildPhase1EditorialPrompt(fact, record);
 
   assert.equal(PIPELINE_VERSION, 'editorial-pipeline-v5-two-stage');
-  assert.equal(FACT_EXTRACTION_VERSION, 'fact-v2-qwen3-simple');
+  assert.equal(FACT_EXTRACTION_VERSION, 'fact-v3-qwen3-evidence-first');
   assert.equal(EDITORIAL_GENERATION_VERSION, 'editorial-v1-qwen3');
-  assert.match(factPrompt, /Do not translate/);
+  assert.match(factPrompt, /evidenceItems/);
+  assert.match(factPrompt, /Do not classify/);
+  assert.doesNotMatch(factPrompt, /"certainty"|"polarity"|"sourceField"|"factText"/);
   assert.match(factPrompt, /articleText=Jaxson Hayes signed the contract/);
   assert.match(editorialPrompt, /validatedFactJson=/);
   assert.doesNotMatch(editorialPrompt, /rssSummary=|articleText=/);
@@ -811,15 +813,17 @@ test('Phase 1 versions and prompts isolate fact extraction from editorial genera
   assert.equal('tools' in editorialRequest, false);
 });
 
-test('Phase 1 parsers require complete schemas without reading reasoning', () => {
-  const fact = makeSigningFact();
+test('Phase 1 evidence parser requires the exact schema and ignores reasoning', () => {
+  const evidence = makeEvidenceExtraction({
+    evidenceQuote: 'Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.'
+  });
   const factNormalized = normalizeFactExtractionResponse({
     choices: [{
-      message: { content: JSON.stringify(fact), reasoning: 'Never parse this reasoning.' },
+      message: { content: JSON.stringify(evidence), reasoning: 'Never parse this reasoning.' },
       finish_reason: 'stop'
     }]
   });
-  assert.deepEqual(factNormalized.parsed, fact);
+  assert.deepEqual(factNormalized.parsed, evidence);
 
   const editorial = makeSigningEditorial();
   const editorialNormalized = normalizePhase1EditorialResponse({
@@ -831,151 +835,158 @@ test('Phase 1 parsers require complete schemas without reading reasoning', () =>
   assert.deepEqual(editorialNormalized.parsed, editorial);
 
   const incomplete = normalizeFactExtractionResponse({
-    response: { storyType: 'signing' },
+    response: { evidenceItems: [{ id: 'evidence-1' }] },
     finish_reason: 'stop'
   });
   assert.equal(incomplete.parsed, null);
   assert.equal(incomplete.structuralFailureReason, 'qwen-incomplete-schema');
 
-  const neutralFact = makeSigningFact();
-  neutralFact.facts[0].polarity = 'neutral';
-  const normalizedNeutral = normalizeFactExtractionResponse({
-    response: neutralFact,
+  const optionalAttribution = normalizeFactExtractionResponse({
+    response: {
+      evidenceItems: [{
+        id: 'evidence-1',
+        evidenceQuote: 'Jaxson Hayes signed with the Los Angeles Lakers.'
+      }]
+    },
     finish_reason: 'stop'
   });
-  assert.equal(normalizedNeutral.parsed.facts[0].polarity, 'positive');
+  assert.deepEqual(optionalAttribution.parsed.evidenceItems[0], {
+    id: 'evidence-1',
+    evidenceQuote: 'Jaxson Hayes signed with the Los Angeles Lakers.',
+    attributionName: '',
+    attributionQuote: ''
+  });
+
+  const forbiddenModelLabel = makeEvidenceExtraction({
+    evidenceQuote: 'Jaxson Hayes signed with the Los Angeles Lakers.'
+  });
+  forbiddenModelLabel.evidenceItems[0].sourceField = 'title';
+  const forbidden = normalizeFactExtractionResponse({
+    response: forbiddenModelLabel,
+    finish_reason: 'stop'
+  });
+  assert.equal(forbidden.parsed, null);
+  assert.equal(forbidden.structuralFailureReason, 'qwen-incomplete-schema');
+
+  const trailingComma = normalizeFactExtractionResponse({
+    choices: [{
+      message: {
+        content: '```json\n{"evidenceItems":[{"id":"evidence-1","evidenceQuote":"Jaxson Hayes signed with the Los Angeles Lakers.","attributionName":"","attributionQuote":"",},],}\n```'
+      },
+      finish_reason: 'stop'
+    }]
+  });
+  assert.equal(trailingComma.parsed.evidenceItems.length, 1);
 });
 
-test('Stage 1 accepts evidence-bound signing facts and exact contract numbers', async () => {
+test('Stage 1 locates evidence in title, rssSummary, and articleText deterministically', async () => {
+  const record = await makeRecord({
+    originalTitle: 'Lakers Sign Jaxson Hayes',
+    originalSummary: 'The contract is worth $12 million over two years.'
+  });
+  const extraction = makeEvidenceExtraction([
+    { evidenceQuote: 'Lakers Sign Jaxson Hayes' },
+    { evidenceQuote: 'The contract is worth $12 million over two years.' },
+    { evidenceQuote: 'The team officially announced the agreement on Monday.' }
+  ]);
+  const validation = validateFactExtraction(
+    extraction,
+    record,
+    'The team officially announced the agreement on Monday.'
+  );
+
+  assert.equal(validation.ok, true, validation.reasons.join(','));
+  assert.deepEqual(
+    validation.value.facts.map((fact) => fact.sourceField),
+    ['title', 'rssSummary', 'articleText']
+  );
+});
+
+test('Stage 1 generates signing facts and exact contract numbers from evidence only', async () => {
   const record = await makeRecord();
-  const validation = validateFactExtraction(makeSigningFact(), record);
+  const validation = validateFactExtraction(makeEvidenceExtraction({
+    evidenceQuote: record.originalSummary
+  }), record);
 
   assert.equal(validation.ok, true, validation.reasons.join(','));
   assert.equal(validation.value.facts.length, 1);
+  assert.equal(validation.value.facts[0].certainty, 'confirmed');
+  assert.deepEqual(validation.value.facts[0].numbers, [
+    { type: 'money', value: 'usd-million:12' },
+    { type: 'contractYears', value: 'years:2' }
+  ]);
 });
 
-test('Stage 1 uses exact evidence quotes and rejects unsupported facts', async () => {
+test('Stage 1 rejects unsupported events and semantic paraphrases', async () => {
   const rumorRecord = await makeRecord({
     originalTitle: 'Lakers Interested In Jaxson Hayes',
     originalSummary: 'The Los Angeles Lakers are interested in Jaxson Hayes but have not decided whether to make an offer.'
   });
-  const notFound = makeMinimalFact({
-    storyType: 'trade_rumor',
-    certainty: 'possible',
-    factText: 'The Los Angeles Lakers are interested in Jaxson Hayes.',
-    attribution: '',
+  const unsupported = makeEvidenceExtraction({
     evidenceQuote: 'This exact sentence does not exist.'
   });
-  const missingEvidence = validateFactExtraction(notFound, rumorRecord);
+  const missingEvidence = validateFactExtraction(unsupported, rumorRecord);
   assert.equal(missingEvidence.reasons.includes('fact-evidence-not-found'), true);
+  assert.deepEqual(missingEvidence.details.unsupportedEvents, ['evidence-1']);
 
-  const addedFacts = makeMinimalFact({
-    storyType: 'trade_rumor',
-    certainty: 'possible',
-    factText: 'The Boston Celtics offered Jaxson Hayes $99 million.',
-    attribution: '',
-    evidenceQuote: 'The Los Angeles Lakers are interested in Jaxson Hayes'
+  const paraphrase = makeEvidenceExtraction({
+    evidenceQuote: 'The Lakers may make an offer to Jaxson Hayes.'
   });
-  const addedValidation = validateFactExtraction(addedFacts, rumorRecord);
-  assert.equal(addedValidation.reasons.includes('fact-entity-unsupported'), true);
-  assert.equal(addedValidation.reasons.includes('fact-number-mismatch'), true);
+  assert.equal(
+    validateFactExtraction(paraphrase, rumorRecord)
+      .reasons.includes('fact-evidence-not-found'),
+    true
+  );
 });
 
-test('Stage 1 evidence matching normalizes case, whitespace, and smart quotes only', async () => {
+test('Stage 1 evidence matching normalizes case, whitespace, smart quotes, and dashes only', async () => {
   const record = await makeRecord({
     originalTitle: 'Curry Says “We May Return”',
-    originalSummary: 'Stephen Curry says   “We may return” after the break.'
+    originalSummary: 'Stephen Curry says   “We may return” after the mid–season break.'
   });
-  const fact = makeMinimalFact({
-    storyType: 'interview',
-    certainty: 'opinion',
-    factText: 'Stephen Curry says "We may return".',
-    attribution: 'Stephen Curry',
-    evidenceQuote: 'stephen curry says "we may return"'
+  const extraction = makeEvidenceExtraction({
+    evidenceQuote: 'stephen curry says "we may return" after the mid-season break.',
+    attributionName: 'Stephen Curry',
+    attributionQuote: 'stephen curry says "we may return"'
   });
-  const validation = validateFactExtraction(fact, record);
+  const validation = validateFactExtraction(extraction, record);
   assert.equal(validation.ok, true, validation.reasons.join(','));
+  assert.equal(validation.value.facts[0].sourceField, 'rssSummary');
 });
 
-test('Stage 1 rejects certainty escalation, negation loss, and missing attribution', async () => {
-  const rumorRecord = await makeRecord({
-    originalTitle: 'Lakers Interested In Jaxson Hayes',
-    originalSummary: 'The Los Angeles Lakers are interested in Jaxson Hayes but have not decided whether to make an offer.'
-  });
-  const escalated = makeMinimalFact({
-    storyType: 'trade_rumor',
-    certainty: 'confirmed',
-    factText: 'The Los Angeles Lakers signed Jaxson Hayes.',
-    attribution: '',
-    evidenceQuote: 'The Los Angeles Lakers are interested in Jaxson Hayes'
-  });
-  assert.equal(
-    validateFactExtraction(escalated, rumorRecord).reasons.includes('fact-certainty-mismatch'),
-    true
-  );
-
-  const lostNegation = makeMinimalFact({
-    storyType: 'trade_rumor',
-    certainty: 'possible',
-    factText: 'The Los Angeles Lakers decided to make an offer.',
-    polarity: 'positive',
-    attribution: '',
-    evidenceQuote: 'have not decided whether to make an offer'
-  });
-  assert.equal(
-    validateFactExtraction(lostNegation, rumorRecord).reasons.includes('fact-negation-lost'),
-    true
-  );
-
-  const reportedRecord = await makeRecord({
-    originalTitle: 'Lakers Reportedly Interested In Jaxson Hayes',
-    originalSummary: 'According to RealGM, the Los Angeles Lakers are interested in Jaxson Hayes.'
-  });
-  const missingAttribution = makeMinimalFact({
-    storyType: 'trade_rumor',
-    certainty: 'reported',
-    factText: 'The Los Angeles Lakers are interested in Jaxson Hayes.',
-    attribution: '',
-    evidenceQuote: 'According to RealGM, the Los Angeles Lakers are interested in Jaxson Hayes.'
-  });
-  const attributionValidation = validateFactExtraction(missingAttribution, reportedRecord);
-  assert.equal(attributionValidation.reasons.includes('fact-attribution-missing'), true);
-});
-
-test('Stage 1 preserves uncertainty and attribution for rumor, interview, and analysis', async () => {
+test('Stage 1 generates interest, expected, likely, possible, opinion, and confirmed certainty', async () => {
   const cases = [
     {
-      title: 'Lakers Could Sign Jaxson Hayes',
-      summary: 'The Los Angeles Lakers could sign Jaxson Hayes.',
-      fact: makeMinimalFact({
-        storyType: 'trade_rumor',
-        certainty: 'possible',
-        factText: 'The Los Angeles Lakers could sign Jaxson Hayes.',
-        attribution: '',
-        evidenceQuote: 'The Los Angeles Lakers could sign Jaxson Hayes.'
-      })
+      title: 'Lakers Interested In Jaxson Hayes',
+      summary: 'The Los Angeles Lakers are interested in Jaxson Hayes.',
+      certainty: 'interest'
     },
     {
-      title: 'Stephen Curry Discusses LeBron James',
+      title: 'Draymond Green Expected To Remain',
+      summary: 'Draymond Green is expected to remain with the Golden State Warriors.',
+      certainty: 'expected'
+    },
+    {
+      summary: 'Draymond Green is likely to remain with the Golden State Warriors.',
+      title: 'Draymond Green Likely To Remain',
+      certainty: 'likely'
+    },
+    {
+      summary: 'Draymond Green could remain with the Golden State Warriors.',
+      title: 'Draymond Green Could Remain',
+      certainty: 'possible'
+    },
+    {
       summary: 'Stephen Curry said LeBron James made his own decision.',
-      fact: makeMinimalFact({
-        storyType: 'interview',
-        certainty: 'opinion',
-        factText: 'Stephen Curry said LeBron James made his own decision.',
-        attribution: 'Stephen Curry',
-        evidenceQuote: 'Stephen Curry said LeBron James made his own decision.'
-      })
+      title: 'Stephen Curry Discusses LeBron James',
+      certainty: 'opinion',
+      attributionName: 'Stephen Curry',
+      attributionQuote: 'Stephen Curry said LeBron James made his own decision.'
     },
     {
-      title: 'Warriors Outlook After Stephen Curry',
-      summary: 'The analysis suggests the Warriors could rebuild after Stephen Curry retires.',
-      fact: makeMinimalFact({
-        storyType: 'analysis',
-        certainty: 'opinion',
-        factText: 'The analysis suggests the Warriors could rebuild after Stephen Curry retires.',
-        attribution: 'The analysis',
-        evidenceQuote: 'The analysis suggests the Warriors could rebuild after Stephen Curry retires.'
-      })
+      summary: 'Draymond Green signed with the Golden State Warriors.',
+      title: 'Draymond Green Signed With Warriors',
+      certainty: 'confirmed'
     }
   ];
 
@@ -984,83 +995,163 @@ test('Stage 1 preserves uncertainty and attribution for rumor, interview, and an
       originalTitle: item.title,
       originalSummary: item.summary
     });
-    const validation = validateFactExtraction(item.fact, record);
-    assert.equal(validation.ok, true, `${item.fact.storyType}: ${validation.reasons.join(',')}`);
-  }
-});
-
-test('Stage 1 keeps expected, likely, possible, reported, and confirmed distinct', async () => {
-  const cases = [
-    {
-      summary: 'Draymond Green is expected to remain with the Golden State Warriors.',
-      certainty: 'expected',
-      attribution: ''
-    },
-    {
-      summary: 'Draymond Green is likely to remain with the Golden State Warriors.',
-      certainty: 'likely',
-      attribution: ''
-    },
-    {
-      summary: 'Draymond Green could remain with the Golden State Warriors.',
-      certainty: 'possible',
-      attribution: ''
-    },
-    {
-      summary: 'According to RealGM, Draymond Green will remain with the Golden State Warriors.',
-      certainty: 'reported',
-      attribution: 'RealGM'
-    },
-    {
-      summary: 'Draymond Green signed with the Golden State Warriors.',
-      certainty: 'confirmed',
-      attribution: ''
-    }
-  ];
-
-  for (const item of cases) {
-    const record = await makeRecord({
-      originalTitle: 'Draymond Green Warriors Update',
-      originalSummary: item.summary
-    });
-    const fact = makeMinimalFact({
-      storyType: item.certainty === 'confirmed' ? 'signing' : 'trade_rumor',
-      certainty: item.certainty,
-      factText: item.summary,
-      attribution: item.attribution,
-      evidenceQuote: item.summary
-    });
-    const validation = validateFactExtraction(fact, record);
+    const validation = validateFactExtraction(makeEvidenceExtraction({
+      evidenceQuote: item.summary,
+      attributionName: item.attributionName || '',
+      attributionQuote: item.attributionQuote || ''
+    }), record);
     assert.equal(validation.ok, true, `${item.certainty}: ${validation.reasons.join(',')}`);
+    assert.equal(validation.value.facts[0].certainty, item.certainty);
   }
 });
 
-test('Stage 1 supports injury and game facts without changing duration or score', async () => {
-  const injuryRecord = await makeRecord({
-    originalTitle: 'Jaxson Hayes Out Two Weeks With Ankle Sprain',
-    originalSummary: 'Jaxson Hayes will miss two weeks with an ankle sprain.'
+test('Stage 1 treats reportedly as attribution without overriding interest modality', async () => {
+  const record = await makeRecord({
+    originalTitle: 'Heat Reportedly Interested In Klay Thompson',
+    originalSummary: 'The Miami Heat are reportedly interested in Klay Thompson.'
   });
-  const injuryFact = makeMinimalFact({
-    storyType: 'injury',
-    certainty: 'confirmed',
-    factText: 'Jaxson Hayes will miss two weeks with an ankle sprain.',
-    attribution: '',
-    evidenceQuote: 'Jaxson Hayes will miss two weeks with an ankle sprain.'
-  });
-  assert.equal(validateFactExtraction(injuryFact, injuryRecord).ok, true);
+  const validation = validateFactExtraction(makeEvidenceExtraction({
+    evidenceQuote: record.originalSummary,
+    attributionName: 'RealGM',
+    attributionQuote: record.originalSummary
+  }), record);
 
-  const gameRecord = await makeRecord({
+  assert.equal(validation.ok, true, validation.reasons.join(','));
+  assert.equal(validation.value.facts[0].certainty, 'interest');
+  assert.equal(validation.value.facts[0].attribution, 'RealGM');
+});
+
+test('Stage 1 generates negative polarity and certainty red lines without model labels', async () => {
+  const record = await makeRecord({
+    originalTitle: 'Lakers Have Not Decided On Jaxson Hayes',
+    originalSummary: 'The Los Angeles Lakers have not decided whether to make an offer to Jaxson Hayes.'
+  });
+  const validation = validateFactExtraction(makeEvidenceExtraction({
+    evidenceQuote: record.originalSummary
+  }), record);
+  assert.equal(validation.ok, true, validation.reasons.join(','));
+  assert.equal(validation.value.facts[0].polarity, 'negative');
+  assert.equal(validation.value.facts[0].certainty, 'possible');
+  assert.deepEqual(validation.value.mustNotClaim, [
+    'Do not claim that a decision has been made.',
+    'Do not claim that a possible action will happen or is completed.'
+  ]);
+});
+
+test('Stage 1 enforces attribution evidence for interviews and analysis', async () => {
+  const record = await makeRecord({
+    originalTitle: 'Stephen Curry Discusses LeBron James',
+    originalSummary: 'Stephen Curry said LeBron James made his own decision.'
+  });
+  const derived = validateFactExtraction(makeEvidenceExtraction({
+    evidenceQuote: record.originalSummary
+  }), record);
+  assert.equal(derived.ok, true, derived.reasons.join(','));
+  assert.equal(derived.value.facts[0].attribution, 'Stephen Curry');
+
+  const missingRecord = await makeRecord({
+    originalTitle: 'Interview Transcript',
+    originalSummary: 'The roster decision remains under discussion.'
+  });
+  missingRecord.storyType = 'interview';
+  const missing = validateFactExtraction(makeEvidenceExtraction({
+    evidenceQuote: missingRecord.originalSummary
+  }), missingRecord);
+  assert.equal(missing.reasons.includes('fact-attribution-missing'), true);
+
+  const badQuote = validateFactExtraction(makeEvidenceExtraction({
+    evidenceQuote: record.originalSummary,
+    attributionName: 'Stephen Curry',
+    attributionQuote: 'Curry made a separate statement not found in the input.'
+  }), record);
+  assert.equal(
+    badQuote.reasons.includes('fact-attribution-evidence-not-found'),
+    true
+  );
+
+  const valid = validateFactExtraction(makeEvidenceExtraction({
+    evidenceQuote: record.originalSummary,
+    attributionName: 'Stephen Curry',
+    attributionQuote: record.originalSummary
+  }), record);
+  assert.equal(valid.ok, true, valid.reasons.join(','));
+  assert.equal(valid.value.facts[0].attribution, 'Stephen Curry');
+
+  const analysisRecord = await makeRecord({
+    originalTitle: "Dunc'd On: LeBron James to Philadelphia",
+    originalSummary: 'How good is this Sixers team in the East?'
+  });
+  const analysis = validateFactExtraction(makeEvidenceExtraction({
+    evidenceQuote: analysisRecord.originalSummary
+  }), analysisRecord);
+  assert.equal(analysis.ok, true, analysis.reasons.join(','));
+  assert.equal(analysis.value.storyType, 'analysis');
+  assert.equal(analysis.value.facts[0].attribution, "Dunc'd On");
+
+  const mixedAnalysisRecord = await makeRecord({
+    originalTitle: "Dunc'd On: LeBron James to Philadelphia",
+    originalSummary: 'LeBron James agreed to join the Philadelphia 76ers. How good is this Sixers team in the East?'
+  });
+  const mixedAnalysis = validateFactExtraction({
+    evidenceItems: [
+      {
+        id: 'evidence-1',
+        evidenceQuote: 'LeBron James agreed to join the Philadelphia 76ers.',
+        attributionName: '',
+        attributionQuote: ''
+      },
+      {
+        id: 'evidence-2',
+        evidenceQuote: 'How good is this Sixers team in the East?',
+        attributionName: '',
+        attributionQuote: ''
+      }
+    ]
+  }, mixedAnalysisRecord);
+  assert.equal(mixedAnalysis.ok, true, mixedAnalysis.reasons.join(','));
+  assert.deepEqual(
+    mixedAnalysis.value.facts.map((fact) => fact.certainty),
+    ['confirmed', 'opinion']
+  );
+
+  const reportedAnalysisRecord = await makeRecord({
+    originalTitle: 'Warriors Focused On Building For The Future',
+    originalSummary: 'The Warriors real focus is reportedly on building a roster for after Stephen Curry retires.'
+  });
+  const reportedAnalysis = validateFactExtraction(makeEvidenceExtraction({
+    evidenceQuote: reportedAnalysisRecord.originalSummary
+  }), reportedAnalysisRecord);
+  assert.equal(reportedAnalysis.ok, true, reportedAnalysis.reasons.join(','));
+  assert.equal(reportedAnalysis.value.storyType, 'analysis');
+  assert.equal(reportedAnalysis.value.facts[0].attribution, 'RealGM');
+});
+
+test('Stage 1 does not require attribution for routine signings or final scores', async () => {
+  const signing = await makeRecord();
+  assert.equal(validateFactExtraction(makeEvidenceExtraction({
+    evidenceQuote: signing.originalSummary
+  }), signing).ok, true);
+
+  const game = await makeRecord({
     originalTitle: 'Lakers Beat Celtics 101-90',
     originalSummary: 'The Los Angeles Lakers defeated the Boston Celtics 101-90.'
   });
-  const gameFact = makeMinimalFact({
-    storyType: 'game',
-    certainty: 'confirmed',
-    factText: 'The Los Angeles Lakers defeated the Boston Celtics 101-90.',
-    attribution: '',
-    evidenceQuote: 'The Los Angeles Lakers defeated the Boston Celtics 101-90.'
+  const validation = validateFactExtraction(makeEvidenceExtraction({
+    evidenceQuote: game.originalSummary
+  }), game);
+  assert.equal(validation.ok, true, validation.reasons.join(','));
+  assert.deepEqual(validation.value.facts[0].numbers, [
+    { type: 'score', value: 'score:101:90' }
+  ]);
+
+  const perGame = await makeRecord({
+    originalTitle: 'Julian Phillips, Rockets Sign Contract',
+    originalSummary: 'Phillips averaged 3.6 points in 11.2 minutes per game.'
   });
-  assert.equal(validateFactExtraction(gameFact, gameRecord).ok, true);
+  const perGameValidation = validateFactExtraction(makeEvidenceExtraction({
+    evidenceQuote: perGame.originalSummary
+  }), perGame);
+  assert.equal(perGameValidation.ok, true, perGameValidation.reasons.join(','));
 });
 
 test('Stage 2 accepts only verified copy and requires an independent oneLine', async () => {
@@ -1142,16 +1233,27 @@ test('Stage 2 rejects Unicode damage and keeps Curry aliases collision-safe', as
 });
 
 function makeSigningFact() {
+  const evidenceQuote =
+    'Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.';
   return {
     storyType: 'signing',
     facts: [{
       id: 'fact-1',
-      factText: 'Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.',
+      factText: evidenceQuote,
       polarity: 'positive',
       certainty: 'confirmed',
       attribution: '',
+      attributionQuote: '',
       sourceField: 'rssSummary',
-      evidenceQuote: 'Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.'
+      evidenceQuote,
+      entities: [
+        { type: 'team', canonicalId: 'lakers' },
+        { type: 'person', canonicalId: 'jaxson-hayes' }
+      ],
+      numbers: [
+        { type: 'money', value: 'usd-million:12' },
+        { type: 'contractYears', value: 'years:2' }
+      ]
     }],
     mustNotClaim: []
   };
@@ -1177,6 +1279,7 @@ function makeMinimalFact({
   sourceField = 'rssSummary',
   evidenceQuote
 }) {
+  const extracted = extractEvidenceFacts(evidenceQuote, evidenceQuote);
   return {
     storyType,
     facts: [{
@@ -1185,9 +1288,32 @@ function makeMinimalFact({
       polarity,
       certainty,
       attribution,
+      attributionQuote: attribution ? evidenceQuote : '',
       sourceField,
-      evidenceQuote
+      evidenceQuote,
+      entities: [
+        ...extracted.teams.map((canonicalId) => ({ type: 'team', canonicalId })),
+        ...extracted.players.map((canonicalId) => ({ type: 'person', canonicalId }))
+      ],
+      numbers: [
+        ...extracted.money.map((value) => ({ type: 'money', value })),
+        ...extracted.durations.map((value) => ({ type: 'contractYears', value })),
+        ...extracted.picks.map((value) => ({ type: 'tradeAsset', value })),
+        ...extracted.scores.map((value) => ({ type: 'score', value }))
+      ]
     }],
     mustNotClaim: []
+  };
+}
+
+function makeEvidenceExtraction(value) {
+  const items = Array.isArray(value) ? value : [value];
+  return {
+    evidenceItems: items.map((item, index) => ({
+      id: `evidence-${index + 1}`,
+      evidenceQuote: item.evidenceQuote,
+      attributionName: item.attributionName || '',
+      attributionQuote: item.attributionQuote || ''
+    }))
   };
 }

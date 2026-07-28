@@ -77,6 +77,7 @@ async function main() {
       aiRequests: payload.aiRequests,
       factStageRequests: payload.factStageRequests,
       editorialStageRequests: payload.editorialStageRequests,
+      evidenceExtraction: redactEvidenceSummary(factSnapshot?.evidenceExtraction),
       factExtraction: redactFactSummary(factSnapshot?.factExtraction),
       factValidation: factSnapshot?.factValidation || null,
       editorial: editorialSnapshot?.qwenFinalParsedJson || null,
@@ -115,13 +116,25 @@ async function main() {
     pipelineMode: 'phase1',
     metrics: {
       firstAttemptParsed: results.filter(
-        (result) => result.factExtraction && result.factStageRequests === 1
+        (result) => result.evidenceExtraction && result.factStageRequests === 1
       ).length,
       retryParsed: results.filter(
-        (result) => result.factExtraction && result.factStageRequests === 2
+        (result) => result.evidenceExtraction && result.factStageRequests === 2
       ).length,
-      factParsed: results.filter((result) => result.factExtraction).length,
+      factParsed: results.filter((result) => result.evidenceExtraction).length,
+      evidenceLocated: results.filter((result) => (
+        result.evidenceExtraction &&
+        !(result.factValidation?.details?.evidenceNotFound || []).length
+      )).length,
       factValidated: results.filter((result) => result.factValidation?.ok).length,
+      certaintyErrors: countValidationDetails(results, 'certaintyMismatches'),
+      polarityErrors: countValidationDetails(results, 'negationMismatches'),
+      attributionErrors:
+        countValidationDetails(results, 'attributionMismatches') +
+        countValidationDetails(results, 'attributionEvidenceNotFound'),
+      unsupportedEvents: countValidationDetails(results, 'unsupportedEvents'),
+      numberErrors: countValidationDetails(results, 'numberMismatches'),
+      entityErrors: countValidationDetails(results, 'entityMismatches'),
       editorialParsed: results.filter((result) => result.editorial).length,
       finalAccepted: results.filter((result) => result.resultAiStatus === 'accepted').length,
       totalRequests: results.reduce((sum, result) => sum + result.aiRequests, 0),
@@ -141,6 +154,17 @@ async function main() {
   }, null, 2));
 }
 
+function redactEvidenceSummary(value) {
+  if (!value || typeof value !== 'object') return null;
+  return {
+    evidenceItems: (value.evidenceItems || []).map((item) => ({
+      ...item,
+      evidenceQuote: String(item.evidenceQuote || '').slice(0, 120),
+      attributionQuote: String(item.attributionQuote || '').slice(0, 120)
+    }))
+  };
+}
+
 function redactFactSummary(value) {
   if (!value || typeof value !== 'object') return null;
   return {
@@ -150,6 +174,13 @@ function redactFactSummary(value) {
       evidenceQuote: String(fact.evidenceQuote || '').slice(0, 120)
     }))
   };
+}
+
+function countValidationDetails(results, key) {
+  return results.reduce(
+    (sum, result) => sum + (result.factValidation?.details?.[key] || []).length,
+    0
+  );
 }
 
 function normalizeBaseUrl(value) {

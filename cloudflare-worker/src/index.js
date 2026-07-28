@@ -27,6 +27,7 @@ import {
   selectQueueRecords,
   stripHtml,
   summarizeQueue,
+  summarizeEvidenceExtraction,
   summarizeFactExtraction,
   validateEditorialResult,
   validateFactExtraction,
@@ -303,6 +304,7 @@ async function reprocessRejectedForDebug(request, env) {
       invalidJson: stats.qwenInvalidJson
     },
     factExtraction: factSnapshot?.factExtraction || null,
+    evidenceExtraction: factSnapshot?.evidenceExtraction || null,
     factValidation: factSnapshot?.factValidation || null,
     qwenFinalParsedJson: (editorialSnapshot || qwenSnapshot)?.qwenFinalParsedJson || null,
     titleZh: (editorialSnapshot || qwenSnapshot || finalSnapshot)?.titleZh || '',
@@ -967,7 +969,8 @@ function logPhase1FactDebug(record, result, validation, pipelineMode) {
     model: result?.modelUsed || '',
     pipelineMode,
     factExtractionVersion: FACT_EXTRACTION_VERSION,
-    factExtraction: summarizeFactExtraction(result?.normalized?.parsed),
+    evidenceExtraction: summarizeEvidenceExtraction(result?.normalized?.parsed),
+    factExtraction: summarizeFactExtraction(validation?.value),
     factValidation: {
       ok: Boolean(validation?.ok),
       reasons: [...(validation?.reasons || [])],
