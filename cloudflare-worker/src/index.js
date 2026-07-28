@@ -237,6 +237,7 @@ async function reprocessRejectedForDebug(request, env) {
   const snapshots = [];
   await processRecord(testRecord, env, stats, snapshots);
   const qwenSnapshot = snapshots.find((snapshot) => snapshot.stage === 'qwen-primary') || null;
+  const finalSnapshot = snapshots.at(-1) || null;
 
   return jsonResponse({
     ok: true,
@@ -260,10 +261,12 @@ async function reprocessRejectedForDebug(request, env) {
       invalidJson: stats.qwenInvalidJson
     },
     qwenFinalParsedJson: qwenSnapshot?.qwenFinalParsedJson || null,
-    titleZh: qwenSnapshot?.titleZh || '',
-    summaryZh: qwenSnapshot?.summaryZh || '',
-    oneLineZh: qwenSnapshot?.oneLineZh || '',
-    rejectionReasons: qwenSnapshot?.rejectionReasons || testRecord.rejectionReasons || [],
+    titleZh: (qwenSnapshot || finalSnapshot)?.titleZh || '',
+    summaryZh: (qwenSnapshot || finalSnapshot)?.summaryZh || '',
+    oneLineZh: (qwenSnapshot || finalSnapshot)?.oneLineZh || '',
+    fallbackInvoked: Boolean(finalSnapshot?.fallbackInvoked),
+    fallbackReason: finalSnapshot?.fallbackReason || null,
+    rejectionReasons: (qwenSnapshot || finalSnapshot)?.rejectionReasons || testRecord.rejectionReasons || [],
     snapshots
   }, {
     headers: { 'cache-control': 'no-store' }
@@ -423,43 +426,10 @@ async function processRecord(record, env, stats, debugSnapshots = null) {
       aiResult,
       validation,
       aiResult.modelUsed === getFallbackModel(env)
-        ? 'json-fallback-after-unparseable-qwen'
+        ? 'json-fallback-after-structural-qwen-failure'
         : 'qwen-primary'
     );
     if (debugSnapshots) debugSnapshots.push(primaryDebug);
-
-    if (!validation.ok && aiResult.modelUsed !== getFallbackModel(env)) {
-      console.warn('Primary AI edit failed the quality gate; requesting structured fallback review', {
-        newsId: record.newsId,
-        originalTitle: record.originalTitle,
-        model: aiResult.modelUsed,
-        reasons: validation.reasons
-      });
-      const fallbackResult = await summarizeWithJsonFallback(
-        record,
-        articleText,
-        env,
-        aiResult.normalized.parsed,
-        validation
-      );
-      stats.requests += fallbackResult.requestCount;
-      stats.fallbackRequests += fallbackResult.requestCount;
-      const fallbackValidation = validateEditorialResult(
-        fallbackResult.normalized.parsed,
-        record,
-        articleText
-      );
-      const fallbackDebug = logEditorialQualityDebug(record, fallbackResult, fallbackValidation, 'json-fallback');
-      if (debugSnapshots) debugSnapshots.push(fallbackDebug);
-      if (fallbackValidation.ok) {
-        aiResult = fallbackResult;
-        validation = fallbackValidation;
-        stats.fallbackAccepted += 1;
-      } else {
-        validation = fallbackValidation;
-        aiResult = fallbackResult;
-      }
-    }
 
     if (!validation.ok) {
       record.aiStatus = 'rejected';
@@ -535,6 +505,7 @@ async function summarizeWithWorkersAi(record, articleText, env) {
   const prompt = buildEditorialPrompt(record, articleText);
   let requestCount = 0;
   let primaryError = null;
+  let fallbackReason = null;
   const qwenDiagnostics = createQwenDiagnostics();
   const attempts = [
     { maxTokens: PRIMARY_JSON_MAX_TOKENS, retry: false },
@@ -560,9 +531,12 @@ async function summarizeWithWorkersAi(record, articleText, env) {
             requestCount,
             fallbackRequestCount: 0,
             modelUsed: model,
+            fallbackInvoked: false,
+            fallbackReason: null,
             qwenDiagnostics
           };
         }
+        fallbackReason = normalized.structuralFailureReason;
 
         if (!normalized.rawContent) qwenDiagnostics.emptyContent += 1;
         if (normalized.finishReason.toLowerCase() === 'length') {
@@ -583,6 +557,7 @@ async function summarizeWithWorkersAi(record, articleText, env) {
         });
       } catch (error) {
         primaryError = error;
+        fallbackReason = 'qwen-request-error';
         console.warn('Primary Workers AI model failed; trying structured fallback model', {
           newsId: record.newsId,
           model,
@@ -597,7 +572,7 @@ async function summarizeWithWorkersAi(record, articleText, env) {
       throw primaryError || new Error('Primary Workers AI model returned no structured editorial payload.');
     }
 
-    const fallback = await runJsonFallback(prompt, fallbackModel, env);
+    const fallback = await runJsonFallback(prompt, fallbackModel, env, fallbackReason);
     return {
       ...fallback,
       requestCount: requestCount + fallback.requestCount,
@@ -617,29 +592,16 @@ async function summarizeWithWorkersAi(record, articleText, env) {
   }
 }
 
-async function summarizeWithJsonFallback(record, articleText, env, rejectedResult, validation) {
-  const correction = [
-    '',
-    '上一版候选未通过本地质量检查，请根据具体问题重新编辑。',
-    `上一版候选=${JSON.stringify(rejectedResult || {})}`,
-    `拒绝原因=${JSON.stringify(validation?.reasons || [])}`,
-    `新增或错误事实=${JSON.stringify(validation?.details?.addedFacts || [])}`,
-    `遗漏核心事实=${JSON.stringify(validation?.details?.missingFacts || [])}`,
-    `不安全片段=${JSON.stringify(validation?.details?.unsafeFragments || [])}`,
-    '必须修复以上全部问题；不能照抄不安全英文片段，不能改变金额量级。'
-  ].join('\n');
-  const prompt = `${buildEditorialPrompt(record, articleText)}${correction}`;
-  return runJsonFallback(prompt, getFallbackModel(env), env);
-}
-
-async function runJsonFallback(prompt, model, env) {
+async function runJsonFallback(prompt, model, env, fallbackReason) {
   try {
     const response = await env.AI.run(model, buildWorkersAiJsonRequest(prompt));
     return {
       normalized: normalizeAiResponse(response),
       requestCount: 1,
       fallbackRequestCount: 1,
-      modelUsed: model
+      modelUsed: model,
+      fallbackInvoked: true,
+      fallbackReason: fallbackReason || 'qwen-structural-failure'
     };
   } catch (error) {
     if (error && typeof error === 'object') {
@@ -730,6 +692,8 @@ function logEditorialQualityDebug(record, aiResult, validation, stage) {
     summaryZh,
     oneLineZh,
     oneLineSource: modelOneLineZh ? 'model' : titleZh ? 'titleZh-derived' : 'missing',
+    fallbackInvoked: Boolean(aiResult?.fallbackInvoked),
+    fallbackReason: aiResult?.fallbackReason || null,
     rejectionReasons: [...(validation?.reasons || [])],
     addedFacts: [...(validation?.details?.addedFacts || [])],
     missingFacts: [...(validation?.details?.missingFacts || [])],

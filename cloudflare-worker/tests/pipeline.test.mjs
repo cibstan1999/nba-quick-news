@@ -9,6 +9,7 @@ import {
   extractEvidenceFacts,
   inferFactLevel,
   inferStoryType,
+  inspectUnicodeIssues,
   materializePayload,
   migrateLegacyRecord,
   normalizeAiResponse,
@@ -81,6 +82,104 @@ test('headline entity extraction keeps player names without title verbs', () => 
 
   const generating = extractEvidenceFacts('Cooper Flagg Generating Interest');
   assert.deepEqual(generating.players, ['cooper-flagg']);
+});
+
+test('generic entity extraction excludes editorial phrases but keeps plausible unknown people', () => {
+  for (const phrase of [
+    'Summer League Prospects',
+    "You Don't Envision Anything",
+    'Final Score',
+    'Key Takeaways',
+    'Trade Analysis',
+    'Injury Report',
+    'Free Agency Rumors'
+  ]) {
+    assert.deepEqual(extractEvidenceFacts(phrase).players, [], phrase);
+  }
+
+  assert.deepEqual(extractEvidenceFacts('Micah Peavy').players, ['micah-peavy']);
+  assert.deepEqual(extractEvidenceFacts('Tarris Reed Jr.').players, ['tarris-reed-jr']);
+  assert.deepEqual(extractEvidenceFacts('Robert Williams III').players, ['robert-williams-iii']);
+  assert.deepEqual(extractEvidenceFacts('Joe Lacob').players, []);
+});
+
+test('quality gate does not require Summer League Prospects as a player', async () => {
+  const record = await makeRecord({
+    originalTitle: "Dunc'd On: LeBron James to Philly + Summer League Prospects: OKC, CHA, DET, TOR, SAS",
+    originalSummary: 'Nate Duncan and Danny Leroux analyze LeBron James joining Philadelphia and review Summer League prospects.',
+    url: 'https://example.com/duncd-on'
+  });
+  const result = {
+    titleZh: '节目分析勒布朗·詹姆斯加盟费城后的影响',
+    summaryZh: '节目讨论了勒布朗·詹姆斯加盟费城后的阵容影响，并分析多支球队的夏季联赛新秀表现。',
+    categoryZh: '分析',
+    tagsZh: ['分析', '勒布朗·詹姆斯'],
+    confidence: 0.9,
+    factLevel: 'analysis'
+  };
+
+  const validation = validateEditorialResult(result, record);
+  assert.ok(!validation.details.missingFacts.includes('player:summer-league-prospects'));
+});
+
+test('Joe Lacob display name is evidence-scoped and never becomes a player fact', async () => {
+  const record = await makeRecord({
+    originalTitle: 'Warriors Focused On Building Team For After Stephen Curry Retires',
+    originalSummary: 'The Warriors are considering both short-term moves and their future after Stephen Curry.',
+    url: 'https://example.com/warriors-future'
+  });
+  const result = {
+    titleZh: '勇士评估斯蒂芬·库里退役后的建队方向',
+    summaryZh: '记者分析称，球队老板拉博布希望兼顾当前竞争力，并为斯蒂芬·库里退役后的阵容保留调整空间。',
+    categoryZh: '分析',
+    tagsZh: ['勇士', '拉博布'],
+    confidence: 0.9,
+    factLevel: 'analysis'
+  };
+
+  const validation = validateEditorialResult(
+    result,
+    record,
+    'Tim Kawakami reported that Warriors owner Joe Lacob wants a successful team after Stephen Curry retires.'
+  );
+  assert.match(validation.value.summaryZh, /乔·拉科布/);
+  assert.doesNotMatch(validation.value.summaryZh, /拉博布/);
+  assert.deepEqual(extractEvidenceFacts('Joe Lacob').players, []);
+
+  const unrelated = validateEditorialResult(result, record, 'The report did not identify the team owner.');
+  assert.match(unrelated.value.summaryZh, /拉博布/);
+});
+
+test('quality gate hard-rejects invalid Unicode without rejecting valid emoji', async () => {
+  const record = await makeRecord();
+  const valid = {
+    titleZh: '湖人与 Jaxson Hayes 达成续约',
+    summaryZh: 'Jaxson Hayes 与湖人达成 2 年 1200 万美元合同，球队保留了这名内线球员。🏀',
+    categoryZh: '签约',
+    tagsZh: ['湖人', '续约'],
+    confidence: 0.9,
+    factLevel: 'confirmed'
+  };
+  assert.deepEqual(inspectUnicodeIssues('正常中文和 emoji 🏀'), []);
+  assert.ok(!validateEditorialResult(valid, record).reasons.includes('invalid-unicode-sequence'));
+
+  const badTitle = validateEditorialResult({ ...valid, titleZh: '斯蒂�·库里谈续约' }, record);
+  assert.ok(badTitle.reasons.includes('unicode-replacement-character'));
+
+  const badSummary = validateEditorialResult({ ...valid, summaryZh: '斯蒂�·库里谈到球队的后续安排。' }, record);
+  assert.ok(badSummary.reasons.includes('unicode-replacement-character'));
+
+  const badSurrogate = validateEditorialResult({ ...valid, summaryZh: `湖人完成签约${String.fromCharCode(0xD800)}` }, record);
+  assert.ok(badSurrogate.reasons.includes('invalid-unicode-sequence'));
+
+  const badMetadata = validateEditorialResult({
+    ...valid,
+    categoryZh: `签约${String.fromCharCode(0xDC00)}`,
+    tagsZh: ['湖人', '续约�'],
+    oneLineZh: '正常标题'
+  }, record);
+  assert.ok(badMetadata.reasons.includes('unicode-replacement-character'));
+  assert.ok(badMetadata.reasons.includes('invalid-unicode-sequence'));
 });
 
 test('quality gate accepts DeMar DeRozan interest copy without a verb-shaped player', async () => {

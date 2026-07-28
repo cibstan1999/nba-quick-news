@@ -72,8 +72,17 @@ const PLAYER_GROUPS = [
   ['adam-silver', '亚当·萧华', ['Adam Silver']]
 ];
 
+const NBA_PERSON_GROUPS = [
+  ['joe-lacob', '乔·拉科布', ['Joe Lacob']]
+];
+
+const NBA_PERSON_KNOWN_BAD_OUTPUTS = new Map([
+  ['joe-lacob', ['拉博布']]
+]);
+
 const TEAM_LOOKUP = buildAliasLookup(TEAM_GROUPS);
 const PLAYER_LOOKUP = buildAliasLookup(PLAYER_GROUPS);
+const NBA_PERSON_LOOKUP = buildAliasLookup(NBA_PERSON_GROUPS);
 const TEAM_REPLACEMENTS = buildReplacements(TEAM_GROUPS);
 const PLAYER_REPLACEMENTS = buildReplacements(PLAYER_GROUPS);
 const ZH_TEAM_SIGNING_PATTERN = new RegExp(
@@ -139,8 +148,30 @@ const SOURCE_WORDS = new Set([
   'Report', 'News', 'Final', 'The', 'His', 'Her', 'Their', 'With', 'From',
   'After', 'Before', 'For', 'And', 'Into', 'On', 'Of', 'To', 'In'
 ]);
+const SOURCE_WORDS_LOWER = new Set([...SOURCE_WORDS].map((word) => word.toLowerCase()));
+
+const NON_PERSON_PHRASES = new Set([
+  'summer league prospects',
+  "you don't envision anything",
+  'final score',
+  'key takeaways',
+  'trade analysis',
+  'injury report',
+  'free agency rumors'
+]);
+
+const NON_PERSON_WORDS = new Set([
+  'after', 'agency', 'analysis', 'anything', 'awards', 'before', 'championship',
+  'conference', 'envision', 'final', 'free', 'grades', 'injury', 'key',
+  'league', 'losers', 'news', 'notes', 'observations', 'odds', 'podcast',
+  'preview', 'projection', 'prospect', 'prospects', 'ranking', 'recap',
+  'report', 'rumor', 'rumors', 'schedule', 'score', 'standings', 'summer',
+  'takeaway', 'takeaways', 'thoughts', 'trade', 'update', 'updates', 'what',
+  'why', 'winners', 'you'
+]);
 
 const PERSON_BOUNDARY_WORDS = /\b(?:Acquire[sd]?|Agree[sd]?|Sign(?:s|ed|ing)?|Re-Sign(?:s|ed|ing)?|Trade[sd]?|Trading|Send|Sent|Deal(?:s|t)?|Land(?:s|ed|ing)?|Report(?:ed|edly)?|Return(?:s|ed|ing)?|Join(?:s|ed|ing)?|Match(?:es|ed|ing)?|Receiv(?:e|es|ed|ing)|Draw(?:s|n|ing)?|Generat(?:e|es|ed|ing)|Expect(?:s|ed|ing)?|Offer|Sheet|Focus(?:es|ed|ing)?|Build(?:s|ing)?|Team|Retire[sd]?|Waive[sd]?|Wait(?:s|ed|ing)?|Fill(?:s|ed|ing)?|Roster|Qualifying|Proximity|Play(?:s|ed|ing)?|Role|Show(?:s|ed|ing)?|Mutual|Interest|Intends?|Could|Would|May|Might|Had|Has|Have|No|Out|Before|With|From|For|After|Against|During|Into|Over|At|On|Of|To|In|And|Or|Vs)\b/gi;
+const PERSON_CANDIDATE_PATTERN = /\b[A-Z][A-Za-zÀ-ž'’.-]+(?:\s+(?:[A-Z][A-Za-zÀ-ž'’.-]+|Jr\.?|Sr\.?)){1,3}\b/g;
 
 export function normalizeWhitespace(value = '') {
   return String(value || '').replace(/[\r\n\t]+/g, ' ').replace(/\s+/g, ' ').trim();
@@ -494,6 +525,7 @@ export function normalizeAiResponse(response) {
 
   let parsed = null;
   let rawContent = '';
+  let incompleteSchema = false;
   for (const candidate of candidates) {
     if (candidate == null) continue;
     if (isEditorialObject(candidate)) {
@@ -501,18 +533,41 @@ export function normalizeAiResponse(response) {
       rawContent = JSON.stringify(candidate);
       break;
     }
+    if (isEditorialCandidateObject(candidate)) {
+      incompleteSchema = true;
+      rawContent = JSON.stringify(candidate);
+      continue;
+    }
     if (typeof candidate !== 'string') continue;
+    if (!candidate.trim()) continue;
     rawContent = candidate;
-    parsed = parseJsonObject(candidate);
-    if (parsed) break;
+    const parsedCandidate = parseJsonCandidate(candidate);
+    if (!parsedCandidate) continue;
+    if (isEditorialObject(parsedCandidate)) {
+      parsed = parsedCandidate;
+      break;
+    }
+    if (isEditorialCandidateObject(parsedCandidate)) incompleteSchema = true;
   }
 
+  const normalizedRawContent = normalizeWhitespace(rawContent);
+  const lowerFinishReason = finishReason.toLowerCase();
+  const structuralFailureReason = parsed
+    ? null
+    : incompleteSchema
+      ? 'qwen-incomplete-schema'
+      : !normalizedRawContent && lowerFinishReason === 'length'
+        ? 'qwen-length-stop'
+        : !normalizedRawContent
+          ? 'qwen-empty-content'
+          : 'qwen-invalid-json';
   return {
     parsed,
-    rawContent: normalizeWhitespace(rawContent),
-    contentLength: normalizeWhitespace(rawContent).length,
+    rawContent: normalizedRawContent,
+    contentLength: normalizedRawContent.length,
     finishReason,
-    isEmptyLengthResponse: !parsed && !rawContent && finishReason.toLowerCase() === 'length'
+    isEmptyLengthResponse: !parsed && !normalizedRawContent && lowerFinishReason === 'length',
+    structuralFailureReason
   };
 }
 
@@ -523,14 +578,34 @@ export function validateEditorialResult(result, record, articleText = '') {
     return { ok: false, reasons: ['invalid-json-shape'], details };
   }
 
+  const sourceEvidence = [
+    record.originalTitle,
+    record.originalSummary,
+    articleText
+  ].filter(Boolean).join('\n');
   const value = {
-    titleZh: normalizeChineseText(result.titleZh),
-    summaryZh: normalizeChineseText(result.summaryZh),
-    categoryZh: normalizeWhitespace(result.categoryZh),
-    tagsZh: [...new Set((Array.isArray(result.tagsZh) ? result.tagsZh : []).map(normalizeChineseText).filter(Boolean))].slice(0, 5),
+    titleZh: normalizeEditorialPersonNames(normalizeChineseText(result.titleZh), sourceEvidence),
+    summaryZh: normalizeEditorialPersonNames(normalizeChineseText(result.summaryZh), sourceEvidence),
+    categoryZh: normalizeEditorialPersonNames(normalizeWhitespace(result.categoryZh), sourceEvidence),
+    tagsZh: [...new Set(
+      (Array.isArray(result.tagsZh) ? result.tagsZh : [])
+        .map((tag) => normalizeEditorialPersonNames(normalizeChineseText(tag), sourceEvidence))
+        .filter(Boolean)
+    )].slice(0, 5),
     confidence: Number(result.confidence),
     factLevel: normalizeWhitespace(result.factLevel)
   };
+  const unicodeIssues = new Set([
+    result.titleZh,
+    result.summaryZh,
+    result.categoryZh,
+    ...(Array.isArray(result.tagsZh) ? result.tagsZh : []),
+    result.oneLineZh
+  ].flatMap((entry) => inspectUnicodeIssues(entry)));
+  if (unicodeIssues.size) {
+    reasons.push(...unicodeIssues);
+    details.unsafeFragments.push(...unicodeIssues);
+  }
 
   if (!Number.isFinite(value.confidence) || value.confidence < 0.6 || value.confidence > 1) {
     reasons.push('low-confidence');
@@ -556,11 +631,6 @@ export function validateEditorialResult(result, record, articleText = '') {
 
   const leadSummary = firstSentence(record.originalSummary || '');
   const sourceCore = `${record.originalTitle || ''}\n${leadSummary}`;
-  const sourceEvidence = [
-    record.originalTitle,
-    record.originalSummary,
-    articleText
-  ].filter(Boolean).join('\n');
   const requiredFacts = extractEvidenceFacts(sourceCore);
   const requiredEntities = extractEvidenceFacts(record.originalTitle || '');
   const allowedFacts = extractEvidenceFacts(sourceEvidence);
@@ -720,9 +790,31 @@ export function normalizeChineseText(value = '') {
   );
 }
 
+export function inspectUnicodeIssues(value = '') {
+  const text = String(value ?? '');
+  const issues = new Set();
+  if (text.includes('\uFFFD')) issues.add('unicode-replacement-character');
+
+  for (let index = 0; index < text.length; index += 1) {
+    const code = text.charCodeAt(index);
+    if (code >= 0xD800 && code <= 0xDBFF) {
+      const next = text.charCodeAt(index + 1);
+      if (!(next >= 0xDC00 && next <= 0xDFFF)) {
+        issues.add('invalid-unicode-sequence');
+      } else {
+        index += 1;
+      }
+    } else if (code >= 0xDC00 && code <= 0xDFFF) {
+      issues.add('invalid-unicode-sequence');
+    }
+  }
+
+  return [...issues];
+}
+
 export function inspectChineseCopy(value, { minHan = 8, maxLength = 220 } = {}) {
   const text = normalizeWhitespace(value);
-  const fragments = [];
+  const fragments = [...inspectUnicodeIssues(value)];
   const hanCount = (text.match(/\p{Script=Han}/gu) || []).length;
   if (!text) fragments.push('empty');
   if (hanCount < minHan) fragments.push('insufficient-chinese');
@@ -744,6 +836,20 @@ export function inspectChineseCopy(value, { minHan = 8, maxLength = 220 } = {}) 
   const englishRun = withoutProperNames.match(/\b[a-z]+(?:\s+[a-z]+){1,}\b/i);
   if (englishRun) fragments.push(englishRun[0]);
   return { ok: fragments.length === 0, fragments: [...new Set(fragments)] };
+}
+
+function normalizeEditorialPersonNames(value, sourceEvidence) {
+  let text = String(value || '');
+  for (const [id, zh, aliases] of NBA_PERSON_GROUPS) {
+    if (!aliases.some((alias) => containsAlias(sourceEvidence, alias))) continue;
+    for (const alias of aliases) {
+      text = text.replace(new RegExp(`\\b${escapeRegExp(alias)}\\b`, 'gi'), zh);
+    }
+    for (const badOutput of NBA_PERSON_KNOWN_BAD_OUTPUTS.get(id) || []) {
+      text = text.replace(new RegExp(escapeRegExp(badOutput), 'g'), zh);
+    }
+  }
+  return normalizeChineseText(text);
 }
 
 export function extractEvidenceFacts(text = '') {
@@ -871,14 +977,19 @@ function extractPeople(text = '') {
       scrubbed = scrubbed.replace(new RegExp(`\\b${escapeRegExp(alias)}\\b`, 'gi'), ' | ');
     }
   }
+  for (const [, zh, aliases] of NBA_PERSON_GROUPS) {
+    scrubbed = scrubbed.replace(new RegExp(escapeRegExp(zh), 'g'), ' | ');
+    for (const alias of aliases) {
+      scrubbed = scrubbed.replace(new RegExp(`\\b${escapeRegExp(alias)}\\b`, 'gi'), ' | ');
+    }
+  }
   scrubbed = scrubbed.replace(PERSON_BOUNDARY_WORDS, ' | ');
-  const matches = scrubbed.match(/\b[A-Z][A-Za-zÀ-ž'’.-]+(?:\s+(?:[A-Z][A-Za-zÀ-ž'’.-]+|Jr\.?|Sr\.?)){1,3}\b/g) || [];
+  const matches = [...scrubbed.matchAll(PERSON_CANDIDATE_PATTERN)];
   for (const match of matches) {
-    if (/[.!?]\s/.test(match.replace(/\b(?:Jr|Sr)\.\s/g, ''))) continue;
-    const words = match.split(/\s+/);
-    if (words.every((word) => SOURCE_WORDS.has(word.replace(/[.,]/g, '')))) continue;
-    if (extractTeamIds(match).length) continue;
-    const normalized = slug(match);
+    const candidate = match[0];
+    if (!isLikelyPersonCandidate(candidate, scrubbed, match.index || 0)) continue;
+    if (extractTeamIds(candidate).length) continue;
+    const normalized = slug(candidate);
     if (normalized && !found.includes(normalized)) found.push(normalized);
   }
   return found;
@@ -947,16 +1058,50 @@ function extractPersonDisplayNames(text = '') {
       scrubbed = scrubbed.replace(new RegExp(`\\b${escapeRegExp(alias)}\\b`, 'gi'), ' | ');
     }
   }
+  for (const [, zh, aliases] of NBA_PERSON_GROUPS) {
+    scrubbed = scrubbed.replace(new RegExp(escapeRegExp(zh), 'g'), ' | ');
+    for (const alias of aliases) {
+      scrubbed = scrubbed.replace(new RegExp(`\\b${escapeRegExp(alias)}\\b`, 'gi'), ' | ');
+    }
+  }
   scrubbed = scrubbed.replace(PERSON_BOUNDARY_WORDS, ' | ');
   return [...new Set(
-    (scrubbed.match(/\b[A-Z][A-Za-zÀ-ž'’.-]+(?:\s+(?:[A-Z][A-Za-zÀ-ž'’.-]+|Jr\.?|Sr\.?)){1,3}\b/g) || [])
-      .filter((match) => {
-        if (/[.!?]\s/.test(match.replace(/\b(?:Jr|Sr)\.\s/g, ''))) return false;
-        const words = match.split(/\s+/);
-        return !words.every((word) => SOURCE_WORDS.has(word.replace(/[.,]/g, ''))) &&
-          extractTeamIds(match).length === 0;
-      })
+    [...scrubbed.matchAll(PERSON_CANDIDATE_PATTERN)]
+      .filter((match) => (
+        isLikelyPersonCandidate(match[0], scrubbed, match.index || 0) &&
+        extractTeamIds(match[0]).length === 0
+      ))
+      .map((match) => match[0])
   )];
+}
+
+function isLikelyPersonCandidate(candidate, sourceText = '', startIndex = 0) {
+  const normalized = normalizeWhitespace(candidate);
+  const comparableCandidate = normalized
+    .toLowerCase()
+    .replace(/[’]/g, "'")
+    .replace(/[.,:;!?]+$/g, '');
+  if (!normalized || NON_PERSON_PHRASES.has(comparableCandidate)) return false;
+  if (/[.!?]\s/.test(normalized.replace(/\b(?:Jr|Sr)\.\s/g, ''))) return false;
+
+  const words = comparableCandidate
+    .split(/\s+/)
+    .map((word) => word.replace(/^[^a-z]+|[^a-z]+$/g, ''))
+    .filter(Boolean);
+  const rawWords = normalized
+    .split(/\s+/)
+    .map((word) => word.replace(/^[^A-Za-z]+|[^A-Za-z]+$/g, ''))
+    .filter(Boolean);
+  if (words.length < 2 || words.length > 4) return false;
+  if (words.every((word) => SOURCE_WORDS_LOWER.has(word))) return false;
+  if (words.some((word) => NON_PERSON_WORDS.has(word))) return false;
+  if (rawWords.every((word) => /^[A-Z]{2,5}$/.test(word))) return false;
+
+  const followingText = sourceText.slice(startIndex + candidate.length);
+  if (/^\s*:/.test(followingText) && words.some((word) => NON_PERSON_WORDS.has(word))) {
+    return false;
+  }
+  return true;
 }
 
 function firstSentence(value = '') {
@@ -1022,7 +1167,7 @@ function extractScoreFacts(text = '') {
 
 function stripAllowedProperNames(text) {
   let value = ` ${text} `;
-  for (const [alias] of [...TEAM_LOOKUP, ...PLAYER_LOOKUP]) {
+  for (const [alias] of [...TEAM_LOOKUP, ...PLAYER_LOOKUP, ...NBA_PERSON_LOOKUP]) {
     value = value.replace(new RegExp(escapeRegExp(alias), 'gi'), ' ');
   }
   value = value
@@ -1056,18 +1201,18 @@ function containsAlias(text, alias) {
   return new RegExp(needsBoundary ? `\\b${escaped}\\b` : escaped, 'i').test(text);
 }
 
-function parseJsonObject(value) {
+function parseJsonCandidate(value) {
   const text = String(value || '').trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '');
   try {
     const parsed = JSON.parse(text);
-    return isEditorialObject(parsed) ? parsed : null;
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : null;
   } catch {
     const start = text.indexOf('{');
     const end = text.lastIndexOf('}');
     if (start < 0 || end <= start) return null;
     try {
       const parsed = JSON.parse(text.slice(start, end + 1));
-      return isEditorialObject(parsed) ? parsed : null;
+      return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : null;
     } catch {
       return null;
     }
@@ -1075,8 +1220,25 @@ function parseJsonObject(value) {
 }
 
 function isEditorialObject(value) {
-  return Boolean(value && typeof value === 'object' && !Array.isArray(value) &&
-    ('titleZh' in value || 'summaryZh' in value));
+  return Boolean(
+    isEditorialCandidateObject(value) &&
+    typeof value.titleZh === 'string' &&
+    typeof value.summaryZh === 'string' &&
+    typeof value.categoryZh === 'string' &&
+    Array.isArray(value.tagsZh) &&
+    typeof value.confidence === 'number' &&
+    typeof value.factLevel === 'string'
+  );
+}
+
+function isEditorialCandidateObject(value) {
+  return Boolean(
+    value &&
+    typeof value === 'object' &&
+    !Array.isArray(value) &&
+    ['titleZh', 'summaryZh', 'categoryZh', 'tagsZh', 'confidence', 'factLevel']
+      .some((key) => key in value)
+  );
 }
 
 function normalizeMessageContent(value) {

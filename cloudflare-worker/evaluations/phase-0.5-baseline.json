@@ -1,0 +1,457 @@
+{
+  "evaluation": "phase-0.5-single-stage-baseline",
+  "frozenAt": "2026-07-28T05:59:27.216Z",
+  "sourceScope": "Current production NEWS_KV catalog, read-only snapshot",
+  "targetSampleCount": 18,
+  "actualSampleCount": 9,
+  "typeTargets": {
+    "trade_rumor": 3,
+    "signing": 3,
+    "interview": 3,
+    "injury": 3,
+    "game": 3,
+    "analysis": 3
+  },
+  "typeAvailability": {
+    "trade_rumor": 3,
+    "signing": 3,
+    "interview": 1,
+    "injury": 0,
+    "game": 0,
+    "analysis": 2
+  },
+  "sampleShortfallReason": "The current 36-record RealGM offseason catalog contains no injury or game stories, one clear interview, and two clear analysis items. No records were reclassified merely to fill quotas.",
+  "model": "@cf/qwen/qwen3-30b-a3b-fp8",
+  "pipelineVersion": "editorial-pipeline-v4",
+  "samples": [
+    {
+      "sampleId": "TR-01",
+      "newsId": "news_5010499fbfecf54847ae7a8d",
+      "testType": "trade_rumor",
+      "selectionReason": "Newest distinct multi-team free-agent interest report; rejected and previously exposed a Gate false positive.",
+      "evidenceLimited": false,
+      "humanBaseline": {
+        "expectedPlayers": [
+          "DeMar DeRozan"
+        ],
+        "expectedTeams": [
+          "Miami Heat",
+          "Denver Nuggets",
+          "Cleveland Cavaliers"
+        ],
+        "expectedMoney": [
+          "$10 million partial guarantee",
+          "$26.74 million total contract"
+        ],
+        "expectedContractYears": [],
+        "expectedTradeAssets": [],
+        "expectedScore": null,
+        "expectedInjuryStatus": null,
+        "expectedRumorLanguage": "Interest only; no signing or preferred destination is confirmed.",
+        "expectedAttribution": "Shams Charania on NBA Today",
+        "mustContainFacts": [
+          "DeMar DeRozan is drawing interest from the Heat, Nuggets and Cavaliers."
+        ],
+        "mustNotClaim": [
+          "DeMar DeRozan signed with any of the three teams.",
+          "Any of the three teams is his confirmed destination."
+        ]
+      },
+      "source": "RealGM",
+      "url": "https://basketball.realgm.com/wiretap/286839/DeMar-DeRozan-Receiving-Interest-From-Heat-Nuggets-Cavaliers",
+      "publishedAt": "2026-07-27T23:08:41.000Z",
+      "originalTitle": "DeMar DeRozan Receiving Interest From Heat, Nuggets, Cavaliers",
+      "originalSummary": "DeMar DeRozan is currently the most significant free agent available on the market and he's drawing interest from the Miami Heat, Denver Nuggets and Cleveland Cavaliers. \" I'm told Miami, Denver, and Cleveland are among the teams interested in Demar DeRozan,\" said Shams Charania on Monday's episode of NBA Today. The Heat and Cavaliers were among the finalists for LeBron James before he signed with the Philadelphia 76ers. DeRozan had a partial guarantee on his contract for only $10 million of the total of $26.74 million with the Sacramento Kings. DeRozan, who is represented by Aaron Goodwin , appeared in 77 games last season with the Kings and averaged 18.4 points, 2.9 rebounds and 4.1 assist. DeRozan will be playing in his age-37 season.",
+      "articleTextUsed": null,
+      "articleTextAvailability": "Not persisted by the production pipeline; collected separately for current dry-run evidence.",
+      "storyType": "fact",
+      "category": "其他",
+      "factLevel": "rumor",
+      "sourceHash": "ec279a8a765ebacebee4fc1aad6a7bdeeaa1582d12ac9058ffd56b1071a4c107",
+      "previousAiStatus": "rejected",
+      "model": "@cf/qwen/qwen3-30b-a3b-fp8",
+      "pipelineVersion": "editorial-pipeline-v4"
+    },
+    {
+      "sampleId": "TR-02",
+      "newsId": "news_02d0c7ee8182e3b3b6ecc3a8",
+      "testType": "trade_rumor",
+      "selectionReason": "Accepted roster rumor with an unresolved buyout and explicit salary context.",
+      "evidenceLimited": false,
+      "humanBaseline": {
+        "expectedPlayers": [
+          "Klay Thompson"
+        ],
+        "expectedTeams": [
+          "Miami Heat",
+          "Dallas Mavericks"
+        ],
+        "expectedMoney": [
+          "$17.5 million in the final contract year"
+        ],
+        "expectedContractYears": [
+          "final contract year"
+        ],
+        "expectedTradeAssets": [],
+        "expectedScore": null,
+        "expectedInjuryStatus": null,
+        "expectedRumorLanguage": "Miami is interested and willing to wait; a Dallas departure or buyout is not confirmed.",
+        "expectedAttribution": "RealGM report; no named source in the RSS summary",
+        "mustContainFacts": [
+          "The Heat are focused on adding Klay Thompson.",
+          "It is unclear whether Thompson will leave Dallas."
+        ],
+        "mustNotClaim": [
+          "Klay Thompson joined the Heat.",
+          "The Mavericks agreed to a buyout."
+        ]
+      },
+      "source": "RealGM",
+      "url": "https://basketball.realgm.com/wiretap/286826/Heat-Waiting-On-Klay-Thompson-Before-Filling-Out-Roster",
+      "publishedAt": "2026-07-26T13:56:11.000Z",
+      "originalTitle": "Heat Waiting On Klay Thompson Before Filling Out Roster",
+      "originalSummary": "The Miami Heat have a handful of roster spots to fill before the regular season. They've been linked to several veteran wing shooters and scorers, with one particular target in mind. The Heat are focused on adding Klay Thompson, even if it's unclear if the veteran wing will part ways with the Dallas Mavericks. Thompson is owed $17.5 million in the final year of his contract with the Mavs. It's unknown if the player or team has interest in a buyout. Dallas is facing a bit of a roster crunch with 16 players on standard contracts for just 15 roster spots. While Miami is willing to wait on Thompson, they are keeping tabs with other veterans. That group includes DeMar DeRozan, who was waived by the Sacramento Kings earlier this offseason, as well as Bradley Beal, who declined a player option with the LA Clippers to open the offseason. The Heat are also in the market for another big man. There isn't a pure center on the roster, with Giannis Antetokounmpo, Bam Adebayo and Bobby Portis the top three bigs in the Miami rotation.",
+      "articleTextUsed": null,
+      "articleTextAvailability": "Not persisted by the production pipeline; collected separately for current dry-run evidence.",
+      "storyType": "rumor",
+      "category": "流言",
+      "factLevel": "rumor",
+      "sourceHash": "0c759bb4d5f40564ad3d59e7358509bb210e05cf8faf4d4f4514f307956e8493",
+      "previousAiStatus": "accepted",
+      "model": "@cf/qwen/qwen3-30b-a3b-fp8",
+      "pipelineVersion": "editorial-pipeline-v4"
+    },
+    {
+      "sampleId": "TR-03",
+      "newsId": "news_08ec80518469327a28c8b2b9",
+      "testType": "trade_rumor",
+      "selectionReason": "Rejected negative trade report that tests whether the model preserves “no interest” and expected-status language.",
+      "evidenceLimited": false,
+      "humanBaseline": {
+        "expectedPlayers": [
+          "Anthony Davis",
+          "Kyrie Irving",
+          "LeBron James"
+        ],
+        "expectedTeams": [
+          "Washington Wizards",
+          "Dallas Mavericks"
+        ],
+        "expectedMoney": [],
+        "expectedContractYears": [],
+        "expectedTradeAssets": [],
+        "expectedScore": null,
+        "expectedInjuryStatus": null,
+        "expectedRumorLanguage": "Report says the Wizards and Mavericks had no interest in trading Davis or Irving; opening-night status is expected, not guaranteed.",
+        "expectedAttribution": "Prior reporting summarized by RealGM",
+        "mustContainFacts": [
+          "Washington had no interest in trading Anthony Davis.",
+          "Dallas had no interest in trading Kyrie Irving."
+        ],
+        "mustNotClaim": [
+          "Anthony Davis or Kyrie Irving was traded.",
+          "LeBron James demanded either trade."
+        ]
+      },
+      "source": "RealGM",
+      "url": "https://basketball.realgm.com/wiretap/286819/Wizards-Mavericks-Had-No-Interest-In-Trading-Anthony-Davis-Kyrie-Irving",
+      "publishedAt": "2026-07-25T15:55:15.000Z",
+      "originalTitle": "Wizards, Mavericks Had No Interest In Trading Anthony Davis, Kyrie Irving",
+      "originalSummary": "There had been reporting that LeBron James was interesting in teaming up with one of his former teammates when he picked a new team. The Golden State Warriors and Cleveland Cavaliers were linked to Anthony Davis and Kyrie Irving, respectively. However, neither Davis' current team, the Washington Wizards, nor Irving's current team, the Dallas Mavericks, had any interest in trading either player. In addition, James, nor his agent Rich Paul of Klutch Sports, made no demands of teams that they must trade for Davis or Irving to get the NBA's all-time leading scorer. Ultimately, James picked the Philadelphia 76ers for the upcoming season. It's expected that both Davis and Irving will start the season with the Wizards and Mavericks, respectively.",
+      "articleTextUsed": null,
+      "articleTextAvailability": "Not persisted by the production pipeline; collected separately for current dry-run evidence.",
+      "storyType": "rumor",
+      "category": "流言",
+      "factLevel": "rumor",
+      "sourceHash": "76b9b99fa2dec76b507974cf1753d8c12cd98bb363d928d3ac8c8f75e5c29e76",
+      "previousAiStatus": "rejected",
+      "model": "@cf/qwen/qwen3-30b-a3b-fp8",
+      "pipelineVersion": "editorial-pipeline-v4"
+    },
+    {
+      "sampleId": "SG-01",
+      "newsId": "news_73a2505b1263517242d70d41",
+      "testType": "signing",
+      "selectionReason": "Rejected restricted-free-agent transaction with team direction, contract length and amount.",
+      "evidenceLimited": false,
+      "humanBaseline": {
+        "expectedPlayers": [
+          "Spencer Jones"
+        ],
+        "expectedTeams": [
+          "Denver Nuggets",
+          "Oklahoma City Thunder"
+        ],
+        "expectedMoney": [
+          "$12 million"
+        ],
+        "expectedContractYears": [
+          "two years"
+        ],
+        "expectedTradeAssets": [],
+        "expectedScore": null,
+        "expectedInjuryStatus": null,
+        "expectedRumorLanguage": "Confirmed offer-sheet match.",
+        "expectedAttribution": "RealGM report",
+        "mustContainFacts": [
+          "Denver matched the Thunder offer sheet.",
+          "The deal is two years and $12 million.",
+          "Denver retains Spencer Jones."
+        ],
+        "mustNotClaim": [
+          "Spencer Jones joined the Thunder."
+        ]
+      },
+      "source": "RealGM",
+      "url": "https://basketball.realgm.com/wiretap/286829/Nuggets-Matching-Spencer-Jones-Offer-Sheet-From-Thunder",
+      "publishedAt": "2026-07-27T02:52:56.000Z",
+      "originalTitle": "Nuggets Matching Spencer Jones Offer Sheet From Thunder",
+      "originalSummary": "The Denver Nuggets are matching the two-year, $12 million offer sheet Spencer Jones signed with the Oklahoma City Thunder. Denver will retain Jones, who became a valuable rotation player for them last season. Matching the offer sheet for Jones will push the Nuggets over the second apron. Denver still has Peyton Watson's status unresolved, as the forward remains a restricted free agent. Oklahoma City will remain under the second apron by $6.9 million. The Thunder will also retain the use of the full Taxpayer MLE, which is valued at nearly $6.1 million.",
+      "articleTextUsed": null,
+      "articleTextAvailability": "Not persisted by the production pipeline; collected separately for current dry-run evidence.",
+      "storyType": "signing",
+      "category": "签约",
+      "factLevel": "confirmed",
+      "sourceHash": "77a74e250384ab8f45293458bd33caaacbdfe228b6cfedb5d32c96f0b89cd900",
+      "previousAiStatus": "rejected",
+      "model": "@cf/qwen/qwen3-30b-a3b-fp8",
+      "pipelineVersion": "editorial-pipeline-v4"
+    },
+    {
+      "sampleId": "SG-02",
+      "newsId": "news_9021e4ffff03baf15fb6a30a",
+      "testType": "signing",
+      "selectionReason": "Newest accepted Qwen signing candidate with a reported, not completed, re-signing and an estimated amount.",
+      "evidenceLimited": false,
+      "humanBaseline": {
+        "expectedPlayers": [
+          "Draymond Green"
+        ],
+        "expectedTeams": [
+          "Golden State Warriors"
+        ],
+        "expectedMoney": [
+          "close to $28 million"
+        ],
+        "expectedContractYears": [],
+        "expectedTradeAssets": [],
+        "expectedScore": null,
+        "expectedInjuryStatus": null,
+        "expectedRumorLanguage": "Green is expected to re-sign for a figure close to $28 million; neither the signing nor exact amount is confirmed.",
+        "expectedAttribution": "RealGM report",
+        "mustContainFacts": [
+          "Draymond Green is expected to re-sign with Golden State.",
+          "The expected figure is close to $28 million."
+        ],
+        "mustNotClaim": [
+          "Draymond Green has already re-signed.",
+          "The final contract is exactly $28 million."
+        ]
+      },
+      "source": "RealGM",
+      "url": "https://basketball.realgm.com/wiretap/286818/Draymond-Green-Expected-To-Re-Sign-With-Warriors-For-$28M",
+      "publishedAt": "2026-07-25T14:22:21.000Z",
+      "originalTitle": "Draymond Green Expected To Re-Sign With Warriors For $28M",
+      "originalSummary": "With their pursuit of LeBron James having come up short, the Golden State Warriors are expected to pivot to re-signing Draymond Green. The expectation is the Green will re-sign at a figure close to the $28 million player option that he opted out of at the beginning of the offseason. Green has always been expected to stay with Golden State. The question was what kind of contract the veteran forward would re-sign for. The Warriors had been keeping flexibility, in case James chose to sign with them. Now that James has picked the Philadelphia 76ers, Mike Dunleavy Jr. can turn to re-signing Green, De'Anthony Melton and filling out the rest of his roster.",
+      "articleTextUsed": null,
+      "articleTextAvailability": "Not persisted by the production pipeline; collected separately for current dry-run evidence.",
+      "storyType": "signing",
+      "category": "签约",
+      "factLevel": "rumor",
+      "sourceHash": "c492e1c967429de0561a11c8728273f8f48083ac0842cad50d121c5f7af93b04",
+      "previousAiStatus": "accepted",
+      "model": "@cf/qwen/qwen3-30b-a3b-fp8",
+      "pipelineVersion": "editorial-pipeline-v4"
+    },
+    {
+      "sampleId": "SG-03",
+      "newsId": "news_adec7ef358893f0642e6d143",
+      "testType": "signing",
+      "selectionReason": "Accepted Qwen low-detail signing where disclosed facts and reported contract estimates must remain distinct.",
+      "evidenceLimited": true,
+      "humanBaseline": {
+        "expectedPlayers": [
+          "Julian Phillips"
+        ],
+        "expectedTeams": [
+          "Houston Rockets"
+        ],
+        "expectedMoney": [
+          "likely $2.5 million veteran minimum"
+        ],
+        "expectedContractYears": [
+          "likely one year"
+        ],
+        "expectedTradeAssets": [],
+        "expectedScore": null,
+        "expectedInjuryStatus": null,
+        "expectedRumorLanguage": "The signing is confirmed, but terms were undisclosed; one year and $2.5 million are only reported as likely.",
+        "expectedAttribution": "RealGM report",
+        "mustContainFacts": [
+          "Houston signed Julian Phillips.",
+          "Contract terms were not disclosed."
+        ],
+        "mustNotClaim": [
+          "A one-year term or $2.5 million amount as confirmed.",
+          "Phillips joined a different team."
+        ]
+      },
+      "source": "RealGM",
+      "url": "https://basketball.realgm.com/wiretap/286815/Julian-Phillips-Rockets-Sign-Contract",
+      "publishedAt": "2026-07-25T13:34:25.000Z",
+      "originalTitle": "Julian Phillips, Rockets Sign Contract",
+      "originalSummary": "The Houston Rockets have signed forward Julian Phillips. Terms were not disclosed, but it's likely that Phillips signed a one-year contract for the veteran minimum amount of $2.5 million. The 6-foot-6 forward played the first two-and-a-half years of his career with the Chicago Bulls. Phillips was traded by the Bulls to the Minnesota Timberwolves ahead of last season's trade deadline. In 167 NBA games over three seasons, Phillips has averaged 3.6 points and 1.5 rebounds in 11.2 minutes per game.",
+      "articleTextUsed": null,
+      "articleTextAvailability": "Not persisted by the production pipeline; collected separately for current dry-run evidence.",
+      "storyType": "signing",
+      "category": "签约",
+      "factLevel": "confirmed",
+      "sourceHash": "d7a2ab494ac23ae54ddcfd8aa9ec4c249542178ffbec537383567cd924adf7ae",
+      "previousAiStatus": "accepted",
+      "model": "@cf/qwen/qwen3-30b-a3b-fp8",
+      "pipelineVersion": "editorial-pipeline-v4"
+    },
+    {
+      "sampleId": "IN-01",
+      "newsId": "news_199766db1139b4dd8309c1eb",
+      "testType": "interview",
+      "selectionReason": "Only current-catalog article primarily centered on a named speaker’s comments.",
+      "evidenceLimited": false,
+      "humanBaseline": {
+        "expectedPlayers": [
+          "Stephen Curry",
+          "LeBron James",
+          "Jimmy Butler",
+          "Moses Moody"
+        ],
+        "expectedTeams": [
+          "Golden State Warriors",
+          "Philadelphia 76ers"
+        ],
+        "expectedMoney": [],
+        "expectedContractYears": [],
+        "expectedTradeAssets": [],
+        "expectedScore": null,
+        "expectedInjuryStatus": "Jimmy Butler and Moses Moody injuries changed Golden State’s outlook.",
+        "expectedRumorLanguage": "Curry’s views must remain attributed opinions, not independent facts.",
+        "expectedAttribution": "Stephen Curry speaking at Moses Moody’s youth camp",
+        "mustContainFacts": [
+          "Curry discussed James choosing Philadelphia over Golden State.",
+          "Curry said injuries reshaped what was realistic for the Warriors."
+        ],
+        "mustNotClaim": [
+          "Curry confirmed an unreported transaction.",
+          "Curry said Golden State never pursued James."
+        ]
+      },
+      "source": "RealGM",
+      "url": "https://basketball.realgm.com/wiretap/286837/Stephen-Curry-On-LeBron-James-Decision-You-Dont-Envision-Anything-Until-It-Happens",
+      "publishedAt": "2026-07-27T19:52:59.000Z",
+      "originalTitle": "Stephen Curry On LeBron James' Decision: 'You Don't Envision Anything Until It Happens'",
+      "originalSummary": "Stephen Curry addressed LeBron James' decision to sign with the Philadelphia 76ers rather than the Golden State Warriors, speaking Saturday from Moses Moody's youth camp. \"That's why you don't envision anything until it happens,\" said Curry. \"There's a lot of moving parts.\" Curry had hoped James would choose Golden State, believing the Warriors had a legitimate chance to land him. Once the decision went the other way, he quickly returned to the reality the team has faced for much of the past four seasons where they have been beyond the circle of realistic title contenders. Curry pointed to the injuries suffered by Jimmy Butler and Moody as the real factor shaping the Warriors' outlook, regardless of what happened with James. \"The through line,\" said Curry, \"which is hard on anybody in this situation, especially with us keeping this thing together, is knowing that when Jimmy got hurt and Moses got hurt, the whole calculus of everything changes. How do you get through their absence and still stay at a certain level? And then how that goes into this year. It's the same deal. So, I'm a realist on that.\" Curry acknowledged the front office explored various options to build the best possible roster around him, but said those injuries ultimately reshaped what was realistic heading into the season. \"Sure,\" said Curry, \"I'm hopeful for all the creative ideas of getting the best team possible. We had those conversations. But when you have injuries at the top like that, it's always gonna change.\"",
+      "articleTextUsed": null,
+      "articleTextAvailability": "Not persisted by the production pipeline; collected separately for current dry-run evidence.",
+      "storyType": "fact",
+      "category": "其他",
+      "factLevel": "confirmed",
+      "sourceHash": "f9bf6b0a1952577be35148889d03faf2d33609dcb1f17cd94b5411ee6e92f09c",
+      "previousAiStatus": "rejected",
+      "model": "@cf/qwen/qwen3-30b-a3b-fp8",
+      "pipelineVersion": "editorial-pipeline-v4"
+    },
+    {
+      "sampleId": "AN-01",
+      "newsId": "news_f6355a0e95b5cecf3dd68cd5",
+      "testType": "analysis",
+      "selectionReason": "Rejected forward-looking roster analysis with a named analyst and a high risk of being rewritten as fact.",
+      "evidenceLimited": false,
+      "humanBaseline": {
+        "expectedPlayers": [
+          "Stephen Curry",
+          "LeBron James",
+          "Anthony Davis"
+        ],
+        "expectedTeams": [
+          "Golden State Warriors"
+        ],
+        "expectedMoney": [],
+        "expectedContractYears": [],
+        "expectedTradeAssets": [],
+        "expectedScore": null,
+        "expectedInjuryStatus": null,
+        "expectedRumorLanguage": "The post-Curry roster focus is reported analysis attributed to Tim Kawakami; it is not a confirmed formal plan.",
+        "expectedAttribution": "Tim Kawakami on The TK Show",
+        "mustContainFacts": [
+          "Kawakami said Joe Lacob wants to build the next Warriors team after Curry.",
+          "The article says Golden State is not abandoning the remainder of Curry’s career."
+        ],
+        "mustNotClaim": [
+          "Curry has announced retirement.",
+          "The Warriors have formally ended efforts to contend with Curry."
+        ]
+      },
+      "source": "RealGM",
+      "url": "https://basketball.realgm.com/wiretap/286825/Warriors-Focused-On-Building-Team-For-After-Stephen-Curry-Retires",
+      "publishedAt": "2026-07-26T13:46:54.000Z",
+      "originalTitle": "Warriors Focused On Building Team For After Stephen Curry Retires",
+      "originalSummary": "The Golden State Warriors were hopeful of signing LeBron James this summer. The team even looked at trading for Anthony Davis, as a means to entice James to sign in the Bay Area. However, these are short-term moves for Golden State. The Warriors real focus is reportedly on building a roster for after Stephen Curry retires. \"What (team governor Joe) Lacob wants to do, and this might get Warriors fans mad. He wants to build the next team after Steph Curry,\" veteran reporter Tim Kawakami said on a recent episode of the TK Show . \"I don't know how possible that is, but Lacob has a very keen interest in... this organization's going to show what it can do with Steph Curry and then after Steph Curry.\" This isn't to suggest that the Warriors are punting on the remainder of Curry's career. Instead, Golden State seems to be looking at short-term moves to build around their aging superstar, while keeping flexibility open for the post-Curry years.",
+      "articleTextUsed": null,
+      "articleTextAvailability": "Not persisted by the production pipeline; collected separately for current dry-run evidence.",
+      "storyType": "analysis",
+      "category": "分析",
+      "factLevel": "analysis",
+      "sourceHash": "7575d0a6311de46557c6e760db3b999750d0a982388cc0a28136f42abf79b3bb",
+      "previousAiStatus": "rejected",
+      "model": "@cf/qwen/qwen3-30b-a3b-fp8",
+      "pipelineVersion": "editorial-pipeline-v4"
+    },
+    {
+      "sampleId": "AN-02",
+      "newsId": "news_2cff3dcd19226df712521219",
+      "testType": "analysis",
+      "selectionReason": "Rejected podcast-analysis item with many topics but no supplied conclusions; tests restraint and topic selection.",
+      "evidenceLimited": true,
+      "humanBaseline": {
+        "expectedPlayers": [
+          "LeBron James",
+          "Tyrese Maxey",
+          "VJ Edgecombe",
+          "Jaylen Brown",
+          "Joel Embiid"
+        ],
+        "expectedTeams": [
+          "Philadelphia 76ers"
+        ],
+        "expectedMoney": [],
+        "expectedContractYears": [],
+        "expectedTradeAssets": [],
+        "expectedScore": null,
+        "expectedInjuryStatus": null,
+        "expectedRumorLanguage": "Must be framed as Nate and Danny discussing questions and Summer League prospects, not as established conclusions.",
+        "expectedAttribution": "Nate Duncan and Danny Leroux on Dunc’d On",
+        "mustContainFacts": [
+          "The episode analyzes LeBron James joining Philadelphia and the Sixers’ fit.",
+          "It also reviews Summer League prospects for five teams."
+        ],
+        "mustNotClaim": [
+          "Any answer to the podcast’s open questions as a confirmed fact.",
+          "A prospect evaluation not stated in the RSS summary."
+        ]
+      },
+      "source": "RealGM",
+      "url": "https://basketball.realgm.com/wiretap/286834/Duncd-On-LeBron-James-to-Philly-+-Summer-League-Prospects-OKC-CHA-DET-TOR-SAS",
+      "publishedAt": "2026-07-27T11:42:46.000Z",
+      "originalTitle": "Dunc'd On: LeBron James to Philly + Summer League Prospects: OKC, CHA, DET, TOR, SAS",
+      "originalSummary": "LeBron James stuns everyone by agreeing to join the Philadelphia 76ers. He said it was about the best chance to win, so how good is this Sixers team in the East? What is the best way to maximize the talents of Tyrese Maxey, VJ Edgecombe, Jaylen Brown, LeBron, and Embiid? Are they going to be able to guard anyone? Plus, should LeBron have chosen another team as the best shot of winning a championship? Nate and Danny continue their review of every relevant player in Summer League, continuing through the lottery and discussing OKC, Charlotte, Detroit, Toronto, and San Antonio. 0:00 Oklahoma City Thunder: Spencer Jones ( 0:21 ), Aday Mara ( 1:46 ), Bennett Stirtz ( 8:55 ), Thomas Sorber ( 15:10 ), Brooks Barnhizer ( 15:24 ), Otega Oweh ( 17:00 ), Payton Sandfort ( 18:28 ) 19:40 Charlotte Hornets: Hannes Steinbach ( 19:40 ), Christian Anderson ( 29:26 ), Liam McNeeley ( 34:21 ), Sion James ( 38:25 ), Ryan Kalkbrenner ( 39:48 ), Tidjane Sala&uuml;n ( 40:48 ), Michael Ajayi ( 43:36 ) 44:27 Detroit Pistons: Ebuka Okorie ( 44:27 ), Brice Williams ( 52:46 ), Chaz Lanier ( 53:49 ), Isaac Jones ( 56:09 ), Ugonna Onyenso ( 56:40 ) 59:58 Toronto Raptors: Allen Graves ( 59:58 ), Collin Murray-Boyles ( 1:04:43 ), Alijah Martin ( 1:05:09 ), Jaden Bradley ( 1:05:29 ), Nate Bittle ( 1:08:29 ) 1:09:00 San Antonio Spurs: Jayden Quaintance ( 1:09:00 ), Tarris Reed Jr. ( 1:09:56 ), Ja'Kobi Gillespie ( 1:14:52 ), Maliq Brown ( 1:16:51 ), Carter Bryant ( 1:20:56 ), David Jones Garcia ( 1:23:58 ) Join Dunc'd On Prime ! It's the only place to get every episode with Nate & Danny, plus every pod with John Hollinger & Nate as well! Subscribe on YouTube to get Dunc'd On Clutch Calls, Real Video Scouts, and more. Or, sign up for our FREE mailing list to get Dan Feldman's Daily Duncs with all the major topics around the league twice a week.",
+      "articleTextUsed": null,
+      "articleTextAvailability": "Not persisted by the production pipeline; collected separately for current dry-run evidence.",
+      "storyType": "fact",
+      "category": "其他",
+      "factLevel": "confirmed",
+      "sourceHash": "b5ee9bdd93653bd1d4f30c141d6dd08d3d4e37c8e552c716e16b558b3c23f26b",
+      "previousAiStatus": "rejected",
+      "model": "@cf/qwen/qwen3-30b-a3b-fp8",
+      "pipelineVersion": "editorial-pipeline-v4"
+    }
+  ]
+}

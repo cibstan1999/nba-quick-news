@@ -228,9 +228,13 @@ test('Worker retries Qwen once after invalid JSON and accepts the corrected resp
 
 test('Worker uses the existing JSON fallback after two unparseable Qwen responses', async (context) => {
   const originalFetch = globalThis.fetch;
+  const originalLog = console.log;
+  const logs = [];
   context.after(() => {
     globalThis.fetch = originalFetch;
+    console.log = originalLog;
   });
+  console.log = (message, details) => logs.push({ message, details });
 
   globalThis.fetch = async () => new Response(`<?xml version="1.0"?>
     <rss version="2.0">
@@ -290,9 +294,125 @@ test('Worker uses the existing JSON fallback after two unparseable Qwen response
   assert.equal(payload.lastFetchStatus.aiRequests, 3);
   assert.equal(payload.lastFetchStatus.aiFallbackRequests, 1);
   assert.deepEqual(models, [env.AI_MODEL, env.AI_MODEL, env.AI_FALLBACK_MODEL]);
+  const fallbackDebug = logs.find((entry) => entry.message === 'AI editorial quality debug');
+  assert.equal(fallbackDebug.details.stage, 'json-fallback-after-structural-qwen-failure');
+  assert.equal(fallbackDebug.details.fallbackInvoked, true);
+  assert.equal(fallbackDebug.details.fallbackReason, 'qwen-length-stop');
 });
 
-test('Worker logs only whitelisted parsed copy and complete rejection diagnostics', async (context) => {
+test('Worker uses fallback only after repeated schema-incomplete Qwen responses', async (context) => {
+  const originalFetch = globalThis.fetch;
+  const originalLog = console.log;
+  const logs = [];
+  context.after(() => {
+    globalThis.fetch = originalFetch;
+    console.log = originalLog;
+  });
+  console.log = (message, details) => logs.push({ message, details });
+  globalThis.fetch = async () => new Response(`<?xml version="1.0"?>
+    <rss version="2.0"><channel><item>
+      <title>Jaxson Hayes Agrees To Two-Year, $12M Deal With Lakers</title>
+      <link>https://basketball.realgm.com/wiretap/41/jaxson-hayes-lakers</link>
+      <pubDate>Mon, 27 Jul 2026 07:30:00 GMT</pubDate>
+      <description>Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.</description>
+    </item></channel></rss>`, {
+    status: 200,
+    headers: { 'content-type': 'application/rss+xml' }
+  });
+
+  const models = [];
+  const env = {
+    NEWS_KV: new MemoryKv(),
+    AI_ENABLED: 'true',
+    AI_MAX_ITEMS_PER_RUN: '3',
+    JINA_READER_ENABLED: 'false',
+    AI_MODEL: '@cf/qwen/qwen3-30b-a3b-fp8',
+    AI_FALLBACK_MODEL: '@cf/meta/llama-3.1-8b-instruct-fast',
+    AI: {
+      async run(model) {
+        models.push(model);
+        if (model === env.AI_MODEL) return { response: { titleZh: '字段不完整' }, finish_reason: 'stop' };
+        return {
+          response: {
+            titleZh: '湖人与 Jaxson Hayes 达成 2 年续约合同',
+            summaryZh: 'Jaxson Hayes 与湖人达成一份 2 年 1200 万美元合同，球队将继续把他留在内线轮换中。',
+            categoryZh: '签约',
+            tagsZh: ['湖人', '续约'],
+            confidence: 0.9,
+            factLevel: 'confirmed'
+          },
+          finish_reason: 'stop'
+        };
+      }
+    }
+  };
+
+  const response = await worker.fetch(new Request('https://worker.example/refresh'), env);
+  const payload = await response.json();
+  assert.equal(payload.lastFetchStatus.aiRequests, 3);
+  assert.equal(payload.lastFetchStatus.aiFallbackRequests, 1);
+  assert.deepEqual(models, [env.AI_MODEL, env.AI_MODEL, env.AI_FALLBACK_MODEL]);
+  const fallbackDebug = logs.find((entry) => entry.message === 'AI editorial quality debug');
+  assert.equal(fallbackDebug.details.fallbackReason, 'qwen-incomplete-schema');
+});
+
+test('Worker records a Qwen request error as the structural fallback reason', async (context) => {
+  const originalFetch = globalThis.fetch;
+  const originalLog = console.log;
+  const logs = [];
+  context.after(() => {
+    globalThis.fetch = originalFetch;
+    console.log = originalLog;
+  });
+  console.log = (message, details) => logs.push({ message, details });
+  globalThis.fetch = async () => new Response(`<?xml version="1.0"?>
+    <rss version="2.0"><channel><item>
+      <title>Jaxson Hayes Agrees To Two-Year, $12M Deal With Lakers</title>
+      <link>https://basketball.realgm.com/wiretap/42/jaxson-hayes-lakers</link>
+      <pubDate>Mon, 27 Jul 2026 07:30:00 GMT</pubDate>
+      <description>Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.</description>
+    </item></channel></rss>`, {
+    status: 200,
+    headers: { 'content-type': 'application/rss+xml' }
+  });
+
+  const models = [];
+  const env = {
+    NEWS_KV: new MemoryKv(),
+    AI_ENABLED: 'true',
+    AI_MAX_ITEMS_PER_RUN: '3',
+    JINA_READER_ENABLED: 'false',
+    AI_MODEL: '@cf/qwen/qwen3-30b-a3b-fp8',
+    AI_FALLBACK_MODEL: '@cf/meta/llama-3.1-8b-instruct-fast',
+    AI: {
+      async run(model) {
+        models.push(model);
+        if (model === env.AI_MODEL) throw new Error('temporary upstream failure');
+        return {
+          response: {
+            titleZh: '湖人与 Jaxson Hayes 达成 2 年续约合同',
+            summaryZh: 'Jaxson Hayes 与湖人达成一份 2 年 1200 万美元合同，球队将继续把他留在内线轮换中。',
+            categoryZh: '签约',
+            tagsZh: ['湖人', '续约'],
+            confidence: 0.9,
+            factLevel: 'confirmed'
+          },
+          finish_reason: 'stop'
+        };
+      }
+    }
+  };
+
+  const response = await worker.fetch(new Request('https://worker.example/refresh'), env);
+  const payload = await response.json();
+  assert.equal(payload.lastFetchStatus.aiRequests, 2);
+  assert.equal(payload.lastFetchStatus.aiFallbackRequests, 1);
+  assert.deepEqual(models, [env.AI_MODEL, env.AI_FALLBACK_MODEL]);
+  const fallbackDebug = logs.find((entry) => entry.message === 'AI editorial quality debug');
+  assert.equal(fallbackDebug.details.fallbackReason, 'qwen-request-error');
+});
+
+test('Worker rejects a parsed Qwen candidate without invoking fallback and preserves primary diagnostics', async (context) => {
   const originalFetch = globalThis.fetch;
   const originalLog = console.log;
   const originalWarn = console.warn;
@@ -349,11 +469,7 @@ test('Worker logs only whitelisted parsed copy and complete rejection diagnostic
             }]
           };
         }
-        return {
-          response: rejectedCopy,
-          reasoning: 'FALLBACK_REASONING_MARKER',
-          finish_reason: 'stop'
-        };
+        throw new Error(`Unexpected fallback model call: ${model}`);
       }
     }
   };
@@ -362,19 +478,21 @@ test('Worker logs only whitelisted parsed copy and complete rejection diagnostic
   const payload = await response.json();
   const debugLogs = logs.filter((entry) => entry.message === 'AI editorial quality debug');
   const qwenDebug = debugLogs.find((entry) => entry.details.stage === 'qwen-primary');
-  const fallbackDebug = debugLogs.find((entry) => entry.details.stage === 'json-fallback');
   const serializedLogs = JSON.stringify(logs);
 
   assert.equal(response.status, 200);
-  assert.equal(payload.lastFetchStatus.aiRequests, 2);
+  assert.equal(payload.lastFetchStatus.aiRequests, 1);
+  assert.equal(payload.lastFetchStatus.aiFallbackRequests, 0);
   assert.equal(payload.lastFetchStatus.aiRejected, 1);
   assert.equal(qwenDebug.details.qwenFinalParsedJson.titleZh, rejectedCopy.titleZh);
   assert.equal(qwenDebug.details.summaryZh, rejectedCopy.summaryZh);
   assert.equal(qwenDebug.details.oneLineZh, rejectedCopy.titleZh);
   assert.equal(qwenDebug.details.oneLineSource, 'titleZh-derived');
+  assert.equal(qwenDebug.details.fallbackInvoked, false);
+  assert.equal(qwenDebug.details.fallbackReason, null);
   assert.deepEqual(qwenDebug.details.rejectionReasons, ['low-confidence']);
-  assert.deepEqual(fallbackDebug.details.rejectionReasons, ['low-confidence']);
-  assert.doesNotMatch(serializedLogs, /REASONING_MARKER|FALLBACK_REASONING_MARKER|FULL_ARTICLE_MARKER/);
+  assert.equal(debugLogs.length, 1);
+  assert.doesNotMatch(serializedLogs, /REASONING_MARKER|FULL_ARTICLE_MARKER/);
 });
 
 test('Debug reprocess runs one rejected record without writing KV or touching accepted records', async (context) => {
@@ -461,6 +579,25 @@ test('Debug reprocess runs one rejected record without writing KV or touching ac
 
   const newsId = listPayload.items[0].newsId;
   const kvBefore = JSON.stringify([...kv.values.entries()]);
+  aiCalls = 0;
+  const rejectedDebugResponse = await worker.fetch(new Request('https://worker.example/debug/reprocess', {
+    method: 'POST',
+    headers: {
+      ...authHeaders,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({ newsId, dryRun: true })
+  }), env);
+  const rejectedDebugPayload = await rejectedDebugResponse.json();
+  assert.equal(rejectedDebugPayload.resultAiStatus, 'rejected');
+  assert.equal(rejectedDebugPayload.aiRequests, 1);
+  assert.equal(rejectedDebugPayload.fallbackInvoked, false);
+  assert.equal(rejectedDebugPayload.fallbackReason, null);
+  assert.equal(rejectedDebugPayload.snapshots[0].stage, 'qwen-primary');
+  assert.deepEqual(rejectedDebugPayload.rejectionReasons, ['low-confidence']);
+  assert.equal(aiCalls, 1);
+  assert.equal(JSON.stringify([...kv.values.entries()]), kvBefore);
+
   mode = 'accept';
   aiCalls = 0;
   const debugResponse = await worker.fetch(new Request('https://worker.example/debug/reprocess', {
@@ -484,6 +621,8 @@ test('Debug reprocess runs one rejected record without writing KV or touching ac
   assert.equal(debugPayload.qwenFinalParsedJson.titleZh, acceptedCopy.titleZh);
   assert.equal(debugPayload.summaryZh, acceptedCopy.summaryZh);
   assert.equal(debugPayload.oneLineZh, acceptedCopy.titleZh);
+  assert.equal(debugPayload.fallbackInvoked, false);
+  assert.equal(debugPayload.fallbackReason, null);
   assert.deepEqual(debugPayload.rejectionReasons, []);
   assert.equal(aiCalls, 1);
   assert.equal(JSON.stringify([...kv.values.entries()]), kvBefore);

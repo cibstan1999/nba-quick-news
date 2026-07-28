@@ -6,3 +6,4 @@ dist/
 .env.local
 .wrangler/
 *.cpuprofile
+cloudflare-worker/evaluations/*.local.json
