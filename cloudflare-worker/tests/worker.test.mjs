@@ -678,7 +678,7 @@ test('Phase 1 runs fact extraction then editorial generation with no fallback', 
   assert.equal(record.factValidationStatus, 'accepted');
   assert.equal(record.editorialGenerationStatus, 'accepted');
   assert.equal(record.finalGateStatus, 'accepted');
-  assert.match(record.factExtractionCacheKey, /^fact-v1-qwen3:/);
+  assert.match(record.factExtractionCacheKey, /^fact-v2-qwen3-simple:/);
   assert.match(record.editorialGenerationCacheKey, /^editorial-v1-qwen3:/);
 });
 
@@ -688,7 +688,8 @@ test('Phase 1 stops after Stage 1 validation failure and never invokes Stage 2 o
   const kv = new MemoryKv();
   const models = [];
   const unsafeFact = phase1SigningFact();
-  unsafeFact.numbers = [{ type: 'money', raw: '$99 million', value: '99 million USD' }];
+  unsafeFact.facts[0].factText =
+    'Jaxson Hayes has agreed to a two-year, $99 million contract with the Los Angeles Lakers.';
   const env = makePhase1Env(kv, async (model) => {
     models.push(model);
     return { response: unsafeFact, finish_reason: 'stop' };
@@ -862,6 +863,49 @@ test('Phase 1 debug can evaluate an accepted record without writing KV', async (
   assert.equal(JSON.stringify([...kv.values.entries()]), before);
 });
 
+test('Phase 1 debug can stop after validated Stage 1 without invoking Stage 2', async (context) => {
+  const restoreFetch = mockSigningFeed(context, 'phase1-stage1-only');
+  context.after(restoreFetch);
+  const kv = new MemoryKv();
+  let calls = 0;
+  const env = makePhase1Env(kv, async () => {
+    calls += 1;
+    return calls % 2 === 1
+      ? { response: phase1SigningFact(), finish_reason: 'stop' }
+      : { response: phase1SigningEditorial(), finish_reason: 'stop' };
+  });
+  env.REFRESH_TOKEN = 'phase1-test-token';
+  const auth = { 'x-refresh-token': env.REFRESH_TOKEN };
+
+  await worker.fetch(new Request('https://worker.example/refresh', { headers: auth }), env);
+  const catalog = JSON.parse(kv.values.get('news:catalog:v1'));
+  const newsId = catalog.ids[0];
+  const before = JSON.stringify([...kv.values.entries()]);
+  calls = 0;
+  const response = await worker.fetch(new Request('https://worker.example/debug/reprocess', {
+    method: 'POST',
+    headers: { ...auth, 'content-type': 'application/json' },
+    body: JSON.stringify({
+      newsId,
+      dryRun: true,
+      pipelineMode: 'phase1',
+      evaluateAccepted: true,
+      stage1Only: true
+    })
+  }), env);
+  const payload = await response.json();
+
+  assert.equal(response.status, 200);
+  assert.equal(payload.persisted, false);
+  assert.equal(payload.stage1Only, true);
+  assert.equal(payload.factStageRequests, 1);
+  assert.equal(payload.editorialStageRequests, 0);
+  assert.equal(payload.factValidation.ok, true);
+  assert.equal(payload.resultAiStatus, 'pending');
+  assert.equal(calls, 1);
+  assert.equal(JSON.stringify([...kv.values.entries()]), before);
+});
+
 function mockSigningFeed(context, suffix) {
   const originalFetch = globalThis.fetch;
   globalThis.fetch = async () => new Response(`<?xml version="1.0"?>
@@ -895,28 +939,14 @@ function makePhase1Env(kv, run) {
 function phase1SigningFact() {
   return {
     storyType: 'signing',
-    sourceCertainty: 'confirmed',
-    attribution: ['RealGM'],
-    entities: [
-      { type: 'person', name: 'Jaxson Hayes', canonicalId: 'jaxson-hayes' },
-      { type: 'team', name: 'Los Angeles Lakers', canonicalId: 'lakers' }
-    ],
-    numbers: [
-      { type: 'contractYears', raw: 'two-year', value: '2 years' },
-      { type: 'money', raw: '$12 million', value: '12 million USD' }
-    ],
-    claims: [{
-      id: 'c1',
-      subject: 'Jaxson Hayes',
-      predicate: 'has agreed to',
-      object: 'a two-year, $12 million contract with the Los Angeles Lakers',
+    facts: [{
+      id: 'fact-1',
+      factText: 'Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.',
       polarity: 'positive',
       certainty: 'confirmed',
       attribution: '',
-      evidence: [{
-        sourceField: 'rssSummary',
-        text: 'Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.'
-      }]
+      sourceField: 'rssSummary',
+      evidenceQuote: 'Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.'
     }],
     mustNotClaim: []
   };

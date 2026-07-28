@@ -796,7 +796,7 @@ test('Phase 1 versions and prompts isolate fact extraction from editorial genera
   const editorialPrompt = buildPhase1EditorialPrompt(fact, record);
 
   assert.equal(PIPELINE_VERSION, 'editorial-pipeline-v5-two-stage');
-  assert.equal(FACT_EXTRACTION_VERSION, 'fact-v1-qwen3');
+  assert.equal(FACT_EXTRACTION_VERSION, 'fact-v2-qwen3-simple');
   assert.equal(EDITORIAL_GENERATION_VERSION, 'editorial-v1-qwen3');
   assert.match(factPrompt, /Do not translate/);
   assert.match(factPrompt, /articleText=Jaxson Hayes signed the contract/);
@@ -836,6 +836,14 @@ test('Phase 1 parsers require complete schemas without reading reasoning', () =>
   });
   assert.equal(incomplete.parsed, null);
   assert.equal(incomplete.structuralFailureReason, 'qwen-incomplete-schema');
+
+  const neutralFact = makeSigningFact();
+  neutralFact.facts[0].polarity = 'neutral';
+  const normalizedNeutral = normalizeFactExtractionResponse({
+    response: neutralFact,
+    finish_reason: 'stop'
+  });
+  assert.equal(normalizedNeutral.parsed.facts[0].polarity, 'positive');
 });
 
 test('Stage 1 accepts evidence-bound signing facts and exact contract numbers', async () => {
@@ -843,48 +851,92 @@ test('Stage 1 accepts evidence-bound signing facts and exact contract numbers', 
   const validation = validateFactExtraction(makeSigningFact(), record);
 
   assert.equal(validation.ok, true, validation.reasons.join(','));
-  assert.equal(validation.value.numbers.length, 2);
+  assert.equal(validation.value.facts.length, 1);
 });
 
-test('Stage 1 rejects unsupported facts, certainty escalation, negation loss, and missing attribution', async () => {
+test('Stage 1 uses exact evidence quotes and rejects unsupported facts', async () => {
   const rumorRecord = await makeRecord({
     originalTitle: 'Lakers Interested In Jaxson Hayes',
     originalSummary: 'The Los Angeles Lakers are interested in Jaxson Hayes but have not decided whether to make an offer.'
   });
-  const base = makeMinimalFact({
-    storyType: 'rumor',
-    sourceCertainty: 'possible',
-    claimCertainty: 'confirmed',
-    subject: 'Los Angeles Lakers',
-    predicate: 'signed',
-    object: 'Jaxson Hayes',
+  const notFound = makeMinimalFact({
+    storyType: 'trade_rumor',
+    certainty: 'possible',
+    factText: 'The Los Angeles Lakers are interested in Jaxson Hayes.',
     attribution: '',
-    evidenceText: 'have not decided whether to make an offer'
+    evidenceQuote: 'This exact sentence does not exist.'
   });
-  base.entities = [
-    { type: 'team', name: 'Boston Celtics', canonicalId: 'celtics' }
-  ];
-  base.numbers = [{ type: 'money', raw: '$99 million', value: '99 million USD' }];
-  const validation = validateFactExtraction(base, rumorRecord);
+  const missingEvidence = validateFactExtraction(notFound, rumorRecord);
+  assert.equal(missingEvidence.reasons.includes('fact-evidence-not-found'), true);
 
-  assert.equal(validation.reasons.includes('fact-entity-unsupported'), true);
-  assert.equal(validation.reasons.includes('fact-number-mismatch'), true);
-  assert.equal(validation.reasons.includes('fact-certainty-mismatch'), true);
-  assert.equal(validation.reasons.includes('fact-negation-lost'), true);
+  const addedFacts = makeMinimalFact({
+    storyType: 'trade_rumor',
+    certainty: 'possible',
+    factText: 'The Boston Celtics offered Jaxson Hayes $99 million.',
+    attribution: '',
+    evidenceQuote: 'The Los Angeles Lakers are interested in Jaxson Hayes'
+  });
+  const addedValidation = validateFactExtraction(addedFacts, rumorRecord);
+  assert.equal(addedValidation.reasons.includes('fact-entity-unsupported'), true);
+  assert.equal(addedValidation.reasons.includes('fact-number-mismatch'), true);
+});
+
+test('Stage 1 evidence matching normalizes case, whitespace, and smart quotes only', async () => {
+  const record = await makeRecord({
+    originalTitle: 'Curry Says “We May Return”',
+    originalSummary: 'Stephen Curry says   “We may return” after the break.'
+  });
+  const fact = makeMinimalFact({
+    storyType: 'interview',
+    certainty: 'opinion',
+    factText: 'Stephen Curry says "We may return".',
+    attribution: 'Stephen Curry',
+    evidenceQuote: 'stephen curry says "we may return"'
+  });
+  const validation = validateFactExtraction(fact, record);
+  assert.equal(validation.ok, true, validation.reasons.join(','));
+});
+
+test('Stage 1 rejects certainty escalation, negation loss, and missing attribution', async () => {
+  const rumorRecord = await makeRecord({
+    originalTitle: 'Lakers Interested In Jaxson Hayes',
+    originalSummary: 'The Los Angeles Lakers are interested in Jaxson Hayes but have not decided whether to make an offer.'
+  });
+  const escalated = makeMinimalFact({
+    storyType: 'trade_rumor',
+    certainty: 'confirmed',
+    factText: 'The Los Angeles Lakers signed Jaxson Hayes.',
+    attribution: '',
+    evidenceQuote: 'The Los Angeles Lakers are interested in Jaxson Hayes'
+  });
+  assert.equal(
+    validateFactExtraction(escalated, rumorRecord).reasons.includes('fact-certainty-mismatch'),
+    true
+  );
+
+  const lostNegation = makeMinimalFact({
+    storyType: 'trade_rumor',
+    certainty: 'possible',
+    factText: 'The Los Angeles Lakers decided to make an offer.',
+    polarity: 'positive',
+    attribution: '',
+    evidenceQuote: 'have not decided whether to make an offer'
+  });
+  assert.equal(
+    validateFactExtraction(lostNegation, rumorRecord).reasons.includes('fact-negation-lost'),
+    true
+  );
 
   const reportedRecord = await makeRecord({
     originalTitle: 'Lakers Reportedly Interested In Jaxson Hayes',
     originalSummary: 'According to RealGM, the Los Angeles Lakers are interested in Jaxson Hayes.'
   });
   const missingAttribution = makeMinimalFact({
-    storyType: 'rumor',
-    sourceCertainty: 'reported',
-    claimCertainty: 'reported',
-    subject: 'Los Angeles Lakers',
-    predicate: 'are interested in',
-    object: 'Jaxson Hayes',
+    storyType: 'trade_rumor',
+    certainty: 'reported',
+    factText: 'The Los Angeles Lakers are interested in Jaxson Hayes.',
     attribution: '',
-    evidenceText: 'According to RealGM, the Los Angeles Lakers are interested in Jaxson Hayes.'
+    evidenceQuote: 'According to RealGM, the Los Angeles Lakers are interested in Jaxson Hayes.'
   });
   const attributionValidation = validateFactExtraction(missingAttribution, reportedRecord);
   assert.equal(attributionValidation.reasons.includes('fact-attribution-missing'), true);
@@ -896,14 +948,11 @@ test('Stage 1 preserves uncertainty and attribution for rumor, interview, and an
       title: 'Lakers Could Sign Jaxson Hayes',
       summary: 'The Los Angeles Lakers could sign Jaxson Hayes.',
       fact: makeMinimalFact({
-        storyType: 'rumor',
-        sourceCertainty: 'possible',
-        claimCertainty: 'possible',
-        subject: 'Los Angeles Lakers',
-        predicate: 'could sign',
-        object: 'Jaxson Hayes',
-        attribution: 'RealGM',
-        evidenceText: 'The Los Angeles Lakers could sign Jaxson Hayes.'
+        storyType: 'trade_rumor',
+        certainty: 'possible',
+        factText: 'The Los Angeles Lakers could sign Jaxson Hayes.',
+        attribution: '',
+        evidenceQuote: 'The Los Angeles Lakers could sign Jaxson Hayes.'
       })
     },
     {
@@ -911,13 +960,10 @@ test('Stage 1 preserves uncertainty and attribution for rumor, interview, and an
       summary: 'Stephen Curry said LeBron James made his own decision.',
       fact: makeMinimalFact({
         storyType: 'interview',
-        sourceCertainty: 'opinion',
-        claimCertainty: 'opinion',
-        subject: 'Stephen Curry',
-        predicate: 'said',
-        object: 'LeBron James made his own decision',
+        certainty: 'opinion',
+        factText: 'Stephen Curry said LeBron James made his own decision.',
         attribution: 'Stephen Curry',
-        evidenceText: 'Stephen Curry said LeBron James made his own decision.'
+        evidenceQuote: 'Stephen Curry said LeBron James made his own decision.'
       })
     },
     {
@@ -925,13 +971,10 @@ test('Stage 1 preserves uncertainty and attribution for rumor, interview, and an
       summary: 'The analysis suggests the Warriors could rebuild after Stephen Curry retires.',
       fact: makeMinimalFact({
         storyType: 'analysis',
-        sourceCertainty: 'opinion',
-        claimCertainty: 'opinion',
-        subject: 'The analysis',
-        predicate: 'suggests',
-        object: 'the Warriors could rebuild after Stephen Curry retires',
+        certainty: 'opinion',
+        factText: 'The analysis suggests the Warriors could rebuild after Stephen Curry retires.',
         attribution: 'The analysis',
-        evidenceText: 'The analysis suggests the Warriors could rebuild after Stephen Curry retires.'
+        evidenceQuote: 'The analysis suggests the Warriors could rebuild after Stephen Curry retires.'
       })
     }
   ];
@@ -946,6 +989,52 @@ test('Stage 1 preserves uncertainty and attribution for rumor, interview, and an
   }
 });
 
+test('Stage 1 keeps expected, likely, possible, reported, and confirmed distinct', async () => {
+  const cases = [
+    {
+      summary: 'Draymond Green is expected to remain with the Golden State Warriors.',
+      certainty: 'expected',
+      attribution: ''
+    },
+    {
+      summary: 'Draymond Green is likely to remain with the Golden State Warriors.',
+      certainty: 'likely',
+      attribution: ''
+    },
+    {
+      summary: 'Draymond Green could remain with the Golden State Warriors.',
+      certainty: 'possible',
+      attribution: ''
+    },
+    {
+      summary: 'According to RealGM, Draymond Green will remain with the Golden State Warriors.',
+      certainty: 'reported',
+      attribution: 'RealGM'
+    },
+    {
+      summary: 'Draymond Green signed with the Golden State Warriors.',
+      certainty: 'confirmed',
+      attribution: ''
+    }
+  ];
+
+  for (const item of cases) {
+    const record = await makeRecord({
+      originalTitle: 'Draymond Green Warriors Update',
+      originalSummary: item.summary
+    });
+    const fact = makeMinimalFact({
+      storyType: item.certainty === 'confirmed' ? 'signing' : 'trade_rumor',
+      certainty: item.certainty,
+      factText: item.summary,
+      attribution: item.attribution,
+      evidenceQuote: item.summary
+    });
+    const validation = validateFactExtraction(fact, record);
+    assert.equal(validation.ok, true, `${item.certainty}: ${validation.reasons.join(',')}`);
+  }
+});
+
 test('Stage 1 supports injury and game facts without changing duration or score', async () => {
   const injuryRecord = await makeRecord({
     originalTitle: 'Jaxson Hayes Out Two Weeks With Ankle Sprain',
@@ -953,14 +1042,10 @@ test('Stage 1 supports injury and game facts without changing duration or score'
   });
   const injuryFact = makeMinimalFact({
     storyType: 'injury',
-    sourceCertainty: 'confirmed',
-    claimCertainty: 'confirmed',
-    subject: 'Jaxson Hayes',
-    predicate: 'will miss',
-    object: 'two weeks with an ankle sprain',
+    certainty: 'confirmed',
+    factText: 'Jaxson Hayes will miss two weeks with an ankle sprain.',
     attribution: '',
-    evidenceText: 'Jaxson Hayes will miss two weeks with an ankle sprain.',
-    numbers: [{ type: 'injuryDuration', raw: 'two weeks', value: '2 weeks' }]
+    evidenceQuote: 'Jaxson Hayes will miss two weeks with an ankle sprain.'
   });
   assert.equal(validateFactExtraction(injuryFact, injuryRecord).ok, true);
 
@@ -970,14 +1055,10 @@ test('Stage 1 supports injury and game facts without changing duration or score'
   });
   const gameFact = makeMinimalFact({
     storyType: 'game',
-    sourceCertainty: 'confirmed',
-    claimCertainty: 'confirmed',
-    subject: 'Los Angeles Lakers',
-    predicate: 'defeated',
-    object: 'Boston Celtics 101-90',
+    certainty: 'confirmed',
+    factText: 'The Los Angeles Lakers defeated the Boston Celtics 101-90.',
     attribution: '',
-    evidenceText: 'The Los Angeles Lakers defeated the Boston Celtics 101-90.',
-    numbers: [{ type: 'score', raw: '101-90', value: '101-90' }]
+    evidenceQuote: 'The Los Angeles Lakers defeated the Boston Celtics 101-90.'
   });
   assert.equal(validateFactExtraction(gameFact, gameRecord).ok, true);
 });
@@ -1013,13 +1094,10 @@ test('Stage 2 rejects Unicode damage and keeps Curry aliases collision-safe', as
   });
   const fact = makeMinimalFact({
     storyType: 'interview',
-    sourceCertainty: 'opinion',
-    claimCertainty: 'opinion',
-    subject: 'Stephen Curry',
-    predicate: 'discussed',
-    object: 'the Los Angeles Lakers',
+    certainty: 'opinion',
+    factText: 'Stephen Curry discussed the Los Angeles Lakers.',
     attribution: 'Stephen Curry',
-    evidenceText: 'Stephen Curry discussed the Los Angeles Lakers.'
+    evidenceQuote: 'Stephen Curry discussed the Los Angeles Lakers.'
   });
   const unsafe = validatePhase1EditorialResult({
     titleZh: '斯蒂�·库里谈湖人',
@@ -1047,13 +1125,10 @@ test('Stage 2 rejects Unicode damage and keeps Curry aliases collision-safe', as
   });
   const collisionFact = makeMinimalFact({
     storyType: 'interview',
-    sourceCertainty: 'opinion',
-    claimCertainty: 'opinion',
-    subject: 'Seth Curry',
-    predicate: 'discussed',
-    object: 'Stephen Curry',
+    certainty: 'opinion',
+    factText: 'Seth Curry discussed Stephen Curry.',
     attribution: 'Seth Curry',
-    evidenceText: 'Seth Curry discussed Stephen Curry.'
+    evidenceQuote: 'Seth Curry discussed Stephen Curry.'
   });
   const collision = validatePhase1EditorialResult({
     titleZh: '赛斯·库里谈及斯蒂芬·库里',
@@ -1069,28 +1144,14 @@ test('Stage 2 rejects Unicode damage and keeps Curry aliases collision-safe', as
 function makeSigningFact() {
   return {
     storyType: 'signing',
-    sourceCertainty: 'confirmed',
-    attribution: ['RealGM'],
-    entities: [
-      { type: 'person', name: 'Jaxson Hayes', canonicalId: 'jaxson-hayes' },
-      { type: 'team', name: 'Los Angeles Lakers', canonicalId: 'lakers' }
-    ],
-    numbers: [
-      { type: 'contractYears', raw: 'two-year', value: '2 years' },
-      { type: 'money', raw: '$12 million', value: '12 million USD' }
-    ],
-    claims: [{
-      id: 'c1',
-      subject: 'Jaxson Hayes',
-      predicate: 'has agreed to',
-      object: 'a two-year, $12 million contract with the Los Angeles Lakers',
+    facts: [{
+      id: 'fact-1',
+      factText: 'Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.',
       polarity: 'positive',
       certainty: 'confirmed',
       attribution: '',
-      evidence: [{
-        sourceField: 'rssSummary',
-        text: 'Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.'
-      }]
+      sourceField: 'rssSummary',
+      evidenceQuote: 'Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.'
     }],
     mustNotClaim: []
   };
@@ -1109,30 +1170,23 @@ function makeSigningEditorial() {
 
 function makeMinimalFact({
   storyType,
-  sourceCertainty,
-  claimCertainty,
-  subject,
-  predicate,
-  object,
+  certainty,
+  factText,
+  polarity = 'positive',
   attribution,
-  evidenceText,
-  numbers = []
+  sourceField = 'rssSummary',
+  evidenceQuote
 }) {
   return {
     storyType,
-    sourceCertainty,
-    attribution: attribution ? [attribution] : [],
-    entities: [],
-    numbers,
-    claims: [{
-      id: 'c1',
-      subject,
-      predicate,
-      object,
-      polarity: 'positive',
-      certainty: claimCertainty,
+    facts: [{
+      id: 'fact-1',
+      factText,
+      polarity,
+      certainty,
       attribution,
-      evidence: [{ sourceField: 'rssSummary', text: evidenceText }]
+      sourceField,
+      evidenceQuote
     }],
     mustNotClaim: []
   };

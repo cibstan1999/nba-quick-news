@@ -213,6 +213,7 @@ async function reprocessRejectedForDebug(request, env) {
     ? getPipelineMode({ ...env, EDITORIAL_PIPELINE_MODE: requestedMode })
     : getPipelineMode(env);
   const evaluateAccepted = body?.evaluateAccepted === true && pipelineMode === 'phase1';
+  const stage1Only = body?.stage1Only === true && pipelineMode === 'phase1';
   if (body?.dryRun !== true) {
     return jsonResponse({ error: 'dryRun must be true.' }, {
       status: 400,
@@ -267,7 +268,7 @@ async function reprocessRejectedForDebug(request, env) {
 
   const stats = createDebugAiStats();
   const snapshots = [];
-  await processRecord(testRecord, env, stats, snapshots, pipelineMode);
+  await processRecord(testRecord, env, stats, snapshots, pipelineMode, { stage1Only });
   const qwenSnapshot = snapshots.find((snapshot) => snapshot.stage === 'qwen-primary') || null;
   const factSnapshot = snapshots.find((snapshot) => snapshot.stage === 'phase1-fact-extraction') || null;
   const editorialSnapshot = snapshots.find((snapshot) => snapshot.stage === 'phase1-editorial-generation') || null;
@@ -282,6 +283,7 @@ async function reprocessRejectedForDebug(request, env) {
     previousAiStatus: storedRecord.aiStatus,
     resultAiStatus: testRecord.aiStatus,
     pipelineMode,
+    stage1Only,
     pipelineVersion: PIPELINE_VERSION,
     factExtractionVersion: FACT_EXTRACTION_VERSION,
     editorialGenerationVersion: EDITORIAL_GENERATION_VERSION,
@@ -494,10 +496,11 @@ async function processRecord(
   env,
   stats,
   debugSnapshots = null,
-  pipelineMode = getPipelineMode(env)
+  pipelineMode = getPipelineMode(env),
+  options = {}
 ) {
   if (pipelineMode !== 'single') {
-    return processRecordPhase1(record, env, stats, debugSnapshots, pipelineMode);
+    return processRecordPhase1(record, env, stats, debugSnapshots, pipelineMode, options);
   }
   const articleText = await extractArticleText(record.url, record.originalTitle, env);
   try {
@@ -584,7 +587,7 @@ async function processRecord(
   }
 }
 
-async function processRecordPhase1(record, env, stats, debugSnapshots, pipelineMode) {
+async function processRecordPhase1(record, env, stats, debugSnapshots, pipelineMode, options = {}) {
   const articleText = await extractArticleText(record.url, record.originalTitle, env);
   const model = env.AI_MODEL || DEFAULT_AI_MODEL;
   const sourceHash = record.sourceHash || '';
@@ -650,11 +653,15 @@ async function processRecordPhase1(record, env, stats, debugSnapshots, pipelineM
         const snapshot = logPhase1FactDebug(record, factResult, {
           ok: false,
           reasons,
-          details: { structuralFailureReason: factResult.failureReason }
+          details: {
+            structuralFailureReason: factResult.failureReason,
+            incompleteShape: factResult.normalized?.incompleteShape || null
+          }
         }, pipelineMode);
         if (debugSnapshots) debugSnapshots.push(snapshot);
         rejectPhase1Record(record, stats, 'fact-extraction', reasons, {
-          structuralFailureReason: factResult.failureReason
+          structuralFailureReason: factResult.failureReason,
+          incompleteShape: factResult.normalized?.incompleteShape || null
         });
         stats.factStageRejected += 1;
         stats.stage2Skipped += 1;
@@ -706,6 +713,19 @@ async function processRecordPhase1(record, env, stats, debugSnapshots, pipelineM
       };
       console.log('Phase 1 fact extraction debug', snapshot);
       if (debugSnapshots) debugSnapshots.push(snapshot);
+    }
+
+    if (options.stage1Only) {
+      record.aiStatus = 'pending';
+      record.processingStartedAt = null;
+      record.nextRetryAt = null;
+      record.rejectionStage = null;
+      record.rejectionReasons = [];
+      record.lastError = null;
+      record.editorialGenerationStatus = 'pending';
+      record.finalGateStatus = 'pending';
+      stats.stage2Skipped += 1;
+      return;
     }
 
     record.editorialGenerationStatus = 'processing';

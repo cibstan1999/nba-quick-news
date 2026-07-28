@@ -1,18 +1,16 @@
 export const PIPELINE_VERSION = 'editorial-pipeline-v5-two-stage';
-export const FACT_EXTRACTION_VERSION = 'fact-v1-qwen3';
+export const FACT_EXTRACTION_VERSION = 'fact-v2-qwen3-simple';
 export const EDITORIAL_GENERATION_VERSION = 'editorial-v1-qwen3';
 export const AI_STATUSES = ['pending', 'processing', 'accepted', 'rejected', 'failed'];
 export const FACT_LEVELS = ['confirmed', 'reported', 'rumor', 'analysis'];
 export const CATEGORIES = ['交易', '签约', '伤病', '选秀', '流言', '比赛', '分析', '其他'];
 export const PIPELINE_MODES = ['single', 'phase1-canary', 'phase1'];
 
-const FACT_STORY_TYPES = ['trade', 'signing', 'injury', 'interview', 'opinion', 'game', 'analysis', 'rumor', 'draft', 'fact'];
+const FACT_STORY_TYPES = ['trade_rumor', 'signing', 'interview', 'injury', 'game', 'analysis', 'other'];
 const FACT_CERTAINTIES = ['confirmed', 'reported', 'expected', 'likely', 'possible', 'opinion'];
 const FACT_POLARITIES = ['positive', 'negative'];
 const FACT_SOURCE_FIELDS = ['title', 'rssSummary', 'articleText'];
-const FACT_ENTITY_TYPES = ['person', 'team', 'organization', 'other'];
-const FACT_NUMBER_TYPES = ['money', 'contractYears', 'score', 'date', 'injuryDuration', 'tradeAsset'];
-const FACT_EVIDENCE_MAX_LENGTH = 260;
+const FACT_EVIDENCE_MAX_LENGTH = 300;
 // Pipeline upgrades use explicit cache versions; evidence hashes stay compatible with accepted v4 records.
 const SOURCE_HASH_COMPATIBILITY_VERSION = 'editorial-pipeline-v4';
 
@@ -527,20 +525,27 @@ export function buildFactExtractionPrompt(record, articleText = '') {
     'You are the fact extraction stage of an NBA news pipeline.',
     'Read the English evidence and return one strict JSON object only.',
     'Do not translate, summarize in Chinese, infer missing context, or use outside knowledge.',
-    'Every claim must be supported by one or more short verbatim evidence snippets copied from the supplied field.',
-    `Each evidence text must be at most ${FACT_EVIDENCE_MAX_LENGTH} characters and must not contain a full article.`,
-    'Preserve raw money, contract years, scores, dates, injury durations, and trade assets exactly as written in evidence.',
-    'Represent explicit negation with polarity="negative".',
-    'Use certainty only from: confirmed, reported, expected, likely, possible, opinion.',
-    'Use opinion for attributed views, predictions, rankings, and analysis rather than completed events.',
-    'For reported, expected, possible, or opinion claims, retain the source or speaker in attribution.',
-    'Add likely overstatements to mustNotClaim, especially completed transactions not supported by uncertain evidence.',
-    'The JSON fields are storyType, sourceCertainty, attribution, entities, numbers, claims, mustNotClaim.',
-    'entities items use: {"type":"person|team|organization|other","name":"source spelling","canonicalId":"optional lowercase id"}.',
-    'numbers items use: {"type":"money|contractYears|score|date|injuryDuration|tradeAsset","raw":"exact source value","value":"normalized optional value"}.',
-    'claims items use: {"id":"c1","subject":"","predicate":"","object":"","polarity":"positive|negative","certainty":"confirmed|reported|expected|likely|possible|opinion","attribution":"","evidence":[{"sourceField":"title|rssSummary|articleText","text":"exact short quote"}]}.',
-    'If evidence is thin, return fewer conservative claims. Never manufacture a claim just to fill a field.',
-    `localStoryType=${record.storyType || 'fact'}`,
+    'Return exactly these top-level fields: storyType, facts, mustNotClaim.',
+    'storyType must be one of: trade_rumor, signing, interview, injury, game, analysis, other.',
+    'facts must contain only the core facts needed to understand the news. Return 1 to 4 facts and never exceed 5.',
+    'Each fact must express exactly one meaning and use this shape:',
+    '{"id":"fact-1","factText":"English normalized factual statement","certainty":"confirmed|reported|expected|likely|possible|opinion","polarity":"positive|negative","attribution":"","sourceField":"title|rssSummary|articleText","evidenceQuote":"exact short quote copied from that source field"}.',
+    'Every fact object must include all seven fields even when attribution is an empty string.',
+    `evidenceQuote must be copied verbatim, be at most ${FACT_EVIDENCE_MAX_LENGTH} characters, and must not contain a full article.`,
+    'sourceField must name the field that actually contains evidenceQuote. Do not label an RSS sentence as title evidence.',
+    'factText may normalize grammar but must not add a person, team, number, amount, duration, score, date, injury status, or trade asset absent from the selected source field.',
+    'Preserve raw money, contract years, scores, dates, injury durations, and trade assets exactly as written in evidenceQuote or its source field.',
+    'Use polarity="negative" only for grammatical negation or denial such as no, not, never, without, denied, or declined. Bad consequences and failed pursuits are not negative polarity unless the extracted fact itself preserves that negation.',
+    'Use confirmed only for completed signings, completed trades, official announcements, final game results, or other completed events stated directly.',
+    'Keep expected as expected and likely as likely. Map could, may, might, interested in, considering, or exploring to possible.',
+    'Use reported for a sourced report when the underlying event is not directly confirmed. The word reportedly is attribution, not proof of completion.',
+    'Use opinion for interviews, analysis, predictions, rankings, or personal views.',
+    'Attribution is required for interviews, opinions, analysis, predictions, and explicitly attributed reports. Otherwise it may be empty.',
+    'factText must retain words such as expected, likely, could, may, reportedly, not, and no when they control certainty or negation.',
+    'Use mustNotClaim only for the most important certainty or negation red lines, with at most 2 short English strings. It may be empty.',
+    'Do not extract incidental player statistics, roster history, or salary-cap background unless it is essential to the main event.',
+    'If evidence is thin, return fewer conservative facts. Never manufacture a fact just to fill a field.',
+    `localStoryType=${normalizeFactStoryType(record.storyType, 'other')}`,
     `source=${record.source || 'RealGM'}`,
     `title=${record.originalTitle || ''}`,
     `rssSummary=${record.originalSummary || '(none)'}`,
@@ -578,7 +583,7 @@ export function buildPhase1FactRequest(prompt, maxTokens = 3200, { retry = false
   return buildDirectJsonRequest(prompt, maxTokens, {
     retry,
     role: 'NBA fact extraction engine',
-    fields: 'storyType、sourceCertainty、attribution、entities、numbers、claims、mustNotClaim'
+    fields: 'storyType、facts、mustNotClaim'
   });
 }
 
@@ -757,9 +762,9 @@ export function normalizePhase1EditorialResponse(response) {
 export function validateFactExtraction(result, record, articleText = '') {
   const reasons = [];
   const details = {
-    unsupportedEntities: [],
+    evidenceNotFound: [],
     numberMismatches: [],
-    evidenceMismatches: [],
+    entityMismatches: [],
     certaintyMismatches: [],
     negationMismatches: [],
     attributionMismatches: []
@@ -778,77 +783,63 @@ export function validateFactExtraction(result, record, articleText = '') {
     rssSummary: normalizeWhitespace(record.originalSummary || ''),
     articleText: normalizeWhitespace(articleText || '')
   };
-  const sourceEvidence = Object.values(sourceFields).filter(Boolean).join('\n');
-  const sourceFacts = extractEvidenceFacts(sourceEvidence);
-
-  const inferredSourceCertainty = inferClaimCertainty(
-    `${sourceFields.title}\n${sourceFields.rssSummary}`,
-    record.storyType
-  );
-  if (certaintyStrength(value.sourceCertainty) > certaintyStrength(inferredSourceCertainty)) {
-    reasons.push('fact-certainty-mismatch');
-    details.certaintyMismatches.push(
-      `source:${inferredSourceCertainty}->fact:${value.sourceCertainty}`
+  for (const fact of value.facts) {
+    const sourceText = sourceFields[fact.sourceField] || '';
+    const evidenceFound = (
+      fact.evidenceQuote.length <= FACT_EVIDENCE_MAX_LENGTH &&
+      evidenceSnippetMatches(sourceText, fact.evidenceQuote)
     );
-  }
-
-  for (const entity of value.entities) {
-    if (!isFactEntitySupported(entity, sourceEvidence, sourceFacts)) {
-      details.unsupportedEntities.push(`${entity.type}:${entity.name}`);
-    }
-  }
-  if (details.unsupportedEntities.length) reasons.push('fact-entity-unsupported');
-
-  for (const number of value.numbers) {
-    if (!isFactNumberSupported(number, sourceEvidence, sourceFacts)) {
-      details.numberMismatches.push(`${number.type}:${number.raw}`);
-    }
-  }
-  if (details.numberMismatches.length) reasons.push('fact-number-mismatch');
-
-  for (const claim of value.claims) {
-    const supportedEvidence = claim.evidence.filter((entry) => (
-      entry.text.length <= FACT_EVIDENCE_MAX_LENGTH &&
-      evidenceSnippetMatches(sourceFields[entry.sourceField], entry.text)
-    ));
-    if (!supportedEvidence.length) {
-      details.evidenceMismatches.push(claim.id);
+    if (!evidenceFound) {
+      details.evidenceNotFound.push(fact.id);
       continue;
     }
 
-    const evidenceText = supportedEvidence.map((entry) => entry.text).join(' ');
-    const evidenceCertainty = inferClaimCertainty(evidenceText, value.storyType);
-    if (certaintyStrength(claim.certainty) > certaintyStrength(evidenceCertainty)) {
+    const evidenceCertainty = inferClaimCertainty(fact.evidenceQuote, value.storyType);
+    if (!isFactCertaintyCompatible(evidenceCertainty, fact.certainty)) {
       details.certaintyMismatches.push(
-        `${claim.id}:${evidenceCertainty}->${claim.certainty}`
+        `${fact.id}:${evidenceCertainty}->${fact.certainty}`
       );
     }
 
-    if (containsExplicitEnglishNegation(evidenceText) && claim.polarity !== 'negative') {
-      details.negationMismatches.push(claim.id);
+    const evidenceIsNegative = containsFactNegation(fact.evidenceQuote);
+    const factTextIsNegative = containsFactNegation(fact.factText);
+    if (
+      (evidenceIsNegative && (fact.polarity !== 'negative' || !factTextIsNegative)) ||
+      (!evidenceIsNegative && fact.polarity === 'negative')
+    ) {
+      details.negationMismatches.push(fact.id);
     }
 
-    if (['reported', 'opinion'].includes(claim.certainty)) {
-      const attribution = normalizeWhitespace(claim.attribution);
+    if (requiresFactAttribution(fact, value.storyType)) {
+      const attribution = normalizeWhitespace(fact.attribution);
       const attributionSupported = Boolean(attribution) && (
-        containsNormalized(sourceEvidence, attribution) ||
-        containsNormalized(evidenceText, attribution) ||
-        comparable(attribution) === comparable(record.source || 'RealGM')
+        containsNormalized(sourceText, attribution) ||
+        containsNormalized(fact.evidenceQuote, attribution)
       );
-      if (!attributionSupported) details.attributionMismatches.push(claim.id);
+      if (!attributionSupported) details.attributionMismatches.push(fact.id);
     }
 
-    const claimFacts = extractEvidenceFacts(
-      `${claim.subject} ${claim.object}`,
-      sourceEvidence
-    );
-    const evidenceFacts = extractEvidenceFacts(evidenceText, sourceEvidence);
-    if (hasUnsupportedFact(claimFacts, evidenceFacts)) {
-      details.evidenceMismatches.push(`${claim.id}:claim-entity-or-number`);
+    const candidateFacts = extractEvidenceFacts(fact.factText, sourceText);
+    const sourceFacts = extractEvidenceFacts(sourceText, sourceText);
+    for (const group of ['money', 'durations', 'picks', 'scores']) {
+      for (const candidate of candidateFacts[group]) {
+        if (!sourceFacts[group].includes(candidate)) {
+          details.numberMismatches.push(`${fact.id}:${group}:${candidate}`);
+        }
+      }
+    }
+    for (const group of ['teams', 'players']) {
+      for (const candidate of candidateFacts[group]) {
+        if (!sourceFacts[group].includes(candidate)) {
+          details.entityMismatches.push(`${fact.id}:${group}:${candidate}`);
+        }
+      }
     }
   }
 
-  if (details.evidenceMismatches.length) reasons.push('fact-evidence-missing');
+  if (details.evidenceNotFound.length) reasons.push('fact-evidence-not-found');
+  if (details.numberMismatches.length) reasons.push('fact-number-mismatch');
+  if (details.entityMismatches.length) reasons.push('fact-entity-unsupported');
   if (details.certaintyMismatches.length) reasons.push('fact-certainty-mismatch');
   if (details.negationMismatches.length) reasons.push('fact-negation-lost');
   if (details.attributionMismatches.length) reasons.push('fact-attribution-missing');
@@ -864,10 +855,12 @@ export function validatePhase1EditorialResult(result, record, factExtraction) {
     return { ok: false, reasons: ['invalid-json-shape'], details };
   }
 
-  const factLevel = factCertaintyToEditorialLevel(factExtraction.sourceCertainty);
+  const factLevel = factCertaintyToEditorialLevel(getFactExtractionCertainty(factExtraction));
   const factStoryType = factExtraction.storyType === 'interview'
     ? 'opinion'
-    : factExtraction.storyType;
+    : factExtraction.storyType === 'trade_rumor'
+      ? 'rumor'
+      : factExtraction.storyType;
   const expectedCategory = classifyCategory('', factStoryType);
   const gateRecord = {
     ...record,
@@ -959,28 +952,16 @@ export function summarizeFactExtraction(factExtraction) {
   if (!isFactExtractionObject(factExtraction)) return null;
   return {
     storyType: factExtraction.storyType,
-    sourceCertainty: factExtraction.sourceCertainty,
-    attribution: factExtraction.attribution.slice(0, 5),
-    entities: factExtraction.entities.slice(0, 12).map((entity) => ({
-      type: entity.type,
-      name: entity.name,
-      canonicalId: entity.canonicalId
+    facts: factExtraction.facts.slice(0, 8).map((fact) => ({
+      id: fact.id,
+      factText: fact.factText,
+      certainty: fact.certainty,
+      polarity: fact.polarity,
+      attribution: fact.attribution,
+      sourceField: fact.sourceField,
+      evidenceQuote: fact.evidenceQuote.slice(0, 120)
     })),
-    numbers: factExtraction.numbers.slice(0, 12),
-    claims: factExtraction.claims.slice(0, 12).map((claim) => ({
-      id: claim.id,
-      subject: claim.subject,
-      predicate: claim.predicate,
-      object: claim.object,
-      polarity: claim.polarity,
-      certainty: claim.certainty,
-      attribution: claim.attribution,
-      evidence: claim.evidence.map((entry) => ({
-        sourceField: entry.sourceField,
-        text: entry.text.slice(0, 120)
-      }))
-    })),
-    mustNotClaim: factExtraction.mustNotClaim.slice(0, 8)
+    mustNotClaim: factExtraction.mustNotClaim.slice(0, 3)
   };
 }
 
@@ -1873,56 +1854,23 @@ function normalizeStructuredAiResponse(response, isComplete, isCandidate) {
 
 function normalizeFactExtraction(result) {
   return cleanStringsDeep({
-    storyType: normalizeWhitespace(result.storyType).toLowerCase(),
-    sourceCertainty: normalizeWhitespace(result.sourceCertainty).toLowerCase(),
-    attribution: [...new Set(
-      (Array.isArray(result.attribution)
-        ? result.attribution
-        : result.attribution
-          ? [result.attribution]
-          : [])
-        .map(normalizeWhitespace)
-        .filter(Boolean)
-    )].slice(0, 8),
-    entities: (Array.isArray(result.entities) ? result.entities : [])
-      .map((entity) => ({
-        type: normalizeWhitespace(entity?.type).toLowerCase(),
-        name: normalizeWhitespace(entity?.name),
-        canonicalId: slug(entity?.canonicalId || entity?.name)
+    storyType: normalizeFactStoryType(result.storyType),
+    facts: (Array.isArray(result.facts) ? result.facts : [])
+      .map((fact, index) => ({
+        id: normalizeWhitespace(fact?.id) || `fact-${index + 1}`,
+        factText: normalizeWhitespace(fact?.factText),
+        certainty: normalizeWhitespace(fact?.certainty).toLowerCase(),
+        polarity: normalizeFactPolarity(fact?.polarity),
+        attribution: normalizeWhitespace(fact?.attribution),
+        sourceField: normalizeFactSourceField(fact?.sourceField),
+        evidenceQuote: normalizeWhitespace(fact?.evidenceQuote)
       }))
-      .filter((entity) => entity.type && entity.name)
-      .slice(0, 20),
-    numbers: (Array.isArray(result.numbers) ? result.numbers : [])
-      .map((number) => ({
-        type: normalizeWhitespace(number?.type),
-        raw: normalizeWhitespace(number?.raw),
-        value: normalizeWhitespace(number?.value)
-      }))
-      .filter((number) => number.type && number.raw)
-      .slice(0, 20),
-    claims: (Array.isArray(result.claims) ? result.claims : [])
-      .map((claim, index) => ({
-        id: normalizeWhitespace(claim?.id) || `c${index + 1}`,
-        subject: normalizeWhitespace(claim?.subject),
-        predicate: normalizeWhitespace(claim?.predicate),
-        object: normalizeWhitespace(claim?.object),
-        polarity: normalizeWhitespace(claim?.polarity).toLowerCase(),
-        certainty: normalizeWhitespace(claim?.certainty).toLowerCase(),
-        attribution: normalizeWhitespace(claim?.attribution),
-        evidence: (Array.isArray(claim?.evidence) ? claim.evidence : [])
-          .map((entry) => ({
-            sourceField: normalizeWhitespace(entry?.sourceField),
-            text: normalizeWhitespace(entry?.text).slice(0, FACT_EVIDENCE_MAX_LENGTH)
-          }))
-          .filter((entry) => entry.sourceField && entry.text)
-          .slice(0, 4)
-      }))
-      .slice(0, 16),
+      .slice(0, 5),
     mustNotClaim: [...new Set(
       (Array.isArray(result.mustNotClaim) ? result.mustNotClaim : [])
         .map(normalizeWhitespace)
         .filter(Boolean)
-    )].slice(0, 12)
+    )].slice(0, 2)
   });
 }
 
@@ -1937,7 +1885,19 @@ function describeJsonShape(value) {
       itemType: first == null ? 'empty' : Array.isArray(first) ? 'array' : typeof first,
       itemKeys: first && typeof first === 'object' && !Array.isArray(first)
         ? Object.keys(first)
-        : []
+        : [],
+      items: entry.slice(0, 8).map((item) => (
+        item && typeof item === 'object' && !Array.isArray(item)
+          ? Object.fromEntries(Object.entries(item).map(([itemKey, itemValue]) => [
+              itemKey,
+              typeof itemValue === 'string'
+                ? { type: 'string', length: itemValue.length }
+                : Array.isArray(itemValue)
+                  ? { type: 'array', length: itemValue.length }
+                  : { type: typeof itemValue }
+            ]))
+          : { type: item == null ? 'null' : typeof item }
+      ))
     }];
   }));
 }
@@ -1945,40 +1905,23 @@ function describeJsonShape(value) {
 function isFactExtractionObject(value) {
   return Boolean(
     isFactExtractionCandidateObject(value) &&
-    FACT_STORY_TYPES.includes(normalizeWhitespace(value.storyType).toLowerCase()) &&
-    FACT_CERTAINTIES.includes(normalizeWhitespace(value.sourceCertainty).toLowerCase()) &&
-    Array.isArray(value.attribution) &&
-    Array.isArray(value.entities) &&
-    value.entities.every((entity) => (
-      entity && typeof entity === 'object' &&
-      FACT_ENTITY_TYPES.includes(normalizeWhitespace(entity.type).toLowerCase()) &&
-      typeof entity.name === 'string'
-    )) &&
-    Array.isArray(value.numbers) &&
-    value.numbers.every((number) => (
-      number && typeof number === 'object' &&
-      FACT_NUMBER_TYPES.includes(normalizeWhitespace(number.type)) &&
-      typeof number.raw === 'string'
-    )) &&
-    Array.isArray(value.claims) &&
-    value.claims.length > 0 &&
-    value.claims.every((claim) => (
-      claim && typeof claim === 'object' &&
-      typeof claim.id === 'string' &&
-      typeof claim.subject === 'string' &&
-      typeof claim.predicate === 'string' &&
-      typeof claim.object === 'string' &&
-      FACT_POLARITIES.includes(normalizeWhitespace(claim.polarity).toLowerCase()) &&
-      FACT_CERTAINTIES.includes(normalizeWhitespace(claim.certainty).toLowerCase()) &&
-      typeof claim.attribution === 'string' &&
-      Array.isArray(claim.evidence) &&
-      claim.evidence.length > 0 &&
-      claim.evidence.every((entry) => (
-        entry && typeof entry === 'object' &&
-        FACT_SOURCE_FIELDS.includes(normalizeWhitespace(entry.sourceField)) &&
-        typeof entry.text === 'string' &&
-        Boolean(normalizeWhitespace(entry.text))
-      ))
+    FACT_STORY_TYPES.includes(normalizeFactStoryType(value.storyType)) &&
+    Array.isArray(value.facts) &&
+    value.facts.length > 0 &&
+    value.facts.length <= 5 &&
+    value.facts.every((fact) => (
+      fact && typeof fact === 'object' &&
+      typeof fact.id === 'string' &&
+      Boolean(normalizeWhitespace(fact.id)) &&
+      typeof fact.factText === 'string' &&
+      Boolean(normalizeWhitespace(fact.factText)) &&
+      FACT_CERTAINTIES.includes(normalizeWhitespace(fact.certainty).toLowerCase()) &&
+      FACT_POLARITIES.includes(normalizeWhitespace(fact.polarity).toLowerCase()) &&
+      typeof fact.attribution === 'string' &&
+      FACT_SOURCE_FIELDS.includes(normalizeWhitespace(fact.sourceField)) &&
+      typeof fact.evidenceQuote === 'string' &&
+      Boolean(normalizeWhitespace(fact.evidenceQuote)) &&
+      normalizeWhitespace(fact.evidenceQuote).length <= FACT_EVIDENCE_MAX_LENGTH
     )) &&
     Array.isArray(value.mustNotClaim)
   );
@@ -1989,7 +1932,7 @@ function isFactExtractionCandidateObject(value) {
     value &&
     typeof value === 'object' &&
     !Array.isArray(value) &&
-    ['storyType', 'sourceCertainty', 'attribution', 'entities', 'numbers', 'claims', 'mustNotClaim']
+    ['storyType', 'facts', 'mustNotClaim']
       .some((key) => key in value)
   );
 }
@@ -2018,62 +1961,84 @@ function isPhase1EditorialCandidateObject(value) {
 
 function buildCanonicalDisplayNames(factExtraction, record) {
   const sourceEvidence = `${record.originalTitle || ''}\n${record.originalSummary || ''}`;
-  return factExtraction.entities.map((entity) => {
-    let canonicalId = slug(entity.canonicalId || entity.name);
-    let displayZh = entity.name;
-    let role = entity.type;
+  const factEvidence = factExtraction.facts
+    .map((fact) => `${fact.factText} ${fact.evidenceQuote}`)
+    .join('\n');
+  const extracted = extractEvidenceFacts(factEvidence, sourceEvidence);
+  const names = [];
 
-    if (entity.type === 'team') {
-      const teamId = extractTeamIds(entity.name)[0] || canonicalId;
-      const teamZh = getGroupZh(TEAM_GROUPS, teamId);
-      if (teamZh) {
-        canonicalId = teamId;
-        displayZh = teamZh;
-      }
-    } else if (entity.type === 'person') {
-      const personIds = extractCanonicalPersonIds(entity.name, sourceEvidence);
-      const playerIds = extractPeople(entity.name, sourceEvidence);
-      const personId = personIds[0] || playerIds[0] || canonicalId;
-      const playerZh = getGroupZh(PLAYER_GROUPS, personId);
-      const personZh = getGroupZh(NBA_PERSON_GROUPS, personId);
-      canonicalId = personId;
-      displayZh = playerZh || personZh || entity.name;
-      role = CANONICAL_PERSON_ENTITIES.find((entry) => entry.id === personId)?.role || 'person';
-    }
+  for (const teamId of extracted.teams) {
+    const sourceName = findSourceAlias(TEAM_GROUPS, teamId, factEvidence) || teamId;
+    names.push({
+      canonicalId: teamId,
+      sourceName,
+      displayZh: getGroupZh(TEAM_GROUPS, teamId) || sourceName,
+      role: 'team'
+    });
+  }
 
-    return {
-      canonicalId,
-      sourceName: entity.name,
-      displayZh,
-      role
-    };
-  });
+  for (const personId of extracted.players) {
+    const sourceName = (
+      findSourceAlias(PLAYER_GROUPS, personId, factEvidence) ||
+      findSourceAlias(NBA_PERSON_GROUPS, personId, factEvidence) ||
+      personId
+    );
+    names.push({
+      canonicalId: personId,
+      sourceName,
+      displayZh: (
+        getGroupZh(PLAYER_GROUPS, personId) ||
+        getGroupZh(NBA_PERSON_GROUPS, personId) ||
+        sourceName
+      ),
+      role: CANONICAL_PERSON_ENTITIES.find((entry) => entry.id === personId)?.role || 'person'
+    });
+  }
+
+  return names;
 }
 
 function inferClaimCertainty(text, storyType = '') {
   const value = normalizeWhitespace(text);
   if (
-    ['analysis', 'opinion', 'interview'].includes(storyType) ||
-    /\b(?:believes?|thinks?|shares? thoughts|opinion|analysis|predicts?|argues?|suggests?)\b/i.test(value)
+    /\b(?:believes?|thinks?|shares? thoughts|opinion|analysis|predicts?|argues?|suggests?|says?|said|told|explains?|discusses?|wants?)\b/i.test(value)
   ) return 'opinion';
   if (/\blikely(?:\s+to|\s+that)?\b/i.test(value)) return 'likely';
-  if (/\bexpected(?:\s+to|\s+that)?\b/i.test(value)) return 'expected';
-  if (/\b(?:could|may|might|interested in|interest in|considering|exploring|leaning toward|unclear|unknown|(?:has|have|had) not decided|(?:has|have) yet to decide)\b/i.test(value)) {
+  if (/\b(?:expected(?:\s+to|\s+that)?|the expectation is|expectation that)\b/i.test(value)) {
+    return 'expected';
+  }
+  const negatedInterest = (
+    containsFactNegation(value) &&
+    /\b(?:interest(?:ed)? in|interest in trading)\b/i.test(value)
+  );
+  if (!negatedInterest && /\b(?:could|may|might|interested in|interest in|considering|exploring|leaning toward|looked at|hopeful of|seems? to|appears? to|unclear|unknown|(?:has|have|had) not decided|(?:has|have) yet to decide)\b/i.test(value)) {
     return 'possible';
   }
   if (/\b(?:reportedly|according to|sources? say|was told|is told)\b/i.test(value)) return 'reported';
+  if (['analysis', 'interview'].includes(storyType)) return 'opinion';
   return 'confirmed';
 }
 
-function certaintyStrength(certainty) {
-  return {
-    opinion: 1,
-    possible: 2,
-    expected: 3,
-    likely: 3,
-    reported: 4,
-    confirmed: 5
-  }[certainty] || 0;
+function isFactCertaintyCompatible(evidenceCertainty, factCertainty) {
+  const allowed = {
+    confirmed: ['confirmed', 'reported', 'possible'],
+    reported: ['reported', 'possible'],
+    expected: ['expected', 'possible'],
+    likely: ['likely', 'possible'],
+    possible: ['possible'],
+    opinion: ['opinion']
+  };
+  return (allowed[evidenceCertainty] || []).includes(factCertainty);
+}
+
+function getFactExtractionCertainty(factExtraction) {
+  const certainties = factExtraction.facts.map((fact) => fact.certainty);
+  if (certainties.includes('opinion')) return 'opinion';
+  if (certainties.includes('possible')) return 'possible';
+  if (certainties.includes('expected')) return 'expected';
+  if (certainties.includes('likely')) return 'likely';
+  if (certainties.includes('reported')) return 'reported';
+  return 'confirmed';
 }
 
 function factCertaintyToEditorialLevel(certainty) {
@@ -2102,48 +2067,67 @@ function containsNormalized(text, candidate) {
 }
 
 function containsExplicitEnglishNegation(text) {
-  return /\b(?:not|no|never|without|hasn't|haven't|hadn't|has not|have not|had not|has yet to|have yet to|did not|does not)\b/i.test(text);
+  const value = String(text || '').replace(/\bnot only\b/gi, '');
+  return /\b(?:not|no|never|without|hasn't|haven't|hadn't|has not|have not|had not|has yet to|have yet to|did not|does not)\b/i.test(value);
 }
 
-function isFactEntitySupported(entity, sourceEvidence, sourceFacts) {
-  if (containsNormalized(sourceEvidence, entity.name)) return true;
-  if (entity.type === 'team') {
-    const ids = extractTeamIds(entity.name);
-    return ids.length > 0 && ids.every((id) => sourceFacts.teams.includes(id));
-  }
-  if (entity.type === 'person') {
-    const ids = extractPeople(entity.name, sourceEvidence);
-    return ids.length > 0 && ids.every((id) => sourceFacts.players.includes(id));
-  }
-  return false;
+function containsFactNegation(text) {
+  return (
+    containsExplicitEnglishNegation(text) ||
+    /\b(?:neither|nor|denied|declined|rejected|ruled out|no interest|not interested|unlikely|won't|wouldn't|isn't|aren't|wasn't|weren't)\b/i.test(text)
+  );
 }
 
-function isFactNumberSupported(number, sourceEvidence, sourceFacts) {
-  if (containsNormalized(sourceEvidence, number.raw)) return true;
-  const parsed = extractEvidenceFacts(number.raw, sourceEvidence);
-  const groupsByType = {
-    money: ['money'],
-    contractYears: ['durations'],
-    score: ['scores'],
-    tradeAsset: ['picks']
-  };
-  const groups = groupsByType[number.type] || [];
-  return groups.length > 0 && groups.every((group) => (
-    parsed[group].length > 0 &&
-    parsed[group].every((fact) => sourceFacts[group].includes(fact))
-  ));
+function requiresFactAttribution(fact, storyType) {
+  if (['interview', 'analysis'].includes(storyType)) return true;
+  if (fact.certainty === 'opinion') return true;
+  return fact.certainty === 'reported' && hasExplicitAttributionCue(fact.evidenceQuote);
 }
 
-function hasUnsupportedFact(candidate, allowed) {
-  return ['teams', 'players', 'money', 'durations', 'picks', 'scores']
-    .some((group) => candidate[group].some((fact) => !allowed[group].includes(fact)));
+function hasExplicitAttributionCue(text) {
+  return /\b(?:according to|reported by|per |sources? (?:say|said|tell|told)|said|says|told|wrote|writes|I'm told)\b/i.test(text);
 }
 
 function buildValidatedFactEvidence(factExtraction) {
   return normalizeWhitespace([
-    ...factExtraction.claims.flatMap((claim) => claim.evidence.map((entry) => entry.text)),
-    ...factExtraction.numbers.map((number) => number.raw)
+    ...factExtraction.facts.map((fact) => fact.evidenceQuote),
+    ...factExtraction.facts.map((fact) => fact.factText)
   ].join('\n'));
+}
+
+function normalizeFactStoryType(value, fallback = '') {
+  const storyType = normalizeWhitespace(value).toLowerCase().replace(/[\s-]+/g, '_');
+  if (FACT_STORY_TYPES.includes(storyType)) return storyType;
+  if (['trade', 'rumor', 'free_agency'].includes(storyType)) return 'trade_rumor';
+  if (['opinion', 'fact', 'draft'].includes(storyType)) {
+    return storyType === 'opinion' ? 'analysis' : 'other';
+  }
+  return fallback;
+}
+
+function normalizeFactSourceField(value) {
+  const sourceField = normalizeWhitespace(value).replace(/[\s_-]+/g, '').toLowerCase();
+  return {
+    title: 'title',
+    rsssummary: 'rssSummary',
+    summary: 'rssSummary',
+    articletext: 'articleText',
+    article: 'articleText'
+  }[sourceField] || '';
+}
+
+function normalizeFactPolarity(value) {
+  const polarity = normalizeWhitespace(value).toLowerCase();
+  if (polarity === 'negative') return 'negative';
+  if (['positive', 'neutral', 'affirmative'].includes(polarity)) return 'positive';
+  return '';
+}
+
+function findSourceAlias(groups, canonicalId, evidence) {
+  const group = groups.find(([id]) => id === canonicalId);
+  if (!group) return '';
+  const aliases = group[2] || [];
+  return aliases.find((alias) => containsNormalized(evidence, alias)) || aliases[0] || '';
 }
 
 function dedupeFactValidationDetails(details) {

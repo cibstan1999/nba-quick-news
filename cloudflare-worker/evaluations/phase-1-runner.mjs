@@ -5,12 +5,16 @@ import { fileURLToPath } from 'node:url';
 
 const evaluationDir = path.dirname(fileURLToPath(import.meta.url));
 const baselinePath = path.join(evaluationDir, 'phase-0.5-baseline.json');
-const outputPath = path.join(evaluationDir, 'phase-1-results.local.json');
 
 async function main() {
-  if (process.argv[2] !== '--collect') {
-    throw new Error('Use --collect.');
+  const stage1Only = process.argv[2] === '--collect-stage1';
+  if (!stage1Only && process.argv[2] !== '--collect') {
+    throw new Error('Use --collect or --collect-stage1.');
   }
+  const outputPath = path.join(
+    evaluationDir,
+    stage1Only ? 'phase-1-stage1-results.local.json' : 'phase-1-results.local.json'
+  );
 
   const baseUrl = normalizeBaseUrl(process.env.PHASE1_DEBUG_BASE_URL);
   const token = String(process.env.PHASE1_DEBUG_TOKEN || '');
@@ -19,9 +23,18 @@ async function main() {
   }
 
   const baseline = JSON.parse(await fs.readFile(baselinePath, 'utf8'));
+  const requestedSampleIds = new Set(
+    String(process.env.PHASE1_SAMPLE_IDS || '')
+      .split(',')
+      .map((value) => value.trim())
+      .filter(Boolean)
+  );
+  const samples = requestedSampleIds.size
+    ? baseline.samples.filter((sample) => requestedSampleIds.has(sample.sampleId))
+    : baseline.samples;
   const results = [];
 
-  for (const sample of baseline.samples) {
+  for (const sample of samples) {
     const response = await fetch(`${baseUrl}/debug/reprocess`, {
       method: 'POST',
       headers: {
@@ -32,7 +45,8 @@ async function main() {
         newsId: sample.newsId,
         dryRun: true,
         pipelineMode: 'phase1',
-        evaluateAccepted: true
+        evaluateAccepted: true,
+        stage1Only
       })
     });
     const payload = await response.json();
@@ -56,6 +70,7 @@ async function main() {
       persisted: payload.persisted,
       resultAiStatus: payload.resultAiStatus,
       pipelineMode: payload.pipelineMode,
+      stage1Only: payload.stage1Only,
       pipelineVersion: payload.pipelineVersion,
       factExtractionVersion: payload.factExtractionVersion,
       editorialGenerationVersion: payload.editorialGenerationVersion,
@@ -90,13 +105,21 @@ async function main() {
   }
 
   const report = {
-    evaluation: 'phase-1-two-stage-frozen-sample-dry-run',
+    evaluation: stage1Only
+      ? 'phase-1-stage1-frozen-sample-dry-run'
+      : 'phase-1-two-stage-frozen-sample-dry-run',
     collectedAt: new Date().toISOString(),
     baseline: path.basename(baselinePath),
     sampleCount: results.length,
     productionWrites: 0,
     pipelineMode: 'phase1',
     metrics: {
+      firstAttemptParsed: results.filter(
+        (result) => result.factExtraction && result.factStageRequests === 1
+      ).length,
+      retryParsed: results.filter(
+        (result) => result.factExtraction && result.factStageRequests === 2
+      ).length,
       factParsed: results.filter((result) => result.factExtraction).length,
       factValidated: results.filter((result) => result.factValidation?.ok).length,
       editorialParsed: results.filter((result) => result.editorial).length,
@@ -122,12 +145,9 @@ function redactFactSummary(value) {
   if (!value || typeof value !== 'object') return null;
   return {
     ...value,
-    claims: (value.claims || []).map((claim) => ({
-      ...claim,
-      evidence: (claim.evidence || []).map((entry) => ({
-        sourceField: entry.sourceField,
-        text: String(entry.text || '').slice(0, 120)
-      }))
+    facts: (value.facts || []).map((fact) => ({
+      ...fact,
+      evidenceQuote: String(fact.evidenceQuote || '').slice(0, 120)
     }))
   };
 }
