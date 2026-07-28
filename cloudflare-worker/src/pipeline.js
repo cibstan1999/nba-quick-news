@@ -390,58 +390,40 @@ export function buildEditorialPrompt(record, articleText = '') {
   ].join('\n');
 }
 
-export function buildWorkersAiRequest(prompt, maxTokens = 1800, withSchema = true) {
-  const request = {
+export function buildWorkersAiRequest(prompt, maxTokens = 2400, { retry = false } = {}) {
+  const retryInstruction = retry
+    ? '上一次响应没有产生可解析 JSON。请重新生成完整 JSON；第一个字符必须是 {，最后一个字符必须是 }。'
+    : '第一个字符必须是 {，最后一个字符必须是 }。';
+
+  return {
     messages: [
       {
         role: 'system',
         content: [
           '/no_think',
           '你是一名严谨的中文 NBA 快讯编辑。',
-          '不要展示思考过程。必须调用 publish_nba_brief 工具提交最终结果。'
+          '关闭思考过程，不要输出 reasoning、Markdown、代码围栏或解释。',
+          '只返回一个紧凑、完整、可由 JSON.parse 直接解析的 JSON 对象。',
+          '只允许字段 titleZh、summaryZh、categoryZh、tagsZh、confidence、factLevel。',
+          retryInstruction
         ].join('\n')
       },
       {
         role: 'user',
-        content: `/no_think\n${prompt}\n请调用 publish_nba_brief，不要输出普通文本。`
+        content: [
+          '/no_think',
+          prompt,
+          retryInstruction,
+          '只输出最终 JSON 对象，不要输出任何其他内容。'
+        ].join('\n')
       }
     ],
     max_tokens: maxTokens,
-    temperature: 0.2,
+    temperature: 0.1,
     top_p: 0.8,
     top_k: 20,
     stream: false
   };
-
-  if (withSchema) {
-    request.tools = [{
-      type: 'function',
-      function: {
-        name: 'publish_nba_brief',
-        description: '提交经过中文 NBA 编辑处理的新闻标题、摘要和事实属性。',
-        parameters: {
-          type: 'object',
-          additionalProperties: false,
-          properties: {
-            titleZh: { type: 'string' },
-            summaryZh: { type: 'string' },
-            categoryZh: { type: 'string', enum: CATEGORIES },
-            tagsZh: {
-              type: 'array',
-              minItems: 1,
-              maxItems: 5,
-              items: { type: 'string' }
-            },
-            confidence: { type: 'number', minimum: 0, maximum: 1 },
-            factLevel: { type: 'string', enum: FACT_LEVELS }
-          },
-          required: ['titleZh', 'summaryZh', 'categoryZh', 'tagsZh', 'confidence', 'factLevel']
-        }
-      }
-    }];
-  }
-
-  return request;
 }
 
 export function buildWorkersAiJsonRequest(prompt, maxTokens = 1400) {
@@ -500,11 +482,12 @@ export function normalizeAiResponse(response) {
     ...(Array.isArray(response?.result?.tool_calls) ? response.result.tool_calls : []),
     ...(Array.isArray(message?.tool_calls) ? message.tool_calls : [])
   ];
+  const messageContent = normalizeMessageContent(message?.content);
   const candidates = [
     ...toolCalls.map((toolCall) => toolCall?.arguments ?? toolCall?.function?.arguments),
     response?.response,
     response?.result?.response,
-    message?.content,
+    messageContent,
     response?.result,
     response
   ];
@@ -527,9 +510,9 @@ export function normalizeAiResponse(response) {
   return {
     parsed,
     rawContent: normalizeWhitespace(rawContent),
+    contentLength: normalizeWhitespace(rawContent).length,
     finishReason,
-    isEmptyLengthResponse: !parsed && !rawContent && finishReason.toLowerCase() === 'length',
-    rawDebug: safeStringify(response).slice(0, 2000)
+    isEmptyLengthResponse: !parsed && !rawContent && finishReason.toLowerCase() === 'length'
   };
 }
 
@@ -1086,12 +1069,21 @@ function isEditorialObject(value) {
     ('titleZh' in value || 'summaryZh' in value));
 }
 
-function safeStringify(value) {
-  try {
-    return JSON.stringify(value);
-  } catch {
-    return String(value);
-  }
+function normalizeMessageContent(value) {
+  if (typeof value === 'string') return value;
+  if (!Array.isArray(value)) return '';
+  return value
+    .map((part) => {
+      if (typeof part === 'string') return part;
+      if (!part || typeof part !== 'object') return '';
+      return typeof part.text === 'string'
+        ? part.text
+        : typeof part.content === 'string'
+          ? part.content
+          : '';
+    })
+    .filter(Boolean)
+    .join('\n');
 }
 
 function comparable(value = '') {

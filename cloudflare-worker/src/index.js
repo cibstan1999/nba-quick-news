@@ -32,6 +32,8 @@ const RECORD_PREFIX = 'news:item:';
 const DEFAULT_AI_MODEL = '@cf/qwen/qwen3-30b-a3b-fp8';
 const DEFAULT_AI_FALLBACK_MODEL = '@cf/meta/llama-3.1-8b-instruct-fast';
 const DEFAULT_CATALOG_LIMIT = 120;
+const PRIMARY_JSON_MAX_TOKENS = 2400;
+const PRIMARY_JSON_RETRY_MAX_TOKENS = 4000;
 
 class RefreshError extends Error {
   constructor(message, payload) {
@@ -189,6 +191,12 @@ async function refreshNews(env, meta = {}) {
     failed: 0,
     fallbackRequests: 0,
     fallbackAccepted: 0,
+    qwenAttempts: 0,
+    qwenRetries: 0,
+    qwenParsed: 0,
+    qwenEmptyContent: 0,
+    qwenLengthStops: 0,
+    qwenInvalidJson: 0,
     rejectionSamples: []
   };
 
@@ -241,6 +249,14 @@ async function refreshNews(env, meta = {}) {
     aiAccepted: aiStats.accepted,
     aiRejected: aiStats.rejected,
     aiFailed: aiStats.failed,
+    qwenBaseline: {
+      attempts: aiStats.qwenAttempts,
+      retries: aiStats.qwenRetries,
+      parsed: aiStats.qwenParsed,
+      emptyContent: aiStats.qwenEmptyContent,
+      lengthStops: aiStats.qwenLengthStops,
+      invalidJson: aiStats.qwenInvalidJson
+    },
     queue
   });
 
@@ -253,6 +269,7 @@ async function processRecord(record, env, stats) {
     let aiResult = await summarizeWithWorkersAi(record, articleText, env);
     stats.requests += aiResult.requestCount;
     stats.fallbackRequests += aiResult.fallbackRequestCount;
+    mergeQwenDiagnostics(stats, aiResult.qwenDiagnostics);
     let validation = validateEditorialResult(aiResult.normalized.parsed, record, articleText);
 
     if (!validation.ok && aiResult.modelUsed !== getFallbackModel(env)) {
@@ -312,7 +329,7 @@ async function processRecord(record, env, stats) {
         addedFacts: validation.details.addedFacts,
         missingFacts: validation.details.missingFacts,
         unsafeFragments: validation.details.unsafeFragments,
-        rawResponse: aiResult.normalized.rawDebug.slice(0, 2000)
+        contentPreview: aiResult.normalized.rawContent.slice(0, 500)
       });
       return;
     }
@@ -335,6 +352,7 @@ async function processRecord(record, env, stats) {
   } catch (error) {
     stats.requests += Number(error?.aiRequestCount) || 0;
     stats.fallbackRequests += Number(error?.aiFallbackRequestCount) || 0;
+    mergeQwenDiagnostics(stats, error?.qwenDiagnostics);
     record.aiStatus = 'failed';
     record.retryCount = (record.retryCount || 0) + 1;
     record.processedAt = new Date().toISOString();
@@ -360,33 +378,62 @@ async function summarizeWithWorkersAi(record, articleText, env) {
   const prompt = buildEditorialPrompt(record, articleText);
   let requestCount = 0;
   let primaryError = null;
+  const qwenDiagnostics = createQwenDiagnostics();
+  const attempts = [
+    { maxTokens: PRIMARY_JSON_MAX_TOKENS, retry: false },
+    { maxTokens: PRIMARY_JSON_RETRY_MAX_TOKENS, retry: true }
+  ];
 
   try {
-    try {
-      requestCount += 1;
-      const response = await env.AI.run(model, buildWorkersAiRequest(prompt, 1800, true));
-      const normalized = normalizeAiResponse(response);
-      if (normalized.parsed) {
-        return {
-          normalized,
-          requestCount,
-          fallbackRequestCount: 0,
-          modelUsed: model
-        };
+    for (let index = 0; index < attempts.length; index += 1) {
+      const attempt = attempts[index];
+      try {
+        requestCount += 1;
+        qwenDiagnostics.attempts += 1;
+        if (attempt.retry) qwenDiagnostics.retries += 1;
+        const response = await env.AI.run(
+          model,
+          buildWorkersAiRequest(prompt, attempt.maxTokens, { retry: attempt.retry })
+        );
+        const normalized = normalizeAiResponse(response);
+        if (normalized.parsed) {
+          qwenDiagnostics.parsed += 1;
+          return {
+            normalized,
+            requestCount,
+            fallbackRequestCount: 0,
+            modelUsed: model,
+            qwenDiagnostics
+          };
+        }
+
+        if (!normalized.rawContent) qwenDiagnostics.emptyContent += 1;
+        if (normalized.finishReason.toLowerCase() === 'length') {
+          qwenDiagnostics.lengthStops += 1;
+        } else if (normalized.rawContent) {
+          qwenDiagnostics.invalidJson += 1;
+        }
+
+        console.warn('Primary Workers AI model returned no parseable editorial JSON', {
+          newsId: record.newsId,
+          model,
+          attempt: index + 1,
+          retry: attempt.retry,
+          maxTokens: attempt.maxTokens,
+          finishReason: normalized.finishReason,
+          contentLength: normalized.contentLength,
+          contentPreview: normalized.rawContent.slice(0, 500)
+        });
+      } catch (error) {
+        primaryError = error;
+        console.warn('Primary Workers AI model failed; trying structured fallback model', {
+          newsId: record.newsId,
+          model,
+          attempt: index + 1,
+          error: sanitizeError(error)
+        });
+        break;
       }
-      console.warn('Primary Workers AI model returned no editorial tool payload', {
-        newsId: record.newsId,
-        model,
-        finishReason: normalized.finishReason,
-        rawResponse: normalized.rawDebug.slice(0, 2000)
-      });
-    } catch (error) {
-      primaryError = error;
-      console.warn('Primary Workers AI model failed; trying structured fallback model', {
-        newsId: record.newsId,
-        model,
-        error: sanitizeError(error)
-      });
     }
 
     if (fallbackModel === model) {
@@ -397,15 +444,18 @@ async function summarizeWithWorkersAi(record, articleText, env) {
     return {
       ...fallback,
       requestCount: requestCount + fallback.requestCount,
-      fallbackRequestCount: fallback.requestCount
+      fallbackRequestCount: fallback.requestCount,
+      qwenDiagnostics
     };
   } catch (error) {
     if (error && typeof error === 'object') {
       error.aiRequestCount = (Number(error.aiRequestCount) || 0) + requestCount;
+      error.qwenDiagnostics = qwenDiagnostics;
       throw error;
     }
     const wrapped = new Error(String(error));
     wrapped.aiRequestCount = requestCount;
+    wrapped.qwenDiagnostics = qwenDiagnostics;
     throw wrapped;
   }
 }
@@ -449,6 +499,27 @@ async function runJsonFallback(prompt, model, env) {
 
 function getFallbackModel(env) {
   return env.AI_FALLBACK_MODEL || DEFAULT_AI_FALLBACK_MODEL;
+}
+
+function createQwenDiagnostics() {
+  return {
+    attempts: 0,
+    retries: 0,
+    parsed: 0,
+    emptyContent: 0,
+    lengthStops: 0,
+    invalidJson: 0
+  };
+}
+
+function mergeQwenDiagnostics(stats, diagnostics) {
+  if (!diagnostics) return;
+  stats.qwenAttempts += Number(diagnostics.attempts) || 0;
+  stats.qwenRetries += Number(diagnostics.retries) || 0;
+  stats.qwenParsed += Number(diagnostics.parsed) || 0;
+  stats.qwenEmptyContent += Number(diagnostics.emptyContent) || 0;
+  stats.qwenLengthStops += Number(diagnostics.lengthStops) || 0;
+  stats.qwenInvalidJson += Number(diagnostics.invalidJson) || 0;
 }
 
 async function extractArticleText(url, originalTitle, env) {

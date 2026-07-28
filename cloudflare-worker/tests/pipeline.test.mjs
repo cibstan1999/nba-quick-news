@@ -327,15 +327,24 @@ test('AI response parser accepts structured response and never reads reasoning',
   });
   assert.equal(reasoningOnly.parsed, null);
   assert.equal(reasoningOnly.isEmptyLengthResponse, true);
+  assert.equal('rawDebug' in reasoningOnly, false);
 });
 
-test('Workers AI request asks Qwen to return the complete editorial tool payload', () => {
-  const request = buildWorkersAiRequest('test', 1800, true);
-  const required = request.tools[0].function.parameters.required;
-  assert.deepEqual(required, ['titleZh', 'summaryZh', 'categoryZh', 'tagsZh', 'confidence', 'factLevel']);
-  assert.equal(request.tools[0].function.name, 'publish_nba_brief');
+test('Workers AI request disables thinking and asks Qwen for direct JSON', () => {
+  const request = buildWorkersAiRequest('test', 2400);
+  assert.equal('tools' in request, false);
+  assert.equal(request.max_tokens, 2400);
   assert.match(request.messages[0].content, /^\/no_think/);
-  assert.match(request.messages[1].content, /publish_nba_brief/);
+  assert.match(request.messages[0].content, /JSON\.parse/);
+  assert.match(request.messages[1].content, /只输出最终 JSON 对象/);
+});
+
+test('Workers AI retry request remains no-think and asks for a complete JSON object', () => {
+  const request = buildWorkersAiRequest('test', 4000, { retry: true });
+  assert.equal('tools' in request, false);
+  assert.equal(request.max_tokens, 4000);
+  assert.match(request.messages[0].content, /^\/no_think/);
+  assert.match(request.messages[1].content, /上一次响应没有产生可解析 JSON/);
 });
 
 test('structured fallback request uses Cloudflare JSON mode', () => {
@@ -364,4 +373,28 @@ test('AI response parser accepts editorial tool arguments and never reads reason
     finish_reason: 'stop'
   });
   assert.equal(normalized.parsed.titleZh, '湖人与球员完成续约');
+});
+
+test('AI response parser accepts JSON from content text blocks and ignores reasoning blocks', () => {
+  const normalized = normalizeAiResponse({
+    choices: [{
+      message: {
+        content: [{
+          type: 'text',
+          text: JSON.stringify({
+            titleZh: '湖人与球员完成续约',
+            summaryZh: '湖人与该球员完成续约，双方确认继续合作，合同细节以原始报道为准。',
+            categoryZh: '签约',
+            tagsZh: ['湖人'],
+            confidence: 0.8,
+            factLevel: 'confirmed'
+          })
+        }],
+        reasoning: '{"titleZh":"不应读取"}'
+      },
+      finish_reason: 'stop'
+    }]
+  });
+  assert.equal(normalized.parsed.titleZh, '湖人与球员完成续约');
+  assert.equal(normalized.contentLength > 0, true);
 });
