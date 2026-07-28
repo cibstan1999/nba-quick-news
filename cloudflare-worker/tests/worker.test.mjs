@@ -291,3 +291,88 @@ test('Worker uses the existing JSON fallback after two unparseable Qwen response
   assert.equal(payload.lastFetchStatus.aiFallbackRequests, 1);
   assert.deepEqual(models, [env.AI_MODEL, env.AI_MODEL, env.AI_FALLBACK_MODEL]);
 });
+
+test('Worker logs only whitelisted parsed copy and complete rejection diagnostics', async (context) => {
+  const originalFetch = globalThis.fetch;
+  const originalLog = console.log;
+  const originalWarn = console.warn;
+  const logs = [];
+  context.after(() => {
+    globalThis.fetch = originalFetch;
+    console.log = originalLog;
+    console.warn = originalWarn;
+  });
+
+  console.log = (message, details) => logs.push({ level: 'log', message, details });
+  console.warn = (message, details) => logs.push({ level: 'warn', message, details });
+  globalThis.fetch = async () => new Response(`<?xml version="1.0"?>
+    <rss version="2.0">
+      <channel>
+        <item>
+          <title>Jaxson Hayes Agrees To Two-Year, $12M Deal With Lakers</title>
+          <link>https://basketball.realgm.com/wiretap/5/jaxson-hayes-lakers</link>
+          <pubDate>Mon, 27 Jul 2026 07:30:00 GMT</pubDate>
+          <description>Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers. FULL_ARTICLE_MARKER</description>
+        </item>
+      </channel>
+    </rss>`, {
+    status: 200,
+    headers: { 'content-type': 'application/rss+xml' }
+  });
+
+  const rejectedCopy = {
+    titleZh: '湖人与 Jaxson Hayes 达成 2 年续约合同',
+    summaryZh: 'Jaxson Hayes 与湖人达成一份 2 年 1200 万美元合同，球队将继续把他留在内线轮换中。',
+    categoryZh: '签约',
+    tagsZh: ['湖人', '续约'],
+    confidence: 0.4,
+    factLevel: 'confirmed'
+  };
+  const kv = new MemoryKv();
+  const env = {
+    NEWS_KV: kv,
+    AI_ENABLED: 'true',
+    AI_MAX_ITEMS_PER_RUN: '3',
+    JINA_READER_ENABLED: 'false',
+    AI_MODEL: '@cf/qwen/qwen3-30b-a3b-fp8',
+    AI_FALLBACK_MODEL: '@cf/meta/llama-3.1-8b-instruct-fast',
+    AI: {
+      async run(model) {
+        if (model === env.AI_MODEL) {
+          return {
+            choices: [{
+              message: {
+                content: JSON.stringify(rejectedCopy),
+                reasoning: 'REASONING_MARKER'
+              },
+              finish_reason: 'stop'
+            }]
+          };
+        }
+        return {
+          response: rejectedCopy,
+          reasoning: 'FALLBACK_REASONING_MARKER',
+          finish_reason: 'stop'
+        };
+      }
+    }
+  };
+
+  const response = await worker.fetch(new Request('https://worker.example/refresh'), env);
+  const payload = await response.json();
+  const debugLogs = logs.filter((entry) => entry.message === 'AI editorial quality debug');
+  const qwenDebug = debugLogs.find((entry) => entry.details.stage === 'qwen-primary');
+  const fallbackDebug = debugLogs.find((entry) => entry.details.stage === 'json-fallback');
+  const serializedLogs = JSON.stringify(logs);
+
+  assert.equal(response.status, 200);
+  assert.equal(payload.lastFetchStatus.aiRequests, 2);
+  assert.equal(payload.lastFetchStatus.aiRejected, 1);
+  assert.equal(qwenDebug.details.qwenFinalParsedJson.titleZh, rejectedCopy.titleZh);
+  assert.equal(qwenDebug.details.summaryZh, rejectedCopy.summaryZh);
+  assert.equal(qwenDebug.details.oneLineZh, rejectedCopy.titleZh);
+  assert.equal(qwenDebug.details.oneLineSource, 'titleZh-derived');
+  assert.deepEqual(qwenDebug.details.rejectionReasons, ['low-confidence']);
+  assert.deepEqual(fallbackDebug.details.rejectionReasons, ['low-confidence']);
+  assert.doesNotMatch(serializedLogs, /REASONING_MARKER|FALLBACK_REASONING_MARKER|FULL_ARTICLE_MARKER/);
+});

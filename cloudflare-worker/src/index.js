@@ -271,6 +271,14 @@ async function processRecord(record, env, stats) {
     stats.fallbackRequests += aiResult.fallbackRequestCount;
     mergeQwenDiagnostics(stats, aiResult.qwenDiagnostics);
     let validation = validateEditorialResult(aiResult.normalized.parsed, record, articleText);
+    logEditorialQualityDebug(
+      record,
+      aiResult,
+      validation,
+      aiResult.modelUsed === getFallbackModel(env)
+        ? 'json-fallback-after-unparseable-qwen'
+        : 'qwen-primary'
+    );
 
     if (!validation.ok && aiResult.modelUsed !== getFallbackModel(env)) {
       console.warn('Primary AI edit failed the quality gate; requesting structured fallback review', {
@@ -293,6 +301,7 @@ async function processRecord(record, env, stats) {
         record,
         articleText
       );
+      logEditorialQualityDebug(record, fallbackResult, fallbackValidation, 'json-fallback');
       if (fallbackValidation.ok) {
         aiResult = fallbackResult;
         validation = fallbackValidation;
@@ -328,8 +337,7 @@ async function processRecord(record, env, stats) {
         reasons: validation.reasons,
         addedFacts: validation.details.addedFacts,
         missingFacts: validation.details.missingFacts,
-        unsafeFragments: validation.details.unsafeFragments,
-        contentPreview: aiResult.normalized.rawContent.slice(0, 500)
+        unsafeFragments: validation.details.unsafeFragments
       });
       return;
     }
@@ -520,6 +528,44 @@ function mergeQwenDiagnostics(stats, diagnostics) {
   stats.qwenEmptyContent += Number(diagnostics.emptyContent) || 0;
   stats.qwenLengthStops += Number(diagnostics.lengthStops) || 0;
   stats.qwenInvalidJson += Number(diagnostics.invalidJson) || 0;
+}
+
+function logEditorialQualityDebug(record, aiResult, validation, stage) {
+  const parsed = aiResult?.normalized?.parsed;
+  const titleZh = normalizeWhitespace(parsed?.titleZh || '');
+  const summaryZh = normalizeWhitespace(parsed?.summaryZh || '');
+  const modelOneLineZh = normalizeWhitespace(parsed?.oneLineZh || '');
+  const oneLineZh = modelOneLineZh || titleZh;
+  const parsedJson = parsed && typeof parsed === 'object'
+    ? {
+        titleZh,
+        summaryZh,
+        ...(Object.hasOwn(parsed, 'oneLineZh') ? { oneLineZh: modelOneLineZh } : {}),
+        categoryZh: normalizeWhitespace(parsed.categoryZh || ''),
+        tagsZh: Array.isArray(parsed.tagsZh)
+          ? parsed.tagsZh.map((tag) => normalizeWhitespace(tag)).filter(Boolean)
+          : [],
+        confidence: parsed.confidence,
+        factLevel: normalizeWhitespace(parsed.factLevel || '')
+      }
+    : null;
+
+  console.log('AI editorial quality debug', {
+    newsId: record.newsId,
+    originalTitle: record.originalTitle,
+    stage,
+    model: aiResult?.modelUsed || '',
+    finalParsedJson: parsedJson,
+    qwenFinalParsedJson: stage === 'qwen-primary' ? parsedJson : null,
+    titleZh,
+    summaryZh,
+    oneLineZh,
+    oneLineSource: modelOneLineZh ? 'model' : titleZh ? 'titleZh-derived' : 'missing',
+    rejectionReasons: [...(validation?.reasons || [])],
+    addedFacts: [...(validation?.details?.addedFacts || [])],
+    missingFacts: [...(validation?.details?.missingFacts || [])],
+    unsafeFragments: [...(validation?.details?.unsafeFragments || [])]
+  });
 }
 
 async function extractArticleText(url, originalTitle, env) {
