@@ -88,6 +88,7 @@ test('generic entity extraction excludes editorial phrases but keeps plausible u
   for (const phrase of [
     'Summer League Prospects',
     "You Don't Envision Anything",
+    'Until It Happens',
     'Final Score',
     'Key Takeaways',
     'Trade Analysis',
@@ -101,6 +102,10 @@ test('generic entity extraction excludes editorial phrases but keeps plausible u
   assert.deepEqual(extractEvidenceFacts('Tarris Reed Jr.').players, ['tarris-reed-jr']);
   assert.deepEqual(extractEvidenceFacts('Robert Williams III').players, ['robert-williams-iii']);
   assert.deepEqual(extractEvidenceFacts('Joe Lacob').players, []);
+  assert.deepEqual(
+    extractEvidenceFacts("Stephen Curry On LeBron James' Decision: 'You Don't Envision Anything Until It Happens'").players,
+    ['lebron-james', 'stephen-curry']
+  );
 });
 
 test('quality gate does not require Summer League Prospects as a player', async () => {

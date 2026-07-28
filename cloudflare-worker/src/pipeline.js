@@ -153,6 +153,7 @@ const SOURCE_WORDS_LOWER = new Set([...SOURCE_WORDS].map((word) => word.toLowerC
 const NON_PERSON_PHRASES = new Set([
   'summer league prospects',
   "you don't envision anything",
+  'until it happens',
   'final score',
   'key takeaways',
   'trade analysis',
@@ -166,8 +167,8 @@ const NON_PERSON_WORDS = new Set([
   'league', 'losers', 'news', 'notes', 'observations', 'odds', 'podcast',
   'preview', 'projection', 'prospect', 'prospects', 'ranking', 'recap',
   'report', 'rumor', 'rumors', 'schedule', 'score', 'standings', 'summer',
-  'takeaway', 'takeaways', 'thoughts', 'trade', 'update', 'updates', 'what',
-  'why', 'winners', 'you'
+  'happens', 'it', 'takeaway', 'takeaways', 'thoughts', 'trade', 'until',
+  'update', 'updates', 'what', 'why', 'winners', 'you'
 ]);
 
 const PERSON_BOUNDARY_WORDS = /\b(?:Acquire[sd]?|Agree[sd]?|Sign(?:s|ed|ing)?|Re-Sign(?:s|ed|ing)?|Trade[sd]?|Trading|Send|Sent|Deal(?:s|t)?|Land(?:s|ed|ing)?|Report(?:ed|edly)?|Return(?:s|ed|ing)?|Join(?:s|ed|ing)?|Match(?:es|ed|ing)?|Receiv(?:e|es|ed|ing)|Draw(?:s|n|ing)?|Generat(?:e|es|ed|ing)|Expect(?:s|ed|ing)?|Offer|Sheet|Focus(?:es|ed|ing)?|Build(?:s|ing)?|Team|Retire[sd]?|Waive[sd]?|Wait(?:s|ed|ing)?|Fill(?:s|ed|ing)?|Roster|Qualifying|Proximity|Play(?:s|ed|ing)?|Role|Show(?:s|ed|ing)?|Mutual|Interest|Intends?|Could|Would|May|Might|Had|Has|Have|No|Out|Before|With|From|For|After|Against|During|Into|Over|At|On|Of|To|In|And|Or|Vs)\b/gi;
