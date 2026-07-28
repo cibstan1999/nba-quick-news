@@ -7,16 +7,18 @@
     "dev": "vite --host 127.0.0.1 --base=/nba-quick-news/",
     "build": "node scripts/build.mjs",
     "build:cloudflare": "vite build --base=/",
-    "preview": "vite preview --host 127.0.0.1 --base=/nba-quick-news/",
+    "preview": "npm run build:cloudflare && wrangler dev",
     "test": "node --test cloudflare-worker/tests/*.test.mjs",
     "worker:dev": "npx wrangler dev --config cloudflare-worker/wrangler.jsonc",
-    "worker:deploy": "npx wrangler deploy --config cloudflare-worker/wrangler.jsonc"
+    "worker:deploy": "npx wrangler deploy --config cloudflare-worker/wrangler.jsonc",
+    "deploy": "npm run build:cloudflare && wrangler deploy"
   },
   "dependencies": {
     "fast-xml-parser": "^5.10.1",
     "vite": "^6.0.0"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.47.0",
     "wrangler": "^4.114.0"
   }
 }
