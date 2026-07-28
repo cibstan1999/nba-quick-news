@@ -376,3 +376,132 @@ test('Worker logs only whitelisted parsed copy and complete rejection diagnostic
   assert.deepEqual(fallbackDebug.details.rejectionReasons, ['low-confidence']);
   assert.doesNotMatch(serializedLogs, /REASONING_MARKER|FALLBACK_REASONING_MARKER|FULL_ARTICLE_MARKER/);
 });
+
+test('Debug reprocess runs one rejected record without writing KV or touching accepted records', async (context) => {
+  const originalFetch = globalThis.fetch;
+  context.after(() => {
+    globalThis.fetch = originalFetch;
+  });
+
+  globalThis.fetch = async () => new Response(`<?xml version="1.0"?>
+    <rss version="2.0">
+      <channel>
+        <item>
+          <title>Jaxson Hayes Agrees To Two-Year, $12M Deal With Lakers</title>
+          <link>https://basketball.realgm.com/wiretap/6/jaxson-hayes-lakers</link>
+          <pubDate>Mon, 27 Jul 2026 07:30:00 GMT</pubDate>
+          <description>Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.</description>
+        </item>
+      </channel>
+    </rss>`, {
+    status: 200,
+    headers: { 'content-type': 'application/rss+xml' }
+  });
+
+  const rejectedCopy = {
+    titleZh: '湖人与 Jaxson Hayes 达成 2 年续约合同',
+    summaryZh: 'Jaxson Hayes 与湖人达成一份 2 年 1200 万美元合同，球队将继续把他留在内线轮换中。',
+    categoryZh: '签约',
+    tagsZh: ['湖人', '续约'],
+    confidence: 0.4,
+    factLevel: 'confirmed'
+  };
+  const acceptedCopy = {
+    ...rejectedCopy,
+    confidence: 0.9
+  };
+  const kv = new MemoryKv();
+  let mode = 'reject';
+  let aiCalls = 0;
+  const env = {
+    NEWS_KV: kv,
+    REFRESH_TOKEN: 'test-refresh-secret',
+    AI_ENABLED: 'true',
+    AI_MAX_ITEMS_PER_RUN: '3',
+    JINA_READER_ENABLED: 'false',
+    AI_MODEL: '@cf/qwen/qwen3-30b-a3b-fp8',
+    AI_FALLBACK_MODEL: '@cf/meta/llama-3.1-8b-instruct-fast',
+    AI: {
+      async run() {
+        aiCalls += 1;
+        return {
+          response: mode === 'reject' ? rejectedCopy : acceptedCopy,
+          finish_reason: 'stop'
+        };
+      }
+    }
+  };
+  const authHeaders = { 'x-refresh-token': env.REFRESH_TOKEN };
+
+  const unavailable = await worker.fetch(
+    new Request('https://worker.example/debug/reprocess'),
+    { ...env, REFRESH_TOKEN: '' }
+  );
+  assert.equal(unavailable.status, 503);
+
+  const refresh = await worker.fetch(new Request('https://worker.example/refresh', {
+    headers: authHeaders
+  }), env);
+  const refreshPayload = await refresh.json();
+  assert.equal(refresh.status, 200);
+  assert.equal(refreshPayload.lastFetchStatus.aiRejected, 1);
+
+  const unauthorized = await worker.fetch(new Request('https://worker.example/debug/reprocess', {
+    headers: { 'x-refresh-token': 'wrong-token' }
+  }), env);
+  assert.equal(unauthorized.status, 401);
+
+  const listResponse = await worker.fetch(new Request('https://worker.example/debug/reprocess', {
+    headers: authHeaders
+  }), env);
+  const listPayload = await listResponse.json();
+  assert.equal(listResponse.status, 200);
+  assert.equal(listPayload.count, 1);
+  assert.equal(listPayload.items[0].rejectionReasons.includes('low-confidence'), true);
+
+  const newsId = listPayload.items[0].newsId;
+  const kvBefore = JSON.stringify([...kv.values.entries()]);
+  mode = 'accept';
+  aiCalls = 0;
+  const debugResponse = await worker.fetch(new Request('https://worker.example/debug/reprocess', {
+    method: 'POST',
+    headers: {
+      ...authHeaders,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({ newsId, dryRun: true })
+  }), env);
+  const debugPayload = await debugResponse.json();
+
+  assert.equal(debugResponse.status, 200);
+  assert.equal(debugPayload.dryRun, true);
+  assert.equal(debugPayload.persisted, false);
+  assert.equal(debugPayload.aiSelected, 1);
+  assert.equal(debugPayload.aiRequests, 1);
+  assert.equal(debugPayload.aiAccepted, 1);
+  assert.equal(debugPayload.qwenBaseline.attempts, 1);
+  assert.equal(debugPayload.qwenBaseline.parsed, 1);
+  assert.equal(debugPayload.qwenFinalParsedJson.titleZh, acceptedCopy.titleZh);
+  assert.equal(debugPayload.summaryZh, acceptedCopy.summaryZh);
+  assert.equal(debugPayload.oneLineZh, acceptedCopy.titleZh);
+  assert.deepEqual(debugPayload.rejectionReasons, []);
+  assert.equal(aiCalls, 1);
+  assert.equal(JSON.stringify([...kv.values.entries()]), kvBefore);
+
+  const recordKey = `news:item:${newsId}`;
+  const acceptedRecord = JSON.parse(kv.values.get(recordKey));
+  acceptedRecord.aiStatus = 'accepted';
+  acceptedRecord.editorial = acceptedCopy;
+  await kv.put(recordKey, JSON.stringify(acceptedRecord));
+  aiCalls = 0;
+  const acceptedResponse = await worker.fetch(new Request('https://worker.example/debug/reprocess', {
+    method: 'POST',
+    headers: {
+      ...authHeaders,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({ newsId, dryRun: true })
+  }), env);
+  assert.equal(acceptedResponse.status, 409);
+  assert.equal(aiCalls, 0);
+});

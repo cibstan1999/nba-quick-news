@@ -54,10 +54,18 @@ The default models are:
 - `GET /health`
 - `GET /data/news.json`
 - `GET /refresh`
+- `GET /debug/reprocess`: list up to 20 rejected records.
+- `POST /debug/reprocess`: run one rejected `newsId` through the existing AI pipeline without writing KV.
 
 `/refresh` accepts the existing `REFRESH_TOKEN` through the
 `x-refresh-token` header or the existing query parameter. Never commit or log
 the secret value.
+
+The temporary `/debug/reprocess` route is stricter: `REFRESH_TOKEN` must be
+configured and is accepted only through the `x-refresh-token` header. A POST
+body must contain `{ "newsId": "news_...", "dryRun": true }`. The route clones
+the rejected record in memory, returns whitelisted Qwen and quality-gate
+diagnostics, and never updates the record, catalog, or public `news.json`.
 
 ## Commands
 

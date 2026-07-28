@@ -56,6 +56,23 @@ export default {
       return serveNews(env);
     }
 
+    if (url.pathname === '/debug/reprocess') {
+      const auth = authorizeDebugAction(request, env);
+      if (!auth.ok) return jsonResponse({ error: auth.message }, {
+        status: auth.status,
+        headers: { 'cache-control': 'no-store' }
+      });
+      if (request.method === 'GET') return listRejectedForDebug(env);
+      if (request.method === 'POST') return reprocessRejectedForDebug(request, env);
+      return jsonResponse({ error: 'Method not allowed.' }, {
+        status: 405,
+        headers: {
+          allow: 'GET, POST',
+          'cache-control': 'no-store'
+        }
+      });
+    }
+
     if (url.pathname === '/refresh') {
       const auth = authorizeRefresh(request, env);
       if (!auth.ok) return jsonResponse({ error: auth.message }, { status: auth.status });
@@ -119,6 +136,136 @@ async function serveNews(env) {
   }
 
   return jsonResponse(emptyPayload(), {
+    headers: { 'cache-control': 'no-store' }
+  });
+}
+
+async function listRejectedForDebug(env) {
+  assertBindings(env);
+  const records = await readCatalogRecords(env);
+  const items = records
+    .filter((record) => record.aiStatus === 'rejected')
+    .sort((a, b) => new Date(b.lastAttemptAt || b.processedAt || 0) - new Date(a.lastAttemptAt || a.processedAt || 0))
+    .slice(0, 20)
+    .map((record) => ({
+      newsId: record.newsId,
+      originalTitle: record.originalTitle,
+      retryCount: record.retryCount || 0,
+      lastAttemptAt: record.lastAttemptAt || null,
+      nextRetryAt: record.nextRetryAt || null,
+      rejectionReasons: [...(record.rejectionReasons || [])]
+    }));
+
+  return jsonResponse({
+    ok: true,
+    dryRunOnly: true,
+    count: items.length,
+    items
+  }, {
+    headers: { 'cache-control': 'no-store' }
+  });
+}
+
+async function reprocessRejectedForDebug(request, env) {
+  assertBindings(env);
+  if (!isAiEnabled(env)) {
+    return jsonResponse({ error: 'Workers AI is not enabled.' }, {
+      status: 503,
+      headers: { 'cache-control': 'no-store' }
+    });
+  }
+
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return jsonResponse({ error: 'A JSON body is required.' }, {
+      status: 400,
+      headers: { 'cache-control': 'no-store' }
+    });
+  }
+
+  const newsId = normalizeWhitespace(body?.newsId || '');
+  if (body?.dryRun !== true) {
+    return jsonResponse({ error: 'dryRun must be true.' }, {
+      status: 400,
+      headers: { 'cache-control': 'no-store' }
+    });
+  }
+  if (!/^news_[a-f0-9]{24}$/.test(newsId)) {
+    return jsonResponse({ error: 'A valid newsId is required.' }, {
+      status: 400,
+      headers: { 'cache-control': 'no-store' }
+    });
+  }
+
+  const catalog = await readJson(env.NEWS_KV, CATALOG_KEY);
+  if (!Array.isArray(catalog?.ids) || !catalog.ids.includes(newsId)) {
+    return jsonResponse({ error: 'News record not found.' }, {
+      status: 404,
+      headers: { 'cache-control': 'no-store' }
+    });
+  }
+
+  const storedRecord = await readJson(env.NEWS_KV, recordKey(newsId));
+  if (!storedRecord?.newsId) {
+    return jsonResponse({ error: 'News record not found.' }, {
+      status: 404,
+      headers: { 'cache-control': 'no-store' }
+    });
+  }
+  if (storedRecord.aiStatus !== 'rejected') {
+    return jsonResponse({
+      error: 'Only rejected news can be reprocessed by this debug endpoint.',
+      newsId,
+      aiStatus: storedRecord.aiStatus || 'unknown'
+    }, {
+      status: 409,
+      headers: { 'cache-control': 'no-store' }
+    });
+  }
+
+  const testRecord = JSON.parse(JSON.stringify(storedRecord));
+  const startedAt = new Date().toISOString();
+  testRecord.aiStatus = 'processing';
+  testRecord.processingStartedAt = startedAt;
+  testRecord.lastAttemptAt = startedAt;
+  testRecord.lastError = null;
+  testRecord.rejectionReasons = [];
+
+  const stats = createDebugAiStats();
+  const snapshots = [];
+  await processRecord(testRecord, env, stats, snapshots);
+  const qwenSnapshot = snapshots.find((snapshot) => snapshot.stage === 'qwen-primary') || null;
+
+  return jsonResponse({
+    ok: true,
+    dryRun: true,
+    persisted: false,
+    newsId,
+    originalTitle: storedRecord.originalTitle,
+    previousAiStatus: storedRecord.aiStatus,
+    resultAiStatus: testRecord.aiStatus,
+    aiSelected: 1,
+    aiRequests: stats.requests,
+    aiAccepted: stats.accepted,
+    aiRejected: stats.rejected,
+    aiFailed: stats.failed,
+    qwenBaseline: {
+      attempts: stats.qwenAttempts,
+      retries: stats.qwenRetries,
+      parsed: stats.qwenParsed,
+      emptyContent: stats.qwenEmptyContent,
+      lengthStops: stats.qwenLengthStops,
+      invalidJson: stats.qwenInvalidJson
+    },
+    qwenFinalParsedJson: qwenSnapshot?.qwenFinalParsedJson || null,
+    titleZh: qwenSnapshot?.titleZh || '',
+    summaryZh: qwenSnapshot?.summaryZh || '',
+    oneLineZh: qwenSnapshot?.oneLineZh || '',
+    rejectionReasons: qwenSnapshot?.rejectionReasons || testRecord.rejectionReasons || [],
+    snapshots
+  }, {
     headers: { 'cache-control': 'no-store' }
   });
 }
@@ -263,7 +410,7 @@ async function refreshNews(env, meta = {}) {
   return payload;
 }
 
-async function processRecord(record, env, stats) {
+async function processRecord(record, env, stats, debugSnapshots = null) {
   const articleText = await extractArticleText(record.url, record.originalTitle, env);
   try {
     let aiResult = await summarizeWithWorkersAi(record, articleText, env);
@@ -271,7 +418,7 @@ async function processRecord(record, env, stats) {
     stats.fallbackRequests += aiResult.fallbackRequestCount;
     mergeQwenDiagnostics(stats, aiResult.qwenDiagnostics);
     let validation = validateEditorialResult(aiResult.normalized.parsed, record, articleText);
-    logEditorialQualityDebug(
+    const primaryDebug = logEditorialQualityDebug(
       record,
       aiResult,
       validation,
@@ -279,6 +426,7 @@ async function processRecord(record, env, stats) {
         ? 'json-fallback-after-unparseable-qwen'
         : 'qwen-primary'
     );
+    if (debugSnapshots) debugSnapshots.push(primaryDebug);
 
     if (!validation.ok && aiResult.modelUsed !== getFallbackModel(env)) {
       console.warn('Primary AI edit failed the quality gate; requesting structured fallback review', {
@@ -301,7 +449,8 @@ async function processRecord(record, env, stats) {
         record,
         articleText
       );
-      logEditorialQualityDebug(record, fallbackResult, fallbackValidation, 'json-fallback');
+      const fallbackDebug = logEditorialQualityDebug(record, fallbackResult, fallbackValidation, 'json-fallback');
+      if (debugSnapshots) debugSnapshots.push(fallbackDebug);
       if (fallbackValidation.ok) {
         aiResult = fallbackResult;
         validation = fallbackValidation;
@@ -530,6 +679,26 @@ function mergeQwenDiagnostics(stats, diagnostics) {
   stats.qwenInvalidJson += Number(diagnostics.invalidJson) || 0;
 }
 
+function createDebugAiStats() {
+  return {
+    enabled: true,
+    selected: 1,
+    requests: 0,
+    accepted: 0,
+    rejected: 0,
+    failed: 0,
+    fallbackRequests: 0,
+    fallbackAccepted: 0,
+    qwenAttempts: 0,
+    qwenRetries: 0,
+    qwenParsed: 0,
+    qwenEmptyContent: 0,
+    qwenLengthStops: 0,
+    qwenInvalidJson: 0,
+    rejectionSamples: []
+  };
+}
+
 function logEditorialQualityDebug(record, aiResult, validation, stage) {
   const parsed = aiResult?.normalized?.parsed;
   const titleZh = normalizeWhitespace(parsed?.titleZh || '');
@@ -550,7 +719,7 @@ function logEditorialQualityDebug(record, aiResult, validation, stage) {
       }
     : null;
 
-  console.log('AI editorial quality debug', {
+  const snapshot = {
     newsId: record.newsId,
     originalTitle: record.originalTitle,
     stage,
@@ -565,7 +734,9 @@ function logEditorialQualityDebug(record, aiResult, validation, stage) {
     addedFacts: [...(validation?.details?.addedFacts || [])],
     missingFacts: [...(validation?.details?.missingFacts || [])],
     unsafeFragments: [...(validation?.details?.unsafeFragments || [])]
-  });
+  };
+  console.log('AI editorial quality debug', snapshot);
+  return snapshot;
 }
 
 async function extractArticleText(url, originalTitle, env) {
@@ -803,6 +974,14 @@ async function readJson(kv, key) {
   }
 }
 
+async function readCatalogRecords(env) {
+  const catalog = await readJson(env.NEWS_KV, CATALOG_KEY);
+  if (!Array.isArray(catalog?.ids)) return [];
+  return (await Promise.all(
+    catalog.ids.map((newsId) => readJson(env.NEWS_KV, recordKey(newsId)))
+  )).filter((record) => record?.newsId);
+}
+
 function emptyPayload() {
   const now = new Date().toISOString();
   return {
@@ -829,6 +1008,19 @@ function authorizeRefresh(request, env) {
   const url = new URL(request.url);
   const token = request.headers.get('x-refresh-token') || url.searchParams.get('token');
   if (timingSafeEqual(token || '', env.REFRESH_TOKEN)) return { ok: true };
+  return { ok: false, status: 401, message: 'Missing or invalid refresh token.' };
+}
+
+function authorizeDebugAction(request, env) {
+  if (!env.REFRESH_TOKEN) {
+    return {
+      ok: false,
+      status: 503,
+      message: 'Debug reprocessing is unavailable because REFRESH_TOKEN is not configured.'
+    };
+  }
+  const token = request.headers.get('x-refresh-token') || '';
+  if (timingSafeEqual(token, env.REFRESH_TOKEN)) return { ok: true };
   return { ok: false, status: 401, message: 'Missing or invalid refresh token.' };
 }
 
