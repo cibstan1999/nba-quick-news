@@ -26,6 +26,7 @@ import {
   selectQueueRecords,
   validateEditorialResult,
   validateFactExtraction,
+  validateFrozenFactExtraction,
   validatePhase1EditorialResult
 } from '../src/pipeline.js';
 
@@ -803,6 +804,9 @@ test('Phase 1 versions and prompts isolate fact extraction from editorial genera
   assert.doesNotMatch(factPrompt, /"certainty"|"polarity"|"sourceField"|"factText"/);
   assert.match(factPrompt, /articleText=Jaxson Hayes signed the contract/);
   assert.match(editorialPrompt, /validatedFactJson=/);
+  assert.match(editorialPrompt, /requiredCoreFacts=/);
+  assert.match(editorialPrompt, /requiredAttributions=/);
+  assert.match(editorialPrompt, /categoryZh 必须是 签约/);
   assert.doesNotMatch(editorialPrompt, /rssSummary=|articleText=/);
 
   const factRequest = buildPhase1FactRequest(factPrompt);
@@ -1176,6 +1180,121 @@ test('Stage 2 accepts only verified copy and requires an independent oneLine', a
     fabricated.reasons.includes('added-facts'),
     true
   );
+});
+
+test('Stage 2 requires SG-01 core contract facts without treating cap terms as people', async () => {
+  const record = await makeRecord({
+    originalTitle: 'Nuggets Matching Spencer Jones Offer Sheet From Thunder',
+    originalSummary: [
+      'The Denver Nuggets are matching the two-year, $12 million offer sheet Spencer Jones signed with the Oklahoma City Thunder.',
+      'Denver will retain Jones.',
+      'Oklahoma City will remain under the second apron by $6.9 million and retain its Taxpayer MLE.'
+    ].join(' ')
+  });
+  const fact = {
+    storyType: 'signing',
+    facts: [
+      {
+        id: 'fact-1',
+        factText: 'The Denver Nuggets are matching the two-year, $12 million offer sheet Spencer Jones signed with the Oklahoma City Thunder.',
+        polarity: 'positive',
+        certainty: 'confirmed',
+        attribution: '',
+        attributionQuote: '',
+        sourceField: 'rssSummary',
+        evidenceQuote: 'The Denver Nuggets are matching the two-year, $12 million offer sheet Spencer Jones signed with the Oklahoma City Thunder.',
+        entities: [
+          { type: 'team', canonicalId: 'nuggets' },
+          { type: 'team', canonicalId: 'thunder' },
+          { type: 'person', canonicalId: 'spencer-jones' }
+        ],
+        numbers: [
+          { type: 'money', value: 'usd-million:12' },
+          { type: 'contractYears', value: 'years:2' }
+        ]
+      },
+      {
+        id: 'fact-2',
+        factText: 'Denver will retain Jones.',
+        polarity: 'positive',
+        certainty: 'confirmed',
+        attribution: '',
+        attributionQuote: '',
+        sourceField: 'rssSummary',
+        evidenceQuote: 'Denver will retain Jones.',
+        entities: [],
+        numbers: []
+      },
+      {
+        id: 'fact-3',
+        factText: 'Oklahoma City will remain under the second apron by $6.9 million and retain its Taxpayer MLE.',
+        polarity: 'positive',
+        certainty: 'confirmed',
+        attribution: '',
+        attributionQuote: '',
+        sourceField: 'rssSummary',
+        evidenceQuote: 'Oklahoma City will remain under the second apron by $6.9 million and retain its Taxpayer MLE.',
+        entities: [],
+        numbers: [{ type: 'money', value: 'usd-million:6.9' }]
+      }
+    ],
+    mustNotClaim: []
+  };
+
+  const extracted = extractEvidenceFacts(fact.facts[2].evidenceQuote);
+  assert.equal(extracted.players.includes('oklahoma-city'), false);
+  assert.equal(extracted.players.includes('taxpayer-mle'), false);
+
+  const validation = validatePhase1EditorialResult({
+    titleZh: '掘金匹配雷霆为 Spencer Jones 开出的报价合同',
+    summaryZh: '掘金匹配雷霆为 Spencer Jones 开出的 2 年 1200 万美元报价合同，并将留下这名球员。',
+    oneLineZh: '这份报价合同为期 2 年，总值 1200 万美元',
+    categoryZh: '签约',
+    tagsZh: ['掘金', '雷霆', 'Spencer Jones'],
+    confidence: 0.9
+  }, record, fact);
+
+  assert.equal(validation.ok, true, JSON.stringify(validation));
+  assert.equal(validation.details.missingFacts.includes('money:usd-million:6.9'), false);
+});
+
+test('Stage 2 keeps a confirmed signing separate from likely contract terms', async () => {
+  const record = await makeRecord({
+    originalTitle: 'Rockets Sign Julian Phillips',
+    originalSummary: [
+      'The Houston Rockets have signed forward Julian Phillips.',
+      "Terms were not disclosed, but it's likely that Phillips signed a one-year contract for the veteran minimum amount of $2.5 million."
+    ].join(' ')
+  });
+  const factValidation = validateFactExtraction(makeEvidenceExtraction([
+    { evidenceQuote: 'The Houston Rockets have signed forward Julian Phillips.' },
+    {
+      evidenceQuote:
+        "Terms were not disclosed, but it's likely that Phillips signed a one-year contract for the veteran minimum amount of $2.5 million."
+    }
+  ]), record);
+  assert.equal(factValidation.ok, true, JSON.stringify(factValidation));
+
+  const validation = validatePhase1EditorialResult({
+    titleZh: '火箭签下前锋菲利普斯',
+    summaryZh: '火箭已经签下菲利普斯，合同细节尚未披露，但可能为 1 年 250 万美元的老将底薪合同。',
+    oneLineZh: '这份合同的年限和金额尚未确认',
+    categoryZh: '签约',
+    tagsZh: ['火箭', '菲利普斯'],
+    confidence: 0.9
+  }, record, factValidation.value);
+
+  assert.equal(validation.ok, true, JSON.stringify(validation));
+  assert.equal(validation.reasons.includes('certainty-escalation'), false);
+});
+
+test('frozen Stage 2 facts require the complete internal Fact shape', () => {
+  assert.equal(validateFrozenFactExtraction(makeSigningFact()).ok, true);
+  assert.equal(validateFrozenFactExtraction({
+    storyType: 'signing',
+    facts: [{ id: 'fact-1' }],
+    mustNotClaim: []
+  }).ok, false);
 });
 
 test('Stage 2 rejects Unicode damage and keeps Curry aliases collision-safe', async () => {

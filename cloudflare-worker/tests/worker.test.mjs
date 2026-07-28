@@ -906,6 +906,77 @@ test('Phase 1 debug can stop after validated Stage 1 without invoking Stage 2', 
   assert.equal(JSON.stringify([...kv.values.entries()]), before);
 });
 
+test('Phase 1 debug can run Stage 2 from frozen facts without Stage 1 or KV writes', async () => {
+  const kv = new MemoryKv();
+  let calls = 0;
+  const env = makePhase1Env(kv, async () => {
+    calls += 1;
+    return { response: phase1SigningEditorial(), finish_reason: 'stop' };
+  });
+  env.REFRESH_TOKEN = 'phase1-test-token';
+  const before = JSON.stringify([...kv.values.entries()]);
+  const response = await worker.fetch(new Request('https://worker.example/debug/reprocess', {
+    method: 'POST',
+    headers: {
+      'x-refresh-token': env.REFRESH_TOKEN,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      newsId: 'news_111111111111111111111111',
+      dryRun: true,
+      pipelineMode: 'phase1',
+      stage2Only: true,
+      source: 'RealGM',
+      publishedAt: '2026-07-27T07:30:00.000Z',
+      factExtraction: phase1SigningFact()
+    })
+  }), env);
+  const payload = await response.json();
+
+  assert.equal(response.status, 200);
+  assert.equal(payload.persisted, false);
+  assert.equal(payload.stage2Only, true);
+  assert.equal(payload.factStageRequests, 0);
+  assert.equal(payload.editorialStageRequests, 1);
+  assert.equal(payload.resultAiStatus, 'accepted');
+  assert.equal(payload.fallbackInvoked, false);
+  assert.equal(calls, 1);
+  assert.equal(JSON.stringify([...kv.values.entries()]), before);
+});
+
+test('Phase 1 Stage 2-only debug rejects malformed frozen facts before AI', async () => {
+  const kv = new MemoryKv();
+  let calls = 0;
+  const env = makePhase1Env(kv, async () => {
+    calls += 1;
+    return { response: phase1SigningEditorial(), finish_reason: 'stop' };
+  });
+  env.REFRESH_TOKEN = 'phase1-test-token';
+  const response = await worker.fetch(new Request('https://worker.example/debug/reprocess', {
+    method: 'POST',
+    headers: {
+      'x-refresh-token': env.REFRESH_TOKEN,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      newsId: 'news_222222222222222222222222',
+      dryRun: true,
+      pipelineMode: 'phase1',
+      stage2Only: true,
+      factExtraction: {
+        storyType: 'signing',
+        facts: [{ id: 'fact-1' }],
+        mustNotClaim: []
+      }
+    })
+  }), env);
+  const payload = await response.json();
+
+  assert.equal(response.status, 400);
+  assert.equal(payload.rejectionReasons.includes('fact-schema-invalid'), true);
+  assert.equal(calls, 0);
+});
+
 function mockSigningFeed(context, suffix) {
   const originalFetch = globalThis.fetch;
   globalThis.fetch = async () => new Response(`<?xml version="1.0"?>
@@ -944,6 +1015,33 @@ function phase1SigningEvidence() {
       attributionName: '',
       attributionQuote: ''
     }]
+  };
+}
+
+function phase1SigningFact() {
+  const evidenceQuote =
+    'Jaxson Hayes has agreed to a two-year, $12 million contract with the Los Angeles Lakers.';
+  return {
+    storyType: 'signing',
+    facts: [{
+      id: 'fact-1',
+      factText: evidenceQuote,
+      polarity: 'positive',
+      certainty: 'confirmed',
+      attribution: '',
+      attributionQuote: '',
+      sourceField: 'rssSummary',
+      evidenceQuote,
+      entities: [
+        { type: 'team', canonicalId: 'lakers' },
+        { type: 'person', canonicalId: 'jaxson-hayes' }
+      ],
+      numbers: [
+        { type: 'money', value: 'usd-million:12' },
+        { type: 'contractYears', value: 'years:2' }
+      ]
+    }],
+    mustNotClaim: []
   };
 }
 

@@ -31,6 +31,7 @@ import {
   summarizeFactExtraction,
   validateEditorialResult,
   validateFactExtraction,
+  validateFrozenFactExtraction,
   validatePhase1EditorialResult
 } from './pipeline.js';
 
@@ -215,8 +216,15 @@ async function reprocessRejectedForDebug(request, env) {
     : getPipelineMode(env);
   const evaluateAccepted = body?.evaluateAccepted === true && pipelineMode === 'phase1';
   const stage1Only = body?.stage1Only === true && pipelineMode === 'phase1';
+  const stage2Only = body?.stage2Only === true && pipelineMode === 'phase1';
   if (body?.dryRun !== true) {
     return jsonResponse({ error: 'dryRun must be true.' }, {
+      status: 400,
+      headers: { 'cache-control': 'no-store' }
+    });
+  }
+  if (stage1Only && stage2Only) {
+    return jsonResponse({ error: 'stage1Only and stage2Only cannot both be true.' }, {
       status: 400,
       headers: { 'cache-control': 'no-store' }
     });
@@ -228,22 +236,56 @@ async function reprocessRejectedForDebug(request, env) {
     });
   }
 
-  const catalog = await readJson(env.NEWS_KV, CATALOG_KEY);
-  if (!Array.isArray(catalog?.ids) || !catalog.ids.includes(newsId)) {
-    return jsonResponse({ error: 'News record not found.' }, {
-      status: 404,
+  const frozenFactValidation = stage2Only
+    ? validateFrozenFactExtraction(body?.factExtraction)
+    : null;
+  if (stage2Only && !frozenFactValidation.ok) {
+    return jsonResponse({
+      error: 'stage2Only requires a structurally valid frozen factExtraction.',
+      rejectionReasons: frozenFactValidation.reasons
+    }, {
+      status: 400,
       headers: { 'cache-control': 'no-store' }
     });
   }
 
-  const storedRecord = await readJson(env.NEWS_KV, recordKey(newsId));
-  if (!storedRecord?.newsId) {
-    return jsonResponse({ error: 'News record not found.' }, {
-      status: 404,
-      headers: { 'cache-control': 'no-store' }
-    });
+  let storedRecord;
+  if (stage2Only) {
+    storedRecord = {
+      newsId,
+      source: normalizeWhitespace(body?.source || 'RealGM'),
+      publishedAt: normalizeWhitespace(body?.publishedAt || ''),
+      sourceHash: `frozen-stage2:${newsId}`,
+      originalTitle: '',
+      originalSummary: '',
+      url: '',
+      storyType: frozenFactValidation.value.storyType,
+      category: '',
+      importance: 0,
+      aiStatus: normalizeWhitespace(body?.previousAiStatus || 'rejected')
+    };
+  } else {
+    const catalog = await readJson(env.NEWS_KV, CATALOG_KEY);
+    if (!Array.isArray(catalog?.ids) || !catalog.ids.includes(newsId)) {
+      return jsonResponse({ error: 'News record not found.' }, {
+        status: 404,
+        headers: { 'cache-control': 'no-store' }
+      });
+    }
+
+    storedRecord = await readJson(env.NEWS_KV, recordKey(newsId));
+    if (!storedRecord?.newsId) {
+      return jsonResponse({ error: 'News record not found.' }, {
+        status: 404,
+        headers: { 'cache-control': 'no-store' }
+      });
+    }
   }
-  if (storedRecord.aiStatus !== 'rejected' && !(evaluateAccepted && storedRecord.aiStatus === 'accepted')) {
+  if (
+    !stage2Only &&
+    storedRecord.aiStatus !== 'rejected' &&
+    !(evaluateAccepted && storedRecord.aiStatus === 'accepted')
+  ) {
     return jsonResponse({
       error: 'Only rejected news can be reprocessed unless phase1 accepted-record evaluation is explicitly enabled.',
       newsId,
@@ -269,7 +311,11 @@ async function reprocessRejectedForDebug(request, env) {
 
   const stats = createDebugAiStats();
   const snapshots = [];
-  await processRecord(testRecord, env, stats, snapshots, pipelineMode, { stage1Only });
+  await processRecord(testRecord, env, stats, snapshots, pipelineMode, {
+    stage1Only,
+    stage2Only,
+    frozenFactExtraction: frozenFactValidation?.value || null
+  });
   const qwenSnapshot = snapshots.find((snapshot) => snapshot.stage === 'qwen-primary') || null;
   const factSnapshot = snapshots.find((snapshot) => snapshot.stage === 'phase1-fact-extraction') || null;
   const editorialSnapshot = snapshots.find((snapshot) => snapshot.stage === 'phase1-editorial-generation') || null;
@@ -285,6 +331,7 @@ async function reprocessRejectedForDebug(request, env) {
     resultAiStatus: testRecord.aiStatus,
     pipelineMode,
     stage1Only,
+    stage2Only,
     pipelineVersion: PIPELINE_VERSION,
     factExtractionVersion: FACT_EXTRACTION_VERSION,
     editorialGenerationVersion: EDITORIAL_GENERATION_VERSION,
@@ -590,7 +637,9 @@ async function processRecord(
 }
 
 async function processRecordPhase1(record, env, stats, debugSnapshots, pipelineMode, options = {}) {
-  const articleText = await extractArticleText(record.url, record.originalTitle, env);
+  const articleText = options.stage2Only
+    ? ''
+    : await extractArticleText(record.url, record.originalTitle, env);
   const model = env.AI_MODEL || DEFAULT_AI_MODEL;
   const sourceHash = record.sourceHash || '';
   const factCacheKey = `${FACT_EXTRACTION_VERSION}:${sourceHash}`;
@@ -610,7 +659,29 @@ async function processRecordPhase1(record, env, stats, debugSnapshots, pipelineM
   record.finalGateStatus = 'pending';
 
   try {
+    if (options.stage2Only) {
+      const frozenValidation = validateFrozenFactExtraction(options.frozenFactExtraction);
+      if (!frozenValidation.ok) {
+        rejectPhase1Record(
+          record,
+          stats,
+          'fact-validation',
+          frozenValidation.reasons,
+          frozenValidation.details
+        );
+        stats.factStageRejected += 1;
+        stats.stage2Skipped += 1;
+        return;
+      }
+      factExtraction = frozenValidation.value;
+      record.factExtraction = factExtraction;
+      record.factExtractionStatus = 'accepted';
+      record.factValidationStatus = 'accepted';
+      record.factValidation = compactFactValidation(frozenValidation);
+    }
+
     const hasValidFactCache = (
+      !options.stage2Only &&
       record.factExtraction &&
       record.factValidationStatus === 'accepted' &&
       cachedFactVersion === FACT_EXTRACTION_VERSION &&
@@ -708,6 +779,7 @@ async function processRecordPhase1(record, env, stats, debugSnapshots, pipelineM
         model,
         pipelineMode,
         cacheHit: true,
+        frozenInput: Boolean(options.stage2Only),
         factExtraction: summarizeFactExtraction(factExtraction),
         factValidation: record.factValidation,
         stageRequests: 0,

@@ -25,7 +25,7 @@ const TEAM_GROUPS = [
   ['mavericks', '独行侠', ['Dallas Mavericks', 'Mavericks', 'Mavs']],
   ['nuggets', '掘金', ['Denver Nuggets', 'Nuggets']],
   ['pistons', '活塞', ['Detroit Pistons', 'Pistons']],
-  ['warriors', '勇士', ['Golden State Warriors', 'Warriors']],
+  ['warriors', '勇士', ['Golden State Warriors', 'Golden State', 'Warriors']],
   ['rockets', '火箭', ['Houston Rockets', 'Rockets']],
   ['pacers', '步行者', ['Indiana Pacers', 'Pacers']],
   ['clippers', '快船', ['Los Angeles Clippers', 'LA Clippers', 'Clippers']],
@@ -246,14 +246,25 @@ const NON_PERSON_PHRASES = new Set([
   'free agency rumors'
 ]);
 
+const TEAM_CITY_TERMS = new Set([
+  'oklahoma city'
+]);
+
+const LEAGUE_SALARY_TERMS = new Set([
+  'taxpayer mle',
+  'taxpayer mid-level exception',
+  'mid-level exception',
+  'second apron'
+]);
+
 const NON_PERSON_WORDS = new Set([
   'after', 'agency', 'analysis', 'anything', 'awards', 'before', 'championship',
   'conference', 'envision', 'final', 'free', 'grades', 'injury', 'key',
   'league', 'losers', 'news', 'notes', 'observations', 'odds', 'podcast',
   'preview', 'projection', 'prospect', 'prospects', 'ranking', 'recap',
-  'report', 'rumor', 'rumors', 'schedule', 'score', 'standings', 'summer',
+  'report', 'rumor', 'rumors', 'schedule', 'score', 'sports', 'standings', 'summer',
   'happens', 'it', 'takeaway', 'takeaways', 'thoughts', 'trade', 'until',
-  'update', 'updates', 'what', 'why', 'winners', 'you'
+  'update', 'updates', 'what', 'why', 'winners', 'you', 'neither', 'nor'
 ]);
 
 const PERSON_BOUNDARY_WORDS = /\b(?:Acquire[sd]?|Agree[sd]?|Sign(?:s|ed|ing)?|Re-Sign(?:s|ed|ing)?|Trade[sd]?|Trading|Send|Sent|Deal(?:s|t)?|Land(?:s|ed|ing)?|Report(?:ed|edly)?|Return(?:s|ed|ing)?|Join(?:s|ed|ing)?|Match(?:es|ed|ing)?|Receiv(?:e|es|ed|ing)|Draw(?:s|n|ing)?|Generat(?:e|es|ed|ing)|Expect(?:s|ed|ing)?|Offer|Sheet|Focus(?:es|ed|ing)?|Build(?:s|ing)?|Team|Retire[sd]?|Waive[sd]?|Wait(?:s|ed|ing)?|Fill(?:s|ed|ing)?|Roster|Qualifying|Proximity|Play(?:s|ed|ing)?|Role|Show(?:s|ed|ing)?|Mutual|Interest|Intends?|Could|Would|May|Might|Had|Has|Have|No|Out|Before|With|From|For|After|Against|During|Into|Over|At|On|Of|To|In|And|Or|Vs)\b/gi;
@@ -546,7 +557,20 @@ export function buildFactExtractionPrompt(record, articleText = '') {
 }
 
 export function buildPhase1EditorialPrompt(factExtraction, record) {
-  const canonicalNames = buildCanonicalDisplayNames(factExtraction, record);
+  const canonicalNames = buildCanonicalDisplayNames(factExtraction);
+  const coreFacts = selectPhase1CoreFacts(factExtraction);
+  const factStoryType = factExtraction.storyType === 'interview'
+    ? 'opinion'
+    : factExtraction.storyType === 'trade_rumor'
+      ? 'rumor'
+      : factExtraction.storyType;
+  const expectedCategory = classifyCategory('', factStoryType);
+  const expectedFactLevel = factCertaintyToEditorialLevel(
+    getFactExtractionCertainty(factExtraction)
+  );
+  const requiredAttributions = [...new Set(
+    factExtraction.facts.map((fact) => fact.attribution).filter(Boolean)
+  )];
   return [
     '你是严谨的中文 NBA 快讯编辑。',
     '你的唯一事实来源是下方已经通过代码验证的 Fact JSON；不得使用外部知识，不得补充常识或猜测。',
@@ -555,6 +579,7 @@ export function buildPhase1EditorialPrompt(factExtraction, record) {
     'titleZh：自然、具体的中文体育新闻标题，约 14 到 32 个中文字符。',
     'summaryZh：1 到 2 句，约 60 到 160 个中文字符，覆盖主要事实和必要限定。',
     'oneLineZh：独立生成的一句话速览，不得与 titleZh 完全相同；没有额外事实时换一种更精炼但不新增事实的表达。',
+    '输出前必须比较 titleZh 与 oneLineZh；去除标点和空格后仍相同也算重复，必须重写 oneLineZh。',
     'categoryZh：只能是 交易、签约、伤病、选秀、流言、比赛、分析、其他之一。',
     'tagsZh：1 到 5 个简短标签。',
     'confidence：0 到 1，表示中文稿忠实覆盖已验证 Fact JSON 的程度。',
@@ -562,11 +587,22 @@ export function buildPhase1EditorialPrompt(factExtraction, record) {
     'reported、expected、likely、possible 不能改写成已完成或确定事件。',
     'opinion 或 analysis 必须明确写成某人观点、媒体分析、预测或讨论，不能写成已发生事实。',
     '采访必须保留发言者、观点对象和归属关系。',
+    'requiredAttributions 非空时，summaryZh 必须明确写出每个必要的发言者、媒体或节目来源。',
+    'oneLineZh 也必须独立保留相关的“据报道、预计、可能、分析认为、某人表示”等确定性或观点限定。',
     '必须准确保留 Fact JSON 中的金额、年限、比分、伤病时间和主要交易筹码。',
+    'requiredCoreFacts 是标题和摘要必须覆盖的核心事实；其他 Facts 只作为可选背景，不要求全部写入。',
+    '逐条检查 requiredCoreFacts：其中每个金额、年限、比分和主要实体都必须出现在 titleZh 或 summaryZh。',
+    '不要为了覆盖可选背景而堆砌次要薪资空间、奢侈税线或例外条款数字。',
+    '除球员名、球队缩写、媒体名和 NBA 专名外，不得保留 roster spots 等普通英文短语。',
+    '球员与球队签约或续约应写“球员与球队签约/续约”或“球队签下球员”，不要写“球员签约球队/续约球队”。',
+    `categoryZh 必须是 ${expectedCategory}。`,
     '优先使用 canonicalNames 中的常见中文名；无中文映射时完整保留英文姓名，不自行音译。',
     `source=${record.source || 'RealGM'}`,
     `publishedAt=${record.publishedAt || ''}`,
+    `expectedFactLevel=${expectedFactLevel}`,
     `canonicalNames=${JSON.stringify(canonicalNames)}`,
+    `requiredAttributions=${JSON.stringify(requiredAttributions)}`,
+    `requiredCoreFacts=${JSON.stringify(coreFacts)}`,
     `validatedFactJson=${JSON.stringify(factExtraction)}`
   ].join('\n');
 }
@@ -767,6 +803,14 @@ export function validateFactExtraction(result, record, articleText = '') {
   };
 }
 
+export function validateFrozenFactExtraction(result) {
+  const details = createFactValidationDetails();
+  const value = normalizeFactExtraction(result);
+  return isFactExtractionObject(value)
+    ? { ok: true, reasons: [], details, value }
+    : { ok: false, reasons: ['fact-schema-invalid'], details, value: null };
+}
+
 export function validatePhase1EditorialResult(result, record, factExtraction) {
   const details = { addedFacts: [], missingFacts: [], unsafeFragments: [] };
   if (!isPhase1EditorialObject(result) || !isFactExtractionObject(factExtraction)) {
@@ -780,16 +824,22 @@ export function validatePhase1EditorialResult(result, record, factExtraction) {
       ? 'rumor'
       : factExtraction.storyType;
   const expectedCategory = classifyCategory('', factStoryType);
+  const factEvidence = buildValidatedFactEvidence(factExtraction);
+  const attributionEvidence = buildPhase1AttributionEvidence(factExtraction);
+  const coreFactEvidence = buildValidatedFactEvidence({
+    ...factExtraction,
+    facts: selectPhase1CoreFacts(factExtraction)
+  });
   const gateRecord = {
     ...record,
+    originalTitle: coreFactEvidence,
+    originalSummary: `${factEvidence}\n${attributionEvidence}`,
     storyType: factStoryType,
     category: expectedCategory,
-    expectedFactLevel: factLevel
+    expectedFactLevel: factLevel,
+    skipGenericCertaintyReview: true
   };
-  const sourceEvidence = [
-    record.originalTitle,
-    record.originalSummary
-  ].filter(Boolean).join('\n');
+  const sourceEvidence = `${factEvidence}\n${attributionEvidence}`;
   const normalizedOneLine = normalizeEditorialPersonNames(
     normalizeChineseText(result.oneLineZh),
     sourceEvidence
@@ -818,8 +868,8 @@ export function validatePhase1EditorialResult(result, record, factExtraction) {
     reasons.push('title-oneline-duplicate');
   }
 
-  const factEvidence = buildValidatedFactEvidence(factExtraction);
-  const requiredFacts = extractEvidenceFacts(factEvidence, sourceEvidence);
+  const requiredFacts = extractEvidenceFacts(coreFactEvidence, sourceEvidence);
+  const allowedFacts = extractEvidenceFacts(sourceEvidence, sourceEvidence);
   const outputFacts = value
     ? extractEvidenceFacts(
         `${value.titleZh}\n${value.summaryZh}\n${value.oneLineZh}`,
@@ -827,18 +877,34 @@ export function validatePhase1EditorialResult(result, record, factExtraction) {
       )
     : extractEvidenceFacts('');
   const phase1FactDetails = { addedFacts: [], missingFacts: [] };
-  compareFacts(requiredFacts, requiredFacts, outputFacts, phase1FactDetails);
+  compareFacts(
+    requiredFacts,
+    allowedFacts,
+    outputFacts,
+    phase1FactDetails,
+    requiredFacts
+  );
   if (phase1FactDetails.addedFacts.length) reasons.push('editorial-fact-mismatch');
   if (phase1FactDetails.missingFacts.length) reasons.push('editorial-missing-verified-facts');
 
   const certaintyReview = inspectCertaintyPreservation(
-    factEvidence,
+    buildPhase1CertaintyEvidence(factExtraction),
     normalizedOneLine,
     factLevel
   );
   if (certaintyReview.reasons.length) {
     reasons.push(...certaintyReview.reasons);
     details.unsafeFragments.push(...certaintyReview.fragments);
+  }
+  const attributionReview = inspectPhase1AttributionCoverage(
+    factExtraction,
+    value
+      ? `${value.titleZh}\n${value.summaryZh}\n${value.oneLineZh}`
+      : ''
+  );
+  if (attributionReview.reasons.length) {
+    reasons.push(...attributionReview.reasons);
+    details.unsafeFragments.push(...attributionReview.fragments);
   }
 
   details.addedFacts.push(
@@ -975,14 +1041,16 @@ export function validateEditorialResult(result, record, articleText = '') {
   }
 
   const expectedFactLevel = record.expectedFactLevel || inferFactLevel(sourceCore, record.storyType);
-  const certaintyReview = inspectCertaintyPreservation(
-    sourceEvidence,
-    `${value.titleZh}\n${value.summaryZh}`,
-    expectedFactLevel
-  );
-  if (certaintyReview.reasons.length) {
-    reasons.push(...certaintyReview.reasons);
-    details.unsafeFragments.push(...certaintyReview.fragments);
+  if (!record.skipGenericCertaintyReview) {
+    const certaintyReview = inspectCertaintyPreservation(
+      sourceEvidence,
+      `${value.titleZh}\n${value.summaryZh}`,
+      expectedFactLevel
+    );
+    if (certaintyReview.reasons.length) {
+      reasons.push(...certaintyReview.reasons);
+      details.unsafeFragments.push(...certaintyReview.fragments);
+    }
   }
   if (expectedFactLevel === 'rumor') {
     if (value.factLevel === 'confirmed') reasons.push('rumor-marked-confirmed');
@@ -992,7 +1060,7 @@ export function validateEditorialResult(result, record, articleText = '') {
   }
   if (expectedFactLevel === 'analysis') {
     if (value.factLevel !== 'analysis') reasons.push('analysis-marked-as-fact');
-    if (!/(分析|认为|观点|评估|预测|可能|有望|被视为|或将|讨论)/.test(value.summaryZh)) {
+    if (!/(分析|认为|观点|评估|预测|可能|有望|被视为|或将|讨论|表示|称|谈到|提到|指出|希望)/.test(value.summaryZh)) {
       reasons.push('analysis-as-fact');
       reasons.push('analysis-presented-as-fact');
     }
@@ -1249,7 +1317,7 @@ function inspectCertaintyPreservation(sourceValue, outputValue, expectedFactLeve
   }
 
   if (expectedFactLevel === 'analysis' &&
-      !/(?:分析|文章|报道|记者|认为|观点|评估|预测|可能|有望|被视为|或将|讨论)/.test(outputText)) {
+      !/(?:分析|文章|报道|记者|认为|观点|评估|预测|可能|有望|被视为|或将|讨论|表示|称|谈到|提到|指出|希望)/.test(outputText)) {
     reasons.push('analysis-presented-as-fact');
     fragments.push('analysis-without-attribution-or-modality');
   }
@@ -1586,7 +1654,12 @@ function isLikelyPersonCandidate(candidate, sourceText = '', startIndex = 0) {
     .toLowerCase()
     .replace(/[’]/g, "'")
     .replace(/[.,:;!?]+$/g, '');
-  if (!normalized || NON_PERSON_PHRASES.has(comparableCandidate)) return false;
+  if (
+    !normalized ||
+    NON_PERSON_PHRASES.has(comparableCandidate) ||
+    TEAM_CITY_TERMS.has(comparableCandidate) ||
+    LEAGUE_SALARY_TERMS.has(comparableCandidate)
+  ) return false;
   if (/[.!?]\s/.test(normalized.replace(/\b(?:Jr|Sr)\.\s/g, ''))) return false;
 
   const words = comparableCandidate
@@ -1633,6 +1706,7 @@ function extractMoneyFacts(text = '') {
 
 function extractDurationFacts(text = '') {
   const words = { one: 1, two: 2, three: 3, four: 4, five: 5, six: 6 };
+  const chineseWords = { 一: 1, 两: 2, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6 };
   const facts = [];
   for (const match of String(text).matchAll(/\b(one|two|three|four|five|six|\d+)[-\s]+year\b/gi)) {
     const value = words[match[1].toLowerCase()] || Number(match[1]);
@@ -1640,6 +1714,9 @@ function extractDurationFacts(text = '') {
   }
   for (const match of String(text).matchAll(/(\d+)\s*年/g)) {
     facts.push(`years:${Number(match[1])}`);
+  }
+  for (const match of String(text).matchAll(/([一两二三四五六])\s*年(?:期)?/g)) {
+    facts.push(`years:${chineseWords[match[1]]}`);
   }
   return [...new Set(facts)];
 }
@@ -2345,12 +2422,13 @@ function isPhase1EditorialCandidateObject(value) {
   );
 }
 
-function buildCanonicalDisplayNames(factExtraction, record) {
-  const sourceEvidence = `${record.originalTitle || ''}\n${record.originalSummary || ''}`;
+function buildCanonicalDisplayNames(factExtraction) {
   const factEvidence = factExtraction.facts
-    .map((fact) => `${fact.factText} ${fact.evidenceQuote}`)
+    .map((fact) => (
+      `${fact.factText} ${fact.evidenceQuote} ${fact.attribution} ${fact.attributionQuote}`
+    ))
     .join('\n');
-  const extracted = extractEvidenceFacts(factEvidence, sourceEvidence);
+  const extracted = extractEvidenceFacts(factEvidence, factEvidence);
   const names = [];
 
   for (const teamId of extracted.teams) {
@@ -2382,6 +2460,52 @@ function buildCanonicalDisplayNames(factExtraction, record) {
   }
 
   return names;
+}
+
+function selectPhase1CoreFacts(factExtraction) {
+  if (!isFactExtractionObject(factExtraction)) return [];
+  const eligible = factExtraction.facts.filter((fact) => !isSecondaryEditorialContext(fact));
+  const selected = eligible.length ? [eligible[0]] : [];
+
+  const preferred = factExtraction.storyType === 'trade_rumor'
+    ? eligible.slice(1).sort((a, b) => (
+        phase1RumorCoreRank(a.certainty) - phase1RumorCoreRank(b.certainty)
+      ))
+    : eligible.slice(1);
+  if (preferred[0]) selected.push(preferred[0]);
+  for (const fact of eligible) {
+    if (hasCoreEditorialNumber(fact) && !selected.includes(fact)) selected.push(fact);
+  }
+
+  if (!selected.length && factExtraction.facts[0]) selected.push(factExtraction.facts[0]);
+  return selected.slice(0, 4);
+}
+
+function phase1RumorCoreRank(certainty) {
+  return {
+    interest: 0,
+    expected: 1,
+    likely: 2,
+    possible: 3,
+    reported: 4,
+    confirmed: 5,
+    opinion: 6
+  }[certainty] ?? 9;
+}
+
+function isSecondaryEditorialContext(fact) {
+  return /\b(?:second apron|taxpayer (?:mle|mid-level exception)|mid-level exception|salary cap|cap space|luxury tax|tax line)\b/i
+    .test(`${fact?.factText || ''} ${fact?.evidenceQuote || ''}`);
+}
+
+function hasCoreEditorialNumber(fact) {
+  const numbers = Array.isArray(fact?.numbers) ? fact.numbers : [];
+  if (numbers.some((entry) => ['contractYears', 'score', 'tradeAsset'].includes(entry?.type))) {
+    return true;
+  }
+  if (!numbers.some((entry) => entry?.type === 'money')) return false;
+  return /\b(?:contract|deal|offer sheet|sign(?:ed|ing)?|re-sign|trade|acquir)/i
+    .test(`${fact?.factText || ''} ${fact?.evidenceQuote || ''}`);
 }
 
 function inferPhase1StoryType(record) {
@@ -2500,6 +2624,74 @@ function buildValidatedFactEvidence(factExtraction) {
     ...factExtraction.facts.map((fact) => fact.evidenceQuote),
     ...factExtraction.facts.map((fact) => fact.factText)
   ].join('\n'));
+}
+
+function buildPhase1AttributionEvidence(factExtraction) {
+  return factExtraction.facts
+    .map((fact) => normalizeWhitespace(fact.attribution))
+    .filter(Boolean)
+    .join(' | ');
+}
+
+function buildPhase1CertaintyEvidence(factExtraction) {
+  const facts = selectPhase1CoreFacts(factExtraction);
+  const confirmedActions = new Set(
+    facts
+      .filter((fact) => fact.certainty === 'confirmed')
+      .flatMap((fact) => inferSourceActions(fact.evidenceQuote))
+  );
+  return normalizeWhitespace(
+    facts
+      .filter((fact) => {
+        if (fact.certainty === 'confirmed') return true;
+        const actions = inferSourceActions(fact.evidenceQuote);
+        const hasFactSpecificNumber = (fact.numbers || []).length > 0;
+        if (hasFactSpecificNumber && actions.some((action) => confirmedActions.has(action))) {
+          return false;
+        }
+        return true;
+      })
+      .map((fact) => fact.evidenceQuote)
+      .join('\n')
+  );
+}
+
+function inferSourceActions(value) {
+  return Object.entries(SOURCE_ACTION_PATTERNS)
+    .filter(([, pattern]) => pattern.test(value))
+    .map(([action]) => action);
+}
+
+function inspectPhase1AttributionCoverage(factExtraction, outputValue) {
+  const output = normalizeWhitespace(outputValue);
+  const reasons = [];
+  const fragments = [];
+  const attributions = [...new Set(
+    factExtraction.facts.map((fact) => normalizeWhitespace(fact.attribution)).filter(Boolean)
+  )];
+
+  for (const attribution of attributions) {
+    const canonical = CANONICAL_PERSON_ENTITIES.find((entity) => (
+      [...entity.englishNames, ...entity.chineseNames].some((name) => (
+        containsNormalized(attribution, name) || containsNormalized(name, attribution)
+      ))
+    ));
+    const aliases = canonical
+      ? [
+          ...canonical.englishNames,
+          ...canonical.chineseNames,
+          ...canonical.shortNames
+        ]
+      : [attribution];
+    if (aliases.some((alias) => containsAlias(output, alias))) continue;
+    reasons.push('editorial-attribution-missing');
+    fragments.push(`missing-attribution:${attribution}`);
+  }
+
+  return {
+    reasons: [...new Set(reasons)],
+    fragments: [...new Set(fragments)]
+  };
 }
 
 function normalizeFactStoryType(value, fallback = '') {
