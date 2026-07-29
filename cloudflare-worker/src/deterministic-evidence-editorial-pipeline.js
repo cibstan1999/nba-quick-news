@@ -12,6 +12,7 @@ import {
 } from './deterministic-editorial.js';
 import { runConstrainedPolishExperiment } from './constrained-editorial-polish.js';
 import { buildEditorialFactPlan } from './pipeline.js';
+import { decidePhase1Publication } from './publication-policy.js';
 
 export const DETERMINISTIC_EDITORIAL_PIPELINE =
   'editorial-pipeline-v6-deterministic-polish';
@@ -136,7 +137,7 @@ export async function runDeterministicEvidenceEditorialPipeline({
         ...composerGate.reasons
       ]
     };
-    return {
+    return attachPublicationDecision({
       ok: false,
       pipeline: DETERMINISTIC_EDITORIAL_PIPELINE,
       failureStage: coverage.ok ? 'composer-gate' : 'coverage-contract',
@@ -153,7 +154,7 @@ export async function runDeterministicEvidenceEditorialPipeline({
       final: null,
       adoptedPolish: false,
       polishFallbackReason: null
-    };
+    });
   }
 
   if (!enablePolish) {
@@ -233,18 +234,18 @@ function createGateRecord(record) {
 }
 
 function successResult(value) {
-  return {
+  return attachPublicationDecision({
     ok: true,
     pipeline: DETERMINISTIC_EDITORIAL_PIPELINE,
     failureStage: null,
     legacyStage1Used: false,
     optionalEvidenceSelectionUsed: false,
     ...value
-  };
+  });
 }
 
 function failedResult(stage, error, statuses, counters, details = {}) {
-  return {
+  return attachPublicationDecision({
     ok: false,
     pipeline: DETERMINISTIC_EDITORIAL_PIPELINE,
     failureStage: stage,
@@ -257,5 +258,14 @@ function failedResult(stage, error, statuses, counters, details = {}) {
     adoptedPolish: false,
     polishFallbackReason: null,
     ...details
+  });
+}
+
+function attachPublicationDecision(result) {
+  const publication = decidePhase1Publication(result);
+  return {
+    ...result,
+    publicationDecision: publication.decision,
+    publicationDiagnostics: publication
   };
 }

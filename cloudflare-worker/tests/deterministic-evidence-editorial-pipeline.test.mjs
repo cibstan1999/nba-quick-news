@@ -36,6 +36,7 @@ test('deterministic editorial candidate path processes all frozen samples withou
     assert.equal(result.statuses.composerStatus.status, 'success');
     assert.equal(result.statuses.polishStatus.status, 'skipped');
     assert.equal(result.statuses.finalGateStatus.status, 'accepted');
+    assert.equal(result.publicationDecision, 'review_required');
     assert.equal(result.coverage.ok, true);
     assert.equal(result.composerGate.ok, true);
   }
@@ -91,4 +92,5 @@ test('constrained polish is called at most once and safely falls back to the com
   assert.deepEqual(result.final, result.composition);
   assert.equal(result.statuses.polishStatus.status, 'fallback');
   assert.equal(result.statuses.finalGateStatus.status, 'accepted');
+  assert.equal(result.publicationDecision, 'review_required');
 });

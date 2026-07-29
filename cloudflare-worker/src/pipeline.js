@@ -1,3 +1,5 @@
+import { isRecordEligibleForPublicMaterialization } from './publication-policy.js';
+
 export const PIPELINE_VERSION = 'editorial-pipeline-v5-two-stage';
 export const FACT_EXTRACTION_VERSION = 'fact-v3-qwen3-evidence-first';
 export const EDITORIAL_GENERATION_VERSION = 'editorial-v1-qwen3';
@@ -1366,7 +1368,11 @@ export function validateEditorialResult(result, record, articleText = '') {
 
 export function materializePayload(records, status, now = new Date().toISOString()) {
   const accepted = records
-    .filter((record) => record.aiStatus === 'accepted' && record.editorial)
+    .filter((record) => (
+      record.aiStatus === 'accepted' &&
+      record.editorial &&
+      isRecordEligibleForPublicMaterialization(record)
+    ))
     .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
     .slice(0, 80)
     .map(materializeItem);
