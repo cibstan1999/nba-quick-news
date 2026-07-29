@@ -17,6 +17,15 @@ import {
   restoreConstrainedPolish,
   validateConstrainedPlaceholderOutput
 } from '../src/constrained-editorial-polish.js';
+import {
+  getCompletedSampleResult,
+  loadEvaluationCheckpoint,
+  markSampleCompleted,
+  markSampleFailed,
+  markSampleStarted,
+  saveEvaluationCheckpoint,
+  summarizeCheckpointRequests
+} from './evaluation-checkpoint.mjs';
 
 const evaluationDir = path.dirname(fileURLToPath(import.meta.url));
 const baselinePath = path.join(evaluationDir, 'phase-0.5-baseline.json');
@@ -77,6 +86,18 @@ async function main() {
     evaluationDir,
     stage1Only ? 'phase-1-stage1-results.local.json' : 'phase-1-results.local.json'
   );
+  const checkpointPath = path.join(
+    evaluationDir,
+    stage1Only
+      ? 'phase-1-stage1-checkpoint.local.json'
+      : 'phase-1-checkpoint.local.json'
+  );
+  const evaluation = stage1Only
+    ? 'phase-1-stage1-frozen-sample-dry-run'
+    : 'phase-1-two-stage-frozen-sample-dry-run';
+  const requestKind = process.env.PHASE1_REQUEST_KIND === 'diagnostic'
+    ? 'diagnostic'
+    : 'formal';
 
   const baseUrl = normalizeBaseUrl(process.env.PHASE1_DEBUG_BASE_URL);
   const token = String(process.env.PHASE1_DEBUG_TOKEN || '');
@@ -95,85 +116,108 @@ async function main() {
     ? baseline.samples.filter((sample) => requestedSampleIds.has(sample.sampleId))
     : baseline.samples;
   const results = [];
+  const checkpoint = await loadEvaluationCheckpoint(checkpointPath, {
+    evaluation,
+    baseline: path.basename(baselinePath)
+  });
+  let resumedSamples = 0;
 
   for (const sample of samples) {
-    const response = await fetch(`${baseUrl}/debug/reprocess`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'x-refresh-token': token
-      },
-      body: JSON.stringify({
-        newsId: sample.newsId,
-        dryRun: true,
-        pipelineMode: 'phase1',
-        evaluateAccepted: true,
-        stage1Only
-      })
-    });
-    const payload = await response.json();
-    if (!response.ok) {
-      throw new Error(`${sample.sampleId} failed with HTTP ${response.status}: ${payload.error || 'unknown error'}`);
+    const resumed = getCompletedSampleResult(checkpoint, sample);
+    if (resumed) {
+      results.push(resumed);
+      resumedSamples += 1;
+      console.log(JSON.stringify({
+        event: 'phase1-evaluation-resume',
+        sampleId: sample.sampleId,
+        stage: stage1Only ? 'stage1-only' : 'end-to-end'
+      }));
+      continue;
     }
 
-    const factSnapshot = payload.snapshots?.find(
-      (snapshot) => snapshot.stage === 'phase1-fact-extraction'
-    ) || null;
-    const editorialSnapshot = payload.snapshots?.find(
-      (snapshot) => snapshot.stage === 'phase1-editorial-generation'
-    ) || null;
-    results.push({
-      sampleId: sample.sampleId,
-      newsId: sample.newsId,
-      testType: sample.testType,
-      originalTitle: sample.originalTitle,
-      previousAiStatus: sample.previousAiStatus,
-      dryRun: payload.dryRun,
-      persisted: payload.persisted,
-      resultAiStatus: payload.resultAiStatus,
-      pipelineMode: payload.pipelineMode,
-      stage1Only: payload.stage1Only,
-      pipelineVersion: payload.pipelineVersion,
-      factExtractionVersion: payload.factExtractionVersion,
-      editorialGenerationVersion: payload.editorialGenerationVersion,
-      aiRequests: payload.aiRequests,
-      factStageRequests: payload.factStageRequests,
-      editorialStageRequests: payload.editorialStageRequests,
-      evidenceExtraction: redactEvidenceSummary(factSnapshot?.evidenceExtraction),
-      factExtraction: redactFactSummary(factSnapshot?.factExtraction),
-      factValidation: factSnapshot?.factValidation || null,
-      editorial: editorialSnapshot?.qwenFinalParsedJson || null,
-      finalGate: editorialSnapshot
-        ? {
-            accepted: payload.resultAiStatus === 'accepted',
-            rejectionReasons: editorialSnapshot.rejectionReasons || [],
-            addedFacts: editorialSnapshot.addedFacts || [],
-            missingFacts: editorialSnapshot.missingFacts || [],
-            unsafeFragments: editorialSnapshot.unsafeFragments || []
-          }
-        : null,
-      rejectionStage: payload.rejectionStage || null,
-      rejectionReasons: payload.rejectionReasons || [],
-      fallbackInvoked: payload.fallbackInvoked,
-      fallbackReason: payload.fallbackReason
-    });
+    const stage = stage1Only ? 'stage1-only' : 'end-to-end';
+    markSampleStarted(checkpoint, sample, { stage, requestKind });
+    await saveEvaluationCheckpoint(checkpointPath, checkpoint);
     console.log(JSON.stringify({
+      event: 'phase1-evaluation-request-start',
       sampleId: sample.sampleId,
-      resultAiStatus: payload.resultAiStatus,
-      factStageRequests: payload.factStageRequests,
-      editorialStageRequests: payload.editorialStageRequests,
-      rejectionStage: payload.rejectionStage || null,
-      rejectionReasons: payload.rejectionReasons || []
+      stage,
+      requestKind
     }));
+
+    let payload = null;
+    try {
+      const response = await fetch(`${baseUrl}/debug/reprocess`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'x-refresh-token': token
+        },
+        body: JSON.stringify({
+          newsId: sample.newsId,
+          dryRun: true,
+          pipelineMode: 'phase1',
+          evaluateAccepted: true,
+          stage1Only
+        })
+      });
+      payload = await response.json();
+      if (!response.ok) {
+        const error = new Error(
+          `${sample.sampleId} failed with HTTP ${response.status}: ${payload.error || 'unknown error'}`
+        );
+        error.requestCount = Number(payload.aiRequests || 0);
+        throw error;
+      }
+
+      const result = buildCollectedResult(sample, payload, requestKind);
+      results.push(result);
+      markSampleCompleted(checkpoint, sample, result, {
+        stage,
+        requestKind,
+        requestCount: result.aiRequests
+      });
+      await saveEvaluationCheckpoint(checkpointPath, checkpoint);
+      console.log(JSON.stringify({
+        event: 'phase1-evaluation-request-complete',
+        sampleId: sample.sampleId,
+        stage,
+        requestKind,
+        resultAiStatus: payload.resultAiStatus,
+        factStageRequests: payload.factStageRequests,
+        editorialStageRequests: payload.editorialStageRequests,
+        rejectionStage: payload.rejectionStage || null,
+        rejectionReasons: payload.rejectionReasons || []
+      }));
+    } catch (error) {
+      const requestCount = Number(error.requestCount || payload?.aiRequests || 0);
+      markSampleFailed(checkpoint, sample, error, {
+        stage,
+        requestKind,
+        requestCount
+      });
+      await saveEvaluationCheckpoint(checkpointPath, checkpoint);
+      const failedResult = buildFailedResult(sample, error, { stage, requestKind });
+      results.push(failedResult);
+      console.error(JSON.stringify({
+        event: 'phase1-evaluation-request-failed',
+        sampleId: sample.sampleId,
+        stage,
+        requestKind,
+        error: failedResult.runnerError
+      }));
+    }
   }
 
   const report = {
-    evaluation: stage1Only
-      ? 'phase-1-stage1-frozen-sample-dry-run'
-      : 'phase-1-two-stage-frozen-sample-dry-run',
+    evaluation,
     collectedAt: new Date().toISOString(),
     baseline: path.basename(baselinePath),
+    checkpoint: path.basename(checkpointPath),
     sampleCount: results.length,
+    resumedSamples,
+    runnerFailures: results.filter((result) => result.runnerStatus === 'failed').length,
+    requestAccounting: summarizeCheckpointRequests(checkpoint),
     productionWrites: 0,
     pipelineMode: 'phase1',
     metrics: {
@@ -214,6 +258,86 @@ async function main() {
     outputPath,
     ...report.metrics
   }, null, 2));
+}
+
+function buildCollectedResult(sample, payload, requestKind) {
+  const factSnapshot = payload.snapshots?.find(
+    (snapshot) => snapshot.stage === 'phase1-fact-extraction'
+  ) || null;
+  const editorialSnapshot = payload.snapshots?.find(
+    (snapshot) => snapshot.stage === 'phase1-editorial-generation'
+  ) || null;
+
+  return {
+    sampleId: sample.sampleId,
+    newsId: sample.newsId,
+    sourceHash: sample.sourceHash,
+    testType: sample.testType,
+    originalTitle: sample.originalTitle,
+    previousAiStatus: sample.previousAiStatus,
+    runnerStatus: 'completed',
+    requestKind,
+    dryRun: payload.dryRun,
+    persisted: payload.persisted,
+    resultAiStatus: payload.resultAiStatus,
+    pipelineMode: payload.pipelineMode,
+    stage1Only: payload.stage1Only,
+    pipelineVersion: payload.pipelineVersion,
+    factExtractionVersion: payload.factExtractionVersion,
+    editorialGenerationVersion: payload.editorialGenerationVersion,
+    aiRequests: Number(payload.aiRequests || 0),
+    factStageRequests: Number(payload.factStageRequests || 0),
+    editorialStageRequests: Number(payload.editorialStageRequests || 0),
+    evidenceExtraction: redactEvidenceSummary(factSnapshot?.evidenceExtraction),
+    factExtraction: redactFactSummary(factSnapshot?.factExtraction),
+    factValidation: factSnapshot?.factValidation || null,
+    editorial: editorialSnapshot?.qwenFinalParsedJson || null,
+    finalGate: editorialSnapshot
+      ? {
+          accepted: payload.resultAiStatus === 'accepted',
+          rejectionReasons: editorialSnapshot.rejectionReasons || [],
+          addedFacts: editorialSnapshot.addedFacts || [],
+          missingFacts: editorialSnapshot.missingFacts || [],
+          unsafeFragments: editorialSnapshot.unsafeFragments || []
+        }
+      : null,
+    rejectionStage: payload.rejectionStage || null,
+    rejectionReasons: payload.rejectionReasons || [],
+    fallbackInvoked: payload.fallbackInvoked,
+    fallbackReason: payload.fallbackReason
+  };
+}
+
+function buildFailedResult(sample, error, { stage, requestKind }) {
+  return {
+    sampleId: sample.sampleId,
+    newsId: sample.newsId,
+    sourceHash: sample.sourceHash,
+    testType: sample.testType,
+    originalTitle: sample.originalTitle,
+    previousAiStatus: sample.previousAiStatus,
+    runnerStatus: 'failed',
+    runnerStage: stage,
+    runnerError: String(error?.message || 'unknown error').slice(0, 500),
+    requestKind,
+    dryRun: true,
+    persisted: false,
+    resultAiStatus: 'runner-failed',
+    pipelineMode: 'phase1',
+    stage1Only: stage === 'stage1-only',
+    aiRequests: Number(error?.requestCount || 0),
+    factStageRequests: 0,
+    editorialStageRequests: 0,
+    evidenceExtraction: null,
+    factExtraction: null,
+    factValidation: null,
+    editorial: null,
+    finalGate: null,
+    rejectionStage: 'evaluation-runner',
+    rejectionReasons: ['evaluation-request-failed'],
+    fallbackInvoked: false,
+    fallbackReason: null
+  };
 }
 
 async function collectConstrainedPolish() {

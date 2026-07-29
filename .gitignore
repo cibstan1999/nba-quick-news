@@ -7,3 +7,4 @@ dist/
 .wrangler/
 *.cpuprofile
 cloudflare-worker/evaluations/*.local.json
+cloudflare-worker/evaluations/*.local.json.tmp
