@@ -1,0 +1,56 @@
+{
+  "TR-01": {
+    "humanDecision": "accept",
+    "editorEffort": "publish",
+    "chineseNaturalness": 4,
+    "reviewNotes": "归属、兴趣语气和合同保障金额完整，稿件可直接发布。"
+  },
+  "TR-02": {
+    "humanDecision": "accept",
+    "editorEffort": "minor_edit",
+    "chineseNaturalness": 4,
+    "reviewNotes": "去留不确定性、合同金额和买断状态完整，标题略长但自然可读。"
+  },
+  "TR-03": {
+    "humanDecision": "accept",
+    "editorEffort": "minor_edit",
+    "chineseNaturalness": 4,
+    "reviewNotes": "否定、未施压和预计留队语气完整；摘要较密集但事实清楚。"
+  },
+  "SG-01": {
+    "humanDecision": "accept",
+    "editorEffort": "publish",
+    "chineseNaturalness": 4,
+    "reviewNotes": "报价匹配、金额年限和留队结果表达完整。"
+  },
+  "SG-02": {
+    "humanDecision": "accept",
+    "editorEffort": "minor_edit",
+    "chineseNaturalness": 3,
+    "reviewNotes": "预计语气和金额安全，但摘要两句对 2800 万美元信息略有重复。"
+  },
+  "SG-03": {
+    "humanDecision": "accept",
+    "editorEffort": "publish",
+    "chineseNaturalness": 4,
+    "reviewNotes": "已签约与预计合同结构区分明确，没有内部标记泄漏。"
+  },
+  "IN-01": {
+    "humanDecision": "reject",
+    "editorEffort": "rewrite",
+    "chineseNaturalness": 2,
+    "reviewNotes": "事实覆盖完整且 Gate 正确拒绝，但现有采访模板只能输出泛化观点句，未自然表达伤病影响。"
+  },
+  "AN-01": {
+    "humanDecision": "accept",
+    "editorEffort": "minor_edit",
+    "chineseNaturalness": 3,
+    "reviewNotes": "核心分析、来源和否定限定安全，但模板句式密集且人物重复。"
+  },
+  "AN-02": {
+    "humanDecision": "accept",
+    "editorEffort": "minor_edit",
+    "chineseNaturalness": 3.5,
+    "reviewNotes": "只保留 76 人主题并维持分析设想，仍有轻微模板腔。"
+  }
+}

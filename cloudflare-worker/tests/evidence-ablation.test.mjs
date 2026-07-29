@@ -8,7 +8,7 @@ import {
   validateOptionalEvidenceSelection
 } from '../evaluations/evidence-ablation.js';
 
-test('mandatory-only uses no AI and includes every mandatory evidence ID', () => {
+test('mandatory-only uses no AI and includes the deterministic minimum cover', () => {
   const context = tradeRumorContext();
   const result = evaluateEvidenceAblationMode(context, {
     mode: 'mandatory-only'
@@ -16,15 +16,20 @@ test('mandatory-only uses no AI and includes every mandatory evidence ID', () =>
 
   assert.equal(result.stage1AiRequests, 0);
   assert.deepEqual(result.selectedOptionalEvidenceIds, []);
-  assert.deepEqual(result.finalEvidenceIds, context.manifest.mandatoryEvidenceIds);
+  assert.deepEqual(
+    result.finalEvidenceIds,
+    context.minimumSelection.selectedEvidenceIds
+  );
   assert.equal(result.coverage.coveredAnchors, result.coverage.requiredAnchors);
   assert.equal(result.coverage.coveredFacts, result.coverage.requiredFacts);
 });
 
 test('optional selection ignores mandatory IDs and de-duplicates optional IDs', () => {
   const context = tradeRumorContext();
-  const mandatoryId = context.manifest.mandatoryEvidenceIds[0];
-  const optionalId = context.manifest.optionalEvidenceIds[0];
+  const mandatoryId = context.minimumSelection.selectedEvidenceIds[0];
+  const optionalId = context.manifest.optionalEvidenceIds.find(
+    (evidenceId) => !context.minimumSelection.selectedEvidenceIds.includes(evidenceId)
+  );
   const result = validateOptionalEvidenceSelection({
     selectedOptionalEvidenceIds: [
       mandatoryId,
@@ -60,7 +65,9 @@ test('unknown optional IDs and invalid JSON fall back to mandatory-only', () => 
 
 test('qwen optional selection performs one request with no retry', async () => {
   const context = tradeRumorContext();
-  const optionalId = context.manifest.optionalEvidenceIds[0];
+  const optionalId = context.manifest.optionalEvidenceIds.find(
+    (evidenceId) => !context.minimumSelection.selectedEvidenceIds.includes(evidenceId)
+  );
   let calls = 0;
   const selected = await selectOptionalEvidenceOnce({
     context,
@@ -99,7 +106,9 @@ test('qwen-optional adds only validated optional facts and safely matches A on f
   const mandatory = evaluateEvidenceAblationMode(context, {
     mode: 'mandatory-only'
   });
-  const optionalId = context.manifest.optionalEvidenceIds[0];
+  const optionalId = context.manifest.optionalEvidenceIds.find(
+    (evidenceId) => !context.minimumSelection.selectedEvidenceIds.includes(evidenceId)
+  );
   const enriched = evaluateEvidenceAblationMode(context, {
     mode: 'qwen-optional',
     optionalSelection: {

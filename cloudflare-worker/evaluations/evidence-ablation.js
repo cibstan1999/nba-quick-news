@@ -4,6 +4,7 @@ import {
   buildFactsFromEvidenceSelection,
   buildMandatoryCoverageManifest,
   normalizeEvidenceText,
+  selectMinimumEvidenceSet,
   validateEvidenceCoverageContract
 } from '../src/evidence-coverage.js';
 import {
@@ -25,7 +26,14 @@ export function prepareEvidenceAblation(record, articleText = '') {
     storyType,
     source: normalizedRecord.source || ''
   });
-  return { record: normalizedRecord, storyType, inventory, manifest };
+  const minimumSelection = selectMinimumEvidenceSet(inventory, manifest);
+  return {
+    record: normalizedRecord,
+    storyType,
+    inventory,
+    manifest,
+    minimumSelection
+  };
 }
 
 export function buildOptionalEvidenceSelectionPrompt(context) {
@@ -35,7 +43,9 @@ export function buildOptionalEvidenceSelectionPrompt(context) {
   );
   const optional = selectEvidencePayload(
     context.inventory,
-    context.manifest.optionalEvidenceIds
+    context.manifest.optionalEvidenceIds.filter(
+      (evidenceId) => !context.minimumSelection.selectedEvidenceIds.includes(evidenceId)
+    )
   );
   return [
     'You select optional evidence for an NBA Chinese editorial draft.',
@@ -90,8 +100,12 @@ export function validateOptionalEvidenceSelection(value, context) {
   }
 
   const knownIds = new Set(context.inventory.map((item) => item.evidenceId));
-  const mandatoryIds = new Set(context.manifest.mandatoryEvidenceIds);
-  const optionalIds = new Set(context.manifest.optionalEvidenceIds);
+  const mandatoryIds = new Set(context.minimumSelection.selectedEvidenceIds);
+  const optionalIds = new Set(
+    context.manifest.optionalEvidenceIds.filter(
+      (evidenceId) => !mandatoryIds.has(evidenceId)
+    )
+  );
   const selected = [];
   const ignored = [];
   const invalid = [];
@@ -173,11 +187,15 @@ export function evaluateEvidenceAblationMode(
   const selectedOptionalEvidenceIds = mode === 'qwen-optional'
     ? optionalSelection?.selectedOptionalEvidenceIds || []
     : [];
-  const primaryEvidenceId = context.manifest.mandatoryEvidenceIds[0] || '';
+  const primaryEvidenceId = context.minimumSelection.primaryEvidenceId || '';
+  const supportingEvidenceIds = unique([
+    ...context.minimumSelection.supportingEvidenceIds,
+    ...selectedOptionalEvidenceIds
+  ]);
   const selection = {
-    selectedEvidenceIds: selectedOptionalEvidenceIds,
+    selectedEvidenceIds: supportingEvidenceIds,
     primaryEvidenceId,
-    supportingEvidenceIds: []
+    supportingEvidenceIds
   };
   const built = buildFactsFromEvidenceSelection(
     selection,

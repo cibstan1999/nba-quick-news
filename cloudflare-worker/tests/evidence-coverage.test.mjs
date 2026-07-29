@@ -6,6 +6,7 @@ import {
   buildFactsFromEvidenceSelection,
   buildMandatoryCoverageManifest,
   parseEvidenceSelectionResponse,
+  selectMinimumEvidenceSet,
   validateEvidenceCoverageContract,
   validateEvidenceSelection
 } from '../src/evidence-coverage.js';
@@ -96,7 +97,8 @@ test('AN-01 makes source and analysis attribution mandatory without copied model
     manifest.mandatoryAnchors.some((anchor) => (
       anchor.type === 'attribution' &&
       anchor.value === 'RealGM' &&
-      anchor.evidenceId === 'title-1'
+      anchor.candidateEvidenceIds.includes('title-1') &&
+      anchor.priority === 'critical'
     )),
     true
   );
@@ -104,12 +106,16 @@ test('AN-01 makes source and analysis attribution mandatory without copied model
     manifest.mandatoryAnchors.some((anchor) => (
       anchor.type === 'attribution' &&
       anchor.value === 'Tim Kawakami' &&
-      anchor.evidenceId === 'summary-2'
+      anchor.candidateEvidenceIds.includes('summary-2') &&
+      anchor.priority === 'critical'
     )),
     true
   );
-  assert.equal(manifest.mandatoryEvidenceIds.includes('summary-1'), true);
-  assert.equal(manifest.mandatoryEvidenceIds.includes('summary-2'), true);
+  assert.deepEqual(manifest.mandatoryEvidenceIds, ['title-1']);
+  const selection = selectMinimumEvidenceSet(inventory, manifest);
+  assert.equal(selection.ok, true);
+  assert.equal(selection.selectedEvidenceIds.includes('summary-1'), true);
+  assert.equal(selection.selectedEvidenceIds.includes('summary-2'), true);
 });
 
 test('IN-01 contract rejects a Fact Plan that omits the decision or injury context', () => {
@@ -127,8 +133,8 @@ test('IN-01 contract rejects a Fact Plan that omits the decision or injury conte
   const decision = inventory.find((item) => /Philadelphia 76ers/.test(item.text));
   const injury = inventory.find((item) => /injuries suffered/.test(item.text));
 
-  assert.equal(manifest.mandatoryEvidenceIds.includes(decision.evidenceId), true);
-  assert.equal(manifest.mandatoryEvidenceIds.includes(injury.evidenceId), true);
+  assert.equal(facts.selectedEvidenceIds.includes(decision.evidenceId), true);
+  assert.equal(facts.selectedEvidenceIds.includes(injury.evidenceId), true);
   assert.equal(
     manifest.mandatoryAnchors.some((anchor) => anchor.value === 'team:76ers'),
     true
@@ -137,12 +143,14 @@ test('IN-01 contract rejects a Fact Plan that omits the decision or injury conte
     manifest.mandatoryAnchors.some((anchor) => (
       anchor.type === 'core-relation' &&
       anchor.value === 'injury' &&
-      anchor.evidenceId === injury.evidenceId
+      anchor.candidateEvidenceIds.includes(injury.evidenceId)
     )),
     true
   );
 
-  const injuryFactId = facts.facts.find((fact) => fact.evidenceId === injury.evidenceId).id;
+  const injuryFactId = facts.facts.find((fact) => (
+    fact.evidenceIds.includes(injury.evidenceId)
+  )).id;
   const incompletePlan = {
     titleFactIds: [facts.facts[0].id],
     summaryFactIds: facts.facts
@@ -179,29 +187,34 @@ test('TR-03 gives stable IDs and mandatory anchors to no-pressure, trade interes
   const first = buildEvidenceInventory(record);
   const second = buildEvidenceInventory(record);
   const manifest = buildMandatoryCoverageManifest(first, record);
+  const selection = selectMinimumEvidenceSet(first, manifest);
 
   assert.deepEqual(first, second);
-  assert.deepEqual(
-    manifest.mandatoryEvidenceIds,
-    ['title-1', 'summary-1', 'summary-2', 'summary-3']
-  );
+  assert.deepEqual(manifest.mandatoryEvidenceIds, ['title-1']);
+  assert.equal(selection.ok, true);
+  assert.deepEqual(selection.uncoveredAnchorIds, []);
   assert.equal(
     manifest.mandatoryAnchors.some((anchor) => (
-      anchor.evidenceId === 'summary-1' && anchor.type === 'negation'
+      anchor.candidateEvidenceIds.includes('summary-1') &&
+      anchor.type === 'negation' &&
+      anchor.priority === 'critical'
     )),
     true
   );
   assert.equal(
     manifest.mandatoryAnchors.some((anchor) => (
-      anchor.evidenceId === 'summary-2' && anchor.type === 'negation'
+      anchor.candidateEvidenceIds.includes('summary-2') &&
+      anchor.type === 'negation' &&
+      anchor.priority === 'critical'
     )),
     true
   );
   assert.equal(
     manifest.mandatoryAnchors.some((anchor) => (
-      anchor.evidenceId === 'summary-3' &&
+      anchor.candidateEvidenceIds.includes('summary-3') &&
       anchor.type === 'modality' &&
-      anchor.value === 'expected'
+      anchor.value === 'expected' &&
+      anchor.priority === 'critical'
     )),
     true
   );
@@ -234,6 +247,13 @@ test('SG-02 requires expected re-signing and money without requiring secondary p
   );
   assert.equal(
     manifest.mandatoryAnchors.some((anchor) => /mike-dunleavy/i.test(anchor.value)),
+    true
+  );
+  assert.equal(
+    manifest.mandatoryAnchors.some((anchor) => (
+      /mike-dunleavy/i.test(anchor.value) &&
+      anchor.priority === 'critical'
+    )),
     false
   );
 });
@@ -319,14 +339,15 @@ test('Coverage trace links evidence to facts, plan fields, and composer usedFact
   assert.equal(validation.ok, true);
   assert.deepEqual(
     validation.trace.evidenceToFactIds['title-1'],
-    ['fact-title-1']
+    facts.evidenceToFactIds['title-1']
   );
+  const titleFactId = facts.evidenceToFactIds['title-1'][0];
   assert.equal(
-    validation.trace.factToPlanFields['fact-title-1'].includes('title'),
+    validation.trace.factToPlanFields[titleFactId].includes('summary'),
     true
   );
   assert.equal(
-    validation.trace.factToUsedFields['fact-title-1'].includes('title'),
+    validation.trace.factToUsedFields[titleFactId].includes('summary'),
     true
   );
 });
@@ -334,11 +355,12 @@ test('Coverage trace links evidence to facts, plan fields, and composer usedFact
 function buildCase(record) {
   const inventory = buildEvidenceInventory(record);
   const manifest = buildMandatoryCoverageManifest(inventory, record);
-  const optionalId = manifest.optionalEvidenceIds[0] || '';
+  const minimum = selectMinimumEvidenceSet(inventory, manifest);
+  assert.equal(minimum.ok, true);
   const selection = {
-    selectedEvidenceIds: optionalId ? [optionalId] : [],
-    primaryEvidenceId: manifest.mandatoryEvidenceIds[0] || optionalId,
-    supportingEvidenceIds: []
+    selectedEvidenceIds: minimum.supportingEvidenceIds,
+    primaryEvidenceId: minimum.primaryEvidenceId,
+    supportingEvidenceIds: minimum.supportingEvidenceIds
   };
   const factResult = buildFactsFromEvidenceSelection(
     selection,
