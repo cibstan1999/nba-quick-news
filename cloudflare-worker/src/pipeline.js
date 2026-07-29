@@ -2752,7 +2752,7 @@ function isPhase1EditorialCandidateObject(value) {
   );
 }
 
-function buildCanonicalDisplayNames(factExtraction) {
+export function buildCanonicalDisplayNames(factExtraction) {
   const factEvidence = factExtraction.facts
     .map((fact) => (
       `${fact.factText} ${fact.evidenceQuote} ${fact.attribution} ${fact.attributionQuote}`
@@ -2992,7 +2992,7 @@ function buildEditorialPlanRoles(facts) {
   return [...roles.values()];
 }
 
-function getEditorialPlanFactEntityRefs(fact) {
+export function getEditorialPlanFactEntityRefs(fact) {
   const refs = new Map();
   for (const entity of fact?.entities || []) {
     if (!entity?.type || !entity?.canonicalId) continue;

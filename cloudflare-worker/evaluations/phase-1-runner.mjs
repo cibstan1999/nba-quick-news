@@ -8,12 +8,24 @@ import {
   validateFactExtraction,
   validatePhase1EditorialResult
 } from '../src/pipeline.js';
+import {
+  composeDeterministicEditorial,
+  validateDeterministicEditorialComposition
+} from '../src/deterministic-editorial.js';
 
 const evaluationDir = path.dirname(fileURLToPath(import.meta.url));
 const baselinePath = path.join(evaluationDir, 'phase-0.5-baseline.json');
 const stage1ResultsPath = path.join(evaluationDir, 'phase-1-stage1-results.local.json');
 const stage2InputPath = path.join(evaluationDir, 'phase-1-stage2-input.local.json');
 const stage2ResultsPath = path.join(evaluationDir, 'phase-1-stage2-results.local.json');
+const deterministicResultsPath = path.join(
+  evaluationDir,
+  'phase-1-deterministic-results.local.json'
+);
+const deterministicScoresPath = path.join(
+  evaluationDir,
+  'phase-1-deterministic-scores.local.json'
+);
 
 async function main() {
   const command = process.argv[2];
@@ -29,11 +41,15 @@ async function main() {
     await revalidateStage2();
     return;
   }
+  if (command === '--compose-deterministic') {
+    await composeDeterministicBaseline();
+    return;
+  }
 
   const stage1Only = command === '--collect-stage1';
   if (!stage1Only && command !== '--collect') {
     throw new Error(
-      'Use --collect, --collect-stage1, --freeze-stage2, --collect-stage2, or --revalidate-stage2.'
+      'Use --collect, --collect-stage1, --freeze-stage2, --collect-stage2, --revalidate-stage2, or --compose-deterministic.'
     );
   }
   const outputPath = path.join(
@@ -177,6 +193,195 @@ async function main() {
     outputPath,
     ...report.metrics
   }, null, 2));
+}
+
+async function composeDeterministicBaseline() {
+  const frozen = JSON.parse(await fs.readFile(stage2InputPath, 'utf8'));
+  const humanScores = await readOptionalJson(deterministicScoresPath);
+  const results = [];
+
+  for (const sample of frozen.samples) {
+    const factPlan = buildEditorialFactPlan(sample.factExtraction);
+    let composition = null;
+    let validation = null;
+    let composerError = null;
+    try {
+      composition = composeDeterministicEditorial(sample.factExtraction, { factPlan });
+      validation = validateDeterministicEditorialComposition(
+        composition,
+        {
+          newsId: sample.newsId,
+          source: sample.source,
+          publishedAt: sample.publishedAt,
+          originalTitle: '',
+          originalSummary: ''
+        },
+        sample.factExtraction
+      );
+    } catch (error) {
+      composerError = error.message;
+    }
+
+    const usedFactIds = composition?.usedFactIds || {
+      title: [],
+      summary: [],
+      oneLine: []
+    };
+    const result = {
+      sampleId: sample.sampleId,
+      newsId: sample.newsId,
+      testType: sample.testType,
+      factPlan,
+      composition,
+      usedFactIds,
+      composerError,
+      gateDecision: validation?.ok ? 'accepted' : 'rejected',
+      rejectionReasons: validation?.reasons || (
+        composerError ? ['deterministic-composer-error'] : []
+      ),
+      addedFacts: validation?.details?.addedFacts || [],
+      missingFacts: validation?.details?.missingFacts || [],
+      unsafeFragments: validation?.details?.unsafeFragments || [],
+      coverage: calculateDeterministicCoverage(factPlan, usedFactIds),
+      humanDecision: humanScores?.[sample.sampleId]?.humanDecision || null,
+      editorEffort: humanScores?.[sample.sampleId]?.editorEffort || null,
+      chineseNaturalness: humanScores?.[sample.sampleId]?.chineseNaturalness ?? null,
+      reviewNotes: humanScores?.[sample.sampleId]?.reviewNotes || '',
+      aiRequests: 0,
+      stage1Requests: 0,
+      llamaFallbackCalls: 0,
+      productionWrites: 0
+    };
+    results.push(result);
+    console.log(JSON.stringify({
+      sampleId: sample.sampleId,
+      gateDecision: result.gateDecision,
+      composerError,
+      rejectionReasons: result.rejectionReasons,
+      coverage: result.coverage
+    }));
+  }
+
+  const requiredFactSlots = results.reduce(
+    (sum, result) => sum + result.coverage.required,
+    0
+  );
+  const coveredFactSlots = results.reduce(
+    (sum, result) => sum + result.coverage.covered,
+    0
+  );
+  const requiredAttributions = results.reduce(
+    (sum, result) => sum + result.factPlan.requiredAttributions.length,
+    0
+  );
+  const attributionErrors = results.filter((result) => (
+    result.rejectionReasons.includes('editorial-attribution-missing')
+  )).length;
+  const requiredNumbers = results.reduce(
+    (sum, result) => sum + result.factPlan.requiredNumbers.length,
+    0
+  );
+  const missingNumbers = results.reduce(
+    (sum, result) => sum + result.missingFacts
+      .filter((entry) => entry.startsWith('constraint-number:'))
+      .length,
+    0
+  );
+  const report = {
+    evaluation: 'phase-1-deterministic-editorial-composer',
+    collectedAt: new Date().toISOString(),
+    frozenInput: path.basename(stage2InputPath),
+    sampleCount: results.length,
+    metrics: {
+      gateAccepted: results.filter((result) => result.gateDecision === 'accepted').length,
+      gateRejected: results.filter((result) => result.gateDecision === 'rejected').length,
+      composerErrors: results.filter((result) => result.composerError).length,
+      requiredFactSlots,
+      coveredFactSlots,
+      requiredFactCoverage: requiredFactSlots
+        ? coveredFactSlots / requiredFactSlots
+        : 1,
+      requiredAttributions,
+      attributionErrors,
+      attributionCoverage: requiredAttributions
+        ? (requiredAttributions - attributionErrors) / requiredAttributions
+        : 1,
+      requiredNumbers,
+      missingNumbers,
+      numberCoverage: requiredNumbers
+        ? (requiredNumbers - missingNumbers) / requiredNumbers
+        : 1,
+      titleOneLineDuplicates: results.filter((result) => (
+        comparable(result.composition?.titleZh) === comparable(result.composition?.oneLineZh)
+      )).length,
+      unsupportedEntities: countRejectionReason(results, 'editorial-unsupported-entity'),
+      unsupportedRoles: countRejectionReason(results, 'editorial-unsupported-role'),
+      unsupportedEvents: countRejectionReason(results, 'editorial-unsupported-event'),
+      certaintyErrors: results.filter((result) => (
+        result.rejectionReasons.some((reason) => (
+          ['certainty-escalation', 'negation-lost', 'analysis-presented-as-fact'].includes(reason)
+        ))
+      )).length,
+      humanAccepted: results.filter((result) => result.humanDecision === 'accept').length,
+      publishReady: results.filter((result) => result.editorEffort === 'publish').length,
+      minorEdit: results.filter((result) => result.editorEffort === 'minor_edit').length,
+      rewrite: results.filter((result) => result.editorEffort === 'rewrite').length,
+      averageChineseNaturalness: average(
+        results
+          .map((result) => result.chineseNaturalness)
+          .filter((value) => Number.isFinite(value))
+      ),
+      aiRequests: 0,
+      stage1Requests: 0,
+      llamaFallbackCalls: 0,
+      productionWrites: 0
+    },
+    results
+  };
+
+  await atomicWriteJson(deterministicResultsPath, report);
+  console.log(JSON.stringify({
+    completed: true,
+    outputPath: deterministicResultsPath,
+    ...report.metrics
+  }, null, 2));
+}
+
+async function readOptionalJson(filePath) {
+  try {
+    return JSON.parse(await fs.readFile(filePath, 'utf8'));
+  } catch (error) {
+    if (error.code === 'ENOENT') return null;
+    throw error;
+  }
+}
+
+function average(values) {
+  if (!values.length) return null;
+  return values.reduce((sum, value) => sum + value, 0) / values.length;
+}
+
+function calculateDeterministicCoverage(factPlan, usedFactIds) {
+  const fields = [
+    ['title', factPlan.titleFactIds],
+    ['summary', factPlan.summaryFactIds],
+    ['oneLine', factPlan.oneLineFactIds]
+  ];
+  const fieldCoverage = {};
+  let required = 0;
+  let covered = 0;
+  for (const [field, factIds] of fields) {
+    const used = new Set(usedFactIds[field] || []);
+    const missing = factIds.filter((factId) => !used.has(factId));
+    required += factIds.length;
+    covered += factIds.length - missing.length;
+    fieldCoverage[field] = {
+      required: factIds,
+      used: [...used],
+      missing
+    };
+  }
+  return { required, covered, fields: fieldCoverage };
 }
 
 async function freezeStage2Input() {
