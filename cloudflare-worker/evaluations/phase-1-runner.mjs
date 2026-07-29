@@ -4,6 +4,7 @@ import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 import {
   buildEditorialConstraints,
+  buildEditorialFactPlan,
   validateFactExtraction,
   validatePhase1EditorialResult
 } from '../src/pipeline.js';
@@ -284,6 +285,8 @@ async function collectStage2() {
       originalTitle: baselineSample.originalTitle,
       previousAiStatus: frozenSample.previousAiStatus,
       editorialConstraints: buildEditorialConstraints(frozenSample.factExtraction),
+      factPlan: editorialSnapshot?.factPlan ||
+        buildEditorialFactPlan(frozenSample.factExtraction),
       dryRun: payload.dryRun,
       persisted: payload.persisted,
       stage2Only: payload.stage2Only,
@@ -360,6 +363,8 @@ async function revalidateStage2() {
     );
     result.resultAiStatus = validation.ok ? 'accepted' : 'rejected';
     result.editorialConstraints = buildEditorialConstraints(frozenSample.factExtraction);
+    result.factPlan = validation.factPlan ||
+      buildEditorialFactPlan(frozenSample.factExtraction);
     result.finalGate = {
       accepted: validation.ok,
       rejectionReasons: validation.reasons,
@@ -396,6 +401,16 @@ function calculateStage2Metrics(results) {
       .length,
     0
   );
+  const requiredFacts = results.reduce(
+    (sum, result) => sum + (result.factPlan?.summaryFactIds?.length || 0),
+    0
+  );
+  const missingRequiredFacts = results.reduce(
+    (sum, result) => sum + (result.finalGate?.missingFacts || [])
+      .filter((fact) => fact.startsWith('fact-plan-summary:'))
+      .length,
+    0
+  );
   return {
     firstAttemptParsed: results.filter((result) => (
       result.editorial && result.editorialStageRequests === 1
@@ -421,6 +436,14 @@ function calculateStage2Metrics(results) {
     requiredNumberCoverage: requiredNumbers
       ? (requiredNumbers - missingRequiredNumbers) / requiredNumbers
       : 1,
+    requiredFacts,
+    missingRequiredFacts,
+    requiredFactCoverage: requiredFacts
+      ? (requiredFacts - missingRequiredFacts) / requiredFacts
+      : 1,
+    unsupportedEntities: countRejectionReason(results, 'editorial-unsupported-entity'),
+    unsupportedRoles: countRejectionReason(results, 'editorial-unsupported-role'),
+    unsupportedEvents: countRejectionReason(results, 'editorial-unsupported-event'),
     attributionErrors: results.filter((result) => (
       (result.finalGate?.rejectionReasons || []).includes('editorial-attribution-missing')
     )).length,
@@ -428,6 +451,12 @@ function calculateStage2Metrics(results) {
       (result.finalGate?.rejectionReasons || []).includes('unexpected-english-token')
     )).length
   };
+}
+
+function countRejectionReason(results, reason) {
+  return results.filter((result) => (
+    (result.finalGate?.rejectionReasons || []).includes(reason)
+  )).length;
 }
 
 function redactEvidenceSummary(value) {

@@ -671,7 +671,8 @@ test('Phase 1 runs fact extraction then editorial generation with no fallback', 
   assert.equal(payload.lastFetchStatus.aiFallbackRequests, 0);
   assert.equal(calls.length, 2);
   assert.equal(calls.every((call) => call.model === env.AI_MODEL), true);
-  assert.match(calls[1].request.messages[1].content, /editorialConstraints=/);
+  assert.match(calls[1].request.messages[1].content, /editorialRequirements=/);
+  assert.match(calls[1].request.messages[1].content, /fieldFacts=/);
   assert.match(calls[1].request.messages[1].content, /requiredNumbers/);
   assert.match(calls[1].request.messages[1].content, /oneLineFacts/);
 

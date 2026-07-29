@@ -5,6 +5,7 @@ import {
   FACT_EXTRACTION_VERSION,
   PIPELINE_VERSION,
   buildEditorialConstraints,
+  buildEditorialFactPlan,
   buildFactExtractionPrompt,
   buildPhase1EditorialPrompt,
   buildPhase1EditorialRequest,
@@ -804,8 +805,9 @@ test('Phase 1 versions and prompts isolate fact extraction from editorial genera
   assert.match(factPrompt, /Do not classify/);
   assert.doesNotMatch(factPrompt, /"certainty"|"polarity"|"sourceField"|"factText"/);
   assert.match(factPrompt, /articleText=Jaxson Hayes signed the contract/);
-  assert.match(editorialPrompt, /validatedFactJson=/);
-  assert.match(editorialPrompt, /editorialConstraints=/);
+  assert.match(editorialPrompt, /factPlan=/);
+  assert.match(editorialPrompt, /fieldFacts=/);
+  assert.match(editorialPrompt, /editorialRequirements=/);
   assert.match(editorialPrompt, /requiredAttributions/);
   assert.match(editorialPrompt, /requiredNumbers/);
   assert.match(editorialPrompt, /oneLineFacts/);
@@ -1223,6 +1225,128 @@ test('Stage 2 builds deterministic editorial constraints from verified Facts', (
   assert.equal(constraints.oneLineFacts[0].id, 'fact-2');
 });
 
+test('Stage 2 Fact Plan excludes SG-02 background and rejects unsupported roles and events', async () => {
+  const facts = makeFactSet('signing', [
+    {
+      text: 'Draymond Green Expected To Re-Sign With Warriors For $28M',
+      certainty: 'expected'
+    },
+    {
+      text: 'The expectation is that Green will re-sign at a figure close to the $28 million player option.',
+      certainty: 'expected'
+    },
+    {
+      text: 'Green has always been expected to stay with Golden State.',
+      certainty: 'expected'
+    },
+    {
+      text: "Now that James has picked the Philadelphia 76ers, Mike Dunleavy Jr. can turn to re-signing Green, De'Anthony Melton and filling out the rest of his roster.",
+      certainty: 'confirmed'
+    }
+  ], ['Do not claim that an expected action is confirmed or completed.']);
+  const plan = buildEditorialFactPlan(facts);
+
+  assert.deepEqual(plan.titleFactIds, ['fact-1']);
+  assert.deepEqual(plan.summaryFactIds, ['fact-1', 'fact-2']);
+  assert.deepEqual(plan.oneLineFactIds, ['fact-3']);
+  assert.equal(
+    plan.allowedEntities.some((entry) => entry.canonicalId === '76ers'),
+    false
+  );
+  assert.equal(
+    plan.allowedEntities.some((entry) => entry.canonicalId === 'mike-dunleavy-jr'),
+    false
+  );
+
+  const record = await makeRecord({
+    originalTitle: facts.facts[0].factText,
+    originalSummary: facts.facts.map((fact) => fact.factText).join(' ')
+  });
+  const unsafe = validatePhase1EditorialResult({
+    titleZh: '德雷蒙德·格林预计以 2800 万美元与勇士续约',
+    summaryZh: '德雷蒙德·格林预计以接近 2800 万美元与勇士续约，球队一直预期他会留队。',
+    oneLineZh: '助教 Mike Dunleavy Jr. 将在詹姆斯加盟 76 人后推进续约',
+    categoryZh: '签约',
+    tagsZh: ['勇士', '德雷蒙德·格林'],
+    confidence: 0.9
+  }, record, facts);
+
+  assert.equal(unsafe.reasons.includes('editorial-unsupported-entity'), true);
+  assert.equal(unsafe.reasons.includes('editorial-unsupported-role'), true);
+  assert.equal(unsafe.reasons.includes('editorial-unsupported-event'), true);
+});
+
+test('Stage 2 Fact Plan requires TR-03 and AN-01 core facts and attribution', async () => {
+  const rumorFacts = makeFactSet('trade_rumor', [
+    {
+      text: 'The Washington Wizards and Dallas Mavericks had no interest in trading Anthony Davis or Kyrie Irving.',
+      certainty: 'interest',
+      polarity: 'negative'
+    },
+    {
+      text: 'LeBron James and Rich Paul made no demands that either team trade those players.',
+      certainty: 'possible',
+      polarity: 'negative'
+    },
+    {
+      text: 'Anthony Davis and Kyrie Irving are expected to start the season with their current teams.',
+      certainty: 'expected'
+    }
+  ], ['Do not claim that interest or an expected action is completed.']);
+  const rumorRecord = await makeRecord({
+    originalTitle: rumorFacts.facts[0].factText,
+    originalSummary: rumorFacts.facts.map((fact) => fact.factText).join(' ')
+  });
+  const incompleteRumor = validatePhase1EditorialResult({
+    titleZh: '奇才和独行侠无意交易戴维斯或欧文',
+    summaryZh: '奇才和独行侠均无意交易安东尼·戴维斯或凯里·欧文。',
+    oneLineZh: '戴维斯和欧文预计在现有球队开始新赛季',
+    categoryZh: '流言',
+    tagsZh: ['奇才', '独行侠'],
+    confidence: 0.9
+  }, rumorRecord, rumorFacts);
+  assert.equal(
+    incompleteRumor.reasons.includes('editorial-required-fact-missing'),
+    true
+  );
+  assert.equal(
+    incompleteRumor.details.missingFacts.includes('fact-plan-summary:fact-2'),
+    true
+  );
+
+  const analysisFacts = makeFactSet('analysis', [
+    {
+      text: 'The Golden State Warriors were hopeful of signing LeBron James this summer.',
+      certainty: 'possible'
+    },
+    {
+      text: 'RealGM reports that the Warriors focus is on building a roster for after Stephen Curry retires.',
+      certainty: 'opinion',
+      attribution: 'RealGM'
+    }
+  ], ['Do not present an opinion or analysis as a completed fact.']);
+  const analysisRecord = await makeRecord({
+    originalTitle: analysisFacts.facts[0].factText,
+    originalSummary: analysisFacts.facts.map((fact) => fact.factText).join(' ')
+  });
+  const incompleteAnalysis = validatePhase1EditorialResult({
+    titleZh: '勇士着眼库里退役后的阵容建设',
+    summaryZh: '勇士正在评估斯蒂芬·库里退役后的阵容方向。',
+    oneLineZh: '勇士仍可能追逐勒布朗·詹姆斯',
+    categoryZh: '分析',
+    tagsZh: ['勇士', '斯蒂芬·库里'],
+    confidence: 0.9
+  }, analysisRecord, analysisFacts);
+  assert.equal(
+    incompleteAnalysis.reasons.includes('editorial-attribution-missing'),
+    true
+  );
+  assert.equal(
+    incompleteAnalysis.reasons.includes('editorial-required-fact-missing'),
+    true
+  );
+});
+
 test('Stage 2 enforces attribution, equivalent Chinese money, and analysis markers', async () => {
   const record = await makeRecord({
     originalTitle: 'Warriors Focused On Building For The Future',
@@ -1368,8 +1492,8 @@ test('Stage 2 constraints cover the frozen rumor and signing regressions', async
         }
       ],
       editorial: {
-        titleZh: '掘金匹配报价留下斯潘塞·琼斯',
-        summaryZh: '掘金匹配了为斯潘塞·琼斯开出的 2 年 1200 万美元报价合同。',
+        titleZh: '掘金匹配斯潘塞·琼斯的报价合同',
+        summaryZh: '掘金匹配了为斯潘塞·琼斯开出的 2 年 1200 万美元报价合同，并将留下这名上赛季进入轮换的球员。',
         oneLineZh: '琼斯上赛季已进入掘金轮换阵容',
         categoryZh: '签约',
         tagsZh: ['掘金', '斯潘塞·琼斯'],
@@ -1391,7 +1515,7 @@ test('Stage 2 constraints cover the frozen rumor and signing regressions', async
       ],
       editorial: {
         titleZh: '德雷蒙德·格林预计以 2800 万美元与勇士续约',
-        summaryZh: '德雷蒙德·格林预计将以接近 2800 万美元的价格与勇士续约。',
+        summaryZh: '德雷蒙德·格林预计将以接近 2800 万美元的价格与勇士续约，球队一直预期他会继续留队。',
         oneLineZh: '勇士一直预期格林会继续留队',
         categoryZh: '签约',
         tagsZh: ['勇士', '德雷蒙德·格林'],
@@ -1432,9 +1556,9 @@ test('Stage 2 keeps analysis and previously accepted frozen-style outputs safe',
         }
       ],
       editorial: {
-        titleZh: '勇士可能关注勒布朗·詹姆斯',
+        titleZh: '勇士着眼库里退役后的阵容建设',
         summaryZh: 'RealGM 分析认为，勇士更关注斯蒂芬·库里退役后的阵容建设，同时也可能追逐勒布朗·詹姆斯。',
-        oneLineZh: '据 RealGM 分析，勇士的长期重点是库里退役后的阵容',
+        oneLineZh: '勇士仍可能追逐勒布朗·詹姆斯',
         categoryZh: '分析',
         tagsZh: ['勇士', '斯蒂芬·库里'],
         confidence: 0.9
@@ -1593,7 +1717,7 @@ test('Stage 2 requires SG-01 core contract facts without treating cap terms as p
   const validation = validatePhase1EditorialResult({
     titleZh: '掘金匹配雷霆为 Spencer Jones 开出的报价合同',
     summaryZh: '掘金匹配雷霆为 Spencer Jones 开出的 2 年 1200 万美元报价合同，并将留下这名球员。',
-    oneLineZh: '这份报价合同为期 2 年，总值 1200 万美元',
+    oneLineZh: '斯潘塞·琼斯上赛季已成为掘金的重要轮换球员',
     categoryZh: '签约',
     tagsZh: ['掘金', '雷霆', 'Spencer Jones'],
     confidence: 0.9
@@ -1621,9 +1745,9 @@ test('Stage 2 keeps a confirmed signing separate from likely contract terms', as
   assert.equal(factValidation.ok, true, JSON.stringify(factValidation));
 
   const validation = validatePhase1EditorialResult({
-    titleZh: '火箭签下前锋菲利普斯',
-    summaryZh: '火箭已经签下菲利普斯，合同细节尚未披露，但可能为 1 年 250 万美元的老将底薪合同。',
-    oneLineZh: '这份合同的年限和金额尚未确认',
+    titleZh: '火箭签下前锋 Julian Phillips',
+    summaryZh: '火箭已经签下 Julian Phillips，合同细节尚未披露，但可能为 1 年 250 万美元的老将底薪合同。',
+    oneLineZh: '合同条款尚未披露，可能为 1 年 250 万美元',
     categoryZh: '签约',
     tagsZh: ['火箭', '菲利普斯'],
     confidence: 0.9

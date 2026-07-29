@@ -1084,6 +1084,7 @@ function logPhase1EditorialDebug(record, result, validation, pipelineMode) {
     stageRequests: result?.requestCount || 0,
     fallbackInvoked: false,
     fallbackReason: null,
+    factPlan: validation?.factPlan || null,
     rejectionReasons: [...(validation?.reasons || [])],
     addedFacts: [...(validation?.details?.addedFacts || [])],
     missingFacts: [...(validation?.details?.missingFacts || [])],
