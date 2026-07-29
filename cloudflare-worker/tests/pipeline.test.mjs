@@ -4,6 +4,7 @@ import {
   EDITORIAL_GENERATION_VERSION,
   FACT_EXTRACTION_VERSION,
   PIPELINE_VERSION,
+  buildEditorialConstraints,
   buildFactExtractionPrompt,
   buildPhase1EditorialPrompt,
   buildPhase1EditorialRequest,
@@ -804,8 +805,10 @@ test('Phase 1 versions and prompts isolate fact extraction from editorial genera
   assert.doesNotMatch(factPrompt, /"certainty"|"polarity"|"sourceField"|"factText"/);
   assert.match(factPrompt, /articleText=Jaxson Hayes signed the contract/);
   assert.match(editorialPrompt, /validatedFactJson=/);
-  assert.match(editorialPrompt, /requiredCoreFacts=/);
-  assert.match(editorialPrompt, /requiredAttributions=/);
+  assert.match(editorialPrompt, /editorialConstraints=/);
+  assert.match(editorialPrompt, /requiredAttributions/);
+  assert.match(editorialPrompt, /requiredNumbers/);
+  assert.match(editorialPrompt, /oneLineFacts/);
   assert.match(editorialPrompt, /categoryZh 必须是 签约/);
   assert.doesNotMatch(editorialPrompt, /rssSummary=|articleText=/);
 
@@ -1182,6 +1185,348 @@ test('Stage 2 accepts only verified copy and requires an independent oneLine', a
   );
 });
 
+test('Stage 2 builds deterministic editorial constraints from verified Facts', () => {
+  const fact = makeFactSet('analysis', [
+    {
+      text: 'According to RealGM, the Heat could pursue Klay Thompson.',
+      certainty: 'possible',
+      attribution: 'RealGM'
+    },
+    {
+      text: 'Thompson is owed $17.5 million in the final year of his contract.',
+      certainty: 'possible'
+    }
+  ], ['Do not claim that a possible action will happen or is completed.']);
+  const constraints = buildEditorialConstraints(fact);
+
+  assert.deepEqual(constraints.requiredAttributions, ['RealGM']);
+  assert.deepEqual(
+    constraints.requiredNumbers.map(({ type, value, displayZh }) => ({
+      type,
+      value,
+      displayZh
+    })),
+    [{
+      type: 'money',
+      value: 'usd-million:17.5',
+      displayZh: '1750 万美元'
+    }]
+  );
+  assert.equal(constraints.requiredAnalysisMarker, true);
+  assert.equal(
+    constraints.requiredCertainty.some((entry) => entry.certainty === 'possible'),
+    true
+  );
+  assert.deepEqual(constraints.forbiddenClaims, [
+    'Do not claim that a possible action will happen or is completed.'
+  ]);
+  assert.equal(constraints.oneLineFacts[0].id, 'fact-2');
+});
+
+test('Stage 2 enforces attribution, equivalent Chinese money, and analysis markers', async () => {
+  const record = await makeRecord({
+    originalTitle: 'Warriors Focused On Building For The Future',
+    originalSummary: 'RealGM reports that the Warriors could pursue LeBron James.'
+  });
+  const fact = makeFactSet('analysis', [
+    {
+      text: 'RealGM reports that the Warriors could pursue LeBron James.',
+      certainty: 'possible',
+      attribution: 'RealGM'
+    },
+    {
+      text: 'James is owed $17.5 million in the final year of his contract.',
+      certainty: 'possible'
+    }
+  ], ['Do not claim that a possible action will happen or is completed.']);
+  const safe = validatePhase1EditorialResult({
+    titleZh: '勇士可能关注勒布朗·詹姆斯',
+    summaryZh: '据 RealGM 分析，勇士可能关注勒布朗·詹姆斯；他的合同最后一年薪资为 1750 万美元。',
+    oneLineZh: 'RealGM 认为这仍是一种可能性，合同还剩最后一年',
+    categoryZh: '分析',
+    tagsZh: ['勇士', '勒布朗·詹姆斯'],
+    confidence: 0.9
+  }, record, fact);
+  assert.equal(safe.ok, true, JSON.stringify(safe));
+
+  const missing = validatePhase1EditorialResult({
+    titleZh: '勇士可能关注勒布朗·詹姆斯',
+    summaryZh: '勇士可能关注勒布朗·詹姆斯。',
+    oneLineZh: '这仍是一种尚未确定的可能性',
+    categoryZh: '分析',
+    tagsZh: ['勇士', '勒布朗·詹姆斯'],
+    confidence: 0.9
+  }, record, fact);
+  assert.equal(missing.reasons.includes('editorial-attribution-missing'), true);
+  assert.equal(missing.reasons.includes('editorial-required-number-missing'), true);
+  assert.equal(missing.reasons.includes('editorial-analysis-marker-missing'), true);
+});
+
+test('Stage 2 rejects reordered oneLine duplicates and unexpected English tokens', async () => {
+  const record = await makeRecord();
+  const fact = makeSigningFact();
+  const reordered = validatePhase1EditorialResult({
+    ...makeSigningEditorial(),
+    titleZh: '湖人以 2 年合同签下 Jaxson Hayes',
+    summaryZh: 'Jaxson Hayes 与湖人达成 2 年 1200 万美元合同，双方已经完成这笔签约。',
+    oneLineZh: 'Jaxson Hayes 以 2 年合同加盟湖人'
+  }, record, fact);
+  assert.equal(reordered.reasons.includes('title-oneline-low-value-duplicate'), true);
+
+  const unexpectedEnglish = validatePhase1EditorialResult({
+    ...makeSigningEditorial(),
+    summaryZh: '湖人 reportedly 与 Jaxson Hayes 达成 2 年 1200 万美元合同。'
+  }, record, fact);
+  assert.equal(unexpectedEnglish.reasons.includes('unexpected-english-token'), true);
+  assert.equal(
+    unexpectedEnglish.details.unsafeFragments.includes('unexpected-english:reportedly'),
+    true
+  );
+});
+
+test('Stage 2 constraints cover the frozen rumor and signing regressions', async () => {
+  const cases = [
+    {
+      id: 'TR-01',
+      storyType: 'trade_rumor',
+      facts: [
+        {
+          text: 'RealGM reports that the Miami Heat, Denver Nuggets and Cleveland Cavaliers are interested in DeMar DeRozan.',
+          certainty: 'interest',
+          attribution: 'RealGM'
+        },
+        {
+          text: 'DeRozan had a partial guarantee of $10 million on a $26.74 million contract with the Sacramento Kings.',
+          certainty: 'possible'
+        }
+      ],
+      editorial: {
+        titleZh: '热火、掘金和骑士有意德玛尔·德罗赞',
+        summaryZh: '据 RealGM 报道，热火、掘金和骑士均有意德玛尔·德罗赞；他与国王的 2674 万美元合同仅有 1000 万美元受保障。',
+        oneLineZh: '德罗赞与国王的合同仅有 1000 万美元受保障',
+        categoryZh: '流言',
+        tagsZh: ['德玛尔·德罗赞'],
+        confidence: 0.9
+      }
+    },
+    {
+      id: 'TR-02',
+      storyType: 'trade_rumor',
+      facts: [
+        {
+          text: 'The Miami Heat are interested in adding Klay Thompson.',
+          certainty: 'interest'
+        },
+        {
+          text: 'Thompson is owed $17.5 million in the final year of his contract with the Dallas Mavericks.',
+          certainty: 'possible'
+        }
+      ],
+      editorial: {
+        titleZh: '热火有意引进克莱·汤普森',
+        summaryZh: '热火有意引进克莱·汤普森，但他与独行侠的合同还剩最后一年，价值 1750 万美元。',
+        oneLineZh: '汤普森与独行侠的最后一年合同价值 1750 万美元',
+        categoryZh: '流言',
+        tagsZh: ['热火', '克莱·汤普森'],
+        confidence: 0.9
+      }
+    },
+    {
+      id: 'TR-03',
+      storyType: 'trade_rumor',
+      facts: [
+        {
+          text: 'The Washington Wizards and Dallas Mavericks had no interest in trading Anthony Davis or Kyrie Irving.',
+          certainty: 'interest',
+          polarity: 'negative'
+        },
+        {
+          text: 'Anthony Davis and Kyrie Irving are expected to start the season with their current teams.',
+          certainty: 'expected'
+        }
+      ],
+      editorial: {
+        titleZh: '奇才和独行侠无意交易戴维斯或欧文',
+        summaryZh: '奇才和独行侠均无意交易安东尼·戴维斯或凯里·欧文，两人预计将在各自球队开始新赛季。',
+        oneLineZh: '戴维斯和欧文预计将在现有球队开始新赛季',
+        categoryZh: '流言',
+        tagsZh: ['戴维斯', '欧文'],
+        confidence: 0.9
+      }
+    },
+    {
+      id: 'SG-01',
+      storyType: 'signing',
+      facts: [
+        {
+          text: 'The Denver Nuggets matched a two-year, $12 million offer sheet for Spencer Jones.',
+          certainty: 'confirmed'
+        },
+        {
+          text: 'Denver will retain Jones, who was a rotation player last season.',
+          certainty: 'confirmed'
+        }
+      ],
+      editorial: {
+        titleZh: '掘金匹配报价留下斯潘塞·琼斯',
+        summaryZh: '掘金匹配了为斯潘塞·琼斯开出的 2 年 1200 万美元报价合同。',
+        oneLineZh: '琼斯上赛季已进入掘金轮换阵容',
+        categoryZh: '签约',
+        tagsZh: ['掘金', '斯潘塞·琼斯'],
+        confidence: 0.9
+      }
+    },
+    {
+      id: 'SG-02',
+      storyType: 'signing',
+      facts: [
+        {
+          text: 'Draymond Green is expected to re-sign with the Golden State Warriors for $28 million.',
+          certainty: 'expected'
+        },
+        {
+          text: 'Green has always been expected to stay with Golden State.',
+          certainty: 'expected'
+        }
+      ],
+      editorial: {
+        titleZh: '德雷蒙德·格林预计以 2800 万美元与勇士续约',
+        summaryZh: '德雷蒙德·格林预计将以接近 2800 万美元的价格与勇士续约。',
+        oneLineZh: '勇士一直预期格林会继续留队',
+        categoryZh: '签约',
+        tagsZh: ['勇士', '德雷蒙德·格林'],
+        confidence: 0.9
+      }
+    }
+  ];
+
+  for (const entry of cases) {
+    const fact = makeFactSet(entry.storyType, entry.facts, [
+      ...(entry.storyType === 'trade_rumor'
+        ? ['Do not claim that interest or an expected action is completed.']
+        : [])
+    ]);
+    const record = await makeRecord({
+      originalTitle: entry.facts[0].text,
+      originalSummary: entry.facts.map((item) => item.text).join(' ')
+    });
+    const validation = validatePhase1EditorialResult(entry.editorial, record, fact);
+    assert.equal(validation.ok, true, `${entry.id}: ${JSON.stringify(validation)}`);
+  }
+});
+
+test('Stage 2 keeps analysis and previously accepted frozen-style outputs safe', async () => {
+  const cases = [
+    {
+      id: 'AN-01',
+      storyType: 'analysis',
+      facts: [
+        {
+          text: 'RealGM reports that the Warriors focus is on building a roster for after Stephen Curry retires.',
+          certainty: 'opinion',
+          attribution: 'RealGM'
+        },
+        {
+          text: 'The Warriors could pursue LeBron James.',
+          certainty: 'possible'
+        }
+      ],
+      editorial: {
+        titleZh: '勇士可能关注勒布朗·詹姆斯',
+        summaryZh: 'RealGM 分析认为，勇士更关注斯蒂芬·库里退役后的阵容建设，同时也可能追逐勒布朗·詹姆斯。',
+        oneLineZh: '据 RealGM 分析，勇士的长期重点是库里退役后的阵容',
+        categoryZh: '分析',
+        tagsZh: ['勇士', '斯蒂芬·库里'],
+        confidence: 0.9
+      }
+    },
+    {
+      id: 'SG-03',
+      storyType: 'signing',
+      facts: [
+        {
+          text: 'The Houston Rockets have signed forward Julian Phillips.',
+          certainty: 'confirmed'
+        },
+        {
+          text: 'The contract is likely a one-year deal worth $2.5 million.',
+          certainty: 'likely'
+        }
+      ],
+      editorial: {
+        titleZh: '火箭签下前锋朱利安·菲利普斯',
+        summaryZh: '火箭已经签下朱利安·菲利普斯，合同可能为 1 年 250 万美元。',
+        oneLineZh: '这份合同可能是一份 1 年老将底薪合同',
+        categoryZh: '签约',
+        tagsZh: ['火箭', '朱利安·菲利普斯'],
+        confidence: 0.9
+      }
+    },
+    {
+      id: 'IN-01',
+      storyType: 'interview',
+      facts: [
+        {
+          text: "Stephen Curry said, 'You don't envision anything until it happens.'",
+          certainty: 'opinion',
+          attribution: 'Stephen Curry'
+        },
+        {
+          text: 'Curry had hoped LeBron James would choose Golden State.',
+          certainty: 'opinion',
+          attribution: 'Stephen Curry'
+        }
+      ],
+      editorial: {
+        titleZh: '斯蒂芬·库里谈詹姆斯选择球队',
+        summaryZh: '斯蒂芬·库里表示，在事情发生前不会预想结果；他曾希望勒布朗·詹姆斯选择勇士。',
+        oneLineZh: '库里称此事存在许多变数，无法提前设想',
+        categoryZh: '分析',
+        tagsZh: ['斯蒂芬·库里', '勇士'],
+        confidence: 0.9
+      }
+    },
+    {
+      id: 'AN-02',
+      storyType: 'analysis',
+      facts: [
+        {
+          text: "Dunc'd On discusses LeBron James joining the Philadelphia 76ers.",
+          certainty: 'opinion',
+          attribution: "Dunc'd On"
+        },
+        {
+          text: "Dunc'd On asks whether the 76ers offer the best chance to win.",
+          certainty: 'opinion',
+          attribution: "Dunc'd On"
+        }
+      ],
+      editorial: {
+        titleZh: 'Dunc’d On 讨论詹姆斯加盟 76 人',
+        summaryZh: 'Dunc’d On 节目讨论了勒布朗·詹姆斯加盟 76 人的情景，并分析这是否是更好的争冠机会。',
+        oneLineZh: '节目重点分析了 76 人的争冠可能性',
+        categoryZh: '分析',
+        tagsZh: ['勒布朗·詹姆斯', '76 人'],
+        confidence: 0.9
+      }
+    }
+  ];
+
+  for (const entry of cases) {
+    const fact = makeFactSet(entry.storyType, entry.facts, [
+      ...(entry.storyType === 'analysis'
+        ? ['Do not present an opinion or analysis as a completed fact.']
+        : [])
+    ]);
+    const record = await makeRecord({
+      originalTitle: entry.facts[0].text,
+      originalSummary: entry.facts.map((item) => item.text).join(' ')
+    });
+    const validation = validatePhase1EditorialResult(entry.editorial, record, fact);
+    assert.equal(validation.ok, true, `${entry.id}: ${JSON.stringify(validation)}`);
+  }
+});
+
 test('Stage 2 requires SG-01 core contract facts without treating cap terms as people', async () => {
   const record = await makeRecord({
     originalTitle: 'Nuggets Matching Spencer Jones Offer Sheet From Thunder',
@@ -1386,6 +1731,37 @@ function makeSigningEditorial() {
     categoryZh: '签约',
     tagsZh: ['湖人', '签约'],
     confidence: 0.9
+  };
+}
+
+function makeFactSet(storyType, entries, mustNotClaim = []) {
+  return {
+    storyType,
+    facts: entries.map((entry, index) => {
+      const evidenceQuote = entry.text;
+      const extracted = extractEvidenceFacts(evidenceQuote, evidenceQuote);
+      return {
+        id: `fact-${index + 1}`,
+        factText: evidenceQuote,
+        polarity: entry.polarity || 'positive',
+        certainty: entry.certainty,
+        attribution: entry.attribution || '',
+        attributionQuote: entry.attribution ? evidenceQuote : '',
+        sourceField: 'rssSummary',
+        evidenceQuote,
+        entities: [
+          ...extracted.teams.map((canonicalId) => ({ type: 'team', canonicalId })),
+          ...extracted.players.map((canonicalId) => ({ type: 'person', canonicalId }))
+        ],
+        numbers: [
+          ...extracted.money.map((value) => ({ type: 'money', value })),
+          ...extracted.durations.map((value) => ({ type: 'contractYears', value })),
+          ...extracted.picks.map((value) => ({ type: 'tradeAsset', value })),
+          ...extracted.scores.map((value) => ({ type: 'score', value }))
+        ]
+      };
+    }),
+    mustNotClaim
   };
 }
 

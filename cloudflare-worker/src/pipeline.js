@@ -556,9 +556,73 @@ export function buildFactExtractionPrompt(record, articleText = '') {
   ].join('\n');
 }
 
+export function buildEditorialConstraints(factExtraction) {
+  if (!isFactExtractionObject(factExtraction)) {
+    return {
+      requiredAttributions: [],
+      requiredNumbers: [],
+      requiredAnalysisMarker: false,
+      requiredCertainty: [],
+      forbiddenClaims: [],
+      oneLineFacts: []
+    };
+  }
+
+  const coreFacts = selectPhase1CoreFacts(factExtraction);
+  const requiredAttributions = [...new Set(
+    factExtraction.facts
+      .map((fact) => normalizeWhitespace(fact.attribution))
+      .filter(Boolean)
+  )];
+  const requiredNumbers = [];
+  for (const fact of coreFacts) {
+    for (const number of fact.numbers || []) {
+      if (!isRequiredEditorialNumber(number, fact)) continue;
+      const key = `${number.type}:${number.value}`;
+      if (requiredNumbers.some((entry) => `${entry.type}:${entry.value}` === key)) continue;
+      requiredNumbers.push({
+        type: number.type,
+        value: number.value,
+        displayZh: formatEditorialNumberZh(number),
+        factId: fact.id
+      });
+    }
+  }
+
+  const requiredCertainty = coreFacts
+    .filter((fact) => fact.certainty !== 'confirmed')
+    .map((fact) => ({
+      factId: fact.id,
+      certainty: fact.certainty,
+      polarity: fact.polarity
+    }));
+  const requiredAnalysisMarker = (
+    factExtraction.storyType === 'analysis' ||
+    factExtraction.facts.some((fact) => fact.certainty === 'opinion')
+  );
+
+  return {
+    requiredAttributions,
+    requiredNumbers,
+    requiredAnalysisMarker,
+    requiredCertainty,
+    forbiddenClaims: [...new Set(
+      factExtraction.mustNotClaim.map((claim) => normalizeWhitespace(claim)).filter(Boolean)
+    )],
+    oneLineFacts: selectPhase1OneLineFacts(factExtraction, coreFacts).map((fact) => ({
+      id: fact.id,
+      factText: fact.factText,
+      certainty: fact.certainty,
+      polarity: fact.polarity,
+      attribution: fact.attribution,
+      numbers: fact.numbers
+    }))
+  };
+}
+
 export function buildPhase1EditorialPrompt(factExtraction, record) {
   const canonicalNames = buildCanonicalDisplayNames(factExtraction);
-  const coreFacts = selectPhase1CoreFacts(factExtraction);
+  const editorialConstraints = buildEditorialConstraints(factExtraction);
   const factStoryType = factExtraction.storyType === 'interview'
     ? 'opinion'
     : factExtraction.storyType === 'trade_rumor'
@@ -568,9 +632,6 @@ export function buildPhase1EditorialPrompt(factExtraction, record) {
   const expectedFactLevel = factCertaintyToEditorialLevel(
     getFactExtractionCertainty(factExtraction)
   );
-  const requiredAttributions = [...new Set(
-    factExtraction.facts.map((fact) => fact.attribution).filter(Boolean)
-  )];
   return [
     '你是严谨的中文 NBA 快讯编辑。',
     '你的唯一事实来源是下方已经通过代码验证的 Fact JSON；不得使用外部知识，不得补充常识或猜测。',
@@ -587,13 +648,17 @@ export function buildPhase1EditorialPrompt(factExtraction, record) {
     'reported、expected、likely、possible 不能改写成已完成或确定事件。',
     'opinion 或 analysis 必须明确写成某人观点、媒体分析、预测或讨论，不能写成已发生事实。',
     '采访必须保留发言者、观点对象和归属关系。',
-    'requiredAttributions 非空时，summaryZh 必须明确写出每个必要的发言者、媒体或节目来源。',
+    '必须逐项满足 editorialConstraints，不得忽略其中任何必填约束。',
+    'requiredAttributions 非空时，summaryZh 或 oneLineZh 必须明确写出每个必要的发言者、媒体或节目来源。',
+    'requiredNumbers 中每个金额、年限、比分或核心筹码必须出现在 summaryZh 或 oneLineZh；可以使用等价中文数字表达。',
+    'requiredAnalysisMarker 为 true 时，必须明确使用“分析认为、节目认为、报道判断、某人表示”等观点或分析语气。',
+    'requiredCertainty 中的 expected、likely、possible、interest 和否定极性必须在相应事实的中文表达中保留。',
+    'forbiddenClaims 中的断言全部禁止。',
+    'oneLineFacts 按优先级列出标题之外可用的速览事实；有第二条事实时 oneLineZh 应优先使用它。',
+    '如果 oneLineFacts 没有独立事实，oneLineZh 应补充来源、金额、对象或确定性限定，不得只与 titleZh 互换词序。',
     'oneLineZh 也必须独立保留相关的“据报道、预计、可能、分析认为、某人表示”等确定性或观点限定。',
-    '必须准确保留 Fact JSON 中的金额、年限、比分、伤病时间和主要交易筹码。',
-    'requiredCoreFacts 是标题和摘要必须覆盖的核心事实；其他 Facts 只作为可选背景，不要求全部写入。',
-    '逐条检查 requiredCoreFacts：其中每个金额、年限、比分和主要实体都必须出现在 titleZh 或 summaryZh。',
     '不要为了覆盖可选背景而堆砌次要薪资空间、奢侈税线或例外条款数字。',
-    '除球员名、球队缩写、媒体名和 NBA 专名外，不得保留 roster spots 等普通英文短语。',
+    '除球员名、球队缩写、媒体名和 NBA 专名外，不得保留 reportedly、expected、likely、roster spots 等普通英文词或短语。',
     '球员与球队签约或续约应写“球员与球队签约/续约”或“球队签下球员”，不要写“球员签约球队/续约球队”。',
     `categoryZh 必须是 ${expectedCategory}。`,
     '优先使用 canonicalNames 中的常见中文名；无中文映射时完整保留英文姓名，不自行音译。',
@@ -601,8 +666,7 @@ export function buildPhase1EditorialPrompt(factExtraction, record) {
     `publishedAt=${record.publishedAt || ''}`,
     `expectedFactLevel=${expectedFactLevel}`,
     `canonicalNames=${JSON.stringify(canonicalNames)}`,
-    `requiredAttributions=${JSON.stringify(requiredAttributions)}`,
-    `requiredCoreFacts=${JSON.stringify(coreFacts)}`,
+    `editorialConstraints=${JSON.stringify(editorialConstraints)}`,
     `validatedFactJson=${JSON.stringify(factExtraction)}`
   ].join('\n');
 }
@@ -817,6 +881,7 @@ export function validatePhase1EditorialResult(result, record, factExtraction) {
     return { ok: false, reasons: ['invalid-json-shape'], details };
   }
 
+  const editorialConstraints = buildEditorialConstraints(factExtraction);
   const factLevel = factCertaintyToEditorialLevel(getFactExtractionCertainty(factExtraction));
   const factStoryType = factExtraction.storyType === 'interview'
     ? 'opinion'
@@ -837,7 +902,8 @@ export function validatePhase1EditorialResult(result, record, factExtraction) {
     storyType: factStoryType,
     category: expectedCategory,
     expectedFactLevel: factLevel,
-    skipGenericCertaintyReview: true
+    skipGenericCertaintyReview: true,
+    ignoreFinalYearAsContractDuration: true
   };
   const sourceEvidence = `${factEvidence}\n${attributionEvidence}`;
   const normalizedOneLine = normalizeEditorialPersonNames(
@@ -866,14 +932,20 @@ export function validatePhase1EditorialResult(result, record, factExtraction) {
   }
   if (value && comparable(value.titleZh) === comparable(normalizedOneLine)) {
     reasons.push('title-oneline-duplicate');
+  } else if (
+    value &&
+    isLowValueOneLineDuplicate(value.titleZh, normalizedOneLine, sourceEvidence)
+  ) {
+    reasons.push('title-oneline-low-value-duplicate');
   }
 
   const requiredFacts = extractEvidenceFacts(coreFactEvidence, sourceEvidence);
   const allowedFacts = extractEvidenceFacts(sourceEvidence, sourceEvidence);
   const outputFacts = value
-    ? extractEvidenceFacts(
+    ? extractEditorialOutputFacts(
         `${value.titleZh}\n${value.summaryZh}\n${value.oneLineZh}`,
-        sourceEvidence
+        sourceEvidence,
+        true
       )
     : extractEvidenceFacts('');
   const phase1FactDetails = { addedFacts: [], missingFacts: [] };
@@ -889,7 +961,9 @@ export function validatePhase1EditorialResult(result, record, factExtraction) {
 
   const certaintyReview = inspectCertaintyPreservation(
     buildPhase1CertaintyEvidence(factExtraction),
-    normalizedOneLine,
+    value
+      ? `${value.summaryZh}\n${value.oneLineZh}`
+      : `${normalizeChineseText(result.summaryZh)}\n${normalizedOneLine}`,
     factLevel
   );
   if (certaintyReview.reasons.length) {
@@ -897,14 +971,29 @@ export function validatePhase1EditorialResult(result, record, factExtraction) {
     details.unsafeFragments.push(...certaintyReview.fragments);
   }
   const attributionReview = inspectPhase1AttributionCoverage(
-    factExtraction,
+    editorialConstraints.requiredAttributions,
     value
-      ? `${value.titleZh}\n${value.summaryZh}\n${value.oneLineZh}`
+      ? `${value.summaryZh}\n${value.oneLineZh}`
       : ''
   );
   if (attributionReview.reasons.length) {
     reasons.push(...attributionReview.reasons);
     details.unsafeFragments.push(...attributionReview.fragments);
+  }
+  const constraintReview = inspectEditorialConstraints(
+    editorialConstraints,
+    value || {
+      titleZh: normalizeChineseText(result.titleZh),
+      summaryZh: normalizeChineseText(result.summaryZh),
+      oneLineZh: normalizedOneLine
+    },
+    factExtraction,
+    sourceEvidence
+  );
+  if (constraintReview.reasons.length) {
+    reasons.push(...constraintReview.reasons);
+    details.missingFacts.push(...constraintReview.missingFacts);
+    details.unsafeFragments.push(...constraintReview.fragments);
   }
 
   details.addedFacts.push(
@@ -1027,9 +1116,10 @@ export function validateEditorialResult(result, record, articleText = '') {
   const requiredFacts = extractEvidenceFacts(sourceCore);
   const requiredEntities = extractEvidenceFacts(record.originalTitle || '');
   const allowedFacts = extractEvidenceFacts(sourceEvidence);
-  const outputFacts = extractEvidenceFacts(
+  const outputFacts = extractEditorialOutputFacts(
     `${value.titleZh}\n${value.summaryZh}`,
-    sourceEvidence
+    sourceEvidence,
+    record.ignoreFinalYearAsContractDuration === true
   );
   compareFacts(requiredFacts, allowedFacts, outputFacts, details, requiredEntities);
   if (details.addedFacts.length) reasons.push('added-facts');
@@ -1390,6 +1480,28 @@ export function extractEvidenceFacts(text = '', personContext = text) {
     picks: extractPickFacts(value),
     scores: extractScoreFacts(value)
   };
+}
+
+function extractEditorialOutputFacts(
+  text = '',
+  personContext = text,
+  ignoreFinalYearAsContractDuration = false
+) {
+  const facts = extractEvidenceFacts(text, personContext);
+  const withoutFinalYear = String(text).replace(
+    /(?:最后|剩余|还剩)\s*[一1]\s*年/g,
+    ' '
+  );
+  if (
+    ignoreFinalYearAsContractDuration &&
+    /(?:最后|剩余|还剩)\s*[一1]\s*年/.test(text) &&
+    !/(?:为期|一份|签下|达成)\s*[一1]\s*年|[一1]\s*年(?:期)?(?:合同|协议)/.test(
+      withoutFinalYear
+    )
+  ) {
+    facts.durations = facts.durations.filter((value) => value !== 'years:1');
+  }
+  return facts;
 }
 
 function materializeItem(record) {
@@ -2481,6 +2593,81 @@ function selectPhase1CoreFacts(factExtraction) {
   return selected.slice(0, 4);
 }
 
+function selectPhase1OneLineFacts(factExtraction, coreFacts) {
+  const primaryFact = coreFacts[0] || factExtraction.facts[0];
+  const candidates = factExtraction.facts
+    .filter((fact) => fact !== primaryFact && !isSecondaryEditorialContext(fact))
+    .map((fact, index) => ({
+      fact,
+      index,
+      score: oneLineFactPriority(fact, primaryFact)
+    }))
+    .sort((left, right) => (
+      right.score - left.score ||
+      left.index - right.index
+    ))
+    .map(({ fact }) => fact);
+
+  return candidates.slice(0, 3);
+}
+
+function oneLineFactPriority(fact, primaryFact) {
+  let score = 0;
+  const primaryNumbers = new Set(
+    (primaryFact?.numbers || []).map((entry) => `${entry.type}:${entry.value}`)
+  );
+  const factNumbers = (fact.numbers || []).map((entry) => `${entry.type}:${entry.value}`);
+  if (factNumbers.some((entry) => !primaryNumbers.has(entry))) {
+    score += 100;
+  } else if (hasCoreEditorialNumber(fact)) {
+    score += 10;
+  }
+  if (normalizeWhitespace(fact.attribution)) score += 30;
+  if (fact.polarity === 'negative') score += 25;
+  if (fact.certainty !== primaryFact?.certainty) score += 20;
+  const primaryEntities = new Set(
+    (primaryFact?.entities || []).map((entry) => `${entry.type}:${entry.canonicalId}`)
+  );
+  const factEntities = (fact.entities || []).map(
+    (entry) => `${entry.type}:${entry.canonicalId}`
+  );
+  if (factEntities.some((entry) => primaryEntities.has(entry))) score += 20;
+  if (factEntities.length && !factEntities.some((entry) => primaryEntities.has(entry))) {
+    score -= 10;
+  }
+  return score;
+}
+
+function isRequiredEditorialNumber(number, fact) {
+  if (!number || !['money', 'contractYears', 'score', 'tradeAsset'].includes(number.type)) {
+    return false;
+  }
+  if (number.type !== 'money') return true;
+  return hasCoreEditorialNumber(fact);
+}
+
+function formatEditorialNumberZh(number) {
+  const [kind, ...parts] = normalizeWhitespace(number?.value).split(':');
+  if (number?.type === 'money' && kind === 'usd-million') {
+    const millions = Number(parts[0]);
+    if (!Number.isFinite(millions)) return number.value;
+    const tenThousands = millions * 100;
+    return Number.isInteger(tenThousands)
+      ? `${tenThousands} 万美元`
+      : `${stripNumber(tenThousands)} 万美元`;
+  }
+  if (number?.type === 'contractYears' && kind === 'years') {
+    return `${parts[0]} 年`;
+  }
+  if (number?.type === 'score' && kind === 'score') {
+    return `${parts[0]} 比 ${parts[1]}`;
+  }
+  if (number?.type === 'tradeAsset' && kind === 'pick') {
+    return `${parts[1]} 个${parts[0] === 'first' ? '首轮' : '次轮'}签`;
+  }
+  return number?.value || '';
+}
+
 function phase1RumorCoreRank(certainty) {
   return {
     interest: 0,
@@ -2662,12 +2849,12 @@ function inferSourceActions(value) {
     .map(([action]) => action);
 }
 
-function inspectPhase1AttributionCoverage(factExtraction, outputValue) {
+function inspectPhase1AttributionCoverage(requiredAttributions, outputValue) {
   const output = normalizeWhitespace(outputValue);
   const reasons = [];
   const fragments = [];
   const attributions = [...new Set(
-    factExtraction.facts.map((fact) => normalizeWhitespace(fact.attribution)).filter(Boolean)
+    (requiredAttributions || []).map((value) => normalizeWhitespace(value)).filter(Boolean)
   )];
 
   for (const attribution of attributions) {
@@ -2683,7 +2870,7 @@ function inspectPhase1AttributionCoverage(factExtraction, outputValue) {
           ...canonical.shortNames
         ]
       : [attribution];
-    if (aliases.some((alias) => containsAlias(output, alias))) continue;
+    if (aliases.some((alias) => containsNormalized(output, alias))) continue;
     reasons.push('editorial-attribution-missing');
     fragments.push(`missing-attribution:${attribution}`);
   }
@@ -2692,6 +2879,176 @@ function inspectPhase1AttributionCoverage(factExtraction, outputValue) {
     reasons: [...new Set(reasons)],
     fragments: [...new Set(fragments)]
   };
+}
+
+function inspectEditorialConstraints(
+  constraints,
+  outputValue,
+  factExtraction,
+  sourceEvidence
+) {
+  const titleZh = normalizeWhitespace(outputValue?.titleZh);
+  const summaryZh = normalizeWhitespace(outputValue?.summaryZh);
+  const oneLineZh = normalizeWhitespace(outputValue?.oneLineZh);
+  const summaryAndOneLine = `${summaryZh}\n${oneLineZh}`;
+  const reasons = [];
+  const missingFacts = [];
+  const fragments = [];
+  const outputFacts = extractEditorialOutputFacts(
+    summaryAndOneLine,
+    sourceEvidence,
+    true
+  );
+
+  const numberGroups = {
+    money: 'money',
+    contractYears: 'durations',
+    tradeAsset: 'picks',
+    score: 'scores'
+  };
+  for (const required of constraints.requiredNumbers) {
+    const group = numberGroups[required.type];
+    if (group && outputFacts[group].includes(required.value)) continue;
+    reasons.push('editorial-required-number-missing');
+    missingFacts.push(`constraint-number:${required.type}:${required.value}`);
+  }
+
+  if (
+    constraints.requiredAnalysisMarker &&
+    !hasChineseAnalysisMarker(`${summaryZh}\n${oneLineZh}`)
+  ) {
+    reasons.push('editorial-analysis-marker-missing');
+    fragments.push('missing-analysis-or-opinion-marker');
+  }
+  if (
+    constraints.requiredAnalysisMarker &&
+    !hasChineseAnalysisMarker(oneLineZh)
+  ) {
+    reasons.push('analysis-presented-as-fact');
+    fragments.push('oneline-missing-analysis-or-opinion-marker');
+  }
+
+  for (const requirement of constraints.requiredCertainty) {
+    if (hasRequiredChineseCertainty(summaryAndOneLine, requirement)) continue;
+    reasons.push('editorial-certainty-marker-missing');
+    fragments.push(
+      `missing-certainty:${requirement.factId}:${requirement.certainty}:${requirement.polarity}`
+    );
+  }
+
+  const unexpectedEnglish = findUnexpectedEditorialEnglishTokens(
+    `${titleZh}\n${summaryZh}\n${oneLineZh}`,
+    factExtraction,
+    constraints
+  );
+  if (unexpectedEnglish.length) {
+    reasons.push('unexpected-english-token');
+    fragments.push(...unexpectedEnglish.map((token) => `unexpected-english:${token}`));
+  }
+
+  return {
+    reasons: [...new Set(reasons)],
+    missingFacts: [...new Set(missingFacts)],
+    fragments: [...new Set(fragments)]
+  };
+}
+
+function hasChineseAnalysisMarker(value) {
+  return /(?:分析(?:认为|指出|判断|讨论|预测)?|(?:节目|文章|报道)(?:认为|指出|判断|讨论|预测)|认为|表示|称|谈到|提到|指出|判断|预测|观点|讨论)/.test(
+    normalizeWhitespace(value)
+  );
+}
+
+function hasRequiredChineseCertainty(value, requirement) {
+  const text = normalizeWhitespace(value);
+  if (requirement.polarity === 'negative' && !/(?:未|不|无意|没有|尚未|不会|并非|否认|拒绝|不愿)/.test(text)) {
+    return false;
+  }
+  return {
+    reported: /(?:据.{0,16}(?:报道|消息)|报道称|有消息|消息称)/,
+    expected: /(?:预计|预期|有望|或将)/,
+    likely: /(?:可能|很可能|大概率|预计|据估计|估计|或为)/,
+    possible: /(?:可能|或将|有望|尚不清楚|不确定|有意|关注|考虑|兴趣|希望)/,
+    interest: /(?:有意|无意|关注|兴趣|考虑|接触|追逐|目标|希望)/,
+    opinion: /(?:分析|认为|表示|称|谈到|提到|指出|判断|预测|观点|讨论)/
+  }[requirement.certainty]?.test(text) ?? true;
+}
+
+function findUnexpectedEditorialEnglishTokens(text, factExtraction, constraints) {
+  let scrubbed = String(text || '');
+  const canonicalNames = buildCanonicalDisplayNames(factExtraction);
+  const allowedPhrases = new Set([
+    'NBA',
+    'ESPN',
+    'RealGM',
+    'MLE',
+    "Dunc'd On",
+    'Dunc’d On',
+    'Klutch Sports',
+    ...constraints.requiredAttributions,
+    ...canonicalNames
+      .filter((entry) => entry.role !== 'team')
+      .flatMap((entry) => [
+        entry.sourceName,
+        ...normalizeWhitespace(entry.sourceName).split(/[\s-]+/)
+      ])
+  ].filter(Boolean));
+
+  for (const phrase of [...allowedPhrases].sort((a, b) => b.length - a.length)) {
+    scrubbed = scrubbed.replace(new RegExp(escapeRegExp(phrase), 'gi'), ' ');
+  }
+  scrubbed = scrubbed.replace(
+    /\b[A-Z][A-Za-zÀ-ž'’.-]+(?:\s+(?:[A-Z][A-Za-zÀ-ž'’.-]+|Jr\.?|Sr\.?|II|III|IV)){1,3}\b/g,
+    ' '
+  );
+
+  return [...new Set(
+    [...scrubbed.matchAll(/\b[A-Za-z][A-Za-z'’-]*\b/g)]
+      .map((match) => match[0])
+      .filter((token) => token.length > 1)
+  )];
+}
+
+function isLowValueOneLineDuplicate(titleZh, oneLineZh, sourceEvidence) {
+  const title = comparable(titleZh);
+  const oneLine = comparable(oneLineZh);
+  if (!title || !oneLine) return false;
+  if (title === oneLine || title.includes(oneLine) || oneLine.includes(title)) return true;
+
+  const titleSignature = buildEditorialInformationSignature(titleZh, sourceEvidence);
+  const oneLineSignature = buildEditorialInformationSignature(oneLineZh, sourceEvidence);
+  return (
+    titleSignature.length >= 3 &&
+    titleSignature.length === oneLineSignature.length &&
+    titleSignature.every((entry, index) => entry === oneLineSignature[index])
+  );
+}
+
+function buildEditorialInformationSignature(value, sourceEvidence) {
+  const text = normalizeWhitespace(value);
+  const facts = extractEvidenceFacts(text, sourceEvidence);
+  const signature = [
+    ...facts.teams.map((entry) => `team:${entry}`),
+    ...facts.players.map((entry) => `person:${entry}`),
+    ...facts.money.map((entry) => `money:${entry}`),
+    ...facts.durations.map((entry) => `duration:${entry}`),
+    ...facts.picks.map((entry) => `pick:${entry}`),
+    ...facts.scores.map((entry) => `score:${entry}`)
+  ];
+  const actionPatterns = {
+    signing: /(?:签下|签约|续约|加盟|合同|报价)/,
+    trade: /(?:交易|换来|送走|送往|得到)/,
+    interest: /(?:有意|关注|兴趣|考虑|接触|追逐|目标)/,
+    retain: /(?:留队|留下|保留)/,
+    analysis: /(?:分析|认为|判断|预测|观点|讨论)/,
+    statement: /(?:表示|称|谈到|提到|指出)/,
+    expected: /(?:预计|预期|有望|可能|或将)/,
+    negative: /(?:未|不|无意|没有|尚未|不会|并非)/
+  };
+  for (const [action, pattern] of Object.entries(actionPatterns)) {
+    if (pattern.test(text)) signature.push(`action:${action}`);
+  }
+  return [...new Set(signature)].sort();
 }
 
 function normalizeFactStoryType(value, fallback = '') {

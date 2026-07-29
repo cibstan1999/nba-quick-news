@@ -3,6 +3,7 @@ import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 import {
+  buildEditorialConstraints,
   validateFactExtraction,
   validatePhase1EditorialResult
 } from '../src/pipeline.js';
@@ -282,6 +283,7 @@ async function collectStage2() {
       testType: frozenSample.testType,
       originalTitle: baselineSample.originalTitle,
       previousAiStatus: frozenSample.previousAiStatus,
+      editorialConstraints: buildEditorialConstraints(frozenSample.factExtraction),
       dryRun: payload.dryRun,
       persisted: payload.persisted,
       stage2Only: payload.stage2Only,
@@ -323,24 +325,7 @@ async function collectStage2() {
     productionWrites: 0,
     stage1Requests: 0,
     llamaFallbackCalls: results.filter((result) => result.fallbackInvoked).length,
-    metrics: {
-      firstAttemptParsed: results.filter((result) => (
-        result.editorial && result.editorialStageRequests === 1
-      )).length,
-      retryParsed: results.filter((result) => (
-        result.editorial && result.editorialStageRequests === 2
-      )).length,
-      finalParsed: results.filter((result) => result.editorial).length,
-      gateAccepted: results.filter((result) => result.resultAiStatus === 'accepted').length,
-      gateRejected: results.filter((result) => result.resultAiStatus === 'rejected').length,
-      totalRequests: results.reduce(
-        (sum, result) => sum + result.editorialStageRequests,
-        0
-      ),
-      titleOneLineDuplicates: results.filter((result) => (
-        comparable(result.editorial?.titleZh) === comparable(result.editorial?.oneLineZh)
-      )).length
-    },
+    metrics: calculateStage2Metrics(results),
     results
   };
 
@@ -374,6 +359,7 @@ async function revalidateStage2() {
       frozenSample.factExtraction
     );
     result.resultAiStatus = validation.ok ? 'accepted' : 'rejected';
+    result.editorialConstraints = buildEditorialConstraints(frozenSample.factExtraction);
     result.finalGate = {
       accepted: validation.ok,
       rejectionReasons: validation.reasons,
@@ -386,15 +372,7 @@ async function revalidateStage2() {
   }
 
   report.revalidatedAt = new Date().toISOString();
-  report.metrics.gateAccepted = report.results.filter(
-    (result) => result.resultAiStatus === 'accepted'
-  ).length;
-  report.metrics.gateRejected = report.results.filter(
-    (result) => result.resultAiStatus === 'rejected'
-  ).length;
-  report.metrics.titleOneLineDuplicates = report.results.filter((result) => (
-    comparable(result.editorial?.titleZh) === comparable(result.editorial?.oneLineZh)
-  )).length;
+  report.metrics = calculateStage2Metrics(report.results);
   await atomicWriteJson(stage2ResultsPath, report);
   console.log(JSON.stringify({
     completed: true,
@@ -405,6 +383,51 @@ async function revalidateStage2() {
     stage1Requests: 0,
     llamaFallbackCalls: report.llamaFallbackCalls
   }, null, 2));
+}
+
+function calculateStage2Metrics(results) {
+  const requiredNumbers = results.reduce(
+    (sum, result) => sum + (result.editorialConstraints?.requiredNumbers?.length || 0),
+    0
+  );
+  const missingRequiredNumbers = results.reduce(
+    (sum, result) => sum + (result.finalGate?.missingFacts || [])
+      .filter((fact) => fact.startsWith('constraint-number:'))
+      .length,
+    0
+  );
+  return {
+    firstAttemptParsed: results.filter((result) => (
+      result.editorial && result.editorialStageRequests === 1
+    )).length,
+    retryParsed: results.filter((result) => (
+      result.editorial && result.editorialStageRequests === 2
+    )).length,
+    finalParsed: results.filter((result) => result.editorial).length,
+    gateAccepted: results.filter((result) => result.resultAiStatus === 'accepted').length,
+    gateRejected: results.filter((result) => result.resultAiStatus === 'rejected').length,
+    totalRequests: results.reduce(
+      (sum, result) => sum + result.editorialStageRequests,
+      0
+    ),
+    titleOneLineDuplicates: results.filter((result) => (
+      comparable(result.editorial?.titleZh) === comparable(result.editorial?.oneLineZh) ||
+      (result.finalGate?.rejectionReasons || []).some((reason) => (
+        ['title-oneline-duplicate', 'title-oneline-low-value-duplicate'].includes(reason)
+      ))
+    )).length,
+    requiredNumbers,
+    missingRequiredNumbers,
+    requiredNumberCoverage: requiredNumbers
+      ? (requiredNumbers - missingRequiredNumbers) / requiredNumbers
+      : 1,
+    attributionErrors: results.filter((result) => (
+      (result.finalGate?.rejectionReasons || []).includes('editorial-attribution-missing')
+    )).length,
+    unexpectedEnglishTokens: results.filter((result) => (
+      (result.finalGate?.rejectionReasons || []).includes('unexpected-english-token')
+    )).length
+  };
 }
 
 function redactEvidenceSummary(value) {

@@ -2,6 +2,34 @@
 
 > **Partial frozen baseline: 9/18 samples. Injury and game samples are absent. Stage 1 Facts were frozen locally and were not regenerated during this evaluation.**
 
+## Constraint Convergence Checkpoint
+
+The final Stage 2 convergence code now derives one deterministic
+`editorialConstraints` object from the frozen Facts and passes the same object to
+the prompt and the Gate. It covers required attribution, core numbers, analysis
+markers, weak certainty, forbidden claims, and prioritized oneLine facts.
+
+Deterministic regression tests pass for TR-01, TR-02, TR-03, SG-01, SG-02, SG-03,
+IN-01, AN-01, and AN-02. The Gate also rejects reordered low-value oneLine copy and
+unexpected ordinary English tokens while allowing verified names and abbreviations.
+
+The new prompt could not be regenerated against remote Workers AI in this
+checkpoint because the execution environment blocked the remote dry-run before the
+local Worker started. No alternate samples or generated substitutes were used.
+Therefore the metrics below remain the previous real Qwen baseline and must not be
+presented as results from the converged prompt.
+
+Offline revalidation of those previous nine outputs with the converged Gate found:
+
+- required core-number coverage: `7/8` (`87.5%`);
+- attribution errors: `1`;
+- unexpected English-token errors: `1`;
+- exact or low-value title/oneLine duplicates: `5/9`;
+- Stage 1 requests, Llama fallback calls, and production KV writes: `0`.
+
+Production canary eligibility remains **pending a fresh nine-sample Stage 2-only
+Workers AI run**. No production mode, deployment, or KV record was changed.
+
 ## Decision
 
 - Stage 2 final JSON parse target (`>= 8/9`): **met, 9/9**
