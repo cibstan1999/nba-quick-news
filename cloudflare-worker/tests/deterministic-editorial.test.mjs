@@ -131,6 +131,107 @@ test('deterministic interview composer preserves speaker and viewpoint', () => {
   assert.match(composition.oneLineZh, /事情发生前不会预先设想结果/);
 });
 
+test('deterministic interview composer covers a player choice and related injury outlook', () => {
+  const facts = extraction('interview', [
+    fact({
+      id: 'fact-choice',
+      text: "Stephen Curry addressed LeBron James' decision to sign with the Philadelphia 76ers rather than the Golden State Warriors",
+      certainty: 'opinion',
+      attribution: 'Stephen Curry',
+      attributionQuote: "Stephen Curry addressed LeBron James' decision",
+      entities: [
+        entity('person', 'stephen-curry'),
+        entity('person', 'lebron-james'),
+        entity('team', '76ers'),
+        entity('team', 'warriors')
+      ]
+    }),
+    fact({
+      id: 'fact-injury-outlook',
+      text: "Curry pointed to the injuries suffered by Jimmy Butler and Moody as the real factor shaping the Warriors' outlook, regardless of what happened with James.",
+      certainty: 'opinion',
+      entities: [
+        entity('person', 'jimmy-butler'),
+        entity('team', 'warriors')
+      ]
+    })
+  ], [
+    'Do not present an opinion or analysis as a completed fact.'
+  ]);
+
+  const { composition, validation } = composeAndValidate(facts);
+  assert.equal(validation.ok, true, validation.reasons.join(', '));
+  assert.match(
+    composition.titleZh,
+    /斯蒂芬·库里谈勒布朗·詹姆斯加盟 76 人而非勇士/
+  );
+  assert.match(
+    composition.summaryZh,
+    /斯蒂芬·库里谈到勒布朗·詹姆斯加盟 76 人而非勇士一事/
+  );
+  assert.match(
+    composition.summaryZh,
+    /吉米·巴特勒等人的伤病是影响勇士前景的重要因素/
+  );
+  assert.match(
+    composition.oneLineZh,
+    /斯蒂芬·库里指出，吉米·巴特勒等人的伤病是影响勇士前景的重要因素/
+  );
+  assert.doesNotMatch(JSON.stringify(composition), /勇士(?:已经|正式|确定|决定)/);
+});
+
+test('interview gate rejects a draft that omits a required related viewpoint', () => {
+  const facts = extraction('interview', [
+    fact({
+      id: 'fact-choice',
+      text: "Stephen Curry addressed LeBron James' decision to sign with the Philadelphia 76ers rather than the Golden State Warriors",
+      certainty: 'opinion',
+      attribution: 'Stephen Curry',
+      entities: [
+        entity('person', 'stephen-curry'),
+        entity('person', 'lebron-james'),
+        entity('team', '76ers'),
+        entity('team', 'warriors')
+      ]
+    }),
+    fact({
+      id: 'fact-injury-outlook',
+      text: "Curry pointed to the injuries suffered by Jimmy Butler as the real factor shaping the Warriors' outlook.",
+      certainty: 'opinion',
+      entities: [
+        entity('person', 'jimmy-butler'),
+        entity('team', 'warriors')
+      ]
+    })
+  ], [
+    'Do not present an opinion or analysis as a completed fact.'
+  ]);
+  const plan = buildEditorialFactPlan(facts);
+  const composition = composeDeterministicEditorial(facts, { factPlan: plan });
+  const validation = validateDeterministicEditorialComposition(
+    {
+      ...composition,
+      summaryZh: '斯蒂芬·库里谈到勒布朗·詹姆斯加盟 76 人而非勇士一事。'
+    },
+    {
+      newsId: 'news_interview_missing_fact',
+      source: 'RealGM',
+      publishedAt: '2026-07-29T00:00:00.000Z',
+      originalTitle: '',
+      originalSummary: ''
+    },
+    facts
+  );
+
+  assert.equal(validation.ok, false);
+  assert.ok(validation.reasons.includes('editorial-required-fact-missing'));
+  assert.ok(
+    validation.details.missingFacts.some((value) => (
+      value === 'fact-plan-summary:fact-injury-outlook'
+    ))
+  );
+});
+
 test('deterministic analysis composer keeps a hypothetical transaction hypothetical', () => {
   const facts = extraction('analysis', [
     fact({

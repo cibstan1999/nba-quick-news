@@ -1,0 +1,14 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "nba-quick-news-integration-c-polish-local",
+  "main": "integration-c-polish-worker.mjs",
+  "compatibility_date": "2026-07-27",
+  "workers_dev": false,
+  "ai": {
+    "binding": "AI"
+  },
+  "vars": {
+    "EXPERIMENT_MODE": "true",
+    "AI_MODEL": "@cf/qwen/qwen3-30b-a3b-fp8"
+  }
+}

@@ -36,10 +36,10 @@
     "reviewNotes": "已签约与预计合同结构区分明确，没有内部标记泄漏。"
   },
   "IN-01": {
-    "humanDecision": "reject",
-    "editorEffort": "rewrite",
-    "chineseNaturalness": 2,
-    "reviewNotes": "事实覆盖完整且 Gate 正确拒绝，但现有采访模板只能输出泛化观点句，未自然表达伤病影响。"
+    "humanDecision": "accept",
+    "editorEffort": "minor_edit",
+    "chineseNaturalness": 4,
+    "reviewNotes": "采访者、詹姆斯去向及伤病对勇士前景的影响均已明确表达，保持个人观点语气。"
   },
   "AN-01": {
     "humanDecision": "accept",

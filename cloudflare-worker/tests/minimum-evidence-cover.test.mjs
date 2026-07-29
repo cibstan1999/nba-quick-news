@@ -103,7 +103,7 @@ test('nine-sample aggregate keeps deterministic safety targets', () => {
     'SG-01': { humanDecision: 'accept', editorEffort: 'publish', chineseNaturalness: 4 },
     'SG-02': { humanDecision: 'accept', editorEffort: 'minor_edit', chineseNaturalness: 3 },
     'SG-03': { humanDecision: 'accept', editorEffort: 'publish', chineseNaturalness: 4 },
-    'IN-01': { humanDecision: 'reject', editorEffort: 'rewrite', chineseNaturalness: 2 },
+    'IN-01': { humanDecision: 'accept', editorEffort: 'minor_edit', chineseNaturalness: 4 },
     'AN-01': { humanDecision: 'accept', editorEffort: 'minor_edit', chineseNaturalness: 3 },
     'AN-02': { humanDecision: 'accept', editorEffort: 'minor_edit', chineseNaturalness: 3.5 }
   };
@@ -123,8 +123,8 @@ test('nine-sample aggregate keeps deterministic safety targets', () => {
   assert.equal(metrics.certaintyErrors, 0);
   assert.equal(metrics.negationErrors, 0);
   assert.equal(metrics.gateFalseNegatives, 0);
-  assert.equal(metrics.humanAccepted, 8);
-  assert.equal(metrics.chineseNaturalness, 3.5);
+  assert.equal(metrics.humanAccepted, 9);
+  assert.equal(metrics.chineseNaturalness, 3.72);
   assert.equal(metrics.oneLineDuplicates, 0);
   assert.equal(metrics.aiRequests, 0);
   assert.equal(metrics.productionWrites, 0);

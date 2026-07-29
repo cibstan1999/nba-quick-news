@@ -33,8 +33,10 @@ export function composeDeterministicEditorial(
     canonicalNames,
     displayNames: new Map(
       canonicalNames.map((entry) => [entry.canonicalId, entry.displayZh || entry.sourceName])
-    )
+    ),
+    primaryAttribution: ''
   };
+  context.primaryAttribution = resolvePrimaryAttribution(factExtraction.facts, context);
 
   const title = composeField('title', factPlan.titleFactIds, factsById, context);
   const summary = composeField('summary', factPlan.summaryFactIds, factsById, context);
@@ -120,7 +122,7 @@ function composeFact(fact, field, context) {
     return composeSigningFact(source, fact, field, data);
   }
   if (context.storyType === 'interview') {
-    return composeInterviewFact(source, fact, field, data);
+    return composeInterviewFact(source, fact, field, data, context);
   }
   if (context.storyType === 'analysis') {
     return composeAnalysisFact(source, fact, field, data);
@@ -217,11 +219,38 @@ function composeSigningFact(source, fact, field, data) {
   return composeConservativeRelation(fact, field, data);
 }
 
-function composeInterviewFact(source, fact, field, data) {
-  const speaker = data.attribution || data.people[0];
+function composeInterviewFact(source, fact, field, data, context) {
+  const speaker = data.attribution || context.primaryAttribution || data.people[0];
   const otherPeople = data.people.filter((name) => name !== speaker);
   const teams = data.teams;
 
+  if (
+    /\baddressed\b[\s\S]*\bdecision to\b[\s\S]*\b(?:sign with|join|choose)\b/i.test(source) ||
+    /\bdiscuss(?:ed|ing)?\b[\s\S]*\bdecision to\b[\s\S]*\b(?:sign with|join|choose)\b/i.test(source)
+  ) {
+    const subject = otherPeople[0];
+    const selectedTeam = teams[0];
+    const alternativeTeam = teams[1];
+    const action = /\bdecision to\b[\s\S]*\b(?:sign with|join)\b/i.test(source)
+      ? '加盟'
+      : '选择';
+    const choice = alternativeTeam
+      ? `${subject}${action}${selectedTeam}而非${alternativeTeam}`
+      : `${subject}${action}${selectedTeam}`;
+    return field === 'title'
+      ? `${speaker}谈${choice}`
+      : `${speaker}谈到${choice}一事`;
+  }
+  if (
+    /\binjur(?:y|ies)\b[\s\S]*\b(?:factor|shap(?:e|ed|ing)|affect(?:ed|ing)?|impact(?:ed|ing)?|chang(?:e|ed|ing))\b/i.test(source)
+  ) {
+    const injurySubjects = selectInterviewInjurySubjects(source, data, speaker);
+    const subject = injurySubjects.length
+      ? `${joinZh(injurySubjects)}${hasUnresolvedInterviewSubject(source, data) ? '等人' : ''}`
+      : '相关球员';
+    const target = teams[0] || '球队';
+    return `${speaker}指出，${subject}的伤病是影响${target}前景的重要因素`;
+  }
   if (/\bhad hoped\b[\s\S]*\bwould choose\b/i.test(source)) {
     return field === 'title'
       ? `${speaker}谈希望${otherPeople[0]}选择${teams[0]}`
@@ -342,6 +371,9 @@ function buildFactTemplateData(fact, context) {
     .map((ref) => ({
       ...ref,
       display: context.displayNames.get(ref.canonicalId) || humanizeCanonicalId(ref.canonicalId),
+      sourceName: context.canonicalNames.find(
+        (entry) => entry.canonicalId === ref.canonicalId
+      )?.sourceName || '',
       position: findEntityPosition(source, ref, context)
     }))
     .sort((left, right) => left.position - right.position);
@@ -351,9 +383,53 @@ function buildFactTemplateData(fact, context) {
   return {
     people: unique(people),
     teams: unique(teams),
+    peopleDetails: names.filter((entry) => entry.type === 'person'),
     attribution: resolveAttributionName(fact.attribution, context),
     numbers: groupNumbers(fact.numbers || [])
   };
+}
+
+function resolvePrimaryAttribution(facts, context) {
+  for (const fact of facts || []) {
+    const attribution = resolveAttributionName(fact?.attribution, context);
+    if (attribution) return attribution;
+  }
+  return '';
+}
+
+function selectInterviewInjurySubjects(source, data, speaker) {
+  const subjectSpan = source.match(
+    /\binjur(?:y|ies)\b(?:\s+suffered by)?\s+([\s\S]*?)(?:\s+as\b|\s+(?:was|were|is|are)\b|[,.;]|$)/i
+  )?.[1] || source;
+  return unique(
+    (data.peopleDetails || [])
+      .filter((entry) => entry.display !== speaker)
+      .filter((entry) => personMentionedInText(entry, subjectSpan))
+      .map((entry) => entry.display)
+  );
+}
+
+function personMentionedInText(entry, text) {
+  const sourceName = normalizeWhitespace(entry?.sourceName);
+  const aliases = [
+    sourceName,
+    sourceName.split(/[\s-]+/).at(-1)
+  ].filter((value) => value && value.length >= 3);
+  return aliases.some((alias) => (
+    new RegExp(`\\b${escapeRegExp(alias)}\\b`, 'i').test(text)
+  ));
+}
+
+function hasUnresolvedInterviewSubject(source, data) {
+  const subjectSpan = source.match(
+    /\binjur(?:y|ies)\b(?:\s+suffered by)?\s+([\s\S]*?)(?:\s+as\b|\s+(?:was|were|is|are)\b|[,.;]|$)/i
+  )?.[1] || '';
+  const candidates = [...subjectSpan.matchAll(
+    /(?:^|\band\b|,)\s*([A-Z][A-Za-z'’.-]+(?:\s+[A-Z][A-Za-z'’.-]+){0,3})/g
+  )].map((match) => match[1]);
+  return candidates.some((candidate) => (
+    !(data.peopleDetails || []).some((entry) => personMentionedInText(entry, candidate))
+  ));
 }
 
 function groupNumbers(numbers) {
@@ -538,5 +614,9 @@ function comparable(value) {
 }
 
 function normalizeComposerText(value) {
-  return normalizeChineseText(value).replace(/76 人\s+(?=[在这])/g, '76 人');
+  return normalizeChineseText(value).replace(/76 人\s+(?=[在这而])/g, '76 人');
+}
+
+function escapeRegExp(value) {
+  return String(value || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
