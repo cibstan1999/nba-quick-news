@@ -12,6 +12,11 @@ import {
   composeDeterministicEditorial,
   validateDeterministicEditorialComposition
 } from '../src/deterministic-editorial.js';
+import {
+  createConstrainedPolishPackage,
+  restoreConstrainedPolish,
+  validateConstrainedPlaceholderOutput
+} from '../src/constrained-editorial-polish.js';
 
 const evaluationDir = path.dirname(fileURLToPath(import.meta.url));
 const baselinePath = path.join(evaluationDir, 'phase-0.5-baseline.json');
@@ -25,6 +30,14 @@ const deterministicResultsPath = path.join(
 const deterministicScoresPath = path.join(
   evaluationDir,
   'phase-1-deterministic-scores.local.json'
+);
+const constrainedPolishResultsPath = path.join(
+  evaluationDir,
+  'phase-1-constrained-polish-results.local.json'
+);
+const constrainedPolishScoresPath = path.join(
+  evaluationDir,
+  'phase-1-constrained-polish-scores.local.json'
 );
 
 async function main() {
@@ -45,11 +58,19 @@ async function main() {
     await composeDeterministicBaseline();
     return;
   }
+  if (command === '--collect-constrained-polish') {
+    await collectConstrainedPolish();
+    return;
+  }
+  if (command === '--revalidate-constrained-polish') {
+    await revalidateConstrainedPolish();
+    return;
+  }
 
   const stage1Only = command === '--collect-stage1';
   if (!stage1Only && command !== '--collect') {
     throw new Error(
-      'Use --collect, --collect-stage1, --freeze-stage2, --collect-stage2, --revalidate-stage2, or --compose-deterministic.'
+      'Use --collect, --collect-stage1, --freeze-stage2, --collect-stage2, --revalidate-stage2, --compose-deterministic, --collect-constrained-polish, or --revalidate-constrained-polish.'
     );
   }
   const outputPath = path.join(
@@ -193,6 +214,308 @@ async function main() {
     outputPath,
     ...report.metrics
   }, null, 2));
+}
+
+async function collectConstrainedPolish() {
+  const frozen = JSON.parse(await fs.readFile(stage2InputPath, 'utf8'));
+  const humanScores = await readOptionalJson(constrainedPolishScoresPath);
+  const baseUrl = normalizeBaseUrl(
+    process.env.CONSTRAINED_POLISH_BASE_URL || 'http://127.0.0.1:8791'
+  );
+  const results = [];
+
+  for (const sample of frozen.samples) {
+    const response = await fetch(`${baseUrl}/polish`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        newsId: sample.newsId,
+        dryRun: true,
+        source: sample.source,
+        publishedAt: sample.publishedAt,
+        factExtraction: sample.factExtraction
+      })
+    });
+    const payload = await response.json();
+    if (!response.ok || !payload.ok) {
+      throw new Error(
+        `${sample.sampleId} failed with HTTP ${response.status}: ${payload.error || 'unknown error'}`
+      );
+    }
+
+    const finalValidation = validateDeterministicEditorialComposition(
+      payload.final,
+      {
+        newsId: sample.newsId,
+        source: sample.source,
+        publishedAt: sample.publishedAt,
+        originalTitle: '',
+        originalSummary: ''
+      },
+      sample.factExtraction
+    );
+    const factPlan = payload.factPlan || buildEditorialFactPlan(sample.factExtraction);
+    const coverage = inspectUsedFactCoverage(payload.final?.usedFactIds, factPlan);
+    const score = humanScores?.samples?.[sample.sampleId] || {};
+    const result = {
+      sampleId: sample.sampleId,
+      newsId: sample.newsId,
+      testType: sample.testType,
+      composer: payload.composer,
+      lockedDraft: payload.lockedDraft,
+      polishedDraft: payload.polishedDraft,
+      restoredDraft: payload.restoredDraft,
+      final: payload.final,
+      adoptedPolish: Boolean(payload.adoptedPolish),
+      usedFallback: Boolean(payload.usedFallback),
+      polishFallbackReason: payload.polishFallbackReason || null,
+      placeholderValidation: payload.placeholderValidation || null,
+      gateDecision: finalValidation.ok ? 'accepted' : 'rejected',
+      rejectionReasons: finalValidation.reasons,
+      addedFacts: finalValidation.details.addedFacts,
+      missingFacts: finalValidation.details.missingFacts,
+      unsafeFragments: finalValidation.details.unsafeFragments,
+      factPlan,
+      factCoverage: coverage,
+      attributionCovered: !finalValidation.reasons.includes('editorial-attribution-missing'),
+      numbersCovered: !finalValidation.reasons.includes('editorial-required-number-missing'),
+      certaintyPreserved: !finalValidation.reasons.some((reason) => (
+        [
+          'certainty-escalation',
+          'negation-lost',
+          'analysis-presented-as-fact',
+          'editorial-certainty-marker-missing'
+        ].includes(reason)
+      )),
+      oneLineUtility: score.oneLineUtility ?? null,
+      humanDecision: score.humanDecision || null,
+      chineseNaturalness: score.chineseNaturalness ?? null,
+      editorEffort: score.editorEffort || null,
+      reviewNotes: score.reviewNotes || '',
+      model: payload.model,
+      aiRequests: payload.aiRequests,
+      stage1Requests: payload.stage1Requests,
+      llamaFallbackCalls: payload.llamaFallbackCalls,
+      productionWrites: payload.productionWrites
+    };
+    results.push(result);
+    console.log(JSON.stringify({
+      sampleId: result.sampleId,
+      adoptedPolish: result.adoptedPolish,
+      polishFallbackReason: result.polishFallbackReason,
+      gateDecision: result.gateDecision,
+      aiRequests: result.aiRequests
+    }));
+  }
+
+  const report = {
+    evaluation: 'phase-1-constrained-editorial-polish',
+    collectedAt: new Date().toISOString(),
+    frozenInput: path.basename(stage2InputPath),
+    sampleCount: results.length,
+    metrics: calculateConstrainedPolishMetrics(results),
+    results
+  };
+
+  await atomicWriteJson(constrainedPolishResultsPath, report);
+  console.log(JSON.stringify({
+    completed: true,
+    outputPath: constrainedPolishResultsPath,
+    ...report.metrics
+  }, null, 2));
+}
+
+async function revalidateConstrainedPolish() {
+  const frozen = JSON.parse(await fs.readFile(stage2InputPath, 'utf8'));
+  const report = JSON.parse(await fs.readFile(constrainedPolishResultsPath, 'utf8'));
+  const humanScores = await readOptionalJson(constrainedPolishScoresPath);
+
+  for (const result of report.results) {
+    const sample = frozen.samples.find((entry) => entry.sampleId === result.sampleId);
+    if (!sample) continue;
+    const factPlan = buildEditorialFactPlan(sample.factExtraction);
+    const composer = composeDeterministicEditorial(sample.factExtraction, { factPlan });
+    const polishPackage = createConstrainedPolishPackage(
+      composer,
+      sample.factExtraction,
+      { factPlan }
+    );
+    const placeholderValidation = result.polishedDraft
+      ? validateConstrainedPlaceholderOutput(polishPackage, result.polishedDraft)
+      : null;
+    const restoredDraft = placeholderValidation?.ok
+      ? restoreConstrainedPolish(polishPackage, result.polishedDraft)
+      : null;
+    const lockedSurfaceBaseline = restoreConstrainedPolish(
+      polishPackage,
+      polishPackage.lockedDraft
+    );
+    const material = restoredDraft && (
+      comparable(restoredDraft.titleZh) !== comparable(lockedSurfaceBaseline.titleZh) ||
+      comparable(restoredDraft.summaryZh) !== comparable(lockedSurfaceBaseline.summaryZh) ||
+      comparable(restoredDraft.oneLineZh) !== comparable(lockedSurfaceBaseline.oneLineZh)
+    );
+    const polishedGate = restoredDraft && material
+      ? validateDeterministicEditorialComposition(
+          restoredDraft,
+          evaluationRecord(sample),
+          sample.factExtraction
+        )
+      : null;
+    const adopted = Boolean(placeholderValidation?.ok && material && polishedGate?.ok);
+    const final = adopted ? restoredDraft : composer;
+    const finalValidation = validateDeterministicEditorialComposition(
+      final,
+      evaluationRecord(sample),
+      sample.factExtraction
+    );
+    const score = humanScores?.samples?.[sample.sampleId] || {};
+
+    result.composer = composer;
+    result.lockedDraft = polishPackage.lockedDraft;
+    result.restoredDraft = restoredDraft;
+    result.final = final;
+    result.adoptedPolish = adopted;
+    result.usedFallback = !adopted;
+    result.polishFallbackReason = adopted
+      ? null
+      : !result.polishedDraft
+        ? result.polishFallbackReason || 'polish-structural-failure'
+        : !placeholderValidation?.ok
+          ? placeholderValidation.reasons[0]
+          : !material
+            ? 'polish-no-material-change'
+            : `polish-gate-rejected:${polishedGate?.reasons?.[0] || 'unknown'}`;
+    result.placeholderValidation = placeholderValidation;
+    result.gateDecision = finalValidation.ok ? 'accepted' : 'rejected';
+    result.rejectionReasons = finalValidation.reasons;
+    result.addedFacts = finalValidation.details.addedFacts;
+    result.missingFacts = finalValidation.details.missingFacts;
+    result.unsafeFragments = finalValidation.details.unsafeFragments;
+    result.factPlan = factPlan;
+    result.factCoverage = inspectUsedFactCoverage(final.usedFactIds, factPlan);
+    result.attributionCovered = !finalValidation.reasons.includes(
+      'editorial-attribution-missing'
+    );
+    result.numbersCovered = !finalValidation.reasons.includes(
+      'editorial-required-number-missing'
+    );
+    result.certaintyPreserved = !finalValidation.reasons.some((reason) => (
+      [
+        'certainty-escalation',
+        'negation-lost',
+        'analysis-presented-as-fact',
+        'editorial-certainty-marker-missing'
+      ].includes(reason)
+    ));
+    result.oneLineUtility = score.oneLineUtility ?? null;
+    result.humanDecision = score.humanDecision || null;
+    result.chineseNaturalness = score.chineseNaturalness ?? null;
+    result.editorEffort = score.editorEffort || null;
+    result.reviewNotes = score.reviewNotes || '';
+  }
+
+  report.revalidatedAt = new Date().toISOString();
+  report.metrics = calculateConstrainedPolishMetrics(report.results);
+  await atomicWriteJson(constrainedPolishResultsPath, report);
+  console.log(JSON.stringify({
+    completed: true,
+    outputPath: constrainedPolishResultsPath,
+    revalidatedAt: report.revalidatedAt,
+    ...report.metrics
+  }, null, 2));
+}
+
+function calculateConstrainedPolishMetrics(results) {
+  const requiredFactSlots = results.reduce(
+    (sum, result) => sum + result.factCoverage.required,
+    0
+  );
+  const coveredFactSlots = results.reduce(
+    (sum, result) => sum + result.factCoverage.covered,
+    0
+  );
+  const scoredResults = results.filter((result) => result.humanDecision);
+  return {
+    adoptedPolish: results.filter((result) => result.adoptedPolish).length,
+    deterministicFallbacks: results.filter((result) => result.usedFallback).length,
+    gateAccepted: results.filter((result) => result.gateDecision === 'accepted').length,
+    gateRejected: results.filter((result) => result.gateDecision === 'rejected').length,
+    requiredFactSlots,
+    coveredFactSlots,
+    requiredFactCoverage: requiredFactSlots
+      ? coveredFactSlots / requiredFactSlots
+      : 1,
+    attributionErrors: results.filter((result) => !result.attributionCovered).length,
+    numberErrors: results.filter((result) => !result.numbersCovered).length,
+    certaintyErrors: results.filter((result) => !result.certaintyPreserved).length,
+    unsupportedEntities: countRejectionReason(results, 'editorial-unsupported-entity'),
+    unsupportedRoles: countRejectionReason(results, 'editorial-unsupported-role'),
+    unsupportedEvents: countRejectionReason(results, 'editorial-unsupported-event'),
+    titleOneLineDuplicates: results.filter((result) => (
+      comparable(result.final?.titleZh) === comparable(result.final?.oneLineZh) ||
+      result.rejectionReasons.includes('title-oneline-duplicate') ||
+      result.rejectionReasons.includes('title-oneline-low-value-duplicate')
+    )).length,
+    humanAccepted: scoredResults.filter(
+      (result) => result.humanDecision === 'accept'
+    ).length,
+    publishReady: scoredResults.filter(
+      (result) => result.editorEffort === 'publish'
+    ).length,
+    minorEdit: scoredResults.filter(
+      (result) => result.editorEffort === 'minor_edit'
+    ).length,
+    rewrite: scoredResults.filter(
+      (result) => result.editorEffort === 'rewrite'
+    ).length,
+    averageChineseNaturalness: scoredResults.length
+      ? scoredResults.reduce(
+          (sum, result) => sum + Number(result.chineseNaturalness || 0),
+          0
+        ) / scoredResults.length
+      : null,
+    aiRequests: results.reduce((sum, result) => sum + result.aiRequests, 0),
+    stage1Requests: results.reduce((sum, result) => sum + result.stage1Requests, 0),
+    llamaFallbackCalls: results.reduce(
+      (sum, result) => sum + result.llamaFallbackCalls,
+      0
+    ),
+    productionWrites: results.reduce((sum, result) => sum + result.productionWrites, 0)
+  };
+}
+
+function evaluationRecord(sample) {
+  return {
+    newsId: sample.newsId,
+    source: sample.source,
+    publishedAt: sample.publishedAt,
+    originalTitle: '',
+    originalSummary: ''
+  };
+}
+
+function inspectUsedFactCoverage(usedFactIds, factPlan) {
+  const fields = [
+    ['title', factPlan.titleFactIds],
+    ['summary', factPlan.summaryFactIds],
+    ['oneLine', factPlan.oneLineFactIds]
+  ];
+  let required = 0;
+  let covered = 0;
+  const missing = [];
+  for (const [field, ids] of fields) {
+    const used = new Set(usedFactIds?.[field] || []);
+    required += ids.length;
+    for (const id of ids) {
+      if (used.has(id)) {
+        covered += 1;
+      } else {
+        missing.push(`${field}:${id}`);
+      }
+    }
+  }
+  return { required, covered, missing };
 }
 
 async function composeDeterministicBaseline() {
